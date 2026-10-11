@@ -7,19 +7,33 @@ import re
 import time
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass, replace
+from email.utils import parsedate_to_datetime
+from datetime import datetime, timezone
 from http.client import HTTPException
 from urllib.error import HTTPError
 from urllib.parse import urlencode, urlsplit
-from urllib.request import HTTPRedirectHandler, Request, build_opener, urlopen
+from urllib.request import HTTPRedirectHandler, Request, urlopen
 
-from .config import DEFAULT_HTTP
+from .config import DEFAULT_HTTP, DEFAULT_DOWNLOAD
 from .network_safety import secure_download_opener
 
 
 class SourceError(RuntimeError):
-    def __init__(self, message, status_code=None):
+    def __init__(self, message, status_code=None, error_type=None, retry_after=None):
         super().__init__(message)
         self.status_code = status_code
+        self.retry_after = retry_after
+        self.error_type = error_type or self._error_type(status_code)
+
+    @staticmethod
+    def _error_type(status):
+        categories = {400: 'invalid_request', 401: 'authentication_required',
+                      403: 'access_restricted', 404: 'not_found', 429: 'rate_limited'}
+        if status in categories:
+            return categories[status]
+        if status is not None and 500 <= status <= 599:
+            return 'server_error'
+        return 'source_error'
 
 
 def require_public_http_url(url):
@@ -86,19 +100,31 @@ class HttpClient:
         request = self._request(url, params, headers, xml)
         return self._with_retries(request, lambda: self._read_response(request, xml))
 
+    def post_json(self, url, payload, params=None, headers=None, expected_type=dict):
+        request = self._request(url, params, headers, xml=False)
+        request.data = json.dumps(payload).encode('utf-8')
+        request.add_header('Content-Type', 'application/json')
+        return self._with_retries(request, lambda: self._read_response(request, False, expected_type))
+
     def _with_retries(self, request, read_response):
         for attempt in range(self.retries + 1):
             try:
                 return read_response()
             except HTTPError as exc:
                 retryable = exc.code in self.config.retry_statuses
-                if not retryable or attempt == self.retries:
+                retry_after = self._retry_after(exc)
+                wait_exceeds_budget = retry_after is not None and retry_after > self.config.maximum_retry_delay
+                if not retryable or attempt == self.retries or wait_exceeds_budget:
                     message = "HTTP {} from {}".format(exc.code, request.host)
-                    raise SourceError(message, status_code=exc.code) from exc
+                    # Do not retry sooner than the server permits; let callers defer this source.
+                    raise SourceError(message, status_code=exc.code, retry_after=retry_after) from exc
                 time.sleep(self._retry_delay(exc, attempt))
             except (OSError, HTTPException) as exc:
                 if attempt == self.retries:
-                    raise SourceError("{}: {}".format(request.host, exc)) from exc
+                    kind = 'network_error'
+                    if isinstance(exc, TimeoutError) or 'timed out' in str(exc).lower():
+                        kind = 'timeout'
+                    raise SourceError("{}: {}".format(request.host, exc), error_type=kind) from exc
                 delay = min(self.config.retry_backoff_base ** attempt, self.config.maximum_retry_delay)
                 time.sleep(delay)
             except (ValueError, ET.ParseError) as exc:
@@ -114,7 +140,7 @@ class HttpClient:
             'Accept': 'application/pdf,text/html;q=0.8,*/*;q=0.1',
             'Accept-Encoding': 'identity',
         }, params=None, xml=False)
-        opener = build_opener(PublicRedirectHandler(maximum_redirects))
+        opener = secure_download_opener(PublicRedirectHandler(maximum_redirects), DEFAULT_DOWNLOAD.allowed_ports)
 
         def read_prefix():
             with opener.open(request, timeout=self.timeout) as response:
@@ -218,7 +244,7 @@ class HttpClient:
         request_headers.update(headers or {})
         return Request(url, headers=request_headers)
 
-    def _read_response(self, request, xml):
+    def _read_response(self, request, xml, expected_type=dict):
         with urlopen(request, timeout=self.timeout) as response:
             data = response.read(self.config.response_limit + 1)
             status = response.status
@@ -230,10 +256,10 @@ class HttpClient:
             endpoint, status, content_type or "missing",
         )
         if not 200 <= status < 300:
-            raise SourceError(diagnostic)
-        return self._parse_response(data, content_type, diagnostic, xml)
+            raise SourceError(diagnostic, status_code=status)
+        return self._parse_response(data, content_type, diagnostic, xml, expected_type)
 
-    def _parse_response(self, data, content_type, diagnostic, xml):
+    def _parse_response(self, data, content_type, diagnostic, xml, expected_type=dict):
         expected = "json"
         if xml:
             expected = "xml"
@@ -242,23 +268,35 @@ class HttpClient:
             beginning = data[:self.config.html_preview_bytes].lower()
             if b"<html" in beginning or b"<!doctype html" in beginning:
                 hint = " (HTML anti-bot/interstitial response)"
-            raise SourceError(diagnostic + ": expected " + expected.upper() + hint)
+            raise SourceError(diagnostic + ": expected " + expected.upper() + hint, error_type='invalid_content_type')
         if not data.strip():
-            raise SourceError(diagnostic + ": empty response")
+            raise SourceError(diagnostic + ": empty response", error_type='empty_response')
         try:
             if xml:
                 return ET.fromstring(data)
             parsed = json.loads(data)
         except (ValueError, ET.ParseError) as exc:
-            raise SourceError(diagnostic + ": malformed " + expected.upper()) from exc
-        if not isinstance(parsed, dict):
-            raise SourceError(diagnostic + ": expected JSON object")
+            raise SourceError(diagnostic + ": malformed " + expected.upper(), error_type='malformed_response') from exc
+        if not isinstance(parsed, expected_type):
+            label = 'array' if expected_type is list else 'object'
+            raise SourceError(diagnostic + ": expected JSON " + label, error_type='malformed_response')
         return parsed
 
     def _retry_delay(self, error, attempt):
-        delay = error.headers.get("Retry-After", "")
-        if delay.isdigit():
-            seconds = float(delay)
-        else:
+        seconds = self._retry_after(error)
+        if seconds is None:
             seconds = self.config.retry_backoff_base ** attempt
         return min(seconds, self.config.maximum_retry_delay)
+
+    @staticmethod
+    def _retry_after(error):
+        value = (error.headers or {}).get('Retry-After', '').strip()
+        if value.isdigit():
+            return float(value)
+        try:
+            date = parsedate_to_datetime(value)
+            if date.tzinfo is None:
+                date = date.replace(tzinfo=timezone.utc)
+            return max(0.0, (date - datetime.now(timezone.utc)).total_seconds())
+        except (TypeError, ValueError, OverflowError):
+            return None

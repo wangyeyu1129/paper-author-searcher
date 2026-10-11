@@ -214,6 +214,7 @@ class PDFProviderResult:
     status: str = 'ok'
     errors: List[str] = field(default_factory=list)
     landing_pages: List[dict] = field(default_factory=list)
+    diagnostics: List[dict] = field(default_factory=list)
 
 
 @dataclass
