@@ -1,0 +1,187 @@
+"""Resolve URLs from saved collections while preserving ownership judgments."""
+from copy import deepcopy
+from dataclasses import asdict
+from urllib.parse import urldefrag
+
+from .config import DEFAULT_PDF
+from .http import HttpClient
+from .models import PaperPDFResult, PDFProviderResult, PDFResolutionResult
+from .pdf_providers import (
+    ArxivPDFProvider, ExistingPDFProvider, LandingPagePDFProvider, OpenAlexPDFProvider,
+    SemanticScholarPDFProvider, UnpaywallPDFProvider,
+)
+from .pdf_validation import PDFURLValidator
+from .pdf_catalogs import JournalCatalogPDFProvider
+from .performance_diagnostics import pdf_failure_reasons
+
+
+class PDFResolver:
+    def __init__(self, providers=None, validator=None, client=None, config=DEFAULT_PDF,
+                 unpaywall_email=None):
+        client = client or HttpClient()
+        if providers is None:
+            providers = [
+                ExistingPDFProvider(), OpenAlexPDFProvider(client), SemanticScholarPDFProvider(client),
+                UnpaywallPDFProvider(client, unpaywall_email, config),
+                ArxivPDFProvider(client, config), JournalCatalogPDFProvider(client, config),
+                LandingPagePDFProvider(client, config),
+            ]
+        self.providers = providers
+        self.validator = validator or PDFURLValidator(client, config)
+        self.config = config
+
+    def resolve(self, saved_result, include_needs_review=False, maximum_papers=None, progress=None):
+        if maximum_papers is not None and maximum_papers < 1:
+            raise ValueError('maximum_papers must be positive')
+        collection = saved_result.get('collection', saved_result)
+        if not isinstance(collection, dict):
+            raise ValueError('Collection must be an object')
+        papers = collection.get('all_papers', collection.get('papers'))
+        if not isinstance(papers, list) or not all(isinstance(paper, dict) for paper in papers):
+            raise ValueError('Collection must contain a list of paper objects')
+        results = []
+        processed = 0
+        eligible_statuses = {'verified'}
+        if include_needs_review:
+            eligible_statuses.add('needs_review')
+        eligible_count = sum(paper.get('ownership_status') in eligible_statuses for paper in papers)
+        progress_total = min(eligible_count, maximum_papers) if maximum_papers else eligible_count
+        for index, paper in enumerate(papers):
+            result = PaperPDFResult(
+                index, paper.get('title', ''), paper.get('doi'),
+                paper.get('ownership_status', 'needs_review'),
+                deepcopy(paper.get('ownership_evidence') or []),
+                authors=deepcopy(paper.get('authors') or []), year=paper.get('year'),
+                source=paper.get('source'), source_paper_id=paper.get('source_paper_id'),
+                external_ids=deepcopy(paper.get('external_ids') or {}),
+                source_author_id=paper.get('source_author_id'), paper_metadata=deepcopy(paper),
+            )
+            results.append(result)
+            if result.ownership_status not in eligible_statuses:
+                result.validation_status = 'skipped_ownership'
+                continue
+            if maximum_papers is not None and processed >= maximum_papers:
+                continue
+            try:
+                self._resolve_paper(paper, result)
+            except Exception as exc:
+                result.validation_status = 'unverified'
+                result.error_details.append({'source': 'pdf_validation', 'error': str(exc)})
+            processed += 1
+            if progress:
+                progress('Finding PDF URLs', processed, progress_total)
+        for result in results:
+            result.failure_reasons = pdf_failure_reasons(asdict(result))
+        return PDFResolutionResult(results, self._statistics(results))
+
+    def _resolve_paper(self, paper, result):
+        candidates = []
+        lookup_paper = dict(paper, _pdf_landing_pages=[])
+        for provider in self.providers:
+            try:
+                found = provider.find(lookup_paper)
+            except Exception as exc:
+                found = PDFProviderResult(provider.name, status='error', errors=[str(exc)])
+            result.providers.append({'source': found.source, 'status': found.status, 'errors': found.errors})
+            for error in found.errors:
+                result.error_details.append({'source': found.source, 'error': error})
+            candidates.extend(found.candidates)
+            lookup_paper['_pdf_landing_pages'].extend(found.landing_pages)
+        result.pdf_candidates = self._merge_urls(candidates)
+        for candidate in result.pdf_candidates:
+            self.validator.validate(candidate, paper)
+            for error in candidate.error_details:
+                result.error_details.append({'source': candidate.source, 'url': candidate.url, 'error': error})
+        valid = [candidate for candidate in result.pdf_candidates if candidate.validation_status == 'verified']
+        if valid:
+            best = min(valid, key=self._version_priority)
+            result.best_pdf_url = best.final_url or best.url
+            result.pdf_source = best.source
+            result.version_type = best.version_type
+            result.access_status = best.access_status
+            result.validation_status = 'verified'
+        elif any(candidate.validation_status == 'unverified' for candidate in result.pdf_candidates):
+            result.validation_status = 'unverified'
+            result.access_status = 'unknown'
+        else:
+            result.validation_status = 'not_found'
+            result.access_status = 'unknown'
+
+    def _merge_urls(self, candidates):
+        merged = {}
+        versions = {}
+        for candidate in candidates:
+            key = urldefrag(candidate.url)[0]
+            versions.setdefault(key, set())
+            if candidate.version_type != 'unknown':
+                versions[key].add(candidate.version_type)
+            if key not in merged:
+                merged[key] = deepcopy(candidate)
+                continue
+            existing = merged[key]
+            existing.provenance.extend(candidate.provenance)
+            existing.identity_evidence = list(dict.fromkeys(existing.identity_evidence + candidate.identity_evidence))
+            if 'conflicting' in (existing.identity_status, candidate.identity_status):
+                existing.identity_status = 'conflicting'
+            elif candidate.identity_status == 'verified':
+                existing.identity_status = 'verified'
+        for key, candidate in merged.items():
+            if len(versions[key]) == 1:
+                candidate.version_type = next(iter(versions[key]))
+            elif len(versions[key]) > 1:
+                candidate.version_type = 'unknown'
+                candidate.identity_evidence.append('Sources disagree about the version type')
+        return list(merged.values())
+
+    def _version_priority(self, candidate):
+        try:
+            return self.config.version_preference.index(candidate.version_type)
+        except ValueError:
+            return len(self.config.version_preference)
+
+    def _statistics(self, papers):
+        counts = {'total_papers': len(papers), 'processed_papers': 0, 'valid_pdf_papers': 0,
+                  'unverified_only_papers': 0, 'not_found_papers': 0, 'skipped_ownership_papers': 0,
+                  'not_processed_papers': 0, 'incomplete_search_papers': 0}
+        status_metrics = {'verified': 'valid_pdf_papers', 'unverified': 'unverified_only_papers',
+                          'not_found': 'not_found_papers', 'skipped_ownership': 'skipped_ownership_papers',
+                          'not_processed': 'not_processed_papers'}
+        sources = {}
+        verified_urls = set()
+        for paper in papers:
+            counts[status_metrics[paper.validation_status]] += 1
+            if paper.validation_status in ('not_processed', 'skipped_ownership'):
+                continue
+            counts['processed_papers'] += 1
+            incomplete = False
+            for provider in paper.providers:
+                if provider['status'] in ('error', 'partial'):
+                    incomplete = True
+                contribution = sources.setdefault(provider['source'], self._source_counts())
+                contribution['errors'] += len(provider['errors'])
+                query_status_counts = contribution['query_status_counts']
+                query_status_counts[provider['status']] = query_status_counts.get(provider['status'], 0) + 1
+            counts['incomplete_search_papers'] += incomplete
+            valid_sources = set()
+            for candidate in paper.pdf_candidates:
+                candidate_sources = {candidate.source}
+                candidate_sources.update(record['provider'] for record in candidate.provenance if record.get('provider'))
+                for source in candidate_sources:
+                    sources.setdefault(source, self._source_counts())
+                    sources[source]['candidate_urls'] += 1
+                    if candidate.validation_status == 'verified':
+                        sources[source]['verified_urls'] += 1
+                        valid_sources.add(source)
+                if candidate.validation_status == 'verified':
+                    verified_urls.add(candidate.final_url or candidate.url)
+            for source in valid_sources:
+                sources[source]['papers_with_valid_pdf'] += 1
+        counts['distinct_verified_pdf_urls'] = len(verified_urls)
+        counts['source_contributions'] = sources
+        counts['search_complete_for_processed_papers'] = counts['incomplete_search_papers'] == 0
+        counts['coverage_note'] = 'Counts describe processed saved entries and public-source observations, not all available PDFs.'
+        return counts
+
+    def _source_counts(self):
+        return {'candidate_urls': 0, 'verified_urls': 0, 'papers_with_valid_pdf': 0,
+                'errors': 0, 'query_status_counts': {}}

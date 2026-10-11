@@ -1,0 +1,364 @@
+{
+  "schema_version": 1,
+  "test_date": "2026-10-11",
+  "professor": "Andrew Ng",
+  "selection_event": "reports/performance/andrew_ng.identity_selection.json",
+  "selected_author_ids": {
+    "openalex": [
+      "A5112456378"
+    ]
+  },
+  "formal_human_ground_truth_available": false,
+  "formal_80_percent_claim": false,
+  "annotation_files": [
+    "reports/performance/hinton.ground_truth.pending.json",
+    "reports/performance/andrew_ng.ground_truth.pending.json"
+  ],
+  "ownership_before": {
+    "verified": 342,
+    "needs_review": 10,
+    "rejected": 0
+  },
+  "ownership_after": {
+    "verified": 258,
+    "needs_review": 94,
+    "rejected": 0
+  },
+  "ownership_thresholds_changed": false,
+  "evidence_policy_changes": [
+    "Author-profile and unknown-scope ORCID cannot independently verify paper ownership or seed coauthor evidence",
+    "Unconfirmed profile institutions do not substitute for the matched target university",
+    "Saved manual selections preserve the selected candidate school context"
+  ],
+  "metadata_pagination_unlimited": true,
+  "runs": {
+    "all_sources": {
+      "output_directory": "output/performance/andrew_ng_confirmed/search_Andrew_Ng_20261011T154644Z_80a277855670",
+      "pdf_statistics": {
+        "total_papers": 352,
+        "processed_papers": 100,
+        "valid_pdf_papers": 23,
+        "unverified_only_papers": 15,
+        "not_found_papers": 62,
+        "skipped_ownership_papers": 94,
+        "not_processed_papers": 158,
+        "incomplete_search_papers": 86,
+        "distinct_verified_pdf_urls": 32,
+        "source_contributions": {
+          "existing_metadata": {
+            "candidate_urls": 45,
+            "verified_urls": 23,
+            "papers_with_valid_pdf": 20,
+            "errors": 0,
+            "query_status_counts": {
+              "ok": 100
+            }
+          },
+          "openalex": {
+            "candidate_urls": 45,
+            "verified_urls": 23,
+            "papers_with_valid_pdf": 20,
+            "errors": 0,
+            "query_status_counts": {
+              "ok": 100
+            }
+          },
+          "semantic_scholar": {
+            "candidate_urls": 6,
+            "verified_urls": 3,
+            "papers_with_valid_pdf": 3,
+            "errors": 54,
+            "query_status_counts": {
+              "error": 54,
+              "not_applicable": 38,
+              "ok": 8
+            }
+          },
+          "unpaywall": {
+            "candidate_urls": 0,
+            "verified_urls": 0,
+            "papers_with_valid_pdf": 0,
+            "errors": 100,
+            "query_status_counts": {
+              "disabled": 100
+            }
+          },
+          "arxiv": {
+            "candidate_urls": 9,
+            "verified_urls": 1,
+            "papers_with_valid_pdf": 1,
+            "errors": 0,
+            "query_status_counts": {
+              "ok": 100
+            }
+          },
+          "journal_catalog": {
+            "candidate_urls": 0,
+            "verified_urls": 0,
+            "papers_with_valid_pdf": 0,
+            "errors": 0,
+            "query_status_counts": {
+              "ok": 1,
+              "not_applicable": 99
+            }
+          },
+          "landing_page": {
+            "candidate_urls": 51,
+            "verified_urls": 25,
+            "papers_with_valid_pdf": 21,
+            "errors": 141,
+            "query_status_counts": {
+              "ok": 30,
+              "partial": 58,
+              "error": 12
+            }
+          }
+        },
+        "search_complete_for_processed_papers": false,
+        "coverage_note": "Counts describe processed saved entries and public-source observations, not all available PDFs."
+      },
+      "download_statistics": {
+        "total_input_papers": 352,
+        "attempted_papers": 23,
+        "downloaded_files": 22,
+        "verified_papers": 20,
+        "needs_review_papers": 2,
+        "failed_papers": 1,
+        "reused_existing_papers": 0,
+        "duplicate_content_papers": 0,
+        "skipped_papers": 329
+      },
+      "file_checks": [
+        {
+          "paper_key": "8f89adfb0be5c46c772dcf99c79c5196114f49f30d8e26aee3d605e7be51ce28",
+          "local_filename": "2013_Recursive_Deep_Models_for_Semantic_Compositionality_Over_a_Sentiment_Treebank_8f89adfb0be5c46c.pdf",
+          "sha256": "c08f19ffc32b2ba8d9c5d528475bd3048b21f8b1bbc43d7ab3fd95294ccd4c15",
+          "file_size": 1359600
+        },
+        {
+          "paper_key": "e9895d0e3fed61d5d4dc6fa8141c25739cecef11ed074cf0316545ac01ef9e82",
+          "local_filename": "2019_CheXpert__A_Large_Chest_Radiograph_Dataset_with_Uncertainty_Labels_and_Expert_Comparison_e9895d0e3fed61d5.pdf",
+          "sha256": "5e2791095ad4b9656310329a2d5d52f7f2f67bcd8204e8d9235872cd7321a1ea",
+          "file_size": 1140141
+        },
+        {
+          "paper_key": "274de10ababdb4f7c784c980675af42cfdab618b20681f4e433d78177ca10f96",
+          "local_filename": "2018_Deep_learning_for_chest_radiograph_diagnosis__A_retrospective_comparison_of_the_CheXNeXt_algorithm_to_practicing_radiologists_274de10ababdb4f7.pdf",
+          "sha256": "be05f8be5455e9dfbf7f7b49b6f7cb0bdd54ed7616ec4dfae4c9d24bdce9ee31",
+          "file_size": 2236997
+        },
+        {
+          "paper_key": "01d806f5277f7b0f54ccdea1448d6ca1da97c49ac361219c208233d7e479ec51",
+          "local_filename": "needs_review/2022_Tackling_Climate_Change_with_Machine_Learning_01d806f5277f7b0f.pdf",
+          "sha256": "132cdad1036648e8bb3bf13a0169ce8708d31fa9f4c0d041de55be38000a90bb",
+          "file_size": 2862028
+        },
+        {
+          "paper_key": "484ae91d323c401d1cbbf1548c5808812e433716396993b860381c4541a80c61",
+          "local_filename": "2008_Robotic_Grasping_of_Novel_Objects_using_Vision_484ae91d323c401d.pdf",
+          "sha256": "ff513b7b55b5462e3462cac608eb3141d84f4e6d4fa29260a6927adb1bd54c6d",
+          "file_size": 4137509
+        },
+        {
+          "paper_key": "be0ccd26fe8aaa434bd24d7e27f24f2cbe32ba199b9fc9aec8cac118ee9701ca",
+          "local_filename": "2014_Grounded_Compositional_Semantics_for_Finding_and_Describing_Images_with_Sentences_be0ccd26fe8aaa43.pdf",
+          "sha256": "d24338ab945d88d462a3848cc104dfeb9fcb517a2b80d4424504a3dad3550846",
+          "file_size": 1041294
+        },
+        {
+          "paper_key": "7f42a9eee83ca6cd33efb28787cb07e8fcda33a95fc842fc42f2b9b71e1bdad9",
+          "local_filename": "2018_Deep-learning-assisted_diagnosis_for_knee_magnetic_resonance_imaging__Development_and_retrospective_validation_of_MRNet_7f42a9eee83ca6cd.pdf",
+          "sha256": "96e286f996ffde69023e36dfa35fd69797d158efff815bb385b8e9b87686d1f8",
+          "file_size": 2289056
+        },
+        {
+          "paper_key": "31a0ccf38ee965a15d6d17786c654dc76b01057b1285e10268b80d2f405bfef9",
+          "local_filename": "2007_3-D_Depth_Reconstruction_from_a_Single_Still_Image_31a0ccf38ee965a1.pdf",
+          "sha256": "41c118ddfefe5caf32d4a0991b4e624d0ec0e3b857b4d9ff2a648cf20122b7a8",
+          "file_size": 3235119
+        },
+        {
+          "paper_key": "9821f71321c341e6d9f68dbe47d4945d57160e5889089c0ed09e00501c37613a",
+          "local_filename": "2022_Expert-level_detection_of_pathologies_from_unannotated_chest_X-ray_images_via_self-supervised_learning_9821f71321c341e6.pdf",
+          "sha256": "5a196ddff2204b16630be21a000a97bb99dcfe53b1556393906f00c174e086fa",
+          "file_size": 1545511
+        },
+        {
+          "paper_key": "c38891dc512ffa9ee2f6b1253058be1985ce2b2bf3e383778d6c2aacd02972a5",
+          "local_filename": "2012_Recurrent_neural_networks_for_noise_reduction_in_robust_ASR_c38891dc512ffa9e.pdf",
+          "sha256": "bec9aebe181b6e1b0cfc3b533eb32d7fbb2f96477938ea816ba0e5ed0333ba29",
+          "file_size": 441107
+        },
+        {
+          "paper_key": "b39c65a683a320860f65fa68b07025151f595767e38d6ec9048f019625383dae",
+          "local_filename": "2020_Impact_of_a_deep_learning_assistant_on_the_histopathologic_classification_of_liver_cancer_b39c65a683a32086.pdf",
+          "sha256": "50db402a516723d52be9a4343eea884eebd6dbdff3408ea4b4bb0149319bd7b2",
+          "file_size": 1226259
+        },
+        {
+          "paper_key": "bf368beb7e25d7e9298475ec15776cea0ff2d9ac87b129f79c9520ccf952ed33",
+          "local_filename": "2022_Benchmarking_saliency_methods_for_chest_X-ray_interpretation_bf368beb7e25d7e9.pdf",
+          "sha256": "c98f2b36a9f7c19688396e4a7be435b787a17ef815fd67ff20256144a63f0de0",
+          "file_size": 4338408
+        },
+        {
+          "paper_key": "899a69e0d1e12cb15a573a1dcc7e549f30e28ff90b6de5f60fd979815d5d7a98",
+          "local_filename": "2020_Combining_Automatic_Labelers_and_Expert_Annotations_for_Accurate_Radiology_Report_Labeling_Using_BERT_899a69e0d1e12cb1.pdf",
+          "sha256": "97dfe98d6fe66a355cc76333d0d549ef8a694444550fa5397ecfbb98eb399151",
+          "file_size": 466484
+        },
+        {
+          "paper_key": "42e9fc591b95862c867f0138ea1623578e823bf87651bc5024a588c5b90c1b93",
+          "local_filename": "2020_PENet—a_scalable_deep-learning_model_for_automated_diagnosis_of_pulmonary_embolism_using_volumetric_CT_imaging_42e9fc591b95862c.pdf",
+          "sha256": "70a99ed3b8aead8b4e201a4bbc171cb256128d335b633232f522e68dafd0a96c",
+          "file_size": 3181559
+        },
+        {
+          "paper_key": "1d304e3bccae4308df127f7d9be54eca0cc93f319f90fc1d3b1b1dd0b25c3d26",
+          "local_filename": "2020_CheXaid__deep_learning_assistance_for_physician_diagnosis_of_tuberculosis_using_chest_x-rays_in_patients_with_HIV_1d304e3bccae4308.pdf",
+          "sha256": "02ed5dc0d3e2c295e3923bf82e69b30aa73dc074748b5ae41e6ca4f4bd129f81",
+          "file_size": 1357127
+        },
+        {
+          "paper_key": "f815ae31e58b306690cb03069d18d75301fb1b26b78439c21a0752c1bf4612f7",
+          "local_filename": "2015_Lexicon-Free_Conversational_Speech_Recognition_with_Neural_Networks_f815ae31e58b3066.pdf",
+          "sha256": "9367dccaa7f77eecf9f4dce32530c9fafc31a120154534fc2fa776e692a94d0c",
+          "file_size": 571901
+        },
+        {
+          "paper_key": "dd826eff8e94e7661431e4fc04c7b827e2aa1ab1dcbeafcfbaa217bb0a3c265a",
+          "local_filename": "2020_AppendiXNet__Deep_Learning_for_Diagnosis_of_Appendicitis_from_A_Small_Dataset_of_CT_Exams_Using_Video_Pretraining_dd826eff8e94e766.pdf",
+          "sha256": "b445fafd248890f935634cdc9273ac4ba53fd42adf7a0a241946d9b46ee24301",
+          "file_size": 1068008
+        },
+        {
+          "paper_key": "defb1b2e66152e30e791a45060d392a91e8f4f2c6ad8984be9b5b1461d4cf559",
+          "local_filename": "needs_review/2016_Building_DNN_acoustic_models_for_large_vocabulary_speech_recognition_defb1b2e66152e30.pdf",
+          "sha256": "f252751a111762540f49ea48713ddc81eb6b8212e2a4146d42b3a8b5339429ab",
+          "file_size": 2256932
+        },
+        {
+          "paper_key": "9f78af8c4f968a8fd4dc6d8813af18b95424ef02dc014e770f416bded2fb4922",
+          "local_filename": "2021_Gap-filling_eddy_covariance_methane_fluxes__Comparison_of_machine_learning_model_predictions_and_uncertainties_at_FLUXNET-CH4_wetlands_9f78af8c4f968a8f.pdf",
+          "sha256": "742a7dedd4d0daa9dcb5c818143c29b4717ffc4c2518c331131fef5c16dd66fe",
+          "file_size": 3687517
+        },
+        {
+          "paper_key": "d2fbe4b4bbf3639371bd224cf3d6000609367ec8a9131f4e4da50c462c15a1cb",
+          "local_filename": "2008_Integrating_Visual_and_Range_Data_for_Robotic_Object_Detection_d2fbe4b4bbf36393.pdf",
+          "sha256": "8b886145a89d1f7ef242820a1b7c487cdd2c3bc15dd7dba44ea26aeec3598d1e",
+          "file_size": 811848
+        },
+        {
+          "paper_key": "1dd2743b035299c02ffd3215a55cc92bda9c335ea23f42c3646be4069eda20f0",
+          "local_filename": "2020_Incorporating_machine_learning_and_social_determinants_of_health_indicators_into_prospective_risk_adjustment_for_health_plan_payments_1dd2743b035299c0.pdf",
+          "sha256": "46a4cd72bae4edf1be4a14172d0ee77e9b98b0d34a0f98ab752bcdb19716128b",
+          "file_size": 702629
+        },
+        {
+          "paper_key": "3426af264e50e9607f9b86143f7598bf6b1b41802df4d1f5c3adcff5b9e617bb",
+          "local_filename": "2024_Deep_learning_for_detecting_and_characterizing_oil_and_gas_well_pads_in_satellite_imagery_3426af264e50e960.pdf",
+          "sha256": "dfe04de8144b78615f5200e8b26b0a1d5c62e5fc7712940b4a39f445881a6fcf",
+          "file_size": 2937429
+        }
+      ],
+      "workflow_status": "partial",
+      "metadata_audit": {
+        "missing_input_fields": {
+          "title": 0,
+          "authors": 0,
+          "year": 0,
+          "doi": 104,
+          "source": 0,
+          "source_paper_id": 0,
+          "source_author_id": 0,
+          "ownership_status": 0,
+          "ownership_evidence": 0
+        },
+        "transmission_losses": []
+      }
+    },
+    "catalog_supplement": {
+      "output_directory": "output/performance/andrew_ng_catalog/search_Andrew_Ng_20261011T160213Z_6ada4b9dd1be",
+      "pdf_statistics": {
+        "total_papers": 352,
+        "processed_papers": 100,
+        "valid_pdf_papers": 2,
+        "unverified_only_papers": 0,
+        "not_found_papers": 98,
+        "skipped_ownership_papers": 94,
+        "not_processed_papers": 158,
+        "incomplete_search_papers": 0,
+        "distinct_verified_pdf_urls": 2,
+        "source_contributions": {
+          "journal_catalog": {
+            "candidate_urls": 2,
+            "verified_urls": 2,
+            "papers_with_valid_pdf": 2,
+            "errors": 0,
+            "query_status_counts": {
+              "ok": 2,
+              "not_applicable": 98
+            }
+          }
+        },
+        "search_complete_for_processed_papers": true,
+        "coverage_note": "Counts describe processed saved entries and public-source observations, not all available PDFs."
+      },
+      "download_statistics": {
+        "total_input_papers": 352,
+        "attempted_papers": 2,
+        "downloaded_files": 2,
+        "verified_papers": 1,
+        "needs_review_papers": 1,
+        "failed_papers": 0,
+        "reused_existing_papers": 0,
+        "duplicate_content_papers": 0,
+        "skipped_papers": 350
+      },
+      "file_checks": [
+        {
+          "paper_key": "5af93fa5a71e76ad20914e2c13a7e3c92158382a587b71133869ae9d4c255a03",
+          "local_filename": "needs_review/2003_Latent_dirichlet_allocation_5af93fa5a71e76ad.pdf",
+          "sha256": "4667de63545b57d55d6c43e5af6f3429edfaac9472ed9eff68fdf43572735dd9",
+          "file_size": 417996
+        },
+        {
+          "paper_key": "7355f024426056782519c0c07018e22bcfa460f814e7af85ef9e571cbf65fcab",
+          "local_filename": "2006_Learning_Factor_Graphs_in_Polynomial_Time_and_Sample_Complexity_7355f02442605678.pdf",
+          "sha256": "b7f392328577684c82cef57850226d7fe1f937383b952787bbc3bcf5fbff129f",
+          "file_size": 355632
+        }
+      ],
+      "workflow_status": "partial",
+      "metadata_audit": {
+        "missing_input_fields": {
+          "title": 0,
+          "authors": 0,
+          "year": 0,
+          "doi": 104,
+          "source": 0,
+          "source_paper_id": 0,
+          "source_author_id": 0,
+          "ownership_status": 0,
+          "ownership_evidence": 0
+        },
+        "transmission_losses": []
+      }
+    }
+  },
+  "same_100_publication_scope": true,
+  "combined_scope_note": "Union by stable paper key over two disjoint PDF result runs; original manifests remain separate and traceable. Catalog-only not_found does not override all-source outcomes.",
+  "combined_unique_counts": {
+    "processed_publications": 100,
+    "validated_pdf_publications": 25,
+    "downloaded_publications": 24,
+    "unique_file_sha256": 24,
+    "content_verified_publications": 21,
+    "content_review_publications": 3,
+    "distinct_verified_pdf_urls": 34,
+    "failed_download_publications": 1
+  },
+  "unit_tests_passed": 366,
+  "python_version": "3.8.0"
+}
