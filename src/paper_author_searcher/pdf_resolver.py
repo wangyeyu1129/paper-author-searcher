@@ -7,11 +7,13 @@ from .config import DEFAULT_PDF
 from .http import HttpClient
 from .models import PaperPDFResult, PDFProviderResult, PDFResolutionResult
 from .pdf_providers import (
-    ArxivPDFProvider, ExistingPDFProvider, LandingPagePDFProvider, OpenAlexPDFProvider,
+    ArxivPDFProvider, ExistingPDFProvider, OpenAlexPDFProvider,
     SemanticScholarPDFProvider, UnpaywallPDFProvider,
 )
 from .pdf_validation import PDFURLValidator
 from .pdf_catalogs import JournalCatalogPDFProvider
+from .pdf_crossref import CrossrefPDFProvider
+from .pdf_public_pages import PublicPagePDFProvider
 from .performance_diagnostics import pdf_failure_reasons
 
 
@@ -21,14 +23,16 @@ class PDFResolver:
         client = client or HttpClient()
         if providers is None:
             providers = [
-                ExistingPDFProvider(), OpenAlexPDFProvider(client), SemanticScholarPDFProvider(client),
+                ExistingPDFProvider(), OpenAlexPDFProvider(client), SemanticScholarPDFProvider(client, config=config),
+                CrossrefPDFProvider(client, config),
                 UnpaywallPDFProvider(client, unpaywall_email, config),
                 ArxivPDFProvider(client, config), JournalCatalogPDFProvider(client, config),
-                LandingPagePDFProvider(client, config),
+                PublicPagePDFProvider(client, config),
             ]
         self.providers = providers
         self.validator = validator or PDFURLValidator(client, config)
         self.config = config
+        self.preparation_errors = {}
 
     def resolve(self, saved_result, include_needs_review=False, maximum_papers=None, progress=None):
         if maximum_papers is not None and maximum_papers < 1:
@@ -46,6 +50,10 @@ class PDFResolver:
             eligible_statuses.add('needs_review')
         eligible_count = sum(paper.get('ownership_status') in eligible_statuses for paper in papers)
         progress_total = min(eligible_count, maximum_papers) if maximum_papers else eligible_count
+        selected = [paper for paper in papers if paper.get('ownership_status') in eligible_statuses]
+        if maximum_papers is not None:
+            selected = selected[:maximum_papers]
+        self._prepare_providers(selected)
         for index, paper in enumerate(papers):
             result = PaperPDFResult(
                 index, paper.get('title', ''), paper.get('doi'),
@@ -74,6 +82,16 @@ class PDFResolver:
             result.failure_reasons = pdf_failure_reasons(asdict(result))
         return PDFResolutionResult(results, self._statistics(results))
 
+    def _prepare_providers(self, papers):
+        self.preparation_errors = {}
+        for provider in self.providers:
+            if not callable(getattr(type(provider), 'prepare', None)):
+                continue
+            try:
+                provider.prepare(papers)
+            except Exception as exc:
+                self.preparation_errors[provider.name] = str(exc)
+
     def _resolve_paper(self, paper, result):
         candidates = []
         lookup_paper = dict(paper, _pdf_landing_pages=[])
@@ -82,7 +100,11 @@ class PDFResolver:
                 found = provider.find(lookup_paper)
             except Exception as exc:
                 found = PDFProviderResult(provider.name, status='error', errors=[str(exc)])
-            result.providers.append({'source': found.source, 'status': found.status, 'errors': found.errors})
+            if provider.name in self.preparation_errors:
+                found.errors.append('Provider preparation: ' + self.preparation_errors[provider.name])
+                found.status = 'partial' if found.candidates else 'error'
+            result.providers.append({'source': found.source, 'status': found.status, 'errors': found.errors,
+                                     'diagnostics': found.diagnostics})
             for error in found.errors:
                 result.error_details.append({'source': found.source, 'error': error})
             candidates.extend(found.candidates)
@@ -180,6 +202,10 @@ class PDFResolver:
         counts['source_contributions'] = sources
         counts['search_complete_for_processed_papers'] = counts['incomplete_search_papers'] == 0
         counts['coverage_note'] = 'Counts describe processed saved entries and public-source observations, not all available PDFs.'
+        counts['provider_request_statistics'] = {}
+        for provider in self.providers:
+            if callable(getattr(type(provider), 'request_statistics', None)):
+                counts['provider_request_statistics'][provider.name] = provider.request_statistics()
         return counts
 
     def _source_counts(self):

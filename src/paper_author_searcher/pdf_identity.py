@@ -127,6 +127,20 @@ def arxiv_ids(paper):
                 identifiers.append(arxiv_id(value))
         if arxiv_id(record.get('paper_url')):
             identifiers.append(arxiv_id(record['paper_url']))
+        metadata = record.get('raw_metadata') or {}
+        for location in metadata.get('locations') or []:
+            if not isinstance(location, dict):
+                continue
+            for key in ('landing_page_url', 'pdf_url'):
+                value = arxiv_id(location.get(key))
+                if value:
+                    identifiers.append(value)
+    for doi in sorted(paper_dois(paper)):
+        prefix = 'doi:10.48550/arxiv.'
+        if doi.startswith(prefix):
+            identifier = arxiv_id(doi[len(prefix):])
+            if identifier:
+                identifiers.append(identifier)
     return list(dict.fromkeys(identifiers))
 
 

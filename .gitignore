@@ -5,6 +5,8 @@ __pycache__/
 build/
 dist/
 .env
+.env.*
+!.env.example
 output/pdf/
 tmp/pdfs/
 output/integration/

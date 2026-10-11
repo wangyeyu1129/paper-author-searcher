@@ -5,12 +5,13 @@ import math
 from dataclasses import replace
 from pathlib import Path
 
-from .config import DEFAULT_COLLECTION, DEFAULT_DOWNLOAD
+from .config import DEFAULT_COLLECTION, DEFAULT_DOWNLOAD, DEFAULT_PDF
 from .http import HttpClient
 from .models import ProfessorQuery
 from .paper_collector import PaperCollector
 from .paper_providers import OpenAlexPaperProvider, SemanticScholarPaperProvider, DBLPPaperProvider
 from .pdf_resolver import PDFResolver
+from .pdf_settings import contact_email
 from .providers import OpenAlexProvider, SemanticScholarProvider, DBLPProvider
 from .resolver import ProfessorResolver
 from .workflow import MODES, PaperSearchWorkflow, load_checkpoint
@@ -29,6 +30,8 @@ def add_workflow_arguments(parser):
     parser.add_argument('--retries', type=int)
     parser.add_argument('--max-file-mb', type=float)
     parser.add_argument('--unpaywall-email', help='Real contact email; alternatively set UNPAYWALL_EMAIL')
+    parser.add_argument('--require-unpaywall', action='store_true', help='Fail before requests if a valid contact is not configured')
+    parser.add_argument('--bibliography-url', action='append', default=[], help='Public author, repository or conference bibliography to inspect')
     parser.add_argument('--include-needs-review', action='store_true', help='Explicit ownership opt-in; verified PDF URL still required')
 
 
@@ -49,6 +52,12 @@ class ProgressPrinter:
 
 
 def _validate(parser, args):
+    if args.require_unpaywall:
+        try:
+            if not contact_email(args.unpaywall_email, DEFAULT_PDF.unpaywall_email_environment):
+                raise ValueError('Set UNPAYWALL_EMAIL to your real contact email before running')
+        except ValueError as exc:
+            parser.error(str(exc))
     if args.input:
         if args.name or args.university or args.department or args.research:
             parser.error('--input uses the saved identity; do not combine with professor inputs')
@@ -92,7 +101,8 @@ def build_workflow(args):
         downloader = PDFDownloader(client=client, config=config)
     return PaperSearchWorkflow(
         resolver=ProfessorResolver(providers), collector=collector,
-        pdf_resolver=PDFResolver(client=client, unpaywall_email=args.unpaywall_email),
+        pdf_resolver=PDFResolver(client=client, unpaywall_email=args.unpaywall_email,
+                                 config=replace(DEFAULT_PDF, bibliography_urls=tuple(args.bibliography_url))),
         downloader=downloader, progress=ProgressPrinter(args.verbose))
 
 

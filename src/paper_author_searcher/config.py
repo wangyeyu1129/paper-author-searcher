@@ -123,6 +123,15 @@ DEFAULT_DEDUPLICATION = DeduplicationConfig()
 @dataclass(frozen=True)
 class PDFConfig:
     unpaywall_url: str = 'https://api.unpaywall.org/v2'
+    unpaywall_email_environment: str = 'UNPAYWALL_EMAIL'
+    crossref_url: str = 'https://api.crossref.org'
+    crossref_email_environment: str = 'CROSSREF_MAILTO'
+    crossref_search_results: int = 5
+    semantic_scholar_batch_size: int = 100
+    semantic_scholar_request_interval: float = 1.0
+    semantic_scholar_cooldown: float = 30.0
+    semantic_scholar_title_search: bool = True
+    semantic_scholar_search_results: int = 5
     arxiv_url: str = 'https://export.arxiv.org/api/query'
     preview_bytes: int = 1024
     html_metadata_bytes: int = 65536
@@ -131,6 +140,9 @@ class PDFConfig:
     arxiv_title_search: bool = True
     arxiv_search_results: int = 5
     catalog_preview_bytes: int = 2 * 1024 * 1024
+    linked_page_limit: int = 5
+    public_page_cache_entries: int = 256
+    bibliography_urls: Tuple[str, ...] = ()
     journal_catalogs: Tuple[Tuple[str, str], ...] = (
         ('Journal of Machine Learning Research', 'https://jmlr.org/papers/'),
     )
@@ -145,6 +157,13 @@ class PDFConfig:
             raise ValueError('Redirect and interval limits must be nonnegative')
         if self.arxiv_search_results < 1 or self.catalog_preview_bytes < self.html_metadata_bytes:
             raise ValueError('Search and catalog limits must be positive and sufficient')
+        if not 1 <= self.semantic_scholar_batch_size <= 500:
+            raise ValueError('Semantic Scholar batch size must be between 1 and 500')
+        if self.semantic_scholar_request_interval < 0 or self.semantic_scholar_cooldown < 0:
+            raise ValueError('Semantic Scholar request intervals must be nonnegative')
+        if min(self.crossref_search_results, self.semantic_scholar_search_results,
+               self.linked_page_limit, self.public_page_cache_entries) < 1:
+            raise ValueError('Discovery and cache limits must be positive')
 
 
 DEFAULT_PDF = PDFConfig()

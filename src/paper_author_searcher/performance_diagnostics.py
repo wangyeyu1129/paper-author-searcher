@@ -19,6 +19,18 @@ def pdf_failure_reasons(paper):
         reasons.add('source_query_failed')
     if any(provider.get('status') == 'disabled' for provider in providers):
         reasons.add('provider_not_configured')
+    for provider in providers:
+        for diagnostic in provider.get('diagnostics') or []:
+            kind = diagnostic.get('error_type')
+            if kind == 'not_found':
+                reasons.add('metadata_record_not_found')
+            elif kind in ('rate_limited', 'timeout', 'network_error', 'server_error', 'access_restricted',
+                          'authentication_required'):
+                reasons.add(kind)
+            elif kind in ('malformed_response', 'invalid_content_type', 'empty_response'):
+                reasons.add('invalid_metadata_response')
+            if diagnostic.get('source_cooldown_active'):
+                reasons.add('source_temporarily_deferred')
     candidates = paper.get('pdf_candidates') or []
     messages = []
     for error in paper.get('error_details') or []:
@@ -43,9 +55,11 @@ def pdf_failure_reasons(paper):
         if candidate.get('pdf_signature_confirmed') and candidate.get('identity_status') == 'unverified':
             reasons.add('insufficient_pdf_identity_evidence')
     text = ' '.join(messages).lower()
-    for code, label in ((403, 'access_restricted'), (404, 'url_not_found'), (429, 'rate_limited')):
+    for code, label in ((403, 'access_restricted'), (429, 'rate_limited')):
         if re.search(r'http\s+' + str(code) + r'\b', text):
             reasons.add(label)
+    if 'metadata_record_not_found' not in reasons and re.search(r'http\s+404\b', text):
+        reasons.add('url_not_found')
     if any(word in text for word in ('timed out', 'timeout', 'name resolution', 'nodename')):
         reasons.add('network_error')
     if 'http 302' in text or 'redirect' in text:
