@@ -1,0 +1,329 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-11T00:37:58.500367+00:00",
+  "baseline_file": "hinton_papers.reviewed.json",
+  "fresh_api_file": "hinton_papers.authorship.json",
+  "confirmed_identity_reused": {
+    "openalex": [
+      "A5108093963"
+    ],
+    "semantic_scholar": [
+      "1695689"
+    ]
+  },
+  "ground_truth_used": false,
+  "baseline": {
+    "raw_records_received": 890,
+    "retained_records": 890,
+    "deduplicated_entries": 656,
+    "ownership_counts": {
+      "verified": 130,
+      "needs_review": 526,
+      "rejected": 0
+    },
+    "record_ownership_counts": {
+      "verified": 205,
+      "needs_review": 685,
+      "rejected": 0
+    },
+    "records_with_author_details": 0,
+    "records_with_external_ids": 0,
+    "target_presence_counts": {
+      "None": 890
+    },
+    "complete": false
+  },
+  "fresh_api": {
+    "raw_records_received": 890,
+    "retained_records": 890,
+    "deduplicated_entries": 573,
+    "ownership_counts": {
+      "verified": 341,
+      "needs_review": 232,
+      "rejected": 0
+    },
+    "record_ownership_counts": {
+      "verified": 605,
+      "needs_review": 283,
+      "rejected": 2
+    },
+    "records_with_author_details": 890,
+    "records_with_external_ids": 890,
+    "target_presence_counts": {
+      "True": 890
+    },
+    "complete": false
+  },
+  "baseline_reanalyzed_with_current_policy": {
+    "deduplicated_entries": 656,
+    "ownership_counts": {
+      "verified": 126,
+      "needs_review": 530,
+      "rejected": 0
+    },
+    "author_details_added": false
+  },
+  "raw_record_comparison": {
+    "matching_source_record_keys": 890,
+    "added_source_record_keys": 0,
+    "removed_source_record_keys": 0,
+    "changed_metadata_fields": {
+      "title": 0,
+      "year": 0,
+      "doi": 0,
+      "authors": 215,
+      "venue": 0
+    },
+    "record_status_transitions": {
+      "needs_review -> needs_review": 245,
+      "needs_review -> rejected": 2,
+      "needs_review -> verified": 438,
+      "verified -> needs_review": 38,
+      "verified -> verified": 167
+    }
+  },
+  "deduplication_diagnostic": {
+    "fresh_records_without_external_ids_entries": 660,
+    "fresh_records_with_external_ids_entries": 573,
+    "scope": "Diagnostic removal of external IDs only, same fresh records and order; not human labels or an accuracy estimate."
+  },
+  "verified_evidence_counts_nonexclusive": {
+    "paper-level institution agree": 167,
+    "source-scoped target Author IDs": 262,
+    "recurring independently verified coauthors": 55,
+    "ORCID agrees": 0
+  },
+  "previously_verified_guarded_entries": [
+    {
+      "title": "Separating Figure from Ground with a Parallel Network",
+      "doi": "10.1068/p150197",
+      "previous_status": "verified",
+      "new_record_statuses": [
+        "needs_review"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W1993980524",
+          "author_id": "A5108093963"
+        },
+        {
+          "source": "semantic_scholar",
+          "paper_id": "874599e658bb6ec05c44f900e98a30d1c8e66412",
+          "author_id": "1695689"
+        }
+      ],
+      "evidence": [
+        "Nonstandard publication type: supplementary_materials",
+        "Nonstandard source classification in merged publication; automatic verification blocked"
+      ]
+    },
+    {
+      "title": "Guest Editorial: Deep Learning",
+      "doi": "10.1007/s11263-015-0813-1",
+      "previous_status": "verified",
+      "new_record_statuses": [
+        "needs_review"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W2013011733",
+          "author_id": "A5108093963"
+        },
+        {
+          "source": "semantic_scholar",
+          "paper_id": "08ee53dac878ee6ab1e5cf06824713bed614e17c",
+          "author_id": "1695689"
+        },
+        {
+          "source": "semantic_scholar",
+          "paper_id": "4b4a5f62b93812150d2a5f0b69daa35fbdb57fa9",
+          "author_id": "1695689"
+        }
+      ],
+      "evidence": [
+        "Nonstandard publication type: editorial",
+        "Nonstandard source classification in merged publication; automatic verification blocked"
+      ]
+    },
+    {
+      "title": "Peer Review #1 of \"Introspective analysis of convolutional neural networks for improving discrimination performance and feature visualisation (v0.1)\"",
+      "doi": "10.7287/peerj-cs.497v0.1/reviews/1",
+      "previous_status": "verified",
+      "new_record_statuses": [
+        "needs_review"
+      ],
+      "source_records": [
+        {
+          "source": "semantic_scholar",
+          "paper_id": "ff68f004ee5b1f3a9819ea392e4a4a43c314119f",
+          "author_id": "1695689"
+        }
+      ],
+      "evidence": [
+        "Large author list (151); coauthor overlap cannot verify ownership",
+        "Nonstandard source classification in merged publication; automatic verification blocked",
+        "Possible nonstandard contributor list: title prefix peer review"
+      ]
+    },
+    {
+      "title": "Proceedings of the Workshop on Deep Learning and Formal Languages: Building Bridges",
+      "doi": "10.18653/v1/w19-39",
+      "previous_status": "verified",
+      "new_record_statuses": [
+        "needs_review"
+      ],
+      "source_records": [
+        {
+          "source": "semantic_scholar",
+          "paper_id": "896e6b1c63bd5b5d9560fe398a8a4543e5bc9d78",
+          "author_id": "1695689"
+        }
+      ],
+      "evidence": [
+        "Large author list (324); coauthor overlap cannot verify ownership",
+        "Nonstandard source classification in merged publication; automatic verification blocked",
+        "Possible nonstandard contributor list: title prefix proceedings of"
+      ]
+    }
+  ],
+  "source_level_conflicts_retained_for_review": [
+    {
+      "title": "A parallel computation that assigns canonical object-based frames of reference",
+      "doi": null,
+      "entry_status": "needs_review",
+      "records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W112688168",
+          "author_id": "A5108093963",
+          "target_author_details": [
+            {
+              "name": "Geoffrey E. Hinton",
+              "raw_author_name": "Geoffrey F. Hinton",
+              "author_id": "https://openalex.org/A5108093963",
+              "orcid": null,
+              "orcid_scope": "resolved_author",
+              "role": "author",
+              "author_position": "first",
+              "is_corresponding": true,
+              "institutions": [
+                {
+                  "id": "https://openalex.org/I241749",
+                  "display_name": "University of Cambridge",
+                  "ror": "https://ror.org/013meh722",
+                  "country_code": "GB",
+                  "type": "education",
+                  "lineage": [
+                    "https://openalex.org/I241749"
+                  ]
+                }
+              ],
+              "affiliations": [
+                {
+                  "raw_affiliation_string": "MPC Applied Psychology Unit, Cambridge, England#TAB#",
+                  "institution_ids": [
+                    "https://openalex.org/I241749"
+                  ]
+                }
+              ],
+              "affiliation_scope": "paper_authorship",
+              "raw_affiliation_strings": [
+                "MPC Applied Psychology Unit, Cambridge, England#TAB#"
+              ]
+            }
+          ],
+          "evidence": [
+            "Confirmed source-scoped Author ID observed in the paper author list",
+            "Source Author ID association alone does not verify ownership",
+            "Target signature similarity: 0.000",
+            "Explicit target author signature is incompatible"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Shape representation in parallel systems",
+      "doi": null,
+      "entry_status": "needs_review",
+      "records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W179212727",
+          "author_id": "A5108093963",
+          "target_author_details": [
+            {
+              "name": "Geoffrey E. Hinton",
+              "raw_author_name": "Geoffrey F. Hinton",
+              "author_id": "https://openalex.org/A5108093963",
+              "orcid": null,
+              "orcid_scope": "resolved_author",
+              "role": "author",
+              "author_position": "first",
+              "is_corresponding": true,
+              "institutions": [],
+              "affiliations": [
+                {
+                  "raw_affiliation_string": "MRC Applied Psychology Unit, Cambridge, England#TAB#",
+                  "institution_ids": []
+                }
+              ],
+              "affiliation_scope": "paper_authorship",
+              "raw_affiliation_strings": [
+                "MRC Applied Psychology Unit, Cambridge, England#TAB#"
+              ]
+            }
+          ],
+          "evidence": [
+            "Confirmed source-scoped Author ID observed in the paper author list",
+            "Source Author ID association alone does not verify ownership",
+            "Target signature similarity: 0.000",
+            "Explicit target author signature is incompatible"
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "source": "dblp",
+      "author_id": null,
+      "records_received": 0,
+      "pages_fetched": 0,
+      "complete": false,
+      "pagination_complete": false,
+      "fetch_status": "unavailable",
+      "error": "No confirmed Author ID for this source",
+      "metadata_errors": []
+    },
+    {
+      "source": "openalex",
+      "author_id": "A5108093963",
+      "records_received": 428,
+      "pages_fetched": 5,
+      "complete": true,
+      "pagination_complete": true,
+      "fetch_status": "complete",
+      "error": null,
+      "metadata_errors": []
+    },
+    {
+      "source": "semantic_scholar",
+      "author_id": "1695689",
+      "records_received": 462,
+      "pages_fetched": 5,
+      "complete": true,
+      "pagination_complete": true,
+      "fetch_status": "complete",
+      "error": null,
+      "metadata_errors": []
+    }
+  ],
+  "limitations": [
+    "Status changes are algorithmic decisions, not an independently measured precision or recall gain.",
+    "All original source record keys are retained; changed deduplicated count is not a change in total publications.",
+    "Author ID membership and author-profile ORCID or affiliations can inherit upstream disambiguation errors.",
+    "No confirmed DBLP Author ID was available; overall configured-source collection remains incomplete."
+  ]
+}

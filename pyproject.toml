@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paper-author-searcher"
+version = "0.1.0"
+description = "Evidence-based professor identity resolution across scholarly indexes"
+requires-python = ">=3.8"
+dependencies = []
+
+[project.optional-dependencies]
+download = ["pypdf>=5.9,<6"]
+
+[project.scripts]
+professor-resolve = "paper_author_searcher.cli:main"
+paper-evaluate = "paper_author_searcher.evaluation_cli:main"
+pdf-resolve = "paper_author_searcher.pdf_cli:main"
+pdf-download = "paper_author_searcher.download_cli:main"
+paper-search = "paper_author_searcher.workflow_cli:main"
+paper-performance = "paper_author_searcher.performance_cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

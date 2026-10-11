@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "prepared_at": "2026-10-11T14:28:42.188462+00:00",
+    "professor_name": "Andrew Ng",
+    "scope": "Explicit input bibliography pages; not a complete professor bibliography",
+    "provenance": "Citation metadata extracted from public source pages; not human adjudication"
+  },
+  "papers": [
+    {
+      "evaluation_id": "reference-2e556b5167f441ce",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "An Analysis of Single-Layer Networks in Unsupervised Feature Learning",
+      "authors": [
+        "Adam Coates",
+        "Andrew Ng",
+        "Honglak Lee"
+      ],
+      "year": 2011,
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://proceedings.mlr.press/v15/coates11a.html",
+        "Bibliography/source context: Andrew Ng's public bibliography https://ai.stanford.edu/~ang/papers.php"
+      ],
+      "reference_url": "https://proceedings.mlr.press/v15/coates11a.html",
+      "observed_pdf_links": [
+        "http://proceedings.mlr.press/v15/coates11a/coates11a.pdf"
+      ],
+      "original_authors": [
+        "Adam Coates",
+        "Andrew Ng",
+        "Honglak Lee"
+      ]
+    },
+    {
+      "evaluation_id": "reference-41b5fab515acedc6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Learning Word Vectors for Sentiment Analysis",
+      "authors": [
+        "Andrew Maas",
+        "Raymond E. Daly",
+        "Peter T. Pham",
+        "Dan Huang",
+        "Andrew Y. Ng",
+        "Christopher Potts"
+      ],
+      "year": 2011,
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://aclanthology.org/P11-1015/",
+        "Bibliography/source context: Andrew Ng's public bibliography, Learning Word Vectors for Sentiment Analysis"
+      ],
+      "reference_url": "https://aclanthology.org/P11-1015/",
+      "observed_pdf_links": [
+        "https://aclanthology.org/P11-1015.pdf"
+      ],
+      "original_authors": [
+        "Andrew Maas",
+        "Raymond E. Daly",
+        "Peter T. Pham",
+        "Dan Huang",
+        "Andrew Y. Ng",
+        "Christopher Potts"
+      ]
+    },
+    {
+      "evaluation_id": "reference-1a39b86c54d36dc7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Semi-Supervised Recursive Autoencoders for Predicting Sentiment Distributions",
+      "authors": [
+        "Richard Socher",
+        "Jeffrey Pennington",
+        "Eric H. Huang",
+        "Andrew Y. Ng",
+        "Christopher D. Manning"
+      ],
+      "year": 2011,
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://aclanthology.org/D11-1014/",
+        "Bibliography/source context: Andrew Ng's public bibliography, Semi-Supervised Recursive Autoencoders for Predicting Sentiment Distributions"
+      ],
+      "reference_url": "https://aclanthology.org/D11-1014/",
+      "observed_pdf_links": [
+        "https://aclanthology.org/D11-1014.pdf"
+      ],
+      "original_authors": [
+        "Richard Socher",
+        "Jeffrey Pennington",
+        "Eric H. Huang",
+        "Andrew Y. Ng",
+        "Christopher D. Manning"
+      ]
+    },
+    {
+      "evaluation_id": "reference-995e5f4a568f6046",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Semantic Compositionality through Recursive Matrix-Vector Spaces",
+      "authors": [
+        "Richard Socher",
+        "Brody Huval",
+        "Christopher D. Manning",
+        "Andrew Y. Ng"
+      ],
+      "year": 2012,
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://aclanthology.org/D12-1110/",
+        "Bibliography/source context: Andrew Ng's public bibliography, Semantic Compositionality through Recursive Matrix-Vector Spaces"
+      ],
+      "reference_url": "https://aclanthology.org/D12-1110/",
+      "observed_pdf_links": [
+        "https://aclanthology.org/D12-1110.pdf"
+      ],
+      "original_authors": [
+        "Richard Socher",
+        "Brody Huval",
+        "Christopher D. Manning",
+        "Andrew Y. Ng"
+      ]
+    },
+    {
+      "evaluation_id": "reference-7d329a10b7269081",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Building high-level features using large scale unsupervised learning",
+      "authors": [
+        "Quoc V. Le",
+        "Marc'Aurelio Ranzato",
+        "Rajat Monga",
+        "Matthieu Devin",
+        "Kai Chen",
+        "Greg S. Corrado",
+        "Jeff Dean",
+        "Andrew Y. Ng"
+      ],
+      "year": 2011,
+      "external_ids": {
+        "arxiv": "1112.6209"
+      },
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://arxiv.org/abs/1112.6209",
+        "Bibliography/source context: Andrew Ng's public bibliography, Building High-level Features Using Large Scale Unsupervised Learning"
+      ],
+      "reference_url": "https://arxiv.org/abs/1112.6209",
+      "observed_pdf_links": [
+        "https://arxiv.org/pdf/1112.6209"
+      ],
+      "original_authors": [
+        "Le, Quoc V.",
+        "Ranzato, Marc'Aurelio",
+        "Monga, Rajat",
+        "Devin, Matthieu",
+        "Chen, Kai",
+        "Corrado, Greg S.",
+        "Dean, Jeff",
+        "Ng, Andrew Y."
+      ]
+    },
+    {
+      "evaluation_id": "reference-a25a46ba0cd25a8e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Latent Dirichlet Allocation",
+      "authors": [
+        "David M. Blei",
+        "Andrew Y. Ng",
+        "Michael I. Jordan"
+      ],
+      "year": 2003,
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://jmlr.org/papers/v3/blei03a.html",
+        "Bibliography/source context: Author publication, Latent Dirichlet Allocation"
+      ],
+      "reference_url": "https://jmlr.org/papers/v3/blei03a.html",
+      "observed_pdf_links": [
+        "http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf"
+      ],
+      "original_authors": [
+        "Blei, David M.",
+        "Ng, Andrew Y.",
+        "Jordan, Michael I."
+      ]
+    },
+    {
+      "evaluation_id": "reference-6644786bd85cef52",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Learning Factor Graphs in Polynomial Time and Sample Complexity",
+      "authors": [
+        "Pieter Abbeel",
+        "Daphne Koller",
+        "Andrew Y. Ng"
+      ],
+      "year": 2006,
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://jmlr.org/papers/v7/abbeel06a.html",
+        "Bibliography/source context: Author public journal paper, Learning Factor Graphs in Polynomial Time and Sample Complexity"
+      ],
+      "reference_url": "https://jmlr.org/papers/v7/abbeel06a.html",
+      "observed_pdf_links": [
+        "http://jmlr.org/papers/volume7/abbeel06a/abbeel06a.pdf"
+      ],
+      "original_authors": [
+        "Pieter Abbeel",
+        "Daphne Koller",
+        "Andrew Y. Ng"
+      ]
+    }
+  ],
+  "import_errors": []
+}

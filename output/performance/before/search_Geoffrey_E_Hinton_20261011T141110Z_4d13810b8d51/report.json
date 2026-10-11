@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "report_type": "paper_search_workflow",
+  "mode": "metadata",
+  "run_status": "partial",
+  "output_directory": "/Users/wangyeyu/Desktop/paper-author-searcher/output/performance/before/search_Geoffrey_E_Hinton_20261011T141110Z_4d13810b8d51",
+  "stages": [
+    {
+      "stage": "Resolving professor identity",
+      "status": "reused"
+    },
+    {
+      "stage": "Collecting papers",
+      "status": "completed"
+    },
+    {
+      "stage": "Deduplicating papers",
+      "status": "completed"
+    },
+    {
+      "stage": "Validating ownership",
+      "status": "completed"
+    }
+  ],
+  "errors": [
+    {
+      "stage": "Resolving professor identity",
+      "source": "dblp",
+      "error": "https://dblp.org/search/author/api HTTP 200 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+    },
+    {
+      "stage": "Collecting papers",
+      "source": "dblp",
+      "error": "No confirmed Author ID for this source"
+    }
+  ],
+  "artifacts": {
+    "professor": "professor.json",
+    "papers": "papers.json"
+  },
+  "limits": {
+    "maximum_pdf_papers": null,
+    "maximum_downloads": null
+  },
+  "include_needs_review": false,
+  "count_scope": "retrieved_metadata_not_total_publications",
+  "identity": {
+    "profile": {
+      "name": "Geoffrey E. Hinton",
+      "affiliations": [
+        "University of Toronto"
+      ],
+      "author_ids": {
+        "openalex": "A5108093963",
+        "semantic_scholar": "1695689"
+      },
+      "identity_confidence": 0.975,
+      "status": "resolved",
+      "evidence": [
+        "Name similarity: 1.000",
+        "University matched: 1.000",
+        "shared DOI count: 23",
+        "shared coauthor count: 23",
+        "Department similarity: 0.000",
+        "Research similarity: 1.000"
+      ],
+      "orcid": null,
+      "research_interests": [],
+      "university": null,
+      "university_status": "unknown",
+      "match_score": 0.0,
+      "requested_university": null,
+      "matched_affiliations": [],
+      "author_id_aliases": {
+        "openalex": [
+          "A5108093963"
+        ],
+        "semantic_scholar": [
+          "1695689"
+        ]
+      },
+      "name_aliases": []
+    },
+    "candidates": [
+      {
+        "name": "Geoffrey E. Hinton",
+        "affiliations": [
+          "University of Toronto"
+        ],
+        "author_ids": {
+          "openalex": "A5108093963",
+          "semantic_scholar": "1695689"
+        },
+        "identity_confidence": 0.975,
+        "status": "resolved",
+        "evidence": [
+          "Name similarity: 1.000",
+          "University matched: 1.000",
+          "shared DOI count: 23",
+          "shared coauthor count: 23",
+          "Department similarity: 0.000",
+          "Research similarity: 1.000"
+        ],
+        "orcid": null,
+        "research_interests": [],
+        "university": null,
+        "university_status": "unknown",
+        "match_score": 0.0,
+        "requested_university": null,
+        "matched_affiliations": [],
+        "author_id_aliases": {
+          "openalex": [
+            "A5108093963"
+          ],
+          "semantic_scholar": [
+            "1695689"
+          ]
+        },
+        "name_aliases": []
+      }
+    ],
+    "source_errors": {
+      "dblp": "https://dblp.org/search/author/api HTTP 200 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+    },
+    "ambiguity": null
+  },
+  "collection_complete": false,
+  "collection_sources": [
+    {
+      "source": "dblp",
+      "author_id": null,
+      "complete": false,
+      "pages_fetched": 0,
+      "records_received": 0,
+      "rejected_records": [],
+      "error": "No confirmed Author ID for this source",
+      "pagination_complete": false,
+      "metadata_errors": [],
+      "ownership_counts": {
+        "verified": 0,
+        "needs_review": 0,
+        "rejected": 0
+      },
+      "fetch_status": "unavailable"
+    },
+    {
+      "source": "openalex",
+      "author_id": "A5108093963",
+      "complete": true,
+      "pages_fetched": 5,
+      "records_received": 428,
+      "rejected_records": [],
+      "error": null,
+      "pagination_complete": true,
+      "metadata_errors": [],
+      "ownership_counts": {
+        "verified": 309,
+        "needs_review": 117,
+        "rejected": 2
+      },
+      "fetch_status": "complete"
+    },
+    {
+      "source": "semantic_scholar",
+      "author_id": "1695689",
+      "complete": true,
+      "pages_fetched": 5,
+      "records_received": 462,
+      "rejected_records": [],
+      "error": null,
+      "pagination_complete": true,
+      "metadata_errors": [],
+      "ownership_counts": {
+        "verified": 296,
+        "needs_review": 166,
+        "rejected": 0
+      },
+      "fetch_status": "complete"
+    }
+  ],
+  "collection_statistics": {
+    "raw_records_received": 890,
+    "retained_source_records": 890,
+    "deduplicated_entries": 573,
+    "ownership_counts": {
+      "verified": 341,
+      "needs_review": 232,
+      "rejected": 0
+    },
+    "source_record_ownership_counts": {
+      "verified": 605,
+      "needs_review": 283,
+      "rejected": 2
+    },
+    "source_record_authorship_counts": {
+      "with_author_details": 890,
+      "with_external_ids": 890,
+      "target_present": 890,
+      "target_absent": 0,
+      "target_unknown": 0
+    },
+    "metadata_enrichment_errors": 0,
+    "unparsed_records": 0
+  },
+  "metadata_audit": {
+    "missing_input_fields": {
+      "title": 0,
+      "authors": 0,
+      "year": 7,
+      "doi": 228,
+      "source": 0,
+      "source_paper_id": 0,
+      "source_author_id": 0,
+      "ownership_status": 0,
+      "ownership_evidence": 0
+    },
+    "transmission_losses": []
+  }
+}

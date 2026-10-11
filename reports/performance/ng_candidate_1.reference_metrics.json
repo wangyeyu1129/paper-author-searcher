@@ -1,0 +1,1670 @@
+{
+  "schema_version": 1,
+  "matching_rules_version": 2,
+  "pdf_processing_scope": null,
+  "metric_scope": "provisional_reference_not_human_ground_truth",
+  "formal_metrics": false,
+  "ground_truth_fingerprint": "8042051db375b42623468fdd2b5be0e3bf99033b00fa0c6bceebf67394f3de11",
+  "reference_metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "prepared_at": "2026-10-11T14:28:42.188462+00:00",
+    "professor_name": "Andrew Ng",
+    "scope": "Explicit input bibliography pages; not a complete professor bibliography",
+    "provenance": "Citation metadata extracted from public source pages; not human adjudication"
+  },
+  "metrics": {
+    "paper_discovery_recall": {
+      "numerator": 0,
+      "denominator": 7,
+      "rate": 0.0,
+      "available": true
+    },
+    "verified_paper_recall": {
+      "numerator": 0,
+      "denominator": 7,
+      "rate": 0.0,
+      "available": true
+    },
+    "author_match_precision": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "available": true
+    },
+    "author_decision_accuracy": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "available": true
+    },
+    "author_decision_coverage": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "available": true
+    },
+    "validated_pdf_url_coverage": {
+      "numerator": 0,
+      "denominator": 7,
+      "rate": null,
+      "available": false
+    },
+    "validated_pdf_url_rate_among_processed": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "available": false
+    },
+    "actual_download_coverage": {
+      "numerator": 0,
+      "denominator": 7,
+      "rate": null,
+      "available": false
+    },
+    "actual_download_success_rate": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "available": false
+    },
+    "download_format_success_rate": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "available": false
+    }
+  },
+  "recall_target": {
+    "target": 0.8,
+    "formally_met": false
+  },
+  "ownership_evaluation": {
+    "schema_version": 1,
+    "metric_scope": "unique_adjudicated_ground_truth_publications",
+    "complete_positive_list": false,
+    "ground_truth": {
+      "positive_publications": 7,
+      "negative_publications": 0,
+      "closed_world_inferred_negatives": 0,
+      "uncertain_publications": 0,
+      "metadata": {
+        "annotation_state": "pending_human_review",
+        "reviewer": "",
+        "reviewed_at": "",
+        "prepared_at": "2026-10-11T14:28:42.188462+00:00",
+        "professor_name": "Andrew Ng",
+        "scope": "Explicit input bibliography pages; not a complete professor bibliography",
+        "provenance": "Citation metadata extracted from public source pages; not human adjudication"
+      }
+    },
+    "ownership": {
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 7,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0,
+      "entry_count": 0,
+      "unjudged_entries": 0
+    },
+    "all_candidates": {
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 7,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "by_status": {
+      "verified": {
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 7,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "entry_count": 0,
+        "unjudged_entries": 0
+      },
+      "needs_review": {
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 7,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "entry_count": 13,
+        "unjudged_entries": 13
+      },
+      "rejected": {
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 7,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "entry_count": 0,
+        "unjudged_entries": 0
+      }
+    },
+    "rejection_precision": null,
+    "deduplication": {
+      "true_duplicate_pairs_merged": 0,
+      "different_publication_pairs_merged": 0,
+      "true_duplicate_pairs_missed": 0,
+      "pairwise_precision": null,
+      "pairwise_recall": null,
+      "pairwise_f1": null,
+      "assessed_records": 0,
+      "total_retained_records": 13,
+      "annotation_coverage": 0.0,
+      "incorrect_merges": [],
+      "missed_duplicates": []
+    },
+    "false_positives": [],
+    "false_negatives": {
+      "all_candidates": [
+        {
+          "evaluation_id": "reference-1a39b86c54d36dc7",
+          "ground_truth": {
+            "evaluation_id": "reference-1a39b86c54d36dc7",
+            "ownership": "belongs",
+            "proposed_ownership": "belongs",
+            "annotation_status": "pending_human_review",
+            "title": "Semi-Supervised Recursive Autoencoders for Predicting Sentiment Distributions",
+            "authors": [
+              "Richard Socher",
+              "Jeffrey Pennington",
+              "Eric H. Huang",
+              "Andrew Y. Ng",
+              "Christopher D. Manning"
+            ],
+            "year": 2011,
+            "annotation_evidence": [
+              "Public publisher/preprint citation metadata: https://aclanthology.org/D11-1014/",
+              "Bibliography/source context: Andrew Ng's public bibliography, Semi-Supervised Recursive Autoencoders for Predicting Sentiment Distributions"
+            ],
+            "reference_url": "https://aclanthology.org/D11-1014/",
+            "observed_pdf_links": [
+              "https://aclanthology.org/D11-1014.pdf"
+            ],
+            "original_authors": [
+              "Richard Socher",
+              "Jeffrey Pennington",
+              "Eric H. Huang",
+              "Andrew Y. Ng",
+              "Christopher D. Manning"
+            ]
+          },
+          "reason": "No confirmed retrieval match",
+          "retrieved_entries": [],
+          "unresolved_matches": []
+        },
+        {
+          "evaluation_id": "reference-2e556b5167f441ce",
+          "ground_truth": {
+            "evaluation_id": "reference-2e556b5167f441ce",
+            "ownership": "belongs",
+            "proposed_ownership": "belongs",
+            "annotation_status": "pending_human_review",
+            "title": "An Analysis of Single-Layer Networks in Unsupervised Feature Learning",
+            "authors": [
+              "Adam Coates",
+              "Andrew Ng",
+              "Honglak Lee"
+            ],
+            "year": 2011,
+            "annotation_evidence": [
+              "Public publisher/preprint citation metadata: https://proceedings.mlr.press/v15/coates11a.html",
+              "Bibliography/source context: Andrew Ng's public bibliography https://ai.stanford.edu/~ang/papers.php"
+            ],
+            "reference_url": "https://proceedings.mlr.press/v15/coates11a.html",
+            "observed_pdf_links": [
+              "http://proceedings.mlr.press/v15/coates11a/coates11a.pdf"
+            ],
+            "original_authors": [
+              "Adam Coates",
+              "Andrew Ng",
+              "Honglak Lee"
+            ]
+          },
+          "reason": "No confirmed retrieval match",
+          "retrieved_entries": [],
+          "unresolved_matches": []
+        },
+        {
+          "evaluation_id": "reference-41b5fab515acedc6",
+          "ground_truth": {
+            "evaluation_id": "reference-41b5fab515acedc6",
+            "ownership": "belongs",
+            "proposed_ownership": "belongs",
+            "annotation_status": "pending_human_review",
+            "title": "Learning Word Vectors for Sentiment Analysis",
+            "authors": [
+              "Andrew Maas",
+              "Raymond E. Daly",
+              "Peter T. Pham",
+              "Dan Huang",
+              "Andrew Y. Ng",
+              "Christopher Potts"
+            ],
+            "year": 2011,
+            "annotation_evidence": [
+              "Public publisher/preprint citation metadata: https://aclanthology.org/P11-1015/",
+              "Bibliography/source context: Andrew Ng's public bibliography, Learning Word Vectors for Sentiment Analysis"
+            ],
+            "reference_url": "https://aclanthology.org/P11-1015/",
+            "observed_pdf_links": [
+              "https://aclanthology.org/P11-1015.pdf"
+            ],
+            "original_authors": [
+              "Andrew Maas",
+              "Raymond E. Daly",
+              "Peter T. Pham",
+              "Dan Huang",
+              "Andrew Y. Ng",
+              "Christopher Potts"
+            ]
+          },
+          "reason": "No confirmed retrieval match",
+          "retrieved_entries": [],
+          "unresolved_matches": []
+        },
+        {
+          "evaluation_id": "reference-6644786bd85cef52",
+          "ground_truth": {
+            "evaluation_id": "reference-6644786bd85cef52",
+            "ownership": "belongs",
+            "proposed_ownership": "belongs",
+            "annotation_status": "pending_human_review",
+            "title": "Learning Factor Graphs in Polynomial Time and Sample Complexity",
+            "authors": [
+              "Pieter Abbeel",
+              "Daphne Koller",
+              "Andrew Y. Ng"
+            ],
+            "year": 2006,
+            "annotation_evidence": [
+              "Public publisher/preprint citation metadata: https://jmlr.org/papers/v7/abbeel06a.html",
+              "Bibliography/source context: Author public journal paper, Learning Factor Graphs in Polynomial Time and Sample Complexity"
+            ],
+            "reference_url": "https://jmlr.org/papers/v7/abbeel06a.html",
+            "observed_pdf_links": [
+              "http://jmlr.org/papers/volume7/abbeel06a/abbeel06a.pdf"
+            ],
+            "original_authors": [
+              "Pieter Abbeel",
+              "Daphne Koller",
+              "Andrew Y. Ng"
+            ]
+          },
+          "reason": "No confirmed retrieval match",
+          "retrieved_entries": [],
+          "unresolved_matches": []
+        },
+        {
+          "evaluation_id": "reference-7d329a10b7269081",
+          "ground_truth": {
+            "evaluation_id": "reference-7d329a10b7269081",
+            "ownership": "belongs",
+            "proposed_ownership": "belongs",
+            "annotation_status": "pending_human_review",
+            "title": "Building high-level features using large scale unsupervised learning",
+            "authors": [
+              "Quoc V. Le",
+              "Marc'Aurelio Ranzato",
+              "Rajat Monga",
+              "Matthieu Devin",
+              "Kai Chen",
+              "Greg S. Corrado",
+              "Jeff Dean",
+              "Andrew Y. Ng"
+            ],
+            "year": 2011,
+            "external_ids": {
+              "arxiv": "1112.6209"
+            },
+            "annotation_evidence": [
+              "Public publisher/preprint citation metadata: https://arxiv.org/abs/1112.6209",
+              "Bibliography/source context: Andrew Ng's public bibliography, Building High-level Features Using Large Scale Unsupervised Learning"
+            ],
+            "reference_url": "https://arxiv.org/abs/1112.6209",
+            "observed_pdf_links": [
+              "https://arxiv.org/pdf/1112.6209"
+            ],
+            "original_authors": [
+              "Le, Quoc V.",
+              "Ranzato, Marc'Aurelio",
+              "Monga, Rajat",
+              "Devin, Matthieu",
+              "Chen, Kai",
+              "Corrado, Greg S.",
+              "Dean, Jeff",
+              "Ng, Andrew Y."
+            ]
+          },
+          "reason": "No confirmed retrieval match",
+          "retrieved_entries": [],
+          "unresolved_matches": []
+        },
+        {
+          "evaluation_id": "reference-995e5f4a568f6046",
+          "ground_truth": {
+            "evaluation_id": "reference-995e5f4a568f6046",
+            "ownership": "belongs",
+            "proposed_ownership": "belongs",
+            "annotation_status": "pending_human_review",
+            "title": "Semantic Compositionality through Recursive Matrix-Vector Spaces",
+            "authors": [
+              "Richard Socher",
+              "Brody Huval",
+              "Christopher D. Manning",
+              "Andrew Y. Ng"
+            ],
+            "year": 2012,
+            "annotation_evidence": [
+              "Public publisher/preprint citation metadata: https://aclanthology.org/D12-1110/",
+              "Bibliography/source context: Andrew Ng's public bibliography, Semantic Compositionality through Recursive Matrix-Vector Spaces"
+            ],
+            "reference_url": "https://aclanthology.org/D12-1110/",
+            "observed_pdf_links": [
+              "https://aclanthology.org/D12-1110.pdf"
+            ],
+            "original_authors": [
+              "Richard Socher",
+              "Brody Huval",
+              "Christopher D. Manning",
+              "Andrew Y. Ng"
+            ]
+          },
+          "reason": "No confirmed retrieval match",
+          "retrieved_entries": [],
+          "unresolved_matches": []
+        },
+        {
+          "evaluation_id": "reference-a25a46ba0cd25a8e",
+          "ground_truth": {
+            "evaluation_id": "reference-a25a46ba0cd25a8e",
+            "ownership": "belongs",
+            "proposed_ownership": "belongs",
+            "annotation_status": "pending_human_review",
+            "title": "Latent Dirichlet Allocation",
+            "authors": [
+              "David M. Blei",
+              "Andrew Y. Ng",
+              "Michael I. Jordan"
+            ],
+            "year": 2003,
+            "annotation_evidence": [
+              "Public publisher/preprint citation metadata: https://jmlr.org/papers/v3/blei03a.html",
+              "Bibliography/source context: Author publication, Latent Dirichlet Allocation"
+            ],
+            "reference_url": "https://jmlr.org/papers/v3/blei03a.html",
+            "observed_pdf_links": [
+              "http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf"
+            ],
+            "original_authors": [
+              "Blei, David M.",
+              "Ng, Andrew Y.",
+              "Jordan, Michael I."
+            ]
+          },
+          "reason": "No confirmed retrieval match",
+          "retrieved_entries": [],
+          "unresolved_matches": []
+        }
+      ],
+      "verified": [
+        {
+          "evaluation_id": "reference-1a39b86c54d36dc7",
+          "ground_truth": {
+            "evaluation_id": "reference-1a39b86c54d36dc7",
+            "ownership": "belongs",
+            "proposed_ownership": "belongs",
+            "annotation_status": "pending_human_review",
+            "title": "Semi-Supervised Recursive Autoencoders for Predicting Sentiment Distributions",
+            "authors": [
+              "Richard Socher",
+              "Jeffrey Pennington",
+              "Eric H. Huang",
+              "Andrew Y. Ng",
+              "Christopher D. Manning"
+            ],
+            "year": 2011,
+            "annotation_evidence": [
+              "Public publisher/preprint citation metadata: https://aclanthology.org/D11-1014/",
+              "Bibliography/source context: Andrew Ng's public bibliography, Semi-Supervised Recursive Autoencoders for Predicting Sentiment Distributions"
+            ],
+            "reference_url": "https://aclanthology.org/D11-1014/",
+            "observed_pdf_links": [
+              "https://aclanthology.org/D11-1014.pdf"
+            ],
+            "original_authors": [
+              "Richard Socher",
+              "Jeffrey Pennington",
+              "Eric H. Huang",
+              "Andrew Y. Ng",
+              "Christopher D. Manning"
+            ]
+          },
+          "reason": "No confirmed retrieval match",
+          "retrieved_entries": [],
+          "unresolved_matches": []
+        },
+        {
+          "evaluation_id": "reference-2e556b5167f441ce",
+          "ground_truth": {
+            "evaluation_id": "reference-2e556b5167f441ce",
+            "ownership": "belongs",
+            "proposed_ownership": "belongs",
+            "annotation_status": "pending_human_review",
+            "title": "An Analysis of Single-Layer Networks in Unsupervised Feature Learning",
+            "authors": [
+              "Adam Coates",
+              "Andrew Ng",
+              "Honglak Lee"
+            ],
+            "year": 2011,
+            "annotation_evidence": [
+              "Public publisher/preprint citation metadata: https://proceedings.mlr.press/v15/coates11a.html",
+              "Bibliography/source context: Andrew Ng's public bibliography https://ai.stanford.edu/~ang/papers.php"
+            ],
+            "reference_url": "https://proceedings.mlr.press/v15/coates11a.html",
+            "observed_pdf_links": [
+              "http://proceedings.mlr.press/v15/coates11a/coates11a.pdf"
+            ],
+            "original_authors": [
+              "Adam Coates",
+              "Andrew Ng",
+              "Honglak Lee"
+            ]
+          },
+          "reason": "No confirmed retrieval match",
+          "retrieved_entries": [],
+          "unresolved_matches": []
+        },
+        {
+          "evaluation_id": "reference-41b5fab515acedc6",
+          "ground_truth": {
+            "evaluation_id": "reference-41b5fab515acedc6",
+            "ownership": "belongs",
+            "proposed_ownership": "belongs",
+            "annotation_status": "pending_human_review",
+            "title": "Learning Word Vectors for Sentiment Analysis",
+            "authors": [
+              "Andrew Maas",
+              "Raymond E. Daly",
+              "Peter T. Pham",
+              "Dan Huang",
+              "Andrew Y. Ng",
+              "Christopher Potts"
+            ],
+            "year": 2011,
+            "annotation_evidence": [
+              "Public publisher/preprint citation metadata: https://aclanthology.org/P11-1015/",
+              "Bibliography/source context: Andrew Ng's public bibliography, Learning Word Vectors for Sentiment Analysis"
+            ],
+            "reference_url": "https://aclanthology.org/P11-1015/",
+            "observed_pdf_links": [
+              "https://aclanthology.org/P11-1015.pdf"
+            ],
+            "original_authors": [
+              "Andrew Maas",
+              "Raymond E. Daly",
+              "Peter T. Pham",
+              "Dan Huang",
+              "Andrew Y. Ng",
+              "Christopher Potts"
+            ]
+          },
+          "reason": "No confirmed retrieval match",
+          "retrieved_entries": [],
+          "unresolved_matches": []
+        },
+        {
+          "evaluation_id": "reference-6644786bd85cef52",
+          "ground_truth": {
+            "evaluation_id": "reference-6644786bd85cef52",
+            "ownership": "belongs",
+            "proposed_ownership": "belongs",
+            "annotation_status": "pending_human_review",
+            "title": "Learning Factor Graphs in Polynomial Time and Sample Complexity",
+            "authors": [
+              "Pieter Abbeel",
+              "Daphne Koller",
+              "Andrew Y. Ng"
+            ],
+            "year": 2006,
+            "annotation_evidence": [
+              "Public publisher/preprint citation metadata: https://jmlr.org/papers/v7/abbeel06a.html",
+              "Bibliography/source context: Author public journal paper, Learning Factor Graphs in Polynomial Time and Sample Complexity"
+            ],
+            "reference_url": "https://jmlr.org/papers/v7/abbeel06a.html",
+            "observed_pdf_links": [
+              "http://jmlr.org/papers/volume7/abbeel06a/abbeel06a.pdf"
+            ],
+            "original_authors": [
+              "Pieter Abbeel",
+              "Daphne Koller",
+              "Andrew Y. Ng"
+            ]
+          },
+          "reason": "No confirmed retrieval match",
+          "retrieved_entries": [],
+          "unresolved_matches": []
+        },
+        {
+          "evaluation_id": "reference-7d329a10b7269081",
+          "ground_truth": {
+            "evaluation_id": "reference-7d329a10b7269081",
+            "ownership": "belongs",
+            "proposed_ownership": "belongs",
+            "annotation_status": "pending_human_review",
+            "title": "Building high-level features using large scale unsupervised learning",
+            "authors": [
+              "Quoc V. Le",
+              "Marc'Aurelio Ranzato",
+              "Rajat Monga",
+              "Matthieu Devin",
+              "Kai Chen",
+              "Greg S. Corrado",
+              "Jeff Dean",
+              "Andrew Y. Ng"
+            ],
+            "year": 2011,
+            "external_ids": {
+              "arxiv": "1112.6209"
+            },
+            "annotation_evidence": [
+              "Public publisher/preprint citation metadata: https://arxiv.org/abs/1112.6209",
+              "Bibliography/source context: Andrew Ng's public bibliography, Building High-level Features Using Large Scale Unsupervised Learning"
+            ],
+            "reference_url": "https://arxiv.org/abs/1112.6209",
+            "observed_pdf_links": [
+              "https://arxiv.org/pdf/1112.6209"
+            ],
+            "original_authors": [
+              "Le, Quoc V.",
+              "Ranzato, Marc'Aurelio",
+              "Monga, Rajat",
+              "Devin, Matthieu",
+              "Chen, Kai",
+              "Corrado, Greg S.",
+              "Dean, Jeff",
+              "Ng, Andrew Y."
+            ]
+          },
+          "reason": "No confirmed retrieval match",
+          "retrieved_entries": [],
+          "unresolved_matches": []
+        },
+        {
+          "evaluation_id": "reference-995e5f4a568f6046",
+          "ground_truth": {
+            "evaluation_id": "reference-995e5f4a568f6046",
+            "ownership": "belongs",
+            "proposed_ownership": "belongs",
+            "annotation_status": "pending_human_review",
+            "title": "Semantic Compositionality through Recursive Matrix-Vector Spaces",
+            "authors": [
+              "Richard Socher",
+              "Brody Huval",
+              "Christopher D. Manning",
+              "Andrew Y. Ng"
+            ],
+            "year": 2012,
+            "annotation_evidence": [
+              "Public publisher/preprint citation metadata: https://aclanthology.org/D12-1110/",
+              "Bibliography/source context: Andrew Ng's public bibliography, Semantic Compositionality through Recursive Matrix-Vector Spaces"
+            ],
+            "reference_url": "https://aclanthology.org/D12-1110/",
+            "observed_pdf_links": [
+              "https://aclanthology.org/D12-1110.pdf"
+            ],
+            "original_authors": [
+              "Richard Socher",
+              "Brody Huval",
+              "Christopher D. Manning",
+              "Andrew Y. Ng"
+            ]
+          },
+          "reason": "No confirmed retrieval match",
+          "retrieved_entries": [],
+          "unresolved_matches": []
+        },
+        {
+          "evaluation_id": "reference-a25a46ba0cd25a8e",
+          "ground_truth": {
+            "evaluation_id": "reference-a25a46ba0cd25a8e",
+            "ownership": "belongs",
+            "proposed_ownership": "belongs",
+            "annotation_status": "pending_human_review",
+            "title": "Latent Dirichlet Allocation",
+            "authors": [
+              "David M. Blei",
+              "Andrew Y. Ng",
+              "Michael I. Jordan"
+            ],
+            "year": 2003,
+            "annotation_evidence": [
+              "Public publisher/preprint citation metadata: https://jmlr.org/papers/v3/blei03a.html",
+              "Bibliography/source context: Author publication, Latent Dirichlet Allocation"
+            ],
+            "reference_url": "https://jmlr.org/papers/v3/blei03a.html",
+            "observed_pdf_links": [
+              "http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf"
+            ],
+            "original_authors": [
+              "Blei, David M.",
+              "Ng, Andrew Y.",
+              "Jordan, Michael I."
+            ]
+          },
+          "reason": "No confirmed retrieval match",
+          "retrieved_entries": [],
+          "unresolved_matches": []
+        }
+      ]
+    },
+    "manual_confirmation": [
+      {
+        "title": "Deep learning with COTS HPC systems",
+        "year": 2013,
+        "authors": [
+          "Adam Coates",
+          "Brody Huval",
+          "Tao Wang",
+          "David J. Wu",
+          "Bryan Catanzaro",
+          "Andrew Ng"
+        ],
+        "doi": null,
+        "source": "openalex",
+        "source_paper_id": "https://openalex.org/W2162390675",
+        "source_author_id": "A5102617494",
+        "ownership_status": "needs_review",
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ],
+        "deduplication_evidence": [],
+        "related_versions": [],
+        "entry_index": 0,
+        "source_records": [
+          {
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W2162390675",
+            "author_id": "A5102617494",
+            "doi": null,
+            "ownership_status": "needs_review",
+            "ownership_evidence": [
+              "Professor identity unconfirmed; candidate-specific diagnostic only"
+            ]
+          }
+        ],
+        "reasons": [
+          "Ownership validator abstained",
+          "unmatched"
+        ],
+        "ground_truth_matches": [
+          {
+            "record_index": 0,
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W2162390675",
+            "author_id": "A5102617494",
+            "match": {
+              "evaluation_id": null,
+              "candidates": [],
+              "evidence": [
+                "No adjudicated ground-truth match"
+              ],
+              "decision": "unmatched"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Improving palliative care with deep learning",
+        "year": 2017,
+        "authors": [
+          "Anand Avati",
+          "Kenneth Jung",
+          "Stephanie Harman",
+          "Lance Downing",
+          "Andrew Ng",
+          "Nigam H. Shah"
+        ],
+        "doi": "10.1109/bibm.2017.8217669",
+        "source": "openalex",
+        "source_paper_id": "https://openalex.org/W2769265955",
+        "source_author_id": "A5102617494",
+        "ownership_status": "needs_review",
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ],
+        "deduplication_evidence": [],
+        "related_versions": [],
+        "entry_index": 1,
+        "source_records": [
+          {
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W2769265955",
+            "author_id": "A5102617494",
+            "doi": "10.1109/bibm.2017.8217669",
+            "ownership_status": "needs_review",
+            "ownership_evidence": [
+              "Professor identity unconfirmed; candidate-specific diagnostic only"
+            ]
+          }
+        ],
+        "reasons": [
+          "Ownership validator abstained",
+          "unmatched"
+        ],
+        "ground_truth_matches": [
+          {
+            "record_index": 0,
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W2769265955",
+            "author_id": "A5102617494",
+            "match": {
+              "evaluation_id": null,
+              "candidates": [],
+              "evidence": [
+                "No adjudicated ground-truth match"
+              ],
+              "decision": "unmatched"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Comparing Speech and Keyboard Text Entry for Short Messages in Two Languages on Touchscreen Phones",
+        "year": 2018,
+        "authors": [
+          "Sherry Ruan",
+          "Jacob O. Wobbrock",
+          "Kenny Liou",
+          "Andrew Ng",
+          "James A. Landay"
+        ],
+        "doi": "10.1145/3161187",
+        "source": "openalex",
+        "source_paper_id": "https://openalex.org/W2782574535",
+        "source_author_id": "A5102617494",
+        "ownership_status": "needs_review",
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ],
+        "deduplication_evidence": [],
+        "related_versions": [],
+        "entry_index": 2,
+        "source_records": [
+          {
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W2782574535",
+            "author_id": "A5102617494",
+            "doi": "10.1145/3161187",
+            "ownership_status": "needs_review",
+            "ownership_evidence": [
+              "Professor identity unconfirmed; candidate-specific diagnostic only"
+            ]
+          }
+        ],
+        "reasons": [
+          "Ownership validator abstained",
+          "unmatched"
+        ],
+        "ground_truth_matches": [
+          {
+            "record_index": 0,
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W2782574535",
+            "author_id": "A5102617494",
+            "match": {
+              "evaluation_id": null,
+              "candidates": [],
+              "evidence": [
+                "No adjudicated ground-truth match"
+              ],
+              "decision": "unmatched"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Noising and Denoising Natural Language: Diverse Backtranslation for Grammar Correction",
+        "year": 2018,
+        "authors": [
+          "Ziang Xie",
+          "Guillaume Genthial",
+          "Stanley Xie",
+          "Andrew Ng",
+          "Dan Jurafsky"
+        ],
+        "doi": "10.18653/v1/n18-1057",
+        "source": "openalex",
+        "source_paper_id": "https://openalex.org/W2803237843",
+        "source_author_id": "A5102617494",
+        "ownership_status": "needs_review",
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ],
+        "deduplication_evidence": [],
+        "related_versions": [],
+        "entry_index": 3,
+        "source_records": [
+          {
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W2803237843",
+            "author_id": "A5102617494",
+            "doi": "10.18653/v1/n18-1057",
+            "ownership_status": "needs_review",
+            "ownership_evidence": [
+              "Professor identity unconfirmed; candidate-specific diagnostic only"
+            ]
+          }
+        ],
+        "reasons": [
+          "Ownership validator abstained",
+          "unmatched"
+        ],
+        "ground_truth_matches": [
+          {
+            "record_index": 0,
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W2803237843",
+            "author_id": "A5102617494",
+            "match": {
+              "evaluation_id": null,
+              "candidates": [],
+              "evidence": [
+                "No adjudicated ground-truth match"
+              ],
+              "decision": "unmatched"
+            }
+          }
+        ]
+      },
+      {
+        "title": "The online revolution",
+        "year": 2013,
+        "authors": [
+          "Andrew Ng"
+        ],
+        "doi": "10.1145/2505515.2514698",
+        "source": "openalex",
+        "source_paper_id": "https://openalex.org/W2032896204",
+        "source_author_id": "A5102617494",
+        "ownership_status": "needs_review",
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ],
+        "deduplication_evidence": [],
+        "related_versions": [],
+        "entry_index": 4,
+        "source_records": [
+          {
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W2032896204",
+            "author_id": "A5102617494",
+            "doi": "10.1145/2505515.2514698",
+            "ownership_status": "needs_review",
+            "ownership_evidence": [
+              "Professor identity unconfirmed; candidate-specific diagnostic only"
+            ]
+          }
+        ],
+        "reasons": [
+          "Ownership validator abstained",
+          "unmatched"
+        ],
+        "ground_truth_matches": [
+          {
+            "record_index": 0,
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W2032896204",
+            "author_id": "A5102617494",
+            "match": {
+              "evaluation_id": null,
+              "candidates": [],
+              "evidence": [
+                "No adjudicated ground-truth match"
+              ],
+              "decision": "unmatched"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Evaluating and Improving the Effectiveness of Synthetic Chest X-Rays for Medical Image Analysis",
+        "year": 2025,
+        "authors": [
+          "Eva Prakash",
+          "Jeya Maria Jose Valanarasu",
+          "Zhihong Chen",
+          "Eduardo Pontes Reis",
+          "Andrew Johnston",
+          "Anuj Pareek",
+          "Christian Bluethgen",
+          "Sergios Gatidis",
+          "Cameron Olsen",
+          "Akshay Chaudhari",
+          "Andrew Ng",
+          "Curtis Langlotz"
+        ],
+        "doi": "10.1109/iccvw69036.2025.00463",
+        "source": "openalex",
+        "source_paper_id": "https://openalex.org/W7131074691",
+        "source_author_id": "A5102617494",
+        "ownership_status": "needs_review",
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ],
+        "deduplication_evidence": [],
+        "related_versions": [],
+        "entry_index": 5,
+        "source_records": [
+          {
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W7131074691",
+            "author_id": "A5102617494",
+            "doi": "10.1109/iccvw69036.2025.00463",
+            "ownership_status": "needs_review",
+            "ownership_evidence": [
+              "Professor identity unconfirmed; candidate-specific diagnostic only"
+            ]
+          }
+        ],
+        "reasons": [
+          "Ownership validator abstained",
+          "unmatched"
+        ],
+        "ground_truth_matches": [
+          {
+            "record_index": 0,
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W7131074691",
+            "author_id": "A5102617494",
+            "match": {
+              "evaluation_id": null,
+              "candidates": [],
+              "evidence": [
+                "No adjudicated ground-truth match"
+              ],
+              "decision": "unmatched"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Deep Speech 2: End-to-End Speech Recognition in English and Mandarin",
+        "year": 2015,
+        "authors": [
+          "Amodei, Dario",
+          "Anubhai, Rishita",
+          "Battenberg, Eric",
+          "Case, Carl",
+          "Casper, Jared",
+          "Catanzaro, Bryan",
+          "Chen, Jingdong",
+          "Chrzanowski, Mike",
+          "Coates, Adam",
+          "Diamos, Greg",
+          "Elsen, Erich",
+          "Engel, Jesse",
+          "Fan, Linxi",
+          "Fougner, Christopher",
+          "Han, Tony",
+          "Hannun, Awni",
+          "Jun, Billy",
+          "LeGresley, Patrick",
+          "Lin, Libby",
+          "Narang, Sharan",
+          "Ng, Andrew",
+          "Ozair, Sherjil",
+          "Prenger, Ryan",
+          "Raiman, Jonathan",
+          "Satheesh, Sanjeev",
+          "Seetapun, David",
+          "Sengupta, Shubho",
+          "Wang, Yi",
+          "Wang, Zhiqian",
+          "Wang, Chong",
+          "Xiao, Bo",
+          "Yogatama, Dani",
+          "Zhan, Jun",
+          "Zhu, Zhenyao"
+        ],
+        "doi": "10.48550/arxiv.1512.02595",
+        "source": "openalex",
+        "source_paper_id": "https://openalex.org/W2193413348",
+        "source_author_id": "A5102617494",
+        "ownership_status": "needs_review",
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ],
+        "deduplication_evidence": [],
+        "related_versions": [],
+        "entry_index": 6,
+        "source_records": [
+          {
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W2193413348",
+            "author_id": "A5102617494",
+            "doi": "10.48550/arxiv.1512.02595",
+            "ownership_status": "needs_review",
+            "ownership_evidence": [
+              "Professor identity unconfirmed; candidate-specific diagnostic only"
+            ]
+          }
+        ],
+        "reasons": [
+          "Ownership validator abstained",
+          "unmatched"
+        ],
+        "ground_truth_matches": [
+          {
+            "record_index": 0,
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W2193413348",
+            "author_id": "A5102617494",
+            "match": {
+              "evaluation_id": null,
+              "candidates": [],
+              "evidence": [
+                "No adjudicated ground-truth match"
+              ],
+              "decision": "unmatched"
+            }
+          }
+        ]
+      },
+      {
+        "title": "The online revolution",
+        "year": 2013,
+        "authors": [
+          "Andrew Ng",
+          "Daphne Koller"
+        ],
+        "doi": "10.1145/2487575.2492148",
+        "source": "openalex",
+        "source_paper_id": "https://openalex.org/W2060235855",
+        "source_author_id": "A5102617494",
+        "ownership_status": "needs_review",
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ],
+        "deduplication_evidence": [],
+        "related_versions": [],
+        "entry_index": 7,
+        "source_records": [
+          {
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W2060235855",
+            "author_id": "A5102617494",
+            "doi": "10.1145/2487575.2492148",
+            "ownership_status": "needs_review",
+            "ownership_evidence": [
+              "Professor identity unconfirmed; candidate-specific diagnostic only"
+            ]
+          }
+        ],
+        "reasons": [
+          "Ownership validator abstained",
+          "unmatched"
+        ],
+        "ground_truth_matches": [
+          {
+            "record_index": 0,
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W2060235855",
+            "author_id": "A5102617494",
+            "match": {
+              "evaluation_id": null,
+              "candidates": [],
+              "evidence": [
+                "No adjudicated ground-truth match"
+              ],
+              "decision": "unmatched"
+            }
+          }
+        ]
+      },
+      {
+        "title": "MEthane Tracking Emissions Reference (METER): A global database of methane-emitting infrastructure",
+        "year": 2026,
+        "authors": [
+          "Robert B. Jackson",
+          "Jeremy A. Irvin",
+          "Neel Ramachandran",
+          "Chenghao Wang",
+          "Zutao Ouyang",
+          "Paul A. Tulloch",
+          "Frankie Y. Liu",
+          "Andrew Y. Ng"
+        ],
+        "doi": "10.5194/essd-2026-124",
+        "source": "openalex",
+        "source_paper_id": "https://openalex.org/W7131267054",
+        "source_author_id": "A5102617494",
+        "ownership_status": "needs_review",
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ],
+        "deduplication_evidence": [],
+        "related_versions": [],
+        "entry_index": 8,
+        "source_records": [
+          {
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W7131267054",
+            "author_id": "A5102617494",
+            "doi": "10.5194/essd-2026-124",
+            "ownership_status": "needs_review",
+            "ownership_evidence": [
+              "Professor identity unconfirmed; candidate-specific diagnostic only"
+            ]
+          }
+        ],
+        "reasons": [
+          "Ownership validator abstained",
+          "unmatched"
+        ],
+        "ground_truth_matches": [
+          {
+            "record_index": 0,
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W7131267054",
+            "author_id": "A5102617494",
+            "match": {
+              "evaluation_id": null,
+              "candidates": [],
+              "evidence": [
+                "No adjudicated ground-truth match"
+              ],
+              "decision": "unmatched"
+            }
+          }
+        ]
+      },
+      {
+        "title": "A Concept for an Integrated Cyber-Physical Modular Production System: A Step Towards Process Industry 4.0",
+        "year": 2024,
+        "authors": [
+          "Andrew Ng",
+          "Maryanne Toh",
+          "Gabriel Loh",
+          "Wilhelm Otten"
+        ],
+        "doi": "10.2139/ssrn.4866784",
+        "source": "openalex",
+        "source_paper_id": "https://openalex.org/W4399698758",
+        "source_author_id": "A5102617494",
+        "ownership_status": "needs_review",
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ],
+        "deduplication_evidence": [],
+        "related_versions": [],
+        "entry_index": 9,
+        "source_records": [
+          {
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W4399698758",
+            "author_id": "A5102617494",
+            "doi": "10.2139/ssrn.4866784",
+            "ownership_status": "needs_review",
+            "ownership_evidence": [
+              "Professor identity unconfirmed; candidate-specific diagnostic only"
+            ]
+          }
+        ],
+        "reasons": [
+          "Ownership validator abstained",
+          "unmatched"
+        ],
+        "ground_truth_matches": [
+          {
+            "record_index": 0,
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W4399698758",
+            "author_id": "A5102617494",
+            "match": {
+              "evaluation_id": null,
+              "candidates": [],
+              "evidence": [
+                "No adjudicated ground-truth match"
+              ],
+              "decision": "unmatched"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Right Patient, Right Specialist, Right Time: Retrieval Augmented Generation for Specialty Referral Routing.",
+        "year": 2024,
+        "authors": [
+          "Fateme Nateghi Haredasht",
+          "Ethan Goh",
+          "Vishnu Ravi",
+          "Pooya Ashtari",
+          "Yixing Jiang",
+          "Nodir Yuldashev",
+          "François Grolleau",
+          "Robert J Gallo",
+          "Aaryan Shah",
+          "Evelyn Hur",
+          "Kanav Chopra",
+          "Olivia Jee",
+          "Julie J Lee",
+          "Leah Rosengaus",
+          "Lena Giang",
+          "Kevin Schulman",
+          "Jason Hom",
+          "Arnold Milstein",
+          "Andrew Y Ng",
+          "Jonathan H Chen"
+        ],
+        "doi": null,
+        "source": "openalex",
+        "source_paper_id": "https://openalex.org/W7131191127",
+        "source_author_id": "A5102617494",
+        "ownership_status": "needs_review",
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ],
+        "deduplication_evidence": [],
+        "related_versions": [],
+        "entry_index": 10,
+        "source_records": [
+          {
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W7131191127",
+            "author_id": "A5102617494",
+            "doi": null,
+            "ownership_status": "needs_review",
+            "ownership_evidence": [
+              "Professor identity unconfirmed; candidate-specific diagnostic only"
+            ]
+          }
+        ],
+        "reasons": [
+          "Ownership validator abstained",
+          "unmatched"
+        ],
+        "ground_truth_matches": [
+          {
+            "record_index": 0,
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W7131191127",
+            "author_id": "A5102617494",
+            "match": {
+              "evaluation_id": null,
+              "candidates": [],
+              "evidence": [
+                "No adjudicated ground-truth match"
+              ],
+              "decision": "unmatched"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Comment on essd-2026-124",
+        "year": 2026,
+        "authors": [
+          "Jackson, Robert B.",
+          "Irvin, Jeremy A.",
+          "Ramachandran, Neel",
+          "Wang, Chenghao",
+          "Ouyang, Zutao",
+          "Tulloch, Paul A.",
+          "Liu, Frankie Y.",
+          "Ng, Andrew Y."
+        ],
+        "doi": "10.5194/essd-2026-124-rc1",
+        "source": "openalex",
+        "source_paper_id": "https://openalex.org/W7148775004",
+        "source_author_id": "A5102617494",
+        "ownership_status": "needs_review",
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ],
+        "deduplication_evidence": [],
+        "related_versions": [],
+        "entry_index": 11,
+        "source_records": [
+          {
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W7148775004",
+            "author_id": "A5102617494",
+            "doi": "10.5194/essd-2026-124-rc1",
+            "ownership_status": "needs_review",
+            "ownership_evidence": [
+              "Professor identity unconfirmed; candidate-specific diagnostic only"
+            ]
+          }
+        ],
+        "reasons": [
+          "Ownership validator abstained",
+          "unmatched"
+        ],
+        "ground_truth_matches": [
+          {
+            "record_index": 0,
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W7148775004",
+            "author_id": "A5102617494",
+            "match": {
+              "evaluation_id": null,
+              "candidates": [],
+              "evidence": [
+                "No adjudicated ground-truth match"
+              ],
+              "decision": "unmatched"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Prefix Sliding for efficient test-time scaling",
+        "year": 2026,
+        "authors": [
+          "Muennighoff, Niklas",
+          "Wang, Zhengyang",
+          "Chen, Zeyi",
+          "Shi, Weijia",
+          "Hui, Binyuan",
+          "Yang, John",
+          "Jiang, Dapeng",
+          "Senghaas, Mika",
+          "Obeid, Fares",
+          "Hagemann, Johannes",
+          "Jaghouar, Sami",
+          "Schmidt, Ludwig",
+          "Liang, Percy",
+          "Wei, Jason",
+          "Ng, Andrew Y.",
+          "Zettlemoyer, Luke",
+          "Choi, Yejin",
+          "Lewis, Mike"
+        ],
+        "doi": "10.48550/arxiv.2608.26070",
+        "source": "openalex",
+        "source_paper_id": "https://openalex.org/W7204470690",
+        "source_author_id": "A5102617494",
+        "ownership_status": "needs_review",
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ],
+        "deduplication_evidence": [],
+        "related_versions": [],
+        "entry_index": 12,
+        "source_records": [
+          {
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W7204470690",
+            "author_id": "A5102617494",
+            "doi": "10.48550/arxiv.2608.26070",
+            "ownership_status": "needs_review",
+            "ownership_evidence": [
+              "Professor identity unconfirmed; candidate-specific diagnostic only"
+            ]
+          }
+        ],
+        "reasons": [
+          "Ownership validator abstained",
+          "unmatched"
+        ],
+        "ground_truth_matches": [
+          {
+            "record_index": 0,
+            "source": "openalex",
+            "paper_id": "https://openalex.org/W7204470690",
+            "author_id": "A5102617494",
+            "match": {
+              "evaluation_id": null,
+              "candidates": [],
+              "evidence": [
+                "No adjudicated ground-truth match"
+              ],
+              "decision": "unmatched"
+            }
+          }
+        ]
+      }
+    ],
+    "judgment_coverage": {
+      "total_entries": 13,
+      "entries_with_scored_ownership": 0,
+      "unjudged_entries": 13,
+      "matched_positive_truth_fraction": 0.0
+    },
+    "status_conflicts": [],
+    "professor_resolver": {
+      "available": false,
+      "reason": "No human-verified professor Author IDs supplied"
+    },
+    "retrieval": {
+      "available": true,
+      "complete": true,
+      "sources": [
+        {
+          "source": "openalex",
+          "author_id": "A5102617494",
+          "complete": true,
+          "pages_fetched": 1,
+          "records_received": 13,
+          "rejected_records": [],
+          "error": null,
+          "pagination_complete": true,
+          "metadata_errors": [],
+          "ownership_counts": {
+            "verified": 0,
+            "needs_review": 13,
+            "rejected": 0
+          },
+          "fetch_status": "complete"
+        }
+      ],
+      "unparsed_records": 0
+    },
+    "notes": [
+      "No ownership or deduplication rules were rerun or tuned.",
+      "Uncertain, conflicting or insufficient metadata is excluded from scored decisions.",
+      "Recall is relative to the imported positive list; completeness requires human declaration.",
+      "Per-status precision is positive ownership yield; rejection_precision measures correct rejection.",
+      "A work with conflicting statuses counts as verified if any entry is verified; conflicts are reported.",
+      "Candidate metrics cover retained parsed records; unparsed source records are reported separately."
+    ]
+  },
+  "needs_review_diagnostics": {
+    "needs_review_entries": 13,
+    "reason_counts": {
+      "missing_target_orcid": 13,
+      "professor_identity_unconfirmed": 13,
+      "missing_paper_level_affiliation": 2,
+      "nonstandard_or_conflicting_publication_type": 1
+    },
+    "papers": [
+      {
+        "entry_index": 0,
+        "title": "Deep learning with COTS HPC systems",
+        "doi": null,
+        "reason_codes": [
+          "missing_target_orcid",
+          "professor_identity_unconfirmed"
+        ],
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ]
+      },
+      {
+        "entry_index": 1,
+        "title": "Improving palliative care with deep learning",
+        "doi": "10.1109/bibm.2017.8217669",
+        "reason_codes": [
+          "missing_target_orcid",
+          "professor_identity_unconfirmed"
+        ],
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ]
+      },
+      {
+        "entry_index": 2,
+        "title": "Comparing Speech and Keyboard Text Entry for Short Messages in Two Languages on Touchscreen Phones",
+        "doi": "10.1145/3161187",
+        "reason_codes": [
+          "missing_target_orcid",
+          "professor_identity_unconfirmed"
+        ],
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ]
+      },
+      {
+        "entry_index": 3,
+        "title": "Noising and Denoising Natural Language: Diverse Backtranslation for Grammar Correction",
+        "doi": "10.18653/v1/n18-1057",
+        "reason_codes": [
+          "missing_target_orcid",
+          "professor_identity_unconfirmed"
+        ],
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ]
+      },
+      {
+        "entry_index": 4,
+        "title": "The online revolution",
+        "doi": "10.1145/2505515.2514698",
+        "reason_codes": [
+          "missing_target_orcid",
+          "professor_identity_unconfirmed"
+        ],
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ]
+      },
+      {
+        "entry_index": 5,
+        "title": "Evaluating and Improving the Effectiveness of Synthetic Chest X-Rays for Medical Image Analysis",
+        "doi": "10.1109/iccvw69036.2025.00463",
+        "reason_codes": [
+          "missing_target_orcid",
+          "professor_identity_unconfirmed"
+        ],
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ]
+      },
+      {
+        "entry_index": 6,
+        "title": "Deep Speech 2: End-to-End Speech Recognition in English and Mandarin",
+        "doi": "10.48550/arxiv.1512.02595",
+        "reason_codes": [
+          "missing_paper_level_affiliation",
+          "missing_target_orcid",
+          "professor_identity_unconfirmed"
+        ],
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ]
+      },
+      {
+        "entry_index": 7,
+        "title": "The online revolution",
+        "doi": "10.1145/2487575.2492148",
+        "reason_codes": [
+          "missing_target_orcid",
+          "professor_identity_unconfirmed"
+        ],
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ]
+      },
+      {
+        "entry_index": 8,
+        "title": "MEthane Tracking Emissions Reference (METER): A global database of methane-emitting infrastructure",
+        "doi": "10.5194/essd-2026-124",
+        "reason_codes": [
+          "missing_target_orcid",
+          "professor_identity_unconfirmed"
+        ],
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ]
+      },
+      {
+        "entry_index": 9,
+        "title": "A Concept for an Integrated Cyber-Physical Modular Production System: A Step Towards Process Industry 4.0",
+        "doi": "10.2139/ssrn.4866784",
+        "reason_codes": [
+          "missing_paper_level_affiliation",
+          "missing_target_orcid",
+          "professor_identity_unconfirmed"
+        ],
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ]
+      },
+      {
+        "entry_index": 10,
+        "title": "Right Patient, Right Specialist, Right Time: Retrieval Augmented Generation for Specialty Referral Routing.",
+        "doi": null,
+        "reason_codes": [
+          "missing_target_orcid",
+          "professor_identity_unconfirmed"
+        ],
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ]
+      },
+      {
+        "entry_index": 11,
+        "title": "Comment on essd-2026-124",
+        "doi": "10.5194/essd-2026-124-rc1",
+        "reason_codes": [
+          "missing_target_orcid",
+          "nonstandard_or_conflicting_publication_type",
+          "professor_identity_unconfirmed"
+        ],
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ]
+      },
+      {
+        "entry_index": 12,
+        "title": "Prefix Sliding for efficient test-time scaling",
+        "doi": "10.48550/arxiv.2608.26070",
+        "reason_codes": [
+          "missing_target_orcid",
+          "professor_identity_unconfirmed"
+        ],
+        "ownership_evidence": [
+          "Professor identity unconfirmed; candidate-specific diagnostic only"
+        ]
+      }
+    ],
+    "count_note": "Reason categories overlap; these are observed evidence gaps, not new ownership decisions."
+  },
+  "pdf_failure_reason_counts": {},
+  "unavailable_or_unconfirmed_papers": [],
+  "unchecked_local_files": [],
+  "publication_ids": {
+    "discovered": [],
+    "pdf_url_verified": [],
+    "download_attempted": [],
+    "download_content_verified": []
+  },
+  "notes": [
+    "Recall covers the supplied reference scope, never all publications without a complete human list.",
+    "Author accuracy excludes abstentions, unjudged entries and status conflicts; coverage is reported separately.",
+    "PDF URL verification is not a successful download.",
+    "Download success requires prior format/content verification AND a current local file size/SHA-256 check.",
+    "Failure categories can overlap; skipped/unprocessed entries are not download failures."
+  ]
+}

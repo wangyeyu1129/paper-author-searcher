@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "prepared_at": "2026-10-11T14:28:38.858325+00:00",
+    "professor_name": "Geoffrey Hinton",
+    "scope": "Explicit input bibliography pages; not a complete professor bibliography",
+    "provenance": "Citation metadata extracted from public source pages; not human adjudication"
+  },
+  "papers": [
+    {
+      "evaluation_id": "reference-3fd0bc19a9f16679",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Visualizing Data using t-SNE",
+      "authors": [
+        "Laurens van der Maaten",
+        "Geoffrey Hinton"
+      ],
+      "year": 2008,
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://jmlr.org/papers/v9/vandermaaten08a.html",
+        "Bibliography/source context: Hinton's public bibliography https://www.cs.toronto.edu/~hinton/papers.html"
+      ],
+      "reference_url": "https://jmlr.org/papers/v9/vandermaaten08a.html",
+      "observed_pdf_links": [
+        "http://jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf"
+      ],
+      "original_authors": [
+        "Laurens van der Maaten",
+        "Geoffrey Hinton"
+      ]
+    },
+    {
+      "evaluation_id": "reference-1cf15f580d3b4f30",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Dropout: A Simple Way to Prevent Neural Networks from Overfitting",
+      "authors": [
+        "Nitish Srivastava",
+        "Geoffrey Hinton",
+        "Alex Krizhevsky",
+        "Ilya Sutskever",
+        "Ruslan Salakhutdinov"
+      ],
+      "year": 2014,
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://jmlr.org/papers/v15/srivastava14a.html",
+        "Bibliography/source context: Hinton's public bibliography https://www.cs.toronto.edu/~hinton/papers.html"
+      ],
+      "reference_url": "https://jmlr.org/papers/v15/srivastava14a.html",
+      "observed_pdf_links": [
+        "http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf"
+      ],
+      "original_authors": [
+        "Nitish Srivastava",
+        "Geoffrey Hinton",
+        "Alex Krizhevsky",
+        "Ilya Sutskever",
+        "Ruslan Salakhutdinov"
+      ]
+    },
+    {
+      "evaluation_id": "reference-c31cb77e5fcfeb11",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Distilling the Knowledge in a Neural Network",
+      "authors": [
+        "Geoffrey Hinton",
+        "Oriol Vinyals",
+        "Jeff Dean"
+      ],
+      "year": 2015,
+      "external_ids": {
+        "arxiv": "1503.02531"
+      },
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://arxiv.org/abs/1503.02531",
+        "Bibliography/source context: Hinton's public bibliography, 2015 distillation preprint"
+      ],
+      "reference_url": "https://arxiv.org/abs/1503.02531",
+      "observed_pdf_links": [
+        "https://arxiv.org/pdf/1503.02531"
+      ],
+      "original_authors": [
+        "Hinton, Geoffrey",
+        "Vinyals, Oriol",
+        "Dean, Jeff"
+      ]
+    },
+    {
+      "evaluation_id": "reference-c524b11b4a5b9490",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The Forward-Forward Algorithm: Some Preliminary Investigations",
+      "authors": [
+        "Geoffrey Hinton"
+      ],
+      "year": 2022,
+      "external_ids": {
+        "arxiv": "2212.13345"
+      },
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://arxiv.org/abs/2212.13345",
+        "Bibliography/source context: Author public preprint, Forward-Forward Algorithm"
+      ],
+      "reference_url": "https://arxiv.org/abs/2212.13345",
+      "observed_pdf_links": [
+        "https://arxiv.org/pdf/2212.13345"
+      ],
+      "original_authors": [
+        "Hinton, Geoffrey"
+      ]
+    },
+    {
+      "evaluation_id": "reference-84434a8a521cceb2",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Deep Lambertian Networks",
+      "authors": [
+        "Yichuan Tang",
+        "Ruslan Salakhutdinov",
+        "Geoffrey Hinton"
+      ],
+      "year": 2012,
+      "external_ids": {
+        "arxiv": "1206.6445"
+      },
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://arxiv.org/abs/1206.6445",
+        "Bibliography/source context: Hinton's public bibliography, Deep Lambertian Networks"
+      ],
+      "reference_url": "https://arxiv.org/abs/1206.6445",
+      "observed_pdf_links": [
+        "https://arxiv.org/pdf/1206.6445"
+      ],
+      "original_authors": [
+        "Tang, Yichuan",
+        "Salakhutdinov, Ruslan",
+        "Hinton, Geoffrey"
+      ]
+    },
+    {
+      "evaluation_id": "reference-925a369adade9e6e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Using Fast Weights to Attend to the Recent Past",
+      "authors": [
+        "Jimmy Ba",
+        "Geoffrey Hinton",
+        "Volodymyr Mnih",
+        "Joel Z. Leibo",
+        "Catalin Ionescu"
+      ],
+      "year": 2016,
+      "external_ids": {
+        "arxiv": "1610.06258"
+      },
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://arxiv.org/abs/1610.06258",
+        "Bibliography/source context: Author public preprint, Using Fast Weights to Attend to the Recent Past"
+      ],
+      "reference_url": "https://arxiv.org/abs/1610.06258",
+      "observed_pdf_links": [
+        "https://arxiv.org/pdf/1610.06258"
+      ],
+      "original_authors": [
+        "Ba, Jimmy",
+        "Hinton, Geoffrey",
+        "Mnih, Volodymyr",
+        "Leibo, Joel Z.",
+        "Ionescu, Catalin"
+      ]
+    },
+    {
+      "evaluation_id": "reference-279eade57bb5c290",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Dynamic Routing Between Capsules",
+      "authors": [
+        "Sara Sabour",
+        "Nicholas Frosst",
+        "Geoffrey E Hinton"
+      ],
+      "year": 2017,
+      "external_ids": {
+        "arxiv": "1710.09829"
+      },
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://arxiv.org/abs/1710.09829",
+        "Bibliography/source context: Hinton's public bibliography, Dynamic Routing between Capsules"
+      ],
+      "reference_url": "https://arxiv.org/abs/1710.09829",
+      "observed_pdf_links": [
+        "https://arxiv.org/pdf/1710.09829"
+      ],
+      "original_authors": [
+        "Sabour, Sara",
+        "Frosst, Nicholas",
+        "Hinton, Geoffrey E"
+      ]
+    },
+    {
+      "evaluation_id": "reference-f4bc8dac2f3e6498",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Attend, Infer, Repeat: Fast Scene Understanding with Generative Models",
+      "authors": [
+        "S. M. Ali Eslami",
+        "Nicolas Heess",
+        "Theophane Weber",
+        "Yuval Tassa",
+        "David Szepesvari",
+        "Koray Kavukcuoglu",
+        "Geoffrey E. Hinton"
+      ],
+      "year": 2016,
+      "external_ids": {
+        "arxiv": "1603.08575"
+      },
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://arxiv.org/abs/1603.08575",
+        "Bibliography/source context: Hinton's public bibliography, Attend Infer Repeat"
+      ],
+      "reference_url": "https://arxiv.org/abs/1603.08575",
+      "observed_pdf_links": [
+        "https://arxiv.org/pdf/1603.08575"
+      ],
+      "original_authors": [
+        "Eslami, S. M. Ali",
+        "Heess, Nicolas",
+        "Weber, Theophane",
+        "Tassa, Yuval",
+        "Szepesvari, David",
+        "Kavukcuoglu, Koray",
+        "Hinton, Geoffrey E."
+      ]
+    }
+  ],
+  "import_errors": []
+}

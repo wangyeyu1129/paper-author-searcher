@@ -1,0 +1,4703 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "prepared_at": "2026-10-11T14:28:42.188462+00:00",
+    "professor_name": "Andrew Ng",
+    "scope": "Independent public citation references and retrieved-record audit; incomplete, pending human adjudication",
+    "provenance": "Reference citation metadata and system observations remain separate from human ownership labels",
+    "origin_files": [
+      "andrew_ng.reference.pending.json",
+      "andrew_ng.audit.pending.json"
+    ]
+  },
+  "papers": [
+    {
+      "evaluation_id": "reference-2e556b5167f441ce",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "An Analysis of Single-Layer Networks in Unsupervised Feature Learning",
+      "authors": [
+        "Adam Coates",
+        "Andrew Ng",
+        "Honglak Lee"
+      ],
+      "year": 2011,
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://proceedings.mlr.press/v15/coates11a.html",
+        "Bibliography/source context: Andrew Ng's public bibliography https://ai.stanford.edu/~ang/papers.php"
+      ],
+      "reference_url": "https://proceedings.mlr.press/v15/coates11a.html",
+      "observed_pdf_links": [
+        "http://proceedings.mlr.press/v15/coates11a/coates11a.pdf"
+      ],
+      "original_authors": [
+        "Adam Coates",
+        "Andrew Ng",
+        "Honglak Lee"
+      ],
+      "review_pool": "independent_public_citation",
+      "review_item_origin_file": "andrew_ng.reference.pending.json"
+    },
+    {
+      "evaluation_id": "reference-41b5fab515acedc6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Learning Word Vectors for Sentiment Analysis",
+      "authors": [
+        "Andrew Maas",
+        "Raymond E. Daly",
+        "Peter T. Pham",
+        "Dan Huang",
+        "Andrew Y. Ng",
+        "Christopher Potts"
+      ],
+      "year": 2011,
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://aclanthology.org/P11-1015/",
+        "Bibliography/source context: Andrew Ng's public bibliography, Learning Word Vectors for Sentiment Analysis"
+      ],
+      "reference_url": "https://aclanthology.org/P11-1015/",
+      "observed_pdf_links": [
+        "https://aclanthology.org/P11-1015.pdf"
+      ],
+      "original_authors": [
+        "Andrew Maas",
+        "Raymond E. Daly",
+        "Peter T. Pham",
+        "Dan Huang",
+        "Andrew Y. Ng",
+        "Christopher Potts"
+      ],
+      "review_pool": "independent_public_citation",
+      "review_item_origin_file": "andrew_ng.reference.pending.json"
+    },
+    {
+      "evaluation_id": "reference-1a39b86c54d36dc7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Semi-Supervised Recursive Autoencoders for Predicting Sentiment Distributions",
+      "authors": [
+        "Richard Socher",
+        "Jeffrey Pennington",
+        "Eric H. Huang",
+        "Andrew Y. Ng",
+        "Christopher D. Manning"
+      ],
+      "year": 2011,
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://aclanthology.org/D11-1014/",
+        "Bibliography/source context: Andrew Ng's public bibliography, Semi-Supervised Recursive Autoencoders for Predicting Sentiment Distributions"
+      ],
+      "reference_url": "https://aclanthology.org/D11-1014/",
+      "observed_pdf_links": [
+        "https://aclanthology.org/D11-1014.pdf"
+      ],
+      "original_authors": [
+        "Richard Socher",
+        "Jeffrey Pennington",
+        "Eric H. Huang",
+        "Andrew Y. Ng",
+        "Christopher D. Manning"
+      ],
+      "review_pool": "independent_public_citation",
+      "review_item_origin_file": "andrew_ng.reference.pending.json"
+    },
+    {
+      "evaluation_id": "reference-995e5f4a568f6046",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Semantic Compositionality through Recursive Matrix-Vector Spaces",
+      "authors": [
+        "Richard Socher",
+        "Brody Huval",
+        "Christopher D. Manning",
+        "Andrew Y. Ng"
+      ],
+      "year": 2012,
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://aclanthology.org/D12-1110/",
+        "Bibliography/source context: Andrew Ng's public bibliography, Semantic Compositionality through Recursive Matrix-Vector Spaces"
+      ],
+      "reference_url": "https://aclanthology.org/D12-1110/",
+      "observed_pdf_links": [
+        "https://aclanthology.org/D12-1110.pdf"
+      ],
+      "original_authors": [
+        "Richard Socher",
+        "Brody Huval",
+        "Christopher D. Manning",
+        "Andrew Y. Ng"
+      ],
+      "review_pool": "independent_public_citation",
+      "review_item_origin_file": "andrew_ng.reference.pending.json"
+    },
+    {
+      "evaluation_id": "reference-7d329a10b7269081",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Building high-level features using large scale unsupervised learning",
+      "authors": [
+        "Quoc V. Le",
+        "Marc'Aurelio Ranzato",
+        "Rajat Monga",
+        "Matthieu Devin",
+        "Kai Chen",
+        "Greg S. Corrado",
+        "Jeff Dean",
+        "Andrew Y. Ng"
+      ],
+      "year": 2011,
+      "external_ids": {
+        "arxiv": "1112.6209"
+      },
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://arxiv.org/abs/1112.6209",
+        "Bibliography/source context: Andrew Ng's public bibliography, Building High-level Features Using Large Scale Unsupervised Learning"
+      ],
+      "reference_url": "https://arxiv.org/abs/1112.6209",
+      "observed_pdf_links": [
+        "https://arxiv.org/pdf/1112.6209"
+      ],
+      "original_authors": [
+        "Le, Quoc V.",
+        "Ranzato, Marc'Aurelio",
+        "Monga, Rajat",
+        "Devin, Matthieu",
+        "Chen, Kai",
+        "Corrado, Greg S.",
+        "Dean, Jeff",
+        "Ng, Andrew Y."
+      ],
+      "review_pool": "independent_public_citation",
+      "review_item_origin_file": "andrew_ng.reference.pending.json"
+    },
+    {
+      "evaluation_id": "reference-a25a46ba0cd25a8e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Latent Dirichlet Allocation",
+      "authors": [
+        "David M. Blei",
+        "Andrew Y. Ng",
+        "Michael I. Jordan"
+      ],
+      "year": 2003,
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://jmlr.org/papers/v3/blei03a.html",
+        "Bibliography/source context: Author publication, Latent Dirichlet Allocation"
+      ],
+      "reference_url": "https://jmlr.org/papers/v3/blei03a.html",
+      "observed_pdf_links": [
+        "http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf"
+      ],
+      "original_authors": [
+        "Blei, David M.",
+        "Ng, Andrew Y.",
+        "Jordan, Michael I."
+      ],
+      "review_pool": "independent_public_citation",
+      "review_item_origin_file": "andrew_ng.reference.pending.json"
+    },
+    {
+      "evaluation_id": "reference-6644786bd85cef52",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Learning Factor Graphs in Polynomial Time and Sample Complexity",
+      "authors": [
+        "Pieter Abbeel",
+        "Daphne Koller",
+        "Andrew Y. Ng"
+      ],
+      "year": 2006,
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://jmlr.org/papers/v7/abbeel06a.html",
+        "Bibliography/source context: Author public journal paper, Learning Factor Graphs in Polynomial Time and Sample Complexity"
+      ],
+      "reference_url": "https://jmlr.org/papers/v7/abbeel06a.html",
+      "observed_pdf_links": [
+        "http://jmlr.org/papers/volume7/abbeel06a/abbeel06a.pdf"
+      ],
+      "original_authors": [
+        "Pieter Abbeel",
+        "Daphne Koller",
+        "Andrew Y. Ng"
+      ],
+      "review_pool": "independent_public_citation",
+      "review_item_origin_file": "andrew_ng.reference.pending.json"
+    },
+    {
+      "title": "Chemical modification of opiate receptors with ethoxyformic anhydride and photo-oxidation: Evidence for essential histidyl residues",
+      "year": 1982,
+      "authors": [
+        "Buddha P. Roy",
+        "Andrew Y. Ng"
+      ],
+      "doi": "10.1016/0006-291x(82)91752-1",
+      "venue": "Biochemical and Biophysical Research Communications",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W1973646755",
+      "source_author_id": "A5112456378",
+      "paper_url": "https://doi.org/10.1016/0006-291x(82)91752-1",
+      "evaluation_id": "audit-andrew_ng-1",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W1973646755: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W1973646755: Matching author-profile or unscoped ORCID is not independent paper authorship evidence (scope: resolved_author)",
+        "openalex:https://openalex.org/W1973646755: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W1973646755: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [
+        "profile_orcid_not_independent_paper_evidence"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W1973646755"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Buddha P. Roy",
+          "raw_author_name": "Buddha P. Roy",
+          "author_id": "https://openalex.org/A5067623889",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I185261750",
+              "display_name": "University of Toronto",
+              "ror": "https://ror.org/03dbr7087",
+              "country_code": "CA",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Faculty of Pharmacy, University of Toronto Toronto, Ontario, Canada M5S 1A1",
+              "institution_ids": [
+                "https://openalex.org/I185261750"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Faculty of Pharmacy, University of Toronto, Toronto, Ontario, Canada, M5S 1A1",
+              "institution_ids": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Faculty of Pharmacy, University of Toronto Toronto, Ontario, Canada M5S 1A1",
+            "Faculty of Pharmacy, University of Toronto, Toronto, Ontario, Canada, M5S 1A1"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W1973646755"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Andrew Y. Ng",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I185261750",
+              "display_name": "University of Toronto",
+              "ror": "https://ror.org/03dbr7087",
+              "country_code": "CA",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Faculty of Pharmacy, University of Toronto Toronto, Ontario, Canada M5S 1A1",
+              "institution_ids": [
+                "https://openalex.org/I185261750"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Faculty of Pharmacy, University of Toronto, Toronto, Ontario, Canada, M5S 1A1",
+              "institution_ids": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Faculty of Pharmacy, University of Toronto Toronto, Ontario, Canada M5S 1A1",
+            "Faculty of Pharmacy, University of Toronto, Toronto, Ontario, Canada, M5S 1A1"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W1973646755"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W1973646755",
+          "source_author_id": "A5112456378",
+          "doi": "10.1016/0006-291x(82)91752-1",
+          "year": 1982,
+          "authors": [
+            "Buddha P. Roy",
+            "Andrew Y. Ng"
+          ],
+          "paper_url": "https://doi.org/10.1016/0006-291x(82)91752-1"
+        }
+      ],
+      "observed_paper_type": "research_paper",
+      "system_status_before_scope_correction": "verified",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W1973646755: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W1973646755: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W1973646755: Target authorship ORCID agrees with confirmed professor ORCID (scope: resolved_author)",
+        "openalex:https://openalex.org/W1973646755: Target signature similarity: 1.000"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "Robust textual inference via learning and abductive reasoning",
+      "year": 2005,
+      "authors": [
+        "Rajat Raina",
+        "Andrew Y. Ng",
+        "Christopher D. Manning"
+      ],
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W154270115",
+      "source_author_id": "A5112456378",
+      "paper_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.397.9501",
+      "evaluation_id": "audit-andrew_ng-2",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "verified",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W154270115: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W154270115: Explicit target Author ID, compatible byline and paper-level institution agree: Stanford University",
+        "openalex:https://openalex.org/W154270115: Matching author-profile or unscoped ORCID is not independent paper authorship evidence (scope: resolved_author)",
+        "openalex:https://openalex.org/W154270115: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W154270115: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W154270115"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Rajat Raina",
+          "raw_author_name": "Rajat Raina",
+          "author_id": "https://openalex.org/A5086651540",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "[Computer Science Department, Stanford University, Stanford, CA]",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "[Computer Science Department, Stanford University, Stanford, CA]"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W154270115"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Andrew Y. Ng",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "[Computer Science Department, Stanford University, Stanford, CA]",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "[Computer Science Department, Stanford University, Stanford, CA]"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W154270115"
+        },
+        {
+          "name": "Christopher D. Manning",
+          "raw_author_name": "Christopher D. Manning",
+          "author_id": "https://openalex.org/A5046006076",
+          "orcid": "https://orcid.org/0000-0001-6155-649X",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "[Computer Science Department, Stanford University, Stanford, CA]",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "[Computer Science Department, Stanford University, Stanford, CA]"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W154270115"
+        }
+      ],
+      "missing_observed_fields": [
+        "doi",
+        "venue"
+      ],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W154270115",
+          "source_author_id": "A5112456378",
+          "doi": null,
+          "year": 2005,
+          "authors": [
+            "Rajat Raina",
+            "Andrew Y. Ng",
+            "Christopher D. Manning"
+          ],
+          "paper_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.397.9501"
+        }
+      ],
+      "observed_paper_type": "research_paper",
+      "system_status_before_scope_correction": "verified",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W154270115: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W154270115: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W154270115: Target authorship ORCID agrees with confirmed professor ORCID (scope: resolved_author)",
+        "openalex:https://openalex.org/W154270115: Target signature similarity: 1.000"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "Learning 3-D Scene Structure from a Single Still Image",
+      "year": 2007,
+      "authors": [
+        "Ashutosh Saxena",
+        "Min Sun",
+        "Andrew Y. Ng"
+      ],
+      "doi": "10.1109/iccv.2007.4408828",
+      "venue": "IEEE International Conference on Computer Vision (ICCV)",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W2110917409",
+      "source_author_id": "A5112456378",
+      "paper_url": "https://doi.org/10.1109/iccv.2007.4408828",
+      "evaluation_id": "audit-andrew_ng-3",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "verified",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W2110917409: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2110917409: Explicit target Author ID, compatible byline and paper-level institution agree: Stanford University",
+        "openalex:https://openalex.org/W2110917409: Matching author-profile or unscoped ORCID is not independent paper authorship evidence (scope: resolved_author)",
+        "openalex:https://openalex.org/W2110917409: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2110917409: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W2110917409"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Ashutosh Saxena",
+          "raw_author_name": "Ashutosh Saxena",
+          "author_id": "https://openalex.org/A5081220276",
+          "orcid": "https://orcid.org/0000-0002-6657-2285",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Computer Science Department, University of Stanford, Stanford, CA, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            },
+            {
+              "raw_affiliation_string": "[Stanford Univ., Stanford]",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Computer Science Department, University of Stanford, Stanford, CA, USA",
+            "[Stanford Univ., Stanford]"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2110917409"
+        },
+        {
+          "name": "Min Sun",
+          "raw_author_name": "Min Sun",
+          "author_id": "https://openalex.org/A5101561818",
+          "orcid": "https://orcid.org/0000-0002-0336-4446",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Computer Science Department, University of Stanford, Stanford, CA, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            },
+            {
+              "raw_affiliation_string": "[Stanford Univ., Stanford]",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Computer Science Department, University of Stanford, Stanford, CA, USA",
+            "[Stanford Univ., Stanford]"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2110917409"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Andrew Y. Ng",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Computer Science Department, University of Stanford, Stanford, CA, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            },
+            {
+              "raw_affiliation_string": "[Stanford Univ., Stanford]",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Computer Science Department, University of Stanford, Stanford, CA, USA",
+            "[Stanford Univ., Stanford]"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2110917409"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2110917409",
+          "source_author_id": "A5112456378",
+          "doi": "10.1109/iccv.2007.4408828",
+          "year": 2007,
+          "authors": [
+            "Ashutosh Saxena",
+            "Min Sun",
+            "Andrew Y. Ng"
+          ],
+          "paper_url": "https://doi.org/10.1109/iccv.2007.4408828"
+        }
+      ],
+      "observed_paper_type": "research_paper",
+      "system_status_before_scope_correction": "verified",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W2110917409: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2110917409: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2110917409: Target authorship ORCID agrees with confirmed professor ORCID (scope: resolved_author)",
+        "openalex:https://openalex.org/W2110917409: Target signature similarity: 1.000"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "Large-scale deep unsupervised learning using graphics processors",
+      "year": 2009,
+      "authors": [
+        "Rajat Raina",
+        "Anand Madhavan",
+        "Andrew Y. Ng"
+      ],
+      "doi": "10.1145/1553374.1553486",
+      "venue": "International Conference on Machine Learning",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W2120432001",
+      "source_author_id": "A5112456378",
+      "paper_url": "https://doi.org/10.1145/1553374.1553486",
+      "evaluation_id": "audit-andrew_ng-4",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "verified",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W2120432001: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2120432001: Explicit target Author ID, compatible byline and paper-level institution agree: Stanford University",
+        "openalex:https://openalex.org/W2120432001: Matching author-profile or unscoped ORCID is not independent paper authorship evidence (scope: resolved_author)",
+        "openalex:https://openalex.org/W2120432001: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2120432001: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W2120432001"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Rajat Raina",
+          "raw_author_name": "Rajat Raina",
+          "author_id": "https://openalex.org/A5086651540",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Stanford University, Stanford, CA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Stanford University, Stanford, CA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2120432001"
+        },
+        {
+          "name": "Anand Madhavan",
+          "raw_author_name": "Anand Madhavan",
+          "author_id": null,
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Stanford University, Stanford, CA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Stanford University, Stanford, CA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2120432001"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Andrew Y. Ng",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Stanford University, Stanford, CA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Stanford University, Stanford, CA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2120432001"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2120432001",
+          "source_author_id": "A5112456378",
+          "doi": "10.1145/1553374.1553486",
+          "year": 2009,
+          "authors": [
+            "Rajat Raina",
+            "Anand Madhavan",
+            "Andrew Y. Ng"
+          ],
+          "paper_url": "https://doi.org/10.1145/1553374.1553486"
+        }
+      ],
+      "observed_paper_type": "research_paper",
+      "system_status_before_scope_correction": "verified",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W2120432001: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2120432001: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2120432001: Target authorship ORCID agrees with confirmed professor ORCID (scope: resolved_author)",
+        "openalex:https://openalex.org/W2120432001: Target signature similarity: 1.000"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "Multimodal Deep Learning",
+      "year": 2011,
+      "authors": [
+        "Jiquan Ngiam",
+        "Aditya Khosla",
+        "Mingyu Kim",
+        "Juhan Nam",
+        "Honglak Lee",
+        "Andrew Y. Ng"
+      ],
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W2184188583",
+      "source_author_id": "A5112456378",
+      "paper_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.186.3756",
+      "evaluation_id": "audit-andrew_ng-5",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "verified",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W2184188583: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2184188583: Explicit target Author ID, compatible byline and paper-level institution agree: Stanford University",
+        "openalex:https://openalex.org/W2184188583: Matching author-profile or unscoped ORCID is not independent paper authorship evidence (scope: resolved_author)",
+        "openalex:https://openalex.org/W2184188583: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2184188583: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W2184188583"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Jiquan Ngiam",
+          "raw_author_name": "Jiquan Ngiam",
+          "author_id": "https://openalex.org/A5045825594",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Computer Science Department, Stanford University, Stanford, CA 94305 USA,",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Computer Science Department, Stanford University, Stanford, CA 94305 USA,"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2184188583"
+        },
+        {
+          "name": "Aditya Khosla",
+          "raw_author_name": "Aditya Khosla",
+          "author_id": "https://openalex.org/A5104110845",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Computer Science Department, Stanford University, Stanford, CA 94305 USA,",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Computer Science Department, Stanford University, Stanford, CA 94305 USA,"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2184188583"
+        },
+        {
+          "name": "Mingyu Kim",
+          "raw_author_name": "Mingyu Kim",
+          "author_id": "https://openalex.org/A5100620588",
+          "orcid": "https://orcid.org/0000-0001-5082-7223",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Computer Science Department, Stanford University, Stanford, CA 94305 USA,",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Computer Science Department, Stanford University, Stanford, CA 94305 USA,"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2184188583"
+        },
+        {
+          "name": "Juhan Nam",
+          "raw_author_name": "Juhan Nam",
+          "author_id": "https://openalex.org/A5056437111",
+          "orcid": "https://orcid.org/0000-0003-2664-2119",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Computer Science Department, Stanford University, Stanford, CA 94305 USA,",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Computer Science Department, Stanford University, Stanford, CA 94305 USA,"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2184188583"
+        },
+        {
+          "name": "Honglak Lee",
+          "raw_author_name": "Honglak Lee",
+          "author_id": "https://openalex.org/A5108652283",
+          "orcid": "https://orcid.org/0000-0002-4109-327X",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I27837315",
+              "display_name": "University of Michigan",
+              "ror": "https://ror.org/00jmfr291",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I27837315"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Computer Science & Engineering Division, University of Michigan, Ann Arbor, MI 48109, USA",
+              "institution_ids": [
+                "https://openalex.org/I27837315"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Computer Science & Engineering Division, University of Michigan, Ann Arbor, MI 48109, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2184188583"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Andrew Y. Ng",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Computer Science Department, Stanford University, Stanford, CA 94305 USA,",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Computer Science Department, Stanford University, Stanford, CA 94305 USA,"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2184188583"
+        }
+      ],
+      "missing_observed_fields": [
+        "doi",
+        "venue"
+      ],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2184188583",
+          "source_author_id": "A5112456378",
+          "doi": null,
+          "year": 2011,
+          "authors": [
+            "Jiquan Ngiam",
+            "Aditya Khosla",
+            "Mingyu Kim",
+            "Juhan Nam",
+            "Honglak Lee",
+            "Andrew Y. Ng"
+          ],
+          "paper_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.186.3756"
+        }
+      ],
+      "observed_paper_type": "research_paper",
+      "system_status_before_scope_correction": "verified",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W2184188583: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2184188583: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2184188583: Target authorship ORCID agrees with confirmed professor ORCID (scope: resolved_author)",
+        "openalex:https://openalex.org/W2184188583: Target signature similarity: 1.000"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "Grounded Compositional Semantics for Finding and Describing Images with Sentences",
+      "year": 2014,
+      "authors": [
+        "Richard Socher",
+        "Andrej Karpathy",
+        "Quoc V. Le",
+        "Christopher D. Manning",
+        "Andrew Y. Ng"
+      ],
+      "doi": "10.1162/tacl_a_00177",
+      "venue": "Transactions of the Association for Computational Linguistics",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W2149557440",
+      "source_author_id": "A5112456378",
+      "paper_url": "https://doi.org/10.1162/tacl_a_00177",
+      "evaluation_id": "audit-andrew_ng-6",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "verified",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W2149557440: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2149557440: Explicit target Author ID, compatible byline and paper-level institution agree: Stanford University",
+        "openalex:https://openalex.org/W2149557440: Matching author-profile or unscoped ORCID is not independent paper authorship evidence (scope: resolved_author)",
+        "openalex:https://openalex.org/W2149557440: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2149557440: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W2149557440"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Richard Socher",
+          "raw_author_name": "Richard Socher",
+          "author_id": "https://openalex.org/A5059955534",
+          "orcid": "https://orcid.org/0000-0002-3577-639X",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": true,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Stanford University, Computer Science Department,",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Stanford University, Computer Science Department,"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2149557440"
+        },
+        {
+          "name": "Andrej Karpathy",
+          "raw_author_name": "Andrej Karpathy",
+          "author_id": "https://openalex.org/A5009290031",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": true,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Stanford University, Computer Science Department,",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Stanford University, Computer Science Department,"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2149557440"
+        },
+        {
+          "name": "Quoc Viet Le",
+          "raw_author_name": "Quoc V. Le",
+          "author_id": "https://openalex.org/A5088551093",
+          "orcid": "https://orcid.org/0000-0002-1087-2844",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": true,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I1291425158",
+              "display_name": "Google (United States)",
+              "ror": "https://ror.org/00njsd438",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I1291425158",
+                "https://openalex.org/I4210128969"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Google Inc.,",
+              "institution_ids": [
+                "https://openalex.org/I1291425158"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Google Inc.,"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2149557440"
+        },
+        {
+          "name": "Christopher D. Manning",
+          "raw_author_name": "Christopher D. Manning",
+          "author_id": "https://openalex.org/A5046006076",
+          "orcid": "https://orcid.org/0000-0001-6155-649X",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": true,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Stanford University, Computer Science Department,",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Stanford University, Computer Science Department,"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2149557440"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Andrew Y. Ng",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": true,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Stanford University, Computer Science Department,",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Stanford University, Computer Science Department,"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2149557440"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2149557440",
+          "source_author_id": "A5112456378",
+          "doi": "10.1162/tacl_a_00177",
+          "year": 2014,
+          "authors": [
+            "Richard Socher",
+            "Andrej Karpathy",
+            "Quoc V. Le",
+            "Christopher D. Manning",
+            "Andrew Y. Ng"
+          ],
+          "paper_url": "https://doi.org/10.1162/tacl_a_00177"
+        }
+      ],
+      "observed_paper_type": "research_paper",
+      "system_status_before_scope_correction": "verified",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W2149557440: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2149557440: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2149557440: Target authorship ORCID agrees with confirmed professor ORCID (scope: resolved_author)",
+        "openalex:https://openalex.org/W2149557440: Target signature similarity: 1.000"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "Neural Text Style Transfer via Denoising and Reranking",
+      "year": 2019,
+      "authors": [
+        "Joseph Lee",
+        "Ziang Xie",
+        "Cindy Wang",
+        "Max Drach",
+        "Dan Jurafsky",
+        "Andrew Ng"
+      ],
+      "doi": "10.18653/v1/w19-2309",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W2964202925",
+      "source_author_id": "A5112456378",
+      "paper_url": "https://doi.org/10.18653/v1/w19-2309",
+      "evaluation_id": "audit-andrew_ng-7",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W2964202925: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2964202925: Matching author-profile or unscoped ORCID is not independent paper authorship evidence (scope: resolved_author)",
+        "openalex:https://openalex.org/W2964202925: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2964202925: Target signature similarity: 0.970"
+      ],
+      "review_reason_codes": [
+        "missing_paper_level_affiliation",
+        "profile_orcid_not_independent_paper_evidence"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W2964202925"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Joseph Lee",
+          "raw_author_name": "Joseph Lee",
+          "author_id": "https://openalex.org/A5100362482",
+          "orcid": "https://orcid.org/0000-0001-7006-5916",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2964202925"
+        },
+        {
+          "name": "Ziang Xie",
+          "raw_author_name": "Ziang Xie",
+          "author_id": "https://openalex.org/A5114500404",
+          "orcid": "https://orcid.org/0000-0002-7443-7905",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2964202925"
+        },
+        {
+          "name": "Cindy Wang",
+          "raw_author_name": "Cindy Wang",
+          "author_id": "https://openalex.org/A5069683365",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2964202925"
+        },
+        {
+          "name": "Max Drach",
+          "raw_author_name": "Max Drach",
+          "author_id": "https://openalex.org/A5045520110",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2964202925"
+        },
+        {
+          "name": "Dan Jurafsky",
+          "raw_author_name": "Dan Jurafsky",
+          "author_id": "https://openalex.org/A5087088138",
+          "orcid": "https://orcid.org/0000-0002-6459-7745",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2964202925"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Andrew Ng",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2964202925"
+        }
+      ],
+      "missing_observed_fields": [
+        "venue"
+      ],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2964202925",
+          "source_author_id": "A5112456378",
+          "doi": "10.18653/v1/w19-2309",
+          "year": 2019,
+          "authors": [
+            "Joseph Lee",
+            "Ziang Xie",
+            "Cindy Wang",
+            "Max Drach",
+            "Dan Jurafsky",
+            "Andrew Ng"
+          ],
+          "paper_url": "https://doi.org/10.18653/v1/w19-2309"
+        }
+      ],
+      "observed_paper_type": "research_paper",
+      "system_status_before_scope_correction": "verified",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W2964202925: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2964202925: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2964202925: Target authorship ORCID agrees with confirmed professor ORCID (scope: resolved_author)",
+        "openalex:https://openalex.org/W2964202925: Target signature similarity: 0.970"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "Penile Ultrasound",
+      "year": 2020,
+      "authors": [
+        "Andrew Ng",
+        "Gideon Richards",
+        "Bruce R. Gilbert"
+      ],
+      "doi": "10.1007/978-3-030-52309-1_7",
+      "venue": "Springer eBooks",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W4255597477",
+      "source_author_id": "A5112456378",
+      "paper_url": "https://doi.org/10.1007/978-3-030-52309-1_7",
+      "evaluation_id": "audit-andrew_ng-8",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W4255597477: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W4255597477: Matching author-profile or unscoped ORCID is not independent paper authorship evidence (scope: resolved_author)",
+        "openalex:https://openalex.org/W4255597477: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W4255597477: Target signature similarity: 0.970"
+      ],
+      "review_reason_codes": [
+        "profile_orcid_not_independent_paper_evidence"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W4255597477"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Andrew Ng",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I1302444339",
+              "display_name": "Northwell Health",
+              "ror": "https://ror.org/02bxt4m23",
+              "country_code": "US",
+              "type": "healthcare",
+              "lineage": [
+                "https://openalex.org/I1302444339"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I139290212",
+              "display_name": "Hofstra University",
+              "ror": "https://ror.org/03pm18j10",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I139290212"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210106353",
+              "display_name": "Donald & Barbara Zucker School of Medicine at Hofstra/Northwell",
+              "ror": "https://ror.org/01ff5td15",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I1302444339",
+                "https://openalex.org/I139290212",
+                "https://openalex.org/I4210106353"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210125842",
+              "display_name": "Arthur Smith Institute for Urology",
+              "ror": "https://ror.org/028dac806",
+              "country_code": "US",
+              "type": "healthcare",
+              "lineage": [
+                "https://openalex.org/I1302444339",
+                "https://openalex.org/I4210125842"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "The Smith Institute for Urology, Zucker School of Medicine of Hofstra/Northwell, New Hyde Park, NY, USA",
+              "institution_ids": [
+                "https://openalex.org/I1302444339",
+                "https://openalex.org/I139290212",
+                "https://openalex.org/I4210106353",
+                "https://openalex.org/I4210125842"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "The Smith Institute for Urology, Zucker School of Medicine of Hofstra/Northwell, New Hyde Park, NY, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4255597477"
+        },
+        {
+          "name": "Gideon D. Richards",
+          "raw_author_name": "Gideon Richards",
+          "author_id": "https://openalex.org/A5070682812",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210104819",
+              "display_name": "Banner Desert Medical Center",
+              "ror": "https://ror.org/01jjm6w53",
+              "country_code": "US",
+              "type": "healthcare",
+              "lineage": [
+                "https://openalex.org/I2802412784",
+                "https://openalex.org/I4210104819"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Surgery, Banner Desert Medical Center, Arizona State Urological Institute, Chandler, AZ, USA",
+              "institution_ids": [
+                "https://openalex.org/I4210104819"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Department of Surgery, Banner Desert Medical Center, Arizona State Urological Institute, Chandler, AZ, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4255597477"
+        },
+        {
+          "name": "Bruce R. Gilbert",
+          "raw_author_name": "Bruce R. Gilbert",
+          "author_id": "https://openalex.org/A5109918881",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": true,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I139290212",
+              "display_name": "Hofstra University",
+              "ror": "https://ror.org/03pm18j10",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I139290212"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210106353",
+              "display_name": "Donald & Barbara Zucker School of Medicine at Hofstra/Northwell",
+              "ror": "https://ror.org/01ff5td15",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I1302444339",
+                "https://openalex.org/I139290212",
+                "https://openalex.org/I4210106353"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210125842",
+              "display_name": "Arthur Smith Institute for Urology",
+              "ror": "https://ror.org/028dac806",
+              "country_code": "US",
+              "type": "healthcare",
+              "lineage": [
+                "https://openalex.org/I1302444339",
+                "https://openalex.org/I4210125842"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Zucker School of Medicine of Hofstra/Northwell, The Arthur Smith Institute for Urology, New Hyde Park, NY, USA",
+              "institution_ids": [
+                "https://openalex.org/I139290212",
+                "https://openalex.org/I4210106353",
+                "https://openalex.org/I4210125842"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Zucker School of Medicine of Hofstra/Northwell, The Arthur Smith Institute for Urology, New Hyde Park, NY, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4255597477"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4255597477",
+          "source_author_id": "A5112456378",
+          "doi": "10.1007/978-3-030-52309-1_7",
+          "year": 2020,
+          "authors": [
+            "Andrew Ng",
+            "Gideon Richards",
+            "Bruce R. Gilbert"
+          ],
+          "paper_url": "https://doi.org/10.1007/978-3-030-52309-1_7"
+        }
+      ],
+      "observed_paper_type": "book_chapter",
+      "system_status_before_scope_correction": "verified",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W4255597477: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W4255597477: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W4255597477: Target authorship ORCID agrees with confirmed professor ORCID (scope: resolved_author)",
+        "openalex:https://openalex.org/W4255597477: Target signature similarity: 0.970"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "Densification Retardation in 3d Printed Transparent Spinel Ceramics: Origin and Mitigation Approach",
+      "year": 2022,
+      "authors": [
+        "Huilu Guo",
+        "Haomin Wang",
+        "Li  Ying Liu",
+        "Andrew Ng",
+        "Pengcheng Ye",
+        "Hao Zhang",
+        "Alice Eh",
+        "Pooi  See Lee",
+        "Mao Deng",
+        "Zehui Du",
+        "Chee Lip Gan"
+      ],
+      "doi": "10.2139/ssrn.4063460",
+      "venue": "SSRN Electronic Journal",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W4293205229",
+      "source_author_id": "A5112456378",
+      "paper_url": "https://doi.org/10.2139/ssrn.4063460",
+      "evaluation_id": "audit-andrew_ng-9",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W4293205229: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W4293205229: Matching author-profile or unscoped ORCID is not independent paper authorship evidence (scope: resolved_author)",
+        "openalex:https://openalex.org/W4293205229: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W4293205229: Target signature similarity: 0.970"
+      ],
+      "review_reason_codes": [
+        "missing_paper_level_affiliation",
+        "profile_orcid_not_independent_paper_evidence"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W4293205229"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Huilu Guo",
+          "raw_author_name": "Huilu Guo",
+          "author_id": "https://openalex.org/A5036111432",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4293205229"
+        },
+        {
+          "name": "Haomin Wang",
+          "raw_author_name": "Haomin Wang",
+          "author_id": "https://openalex.org/A5101462434",
+          "orcid": "https://orcid.org/0000-0003-2870-2760",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I172675005",
+              "display_name": "Nanyang Technological University",
+              "ror": "https://ror.org/02e7b5302",
+              "country_code": "SG",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I172675005"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210125143",
+              "display_name": "Chengdu University",
+              "ror": "https://ror.org/034z67559",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I4210125143"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Chengdu University - Institute for Advanced Study, Chengdu, China",
+              "institution_ids": [
+                "https://openalex.org/I4210125143"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Nanyang Technological University (NTU) - School of Materials Science and Engineering, S3 B2-A28 Nanyang Avenue, Singapore, 639798, Singapore",
+              "institution_ids": [
+                "https://openalex.org/I172675005"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Chengdu University - Institute for Advanced Study",
+              "institution_ids": [
+                "https://openalex.org/I4210125143"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Nanyang Technological University (NTU) - School of Materials Science and Engineering",
+              "institution_ids": [
+                "https://openalex.org/I172675005"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Chengdu University - Institute for Advanced Study, Chengdu, China",
+            "Nanyang Technological University (NTU) - School of Materials Science and Engineering, S3 B2-A28 Nanyang Avenue, Singapore, 639798, Singapore",
+            "Chengdu University - Institute for Advanced Study",
+            "Nanyang Technological University (NTU) - School of Materials Science and Engineering"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4293205229"
+        },
+        {
+          "name": "Li Ying Liu",
+          "raw_author_name": "Li  Ying Liu",
+          "author_id": "https://openalex.org/A5111134787",
+          "orcid": "https://orcid.org/0000-0002-1460-090X",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4293205229"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Andrew Ng",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4293205229"
+        },
+        {
+          "name": "Pengcheng Ye",
+          "raw_author_name": "Pengcheng Ye",
+          "author_id": "https://openalex.org/A5084872802",
+          "orcid": "https://orcid.org/0000-0003-2268-6608",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I172675005",
+              "display_name": "Nanyang Technological University",
+              "ror": "https://ror.org/02e7b5302",
+              "country_code": "SG",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I172675005"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Nanyang Technological University (NTU), S3 B2-A28 Nanyang Avenue, Singapore, 639798, Singapore",
+              "institution_ids": [
+                "https://openalex.org/I172675005"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Nanyang Technological University (NTU)",
+              "institution_ids": [
+                "https://openalex.org/I172675005"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Nanyang Technological University (NTU), S3 B2-A28 Nanyang Avenue, Singapore, 639798, Singapore",
+            "Nanyang Technological University (NTU)"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4293205229"
+        },
+        {
+          "name": "Hao Zhang",
+          "raw_author_name": "Hao Zhang",
+          "author_id": "https://openalex.org/A5100397026",
+          "orcid": "https://orcid.org/0000-0003-1991-119X",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4293205229"
+        },
+        {
+          "name": "Alice Eh",
+          "raw_author_name": "Alice Eh",
+          "author_id": "https://openalex.org/A5088245661",
+          "orcid": "https://orcid.org/0000-0002-3980-4714",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4293205229"
+        },
+        {
+          "name": "Pooi See Lee",
+          "raw_author_name": "Pooi  See Lee",
+          "author_id": "https://openalex.org/A5079813961",
+          "orcid": "https://orcid.org/0000-0003-1383-1623",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I172675005",
+              "display_name": "Nanyang Technological University",
+              "ror": "https://ror.org/02e7b5302",
+              "country_code": "SG",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I172675005"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Nanyang Technological University (NTU) - School of Materials Science and Engineering",
+              "institution_ids": [
+                "https://openalex.org/I172675005"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Nanyang Technological University (NTU) - School of Materials Science and Engineering"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4293205229"
+        },
+        {
+          "name": "Mao Deng",
+          "raw_author_name": "Mao Deng",
+          "author_id": "https://openalex.org/A5024898382",
+          "orcid": "https://orcid.org/0000-0003-3869-2287",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210125143",
+              "display_name": "Chengdu University",
+              "ror": "https://ror.org/034z67559",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I4210125143"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Chengdu University - Institute for Advanced Materials Deformation and Damage from Multi-Scale",
+              "institution_ids": [
+                "https://openalex.org/I4210125143"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Chengdu University - Institute for Advanced Materials Deformation and Damage from Multi-Scale"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4293205229"
+        },
+        {
+          "name": "Zehui Du",
+          "raw_author_name": "Zehui Du",
+          "author_id": "https://openalex.org/A5016207659",
+          "orcid": "https://orcid.org/0000-0002-5511-7455",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": true,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4293205229"
+        },
+        {
+          "name": "Chee Lip Gan",
+          "raw_author_name": "Chee Lip Gan",
+          "author_id": "https://openalex.org/A5006684936",
+          "orcid": "https://orcid.org/0000-0002-8420-3168",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I172675005",
+              "display_name": "Nanyang Technological University",
+              "ror": "https://ror.org/02e7b5302",
+              "country_code": "SG",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I172675005"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4405277765",
+              "display_name": "Temasek Laboratories",
+              "ror": "https://ror.org/03tg9kr68",
+              "country_code": "SG",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I4405277765"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Nanyang Technological University (NTU) - Temasek Laboratories, Singapore",
+              "institution_ids": [
+                "https://openalex.org/I172675005",
+                "https://openalex.org/I4405277765"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Nanyang Technological University (NTU) - Temasek Laboratories",
+              "institution_ids": [
+                "https://openalex.org/I172675005",
+                "https://openalex.org/I4405277765"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Nanyang Technological University (NTU) - Temasek Laboratories, Singapore",
+            "Nanyang Technological University (NTU) - Temasek Laboratories"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4293205229"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4293205229",
+          "source_author_id": "A5112456378",
+          "doi": "10.2139/ssrn.4063460",
+          "year": 2022,
+          "authors": [
+            "Huilu Guo",
+            "Haomin Wang",
+            "Li  Ying Liu",
+            "Andrew Ng",
+            "Pengcheng Ye",
+            "Hao Zhang",
+            "Alice Eh",
+            "Pooi  See Lee",
+            "Mao Deng",
+            "Zehui Du",
+            "Chee Lip Gan"
+          ],
+          "paper_url": "https://doi.org/10.2139/ssrn.4063460"
+        }
+      ],
+      "observed_paper_type": "preprint",
+      "system_status_before_scope_correction": "verified",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W4293205229: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W4293205229: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W4293205229: Target authorship ORCID agrees with confirmed professor ORCID (scope: resolved_author)",
+        "openalex:https://openalex.org/W4293205229: Target signature similarity: 0.970"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "IDEA2: Expert-in-the-loop competency question elicitation for collaborative ontology engineering",
+      "year": 2026,
+      "authors": [
+        "Watkiss-Leek, Elliott",
+        "Alharbi, Reham",
+        "Rostron, Harry",
+        "Ng, Andrew",
+        "Johnson, Ewan",
+        "Mitchell, Andrew",
+        "Payne, Terry R.",
+        "Tamma, Valentina",
+        "de Berardinis, Jacopo"
+      ],
+      "doi": "10.48550/arxiv.2604.01344",
+      "venue": "arXiv (Cornell University)",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W7148648316",
+      "source_author_id": "A5112456378",
+      "paper_url": "http://arxiv.org/abs/2604.01344",
+      "evaluation_id": "audit-andrew_ng-10",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W7148648316: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W7148648316: Matching author-profile or unscoped ORCID is not independent paper authorship evidence (scope: resolved_author)",
+        "openalex:https://openalex.org/W7148648316: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W7148648316: Target signature similarity: 0.970"
+      ],
+      "review_reason_codes": [
+        "profile_orcid_not_independent_paper_evidence"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W7148648316"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Elliott Watkiss-Leek",
+          "raw_author_name": "Watkiss-Leek, Elliott",
+          "author_id": "https://openalex.org/A5132929813",
+          "orcid": "https://orcid.org/0009-0002-9284-6590",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I146655781",
+              "display_name": "University of Liverpool",
+              "ror": "https://ror.org/04xs57h96",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I146655781"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "School of Computer Science and Informatics , University of Liverpool , Brownlow Hill , Liverpool , L69 7ZX , UK",
+              "institution_ids": [
+                "https://openalex.org/I146655781"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "School of Computer Science and Informatics , University of Liverpool , Brownlow Hill , Liverpool , L69 7ZX , UK"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7148648316"
+        },
+        {
+          "name": "Reham Alharbi",
+          "raw_author_name": "Alharbi, Reham",
+          "author_id": "https://openalex.org/A5087183020",
+          "orcid": "https://orcid.org/0000-0002-8332-3803",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I23075662",
+              "display_name": "Taibah University",
+              "ror": "https://ror.org/01xv1nn60",
+              "country_code": "SA",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I23075662"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "College of Computer Science and Engineering , Taibah University , Saudi Arabia",
+              "institution_ids": [
+                "https://openalex.org/I23075662"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "College of Computer Science and Engineering , Taibah University , Saudi Arabia"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7148648316"
+        },
+        {
+          "name": "Harry Rostron",
+          "raw_author_name": "Rostron, Harry",
+          "author_id": "https://openalex.org/A5132893367",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I146655781",
+              "display_name": "University of Liverpool",
+              "ror": "https://ror.org/04xs57h96",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I146655781"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Unilever Plc. , Materials Innovation Factory , University of Liverpool , 51 Oxford Street , Liverpool , L7 3NY , UK",
+              "institution_ids": [
+                "https://openalex.org/I146655781"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Unilever Plc. , Materials Innovation Factory , University of Liverpool , 51 Oxford Street , Liverpool , L7 3NY , UK"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7148648316"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Ng, Andrew",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I146655781",
+              "display_name": "University of Liverpool",
+              "ror": "https://ror.org/04xs57h96",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I146655781"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Unilever Plc. , Materials Innovation Factory , University of Liverpool , 51 Oxford Street , Liverpool , L7 3NY , UK",
+              "institution_ids": [
+                "https://openalex.org/I146655781"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Unilever Plc. , Materials Innovation Factory , University of Liverpool , 51 Oxford Street , Liverpool , L7 3NY , UK"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7148648316"
+        },
+        {
+          "name": "Ewan Johnson",
+          "raw_author_name": "Johnson, Ewan",
+          "author_id": "https://openalex.org/A5132901553",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I146655781",
+              "display_name": "University of Liverpool",
+              "ror": "https://ror.org/04xs57h96",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I146655781"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Unilever Plc. , Materials Innovation Factory , University of Liverpool , 51 Oxford Street , Liverpool , L7 3NY , UK",
+              "institution_ids": [
+                "https://openalex.org/I146655781"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Unilever Plc. , Materials Innovation Factory , University of Liverpool , 51 Oxford Street , Liverpool , L7 3NY , UK"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7148648316"
+        },
+        {
+          "name": "Andrew Mitchell",
+          "raw_author_name": "Mitchell, Andrew",
+          "author_id": "https://openalex.org/A5132942603",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I146655781",
+              "display_name": "University of Liverpool",
+              "ror": "https://ror.org/04xs57h96",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I146655781"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Unilever Plc. , Materials Innovation Factory , University of Liverpool , 51 Oxford Street , Liverpool , L7 3NY , UK",
+              "institution_ids": [
+                "https://openalex.org/I146655781"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Unilever Plc. , Materials Innovation Factory , University of Liverpool , 51 Oxford Street , Liverpool , L7 3NY , UK"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7148648316"
+        },
+        {
+          "name": "Terry R. Payne",
+          "raw_author_name": "Payne, Terry R.",
+          "author_id": "https://openalex.org/A5024107224",
+          "orcid": "https://orcid.org/0000-0002-0106-8731",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I146655781",
+              "display_name": "University of Liverpool",
+              "ror": "https://ror.org/04xs57h96",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I146655781"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "School of Computer Science and Informatics , University of Liverpool , Brownlow Hill , Liverpool , L69 7ZX , UK",
+              "institution_ids": [
+                "https://openalex.org/I146655781"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "School of Computer Science and Informatics , University of Liverpool , Brownlow Hill , Liverpool , L69 7ZX , UK"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7148648316"
+        },
+        {
+          "name": "Valentina A. M. Tamma",
+          "raw_author_name": "Tamma, Valentina",
+          "author_id": "https://openalex.org/A5060354953",
+          "orcid": "https://orcid.org/0000-0002-1320-610X",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I146655781",
+              "display_name": "University of Liverpool",
+              "ror": "https://ror.org/04xs57h96",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I146655781"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "School of Computer Science and Informatics , University of Liverpool , Brownlow Hill , Liverpool , L69 7ZX , UK",
+              "institution_ids": [
+                "https://openalex.org/I146655781"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "School of Computer Science and Informatics , University of Liverpool , Brownlow Hill , Liverpool , L69 7ZX , UK"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7148648316"
+        },
+        {
+          "name": "Jacopo de Berardinis",
+          "raw_author_name": "de Berardinis, Jacopo",
+          "author_id": "https://openalex.org/A5124710310",
+          "orcid": "https://orcid.org/0000-0001-6770-1969",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I146655781",
+              "display_name": "University of Liverpool",
+              "ror": "https://ror.org/04xs57h96",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I146655781"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "School of Computer Science and Informatics , University of Liverpool , Brownlow Hill , Liverpool , L69 7ZX , UK",
+              "institution_ids": [
+                "https://openalex.org/I146655781"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "School of Computer Science and Informatics , University of Liverpool , Brownlow Hill , Liverpool , L69 7ZX , UK"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7148648316"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7148648316",
+          "source_author_id": "A5112456378",
+          "doi": "10.48550/arxiv.2604.01344",
+          "year": 2026,
+          "authors": [
+            "Watkiss-Leek, Elliott",
+            "Alharbi, Reham",
+            "Rostron, Harry",
+            "Ng, Andrew",
+            "Johnson, Ewan",
+            "Mitchell, Andrew",
+            "Payne, Terry R.",
+            "Tamma, Valentina",
+            "de Berardinis, Jacopo"
+          ],
+          "paper_url": "http://arxiv.org/abs/2604.01344"
+        }
+      ],
+      "observed_paper_type": "preprint",
+      "system_status_before_scope_correction": "verified",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W7148648316: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W7148648316: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W7148648316: Target authorship ORCID agrees with confirmed professor ORCID (scope: resolved_author)",
+        "openalex:https://openalex.org/W7148648316: Target signature similarity: 0.970"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "Guest editorial: Special issue on robot learning, Part A",
+      "year": 2009,
+      "authors": [
+        "Jan Peters",
+        "Andrew Y. Ng"
+      ],
+      "doi": "10.1007/s10514-009-9122-2",
+      "venue": "Autonomous Robots",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W2096199702",
+      "source_author_id": "A5112456378",
+      "paper_url": "https://doi.org/10.1007/s10514-009-9122-2",
+      "evaluation_id": "audit-andrew_ng-11",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W2096199702: Authorship role requires manual confirmation; metadata was retained",
+        "openalex:https://openalex.org/W2096199702: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2096199702: Nonstandard publication type: editorial",
+        "openalex:https://openalex.org/W2096199702: Nonstandard source classification in merged publication; automatic verification blocked",
+        "openalex:https://openalex.org/W2096199702: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2096199702: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [
+        "nonstandard_or_conflicting_publication_type"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W2096199702"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Jan Peters",
+          "raw_author_name": "Jan Peters",
+          "author_id": "https://openalex.org/A5071367253",
+          "orcid": "https://orcid.org/0000-0002-5266-8091",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": true,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210112925",
+              "display_name": "Max Planck Institute for Biological Cybernetics",
+              "ror": "https://ror.org/026nmvv73",
+              "country_code": "DE",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I149899117",
+                "https://openalex.org/I4210112925"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Empirical Inference, Max Planck Institute for Biological Cybernetics, Spemannstrasse 38, 72076, Tübingen, Germany",
+              "institution_ids": [
+                "https://openalex.org/I4210112925"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Department of Empirical Inference, Max Planck Institute for Biological Cybernetics, Tübingen, Germany 72076#TAB#",
+              "institution_ids": [
+                "https://openalex.org/I4210112925"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Department of Empirical Inference, Max Planck Institute for Biological Cybernetics, Spemannstrasse 38, 72076, Tübingen, Germany",
+            "Department of Empirical Inference, Max Planck Institute for Biological Cybernetics, Tübingen, Germany 72076#TAB#"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2096199702"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Andrew Y. Ng",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Computer Science, Stanford University, Room 156, Gates Building 1A, Stanford, CA, 94305-9010, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Department of Computer Science, Stanford University, Stanford, USA 94305-9010#TAB#",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Department of Computer Science, Stanford University, Room 156, Gates Building 1A, Stanford, CA, 94305-9010, USA",
+            "Department of Computer Science, Stanford University, Stanford, USA 94305-9010#TAB#"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2096199702"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2096199702",
+          "source_author_id": "A5112456378",
+          "doi": "10.1007/s10514-009-9122-2",
+          "year": 2009,
+          "authors": [
+            "Jan Peters",
+            "Andrew Y. Ng"
+          ],
+          "paper_url": "https://doi.org/10.1007/s10514-009-9122-2"
+        }
+      ],
+      "observed_paper_type": "editorial",
+      "system_status_before_scope_correction": "needs_review",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W2096199702: Authorship role requires manual confirmation; metadata was retained",
+        "openalex:https://openalex.org/W2096199702: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2096199702: Nonstandard publication type: editorial",
+        "openalex:https://openalex.org/W2096199702: Nonstandard source classification in merged publication; automatic verification blocked",
+        "openalex:https://openalex.org/W2096199702: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2096199702: Target signature similarity: 1.000"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "Inverse Reinforcement Learning",
+      "year": 2010,
+      "authors": [
+        "Pieter Abbeel",
+        "Andrew Y. Ng"
+      ],
+      "doi": "10.1007/978-0-387-30164-8_417",
+      "venue": "Encyclopedia of Machine Learning",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W4313387916",
+      "source_author_id": "A5112456378",
+      "paper_url": "https://doi.org/10.1007/978-0-387-30164-8_417",
+      "evaluation_id": "audit-andrew_ng-12",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W4313387916: Authorship role requires manual confirmation; metadata was retained",
+        "openalex:https://openalex.org/W4313387916: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W4313387916: Nonstandard publication type: reference_entry",
+        "openalex:https://openalex.org/W4313387916: Nonstandard source classification in merged publication; automatic verification blocked",
+        "openalex:https://openalex.org/W4313387916: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W4313387916: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [
+        "missing_paper_level_affiliation",
+        "nonstandard_or_conflicting_publication_type"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W4313387916"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Pieter Abbeel",
+          "raw_author_name": "Pieter Abbeel",
+          "author_id": "https://openalex.org/A5049349154",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4313387916"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Andrew Y. Ng",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4313387916"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4313387916",
+          "source_author_id": "A5112456378",
+          "doi": "10.1007/978-0-387-30164-8_417",
+          "year": 2010,
+          "authors": [
+            "Pieter Abbeel",
+            "Andrew Y. Ng"
+          ],
+          "paper_url": "https://doi.org/10.1007/978-0-387-30164-8_417"
+        }
+      ],
+      "observed_paper_type": "reference_entry",
+      "system_status_before_scope_correction": "needs_review",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W4313387916: Authorship role requires manual confirmation; metadata was retained",
+        "openalex:https://openalex.org/W4313387916: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W4313387916: Nonstandard publication type: reference_entry",
+        "openalex:https://openalex.org/W4313387916: Nonstandard source classification in merged publication; automatic verification blocked",
+        "openalex:https://openalex.org/W4313387916: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W4313387916: Target signature similarity: 1.000"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "Proceedings of the Twenty-Fifth Conference on Uncertainty in Artificial Intelligence (2009)",
+      "year": 2012,
+      "authors": [
+        "Bilmes, Jeff",
+        "Ng, Andrew"
+      ],
+      "doi": "10.48550/arxiv.1206.3959",
+      "venue": "arXiv (Cornell University)",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W1546155242",
+      "source_author_id": "A5112456378",
+      "paper_url": "http://arxiv.org/abs/1206.3959",
+      "evaluation_id": "audit-andrew_ng-13",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W1546155242: Authorship role requires manual confirmation; metadata was retained",
+        "openalex:https://openalex.org/W1546155242: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W1546155242: Nonstandard source classification in merged publication; automatic verification blocked",
+        "openalex:https://openalex.org/W1546155242: Possible nonstandard contributor list: title prefix proceedings of",
+        "openalex:https://openalex.org/W1546155242: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W1546155242: Target signature similarity: 0.970"
+      ],
+      "review_reason_codes": [
+        "missing_paper_level_affiliation",
+        "nonstandard_or_conflicting_publication_type"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W1546155242"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Jeff Bilmes",
+          "raw_author_name": "Bilmes, Jeff",
+          "author_id": "https://openalex.org/A5113478221",
+          "orcid": "https://orcid.org/0000-0002-7372-8778",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W1546155242"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Ng, Andrew",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W1546155242"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W1546155242",
+          "source_author_id": "A5112456378",
+          "doi": "10.48550/arxiv.1206.3959",
+          "year": 2012,
+          "authors": [
+            "Bilmes, Jeff",
+            "Ng, Andrew"
+          ],
+          "paper_url": "http://arxiv.org/abs/1206.3959"
+        }
+      ],
+      "observed_paper_type": "preprint",
+      "system_status_before_scope_correction": "needs_review",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W1546155242: Authorship role requires manual confirmation; metadata was retained",
+        "openalex:https://openalex.org/W1546155242: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W1546155242: Nonstandard source classification in merged publication; automatic verification blocked",
+        "openalex:https://openalex.org/W1546155242: Possible nonstandard contributor list: title prefix proceedings of",
+        "openalex:https://openalex.org/W1546155242: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W1546155242: Target signature similarity: 0.970"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "Autonomous Helicopter Flight Using Reinforcement Learning",
+      "year": 2014,
+      "authors": [
+        "Adam Coates",
+        "Pieter Abbeel",
+        "Andrew Y. Ng"
+      ],
+      "doi": "10.1007/978-1-4899-7502-7_16-1",
+      "venue": "Encyclopedia of Machine Learning and Data Mining",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W1484499605",
+      "source_author_id": "A5112456378",
+      "paper_url": "https://doi.org/10.1007/978-1-4899-7502-7_16-1",
+      "evaluation_id": "audit-andrew_ng-14",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W1484499605: Authorship role requires manual confirmation; metadata was retained",
+        "openalex:https://openalex.org/W1484499605: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W1484499605: Nonstandard publication type: reference_entry",
+        "openalex:https://openalex.org/W1484499605: Nonstandard source classification in merged publication; automatic verification blocked",
+        "openalex:https://openalex.org/W1484499605: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W1484499605: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [
+        "nonstandard_or_conflicting_publication_type"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W1484499605"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Adam Coates",
+          "raw_author_name": "Adam Coates",
+          "author_id": "https://openalex.org/A5103153292",
+          "orcid": "https://orcid.org/0000-0002-4004-1603",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": true,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Stanford University, Stanford, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Stanford University, Stanford, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W1484499605"
+        },
+        {
+          "name": "Pieter Abbeel",
+          "raw_author_name": "Pieter Abbeel",
+          "author_id": "https://openalex.org/A5049349154",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I95457486",
+              "display_name": "University of California, Berkeley",
+              "ror": "https://ror.org/01an7q238",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I95457486"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "University of California, Berkeley, USA",
+              "institution_ids": [
+                "https://openalex.org/I95457486"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "University of California, Berkeley, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W1484499605"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Andrew Y. Ng",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Stanford University, Stanford, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Stanford University, Stanford, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W1484499605"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W1484499605",
+          "source_author_id": "A5112456378",
+          "doi": "10.1007/978-1-4899-7502-7_16-1",
+          "year": 2014,
+          "authors": [
+            "Adam Coates",
+            "Pieter Abbeel",
+            "Andrew Y. Ng"
+          ],
+          "paper_url": "https://doi.org/10.1007/978-1-4899-7502-7_16-1"
+        }
+      ],
+      "observed_paper_type": "reference_entry",
+      "system_status_before_scope_correction": "needs_review",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W1484499605: Authorship role requires manual confirmation; metadata was retained",
+        "openalex:https://openalex.org/W1484499605: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W1484499605: Nonstandard publication type: reference_entry",
+        "openalex:https://openalex.org/W1484499605: Nonstandard source classification in merged publication; automatic verification blocked",
+        "openalex:https://openalex.org/W1484499605: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W1484499605: Target signature similarity: 1.000"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "Inverse Reinforcement Learning",
+      "year": 2016,
+      "authors": [
+        "Pieter Abbeel",
+        "Andrew Y. Ng"
+      ],
+      "doi": "10.1007/978-1-4899-7502-7_142-1",
+      "venue": "Encyclopedia of Machine Learning and Data Mining",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W4300463161",
+      "source_author_id": "A5112456378",
+      "paper_url": "https://doi.org/10.1007/978-1-4899-7502-7_142-1",
+      "evaluation_id": "audit-andrew_ng-15",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W4300463161: Authorship role requires manual confirmation; metadata was retained",
+        "openalex:https://openalex.org/W4300463161: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W4300463161: Nonstandard publication type: reference_entry",
+        "openalex:https://openalex.org/W4300463161: Nonstandard source classification in merged publication; automatic verification blocked",
+        "openalex:https://openalex.org/W4300463161: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W4300463161: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [
+        "nonstandard_or_conflicting_publication_type"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W4300463161"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Pieter Abbeel",
+          "raw_author_name": "Pieter Abbeel",
+          "author_id": "https://openalex.org/A5049349154",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": true,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I95457486",
+              "display_name": "University of California, Berkeley",
+              "ror": "https://ror.org/01an7q238",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I95457486"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "EECS Department, UC Berkeley, Stanford, CA, USA",
+              "institution_ids": [
+                "https://openalex.org/I95457486"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "EECS Department, UC Berkeley, Stanford, CA, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4300463161"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Andrew Y. Ng",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": true,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "CS Department, Stanford University, Stanford, CA, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "CS Department, Stanford University, Stanford, CA, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4300463161"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4300463161",
+          "source_author_id": "A5112456378",
+          "doi": "10.1007/978-1-4899-7502-7_142-1",
+          "year": 2016,
+          "authors": [
+            "Pieter Abbeel",
+            "Andrew Y. Ng"
+          ],
+          "paper_url": "https://doi.org/10.1007/978-1-4899-7502-7_142-1"
+        }
+      ],
+      "observed_paper_type": "reference_entry",
+      "system_status_before_scope_correction": "needs_review",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W4300463161: Authorship role requires manual confirmation; metadata was retained",
+        "openalex:https://openalex.org/W4300463161: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W4300463161: Nonstandard publication type: reference_entry",
+        "openalex:https://openalex.org/W4300463161: Nonstandard source classification in merged publication; automatic verification blocked",
+        "openalex:https://openalex.org/W4300463161: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W4300463161: Target signature similarity: 1.000"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "Inverse Reinforcement Learning",
+      "year": 2017,
+      "authors": [
+        "Pieter Abbeel",
+        "Andrew Y. Ng"
+      ],
+      "doi": "10.1007/978-1-4899-7687-1_142",
+      "venue": "Encyclopedia of Machine Learning and Data Mining",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W1494902192",
+      "source_author_id": "A5112456378",
+      "paper_url": "https://doi.org/10.1007/978-1-4899-7687-1_142",
+      "evaluation_id": "audit-andrew_ng-16",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W1494902192: Authorship role requires manual confirmation; metadata was retained",
+        "openalex:https://openalex.org/W1494902192: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W1494902192: Nonstandard publication type: reference_entry",
+        "openalex:https://openalex.org/W1494902192: Nonstandard source classification in merged publication; automatic verification blocked",
+        "openalex:https://openalex.org/W1494902192: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W1494902192: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [
+        "nonstandard_or_conflicting_publication_type"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W1494902192"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Pieter Abbeel",
+          "raw_author_name": "Pieter Abbeel",
+          "author_id": "https://openalex.org/A5049349154",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": true,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I95457486",
+              "display_name": "University of California, Berkeley",
+              "ror": "https://ror.org/01an7q238",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I95457486"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "EECS Department, UC Berkeley, Stanford, CA, USA",
+              "institution_ids": [
+                "https://openalex.org/I95457486"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "EECS Department, UC Berkeley, Stanford, CA, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W1494902192"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Andrew Y. Ng",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Computer Science Department, Stanford University, Stanford, CA, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Stanford University, Stanford, CA, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Computer Science Department, Stanford University, Stanford, CA, USA",
+            "Stanford University, Stanford, CA, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W1494902192"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W1494902192",
+          "source_author_id": "A5112456378",
+          "doi": "10.1007/978-1-4899-7687-1_142",
+          "year": 2017,
+          "authors": [
+            "Pieter Abbeel",
+            "Andrew Y. Ng"
+          ],
+          "paper_url": "https://doi.org/10.1007/978-1-4899-7687-1_142"
+        }
+      ],
+      "observed_paper_type": "reference_entry",
+      "system_status_before_scope_correction": "needs_review",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W1494902192: Authorship role requires manual confirmation; metadata was retained",
+        "openalex:https://openalex.org/W1494902192: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W1494902192: Nonstandard publication type: reference_entry",
+        "openalex:https://openalex.org/W1494902192: Nonstandard source classification in merged publication; automatic verification blocked",
+        "openalex:https://openalex.org/W1494902192: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W1494902192: Target signature similarity: 1.000"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "Autonomous Helicopter Flight Using Reinforcement Learning",
+      "year": 2017,
+      "authors": [
+        "Adam Coates",
+        "Pieter Abbeel",
+        "Andrew Y. Ng"
+      ],
+      "doi": "10.1007/978-1-4899-7687-1_16",
+      "venue": "Encyclopedia of Machine Learning and Data Mining",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W4319239745",
+      "source_author_id": "A5112456378",
+      "paper_url": "https://doi.org/10.1007/978-1-4899-7687-1_16",
+      "evaluation_id": "audit-andrew_ng-17",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W4319239745: Authorship role requires manual confirmation; metadata was retained",
+        "openalex:https://openalex.org/W4319239745: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W4319239745: Nonstandard publication type: reference_entry",
+        "openalex:https://openalex.org/W4319239745: Nonstandard source classification in merged publication; automatic verification blocked",
+        "openalex:https://openalex.org/W4319239745: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W4319239745: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [
+        "nonstandard_or_conflicting_publication_type"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W4319239745"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Adam Coates",
+          "raw_author_name": "Adam Coates",
+          "author_id": "https://openalex.org/A5103153292",
+          "orcid": "https://orcid.org/0000-0002-4004-1603",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": true,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Stanford University, Stanford, CA, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Stanford University, Stanford, CA, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4319239745"
+        },
+        {
+          "name": "Pieter Abbeel",
+          "raw_author_name": "Pieter Abbeel",
+          "author_id": "https://openalex.org/A5049349154",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I95457486",
+              "display_name": "University of California, Berkeley",
+              "ror": "https://ror.org/01an7q238",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I95457486"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "EECS Department, UC Berkeley, Stanford, CA, USA",
+              "institution_ids": [
+                "https://openalex.org/I95457486"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "EECS Department, UC Berkeley, Stanford, CA, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4319239745"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Andrew Y. Ng",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Computer Science Department, Stanford University, Stanford, CA, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Stanford University, Stanford, CA, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Computer Science Department, Stanford University, Stanford, CA, USA",
+            "Stanford University, Stanford, CA, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4319239745"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4319239745",
+          "source_author_id": "A5112456378",
+          "doi": "10.1007/978-1-4899-7687-1_16",
+          "year": 2017,
+          "authors": [
+            "Adam Coates",
+            "Pieter Abbeel",
+            "Andrew Y. Ng"
+          ],
+          "paper_url": "https://doi.org/10.1007/978-1-4899-7687-1_16"
+        }
+      ],
+      "observed_paper_type": "reference_entry",
+      "system_status_before_scope_correction": "needs_review",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W4319239745: Authorship role requires manual confirmation; metadata was retained",
+        "openalex:https://openalex.org/W4319239745: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W4319239745: Nonstandard publication type: reference_entry",
+        "openalex:https://openalex.org/W4319239745: Nonstandard source classification in merged publication; automatic verification blocked",
+        "openalex:https://openalex.org/W4319239745: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W4319239745: Target signature similarity: 1.000"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "DLBCL-Morph",
+      "year": 2021,
+      "authors": [
+        "R. H. Advani",
+        "Yasodha Natkunam",
+        "Pranav Rajpurkar",
+        "Vrabac, Damir",
+        "Akshay Smit",
+        "Rojansky, Rebecca",
+        "Ng, Andrew Yan-Tak",
+        "Fernandez-Pol, Sebastian"
+      ],
+      "doi": "10.6084/m9.figshare.12964772",
+      "venue": "Figshare",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W4394542820",
+      "source_author_id": "A5112456378",
+      "paper_url": "https://figshare.com/articles/dataset/DLBCL-Morph/12964772",
+      "evaluation_id": "audit-andrew_ng-18",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W4394542820: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W4394542820: Insufficient compatible target byline evidence",
+        "openalex:https://openalex.org/W4394542820: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W4394542820: Target signature similarity: 0.643"
+      ],
+      "review_reason_codes": [
+        "incompatible_or_insufficient_byline",
+        "missing_paper_level_affiliation"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W4394542820"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Ranjana H. Advani",
+          "raw_author_name": "R. H. Advani",
+          "author_id": "https://openalex.org/A5060314041",
+          "orcid": "https://orcid.org/0000-0002-3219-2292",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4394542820"
+        },
+        {
+          "name": "Yasodha Natkunam",
+          "raw_author_name": "Yasodha Natkunam",
+          "author_id": "https://openalex.org/A5001976357",
+          "orcid": "https://orcid.org/0000-0002-9816-1018",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4394542820"
+        },
+        {
+          "name": "Pranav Rajpurkar",
+          "raw_author_name": "Pranav Rajpurkar",
+          "author_id": "https://openalex.org/A5001094226",
+          "orcid": "https://orcid.org/0000-0002-8030-3727",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4394542820"
+        },
+        {
+          "name": "Damir Vrabac",
+          "raw_author_name": "Vrabac, Damir",
+          "author_id": "https://openalex.org/A5052769102",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4394542820"
+        },
+        {
+          "name": "Akshay Smit",
+          "raw_author_name": "Akshay Smit",
+          "author_id": "https://openalex.org/A5003608048",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4394542820"
+        },
+        {
+          "name": "Rebecca B. Rojansky",
+          "raw_author_name": "Rojansky, Rebecca",
+          "author_id": "https://openalex.org/A5089413184",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4394542820"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Ng, Andrew Yan-Tak",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4394542820"
+        },
+        {
+          "name": "Sebastian Fernandez‐Pol",
+          "raw_author_name": "Fernandez-Pol, Sebastian",
+          "author_id": "https://openalex.org/A5058417767",
+          "orcid": "https://orcid.org/0000-0002-0428-0199",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4394542820"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4394542820",
+          "source_author_id": "A5112456378",
+          "doi": "10.6084/m9.figshare.12964772",
+          "year": 2021,
+          "authors": [
+            "R. H. Advani",
+            "Yasodha Natkunam",
+            "Pranav Rajpurkar",
+            "Vrabac, Damir",
+            "Akshay Smit",
+            "Rojansky, Rebecca",
+            "Ng, Andrew Yan-Tak",
+            "Fernandez-Pol, Sebastian"
+          ],
+          "paper_url": "https://figshare.com/articles/dataset/DLBCL-Morph/12964772"
+        }
+      ],
+      "observed_paper_type": "dataset",
+      "system_status_before_scope_correction": "needs_review",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W4394542820: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W4394542820: Insufficient compatible target byline evidence",
+        "openalex:https://openalex.org/W4394542820: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W4394542820: Target signature similarity: 0.643"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "Comment on essd-2026-124",
+      "year": 2026,
+      "authors": [
+        "Jackson, Robert B.",
+        "Irvin, Jeremy A.",
+        "Ramachandran, Neel",
+        "Wang, Chenghao",
+        "Ouyang, Zutao",
+        "Tulloch, Paul A.",
+        "Liu, Frankie Y.",
+        "Ng, Andrew Y."
+      ],
+      "doi": "10.5194/essd-2026-124-cc1",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W7140877239",
+      "source_author_id": "A5112456378",
+      "paper_url": "https://doi.org/10.5194/essd-2026-124-cc1",
+      "evaluation_id": "audit-andrew_ng-19",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W7140877239: Authorship role requires manual confirmation; metadata was retained",
+        "openalex:https://openalex.org/W7140877239: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W7140877239: Nonstandard publication type: peer_review",
+        "openalex:https://openalex.org/W7140877239: Nonstandard source classification in merged publication; automatic verification blocked",
+        "openalex:https://openalex.org/W7140877239: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W7140877239: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [
+        "nonstandard_or_conflicting_publication_type"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W7140877239"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Robert B. Jackson",
+          "raw_author_name": "Jackson, Robert B.",
+          "author_id": "https://openalex.org/A5125632951",
+          "orcid": "https://orcid.org/0000-0001-8846-7147",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Woods institute for the Environment and Precourt Institute for Energy, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+            "Woods institute for the Environment and Precourt Institute for Energy, Stanford University, Stanford, CA 94305, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7140877239"
+        },
+        {
+          "name": "Jeremy Irvin",
+          "raw_author_name": "Irvin, Jeremy A.",
+          "author_id": "https://openalex.org/A5039154483",
+          "orcid": "https://orcid.org/0000-0002-0395-4403",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Computer Science Department, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Computer Science Department, Stanford University, Stanford, CA 94305, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7140877239"
+        },
+        {
+          "name": "Neel Ramachandran",
+          "raw_author_name": "Ramachandran, Neel",
+          "author_id": "https://openalex.org/A5050545779",
+          "orcid": "https://orcid.org/0009-0004-9679-1157",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Stanford Research Computing Center, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+            "Stanford Research Computing Center, Stanford University, Stanford, CA 94305, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7140877239"
+        },
+        {
+          "name": "Chenghao Wang",
+          "raw_author_name": "Wang, Chenghao",
+          "author_id": "https://openalex.org/A5138273687",
+          "orcid": "https://orcid.org/0000-0001-8846-4130",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I8692664",
+              "display_name": "University of Oklahoma",
+              "ror": "https://ror.org/02aqsxs83",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I8692664"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Geography and Environmental Sustainability, University of Oklahoma, Norman, OK 73019, USA",
+              "institution_ids": [
+                "https://openalex.org/I8692664"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            },
+            {
+              "raw_affiliation_string": "School of Meteorology, University of Oklahoma, Norman, OK 73072, USA",
+              "institution_ids": [
+                "https://openalex.org/I8692664"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Department of Geography and Environmental Sustainability, University of Oklahoma, Norman, OK 73019, USA",
+            "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+            "School of Meteorology, University of Oklahoma, Norman, OK 73072, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7140877239"
+        },
+        {
+          "name": "Zutao Ouyang",
+          "raw_author_name": "Ouyang, Zutao",
+          "author_id": "https://openalex.org/A5123784164",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I82497590",
+              "display_name": "Auburn University",
+              "ror": "https://ror.org/02v80fc35",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I82497590"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "College of Forestry, Wildlife and Environment, Auburn University, Auburn, AL, 36849, USA",
+              "institution_ids": [
+                "https://openalex.org/I82497590"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "College of Forestry, Wildlife and Environment, Auburn University, Auburn, AL, 36849, USA",
+            "Earth System Science Department, Stanford University, Stanford, CA 94305, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7140877239"
+        },
+        {
+          "name": "Paul Tulloch",
+          "raw_author_name": "Tulloch, Paul A.",
+          "author_id": "https://openalex.org/A5066309156",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            },
+            {
+              "raw_affiliation_string": "ML and Environment, Applied Research Consultant, Ottawa, Canada K1G2X3",
+              "institution_ids": []
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+            "ML and Environment, Applied Research Consultant, Ottawa, Canada K1G2X3"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7140877239"
+        },
+        {
+          "name": "Frankie Y. Liu",
+          "raw_author_name": "Liu, Frankie Y.",
+          "author_id": "https://openalex.org/A5027304469",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Earth System Science Department, Stanford University, Stanford, CA 94305, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7140877239"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Ng, Andrew Y.",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Computer Science Department, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Computer Science Department, Stanford University, Stanford, CA 94305, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7140877239"
+        }
+      ],
+      "missing_observed_fields": [
+        "venue"
+      ],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7140877239",
+          "source_author_id": "A5112456378",
+          "doi": "10.5194/essd-2026-124-cc1",
+          "year": 2026,
+          "authors": [
+            "Jackson, Robert B.",
+            "Irvin, Jeremy A.",
+            "Ramachandran, Neel",
+            "Wang, Chenghao",
+            "Ouyang, Zutao",
+            "Tulloch, Paul A.",
+            "Liu, Frankie Y.",
+            "Ng, Andrew Y."
+          ],
+          "paper_url": "https://doi.org/10.5194/essd-2026-124-cc1"
+        }
+      ],
+      "observed_paper_type": "peer_review",
+      "system_status_before_scope_correction": "needs_review",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W7140877239: Authorship role requires manual confirmation; metadata was retained",
+        "openalex:https://openalex.org/W7140877239: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W7140877239: Nonstandard publication type: peer_review",
+        "openalex:https://openalex.org/W7140877239: Nonstandard source classification in merged publication; automatic verification blocked",
+        "openalex:https://openalex.org/W7140877239: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W7140877239: Target signature similarity: 1.000"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    },
+    {
+      "title": "Comment on essd-2026-124",
+      "year": 2026,
+      "authors": [
+        "Jackson, Robert B.",
+        "Irvin, Jeremy A.",
+        "Ramachandran, Neel",
+        "Wang, Chenghao",
+        "Ouyang, Zutao",
+        "Tulloch, Paul A.",
+        "Liu, Frankie Y.",
+        "Ng, Andrew Y."
+      ],
+      "doi": "10.5194/essd-2026-124-rc2",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W7155360570",
+      "source_author_id": "A5112456378",
+      "paper_url": "https://doi.org/10.5194/essd-2026-124-rc2",
+      "evaluation_id": "audit-andrew_ng-20",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W7155360570: Authorship role requires manual confirmation; metadata was retained",
+        "openalex:https://openalex.org/W7155360570: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W7155360570: Nonstandard publication type: peer_review",
+        "openalex:https://openalex.org/W7155360570: Nonstandard source classification in merged publication; automatic verification blocked",
+        "openalex:https://openalex.org/W7155360570: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W7155360570: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [
+        "nonstandard_or_conflicting_publication_type"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W7155360570"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Robert B. Jackson",
+          "raw_author_name": "Jackson, Robert B.",
+          "author_id": "https://openalex.org/A5125632951",
+          "orcid": "https://orcid.org/0000-0001-8846-7147",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Woods institute for the Environment and Precourt Institute for Energy, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+            "Woods institute for the Environment and Precourt Institute for Energy, Stanford University, Stanford, CA 94305, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7155360570"
+        },
+        {
+          "name": "Jeremy Irvin",
+          "raw_author_name": "Irvin, Jeremy A.",
+          "author_id": "https://openalex.org/A5039154483",
+          "orcid": "https://orcid.org/0000-0002-0395-4403",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Computer Science Department, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Computer Science Department, Stanford University, Stanford, CA 94305, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7155360570"
+        },
+        {
+          "name": "Neel Ramachandran",
+          "raw_author_name": "Ramachandran, Neel",
+          "author_id": "https://openalex.org/A5050545779",
+          "orcid": "https://orcid.org/0009-0004-9679-1157",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Stanford Research Computing Center, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+            "Stanford Research Computing Center, Stanford University, Stanford, CA 94305, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7155360570"
+        },
+        {
+          "name": "Chenghao Wang",
+          "raw_author_name": "Wang, Chenghao",
+          "author_id": "https://openalex.org/A5138273687",
+          "orcid": "https://orcid.org/0000-0001-8846-4130",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I8692664",
+              "display_name": "University of Oklahoma",
+              "ror": "https://ror.org/02aqsxs83",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I8692664"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Geography and Environmental Sustainability, University of Oklahoma, Norman, OK 73019, USA",
+              "institution_ids": [
+                "https://openalex.org/I8692664"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            },
+            {
+              "raw_affiliation_string": "School of Meteorology, University of Oklahoma, Norman, OK 73072, USA",
+              "institution_ids": [
+                "https://openalex.org/I8692664"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Department of Geography and Environmental Sustainability, University of Oklahoma, Norman, OK 73019, USA",
+            "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+            "School of Meteorology, University of Oklahoma, Norman, OK 73072, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7155360570"
+        },
+        {
+          "name": "Zutao Ouyang",
+          "raw_author_name": "Ouyang, Zutao",
+          "author_id": "https://openalex.org/A5123784164",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I82497590",
+              "display_name": "Auburn University",
+              "ror": "https://ror.org/02v80fc35",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I82497590"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "College of Forestry, Wildlife and Environment, Auburn University, Auburn, AL, 36849, USA",
+              "institution_ids": [
+                "https://openalex.org/I82497590"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "College of Forestry, Wildlife and Environment, Auburn University, Auburn, AL, 36849, USA",
+            "Earth System Science Department, Stanford University, Stanford, CA 94305, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7155360570"
+        },
+        {
+          "name": "Paul Tulloch",
+          "raw_author_name": "Tulloch, Paul A.",
+          "author_id": "https://openalex.org/A5066309156",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            },
+            {
+              "raw_affiliation_string": "ML and Environment, Applied Research Consultant, Ottawa, Canada K1G2X3",
+              "institution_ids": []
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+            "ML and Environment, Applied Research Consultant, Ottawa, Canada K1G2X3"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7155360570"
+        },
+        {
+          "name": "Frankie Y. Liu",
+          "raw_author_name": "Liu, Frankie Y.",
+          "author_id": "https://openalex.org/A5027304469",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Earth System Science Department, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Earth System Science Department, Stanford University, Stanford, CA 94305, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7155360570"
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "raw_author_name": "Ng, Andrew Y.",
+          "author_id": "https://openalex.org/A5112456378",
+          "orcid": "https://orcid.org/0009-0001-5707-6327",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I97018004",
+              "display_name": "Stanford University",
+              "ror": "https://ror.org/00f54p054",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Computer Science Department, Stanford University, Stanford, CA 94305, USA",
+              "institution_ids": [
+                "https://openalex.org/I97018004"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Computer Science Department, Stanford University, Stanford, CA 94305, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7155360570"
+        }
+      ],
+      "missing_observed_fields": [
+        "venue"
+      ],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7155360570",
+          "source_author_id": "A5112456378",
+          "doi": "10.5194/essd-2026-124-rc2",
+          "year": 2026,
+          "authors": [
+            "Jackson, Robert B.",
+            "Irvin, Jeremy A.",
+            "Ramachandran, Neel",
+            "Wang, Chenghao",
+            "Ouyang, Zutao",
+            "Tulloch, Paul A.",
+            "Liu, Frankie Y.",
+            "Ng, Andrew Y."
+          ],
+          "paper_url": "https://doi.org/10.5194/essd-2026-124-rc2"
+        }
+      ],
+      "observed_paper_type": "peer_review",
+      "system_status_before_scope_correction": "needs_review",
+      "prior_ownership_evidence": [
+        "openalex:https://openalex.org/W7155360570: Authorship role requires manual confirmation; metadata was retained",
+        "openalex:https://openalex.org/W7155360570: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W7155360570: Nonstandard publication type: peer_review",
+        "openalex:https://openalex.org/W7155360570: Nonstandard source classification in merged publication; automatic verification blocked",
+        "openalex:https://openalex.org/W7155360570: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W7155360570: Target signature similarity: 1.000"
+      ],
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "andrew_ng.audit.pending.json"
+    }
+  ]
+}

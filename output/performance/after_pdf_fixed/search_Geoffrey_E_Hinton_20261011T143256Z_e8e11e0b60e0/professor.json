@@ -1,0 +1,80 @@
+{
+  "profile": {
+    "name": "Geoffrey E. Hinton",
+    "affiliations": [
+      "University of Toronto"
+    ],
+    "author_ids": {
+      "openalex": "A5108093963",
+      "semantic_scholar": "1695689"
+    },
+    "identity_confidence": 0.975,
+    "status": "resolved",
+    "evidence": [
+      "Name similarity: 1.000",
+      "University matched: 1.000",
+      "shared DOI count: 23",
+      "shared coauthor count: 23",
+      "Department similarity: 0.000",
+      "Research similarity: 1.000"
+    ],
+    "orcid": null,
+    "research_interests": [],
+    "university": null,
+    "university_status": "unknown",
+    "match_score": 0.0,
+    "requested_university": null,
+    "matched_affiliations": [],
+    "author_id_aliases": {
+      "openalex": [
+        "A5108093963"
+      ],
+      "semantic_scholar": [
+        "1695689"
+      ]
+    },
+    "name_aliases": []
+  },
+  "candidates": [
+    {
+      "name": "Geoffrey E. Hinton",
+      "affiliations": [
+        "University of Toronto"
+      ],
+      "author_ids": {
+        "openalex": "A5108093963",
+        "semantic_scholar": "1695689"
+      },
+      "identity_confidence": 0.975,
+      "status": "resolved",
+      "evidence": [
+        "Name similarity: 1.000",
+        "University matched: 1.000",
+        "shared DOI count: 23",
+        "shared coauthor count: 23",
+        "Department similarity: 0.000",
+        "Research similarity: 1.000"
+      ],
+      "orcid": null,
+      "research_interests": [],
+      "university": null,
+      "university_status": "unknown",
+      "match_score": 0.0,
+      "requested_university": null,
+      "matched_affiliations": [],
+      "author_id_aliases": {
+        "openalex": [
+          "A5108093963"
+        ],
+        "semantic_scholar": [
+          "1695689"
+        ]
+      },
+      "name_aliases": []
+    }
+  ],
+  "source_errors": {
+    "dblp": "https://dblp.org/search/author/api HTTP 200 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+  },
+  "ambiguity": null
+}

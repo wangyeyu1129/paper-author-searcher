@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Human-adjudicated publication evaluation ground truth",
+  "type": "object",
+  "required": ["schema_version", "papers"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "complete_positive_list": {"type": "boolean", "default": false},
+    "metadata": {"type": "object"},
+    "professor": {
+      "type": "object",
+      "properties": {
+        "orcid": {"type": "string"},
+        "author_ids_complete": {"type": "boolean", "default": false},
+        "author_ids": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}}}
+      }
+    },
+    "papers": {"type": "array", "items": {"$ref": "#/$defs/paper"}}
+  },
+  "$defs": {
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "title": {"type": "string"}, "year": {"type": "integer"},
+        "authors": {"type": "array", "items": {"type": "string"}},
+        "venue": {"type": "string"}
+      }
+    },
+    "paper": {
+      "allOf": [{"$ref": "#/$defs/metadata"}],
+      "required": ["evaluation_id", "ownership"],
+      "properties": {
+        "evaluation_id": {"type": "string", "minLength": 1},
+        "ownership": {"enum": ["belongs", "not_belongs", "uncertain"]},
+        "doi": {"type": "string"},
+        "dois": {"type": "array", "items": {"type": "string"}},
+        "external_ids": {"type": "object", "additionalProperties": {"type": "string"}},
+        "source_records": {
+          "type": "array", "items": {
+            "type": "object", "required": ["source", "paper_id"],
+            "properties": {"source": {"type": "string"}, "paper_id": {"type": "string"}}
+          }
+        },
+        "metadata_aliases": {"type": "array", "items": {"$ref": "#/$defs/metadata"}},
+        "annotation_evidence": {"type": "array", "items": {"type": "string"}}
+      },
+      "anyOf": [
+        {"required": ["doi"]}, {"required": ["dois"]},
+        {"required": ["external_ids"]}, {"required": ["source_records"]},
+        {"required": ["title", "year", "authors"]}
+      ]
+    }
+  }
+}

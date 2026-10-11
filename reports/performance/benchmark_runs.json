@@ -1,0 +1,438 @@
+{
+  "schema_version": 1,
+  "formal_human_ground_truth_available": false,
+  "formal_80_percent_claim": false,
+  "test_date": "2026-10-11",
+  "runs": {
+    "before": {
+      "output_directory": "/Users/wangyeyu/Desktop/paper-author-searcher/output/performance/before_pdf/search_Geoffrey_E_Hinton_20261011T141429Z_537f9f325025",
+      "collection_statistics": {
+        "raw_records_received": 890,
+        "retained_source_records": 890,
+        "deduplicated_entries": 573,
+        "ownership_counts": {
+          "verified": 341,
+          "needs_review": 232,
+          "rejected": 0
+        },
+        "source_record_ownership_counts": {
+          "verified": 605,
+          "needs_review": 283,
+          "rejected": 2
+        },
+        "source_record_authorship_counts": {
+          "with_author_details": 890,
+          "with_external_ids": 890,
+          "target_present": 890,
+          "target_absent": 0,
+          "target_unknown": 0
+        },
+        "metadata_enrichment_errors": 0,
+        "unparsed_records": 0
+      },
+      "pdf_statistics": {
+        "total_papers": 573,
+        "processed_papers": 30,
+        "valid_pdf_papers": 3,
+        "unverified_only_papers": 5,
+        "not_found_papers": 22,
+        "skipped_ownership_papers": 232,
+        "not_processed_papers": 311,
+        "incomplete_search_papers": 28,
+        "distinct_verified_pdf_urls": 3,
+        "source_contributions": {
+          "existing_metadata": {
+            "candidate_urls": 4,
+            "verified_urls": 1,
+            "papers_with_valid_pdf": 1,
+            "errors": 0,
+            "query_status_counts": {
+              "ok": 30
+            }
+          },
+          "openalex": {
+            "candidate_urls": 2,
+            "verified_urls": 0,
+            "papers_with_valid_pdf": 0,
+            "errors": 0,
+            "query_status_counts": {
+              "ok": 30
+            }
+          },
+          "semantic_scholar": {
+            "candidate_urls": 0,
+            "verified_urls": 0,
+            "papers_with_valid_pdf": 0,
+            "errors": 26,
+            "query_status_counts": {
+              "error": 26,
+              "ok": 3,
+              "not_applicable": 1
+            }
+          },
+          "unpaywall": {
+            "candidate_urls": 0,
+            "verified_urls": 0,
+            "papers_with_valid_pdf": 0,
+            "errors": 30,
+            "query_status_counts": {
+              "disabled": 30
+            }
+          },
+          "arxiv": {
+            "candidate_urls": 1,
+            "verified_urls": 1,
+            "papers_with_valid_pdf": 1,
+            "errors": 0,
+            "query_status_counts": {
+              "not_applicable": 29,
+              "ok": 1
+            }
+          },
+          "landing_page": {
+            "candidate_urls": 6,
+            "verified_urls": 1,
+            "papers_with_valid_pdf": 1,
+            "errors": 54,
+            "query_status_counts": {
+              "partial": 23,
+              "ok": 7
+            }
+          }
+        },
+        "search_complete_for_processed_papers": false,
+        "coverage_note": "Counts describe processed saved entries and public-source observations, not all available PDFs."
+      },
+      "download_statistics": {
+        "total_input_papers": 573,
+        "attempted_papers": 3,
+        "downloaded_files": 3,
+        "verified_papers": 2,
+        "needs_review_papers": 1,
+        "failed_papers": 0,
+        "reused_existing_papers": 0,
+        "duplicate_content_papers": 0,
+        "skipped_papers": 570
+      },
+      "workflow_status": "partial",
+      "stage_error_observations": 120,
+      "unchecked_local_files": [],
+      "pdf_failure_reason_counts": {
+        "not_pdf_response": 2,
+        "provider_not_configured": 27,
+        "rate_limited": 24,
+        "source_query_failed": 26,
+        "url_not_found": 4,
+        "network_error": 2,
+        "search_incomplete": 20,
+        "redirect_failure": 4,
+        "ownership_not_eligible": 232,
+        "access_restricted": 5,
+        "not_processed_limit": 311,
+        "downloaded_paper_identity_unconfirmed": 1
+      },
+      "pdf_processing_scope": {
+        "processed_publications": 30,
+        "fingerprint": "8bc671c01fda758cebf383aef24f5ab45fef964180dab448181333ae70d07d05"
+      }
+    },
+    "after": {
+      "output_directory": "/Users/wangyeyu/Desktop/paper-author-searcher/output/performance/after_download/search_Geoffrey_E_Hinton_20261011T144245Z_420433448232",
+      "collection_statistics": {
+        "raw_records_received": 890,
+        "retained_source_records": 890,
+        "deduplicated_entries": 573,
+        "ownership_counts": {
+          "verified": 341,
+          "needs_review": 232,
+          "rejected": 0
+        },
+        "source_record_ownership_counts": {
+          "verified": 605,
+          "needs_review": 283,
+          "rejected": 2
+        },
+        "source_record_authorship_counts": {
+          "with_author_details": 890,
+          "with_external_ids": 890,
+          "target_present": 890,
+          "target_absent": 0,
+          "target_unknown": 0
+        },
+        "metadata_enrichment_errors": 0,
+        "unparsed_records": 0
+      },
+      "pdf_statistics": {
+        "total_papers": 573,
+        "processed_papers": 30,
+        "valid_pdf_papers": 5,
+        "unverified_only_papers": 5,
+        "not_found_papers": 20,
+        "skipped_ownership_papers": 232,
+        "not_processed_papers": 311,
+        "incomplete_search_papers": 23,
+        "distinct_verified_pdf_urls": 5,
+        "source_contributions": {
+          "existing_metadata": {
+            "candidate_urls": 4,
+            "verified_urls": 1,
+            "papers_with_valid_pdf": 1,
+            "errors": 0,
+            "query_status_counts": {
+              "ok": 30
+            }
+          },
+          "openalex": {
+            "candidate_urls": 2,
+            "verified_urls": 0,
+            "papers_with_valid_pdf": 0,
+            "errors": 0,
+            "query_status_counts": {
+              "ok": 30
+            }
+          },
+          "semantic_scholar": {
+            "candidate_urls": 4,
+            "verified_urls": 1,
+            "papers_with_valid_pdf": 1,
+            "errors": 0,
+            "query_status_counts": {
+              "ok": 29,
+              "not_applicable": 1
+            }
+          },
+          "unpaywall": {
+            "candidate_urls": 0,
+            "verified_urls": 0,
+            "papers_with_valid_pdf": 0,
+            "errors": 30,
+            "query_status_counts": {
+              "disabled": 30
+            }
+          },
+          "arxiv": {
+            "candidate_urls": 2,
+            "verified_urls": 1,
+            "papers_with_valid_pdf": 1,
+            "errors": 0,
+            "query_status_counts": {
+              "ok": 30
+            }
+          },
+          "journal_catalog": {
+            "candidate_urls": 2,
+            "verified_urls": 2,
+            "papers_with_valid_pdf": 2,
+            "errors": 0,
+            "query_status_counts": {
+              "not_applicable": 28,
+              "ok": 2
+            }
+          },
+          "landing_page": {
+            "candidate_urls": 6,
+            "verified_urls": 1,
+            "papers_with_valid_pdf": 1,
+            "errors": 54,
+            "query_status_counts": {
+              "partial": 23,
+              "ok": 7
+            }
+          }
+        },
+        "search_complete_for_processed_papers": false,
+        "coverage_note": "Counts describe processed saved entries and public-source observations, not all available PDFs."
+      },
+      "download_statistics": {
+        "total_input_papers": 573,
+        "attempted_papers": 5,
+        "downloaded_files": 5,
+        "verified_papers": 4,
+        "needs_review_papers": 1,
+        "failed_papers": 0,
+        "reused_existing_papers": 0,
+        "duplicate_content_papers": 0,
+        "skipped_papers": 568
+      },
+      "workflow_status": "partial",
+      "stage_error_observations": 95,
+      "unchecked_local_files": [],
+      "pdf_failure_reason_counts": {
+        "not_pdf_response": 2,
+        "provider_not_configured": 25,
+        "rate_limited": 15,
+        "source_query_failed": 20,
+        "url_not_found": 4,
+        "redirect_failure": 4,
+        "ownership_not_eligible": 232,
+        "access_restricted": 5,
+        "search_incomplete": 18,
+        "network_error": 1,
+        "not_processed_limit": 311,
+        "downloaded_paper_identity_unconfirmed": 1
+      },
+      "pdf_processing_scope": {
+        "processed_publications": 30,
+        "fingerprint": "8bc671c01fda758cebf383aef24f5ab45fef964180dab448181333ae70d07d05"
+      }
+    },
+    "expanded": {
+      "output_directory": "/Users/wangyeyu/Desktop/paper-author-searcher/output/performance/expanded/search_Geoffrey_E_Hinton_20261011T144354Z_60bb94842e3a",
+      "collection_statistics": {
+        "raw_records_received": 890,
+        "retained_source_records": 890,
+        "deduplicated_entries": 573,
+        "ownership_counts": {
+          "verified": 341,
+          "needs_review": 232,
+          "rejected": 0
+        },
+        "source_record_ownership_counts": {
+          "verified": 605,
+          "needs_review": 283,
+          "rejected": 2
+        },
+        "source_record_authorship_counts": {
+          "with_author_details": 890,
+          "with_external_ids": 890,
+          "target_present": 890,
+          "target_absent": 0,
+          "target_unknown": 0
+        },
+        "metadata_enrichment_errors": 0,
+        "unparsed_records": 0
+      },
+      "pdf_statistics": {
+        "total_papers": 573,
+        "processed_papers": 100,
+        "valid_pdf_papers": 18,
+        "unverified_only_papers": 12,
+        "not_found_papers": 70,
+        "skipped_ownership_papers": 232,
+        "not_processed_papers": 241,
+        "incomplete_search_papers": 73,
+        "distinct_verified_pdf_urls": 26,
+        "source_contributions": {
+          "existing_metadata": {
+            "candidate_urls": 20,
+            "verified_urls": 10,
+            "papers_with_valid_pdf": 9,
+            "errors": 0,
+            "query_status_counts": {
+              "ok": 100
+            }
+          },
+          "openalex": {
+            "candidate_urls": 9,
+            "verified_urls": 4,
+            "papers_with_valid_pdf": 3,
+            "errors": 0,
+            "query_status_counts": {
+              "ok": 100
+            }
+          },
+          "semantic_scholar": {
+            "candidate_urls": 16,
+            "verified_urls": 7,
+            "papers_with_valid_pdf": 7,
+            "errors": 3,
+            "query_status_counts": {
+              "ok": 96,
+              "error": 3,
+              "not_applicable": 1
+            }
+          },
+          "unpaywall": {
+            "candidate_urls": 0,
+            "verified_urls": 0,
+            "papers_with_valid_pdf": 0,
+            "errors": 100,
+            "query_status_counts": {
+              "disabled": 100
+            }
+          },
+          "arxiv": {
+            "candidate_urls": 9,
+            "verified_urls": 8,
+            "papers_with_valid_pdf": 8,
+            "errors": 0,
+            "query_status_counts": {
+              "ok": 100
+            }
+          },
+          "journal_catalog": {
+            "candidate_urls": 2,
+            "verified_urls": 2,
+            "papers_with_valid_pdf": 2,
+            "errors": 0,
+            "query_status_counts": {
+              "not_applicable": 97,
+              "ok": 3
+            }
+          },
+          "landing_page": {
+            "candidate_urls": 24,
+            "verified_urls": 8,
+            "papers_with_valid_pdf": 7,
+            "errors": 146,
+            "query_status_counts": {
+              "partial": 70,
+              "ok": 30
+            }
+          }
+        },
+        "search_complete_for_processed_papers": false,
+        "coverage_note": "Counts describe processed saved entries and public-source observations, not all available PDFs."
+      },
+      "download_statistics": {
+        "total_input_papers": 573,
+        "attempted_papers": 18,
+        "downloaded_files": 18,
+        "verified_papers": 9,
+        "needs_review_papers": 9,
+        "failed_papers": 0,
+        "reused_existing_papers": 0,
+        "duplicate_content_papers": 0,
+        "skipped_papers": 555
+      },
+      "workflow_status": "partial",
+      "stage_error_observations": 278,
+      "unchecked_local_files": [],
+      "pdf_failure_reason_counts": {
+        "not_pdf_response": 9,
+        "provider_not_configured": 82,
+        "rate_limited": 51,
+        "source_query_failed": 64,
+        "url_not_found": 12,
+        "redirect_failure": 7,
+        "ownership_not_eligible": 232,
+        "access_restricted": 14,
+        "search_incomplete": 62,
+        "network_error": 6,
+        "not_processed_limit": 241,
+        "downloaded_paper_identity_unconfirmed": 9
+      },
+      "pdf_processing_scope": {
+        "processed_publications": 100,
+        "fingerprint": "3631b8e6079e0cf528a580b4fe5f4ce6aace184e497bd525ed3e83604a62ad4a"
+      }
+    }
+  },
+  "same_30_publication_comparison": true,
+  "unlimited_metadata_pagination": true,
+  "reference_positive_suggestions": {
+    "hinton": 8,
+    "andrew_ng": 7
+  },
+  "test_limit_notes": [
+    "Full author-ID metadata pagination; no page limit.",
+    "Before/after compare identical 30 verified papers; maximum_downloads=10 nonbinding.",
+    "Expanded test processes 100 verified papers; maximum_downloads=25 nonbinding (18 attempted).",
+    "Remaining 241 eligible papers are explicitly unprocessed, never marked as no public PDF."
+  ],
+  "ownership_thresholds_changed": false,
+  "downloads_without_current_size_sha_confirmation": false,
+  "unit_tests_passed": 357,
+  "python_version": "3.8.0",
+  "matching_rules_version": 2
+}

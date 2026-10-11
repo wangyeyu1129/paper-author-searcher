@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "description": "Empty template. Populate only with human-verified annotations.",
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "scope": "Define professor, publication types, dates, and version policy here."
+  },
+  "papers": []
+}

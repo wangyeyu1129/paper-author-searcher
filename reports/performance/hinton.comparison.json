@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "metric_scope": "provisional_reference_not_human_ground_truth",
+  "matching_rules_version": 2,
+  "same_pdf_processing_scope": true,
+  "formal_metrics": false,
+  "metrics": {
+    "paper_discovery_recall": {
+      "before": {
+        "numerator": 8,
+        "denominator": 8,
+        "rate": 1.0,
+        "available": true
+      },
+      "after": {
+        "numerator": 8,
+        "denominator": 8,
+        "rate": 1.0,
+        "available": true
+      },
+      "absolute_rate_change": 0.0
+    },
+    "verified_paper_recall": {
+      "before": {
+        "numerator": 7,
+        "denominator": 8,
+        "rate": 0.875,
+        "available": true
+      },
+      "after": {
+        "numerator": 7,
+        "denominator": 8,
+        "rate": 0.875,
+        "available": true
+      },
+      "absolute_rate_change": 0.0
+    },
+    "author_match_precision": {
+      "before": {
+        "numerator": 7,
+        "denominator": 7,
+        "rate": 1.0,
+        "available": true
+      },
+      "after": {
+        "numerator": 7,
+        "denominator": 7,
+        "rate": 1.0,
+        "available": true
+      },
+      "absolute_rate_change": 0.0
+    },
+    "author_decision_accuracy": {
+      "before": {
+        "numerator": 7,
+        "denominator": 7,
+        "rate": 1.0,
+        "available": true
+      },
+      "after": {
+        "numerator": 7,
+        "denominator": 7,
+        "rate": 1.0,
+        "available": true
+      },
+      "absolute_rate_change": 0.0
+    },
+    "author_decision_coverage": {
+      "before": {
+        "numerator": 7,
+        "denominator": 8,
+        "rate": 0.875,
+        "available": true
+      },
+      "after": {
+        "numerator": 7,
+        "denominator": 8,
+        "rate": 0.875,
+        "available": true
+      },
+      "absolute_rate_change": 0.0
+    },
+    "validated_pdf_url_coverage": {
+      "before": {
+        "numerator": 0,
+        "denominator": 8,
+        "rate": 0.0,
+        "available": true
+      },
+      "after": {
+        "numerator": 2,
+        "denominator": 8,
+        "rate": 0.25,
+        "available": true
+      },
+      "absolute_rate_change": 0.25
+    },
+    "validated_pdf_url_rate_among_processed": {
+      "before": {
+        "numerator": 0,
+        "denominator": 2,
+        "rate": 0.0,
+        "available": true
+      },
+      "after": {
+        "numerator": 2,
+        "denominator": 2,
+        "rate": 1.0,
+        "available": true
+      },
+      "absolute_rate_change": 1.0
+    },
+    "actual_download_coverage": {
+      "before": {
+        "numerator": 0,
+        "denominator": 8,
+        "rate": 0.0,
+        "available": true
+      },
+      "after": {
+        "numerator": 2,
+        "denominator": 8,
+        "rate": 0.25,
+        "available": true
+      },
+      "absolute_rate_change": 0.25
+    },
+    "actual_download_success_rate": {
+      "before": {
+        "numerator": 0,
+        "denominator": 0,
+        "rate": null,
+        "available": true
+      },
+      "after": {
+        "numerator": 2,
+        "denominator": 2,
+        "rate": 1.0,
+        "available": true
+      },
+      "absolute_rate_change": null
+    },
+    "download_format_success_rate": {
+      "before": {
+        "numerator": 0,
+        "denominator": 0,
+        "rate": null,
+        "available": true
+      },
+      "after": {
+        "numerator": 2,
+        "denominator": 2,
+        "rate": 1.0,
+        "available": true
+      },
+      "absolute_rate_change": null
+    }
+  },
+  "recall_target": {
+    "target": 0.8,
+    "formally_met": false
+  },
+  "notes": [
+    "Use identical publication and processing scopes; network observations may vary between runs."
+  ],
+  "same_processed_publication_scope": true
+}

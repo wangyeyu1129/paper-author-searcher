@@ -1,0 +1,885 @@
+{
+  "schema_version": 1,
+  "report_type": "paper_search_workflow",
+  "mode": "full",
+  "run_status": "partial",
+  "output_directory": "/Users/wangyeyu/Desktop/paper-author-searcher/output/performance/after_download/search_Geoffrey_E_Hinton_20261011T144245Z_420433448232",
+  "stages": [
+    {
+      "stage": "Collecting papers",
+      "status": "reused"
+    },
+    {
+      "stage": "Deduplicating papers",
+      "status": "reused"
+    },
+    {
+      "stage": "Validating ownership",
+      "status": "reused"
+    },
+    {
+      "stage": "Finding PDF URLs",
+      "status": "reused"
+    },
+    {
+      "stage": "Downloading PDFs",
+      "status": "completed"
+    }
+  ],
+  "errors": [
+    {
+      "stage": "Resolving professor identity",
+      "source": "dblp",
+      "error": "https://dblp.org/search/author/api HTTP 200 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+    },
+    {
+      "stage": "Collecting papers",
+      "source": "dblp",
+      "error": "No confirmed Author ID for this source"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "ImageNet classification with deep convolutional neural networks"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.299.205: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "ImageNet classification with deep convolutional neural networks"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.692.3657: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "ImageNet classification with deep convolutional neural networks"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://books.nips.cc/papers/files/nips25/NIPS2012_0534.pdf: HTTP 404 from books.nips.cc",
+      "stage": "Finding PDF URLs",
+      "title": "ImageNet classification with deep convolutional neural networks"
+    },
+    {
+      "source": "existing_metadata",
+      "url": "http://dl.acm.org/ft_gateway.cfm?id=3065386&type=pdf",
+      "error": "Resource is HTML, not a PDF (possibly an access interstitial)",
+      "stage": "Finding PDF URLs",
+      "title": "ImageNet classification with deep convolutional neural networks"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Deep learning"
+    },
+    {
+      "source": "arxiv",
+      "url": "https://arxiv.org/pdf/1807.07987v2",
+      "error": "PDF signature confirmed, but paper correspondence remains unverified",
+      "stage": "Finding PDF URLs",
+      "title": "Deep learning"
+    },
+    {
+      "source": "landing_page",
+      "url": "https://www.nature.com/articles/nature14539.pdf",
+      "error": "HTTP 302 from www.nature.com",
+      "stage": "Finding PDF URLs",
+      "title": "Deep learning"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Visualizing Data using t-SNE"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://isplab.tudelft.nl/sites/default/files/vandermaaten08a.pdf: isplab.tudelft.nl: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+      "stage": "Finding PDF URLs",
+      "title": "Visualizing Data using t-SNE"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Dropout: a simple way to prevent neural networks from overfitting"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.669.8604: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Dropout: a simple way to prevent neural networks from overfitting"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.696.4855: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Dropout: a simple way to prevent neural networks from overfitting"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Learning representations by back-propagating errors"
+    },
+    {
+      "source": "landing_page",
+      "url": "https://www.nature.com/articles/323533a0.pdf",
+      "error": "HTTP 302 from www.nature.com",
+      "stage": "Finding PDF URLs",
+      "title": "Learning representations by back-propagating errors"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "A Fast Learning Algorithm for Deep Belief Nets"
+    },
+    {
+      "source": "landing_page",
+      "error": "https://doi.org/10.1162/neco.2006.18.7.1527: HTTP 403 from doi.org",
+      "stage": "Finding PDF URLs",
+      "title": "A Fast Learning Algorithm for Deep Belief Nets"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.111.4574: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "A Fast Learning Algorithm for Deep Belief Nets"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.76.1541: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "A Fast Learning Algorithm for Deep Belief Nets"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.87.2916: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "A Fast Learning Algorithm for Deep Belief Nets"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://discovery.ucl.ac.uk/13458/: HTTP 404 from discovery.ucl.ac.uk",
+      "stage": "Finding PDF URLs",
+      "title": "A Fast Learning Algorithm for Deep Belief Nets"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Rectified Linear Units Improve Restricted Boltzmann Machines"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Deep Neural Networks for Acoustic Modeling in Speech Recognition: The Shared Views of Four Research Groups"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Speech recognition with deep recurrent neural networks"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Adaptive Mixtures of Local Experts"
+    },
+    {
+      "source": "landing_page",
+      "error": "https://doi.org/10.1162/neco.1991.3.1.79: HTTP 403 from doi.org",
+      "stage": "Finding PDF URLs",
+      "title": "Adaptive Mixtures of Local Experts"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Training Products of Experts by Minimizing Contrastive Divergence"
+    },
+    {
+      "source": "landing_page",
+      "error": "https://doi.org/10.1162/089976602760128018: HTTP 403 from doi.org",
+      "stage": "Finding PDF URLs",
+      "title": "Training Products of Experts by Minimizing Contrastive Divergence"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.124.730: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Training Products of Experts by Minimizing Contrastive Divergence"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.15.8543: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Training Products of Experts by Minimizing Contrastive Divergence"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.219.6786: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Training Products of Experts by Minimizing Contrastive Divergence"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.35.8613: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Training Products of Experts by Minimizing Contrastive Divergence"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "On the importance of initialization and momentum in deep learning"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.352.8324: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "On the importance of initialization and momentum in deep learning"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.421.6373: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "On the importance of initialization and momentum in deep learning"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "A Practical Guide to Training Restricted Boltzmann Machines"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.170.9573: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "A Practical Guide to Training Restricted Boltzmann Machines"
+    },
+    {
+      "source": "landing_page",
+      "url": "https://link.springer.com/content/pdf/10.1007/978-3-642-35289-8_32.pdf",
+      "error": "HTTP 302 from link.springer.com",
+      "stage": "Finding PDF URLs",
+      "title": "A Practical Guide to Training Restricted Boltzmann Machines"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "A View of the Em Algorithm that Justifies Incremental, Sparse, and other Variants"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.33.2557: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "A View of the Em Algorithm that Justifies Incremental, Sparse, and other Variants"
+    },
+    {
+      "source": "landing_page",
+      "url": "https://link.springer.com/content/pdf/10.1007/978-94-011-5014-9_12.pdf",
+      "error": "HTTP 302 from link.springer.com",
+      "stage": "Finding PDF URLs",
+      "title": "A View of the Em Algorithm that Justifies Incremental, Sparse, and other Variants"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Restricted Boltzmann machines for collaborative filtering"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.114.6034: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Restricted Boltzmann machines for collaborative filtering"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.68.4338: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Restricted Boltzmann machines for collaborative filtering"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.81.835: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Restricted Boltzmann machines for collaborative filtering"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.94.5922: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Restricted Boltzmann machines for collaborative filtering"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://discovery.ucl.ac.uk/63250/: HTTP 404 from discovery.ucl.ac.uk",
+      "stage": "Finding PDF URLs",
+      "title": "Restricted Boltzmann machines for collaborative filtering"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Deep Neural Networks for Acoustic Modeling in Speech Recognition"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.248.3619: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Deep Neural Networks for Acoustic Modeling in Speech Recognition"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.258.5693: citeseerx.ist.psu.edu: <urlopen error [Errno 61] Connection refused>",
+      "stage": "Finding PDF URLs",
+      "title": "Deep Neural Networks for Acoustic Modeling in Speech Recognition"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Acoustic Modeling Using Deep Belief Networks"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.338.2670: citeseerx.ist.psu.edu: <urlopen error [Errno 61] Connection refused>",
+      "stage": "Finding PDF URLs",
+      "title": "Acoustic Modeling Using Deep Belief Networks"
+    },
+    {
+      "source": "existing_metadata",
+      "url": "http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.338.2670&rep=rep1&type=pdf",
+      "error": "citeseerx.ist.psu.edu: <urlopen error [Errno 61] Connection refused>",
+      "stage": "Finding PDF URLs",
+      "title": "Acoustic Modeling Using Deep Belief Networks"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Deep Boltzmann machines"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.381.2928: citeseerx.ist.psu.edu: <urlopen error [Errno 61] Connection refused>",
+      "stage": "Finding PDF URLs",
+      "title": "Deep Boltzmann machines"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.638.3920: citeseerx.ist.psu.edu: <urlopen error [Errno 61] Connection refused>",
+      "stage": "Finding PDF URLs",
+      "title": "Deep Boltzmann machines"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Neighbourhood Components Analysis"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.108.7841: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Neighbourhood Components Analysis"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.79.6605: citeseerx.ist.psu.edu: <urlopen error [Errno 61] Connection refused>",
+      "stage": "Finding PDF URLs",
+      "title": "Neighbourhood Components Analysis"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Connectionist learning procedures"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.216.5594: citeseerx.ist.psu.edu: <urlopen error [Errno 61] Connection refused>",
+      "stage": "Finding PDF URLs",
+      "title": "Connectionist learning procedures"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.298.2572: citeseerx.ist.psu.edu: <urlopen error [Errno 61] Connection refused>",
+      "stage": "Finding PDF URLs",
+      "title": "Connectionist learning procedures"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Stochastic Neighbor Embedding"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.13.7959: citeseerx.ist.psu.edu: <urlopen error [Errno 61] Connection refused>",
+      "stage": "Finding PDF URLs",
+      "title": "Stochastic Neighbor Embedding"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.20.782: citeseerx.ist.psu.edu: <urlopen error [Errno 61] Connection refused>",
+      "stage": "Finding PDF URLs",
+      "title": "Stochastic Neighbor Embedding"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.636.7562: citeseerx.ist.psu.edu: <urlopen error [Errno 61] Connection refused>",
+      "stage": "Finding PDF URLs",
+      "title": "Stochastic Neighbor Embedding"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.77.293: citeseerx.ist.psu.edu: <urlopen error [Errno 61] Connection refused>",
+      "stage": "Finding PDF URLs",
+      "title": "Stochastic Neighbor Embedding"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.897.5304: citeseerx.ist.psu.edu: <urlopen error [Errno 61] Connection refused>",
+      "stage": "Finding PDF URLs",
+      "title": "Stochastic Neighbor Embedding"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Transforming Auto-Encoders"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.220.5099: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Transforming Auto-Encoders"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.225.7541: citeseerx.ist.psu.edu: <urlopen error [Errno 61] Connection refused>",
+      "stage": "Finding PDF URLs",
+      "title": "Transforming Auto-Encoders"
+    },
+    {
+      "source": "landing_page",
+      "url": "https://link.springer.com/content/pdf/10.1007/978-3-642-21735-7_6.pdf",
+      "error": "HTTP 302 from link.springer.com",
+      "stage": "Finding PDF URLs",
+      "title": "Transforming Auto-Encoders"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Improving deep neural networks for LVCSR using rectified linear units and dropout"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.300.9809: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Improving deep neural networks for LVCSR using rectified linear units and dropout"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Semantic hashing"
+    },
+    {
+      "source": "existing_metadata",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0888613X08001813/pdf",
+      "error": "Resource is HTML, not a PDF (possibly an access interstitial)",
+      "stage": "Finding PDF URLs",
+      "title": "Semantic hashing"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "New types of deep neural network learning for speech recognition and related applications: an overview"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.368.1123: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "New types of deep neural network learning for speech recognition and related applications: an overview"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "The Helmholtz Machine"
+    },
+    {
+      "source": "landing_page",
+      "error": "https://doi.org/10.1162/neco.1995.7.5.889: HTTP 403 from doi.org",
+      "stage": "Finding PDF URLs",
+      "title": "The Helmholtz Machine"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Generating Text with Recurrent Neural Networks"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.222.9740: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Generating Text with Recurrent Neural Networks"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "The \"Wake-Sleep\" Algorithm for Unsupervised Neural Networks"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.37.9988: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "The \"Wake-Sleep\" Algorithm for Unsupervised Neural Networks"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.51.215: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "The \"Wake-Sleep\" Algorithm for Unsupervised Neural Networks"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://discovery.ucl.ac.uk/122135/: HTTP 404 from discovery.ucl.ac.uk",
+      "stage": "Finding PDF URLs",
+      "title": "The \"Wake-Sleep\" Algorithm for Unsupervised Neural Networks"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://hdl.handle.net/21.11116/0000-0002-D6BA-B: HTTP 403 from hdl.handle.net",
+      "stage": "Finding PDF URLs",
+      "title": "The \"Wake-Sleep\" Algorithm for Unsupervised Neural Networks"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Autoencoders, Minimum Description Length and Helmholtz Free Energy"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.28.603: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Autoencoders, Minimum Description Length and Helmholtz Free Energy"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.32.4586: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Autoencoders, Minimum Description Length and Helmholtz Free Energy"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.590.2830: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Autoencoders, Minimum Description Length and Helmholtz Free Energy"
+    },
+    {
+      "source": "landing_page",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.963.1792: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Autoencoders, Minimum Description Length and Helmholtz Free Energy"
+    },
+    {
+      "source": "unpaywall",
+      "error": "Unpaywall requires a real contact email",
+      "stage": "Finding PDF URLs",
+      "title": "Learning multiple layers of representation"
+    }
+  ],
+  "artifacts": {
+    "professor": "professor.json",
+    "papers": "papers.json",
+    "pdf_urls": "pdf_urls.json",
+    "manifest": "manifest.json"
+  },
+  "limits": {
+    "maximum_pdf_papers": null,
+    "maximum_downloads": 10
+  },
+  "include_needs_review": false,
+  "count_scope": "retrieved_metadata_not_total_publications",
+  "identity": {
+    "profile": {
+      "name": "Geoffrey E. Hinton",
+      "affiliations": [
+        "University of Toronto"
+      ],
+      "author_ids": {
+        "openalex": "A5108093963",
+        "semantic_scholar": "1695689"
+      },
+      "identity_confidence": 0.975,
+      "status": "resolved",
+      "evidence": [
+        "Name similarity: 1.000",
+        "University matched: 1.000",
+        "shared DOI count: 23",
+        "shared coauthor count: 23",
+        "Department similarity: 0.000",
+        "Research similarity: 1.000"
+      ],
+      "orcid": null,
+      "research_interests": [],
+      "university": null,
+      "university_status": "unknown",
+      "match_score": 0.0,
+      "requested_university": null,
+      "matched_affiliations": [],
+      "author_id_aliases": {
+        "openalex": [
+          "A5108093963"
+        ],
+        "semantic_scholar": [
+          "1695689"
+        ]
+      },
+      "name_aliases": []
+    },
+    "candidates": [
+      {
+        "name": "Geoffrey E. Hinton",
+        "affiliations": [
+          "University of Toronto"
+        ],
+        "author_ids": {
+          "openalex": "A5108093963",
+          "semantic_scholar": "1695689"
+        },
+        "identity_confidence": 0.975,
+        "status": "resolved",
+        "evidence": [
+          "Name similarity: 1.000",
+          "University matched: 1.000",
+          "shared DOI count: 23",
+          "shared coauthor count: 23",
+          "Department similarity: 0.000",
+          "Research similarity: 1.000"
+        ],
+        "orcid": null,
+        "research_interests": [],
+        "university": null,
+        "university_status": "unknown",
+        "match_score": 0.0,
+        "requested_university": null,
+        "matched_affiliations": [],
+        "author_id_aliases": {
+          "openalex": [
+            "A5108093963"
+          ],
+          "semantic_scholar": [
+            "1695689"
+          ]
+        },
+        "name_aliases": []
+      }
+    ],
+    "source_errors": {
+      "dblp": "https://dblp.org/search/author/api HTTP 200 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+    },
+    "ambiguity": null
+  },
+  "collection_complete": false,
+  "collection_sources": [
+    {
+      "source": "dblp",
+      "author_id": null,
+      "complete": false,
+      "pages_fetched": 0,
+      "records_received": 0,
+      "rejected_records": [],
+      "error": "No confirmed Author ID for this source",
+      "pagination_complete": false,
+      "metadata_errors": [],
+      "ownership_counts": {
+        "verified": 0,
+        "needs_review": 0,
+        "rejected": 0
+      },
+      "fetch_status": "unavailable"
+    },
+    {
+      "source": "openalex",
+      "author_id": "A5108093963",
+      "complete": true,
+      "pages_fetched": 5,
+      "records_received": 428,
+      "rejected_records": [],
+      "error": null,
+      "pagination_complete": true,
+      "metadata_errors": [],
+      "ownership_counts": {
+        "verified": 309,
+        "needs_review": 117,
+        "rejected": 2
+      },
+      "fetch_status": "complete"
+    },
+    {
+      "source": "semantic_scholar",
+      "author_id": "1695689",
+      "complete": true,
+      "pages_fetched": 5,
+      "records_received": 462,
+      "rejected_records": [],
+      "error": null,
+      "pagination_complete": true,
+      "metadata_errors": [],
+      "ownership_counts": {
+        "verified": 296,
+        "needs_review": 166,
+        "rejected": 0
+      },
+      "fetch_status": "complete"
+    }
+  ],
+  "collection_statistics": {
+    "raw_records_received": 890,
+    "retained_source_records": 890,
+    "deduplicated_entries": 573,
+    "ownership_counts": {
+      "verified": 341,
+      "needs_review": 232,
+      "rejected": 0
+    },
+    "source_record_ownership_counts": {
+      "verified": 605,
+      "needs_review": 283,
+      "rejected": 2
+    },
+    "source_record_authorship_counts": {
+      "with_author_details": 890,
+      "with_external_ids": 890,
+      "target_present": 890,
+      "target_absent": 0,
+      "target_unknown": 0
+    },
+    "metadata_enrichment_errors": 0,
+    "unparsed_records": 0
+  },
+  "pdf_statistics": {
+    "total_papers": 573,
+    "processed_papers": 30,
+    "valid_pdf_papers": 5,
+    "unverified_only_papers": 5,
+    "not_found_papers": 20,
+    "skipped_ownership_papers": 232,
+    "not_processed_papers": 311,
+    "incomplete_search_papers": 23,
+    "distinct_verified_pdf_urls": 5,
+    "source_contributions": {
+      "existing_metadata": {
+        "candidate_urls": 4,
+        "verified_urls": 1,
+        "papers_with_valid_pdf": 1,
+        "errors": 0,
+        "query_status_counts": {
+          "ok": 30
+        }
+      },
+      "openalex": {
+        "candidate_urls": 2,
+        "verified_urls": 0,
+        "papers_with_valid_pdf": 0,
+        "errors": 0,
+        "query_status_counts": {
+          "ok": 30
+        }
+      },
+      "semantic_scholar": {
+        "candidate_urls": 4,
+        "verified_urls": 1,
+        "papers_with_valid_pdf": 1,
+        "errors": 0,
+        "query_status_counts": {
+          "ok": 29,
+          "not_applicable": 1
+        }
+      },
+      "unpaywall": {
+        "candidate_urls": 0,
+        "verified_urls": 0,
+        "papers_with_valid_pdf": 0,
+        "errors": 30,
+        "query_status_counts": {
+          "disabled": 30
+        }
+      },
+      "arxiv": {
+        "candidate_urls": 2,
+        "verified_urls": 1,
+        "papers_with_valid_pdf": 1,
+        "errors": 0,
+        "query_status_counts": {
+          "ok": 30
+        }
+      },
+      "journal_catalog": {
+        "candidate_urls": 2,
+        "verified_urls": 2,
+        "papers_with_valid_pdf": 2,
+        "errors": 0,
+        "query_status_counts": {
+          "not_applicable": 28,
+          "ok": 2
+        }
+      },
+      "landing_page": {
+        "candidate_urls": 6,
+        "verified_urls": 1,
+        "papers_with_valid_pdf": 1,
+        "errors": 54,
+        "query_status_counts": {
+          "partial": 23,
+          "ok": 7
+        }
+      }
+    },
+    "search_complete_for_processed_papers": false,
+    "coverage_note": "Counts describe processed saved entries and public-source observations, not all available PDFs."
+  },
+  "download_statistics": {
+    "total_input_papers": 573,
+    "attempted_papers": 5,
+    "downloaded_files": 5,
+    "verified_papers": 4,
+    "needs_review_papers": 1,
+    "failed_papers": 0,
+    "reused_existing_papers": 0,
+    "duplicate_content_papers": 0,
+    "skipped_papers": 568
+  },
+  "download_run_complete": true,
+  "metadata_audit": {
+    "missing_input_fields": {
+      "title": 0,
+      "authors": 0,
+      "year": 7,
+      "doi": 228,
+      "source": 0,
+      "source_paper_id": 0,
+      "source_author_id": 0,
+      "ownership_status": 0,
+      "ownership_evidence": 0
+    },
+    "transmission_losses": []
+  }
+}

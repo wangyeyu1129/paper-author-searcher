@@ -1,0 +1,4666 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "prepared_at": "2026-10-11T14:28:38.858325+00:00",
+    "professor_name": "Geoffrey Hinton",
+    "scope": "Independent public citation references and retrieved-record audit; incomplete, pending human adjudication",
+    "provenance": "Reference citation metadata and system observations remain separate from human ownership labels",
+    "origin_files": [
+      "hinton.reference.pending.json",
+      "hinton.audit.pending.json"
+    ]
+  },
+  "papers": [
+    {
+      "evaluation_id": "reference-3fd0bc19a9f16679",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Visualizing Data using t-SNE",
+      "authors": [
+        "Laurens van der Maaten",
+        "Geoffrey Hinton"
+      ],
+      "year": 2008,
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://jmlr.org/papers/v9/vandermaaten08a.html",
+        "Bibliography/source context: Hinton's public bibliography https://www.cs.toronto.edu/~hinton/papers.html"
+      ],
+      "reference_url": "https://jmlr.org/papers/v9/vandermaaten08a.html",
+      "observed_pdf_links": [
+        "http://jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf"
+      ],
+      "original_authors": [
+        "Laurens van der Maaten",
+        "Geoffrey Hinton"
+      ],
+      "review_pool": "independent_public_citation",
+      "review_item_origin_file": "hinton.reference.pending.json"
+    },
+    {
+      "evaluation_id": "reference-1cf15f580d3b4f30",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Dropout: A Simple Way to Prevent Neural Networks from Overfitting",
+      "authors": [
+        "Nitish Srivastava",
+        "Geoffrey Hinton",
+        "Alex Krizhevsky",
+        "Ilya Sutskever",
+        "Ruslan Salakhutdinov"
+      ],
+      "year": 2014,
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://jmlr.org/papers/v15/srivastava14a.html",
+        "Bibliography/source context: Hinton's public bibliography https://www.cs.toronto.edu/~hinton/papers.html"
+      ],
+      "reference_url": "https://jmlr.org/papers/v15/srivastava14a.html",
+      "observed_pdf_links": [
+        "http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf"
+      ],
+      "original_authors": [
+        "Nitish Srivastava",
+        "Geoffrey Hinton",
+        "Alex Krizhevsky",
+        "Ilya Sutskever",
+        "Ruslan Salakhutdinov"
+      ],
+      "review_pool": "independent_public_citation",
+      "review_item_origin_file": "hinton.reference.pending.json"
+    },
+    {
+      "evaluation_id": "reference-c31cb77e5fcfeb11",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Distilling the Knowledge in a Neural Network",
+      "authors": [
+        "Geoffrey Hinton",
+        "Oriol Vinyals",
+        "Jeff Dean"
+      ],
+      "year": 2015,
+      "external_ids": {
+        "arxiv": "1503.02531"
+      },
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://arxiv.org/abs/1503.02531",
+        "Bibliography/source context: Hinton's public bibliography, 2015 distillation preprint"
+      ],
+      "reference_url": "https://arxiv.org/abs/1503.02531",
+      "observed_pdf_links": [
+        "https://arxiv.org/pdf/1503.02531"
+      ],
+      "original_authors": [
+        "Hinton, Geoffrey",
+        "Vinyals, Oriol",
+        "Dean, Jeff"
+      ],
+      "review_pool": "independent_public_citation",
+      "review_item_origin_file": "hinton.reference.pending.json"
+    },
+    {
+      "evaluation_id": "reference-c524b11b4a5b9490",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The Forward-Forward Algorithm: Some Preliminary Investigations",
+      "authors": [
+        "Geoffrey Hinton"
+      ],
+      "year": 2022,
+      "external_ids": {
+        "arxiv": "2212.13345"
+      },
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://arxiv.org/abs/2212.13345",
+        "Bibliography/source context: Author public preprint, Forward-Forward Algorithm"
+      ],
+      "reference_url": "https://arxiv.org/abs/2212.13345",
+      "observed_pdf_links": [
+        "https://arxiv.org/pdf/2212.13345"
+      ],
+      "original_authors": [
+        "Hinton, Geoffrey"
+      ],
+      "review_pool": "independent_public_citation",
+      "review_item_origin_file": "hinton.reference.pending.json"
+    },
+    {
+      "evaluation_id": "reference-84434a8a521cceb2",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Deep Lambertian Networks",
+      "authors": [
+        "Yichuan Tang",
+        "Ruslan Salakhutdinov",
+        "Geoffrey Hinton"
+      ],
+      "year": 2012,
+      "external_ids": {
+        "arxiv": "1206.6445"
+      },
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://arxiv.org/abs/1206.6445",
+        "Bibliography/source context: Hinton's public bibliography, Deep Lambertian Networks"
+      ],
+      "reference_url": "https://arxiv.org/abs/1206.6445",
+      "observed_pdf_links": [
+        "https://arxiv.org/pdf/1206.6445"
+      ],
+      "original_authors": [
+        "Tang, Yichuan",
+        "Salakhutdinov, Ruslan",
+        "Hinton, Geoffrey"
+      ],
+      "review_pool": "independent_public_citation",
+      "review_item_origin_file": "hinton.reference.pending.json"
+    },
+    {
+      "evaluation_id": "reference-925a369adade9e6e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Using Fast Weights to Attend to the Recent Past",
+      "authors": [
+        "Jimmy Ba",
+        "Geoffrey Hinton",
+        "Volodymyr Mnih",
+        "Joel Z. Leibo",
+        "Catalin Ionescu"
+      ],
+      "year": 2016,
+      "external_ids": {
+        "arxiv": "1610.06258"
+      },
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://arxiv.org/abs/1610.06258",
+        "Bibliography/source context: Author public preprint, Using Fast Weights to Attend to the Recent Past"
+      ],
+      "reference_url": "https://arxiv.org/abs/1610.06258",
+      "observed_pdf_links": [
+        "https://arxiv.org/pdf/1610.06258"
+      ],
+      "original_authors": [
+        "Ba, Jimmy",
+        "Hinton, Geoffrey",
+        "Mnih, Volodymyr",
+        "Leibo, Joel Z.",
+        "Ionescu, Catalin"
+      ],
+      "review_pool": "independent_public_citation",
+      "review_item_origin_file": "hinton.reference.pending.json"
+    },
+    {
+      "evaluation_id": "reference-279eade57bb5c290",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Dynamic Routing Between Capsules",
+      "authors": [
+        "Sara Sabour",
+        "Nicholas Frosst",
+        "Geoffrey E Hinton"
+      ],
+      "year": 2017,
+      "external_ids": {
+        "arxiv": "1710.09829"
+      },
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://arxiv.org/abs/1710.09829",
+        "Bibliography/source context: Hinton's public bibliography, Dynamic Routing between Capsules"
+      ],
+      "reference_url": "https://arxiv.org/abs/1710.09829",
+      "observed_pdf_links": [
+        "https://arxiv.org/pdf/1710.09829"
+      ],
+      "original_authors": [
+        "Sabour, Sara",
+        "Frosst, Nicholas",
+        "Hinton, Geoffrey E"
+      ],
+      "review_pool": "independent_public_citation",
+      "review_item_origin_file": "hinton.reference.pending.json"
+    },
+    {
+      "evaluation_id": "reference-f4bc8dac2f3e6498",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Attend, Infer, Repeat: Fast Scene Understanding with Generative Models",
+      "authors": [
+        "S. M. Ali Eslami",
+        "Nicolas Heess",
+        "Theophane Weber",
+        "Yuval Tassa",
+        "David Szepesvari",
+        "Koray Kavukcuoglu",
+        "Geoffrey E. Hinton"
+      ],
+      "year": 2016,
+      "external_ids": {
+        "arxiv": "1603.08575"
+      },
+      "annotation_evidence": [
+        "Public publisher/preprint citation metadata: https://arxiv.org/abs/1603.08575",
+        "Bibliography/source context: Hinton's public bibliography, Attend Infer Repeat"
+      ],
+      "reference_url": "https://arxiv.org/abs/1603.08575",
+      "observed_pdf_links": [
+        "https://arxiv.org/pdf/1603.08575"
+      ],
+      "original_authors": [
+        "Eslami, S. M. Ali",
+        "Heess, Nicolas",
+        "Weber, Theophane",
+        "Tassa, Yuval",
+        "Szepesvari, David",
+        "Kavukcuoglu, Koray",
+        "Hinton, Geoffrey E."
+      ],
+      "review_pool": "independent_public_citation",
+      "review_item_origin_file": "hinton.reference.pending.json"
+    },
+    {
+      "title": "Using mixtures of deformable models to capture variations in hand printed digits",
+      "authors": [
+        "M. Revow",
+        "Christopher K. I. Williams",
+        "Geoffrey E. Hinton"
+      ],
+      "source": "semantic_scholar",
+      "source_paper_id": "5f75f39caf0ad58afd117ec14266658a7e504781",
+      "source_author_id": "1695689",
+      "paper_url": "https://www.semanticscholar.org/paper/5f75f39caf0ad58afd117ec14266658a7e504781",
+      "evaluation_id": "audit-hinton-1",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "verified",
+      "ownership_evidence": [
+        "semantic_scholar:5f75f39caf0ad58afd117ec14266658a7e504781: Compatible signature plus recurring independently verified coauthors: christopher k i williams, m revow",
+        "semantic_scholar:5f75f39caf0ad58afd117ec14266658a7e504781: Confirmed source-scoped Author ID observed in the paper author list",
+        "semantic_scholar:5f75f39caf0ad58afd117ec14266658a7e504781: Source Author ID association alone does not verify ownership",
+        "semantic_scholar:5f75f39caf0ad58afd117ec14266658a7e504781: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [],
+      "source_records": [
+        {
+          "source": "semantic_scholar",
+          "paper_id": "5f75f39caf0ad58afd117ec14266658a7e504781"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "M. Revow",
+          "author_id": "2713302",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "5f75f39caf0ad58afd117ec14266658a7e504781"
+        },
+        {
+          "name": "Christopher K. I. Williams",
+          "author_id": "145715698",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "5f75f39caf0ad58afd117ec14266658a7e504781"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "author_id": "1695689",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "author_profile": {
+            "authorId": "1695689",
+            "externalIds": {
+              "DBLP": [
+                "Geoffrey E. Hinton"
+              ]
+            },
+            "name": "Geoffrey E. Hinton",
+            "affiliations": []
+          },
+          "author_profile_url": "https://api.semanticscholar.org/graph/v1/author/1695689",
+          "source": "semantic_scholar",
+          "source_paper_id": "5f75f39caf0ad58afd117ec14266658a7e504781"
+        }
+      ],
+      "missing_observed_fields": [
+        "year",
+        "doi",
+        "venue"
+      ],
+      "observed_source_records": [
+        {
+          "source": "semantic_scholar",
+          "source_paper_id": "5f75f39caf0ad58afd117ec14266658a7e504781",
+          "source_author_id": "1695689",
+          "doi": null,
+          "year": null,
+          "authors": [
+            "M. Revow",
+            "Christopher K. I. Williams",
+            "Geoffrey E. Hinton"
+          ],
+          "paper_url": "https://www.semanticscholar.org/paper/5f75f39caf0ad58afd117ec14266658a7e504781"
+        }
+      ],
+      "observed_paper_type": "unknown",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "GEMINI: Gradient Estimation Through Matrix Inversion After Noise Injection",
+      "year": 1988,
+      "authors": [
+        "Y. Le Cun",
+        "Conrad C. Galland",
+        "Geoffrey E. Hinton"
+      ],
+      "venue": "Neural Information Processing Systems",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W2115386659",
+      "source_author_id": "A5108093963",
+      "paper_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.28.5252",
+      "evaluation_id": "audit-hinton-2",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "verified",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W2115386659: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2115386659: Cross-source stable work identity and confirmed source-scoped target Author IDs with compatible bylines",
+        "openalex:https://openalex.org/W2115386659: Explicit target Author ID, compatible byline and paper-level institution agree: University of Toronto",
+        "openalex:https://openalex.org/W2115386659: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2115386659: Target signature similarity: 1.000",
+        "semantic_scholar:19ec5c7be1fe5e7088f3a042d3160ede757f5902: Confirmed source-scoped Author ID observed in the paper author list",
+        "semantic_scholar:19ec5c7be1fe5e7088f3a042d3160ede757f5902: Cross-source stable work identity and confirmed source-scoped target Author IDs with compatible bylines",
+        "semantic_scholar:19ec5c7be1fe5e7088f3a042d3160ede757f5902: Source Author ID association alone does not verify ownership",
+        "semantic_scholar:19ec5c7be1fe5e7088f3a042d3160ede757f5902: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W2115386659"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Yann LeCun",
+          "raw_author_name": "Y. Le Cun",
+          "author_id": "https://openalex.org/A5001226970",
+          "orcid": "https://orcid.org/0000-0002-1992-2684",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I185261750",
+              "display_name": "University of Toronto",
+              "ror": "https://ror.org/03dbr7087",
+              "country_code": "CA",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Computer Science, University of Toronto, Toronto, Ontario, Canada and AT&T Bell Laboratories, Holmdel, NJ#TAB#",
+              "institution_ids": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Department of Computer Science, University of Toronto, Toronto, Ontario, Canada and AT&T Bell Laboratories, Holmdel, NJ#TAB#"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2115386659"
+        },
+        {
+          "name": "Conrad C. Galland",
+          "raw_author_name": "Conrad C. Galland",
+          "author_id": "https://openalex.org/A5014819251",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I185261750",
+              "display_name": "University of Toronto",
+              "ror": "https://ror.org/03dbr7087",
+              "country_code": "CA",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Computer Science University of Toronto  Toronto Ontario Canada",
+              "institution_ids": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Department of Computer Science University of Toronto  Toronto Ontario Canada"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2115386659"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "raw_author_name": "Geoffrey E. Hinton",
+          "author_id": "https://openalex.org/A5108093963",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I185261750",
+              "display_name": "University of Toronto",
+              "ror": "https://ror.org/03dbr7087",
+              "country_code": "CA",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Computer Science University of Toronto  Toronto Ontario Canada",
+              "institution_ids": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Department of Computer Science University of Toronto  Toronto Ontario Canada"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2115386659"
+        },
+        {
+          "name": "Yann LeCun",
+          "author_id": "1688882",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "19ec5c7be1fe5e7088f3a042d3160ede757f5902"
+        },
+        {
+          "name": "C. Galland",
+          "author_id": "35908234",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "19ec5c7be1fe5e7088f3a042d3160ede757f5902"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "author_id": "1695689",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "author_profile": {
+            "authorId": "1695689",
+            "externalIds": {
+              "DBLP": [
+                "Geoffrey E. Hinton"
+              ]
+            },
+            "name": "Geoffrey E. Hinton",
+            "affiliations": []
+          },
+          "author_profile_url": "https://api.semanticscholar.org/graph/v1/author/1695689",
+          "source": "semantic_scholar",
+          "source_paper_id": "19ec5c7be1fe5e7088f3a042d3160ede757f5902"
+        }
+      ],
+      "missing_observed_fields": [
+        "doi"
+      ],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2115386659",
+          "source_author_id": "A5108093963",
+          "doi": null,
+          "year": 1988,
+          "authors": [
+            "Y. Le Cun",
+            "Conrad C. Galland",
+            "Geoffrey E. Hinton"
+          ],
+          "paper_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.28.5252"
+        },
+        {
+          "source": "semantic_scholar",
+          "source_paper_id": "19ec5c7be1fe5e7088f3a042d3160ede757f5902",
+          "source_author_id": "1695689",
+          "doi": null,
+          "year": 1988,
+          "authors": [
+            "Yann LeCun",
+            "C. Galland",
+            "Geoffrey E. Hinton"
+          ],
+          "paper_url": "https://www.semanticscholar.org/paper/19ec5c7be1fe5e7088f3a042d3160ede757f5902"
+        }
+      ],
+      "observed_paper_type": "research_paper",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "Simulating Brain Damage",
+      "year": 1993,
+      "authors": [
+        "Geoffrey E. Hinton",
+        "David C. Plaut",
+        "Tim Shallice"
+      ],
+      "doi": "10.1038/scientificamerican1093-76",
+      "venue": "Scientific American",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W2051721978",
+      "source_author_id": "A5108093963",
+      "paper_url": "https://doi.org/10.1038/scientificamerican1093-76",
+      "evaluation_id": "audit-hinton-3",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "verified",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W2051721978: Compatible signature plus recurring independently verified coauthors: david c plaut, tim shallice",
+        "openalex:https://openalex.org/W2051721978: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2051721978: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2051721978: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W2051721978"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Geoffrey E. Hinton",
+          "raw_author_name": "Geoffrey E. Hinton",
+          "author_id": "https://openalex.org/A5108093963",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I109736498",
+              "display_name": "Canadian Institute for Advanced Research",
+              "ror": "https://ror.org/01sdtdd95",
+              "country_code": "CA",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I109736498"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Canadian Institute for Advanced Research",
+              "institution_ids": [
+                "https://openalex.org/I109736498"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Canadian Institute for Advanced Research"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2051721978"
+        },
+        {
+          "name": "David C. Plaut",
+          "raw_author_name": "David C. Plaut",
+          "author_id": "https://openalex.org/A5015410454",
+          "orcid": "https://orcid.org/0000-0002-0399-7120",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2051721978"
+        },
+        {
+          "name": "Tim Shallice",
+          "raw_author_name": "Tim Shallice",
+          "author_id": "https://openalex.org/A5111504416",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2051721978"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2051721978",
+          "source_author_id": "A5108093963",
+          "doi": "10.1038/scientificamerican1093-76",
+          "year": 1993,
+          "authors": [
+            "Geoffrey E. Hinton",
+            "David C. Plaut",
+            "Tim Shallice"
+          ],
+          "paper_url": "https://doi.org/10.1038/scientificamerican1093-76"
+        }
+      ],
+      "observed_paper_type": "research_paper",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "Fast Neural Network Emulation of Dynamical Systems for Computer Animation",
+      "year": 1998,
+      "authors": [
+        "Radek Grzeszczuk",
+        "Demetri Terzopoulos",
+        "Geoffrey E. Hinton"
+      ],
+      "venue": "Neural Information Processing Systems",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W2166885679",
+      "source_author_id": "A5108093963",
+      "paper_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.888.3947",
+      "evaluation_id": "audit-hinton-4",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "verified",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W2166885679: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2166885679: Cross-source stable work identity and confirmed source-scoped target Author IDs with compatible bylines",
+        "openalex:https://openalex.org/W2166885679: Explicit target Author ID, compatible byline and paper-level institution agree: University of Toronto",
+        "openalex:https://openalex.org/W2166885679: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2166885679: Target signature similarity: 1.000",
+        "semantic_scholar:7bfecbb87f447ef9706d359f8220ee7194ebbf0e: Confirmed source-scoped Author ID observed in the paper author list",
+        "semantic_scholar:7bfecbb87f447ef9706d359f8220ee7194ebbf0e: Cross-source stable work identity and confirmed source-scoped target Author IDs with compatible bylines",
+        "semantic_scholar:7bfecbb87f447ef9706d359f8220ee7194ebbf0e: Source Author ID association alone does not verify ownership",
+        "semantic_scholar:7bfecbb87f447ef9706d359f8220ee7194ebbf0e: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W2166885679"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Radek Grzeszczuk",
+          "raw_author_name": "Radek Grzeszczuk",
+          "author_id": "https://openalex.org/A5113660863",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I1343180700",
+              "display_name": "Intel (United States)",
+              "ror": "https://ror.org/01ek73717",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I1343180700"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Intel Corporation, Microcomputer Research Lab, Santa Clara, CA#TAB#",
+              "institution_ids": [
+                "https://openalex.org/I1343180700"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Intel Corporation, Microcomputer Research Lab, Santa Clara, CA#TAB#"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2166885679"
+        },
+        {
+          "name": "Demetri Terzopoulos",
+          "raw_author_name": "Demetri Terzopoulos",
+          "author_id": "https://openalex.org/A5034397232",
+          "orcid": "https://orcid.org/0000-0003-4672-1279",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I185261750",
+              "display_name": "University of Toronto",
+              "ror": "https://ror.org/03dbr7087",
+              "country_code": "CA",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "University of Toronto Department of Computer Science Toronto ON Canada",
+              "institution_ids": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "University of Toronto Department of Computer Science Toronto ON Canada"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2166885679"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "raw_author_name": "Geoffrey E. Hinton",
+          "author_id": "https://openalex.org/A5108093963",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I185261750",
+              "display_name": "University of Toronto",
+              "ror": "https://ror.org/03dbr7087",
+              "country_code": "CA",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "University of Toronto Department of Computer Science Toronto ON Canada",
+              "institution_ids": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "University of Toronto Department of Computer Science Toronto ON Canada"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2166885679"
+        },
+        {
+          "name": "R. Grzeszczuk",
+          "author_id": "2026212",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "7bfecbb87f447ef9706d359f8220ee7194ebbf0e"
+        },
+        {
+          "name": "Demetri Terzopoulos",
+          "author_id": "1750924",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "7bfecbb87f447ef9706d359f8220ee7194ebbf0e"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "author_id": "1695689",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "author_profile": {
+            "authorId": "1695689",
+            "externalIds": {
+              "DBLP": [
+                "Geoffrey E. Hinton"
+              ]
+            },
+            "name": "Geoffrey E. Hinton",
+            "affiliations": []
+          },
+          "author_profile_url": "https://api.semanticscholar.org/graph/v1/author/1695689",
+          "source": "semantic_scholar",
+          "source_paper_id": "7bfecbb87f447ef9706d359f8220ee7194ebbf0e"
+        }
+      ],
+      "missing_observed_fields": [
+        "doi"
+      ],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2166885679",
+          "source_author_id": "A5108093963",
+          "doi": null,
+          "year": 1998,
+          "authors": [
+            "Radek Grzeszczuk",
+            "Demetri Terzopoulos",
+            "Geoffrey E. Hinton"
+          ],
+          "paper_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.888.3947"
+        },
+        {
+          "source": "semantic_scholar",
+          "source_paper_id": "7bfecbb87f447ef9706d359f8220ee7194ebbf0e",
+          "source_author_id": "1695689",
+          "doi": null,
+          "year": 1998,
+          "authors": [
+            "R. Grzeszczuk",
+            "Demetri Terzopoulos",
+            "Geoffrey E. Hinton"
+          ],
+          "paper_url": "https://www.semanticscholar.org/paper/7bfecbb87f447ef9706d359f8220ee7194ebbf0e"
+        }
+      ],
+      "observed_paper_type": "research_paper",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "A Desktop Input Device and Interface for Interactive 3D Character Animation",
+      "year": 2002,
+      "authors": [
+        "Oore, Sageev",
+        "Terzopoulos, Demetri",
+        "Hinton, Geoffrey"
+      ],
+      "doi": "10.20380/gi2002.16",
+      "venue": "Graphics Interface",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W74061477",
+      "source_author_id": "A5108093963",
+      "paper_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.5.8840",
+      "evaluation_id": "audit-hinton-5",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "verified",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W74061477: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W74061477: Cross-source stable work identity and confirmed source-scoped target Author IDs with compatible bylines",
+        "openalex:https://openalex.org/W74061477: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W74061477: Target signature similarity: 0.970",
+        "semantic_scholar:2ca21ac1bd2aa1d1ce92c9fda2da11a425cc2a15: Confirmed source-scoped Author ID observed in the paper author list",
+        "semantic_scholar:2ca21ac1bd2aa1d1ce92c9fda2da11a425cc2a15: Cross-source stable work identity and confirmed source-scoped target Author IDs with compatible bylines",
+        "semantic_scholar:2ca21ac1bd2aa1d1ce92c9fda2da11a425cc2a15: Source Author ID association alone does not verify ownership",
+        "semantic_scholar:2ca21ac1bd2aa1d1ce92c9fda2da11a425cc2a15: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W74061477"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Sageev Oore",
+          "raw_author_name": "Oore, Sageev",
+          "author_id": "https://openalex.org/A5082789942",
+          "orcid": "https://orcid.org/0000-0002-8130-3569",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W74061477"
+        },
+        {
+          "name": "Demetri Terzopoulos",
+          "raw_author_name": "Terzopoulos, Demetri",
+          "author_id": "https://openalex.org/A5034397232",
+          "orcid": "https://orcid.org/0000-0003-4672-1279",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W74061477"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "raw_author_name": "Hinton, Geoffrey",
+          "author_id": "https://openalex.org/A5108093963",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W74061477"
+        },
+        {
+          "name": "Sageev Oore",
+          "author_id": "2102511",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "2ca21ac1bd2aa1d1ce92c9fda2da11a425cc2a15"
+        },
+        {
+          "name": "Demetri Terzopoulos",
+          "author_id": "1750924",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "2ca21ac1bd2aa1d1ce92c9fda2da11a425cc2a15"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "author_id": "1695689",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "author_profile": {
+            "authorId": "1695689",
+            "externalIds": {
+              "DBLP": [
+                "Geoffrey E. Hinton"
+              ]
+            },
+            "name": "Geoffrey E. Hinton",
+            "affiliations": []
+          },
+          "author_profile_url": "https://api.semanticscholar.org/graph/v1/author/1695689",
+          "source": "semantic_scholar",
+          "source_paper_id": "2ca21ac1bd2aa1d1ce92c9fda2da11a425cc2a15"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W74061477",
+          "source_author_id": "A5108093963",
+          "doi": "10.20380/gi2002.16",
+          "year": 2002,
+          "authors": [
+            "Oore, Sageev",
+            "Terzopoulos, Demetri",
+            "Hinton, Geoffrey"
+          ],
+          "paper_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.5.8840"
+        },
+        {
+          "source": "semantic_scholar",
+          "source_paper_id": "2ca21ac1bd2aa1d1ce92c9fda2da11a425cc2a15",
+          "source_author_id": "1695689",
+          "doi": null,
+          "year": 2002,
+          "authors": [
+            "Sageev Oore",
+            "Demetri Terzopoulos",
+            "Geoffrey E. Hinton"
+          ],
+          "paper_url": "https://www.semanticscholar.org/paper/2ca21ac1bd2aa1d1ce92c9fda2da11a425cc2a15"
+        }
+      ],
+      "observed_paper_type": "research_paper",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "Implicit Mixtures of Restricted Boltzmann Machines",
+      "year": 2008,
+      "authors": [
+        "Vinod Nair",
+        "Geoffrey E. Hinton"
+      ],
+      "venue": "Neural Information Processing Systems",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W2149845449",
+      "source_author_id": "A5108093963",
+      "paper_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.143.5680",
+      "evaluation_id": "audit-hinton-6",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "verified",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W2149845449: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2149845449: Cross-source stable work identity and confirmed source-scoped target Author IDs with compatible bylines",
+        "openalex:https://openalex.org/W2149845449: Explicit target Author ID, compatible byline and paper-level institution agree: University of Toronto",
+        "openalex:https://openalex.org/W2149845449: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2149845449: Target signature similarity: 1.000",
+        "semantic_scholar:0b718a3f9dae8abc741411aed5fe5d423079200f: Confirmed source-scoped Author ID observed in the paper author list",
+        "semantic_scholar:0b718a3f9dae8abc741411aed5fe5d423079200f: Cross-source stable work identity and confirmed source-scoped target Author IDs with compatible bylines",
+        "semantic_scholar:0b718a3f9dae8abc741411aed5fe5d423079200f: Source Author ID association alone does not verify ownership",
+        "semantic_scholar:0b718a3f9dae8abc741411aed5fe5d423079200f: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W2149845449"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Vinod B Nair",
+          "raw_author_name": "Vinod Nair",
+          "author_id": "https://openalex.org/A5102382576",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I185261750",
+              "display_name": "University of Toronto",
+              "ror": "https://ror.org/03dbr7087",
+              "country_code": "CA",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Computer Science; University of Toronto ; Toronto, Canada",
+              "institution_ids": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Department of Computer Science; University of Toronto ; Toronto, Canada"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2149845449"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "raw_author_name": "Geoffrey E. Hinton",
+          "author_id": "https://openalex.org/A5108093963",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I185261750",
+              "display_name": "University of Toronto",
+              "ror": "https://ror.org/03dbr7087",
+              "country_code": "CA",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Computer Science; University of Toronto ; Toronto, Canada",
+              "institution_ids": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Department of Computer Science; University of Toronto ; Toronto, Canada"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2149845449"
+        },
+        {
+          "name": "Vinod Nair",
+          "author_id": "2073603971",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0b718a3f9dae8abc741411aed5fe5d423079200f"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "author_id": "1695689",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "author_profile": {
+            "authorId": "1695689",
+            "externalIds": {
+              "DBLP": [
+                "Geoffrey E. Hinton"
+              ]
+            },
+            "name": "Geoffrey E. Hinton",
+            "affiliations": []
+          },
+          "author_profile_url": "https://api.semanticscholar.org/graph/v1/author/1695689",
+          "source": "semantic_scholar",
+          "source_paper_id": "0b718a3f9dae8abc741411aed5fe5d423079200f"
+        }
+      ],
+      "missing_observed_fields": [
+        "doi"
+      ],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2149845449",
+          "source_author_id": "A5108093963",
+          "doi": null,
+          "year": 2008,
+          "authors": [
+            "Vinod Nair",
+            "Geoffrey E. Hinton"
+          ],
+          "paper_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.143.5680"
+        },
+        {
+          "source": "semantic_scholar",
+          "source_paper_id": "0b718a3f9dae8abc741411aed5fe5d423079200f",
+          "source_author_id": "1695689",
+          "doi": null,
+          "year": 2008,
+          "authors": [
+            "Vinod Nair",
+            "Geoffrey E. Hinton"
+          ],
+          "paper_url": "https://www.semanticscholar.org/paper/0b718a3f9dae8abc741411aed5fe5d423079200f"
+        }
+      ],
+      "observed_paper_type": "research_paper",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "Introduction to the Special Section on Deep Learning for Speech and Language Processing",
+      "year": 2011,
+      "authors": [
+        "Dong Yu",
+        "Geoffrey Hinton",
+        "Nelson Morgan",
+        "Jen-Tzung Chien",
+        "Shigeki Sagayama"
+      ],
+      "doi": "10.1109/tasl.2011.2173371",
+      "venue": "IEEE Transactions on Audio Speech and Language Processing",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W2014506068",
+      "source_author_id": "A5108093963",
+      "paper_url": "https://doi.org/10.1109/tasl.2011.2173371",
+      "evaluation_id": "audit-hinton-7",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "verified",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W2014506068: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2014506068: Cross-source stable work identity and confirmed source-scoped target Author IDs with compatible bylines",
+        "openalex:https://openalex.org/W2014506068: Explicit target Author ID, compatible byline and paper-level institution agree: University of Toronto",
+        "openalex:https://openalex.org/W2014506068: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2014506068: Target signature similarity: 0.970",
+        "semantic_scholar:57236bcb830af797396fefb0ac26fea9f0caeeba: Confirmed source-scoped Author ID observed in the paper author list",
+        "semantic_scholar:57236bcb830af797396fefb0ac26fea9f0caeeba: Cross-source stable work identity and confirmed source-scoped target Author IDs with compatible bylines",
+        "semantic_scholar:57236bcb830af797396fefb0ac26fea9f0caeeba: Source Author ID association alone does not verify ownership",
+        "semantic_scholar:57236bcb830af797396fefb0ac26fea9f0caeeba: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W2014506068"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Dong Yu",
+          "raw_author_name": "Dong Yu",
+          "author_id": "https://openalex.org/A5034476404",
+          "orcid": "https://orcid.org/0000-0003-0520-6844",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I1290206253",
+              "display_name": "Microsoft (United States)",
+              "ror": "https://ror.org/00d0nc645",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I1290206253"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Microsoft Research, Redmond, WA, USA",
+              "institution_ids": [
+                "https://openalex.org/I1290206253"
+              ]
+            },
+            {
+              "raw_affiliation_string": "[Microsoft Research,Redmond,WA,USA]",
+              "institution_ids": [
+                "https://openalex.org/I1290206253"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Microsoft Research, Redmond, WA, USA",
+            "[Microsoft Research,Redmond,WA,USA]"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2014506068"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "raw_author_name": "Geoffrey Hinton",
+          "author_id": "https://openalex.org/A5108093963",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I185261750",
+              "display_name": "University of Toronto",
+              "ror": "https://ror.org/03dbr7087",
+              "country_code": "CA",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "University of Toronto, Toronto, ON M5S 3G4,, Canada",
+              "institution_ids": [
+                "https://openalex.org/I185261750"
+              ]
+            },
+            {
+              "raw_affiliation_string": "University of Toronto, Toronto, On, Canada",
+              "institution_ids": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "University of Toronto, Toronto, ON M5S 3G4,, Canada",
+            "University of Toronto, Toronto, On, Canada"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2014506068"
+        },
+        {
+          "name": "Nelson H. Morgan",
+          "raw_author_name": "Nelson Morgan",
+          "author_id": "https://openalex.org/A5112003894",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I1297971548",
+              "display_name": "International Computer Science Institute",
+              "ror": "https://ror.org/01ewh7m12",
+              "country_code": "US",
+              "type": "nonprofit",
+              "lineage": [
+                "https://openalex.org/I1297971548"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "International Computer Science Institute, Berkeley, CA, USA",
+              "institution_ids": [
+                "https://openalex.org/I1297971548"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Int. Comput. Sci. Inst., Berkeley, CA, USA",
+              "institution_ids": [
+                "https://openalex.org/I1297971548"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "International Computer Science Institute, Berkeley, CA, USA",
+            "Int. Comput. Sci. Inst., Berkeley, CA, USA"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2014506068"
+        },
+        {
+          "name": "Jen‐Tzung Chien",
+          "raw_author_name": "Jen-Tzung Chien",
+          "author_id": "https://openalex.org/A5061908942",
+          "orcid": "https://orcid.org/0000-0003-3466-8941",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I91807558",
+              "display_name": "National Cheng Kung University",
+              "ror": "https://ror.org/01b8kcc49",
+              "country_code": "TW",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I91807558"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "National Cheng Kung University, Tainan, Taiwan",
+              "institution_ids": [
+                "https://openalex.org/I91807558"
+              ]
+            },
+            {
+              "raw_affiliation_string": "National Cheng Kung University, Tainan,  Taiwan",
+              "institution_ids": [
+                "https://openalex.org/I91807558"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "National Cheng Kung University, Tainan, Taiwan",
+            "National Cheng Kung University, Tainan,  Taiwan"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2014506068"
+        },
+        {
+          "name": "Shigeki Sagayama",
+          "raw_author_name": "Shigeki Sagayama",
+          "author_id": "https://openalex.org/A5003450550",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I74801974",
+              "display_name": "The University of Tokyo",
+              "ror": "https://ror.org/057zh3y96",
+              "country_code": "JP",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I74801974"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "University of Tokyo, Tokyo, Japan",
+              "institution_ids": [
+                "https://openalex.org/I74801974"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Univ. of Tokyo, Tokyo (Japan)",
+              "institution_ids": [
+                "https://openalex.org/I74801974"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "University of Tokyo, Tokyo, Japan",
+            "Univ. of Tokyo, Tokyo (Japan)"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2014506068"
+        },
+        {
+          "name": "Dong Yu",
+          "author_id": "144580027",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "57236bcb830af797396fefb0ac26fea9f0caeeba"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "author_id": "1695689",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "author_profile": {
+            "authorId": "1695689",
+            "externalIds": {
+              "DBLP": [
+                "Geoffrey E. Hinton"
+              ]
+            },
+            "name": "Geoffrey E. Hinton",
+            "affiliations": []
+          },
+          "author_profile_url": "https://api.semanticscholar.org/graph/v1/author/1695689",
+          "source": "semantic_scholar",
+          "source_paper_id": "57236bcb830af797396fefb0ac26fea9f0caeeba"
+        },
+        {
+          "name": "N. Morgan",
+          "author_id": "144798098",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "57236bcb830af797396fefb0ac26fea9f0caeeba"
+        },
+        {
+          "name": "Jen-Tzung Chien",
+          "author_id": "1699469",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "57236bcb830af797396fefb0ac26fea9f0caeeba"
+        },
+        {
+          "name": "S. Sagayama",
+          "author_id": "1734761",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "57236bcb830af797396fefb0ac26fea9f0caeeba"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2014506068",
+          "source_author_id": "A5108093963",
+          "doi": "10.1109/tasl.2011.2173371",
+          "year": 2011,
+          "authors": [
+            "Dong Yu",
+            "Geoffrey Hinton",
+            "Nelson Morgan",
+            "Jen-Tzung Chien",
+            "Shigeki Sagayama"
+          ],
+          "paper_url": "https://doi.org/10.1109/tasl.2011.2173371"
+        },
+        {
+          "source": "semantic_scholar",
+          "source_paper_id": "57236bcb830af797396fefb0ac26fea9f0caeeba",
+          "source_author_id": "1695689",
+          "doi": "10.1109/tasl.2011.2173371",
+          "year": 2012,
+          "authors": [
+            "Dong Yu",
+            "Geoffrey E. Hinton",
+            "N. Morgan",
+            "Jen-Tzung Chien",
+            "S. Sagayama"
+          ],
+          "paper_url": "https://www.semanticscholar.org/paper/57236bcb830af797396fefb0ac26fea9f0caeeba"
+        }
+      ],
+      "observed_paper_type": "research_paper",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "Using an autoencoder with deformable templates to discover features for automated speech recognition",
+      "year": 2013,
+      "authors": [
+        "Navdeep Jaitly",
+        "Geoffrey E. Hinton"
+      ],
+      "doi": "10.21437/interspeech.2013-432",
+      "venue": "Interspeech (USB)",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W2396030159",
+      "source_author_id": "A5108093963",
+      "paper_url": "https://doi.org/10.21437/interspeech.2013-432",
+      "evaluation_id": "audit-hinton-8",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "verified",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W2396030159: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2396030159: Cross-source stable work identity and confirmed source-scoped target Author IDs with compatible bylines",
+        "openalex:https://openalex.org/W2396030159: Explicit target Author ID, compatible byline and paper-level institution agree: University of Toronto",
+        "openalex:https://openalex.org/W2396030159: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2396030159: Target signature similarity: 1.000",
+        "semantic_scholar:0b4f21ce1c6967dd1142cfb3f41628d55c4c5743: Confirmed source-scoped Author ID observed in the paper author list",
+        "semantic_scholar:0b4f21ce1c6967dd1142cfb3f41628d55c4c5743: Cross-source stable work identity and confirmed source-scoped target Author IDs with compatible bylines",
+        "semantic_scholar:0b4f21ce1c6967dd1142cfb3f41628d55c4c5743: Source Author ID association alone does not verify ownership",
+        "semantic_scholar:0b4f21ce1c6967dd1142cfb3f41628d55c4c5743: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W2396030159"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Navdeep Jaitly",
+          "raw_author_name": "Navdeep Jaitly",
+          "author_id": "https://openalex.org/A5112445699",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I185261750",
+              "display_name": "University of Toronto",
+              "ror": "https://ror.org/03dbr7087",
+              "country_code": "CA",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "University of Toronto",
+              "institution_ids": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "University of Toronto"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2396030159"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "raw_author_name": "Geoffrey E. Hinton",
+          "author_id": "https://openalex.org/A5108093963",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I185261750",
+              "display_name": "University of Toronto",
+              "ror": "https://ror.org/03dbr7087",
+              "country_code": "CA",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "University of Toronto",
+              "institution_ids": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "University of Toronto"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2396030159"
+        },
+        {
+          "name": "N. Jaitly",
+          "author_id": "3111912",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0b4f21ce1c6967dd1142cfb3f41628d55c4c5743"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "author_id": "1695689",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "author_profile": {
+            "authorId": "1695689",
+            "externalIds": {
+              "DBLP": [
+                "Geoffrey E. Hinton"
+              ]
+            },
+            "name": "Geoffrey E. Hinton",
+            "affiliations": []
+          },
+          "author_profile_url": "https://api.semanticscholar.org/graph/v1/author/1695689",
+          "source": "semantic_scholar",
+          "source_paper_id": "0b4f21ce1c6967dd1142cfb3f41628d55c4c5743"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2396030159",
+          "source_author_id": "A5108093963",
+          "doi": "10.21437/interspeech.2013-432",
+          "year": 2013,
+          "authors": [
+            "Navdeep Jaitly",
+            "Geoffrey E. Hinton"
+          ],
+          "paper_url": "https://doi.org/10.21437/interspeech.2013-432"
+        },
+        {
+          "source": "semantic_scholar",
+          "source_paper_id": "0b4f21ce1c6967dd1142cfb3f41628d55c4c5743",
+          "source_author_id": "1695689",
+          "doi": "10.21437/interspeech.2013-432",
+          "year": 2013,
+          "authors": [
+            "N. Jaitly",
+            "Geoffrey E. Hinton"
+          ],
+          "paper_url": "https://www.semanticscholar.org/paper/0b4f21ce1c6967dd1142cfb3f41628d55c4c5743"
+        }
+      ],
+      "observed_paper_type": "research_paper",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "Imputer: Sequence Modelling via Imputation and Dynamic Programming",
+      "year": 2020,
+      "authors": [
+        "Chan, William",
+        "Saharia, Chitwan",
+        "Hinton, Geoffrey",
+        "Norouzi, Mohammad",
+        "Jaitly, Navdeep"
+      ],
+      "doi": "10.48550/arxiv.2002.08926",
+      "venue": "arXiv (Cornell University)",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W3007746272",
+      "source_author_id": "A5108093963",
+      "paper_url": "http://arxiv.org/abs/2002.08926",
+      "evaluation_id": "audit-hinton-9",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "verified",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W3007746272: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W3007746272: Cross-source stable work identity and confirmed source-scoped target Author IDs with compatible bylines",
+        "openalex:https://openalex.org/W3007746272: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W3007746272: Target signature similarity: 0.970",
+        "semantic_scholar:bb2bc99f8220fc681320c541940c99ae30b286d6: Confirmed source-scoped Author ID observed in the paper author list",
+        "semantic_scholar:bb2bc99f8220fc681320c541940c99ae30b286d6: Cross-source stable work identity and confirmed source-scoped target Author IDs with compatible bylines",
+        "semantic_scholar:bb2bc99f8220fc681320c541940c99ae30b286d6: Source Author ID association alone does not verify ownership",
+        "semantic_scholar:bb2bc99f8220fc681320c541940c99ae30b286d6: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W3007746272"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "William Chan",
+          "raw_author_name": "Chan, William",
+          "author_id": "https://openalex.org/A5102811560",
+          "orcid": "https://orcid.org/0000-0001-6205-255X",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I1291425158",
+              "display_name": "Google (United States)",
+              "ror": "https://ror.org/00njsd438",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I1291425158",
+                "https://openalex.org/I4210128969"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Google,,,,,",
+              "institution_ids": [
+                "https://openalex.org/I1291425158"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Google,,,,,"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W3007746272"
+        },
+        {
+          "name": "Chitwan Saharia",
+          "raw_author_name": "Saharia, Chitwan",
+          "author_id": "https://openalex.org/A5022455158",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I1291425158",
+              "display_name": "Google (United States)",
+              "ror": "https://ror.org/00njsd438",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I1291425158",
+                "https://openalex.org/I4210128969"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Google,,,,,",
+              "institution_ids": [
+                "https://openalex.org/I1291425158"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Google,,,,,"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W3007746272"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "raw_author_name": "Hinton, Geoffrey",
+          "author_id": "https://openalex.org/A5108093963",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I1291425158",
+              "display_name": "Google (United States)",
+              "ror": "https://ror.org/00njsd438",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I1291425158",
+                "https://openalex.org/I4210128969"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Google,,,,,",
+              "institution_ids": [
+                "https://openalex.org/I1291425158"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Google,,,,,"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W3007746272"
+        },
+        {
+          "name": "Mohammad Norouzi",
+          "raw_author_name": "Norouzi, Mohammad",
+          "author_id": "https://openalex.org/A5103947107",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I1291425158",
+              "display_name": "Google (United States)",
+              "ror": "https://ror.org/00njsd438",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I1291425158",
+                "https://openalex.org/I4210128969"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Google,,,,,",
+              "institution_ids": [
+                "https://openalex.org/I1291425158"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Google,,,,,"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W3007746272"
+        },
+        {
+          "name": "Navdeep Jaitly",
+          "raw_author_name": "Jaitly, Navdeep",
+          "author_id": "https://openalex.org/A5112445699",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "D. E. Shaw",
+              "institution_ids": []
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "D. E. Shaw"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W3007746272"
+        },
+        {
+          "name": "William Chan",
+          "author_id": "144333684",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "bb2bc99f8220fc681320c541940c99ae30b286d6"
+        },
+        {
+          "name": "Chitwan Saharia",
+          "author_id": "51497543",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "bb2bc99f8220fc681320c541940c99ae30b286d6"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "author_id": "1695689",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "author_profile": {
+            "authorId": "1695689",
+            "externalIds": {
+              "DBLP": [
+                "Geoffrey E. Hinton"
+              ]
+            },
+            "name": "Geoffrey E. Hinton",
+            "affiliations": []
+          },
+          "author_profile_url": "https://api.semanticscholar.org/graph/v1/author/1695689",
+          "source": "semantic_scholar",
+          "source_paper_id": "bb2bc99f8220fc681320c541940c99ae30b286d6"
+        },
+        {
+          "name": "Mohammad Norouzi",
+          "author_id": "144739074",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "bb2bc99f8220fc681320c541940c99ae30b286d6"
+        },
+        {
+          "name": "N. Jaitly",
+          "author_id": "3111912",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "bb2bc99f8220fc681320c541940c99ae30b286d6"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W3007746272",
+          "source_author_id": "A5108093963",
+          "doi": "10.48550/arxiv.2002.08926",
+          "year": 2020,
+          "authors": [
+            "Chan, William",
+            "Saharia, Chitwan",
+            "Hinton, Geoffrey",
+            "Norouzi, Mohammad",
+            "Jaitly, Navdeep"
+          ],
+          "paper_url": "http://arxiv.org/abs/2002.08926"
+        },
+        {
+          "source": "semantic_scholar",
+          "source_paper_id": "bb2bc99f8220fc681320c541940c99ae30b286d6",
+          "source_author_id": "1695689",
+          "doi": null,
+          "year": 2020,
+          "authors": [
+            "William Chan",
+            "Chitwan Saharia",
+            "Geoffrey E. Hinton",
+            "Mohammad Norouzi",
+            "N. Jaitly"
+          ],
+          "paper_url": "https://www.semanticscholar.org/paper/bb2bc99f8220fc681320c541940c99ae30b286d6"
+        }
+      ],
+      "observed_paper_type": "unknown",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "AlexNet Source Code",
+      "year": 2026,
+      "authors": [
+        "Alex Krizhevsky",
+        "Ilya Sutskever",
+        "Geoffrey E. Hinton"
+      ],
+      "doi": "10.34740/kaggle/dsv/17891075",
+      "venue": "Kaggle",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W7168048740",
+      "source_author_id": "A5108093963",
+      "paper_url": "https://doi.org/10.34740/kaggle/dsv/17891075",
+      "evaluation_id": "audit-hinton-10",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "verified",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W7168048740: Compatible signature plus recurring independently verified coauthors: alex krizhevsky, ilya sutskever",
+        "openalex:https://openalex.org/W7168048740: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W7168048740: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W7168048740: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W7168048740"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Alex Krizhevsky",
+          "raw_author_name": "Alex Krizhevsky",
+          "author_id": "https://openalex.org/A5031152245",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7168048740"
+        },
+        {
+          "name": "Ilya Sutskever",
+          "raw_author_name": "Ilya Sutskever",
+          "author_id": "https://openalex.org/A5006446297",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7168048740"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "raw_author_name": "Geoffrey E. Hinton",
+          "author_id": "https://openalex.org/A5108093963",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7168048740"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7168048740",
+          "source_author_id": "A5108093963",
+          "doi": "10.34740/kaggle/dsv/17891075",
+          "year": 2026,
+          "authors": [
+            "Alex Krizhevsky",
+            "Ilya Sutskever",
+            "Geoffrey E. Hinton"
+          ],
+          "paper_url": "https://doi.org/10.34740/kaggle/dsv/17891075"
+        }
+      ],
+      "observed_paper_type": "dataset",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "Intelligent Perception",
+      "authors": [
+        "S. M. Ali Eslami",
+        "Vikash K. Mansinghka",
+        "Tejas Kulkarni",
+        "Yura N. Perov",
+        "Song-Chun Zhu",
+        "Ali Eslami",
+        "Jeff Donahue",
+        "N. Heess",
+        "T. Weber",
+        "Yuval Tassa",
+        "K. Kavukcuoglu",
+        "Geoffrey E. Hinton"
+      ],
+      "doi": "10.1142/9789811223723_0010",
+      "venue": "Artificial Intelligence",
+      "source": "semantic_scholar",
+      "source_paper_id": "0f322dc30aaa0d929ed05e09350bd641e855e688",
+      "source_author_id": "1695689",
+      "paper_url": "https://www.semanticscholar.org/paper/0f322dc30aaa0d929ed05e09350bd641e855e688",
+      "evaluation_id": "audit-hinton-11",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "semantic_scholar:0f322dc30aaa0d929ed05e09350bd641e855e688: Confirmed source-scoped Author ID observed in the paper author list",
+        "semantic_scholar:0f322dc30aaa0d929ed05e09350bd641e855e688: Source Author ID association alone does not verify ownership",
+        "semantic_scholar:0f322dc30aaa0d929ed05e09350bd641e855e688: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [
+        "missing_paper_level_affiliation",
+        "missing_target_orcid"
+      ],
+      "source_records": [
+        {
+          "source": "semantic_scholar",
+          "paper_id": "0f322dc30aaa0d929ed05e09350bd641e855e688"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "S. M. Ali Eslami",
+          "author_id": "143648071",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0f322dc30aaa0d929ed05e09350bd641e855e688"
+        },
+        {
+          "name": "Vikash K. Mansinghka",
+          "author_id": "1735083",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0f322dc30aaa0d929ed05e09350bd641e855e688"
+        },
+        {
+          "name": "Tejas Kulkarni",
+          "author_id": "2141772699",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0f322dc30aaa0d929ed05e09350bd641e855e688"
+        },
+        {
+          "name": "Yura N. Perov",
+          "author_id": "2851128",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0f322dc30aaa0d929ed05e09350bd641e855e688"
+        },
+        {
+          "name": "Song-Chun Zhu",
+          "author_id": "145380991",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0f322dc30aaa0d929ed05e09350bd641e855e688"
+        },
+        {
+          "name": "Ali Eslami",
+          "author_id": "2064170355",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0f322dc30aaa0d929ed05e09350bd641e855e688"
+        },
+        {
+          "name": "Jeff Donahue",
+          "author_id": "2059919271",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0f322dc30aaa0d929ed05e09350bd641e855e688"
+        },
+        {
+          "name": "N. Heess",
+          "author_id": "2801204",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0f322dc30aaa0d929ed05e09350bd641e855e688"
+        },
+        {
+          "name": "T. Weber",
+          "author_id": "143947744",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0f322dc30aaa0d929ed05e09350bd641e855e688"
+        },
+        {
+          "name": "Yuval Tassa",
+          "author_id": "2109481",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0f322dc30aaa0d929ed05e09350bd641e855e688"
+        },
+        {
+          "name": "K. Kavukcuoglu",
+          "author_id": "2645384",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0f322dc30aaa0d929ed05e09350bd641e855e688"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "author_id": "1695689",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "author_profile": {
+            "authorId": "1695689",
+            "externalIds": {
+              "DBLP": [
+                "Geoffrey E. Hinton"
+              ]
+            },
+            "name": "Geoffrey E. Hinton",
+            "affiliations": []
+          },
+          "author_profile_url": "https://api.semanticscholar.org/graph/v1/author/1695689",
+          "source": "semantic_scholar",
+          "source_paper_id": "0f322dc30aaa0d929ed05e09350bd641e855e688"
+        }
+      ],
+      "missing_observed_fields": [
+        "year"
+      ],
+      "observed_source_records": [
+        {
+          "source": "semantic_scholar",
+          "source_paper_id": "0f322dc30aaa0d929ed05e09350bd641e855e688",
+          "source_author_id": "1695689",
+          "doi": "10.1142/9789811223723_0010",
+          "year": null,
+          "authors": [
+            "S. M. Ali Eslami",
+            "Vikash K. Mansinghka",
+            "Tejas Kulkarni",
+            "Yura N. Perov",
+            "Song-Chun Zhu",
+            "Ali Eslami",
+            "Jeff Donahue",
+            "N. Heess",
+            "T. Weber",
+            "Yuval Tassa",
+            "K. Kavukcuoglu",
+            "Geoffrey E. Hinton"
+          ],
+          "paper_url": "https://www.semanticscholar.org/paper/0f322dc30aaa0d929ed05e09350bd641e855e688"
+        }
+      ],
+      "observed_paper_type": "unknown",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "G-maximization: an unsupervised learning procedure for discovering regularities",
+      "year": 1986,
+      "authors": [
+        "Barak A. Pearlmutter",
+        "Geoffrey E. Hinton"
+      ],
+      "doi": "10.1063/1.36234",
+      "venue": "AIP conference proceedings",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W2132214213",
+      "source_author_id": "A5108093963",
+      "paper_url": "https://doi.org/10.1063/1.36234",
+      "evaluation_id": "audit-hinton-12",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W2132214213: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2132214213: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2132214213: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [
+        "missing_target_orcid"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W2132214213"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Barak A. Pearlmutter",
+          "raw_author_name": "Barak A. Pearlmutter",
+          "author_id": "https://openalex.org/A5009984528",
+          "orcid": "https://orcid.org/0000-0003-0521-4553",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I74973139",
+              "display_name": "Carnegie Mellon University",
+              "ror": "https://ror.org/05x2bcf33",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I74973139"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Computer Science, Carnegie‐Mellon University, Pittsburgh, PA 15213",
+              "institution_ids": [
+                "https://openalex.org/I74973139"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Department of Computer Science, Carnegie‐Mellon University, Pittsburgh, PA 15213"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2132214213"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "raw_author_name": "Geoffrey E. Hinton",
+          "author_id": "https://openalex.org/A5108093963",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I74973139",
+              "display_name": "Carnegie Mellon University",
+              "ror": "https://ror.org/05x2bcf33",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I74973139"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Computer Science, Carnegie‐Mellon University, Pittsburgh, PA 15213",
+              "institution_ids": [
+                "https://openalex.org/I74973139"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Department of Computer Science, Carnegie‐Mellon University, Pittsburgh, PA 15213"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2132214213"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2132214213",
+          "source_author_id": "A5108093963",
+          "doi": "10.1063/1.36234",
+          "year": 1986,
+          "authors": [
+            "Barak A. Pearlmutter",
+            "Geoffrey E. Hinton"
+          ],
+          "paper_url": "https://doi.org/10.1063/1.36234"
+        }
+      ],
+      "observed_paper_type": "research_paper",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "Recursive Distributed Representations",
+      "year": 1991,
+      "authors": [
+        "Geoffrey E. Hinton"
+      ],
+      "doi": "10.7551/mitpress/2102.003.0004",
+      "source": "semantic_scholar",
+      "source_paper_id": "f23b4404ce10cb10047becd296fd504f70957c6d",
+      "source_author_id": "1695689",
+      "paper_url": "https://www.semanticscholar.org/paper/f23b4404ce10cb10047becd296fd504f70957c6d",
+      "evaluation_id": "audit-hinton-13",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "semantic_scholar:f23b4404ce10cb10047becd296fd504f70957c6d: Confirmed source-scoped Author ID observed in the paper author list",
+        "semantic_scholar:f23b4404ce10cb10047becd296fd504f70957c6d: Source Author ID association alone does not verify ownership",
+        "semantic_scholar:f23b4404ce10cb10047becd296fd504f70957c6d: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [
+        "missing_paper_level_affiliation",
+        "missing_target_orcid"
+      ],
+      "source_records": [
+        {
+          "source": "semantic_scholar",
+          "paper_id": "f23b4404ce10cb10047becd296fd504f70957c6d"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Geoffrey E. Hinton",
+          "author_id": "1695689",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "author_profile": {
+            "authorId": "1695689",
+            "externalIds": {
+              "DBLP": [
+                "Geoffrey E. Hinton"
+              ]
+            },
+            "name": "Geoffrey E. Hinton",
+            "affiliations": []
+          },
+          "author_profile_url": "https://api.semanticscholar.org/graph/v1/author/1695689",
+          "source": "semantic_scholar",
+          "source_paper_id": "f23b4404ce10cb10047becd296fd504f70957c6d"
+        }
+      ],
+      "missing_observed_fields": [
+        "venue"
+      ],
+      "observed_source_records": [
+        {
+          "source": "semantic_scholar",
+          "source_paper_id": "f23b4404ce10cb10047becd296fd504f70957c6d",
+          "source_author_id": "1695689",
+          "doi": "10.7551/mitpress/2102.003.0004",
+          "year": 1991,
+          "authors": [
+            "Geoffrey E. Hinton"
+          ],
+          "paper_url": "https://www.semanticscholar.org/paper/f23b4404ce10cb10047becd296fd504f70957c6d"
+        }
+      ],
+      "observed_paper_type": "unknown",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "Glove-talk II - a neural-network interface which maps gestures to parallel formant speech synthesizer controls",
+      "year": 1997,
+      "authors": [
+        "S.S. Fels",
+        "G.E. Hinton"
+      ],
+      "doi": "10.1109/72.623199",
+      "venue": "IEEE Transactions on Neural Networks",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W4248475289",
+      "source_author_id": "A5108093963",
+      "paper_url": "https://doi.org/10.1109/72.623199",
+      "evaluation_id": "audit-hinton-14",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W4248475289: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W4248475289: Insufficient compatible target byline evidence",
+        "openalex:https://openalex.org/W4248475289: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W4248475289: Target signature similarity: 0.780",
+        "semantic_scholar:1cb7b19e8b4e90c4b1328f4487d31d8afdd53b89: Confirmed source-scoped Author ID observed in the paper author list",
+        "semantic_scholar:1cb7b19e8b4e90c4b1328f4487d31d8afdd53b89: Source Author ID association alone does not verify ownership",
+        "semantic_scholar:1cb7b19e8b4e90c4b1328f4487d31d8afdd53b89: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [
+        "incompatible_or_insufficient_byline",
+        "missing_paper_level_affiliation",
+        "missing_target_orcid"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W4248475289"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Sidney Fels",
+          "raw_author_name": "S.S. Fels",
+          "author_id": "https://openalex.org/A5071585967",
+          "orcid": "https://orcid.org/0000-0001-9279-9021",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I185261750",
+              "display_name": "University of Toronto",
+              "ror": "https://ror.org/03dbr7087",
+              "country_code": "CA",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Dept. of Comput. Sci., Toronto Univ., Ont",
+              "institution_ids": [
+                "https://openalex.org/I185261750"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Department of Computer Science, University of Toronto, Toronto, ONT, Canada",
+              "institution_ids": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Dept. of Comput. Sci., Toronto Univ., Ont",
+            "Department of Computer Science, University of Toronto, Toronto, ONT, Canada"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4248475289"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "raw_author_name": "G.E. Hinton",
+          "author_id": "https://openalex.org/A5108093963",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I185261750",
+              "display_name": "University of Toronto",
+              "ror": "https://ror.org/03dbr7087",
+              "country_code": "CA",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Computer Science, University of Toronto, Toronto, ONT, Canada",
+              "institution_ids": [
+                "https://openalex.org/I185261750"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Department of Computer Science, University of Toronto, Toronto, ONT, Canada"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4248475289"
+        },
+        {
+          "name": "S. Fels",
+          "author_id": "23111666",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "1cb7b19e8b4e90c4b1328f4487d31d8afdd53b89"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "author_id": "1695689",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "author_profile": {
+            "authorId": "1695689",
+            "externalIds": {
+              "DBLP": [
+                "Geoffrey E. Hinton"
+              ]
+            },
+            "name": "Geoffrey E. Hinton",
+            "affiliations": []
+          },
+          "author_profile_url": "https://api.semanticscholar.org/graph/v1/author/1695689",
+          "source": "semantic_scholar",
+          "source_paper_id": "1cb7b19e8b4e90c4b1328f4487d31d8afdd53b89"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W4248475289",
+          "source_author_id": "A5108093963",
+          "doi": "10.1109/72.623199",
+          "year": 1997,
+          "authors": [
+            "S.S. Fels",
+            "G.E. Hinton"
+          ],
+          "paper_url": "https://doi.org/10.1109/72.623199"
+        },
+        {
+          "source": "semantic_scholar",
+          "source_paper_id": "1cb7b19e8b4e90c4b1328f4487d31d8afdd53b89",
+          "source_author_id": "1695689",
+          "doi": "10.1109/72.623199",
+          "year": 1997,
+          "authors": [
+            "S. Fels",
+            "Geoffrey E. Hinton"
+          ],
+          "paper_url": "https://www.semanticscholar.org/paper/1cb7b19e8b4e90c4b1328f4487d31d8afdd53b89"
+        }
+      ],
+      "observed_paper_type": "research_paper",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "Classical and Bayesian Inference in Neuroimaging: Theory",
+      "year": 2002,
+      "authors": [
+        "K.J. Friston",
+        "W. Penny",
+        "C. Phillips",
+        "S. Kiebel",
+        "G. Hinton",
+        "J. Ashburner"
+      ],
+      "doi": "10.1006/nimg.2002.1090",
+      "venue": "NeuroImage",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W2169005503",
+      "source_author_id": "A5108093963",
+      "paper_url": "https://doi.org/10.1006/nimg.2002.1090",
+      "evaluation_id": "audit-hinton-15",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W2169005503: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W2169005503: Insufficient compatible target byline evidence",
+        "openalex:https://openalex.org/W2169005503: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W2169005503: Target signature similarity: 0.780",
+        "semantic_scholar:fee78005a74d7da336f1979f10ed16b0f8042482: Confirmed source-scoped Author ID observed in the paper author list",
+        "semantic_scholar:fee78005a74d7da336f1979f10ed16b0f8042482: Source Author ID association alone does not verify ownership",
+        "semantic_scholar:fee78005a74d7da336f1979f10ed16b0f8042482: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [
+        "incompatible_or_insufficient_byline",
+        "missing_paper_level_affiliation",
+        "missing_target_orcid"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W2169005503"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Karl John Friston",
+          "raw_author_name": "K.J. Friston",
+          "author_id": "https://openalex.org/A5086852785",
+          "orcid": "https://orcid.org/0000-0001-7984-8909",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4405268824",
+              "display_name": "Gatsby Computational Neuroscience Unit",
+              "ror": "https://ror.org/0269epf40",
+              "country_code": "GB",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I124357947",
+                "https://openalex.org/I4405268824",
+                "https://openalex.org/I45129253"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I45129253",
+              "display_name": "University College London",
+              "ror": "https://ror.org/02jx3x895",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I124357947",
+                "https://openalex.org/I45129253"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "The Wellcome Department of Imaging Neuroscience, The Gatsby Computational Neuroscience Unit, University College London, Queen Square, London, WC1N 3BG, United Kingdom",
+              "institution_ids": [
+                "https://openalex.org/I4405268824",
+                "https://openalex.org/I45129253"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "The Wellcome Department of Imaging Neuroscience, The Gatsby Computational Neuroscience Unit, University College London, Queen Square, London, WC1N 3BG, United Kingdom"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2169005503"
+        },
+        {
+          "name": "W.D. Penny",
+          "raw_author_name": "W. Penny",
+          "author_id": "https://openalex.org/A5023717049",
+          "orcid": "https://orcid.org/0000-0001-9064-1191",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4405268824",
+              "display_name": "Gatsby Computational Neuroscience Unit",
+              "ror": "https://ror.org/0269epf40",
+              "country_code": "GB",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I124357947",
+                "https://openalex.org/I4405268824",
+                "https://openalex.org/I45129253"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I45129253",
+              "display_name": "University College London",
+              "ror": "https://ror.org/02jx3x895",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I124357947",
+                "https://openalex.org/I45129253"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "The Wellcome Department of Imaging Neuroscience, The Gatsby Computational Neuroscience Unit, University College London, Queen Square, London, WC1N 3BG, United Kingdom",
+              "institution_ids": [
+                "https://openalex.org/I4405268824",
+                "https://openalex.org/I45129253"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "The Wellcome Department of Imaging Neuroscience, The Gatsby Computational Neuroscience Unit, University College London, Queen Square, London, WC1N 3BG, United Kingdom"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2169005503"
+        },
+        {
+          "name": "Christophe L. M. Phillips",
+          "raw_author_name": "C. Phillips",
+          "author_id": "https://openalex.org/A5005472608",
+          "orcid": "https://orcid.org/0000-0002-4990-425X",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4405268824",
+              "display_name": "Gatsby Computational Neuroscience Unit",
+              "ror": "https://ror.org/0269epf40",
+              "country_code": "GB",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I124357947",
+                "https://openalex.org/I4405268824",
+                "https://openalex.org/I45129253"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I45129253",
+              "display_name": "University College London",
+              "ror": "https://ror.org/02jx3x895",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I124357947",
+                "https://openalex.org/I45129253"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "The Wellcome Department of Imaging Neuroscience, The Gatsby Computational Neuroscience Unit, University College London, Queen Square, London, WC1N 3BG, United Kingdom",
+              "institution_ids": [
+                "https://openalex.org/I4405268824",
+                "https://openalex.org/I45129253"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "The Wellcome Department of Imaging Neuroscience, The Gatsby Computational Neuroscience Unit, University College London, Queen Square, London, WC1N 3BG, United Kingdom"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2169005503"
+        },
+        {
+          "name": "Stefan J. Kiebel",
+          "raw_author_name": "S. Kiebel",
+          "author_id": "https://openalex.org/A5013850547",
+          "orcid": "https://orcid.org/0000-0002-5052-1117",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4405268824",
+              "display_name": "Gatsby Computational Neuroscience Unit",
+              "ror": "https://ror.org/0269epf40",
+              "country_code": "GB",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I124357947",
+                "https://openalex.org/I4405268824",
+                "https://openalex.org/I45129253"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I45129253",
+              "display_name": "University College London",
+              "ror": "https://ror.org/02jx3x895",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I124357947",
+                "https://openalex.org/I45129253"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "The Wellcome Department of Imaging Neuroscience, The Gatsby Computational Neuroscience Unit, University College London, Queen Square, London, WC1N 3BG, United Kingdom",
+              "institution_ids": [
+                "https://openalex.org/I4405268824",
+                "https://openalex.org/I45129253"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "The Wellcome Department of Imaging Neuroscience, The Gatsby Computational Neuroscience Unit, University College London, Queen Square, London, WC1N 3BG, United Kingdom"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2169005503"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "raw_author_name": "G. Hinton",
+          "author_id": "https://openalex.org/A5108093963",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4405268824",
+              "display_name": "Gatsby Computational Neuroscience Unit",
+              "ror": "https://ror.org/0269epf40",
+              "country_code": "GB",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I124357947",
+                "https://openalex.org/I4405268824",
+                "https://openalex.org/I45129253"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I45129253",
+              "display_name": "University College London",
+              "ror": "https://ror.org/02jx3x895",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I124357947",
+                "https://openalex.org/I45129253"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "The Wellcome Department of Imaging Neuroscience, The Gatsby Computational Neuroscience Unit, University College London, Queen Square, London, WC1N 3BG, United Kingdom",
+              "institution_ids": [
+                "https://openalex.org/I4405268824",
+                "https://openalex.org/I45129253"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "The Wellcome Department of Imaging Neuroscience, The Gatsby Computational Neuroscience Unit, University College London, Queen Square, London, WC1N 3BG, United Kingdom"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2169005503"
+        },
+        {
+          "name": "John Ashburner",
+          "raw_author_name": "J. Ashburner",
+          "author_id": "https://openalex.org/A5029410349",
+          "orcid": "https://orcid.org/0000-0001-7605-2518",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4405268824",
+              "display_name": "Gatsby Computational Neuroscience Unit",
+              "ror": "https://ror.org/0269epf40",
+              "country_code": "GB",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I124357947",
+                "https://openalex.org/I4405268824",
+                "https://openalex.org/I45129253"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I45129253",
+              "display_name": "University College London",
+              "ror": "https://ror.org/02jx3x895",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I124357947",
+                "https://openalex.org/I45129253"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "The Wellcome Department of Imaging Neuroscience, The Gatsby Computational Neuroscience Unit, University College London, Queen Square, London, WC1N 3BG, United Kingdom",
+              "institution_ids": [
+                "https://openalex.org/I4405268824",
+                "https://openalex.org/I45129253"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "The Wellcome Department of Imaging Neuroscience, The Gatsby Computational Neuroscience Unit, University College London, Queen Square, London, WC1N 3BG, United Kingdom"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2169005503"
+        },
+        {
+          "name": "Karl J. Friston",
+          "author_id": "1737497",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "fee78005a74d7da336f1979f10ed16b0f8042482"
+        },
+        {
+          "name": "W. D. Penny",
+          "author_id": "2238262609",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "fee78005a74d7da336f1979f10ed16b0f8042482"
+        },
+        {
+          "name": "C. Phillips",
+          "author_id": "2502765526",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "fee78005a74d7da336f1979f10ed16b0f8042482"
+        },
+        {
+          "name": "Stefan J. Kiebel",
+          "author_id": "2503826711",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "fee78005a74d7da336f1979f10ed16b0f8042482"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "author_id": "1695689",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "author_profile": {
+            "authorId": "1695689",
+            "externalIds": {
+              "DBLP": [
+                "Geoffrey E. Hinton"
+              ]
+            },
+            "name": "Geoffrey E. Hinton",
+            "affiliations": []
+          },
+          "author_profile_url": "https://api.semanticscholar.org/graph/v1/author/1695689",
+          "source": "semantic_scholar",
+          "source_paper_id": "fee78005a74d7da336f1979f10ed16b0f8042482"
+        },
+        {
+          "name": "J. Ashburner",
+          "author_id": "3985221",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "fee78005a74d7da336f1979f10ed16b0f8042482"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W2169005503",
+          "source_author_id": "A5108093963",
+          "doi": "10.1006/nimg.2002.1090",
+          "year": 2002,
+          "authors": [
+            "K.J. Friston",
+            "W. Penny",
+            "C. Phillips",
+            "S. Kiebel",
+            "G. Hinton",
+            "J. Ashburner"
+          ],
+          "paper_url": "https://doi.org/10.1006/nimg.2002.1090"
+        },
+        {
+          "source": "semantic_scholar",
+          "source_paper_id": "fee78005a74d7da336f1979f10ed16b0f8042482",
+          "source_author_id": "1695689",
+          "doi": "10.1006/nimg.2002.1090",
+          "year": 2002,
+          "authors": [
+            "Karl J. Friston",
+            "W. D. Penny",
+            "C. Phillips",
+            "Stefan J. Kiebel",
+            "Geoffrey E. Hinton",
+            "J. Ashburner"
+          ],
+          "paper_url": "https://www.semanticscholar.org/paper/fee78005a74d7da336f1979f10ed16b0f8042482"
+        }
+      ],
+      "observed_paper_type": "review",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "Decision Epoch",
+      "year": 2010,
+      "authors": [
+        "Geoffrey I. Webb",
+        "Johannes Fürnkranz",
+        "Geoffrey E. Hinton",
+        "Claude Sammut",
+        "J. Sander",
+        "Michail Vlachos",
+        "Y. Teh",
+        "Ying Yang",
+        "D. Mladení",
+        "J. Brank",
+        "M. Grobelnik",
+        "Ying Zhao",
+        "G. Karypis",
+        "Susan Craw",
+        "M. Puterman",
+        "J. Patrick"
+      ],
+      "doi": "10.1007/978-1-4899-7687-1_198",
+      "venue": "Encyclopedia of Machine Learning and Data Mining",
+      "source": "semantic_scholar",
+      "source_paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57",
+      "source_author_id": "1695689",
+      "paper_url": "https://www.semanticscholar.org/paper/0530c559a13a2bd92d87560ff1b3fe551e6bca57",
+      "evaluation_id": "audit-hinton-16",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "semantic_scholar:0530c559a13a2bd92d87560ff1b3fe551e6bca57: Confirmed source-scoped Author ID observed in the paper author list",
+        "semantic_scholar:0530c559a13a2bd92d87560ff1b3fe551e6bca57: Source Author ID association alone does not verify ownership",
+        "semantic_scholar:0530c559a13a2bd92d87560ff1b3fe551e6bca57: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [
+        "missing_paper_level_affiliation",
+        "missing_target_orcid"
+      ],
+      "source_records": [
+        {
+          "source": "semantic_scholar",
+          "paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Geoffrey I. Webb",
+          "author_id": "114031010",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57"
+        },
+        {
+          "name": "Johannes Fürnkranz",
+          "author_id": "1747752",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "author_id": "1695689",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "author_profile": {
+            "authorId": "1695689",
+            "externalIds": {
+              "DBLP": [
+                "Geoffrey E. Hinton"
+              ]
+            },
+            "name": "Geoffrey E. Hinton",
+            "affiliations": []
+          },
+          "author_profile_url": "https://api.semanticscholar.org/graph/v1/author/1695689",
+          "source": "semantic_scholar",
+          "source_paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57"
+        },
+        {
+          "name": "Claude Sammut",
+          "author_id": "1804253",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57"
+        },
+        {
+          "name": "J. Sander",
+          "author_id": "2060586276",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57"
+        },
+        {
+          "name": "Michail Vlachos",
+          "author_id": "1699100",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57"
+        },
+        {
+          "name": "Y. Teh",
+          "author_id": "2168248619",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57"
+        },
+        {
+          "name": "Ying Yang",
+          "author_id": "2118771132",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57"
+        },
+        {
+          "name": "D. Mladení",
+          "author_id": "66515963",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57"
+        },
+        {
+          "name": "J. Brank",
+          "author_id": "1795846",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57"
+        },
+        {
+          "name": "M. Grobelnik",
+          "author_id": "1775954",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57"
+        },
+        {
+          "name": "Ying Zhao",
+          "author_id": "1399974318",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57"
+        },
+        {
+          "name": "G. Karypis",
+          "author_id": "50877490",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57"
+        },
+        {
+          "name": "Susan Craw",
+          "author_id": "1742472",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57"
+        },
+        {
+          "name": "M. Puterman",
+          "author_id": "37814588",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57"
+        },
+        {
+          "name": "J. Patrick",
+          "author_id": "144942719",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "semantic_scholar",
+          "source_paper_id": "0530c559a13a2bd92d87560ff1b3fe551e6bca57",
+          "source_author_id": "1695689",
+          "doi": "10.1007/978-1-4899-7687-1_198",
+          "year": 2010,
+          "authors": [
+            "Geoffrey I. Webb",
+            "Johannes Fürnkranz",
+            "Geoffrey E. Hinton",
+            "Claude Sammut",
+            "J. Sander",
+            "Michail Vlachos",
+            "Y. Teh",
+            "Ying Yang",
+            "D. Mladení",
+            "J. Brank",
+            "M. Grobelnik",
+            "Ying Zhao",
+            "G. Karypis",
+            "Susan Craw",
+            "M. Puterman",
+            "J. Patrick"
+          ],
+          "paper_url": "https://www.semanticscholar.org/paper/0530c559a13a2bd92d87560ff1b3fe551e6bca57"
+        }
+      ],
+      "observed_paper_type": "unknown",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "Zinnia peruviana L.",
+      "year": 2010,
+      "authors": [
+        "Geoffrey E. Hinton"
+      ],
+      "source": "semantic_scholar",
+      "source_paper_id": "9ce2d14ddca2581399b297826f3914ff755fbd8f",
+      "source_author_id": "1695689",
+      "paper_url": "https://www.semanticscholar.org/paper/9ce2d14ddca2581399b297826f3914ff755fbd8f",
+      "evaluation_id": "audit-hinton-17",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "semantic_scholar:9ce2d14ddca2581399b297826f3914ff755fbd8f: Confirmed source-scoped Author ID observed in the paper author list",
+        "semantic_scholar:9ce2d14ddca2581399b297826f3914ff755fbd8f: Source Author ID association alone does not verify ownership",
+        "semantic_scholar:9ce2d14ddca2581399b297826f3914ff755fbd8f: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [
+        "missing_paper_level_affiliation",
+        "missing_target_orcid"
+      ],
+      "source_records": [
+        {
+          "source": "semantic_scholar",
+          "paper_id": "9ce2d14ddca2581399b297826f3914ff755fbd8f"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Geoffrey E. Hinton",
+          "author_id": "1695689",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "author_profile": {
+            "authorId": "1695689",
+            "externalIds": {
+              "DBLP": [
+                "Geoffrey E. Hinton"
+              ]
+            },
+            "name": "Geoffrey E. Hinton",
+            "affiliations": []
+          },
+          "author_profile_url": "https://api.semanticscholar.org/graph/v1/author/1695689",
+          "source": "semantic_scholar",
+          "source_paper_id": "9ce2d14ddca2581399b297826f3914ff755fbd8f"
+        }
+      ],
+      "missing_observed_fields": [
+        "doi",
+        "venue"
+      ],
+      "observed_source_records": [
+        {
+          "source": "semantic_scholar",
+          "source_paper_id": "9ce2d14ddca2581399b297826f3914ff755fbd8f",
+          "source_author_id": "1695689",
+          "doi": null,
+          "year": 2010,
+          "authors": [
+            "Geoffrey E. Hinton"
+          ],
+          "paper_url": "https://www.semanticscholar.org/paper/9ce2d14ddca2581399b297826f3914ff755fbd8f"
+        }
+      ],
+      "observed_paper_type": "unknown",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "analysis of Neural Network Classifier for the Different Number of Hidden Units",
+      "year": 2014,
+      "authors": [
+        "Geoffrey E. Hinton",
+        "R. Williams"
+      ],
+      "source": "semantic_scholar",
+      "source_paper_id": "87394e49da317d4d71f3740820b230230a888826",
+      "source_author_id": "1695689",
+      "paper_url": "https://www.semanticscholar.org/paper/87394e49da317d4d71f3740820b230230a888826",
+      "evaluation_id": "audit-hinton-18",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "semantic_scholar:87394e49da317d4d71f3740820b230230a888826: Confirmed source-scoped Author ID observed in the paper author list",
+        "semantic_scholar:87394e49da317d4d71f3740820b230230a888826: Source Author ID association alone does not verify ownership",
+        "semantic_scholar:87394e49da317d4d71f3740820b230230a888826: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [
+        "missing_paper_level_affiliation",
+        "missing_target_orcid"
+      ],
+      "source_records": [
+        {
+          "source": "semantic_scholar",
+          "paper_id": "87394e49da317d4d71f3740820b230230a888826"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Geoffrey E. Hinton",
+          "author_id": "1695689",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "author_profile": {
+            "authorId": "1695689",
+            "externalIds": {
+              "DBLP": [
+                "Geoffrey E. Hinton"
+              ]
+            },
+            "name": "Geoffrey E. Hinton",
+            "affiliations": []
+          },
+          "author_profile_url": "https://api.semanticscholar.org/graph/v1/author/1695689",
+          "source": "semantic_scholar",
+          "source_paper_id": "87394e49da317d4d71f3740820b230230a888826"
+        },
+        {
+          "name": "R. Williams",
+          "author_id": "2116651248",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "87394e49da317d4d71f3740820b230230a888826"
+        }
+      ],
+      "missing_observed_fields": [
+        "doi",
+        "venue"
+      ],
+      "observed_source_records": [
+        {
+          "source": "semantic_scholar",
+          "source_paper_id": "87394e49da317d4d71f3740820b230230a888826",
+          "source_author_id": "1695689",
+          "doi": null,
+          "year": 2014,
+          "authors": [
+            "Geoffrey E. Hinton",
+            "R. Williams"
+          ],
+          "paper_url": "https://www.semanticscholar.org/paper/87394e49da317d4d71f3740820b230230a888826"
+        }
+      ],
+      "observed_paper_type": "unknown",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "Heme‐Derived Bilins",
+      "year": 2019,
+      "authors": [
+        "J. Takemoto",
+        "C. Chang",
+        "Dong Chen",
+        "Geoffrey E. Hinton"
+      ],
+      "doi": "10.1002/ijch.201800167",
+      "venue": "Israel Journal of Chemistry",
+      "source": "semantic_scholar",
+      "source_paper_id": "4c017ad500ce2170c2ff45b71150c2106fd4695b",
+      "source_author_id": "1695689",
+      "paper_url": "https://www.semanticscholar.org/paper/4c017ad500ce2170c2ff45b71150c2106fd4695b",
+      "evaluation_id": "audit-hinton-19",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "semantic_scholar:4c017ad500ce2170c2ff45b71150c2106fd4695b: Confirmed source-scoped Author ID observed in the paper author list",
+        "semantic_scholar:4c017ad500ce2170c2ff45b71150c2106fd4695b: Source Author ID association alone does not verify ownership",
+        "semantic_scholar:4c017ad500ce2170c2ff45b71150c2106fd4695b: Target signature similarity: 1.000"
+      ],
+      "review_reason_codes": [
+        "missing_paper_level_affiliation",
+        "missing_target_orcid"
+      ],
+      "source_records": [
+        {
+          "source": "semantic_scholar",
+          "paper_id": "4c017ad500ce2170c2ff45b71150c2106fd4695b"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "J. Takemoto",
+          "author_id": "3629756",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "4c017ad500ce2170c2ff45b71150c2106fd4695b"
+        },
+        {
+          "name": "C. Chang",
+          "author_id": "3227683",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "4c017ad500ce2170c2ff45b71150c2106fd4695b"
+        },
+        {
+          "name": "Dong Chen",
+          "author_id": "50536416",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "source": "semantic_scholar",
+          "source_paper_id": "4c017ad500ce2170c2ff45b71150c2106fd4695b"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "author_id": "1695689",
+          "orcid": null,
+          "orcids": [],
+          "external_ids": {},
+          "orcid_scope": "author_profile",
+          "profile_affiliations": [],
+          "role": "author",
+          "author_profile": {
+            "authorId": "1695689",
+            "externalIds": {
+              "DBLP": [
+                "Geoffrey E. Hinton"
+              ]
+            },
+            "name": "Geoffrey E. Hinton",
+            "affiliations": []
+          },
+          "author_profile_url": "https://api.semanticscholar.org/graph/v1/author/1695689",
+          "source": "semantic_scholar",
+          "source_paper_id": "4c017ad500ce2170c2ff45b71150c2106fd4695b"
+        }
+      ],
+      "missing_observed_fields": [],
+      "observed_source_records": [
+        {
+          "source": "semantic_scholar",
+          "source_paper_id": "4c017ad500ce2170c2ff45b71150c2106fd4695b",
+          "source_author_id": "1695689",
+          "doi": "10.1002/ijch.201800167",
+          "year": 2019,
+          "authors": [
+            "J. Takemoto",
+            "C. Chang",
+            "Dong Chen",
+            "Geoffrey E. Hinton"
+          ],
+          "paper_url": "https://www.semanticscholar.org/paper/4c017ad500ce2170c2ff45b71150c2106fd4695b"
+        }
+      ],
+      "observed_paper_type": "unknown",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    },
+    {
+      "title": "What if automating AI R&D triggers an intelligence explosion?",
+      "year": 2026,
+      "authors": [
+        "Chan, Alan",
+        "Winter, Christoph",
+        "Barto, Andrew",
+        "Pachocki, Jakub",
+        "Hinton, Geoffrey",
+        "Horvitz, Eric",
+        "Bengio, Yoshua",
+        "Song, Dawn",
+        "Clark, Jack",
+        "Greaves, Hilary",
+        "Korinek, Anton",
+        "Hammond, Samuel",
+        "Graepel, Thore",
+        "Bariach, Ben",
+        "Torr, Philip H. S.",
+        "McIlraith, Sheila A.",
+        "Clune, Jeff",
+        "Manning, Sam",
+        "Sastry, Girish",
+        "Davidson, Tom",
+        "Eth, Daniel",
+        "Mindermann, Sören"
+      ],
+      "venue": "arXiv (Cornell University)",
+      "source": "openalex",
+      "source_paper_id": "https://openalex.org/W7215133695",
+      "source_author_id": "A5108093963",
+      "paper_url": "https://arxiv.org/abs/2609.36054",
+      "evaluation_id": "audit-hinton-20",
+      "ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "system_ownership_status": "needs_review",
+      "ownership_evidence": [
+        "openalex:https://openalex.org/W7215133695: Confirmed source-scoped Author ID observed in the paper author list",
+        "openalex:https://openalex.org/W7215133695: Source Author ID association alone does not verify ownership",
+        "openalex:https://openalex.org/W7215133695: Target signature similarity: 0.970"
+      ],
+      "review_reason_codes": [
+        "missing_target_orcid"
+      ],
+      "source_records": [
+        {
+          "source": "openalex",
+          "paper_id": "https://openalex.org/W7215133695"
+        }
+      ],
+      "annotation_evidence": [],
+      "author_details": [
+        {
+          "name": "Alan Chan",
+          "raw_author_name": "Chan, Alan",
+          "author_id": "https://openalex.org/A5038590380",
+          "orcid": "https://orcid.org/0000-0001-7547-3951",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "first",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210161460",
+              "display_name": "OpenAI (United States)",
+              "ror": "https://ror.org/05wx9n238",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I4210161460"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "OpenAI",
+              "institution_ids": [
+                "https://openalex.org/I4210161460"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "OpenAI"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Christoph K. Winter",
+          "raw_author_name": "Winter, Christoph",
+          "author_id": "https://openalex.org/A5103076050",
+          "orcid": "https://orcid.org/0000-0002-4903-7846",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Andrew Barto",
+          "raw_author_name": "Barto, Andrew",
+          "author_id": "https://openalex.org/A5128260533",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210161460",
+              "display_name": "OpenAI (United States)",
+              "ror": "https://ror.org/05wx9n238",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I4210161460"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "OpenAI",
+              "institution_ids": [
+                "https://openalex.org/I4210161460"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "OpenAI"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Jakub Pachocki",
+          "raw_author_name": "Pachocki, Jakub",
+          "author_id": "https://openalex.org/A5011053473",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210161460",
+              "display_name": "OpenAI (United States)",
+              "ror": "https://ror.org/05wx9n238",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I4210161460"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "OpenAI",
+              "institution_ids": [
+                "https://openalex.org/I4210161460"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "OpenAI"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Geoffrey E. Hinton",
+          "raw_author_name": "Hinton, Geoffrey",
+          "author_id": "https://openalex.org/A5108093963",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I1290206253",
+              "display_name": "Microsoft (United States)",
+              "ror": "https://ror.org/00d0nc645",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I1290206253"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Microsoft",
+              "institution_ids": [
+                "https://openalex.org/I1290206253"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Microsoft"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Eric Horvitz",
+          "raw_author_name": "Horvitz, Eric",
+          "author_id": "https://openalex.org/A5043228682",
+          "orcid": "https://orcid.org/0000-0002-8823-0614",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I1290206253",
+              "display_name": "Microsoft (United States)",
+              "ror": "https://ror.org/00d0nc645",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I1290206253"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Microsoft",
+              "institution_ids": [
+                "https://openalex.org/I1290206253"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Microsoft"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Yoshua Bengio",
+          "raw_author_name": "Bengio, Yoshua",
+          "author_id": "https://openalex.org/A5086198262",
+          "orcid": "https://orcid.org/0000-0002-9322-3515",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I1290206253",
+              "display_name": "Microsoft (United States)",
+              "ror": "https://ror.org/00d0nc645",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I1290206253"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Microsoft",
+              "institution_ids": [
+                "https://openalex.org/I1290206253"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Microsoft"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Dawn Song",
+          "raw_author_name": "Song, Dawn",
+          "author_id": "https://openalex.org/A5154142436",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I1290206253",
+              "display_name": "Microsoft (United States)",
+              "ror": "https://ror.org/00d0nc645",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I1290206253"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Microsoft",
+              "institution_ids": [
+                "https://openalex.org/I1290206253"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Microsoft"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Jack Clark",
+          "raw_author_name": "Clark, Jack",
+          "author_id": "https://openalex.org/A5031107879",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Hilary Greaves",
+          "raw_author_name": "Greaves, Hilary",
+          "author_id": "https://openalex.org/A5111199174",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I1290206253",
+              "display_name": "Microsoft (United States)",
+              "ror": "https://ror.org/00d0nc645",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I1290206253"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Microsoft",
+              "institution_ids": [
+                "https://openalex.org/I1290206253"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Microsoft"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Anton Korinek",
+          "raw_author_name": "Korinek, Anton",
+          "author_id": "https://openalex.org/A5009882421",
+          "orcid": "https://orcid.org/0000-0001-9435-2653",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I1290206253",
+              "display_name": "Microsoft (United States)",
+              "ror": "https://ror.org/00d0nc645",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I1290206253"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Microsoft",
+              "institution_ids": [
+                "https://openalex.org/I1290206253"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "Microsoft"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Samuel Hammond",
+          "raw_author_name": "Hammond, Samuel",
+          "author_id": "https://openalex.org/A5153575414",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I40120149",
+              "display_name": "University of Oxford",
+              "ror": "https://ror.org/052gg0110",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I40120149"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "University of Oxford",
+              "institution_ids": [
+                "https://openalex.org/I40120149"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "University of Oxford"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Thore Graepel",
+          "raw_author_name": "Graepel, Thore",
+          "author_id": "https://openalex.org/A5051619646",
+          "orcid": "https://orcid.org/0000-0003-3957-0310",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I40120149",
+              "display_name": "University of Oxford",
+              "ror": "https://ror.org/052gg0110",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I40120149"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "University of Oxford",
+              "institution_ids": [
+                "https://openalex.org/I40120149"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "University of Oxford"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Ben Bariach",
+          "raw_author_name": "Bariach, Ben",
+          "author_id": "https://openalex.org/A5021920265",
+          "orcid": "https://orcid.org/0009-0008-3630-8281",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I40120149",
+              "display_name": "University of Oxford",
+              "ror": "https://ror.org/052gg0110",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I40120149"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "University of Oxford",
+              "institution_ids": [
+                "https://openalex.org/I40120149"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "University of Oxford"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Philip H. S. Torr",
+          "raw_author_name": "Torr, Philip H. S.",
+          "author_id": "https://openalex.org/A5154178363",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I40120149",
+              "display_name": "University of Oxford",
+              "ror": "https://ror.org/052gg0110",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I40120149"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "University of Oxford",
+              "institution_ids": [
+                "https://openalex.org/I40120149"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "University of Oxford"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Sheila A. McIlraith",
+          "raw_author_name": "McIlraith, Sheila A.",
+          "author_id": "https://openalex.org/A5041982650",
+          "orcid": "https://orcid.org/0000-0003-4953-0945",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [
+            {
+              "id": "https://openalex.org/I40120149",
+              "display_name": "University of Oxford",
+              "ror": "https://ror.org/052gg0110",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I40120149"
+              ]
+            }
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "University of Oxford",
+              "institution_ids": [
+                "https://openalex.org/I40120149"
+              ]
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "University of Oxford"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Jeff Clune",
+          "raw_author_name": "Clune, Jeff",
+          "author_id": "https://openalex.org/A5112191507",
+          "orcid": "https://orcid.org/0000-0003-4890-5274",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "AI Policy Institute",
+              "institution_ids": []
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "AI Policy Institute"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Sam Manning",
+          "raw_author_name": "Manning, Sam",
+          "author_id": "https://openalex.org/A5071349675",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "AI Policy Institute",
+              "institution_ids": []
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "AI Policy Institute"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Girish Sastry",
+          "raw_author_name": "Sastry, Girish",
+          "author_id": "https://openalex.org/A5059260582",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "AI Policy Institute",
+              "institution_ids": []
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "AI Policy Institute"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Tom Davidson",
+          "raw_author_name": "Davidson, Tom",
+          "author_id": "https://openalex.org/A5153609648",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Daniel Eth",
+          "raw_author_name": "Eth, Daniel",
+          "author_id": "https://openalex.org/A5022911965",
+          "orcid": null,
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "middle",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "AI Policy Institute",
+              "institution_ids": []
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "AI Policy Institute"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        },
+        {
+          "name": "Sören Mindermann",
+          "raw_author_name": "Mindermann, Sören",
+          "author_id": "https://openalex.org/A5012960540",
+          "orcid": "https://orcid.org/0000-0002-0315-9821",
+          "orcid_scope": "resolved_author",
+          "role": "author",
+          "author_position": "last",
+          "is_corresponding": false,
+          "institutions": [],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "AI Policy Institute",
+              "institution_ids": []
+            }
+          ],
+          "affiliation_scope": "paper_authorship",
+          "raw_affiliation_strings": [
+            "AI Policy Institute"
+          ],
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695"
+        }
+      ],
+      "missing_observed_fields": [
+        "doi"
+      ],
+      "observed_source_records": [
+        {
+          "source": "openalex",
+          "source_paper_id": "https://openalex.org/W7215133695",
+          "source_author_id": "A5108093963",
+          "doi": null,
+          "year": 2026,
+          "authors": [
+            "Chan, Alan",
+            "Winter, Christoph",
+            "Barto, Andrew",
+            "Pachocki, Jakub",
+            "Hinton, Geoffrey",
+            "Horvitz, Eric",
+            "Bengio, Yoshua",
+            "Song, Dawn",
+            "Clark, Jack",
+            "Greaves, Hilary",
+            "Korinek, Anton",
+            "Hammond, Samuel",
+            "Graepel, Thore",
+            "Bariach, Ben",
+            "Torr, Philip H. S.",
+            "McIlraith, Sheila A.",
+            "Clune, Jeff",
+            "Manning, Sam",
+            "Sastry, Girish",
+            "Davidson, Tom",
+            "Eth, Daniel",
+            "Mindermann, Sören"
+          ],
+          "paper_url": "https://arxiv.org/abs/2609.36054"
+        }
+      ],
+      "observed_paper_type": "preprint",
+      "review_pool": "retrieval_audit",
+      "review_item_origin_file": "hinton.audit.pending.json"
+    }
+  ]
+}
