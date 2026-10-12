@@ -6,6 +6,44 @@ from .config import DEFAULT_OWNERSHIP
 from .paper_authorship import canonical_author_id
 
 
+def workflow_outcomes(report):
+    reused = {item.get('stage') for item in report.get('stages') or [] if item.get('status') == 'reused'}
+    counts = Counter()
+    for error in report.get('errors') or []:
+        text = str(error.get('error') or '').lower()
+        stage = error.get('stage')
+        if stage in reused:
+            category = 'historical_source_issue'
+        elif any(value in text for value in ('timed out', 'timeout', 'certificate verify', 'name resolution', 'nodename')):
+            category = 'network_failure'
+        elif re.search(r'http\s+(?:401|403|429|5\d\d)\b', text) or 'expected json' in text:
+            category = 'source_unavailable'
+        elif 'incomplete' in text or 'deferred' in text or 'limit reached' in text:
+            category = 'query_incomplete'
+        elif re.search(r'http\s+(?:404|410)\b', text):
+            category = 'resource_unavailable'
+        else:
+            category = 'stage_error'
+        error['category'] = category
+        counts[category] += 1
+    warnings = Counter(item.get('code', 'warning') for item in report.get('warnings') or [])
+    request_outcomes = Counter()
+    for observation in (report.get('errors') or []) + (report.get('warnings') or []):
+        context = observation.get('request_context') or {}
+        if context.get('outcome'):
+            request_outcomes[context['outcome']] += 1
+    decisions = Counter(item.get('category', 'candidate_filtered') for item in report.get('candidate_decisions') or [])
+    download = report.get('download_statistics') or {}
+    return {'error_observation_counts': dict(counts), 'warning_observation_counts': dict(warnings),
+            'request_outcome_observation_counts': dict(request_outcomes),
+            'candidate_decision_counts': dict(decisions),
+            'failed_download_papers': download.get('failed_papers', 0),
+            'rejected_content_papers': download.get('rejected_content_papers', 0),
+            'non_full_document_papers': download.get('non_full_document_papers', 0),
+            'count_note': 'Per-paper observations can repeat cached/deferred causes. '
+                          'Actual logical request failures are in provider_request_statistics.events.'}
+
+
 def pdf_failure_reasons(paper):
     reasons = set()
     status = paper.get('validation_status')
@@ -15,15 +53,20 @@ def pdf_failure_reasons(paper):
     if status == 'skipped_ownership' or download == 'skipped_ownership':
         reasons.add('ownership_not_eligible')
     providers = paper.get('providers') or []
-    if any(provider.get('status') in ('error', 'partial') for provider in providers):
+    if any(provider.get('status') == 'error' or provider.get('status') == 'partial' and provider.get('errors')
+           for provider in providers):
         reasons.add('source_query_failed')
+    if any(provider.get('status') == 'partial' for provider in providers):
+        reasons.add('search_incomplete')
     if any(provider.get('status') == 'disabled' for provider in providers):
         reasons.add('provider_not_configured')
     for provider in providers:
         for diagnostic in provider.get('diagnostics') or []:
             kind = diagnostic.get('error_type')
             if kind == 'not_found':
-                reasons.add('metadata_record_not_found')
+                reasons.add('url_not_found' if diagnostic.get('context') == 'public_resource' else 'metadata_record_not_found')
+            elif kind == 'source_deferred':
+                reasons.add('source_temporarily_deferred')
             elif kind in ('rate_limited', 'timeout', 'network_error', 'server_error', 'access_restricted',
                           'authentication_required'):
                 reasons.add(kind)
@@ -38,7 +81,9 @@ def pdf_failure_reasons(paper):
     observations = candidates + (paper.get('attempts') or [])
     for candidate in observations:
         code = candidate.get('http_status')
-        if code == 403:
+        if candidate.get('query_error_type') == 'source_deferred':
+            reasons.add('source_temporarily_deferred')
+        elif code == 403:
             reasons.add('access_restricted')
         elif code == 404:
             reasons.add('url_not_found')
@@ -72,8 +117,10 @@ def pdf_failure_reasons(paper):
         reasons.add('downloaded_pdf_format_unconfirmed')
     if download == 'failed':
         reasons.add('download_failed')
+    if paper.get('document_type') in ('poster', 'slides', 'supplementary_material'):
+        reasons.add('non_full_text_document')
     if status in ('not_found', 'unverified') and not candidates:
-        incomplete = reasons.intersection({'source_query_failed', 'provider_not_configured', 'network_error'})
+        incomplete = reasons.intersection({'source_query_failed', 'provider_not_configured', 'network_error', 'search_incomplete'})
         reasons.add('search_incomplete' if incomplete else 'no_public_pdf_found_in_queried_sources')
     if status == 'unverified' and candidates and not reasons:
         reasons.add('pdf_or_identity_unconfirmed')

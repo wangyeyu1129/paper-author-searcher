@@ -1,0 +1,738 @@
+{
+  "schema_version": 1,
+  "report_type": "paper_search_workflow",
+  "mode": "full",
+  "run_status": "partial",
+  "output_directory": "/Users/wangyeyu/Desktop/paper-author-searcher/output/performance/ssl_test/search_Andrew_Ng_20261011T193238Z_182fcc012a79",
+  "stages": [
+    {
+      "stage": "Collecting papers",
+      "status": "reused"
+    },
+    {
+      "stage": "Deduplicating papers",
+      "status": "reused"
+    },
+    {
+      "stage": "Validating ownership",
+      "status": "reused"
+    },
+    {
+      "stage": "Finding PDF URLs",
+      "status": "completed"
+    },
+    {
+      "stage": "Downloading PDFs",
+      "status": "completed"
+    }
+  ],
+  "errors": [
+    {
+      "stage": "Resolving professor identity",
+      "source": "dblp",
+      "error": "https://dblp.org/search/author/api HTTP 200 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+    },
+    {
+      "stage": "Collecting papers",
+      "source": "dblp",
+      "error": "No confirmed Author ID for this source"
+    },
+    {
+      "stage": "Collecting papers",
+      "source": "semantic_scholar",
+      "error": "No confirmed Author ID for this source"
+    },
+    {
+      "source": "semantic_scholar",
+      "error": "DOI:10.5555/944919.944937: Semantic Scholar has no indexed paper for this identifier",
+      "stage": "Finding PDF URLs",
+      "title": "Latent dirichlet allocation"
+    },
+    {
+      "source": "semantic_scholar",
+      "error": "Title search: HTTP 429 from api.semanticscholar.org",
+      "stage": "Finding PDF URLs",
+      "title": "Latent dirichlet allocation"
+    },
+    {
+      "source": "crossref",
+      "error": "10.5555/944919.944937: HTTP 404 from api.crossref.org",
+      "stage": "Finding PDF URLs",
+      "title": "Latent dirichlet allocation"
+    },
+    {
+      "source": "unpaywall",
+      "error": "10.5555/944919.944937: HTTP 404 from api.unpaywall.org",
+      "stage": "Finding PDF URLs",
+      "title": "Latent dirichlet allocation"
+    },
+    {
+      "source": "public_pages",
+      "error": "Public page metadata preview limit reached; parsing may be incomplete",
+      "stage": "Finding PDF URLs",
+      "title": "Latent dirichlet allocation"
+    },
+    {
+      "source": "public_pages",
+      "error": "Public page metadata preview limit reached; parsing may be incomplete",
+      "stage": "Finding PDF URLs",
+      "title": "Latent dirichlet allocation"
+    },
+    {
+      "source": "public_pages",
+      "error": "Public page metadata preview limit reached; parsing may be incomplete",
+      "stage": "Finding PDF URLs",
+      "title": "Latent dirichlet allocation"
+    },
+    {
+      "source": "public_pages",
+      "error": "Public page metadata preview limit reached; parsing may be incomplete",
+      "stage": "Finding PDF URLs",
+      "title": "Latent dirichlet allocation"
+    },
+    {
+      "source": "public_pages",
+      "error": "Public page metadata preview limit reached; parsing may be incomplete",
+      "stage": "Finding PDF URLs",
+      "title": "Latent dirichlet allocation"
+    },
+    {
+      "source": "public_pages",
+      "error": "https://doi.org/10.7551/mitpress/1120.003.0082: HTTP 403 from doi.org",
+      "stage": "Finding PDF URLs",
+      "title": "Latent dirichlet allocation"
+    },
+    {
+      "source": "public_pages",
+      "error": "https://direct.mit.edu/books/book/2485/chapter/66413/Latent-Dirichlet-Allocation: HTTP 403 from direct.mit.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Latent dirichlet allocation"
+    },
+    {
+      "source": "public_pages",
+      "url": "https://link.springer.com/content/pdf/10.1007/978-981-99-3917-6_20.pdf",
+      "error": "PDF is accessible but paper identity conflicts",
+      "stage": "Finding PDF URLs",
+      "title": "Latent dirichlet allocation"
+    },
+    {
+      "source": "public_pages",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.383.1327: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank"
+    },
+    {
+      "source": "public_pages",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.593.7427: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank"
+    },
+    {
+      "source": "semantic_scholar",
+      "error": "Title search: HTTP 429 from api.semanticscholar.org",
+      "stage": "Finding PDF URLs",
+      "title": "Learning Word Vectors for Sentiment Analysis"
+    },
+    {
+      "source": "public_pages",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.207.5479: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Learning Word Vectors for Sentiment Analysis"
+    },
+    {
+      "source": "public_pages",
+      "error": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.221.7200: HTTP 429 from citeseerx.ist.psu.edu",
+      "stage": "Finding PDF URLs",
+      "title": "Learning Word Vectors for Sentiment Analysis"
+    },
+    {
+      "source": "public_pages",
+      "error": "Public page metadata preview limit reached; parsing may be incomplete",
+      "stage": "Finding PDF URLs",
+      "title": "Learning Word Vectors for Sentiment Analysis"
+    },
+    {
+      "source": "public_pages",
+      "error": "Public page metadata preview limit reached; parsing may be incomplete",
+      "stage": "Finding PDF URLs",
+      "title": "Learning Word Vectors for Sentiment Analysis"
+    },
+    {
+      "source": "public_pages",
+      "error": "Public page metadata preview limit reached; parsing may be incomplete",
+      "stage": "Finding PDF URLs",
+      "title": "Learning Word Vectors for Sentiment Analysis"
+    },
+    {
+      "source": "public_pages",
+      "error": "Public page metadata preview limit reached; parsing may be incomplete",
+      "stage": "Finding PDF URLs",
+      "title": "Learning Word Vectors for Sentiment Analysis"
+    },
+    {
+      "source": "public_pages",
+      "error": "Public page metadata preview limit reached; parsing may be incomplete",
+      "stage": "Finding PDF URLs",
+      "title": "Learning Word Vectors for Sentiment Analysis"
+    },
+    {
+      "source": "public_pages",
+      "error": "Public page metadata preview limit reached; parsing may be incomplete",
+      "stage": "Finding PDF URLs",
+      "title": "Learning Word Vectors for Sentiment Analysis"
+    },
+    {
+      "source": "public_pages",
+      "url": "https://link.springer.com/content/pdf/10.1007/978-981-10-6805-8_21.pdf",
+      "error": "PDF is accessible but paper identity conflicts",
+      "stage": "Finding PDF URLs",
+      "title": "Learning Word Vectors for Sentiment Analysis"
+    },
+    {
+      "source": "public_pages",
+      "url": "https://link.springer.com/content/pdf/10.1007/978-3-030-91738-8_8.pdf",
+      "error": "PDF is accessible but paper identity conflicts",
+      "stage": "Finding PDF URLs",
+      "title": "Learning Word Vectors for Sentiment Analysis"
+    },
+    {
+      "source": "public_pages",
+      "url": "https://link.springer.com/content/pdf/10.1007/978-981-99-0189-0_24.pdf",
+      "error": "PDF is accessible but paper identity conflicts",
+      "stage": "Finding PDF URLs",
+      "title": "Learning Word Vectors for Sentiment Analysis"
+    }
+  ],
+  "artifacts": {
+    "professor": "professor.json",
+    "papers": "papers.json",
+    "pdf_urls": "pdf_urls.json",
+    "manifest": "manifest.json"
+  },
+  "limits": {
+    "maximum_pdf_papers": 3,
+    "maximum_downloads": null
+  },
+  "include_needs_review": false,
+  "count_scope": "retrieved_metadata_not_total_publications",
+  "identity": {
+    "profile": {
+      "name": "Andrew Y. Ng",
+      "affiliations": [
+        "Arthur Smith Institute for Urology",
+        "Baidu (China)",
+        "Berkeley College",
+        "Carnegie Mellon University",
+        "Chalmers University of Technology",
+        "Donald & Barbara Zucker School of Medicine at Hofstra/Northwell",
+        "Eastern Health",
+        "Google (United States)",
+        "Hofstra University",
+        "Institute of Mental Health",
+        "Lawrence Livermore National Laboratory",
+        "Massachusetts Institute of Technology",
+        "Microsoft (United States)",
+        "Monash University",
+        "Monash University Malaysia",
+        "Northwell Health",
+        "Samsung (South Korea)",
+        "Stanford Medicine",
+        "Stanford University",
+        "Sutherland Hospital",
+        "U.S. Air Force Materiel Command",
+        "United States Air Force",
+        "United States Military Academy",
+        "University at Buffalo, State University of New York",
+        "University of Bonn",
+        "University of California, Berkeley",
+        "University of Liverpool",
+        "University of Michigan",
+        "University of Toronto"
+      ],
+      "author_ids": {
+        "openalex": "A5112456378"
+      },
+      "identity_confidence": 0.87,
+      "status": "resolved",
+      "evidence": [
+        "Name similarity: 1.000",
+        "University matched: 1.000",
+        "shared DOI count: 1",
+        "shared coauthor count: 9",
+        "Sources: openalex, semantic_scholar"
+      ],
+      "orcid": "0009-0001-5707-6327",
+      "research_interests": [
+        "Adaptive Dynamic Programming Control",
+        "Advanced Clustering Algorithms Research",
+        "Advanced Graph Neural Networks",
+        "Advanced Image and Video Retrieval Techniques",
+        "Advanced Neural Network Applications",
+        "Advanced Vision and Imaging",
+        "Aerospace Engineering and Control Systems",
+        "Aerospace and Aviation Technology",
+        "Artificial Intelligence",
+        "Artificial Intelligence in Healthcare and Education",
+        "Bayesian Methods and Mixture Models",
+        "Bayesian Modeling and Causal Inference",
+        "Biomedical Text Mining and Ontologies",
+        "COVID-19 diagnosis using AI",
+        "Cardiac electrophysiology and arrhythmias",
+        "Climate Change Policy and Economics",
+        "Climate Change and Environmental Impact",
+        "Climate Change and Sustainable Development",
+        "Cloud Computing and Resource Management",
+        "Computational and Text Analysis Methods",
+        "Computer Science",
+        "Computer Vision and Pattern Recognition",
+        "Data Mining and Machine Learning Applications",
+        "Data-Driven Investment: Formalizing The Early-Stage Venture Capital Process Using Machine Learning",
+        "DataPerf: Benchmarks for Data-Centric AI Development",
+        "Domain Adaptation and Few-Shot Learning",
+        "ECG Monitoring and Analysis",
+        "Emotion and Mood Recognition",
+        "Face and Expression Recognition",
+        "Hand Gesture Recognition Systems",
+        "Handwritten Text Recognition Techniques",
+        "Hate Speech and Cyberbullying Detection",
+        "Health Informatics",
+        "Health Sciences",
+        "Human Pose and Action Recognition",
+        "Image Processing Techniques and Applications",
+        "Image Retrieval and Classification Techniques",
+        "Image and Signal Denoising Methods",
+        "Knee injuries and reconstruction techniques",
+        "Machine Learning and Algorithms",
+        "Machine Learning and Data Classification",
+        "Medical Imaging and Analysis",
+        "Medicine",
+        "Mobile Crowdsensing and Crowdsourcing",
+        "Multimodal Machine Learning Applications",
+        "Multisensory perception and integration",
+        "Music and Audio Processing",
+        "Natural Language Processing Techniques",
+        "Neural Networks and Applications",
+        "Non-Invasive Vital Sign Monitoring",
+        "Optimizing Public Transit",
+        "Parallel Computing and Optimization Techniques",
+        "Physical Sciences",
+        "Radiomics and Machine Learning in Medical Imaging",
+        "Reinforcement Learning in Robotics",
+        "Robot Manipulation and Learning",
+        "Robotics and Sensor-Based Localization",
+        "Sentiment Analysis and Opinion Mining",
+        "Sparse and Compressive Sensing Techniques",
+        "Speech Recognition and Synthesis",
+        "Speech and Audio Processing",
+        "Speech and dialogue systems",
+        "Statistical Methods and Inference",
+        "Stochastic Gradient Optimization Techniques",
+        "Tackling Climate Change with Machine Learning",
+        "Target Tracking and Data Fusion in Sensor Networks",
+        "Topic Modeling",
+        "Vehicle License Plate Recognition",
+        "Video Surveillance and Tracking Methods",
+        "Visual perception and processing mechanisms"
+      ],
+      "university": "Stanford University",
+      "university_status": "matched",
+      "match_score": 0.87,
+      "requested_university": "Stanford University",
+      "matched_affiliations": [
+        "Stanford University"
+      ],
+      "author_id_aliases": {
+        "openalex": [
+          "A5112456378"
+        ]
+      },
+      "name_aliases": [
+        "Andrew Y. Ng"
+      ]
+    },
+    "candidates": [
+      {
+        "name": "Andrew Y. Ng",
+        "affiliations": [
+          "Arthur Smith Institute for Urology",
+          "Baidu (China)",
+          "Berkeley College",
+          "Carnegie Mellon University",
+          "Chalmers University of Technology",
+          "Donald & Barbara Zucker School of Medicine at Hofstra/Northwell",
+          "Eastern Health",
+          "Google (United States)",
+          "Hofstra University",
+          "Institute of Mental Health",
+          "Lawrence Livermore National Laboratory",
+          "Massachusetts Institute of Technology",
+          "Microsoft (United States)",
+          "Monash University",
+          "Monash University Malaysia",
+          "Northwell Health",
+          "Samsung (South Korea)",
+          "Stanford Medicine",
+          "Stanford University",
+          "Sutherland Hospital",
+          "U.S. Air Force Materiel Command",
+          "United States Air Force",
+          "United States Military Academy",
+          "University at Buffalo, State University of New York",
+          "University of Bonn",
+          "University of California, Berkeley",
+          "University of Liverpool",
+          "University of Michigan",
+          "University of Toronto"
+        ],
+        "author_ids": {
+          "openalex": "A5112456378"
+        },
+        "identity_confidence": 0.87,
+        "status": "resolved",
+        "evidence": [
+          "Name similarity: 1.000",
+          "University matched: 1.000",
+          "shared DOI count: 1",
+          "shared coauthor count: 9",
+          "Sources: openalex, semantic_scholar"
+        ],
+        "orcid": "0009-0001-5707-6327",
+        "research_interests": [
+          "Adaptive Dynamic Programming Control",
+          "Advanced Clustering Algorithms Research",
+          "Advanced Graph Neural Networks",
+          "Advanced Image and Video Retrieval Techniques",
+          "Advanced Neural Network Applications",
+          "Advanced Vision and Imaging",
+          "Aerospace Engineering and Control Systems",
+          "Aerospace and Aviation Technology",
+          "Artificial Intelligence",
+          "Artificial Intelligence in Healthcare and Education",
+          "Bayesian Methods and Mixture Models",
+          "Bayesian Modeling and Causal Inference",
+          "Biomedical Text Mining and Ontologies",
+          "COVID-19 diagnosis using AI",
+          "Cardiac electrophysiology and arrhythmias",
+          "Climate Change Policy and Economics",
+          "Climate Change and Environmental Impact",
+          "Climate Change and Sustainable Development",
+          "Cloud Computing and Resource Management",
+          "Computational and Text Analysis Methods",
+          "Computer Science",
+          "Computer Vision and Pattern Recognition",
+          "Data Mining and Machine Learning Applications",
+          "Data-Driven Investment: Formalizing The Early-Stage Venture Capital Process Using Machine Learning",
+          "DataPerf: Benchmarks for Data-Centric AI Development",
+          "Domain Adaptation and Few-Shot Learning",
+          "ECG Monitoring and Analysis",
+          "Emotion and Mood Recognition",
+          "Face and Expression Recognition",
+          "Hand Gesture Recognition Systems",
+          "Handwritten Text Recognition Techniques",
+          "Hate Speech and Cyberbullying Detection",
+          "Health Informatics",
+          "Health Sciences",
+          "Human Pose and Action Recognition",
+          "Image Processing Techniques and Applications",
+          "Image Retrieval and Classification Techniques",
+          "Image and Signal Denoising Methods",
+          "Knee injuries and reconstruction techniques",
+          "Machine Learning and Algorithms",
+          "Machine Learning and Data Classification",
+          "Medical Imaging and Analysis",
+          "Medicine",
+          "Mobile Crowdsensing and Crowdsourcing",
+          "Multimodal Machine Learning Applications",
+          "Multisensory perception and integration",
+          "Music and Audio Processing",
+          "Natural Language Processing Techniques",
+          "Neural Networks and Applications",
+          "Non-Invasive Vital Sign Monitoring",
+          "Optimizing Public Transit",
+          "Parallel Computing and Optimization Techniques",
+          "Physical Sciences",
+          "Radiomics and Machine Learning in Medical Imaging",
+          "Reinforcement Learning in Robotics",
+          "Robot Manipulation and Learning",
+          "Robotics and Sensor-Based Localization",
+          "Sentiment Analysis and Opinion Mining",
+          "Sparse and Compressive Sensing Techniques",
+          "Speech Recognition and Synthesis",
+          "Speech and Audio Processing",
+          "Speech and dialogue systems",
+          "Statistical Methods and Inference",
+          "Stochastic Gradient Optimization Techniques",
+          "Tackling Climate Change with Machine Learning",
+          "Target Tracking and Data Fusion in Sensor Networks",
+          "Topic Modeling",
+          "Vehicle License Plate Recognition",
+          "Video Surveillance and Tracking Methods",
+          "Visual perception and processing mechanisms"
+        ],
+        "university": "Stanford University",
+        "university_status": "matched",
+        "match_score": 0.87,
+        "requested_university": "Stanford University",
+        "matched_affiliations": [
+          "Stanford University"
+        ],
+        "author_id_aliases": {
+          "openalex": [
+            "A5112456378"
+          ]
+        },
+        "name_aliases": [
+          "Andrew Y. Ng"
+        ]
+      }
+    ],
+    "source_errors": {
+      "dblp": "https://dblp.org/search/author/api HTTP 200 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+    },
+    "ambiguity": {
+      "score_margin": 0.0,
+      "required_margin": 0.1,
+      "reasons": [
+        "Distinct source IDs without shared ORCID",
+        "Insufficient shared identity evidence"
+      ],
+      "contenders": [
+        {
+          "name": "Andrew Ng",
+          "author_ids": {
+            "openalex": [
+              "A5102617494"
+            ]
+          },
+          "match_score": 0.87,
+          "university_status": "matched",
+          "matched_affiliations": [
+            "Stanford University"
+          ]
+        },
+        {
+          "name": "Andrew Y. Ng",
+          "author_ids": {
+            "openalex": [
+              "A5112456378"
+            ],
+            "semantic_scholar": [
+              "2067948334"
+            ]
+          },
+          "match_score": 0.87,
+          "university_status": "matched",
+          "matched_affiliations": [
+            "Stanford University"
+          ]
+        }
+      ]
+    }
+  },
+  "collection_complete": false,
+  "collection_sources": [
+    {
+      "source": "dblp",
+      "author_id": null,
+      "complete": false,
+      "pages_fetched": 0,
+      "records_received": 0,
+      "rejected_records": [],
+      "error": "No confirmed Author ID for this source",
+      "pagination_complete": false,
+      "metadata_errors": [],
+      "ownership_counts": {
+        "verified": 0,
+        "needs_review": 0,
+        "rejected": 0
+      },
+      "fetch_status": "unavailable"
+    },
+    {
+      "source": "openalex",
+      "author_id": "A5112456378",
+      "complete": true,
+      "pages_fetched": 4,
+      "records_received": 354,
+      "rejected_records": [],
+      "error": null,
+      "pagination_complete": true,
+      "metadata_errors": [],
+      "ownership_counts": {
+        "verified": 260,
+        "needs_review": 94,
+        "rejected": 0
+      },
+      "fetch_status": "complete"
+    },
+    {
+      "source": "semantic_scholar",
+      "author_id": null,
+      "complete": false,
+      "pages_fetched": 0,
+      "records_received": 0,
+      "rejected_records": [],
+      "error": "No confirmed Author ID for this source",
+      "pagination_complete": false,
+      "metadata_errors": [],
+      "ownership_counts": {
+        "verified": 0,
+        "needs_review": 0,
+        "rejected": 0
+      },
+      "fetch_status": "unavailable"
+    }
+  ],
+  "collection_statistics": {
+    "raw_records_received": 354,
+    "retained_source_records": 354,
+    "deduplicated_entries": 352,
+    "ownership_counts": {
+      "verified": 258,
+      "needs_review": 94,
+      "rejected": 0
+    },
+    "source_record_ownership_counts": {
+      "verified": 260,
+      "needs_review": 94,
+      "rejected": 0
+    },
+    "source_record_authorship_counts": {
+      "with_author_details": 354,
+      "with_external_ids": 354,
+      "target_present": 354,
+      "target_absent": 0,
+      "target_unknown": 0
+    },
+    "metadata_enrichment_errors": 0,
+    "unparsed_records": 0
+  },
+  "pdf_statistics": {
+    "total_papers": 352,
+    "processed_papers": 3,
+    "valid_pdf_papers": 3,
+    "unverified_only_papers": 0,
+    "not_found_papers": 0,
+    "skipped_ownership_papers": 94,
+    "not_processed_papers": 255,
+    "incomplete_search_papers": 3,
+    "distinct_verified_pdf_urls": 4,
+    "source_contributions": {
+      "existing_metadata": {
+        "candidate_urls": 1,
+        "verified_urls": 1,
+        "papers_with_valid_pdf": 1,
+        "errors": 0,
+        "query_status_counts": {
+          "ok": 3
+        }
+      },
+      "openalex": {
+        "candidate_urls": 1,
+        "verified_urls": 1,
+        "papers_with_valid_pdf": 1,
+        "errors": 0,
+        "query_status_counts": {
+          "ok": 3
+        }
+      },
+      "semantic_scholar": {
+        "candidate_urls": 1,
+        "verified_urls": 1,
+        "papers_with_valid_pdf": 1,
+        "errors": 3,
+        "query_status_counts": {
+          "error": 2,
+          "ok": 1
+        }
+      },
+      "crossref": {
+        "candidate_urls": 0,
+        "verified_urls": 0,
+        "papers_with_valid_pdf": 0,
+        "errors": 1,
+        "query_status_counts": {
+          "ok": 3
+        }
+      },
+      "unpaywall": {
+        "candidate_urls": 1,
+        "verified_urls": 1,
+        "papers_with_valid_pdf": 1,
+        "errors": 1,
+        "query_status_counts": {
+          "not_found": 1,
+          "ok": 1,
+          "not_applicable": 1
+        }
+      },
+      "arxiv": {
+        "candidate_urls": 0,
+        "verified_urls": 0,
+        "papers_with_valid_pdf": 0,
+        "errors": 0,
+        "query_status_counts": {
+          "ok": 3
+        }
+      },
+      "journal_catalog": {
+        "candidate_urls": 1,
+        "verified_urls": 1,
+        "papers_with_valid_pdf": 1,
+        "errors": 0,
+        "query_status_counts": {
+          "ok": 1,
+          "not_applicable": 2
+        }
+      },
+      "public_pages": {
+        "candidate_urls": 7,
+        "verified_urls": 3,
+        "papers_with_valid_pdf": 3,
+        "errors": 17,
+        "query_status_counts": {
+          "partial": 3
+        }
+      }
+    },
+    "search_complete_for_processed_papers": false,
+    "coverage_note": "Counts describe processed saved entries and public-source observations, not all available PDFs.",
+    "provider_request_statistics": {
+      "semantic_scholar": {
+        "batch_requests": 1,
+        "individual_requests": 0,
+        "title_search_requests": 1,
+        "cooldown_skips": 1,
+        "authentication_skips": 0,
+        "work_cache_hits": 2,
+        "scope": "logical calls; HTTP retries are not included"
+      }
+    }
+  },
+  "download_statistics": {
+    "total_input_papers": 352,
+    "attempted_papers": 3,
+    "downloaded_files": 3,
+    "verified_papers": 2,
+    "needs_review_papers": 1,
+    "failed_papers": 0,
+    "reused_existing_papers": 0,
+    "duplicate_content_papers": 0,
+    "skipped_papers": 349
+  },
+  "download_run_complete": true,
+  "metadata_audit": {
+    "missing_input_fields": {
+      "title": 0,
+      "authors": 0,
+      "year": 0,
+      "doi": 104,
+      "source": 0,
+      "source_paper_id": 0,
+      "source_author_id": 0,
+      "ownership_status": 0,
+      "ownership_evidence": 0
+    },
+    "transmission_losses": []
+  }
+}

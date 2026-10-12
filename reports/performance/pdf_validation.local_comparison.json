@@ -1,0 +1,64 @@
+{
+  "report_type": "pdf_validation_local_comparison",
+  "source_search_rerun": false,
+  "cohort_size": 100,
+  "cohort_fingerprint": "f3da025cc712c204015c82f6d3499e8bb2003c527114b3fa770f31b76bfc465c",
+  "metadata_fingerprint": "699697e6b3e652bb3c9a72873272cb7a336c5f6a79998ce5d6e299e6475dd508",
+  "before": {
+    "verified_pdf_url_coverage": {
+      "numerator": 48,
+      "denominator": 100,
+      "rate": 0.48
+    },
+    "valid_downloaded_file_coverage": {
+      "numerator": 47,
+      "denominator": 100,
+      "rate": 0.47
+    },
+    "content_confirmed_coverage": {
+      "numerator": 27,
+      "denominator": 100,
+      "rate": 0.27
+    },
+    "needs_review_ratio_among_valid_files": {
+      "numerator": 20,
+      "denominator": 47,
+      "rate": 0.425531914893617
+    },
+    "search_completion_rate": {
+      "numerator": 13,
+      "denominator": 100,
+      "rate": 0.13
+    }
+  },
+  "after_local_revalidation": {
+    "content_confirmed_coverage": {
+      "numerator": 43,
+      "denominator": 100,
+      "rate": 0.43
+    },
+    "needs_review_ratio_among_valid_files": {
+      "numerator": 4,
+      "denominator": 47,
+      "rate": 0.0851063829787234
+    },
+    "full_text_confirmed_coverage": {
+      "numerator": 34,
+      "denominator": 100,
+      "rate": 0.34
+    },
+    "document_type_counts": {
+      "full_text": 35,
+      "preprint": 2,
+      "poster": 1,
+      "unknown": 9
+    },
+    "regressed_paper_keys": []
+  },
+  "pending": [
+    "Fresh PDF URL coverage",
+    "Fresh valid download coverage",
+    "Fresh source search completion rate"
+  ],
+  "scope_note": "Only existing local files were revalidated. Original URL/download/search metrics are baseline observations, not an optimized network rerun. No human ground-truth labels were created."
+}

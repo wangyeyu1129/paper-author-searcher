@@ -1,0 +1,314 @@
+{
+  "profile": {
+    "name": "Andrew Y. Ng",
+    "affiliations": [
+      "Arthur Smith Institute for Urology",
+      "Baidu (China)",
+      "Berkeley College",
+      "Carnegie Mellon University",
+      "Chalmers University of Technology",
+      "Donald & Barbara Zucker School of Medicine at Hofstra/Northwell",
+      "Eastern Health",
+      "Google (United States)",
+      "Hofstra University",
+      "Institute of Mental Health",
+      "Lawrence Livermore National Laboratory",
+      "Massachusetts Institute of Technology",
+      "Microsoft (United States)",
+      "Monash University",
+      "Monash University Malaysia",
+      "Northwell Health",
+      "Samsung (South Korea)",
+      "Stanford Medicine",
+      "Stanford University",
+      "Sutherland Hospital",
+      "U.S. Air Force Materiel Command",
+      "United States Air Force",
+      "United States Military Academy",
+      "University at Buffalo, State University of New York",
+      "University of Bonn",
+      "University of California, Berkeley",
+      "University of Liverpool",
+      "University of Michigan",
+      "University of Toronto"
+    ],
+    "author_ids": {
+      "openalex": "A5112456378"
+    },
+    "identity_confidence": 0.87,
+    "status": "resolved",
+    "evidence": [
+      "Name similarity: 1.000",
+      "University matched: 1.000",
+      "shared DOI count: 1",
+      "shared coauthor count: 9",
+      "Sources: openalex, semantic_scholar"
+    ],
+    "orcid": "0009-0001-5707-6327",
+    "research_interests": [
+      "Adaptive Dynamic Programming Control",
+      "Advanced Clustering Algorithms Research",
+      "Advanced Graph Neural Networks",
+      "Advanced Image and Video Retrieval Techniques",
+      "Advanced Neural Network Applications",
+      "Advanced Vision and Imaging",
+      "Aerospace Engineering and Control Systems",
+      "Aerospace and Aviation Technology",
+      "Artificial Intelligence",
+      "Artificial Intelligence in Healthcare and Education",
+      "Bayesian Methods and Mixture Models",
+      "Bayesian Modeling and Causal Inference",
+      "Biomedical Text Mining and Ontologies",
+      "COVID-19 diagnosis using AI",
+      "Cardiac electrophysiology and arrhythmias",
+      "Climate Change Policy and Economics",
+      "Climate Change and Environmental Impact",
+      "Climate Change and Sustainable Development",
+      "Cloud Computing and Resource Management",
+      "Computational and Text Analysis Methods",
+      "Computer Science",
+      "Computer Vision and Pattern Recognition",
+      "Data Mining and Machine Learning Applications",
+      "Data-Driven Investment: Formalizing The Early-Stage Venture Capital Process Using Machine Learning",
+      "DataPerf: Benchmarks for Data-Centric AI Development",
+      "Domain Adaptation and Few-Shot Learning",
+      "ECG Monitoring and Analysis",
+      "Emotion and Mood Recognition",
+      "Face and Expression Recognition",
+      "Hand Gesture Recognition Systems",
+      "Handwritten Text Recognition Techniques",
+      "Hate Speech and Cyberbullying Detection",
+      "Health Informatics",
+      "Health Sciences",
+      "Human Pose and Action Recognition",
+      "Image Processing Techniques and Applications",
+      "Image Retrieval and Classification Techniques",
+      "Image and Signal Denoising Methods",
+      "Knee injuries and reconstruction techniques",
+      "Machine Learning and Algorithms",
+      "Machine Learning and Data Classification",
+      "Medical Imaging and Analysis",
+      "Medicine",
+      "Mobile Crowdsensing and Crowdsourcing",
+      "Multimodal Machine Learning Applications",
+      "Multisensory perception and integration",
+      "Music and Audio Processing",
+      "Natural Language Processing Techniques",
+      "Neural Networks and Applications",
+      "Non-Invasive Vital Sign Monitoring",
+      "Optimizing Public Transit",
+      "Parallel Computing and Optimization Techniques",
+      "Physical Sciences",
+      "Radiomics and Machine Learning in Medical Imaging",
+      "Reinforcement Learning in Robotics",
+      "Robot Manipulation and Learning",
+      "Robotics and Sensor-Based Localization",
+      "Sentiment Analysis and Opinion Mining",
+      "Sparse and Compressive Sensing Techniques",
+      "Speech Recognition and Synthesis",
+      "Speech and Audio Processing",
+      "Speech and dialogue systems",
+      "Statistical Methods and Inference",
+      "Stochastic Gradient Optimization Techniques",
+      "Tackling Climate Change with Machine Learning",
+      "Target Tracking and Data Fusion in Sensor Networks",
+      "Topic Modeling",
+      "Vehicle License Plate Recognition",
+      "Video Surveillance and Tracking Methods",
+      "Visual perception and processing mechanisms"
+    ],
+    "university": "Stanford University",
+    "university_status": "matched",
+    "match_score": 0.87,
+    "requested_university": "Stanford University",
+    "matched_affiliations": [
+      "Stanford University"
+    ],
+    "author_id_aliases": {
+      "openalex": [
+        "A5112456378"
+      ]
+    },
+    "name_aliases": [
+      "Andrew Y. Ng"
+    ]
+  },
+  "candidates": [
+    {
+      "name": "Andrew Y. Ng",
+      "affiliations": [
+        "Arthur Smith Institute for Urology",
+        "Baidu (China)",
+        "Berkeley College",
+        "Carnegie Mellon University",
+        "Chalmers University of Technology",
+        "Donald & Barbara Zucker School of Medicine at Hofstra/Northwell",
+        "Eastern Health",
+        "Google (United States)",
+        "Hofstra University",
+        "Institute of Mental Health",
+        "Lawrence Livermore National Laboratory",
+        "Massachusetts Institute of Technology",
+        "Microsoft (United States)",
+        "Monash University",
+        "Monash University Malaysia",
+        "Northwell Health",
+        "Samsung (South Korea)",
+        "Stanford Medicine",
+        "Stanford University",
+        "Sutherland Hospital",
+        "U.S. Air Force Materiel Command",
+        "United States Air Force",
+        "United States Military Academy",
+        "University at Buffalo, State University of New York",
+        "University of Bonn",
+        "University of California, Berkeley",
+        "University of Liverpool",
+        "University of Michigan",
+        "University of Toronto"
+      ],
+      "author_ids": {
+        "openalex": "A5112456378"
+      },
+      "identity_confidence": 0.87,
+      "status": "resolved",
+      "evidence": [
+        "Name similarity: 1.000",
+        "University matched: 1.000",
+        "shared DOI count: 1",
+        "shared coauthor count: 9",
+        "Sources: openalex, semantic_scholar"
+      ],
+      "orcid": "0009-0001-5707-6327",
+      "research_interests": [
+        "Adaptive Dynamic Programming Control",
+        "Advanced Clustering Algorithms Research",
+        "Advanced Graph Neural Networks",
+        "Advanced Image and Video Retrieval Techniques",
+        "Advanced Neural Network Applications",
+        "Advanced Vision and Imaging",
+        "Aerospace Engineering and Control Systems",
+        "Aerospace and Aviation Technology",
+        "Artificial Intelligence",
+        "Artificial Intelligence in Healthcare and Education",
+        "Bayesian Methods and Mixture Models",
+        "Bayesian Modeling and Causal Inference",
+        "Biomedical Text Mining and Ontologies",
+        "COVID-19 diagnosis using AI",
+        "Cardiac electrophysiology and arrhythmias",
+        "Climate Change Policy and Economics",
+        "Climate Change and Environmental Impact",
+        "Climate Change and Sustainable Development",
+        "Cloud Computing and Resource Management",
+        "Computational and Text Analysis Methods",
+        "Computer Science",
+        "Computer Vision and Pattern Recognition",
+        "Data Mining and Machine Learning Applications",
+        "Data-Driven Investment: Formalizing The Early-Stage Venture Capital Process Using Machine Learning",
+        "DataPerf: Benchmarks for Data-Centric AI Development",
+        "Domain Adaptation and Few-Shot Learning",
+        "ECG Monitoring and Analysis",
+        "Emotion and Mood Recognition",
+        "Face and Expression Recognition",
+        "Hand Gesture Recognition Systems",
+        "Handwritten Text Recognition Techniques",
+        "Hate Speech and Cyberbullying Detection",
+        "Health Informatics",
+        "Health Sciences",
+        "Human Pose and Action Recognition",
+        "Image Processing Techniques and Applications",
+        "Image Retrieval and Classification Techniques",
+        "Image and Signal Denoising Methods",
+        "Knee injuries and reconstruction techniques",
+        "Machine Learning and Algorithms",
+        "Machine Learning and Data Classification",
+        "Medical Imaging and Analysis",
+        "Medicine",
+        "Mobile Crowdsensing and Crowdsourcing",
+        "Multimodal Machine Learning Applications",
+        "Multisensory perception and integration",
+        "Music and Audio Processing",
+        "Natural Language Processing Techniques",
+        "Neural Networks and Applications",
+        "Non-Invasive Vital Sign Monitoring",
+        "Optimizing Public Transit",
+        "Parallel Computing and Optimization Techniques",
+        "Physical Sciences",
+        "Radiomics and Machine Learning in Medical Imaging",
+        "Reinforcement Learning in Robotics",
+        "Robot Manipulation and Learning",
+        "Robotics and Sensor-Based Localization",
+        "Sentiment Analysis and Opinion Mining",
+        "Sparse and Compressive Sensing Techniques",
+        "Speech Recognition and Synthesis",
+        "Speech and Audio Processing",
+        "Speech and dialogue systems",
+        "Statistical Methods and Inference",
+        "Stochastic Gradient Optimization Techniques",
+        "Tackling Climate Change with Machine Learning",
+        "Target Tracking and Data Fusion in Sensor Networks",
+        "Topic Modeling",
+        "Vehicle License Plate Recognition",
+        "Video Surveillance and Tracking Methods",
+        "Visual perception and processing mechanisms"
+      ],
+      "university": "Stanford University",
+      "university_status": "matched",
+      "match_score": 0.87,
+      "requested_university": "Stanford University",
+      "matched_affiliations": [
+        "Stanford University"
+      ],
+      "author_id_aliases": {
+        "openalex": [
+          "A5112456378"
+        ]
+      },
+      "name_aliases": [
+        "Andrew Y. Ng"
+      ]
+    }
+  ],
+  "source_errors": {
+    "dblp": "https://dblp.org/search/author/api HTTP 200 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+  },
+  "ambiguity": {
+    "score_margin": 0.0,
+    "required_margin": 0.1,
+    "reasons": [
+      "Distinct source IDs without shared ORCID",
+      "Insufficient shared identity evidence"
+    ],
+    "contenders": [
+      {
+        "name": "Andrew Ng",
+        "author_ids": {
+          "openalex": [
+            "A5102617494"
+          ]
+        },
+        "match_score": 0.87,
+        "university_status": "matched",
+        "matched_affiliations": [
+          "Stanford University"
+        ]
+      },
+      {
+        "name": "Andrew Y. Ng",
+        "author_ids": {
+          "openalex": [
+            "A5112456378"
+          ],
+          "semantic_scholar": [
+            "2067948334"
+          ]
+        },
+        "match_score": 0.87,
+        "university_status": "matched",
+        "matched_affiliations": [
+          "Stanford University"
+        ]
+      }
+    ]
+  }
+}

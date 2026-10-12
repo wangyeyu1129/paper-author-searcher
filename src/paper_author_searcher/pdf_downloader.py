@@ -15,8 +15,10 @@ from .http import HttpClient
 from .matching import canonical_doi, normalize
 from .models import PaperDownloadResult
 from .pdf_file_validation import PDFFileValidator, validation_target
+from .pdf_document_types import NON_FULL_DOCUMENTS
 from .pdf_identity import native_id
 from .performance_diagnostics import pdf_failure_reasons
+from .pdf_search_status import search_satisfaction
 
 
 def paper_key(paper):
@@ -213,6 +215,7 @@ class PDFDownloader:
 
     def _download_paper(self, root, paper, record, candidates, known_files):
         rejected = None
+        non_full = None
         for candidate in candidates:
             descriptor, temporary_name = tempfile.mkstemp(prefix='.download-', suffix='.part', dir=str(root))
             os.close(descriptor)
@@ -246,12 +249,16 @@ class PDFDownloader:
                 if duplicate:
                     relative = duplicate
                 else:
-                    relative = self._store_file(root, temporary, paper, validation.identity_status)
+                    relative = self._store_file(root, temporary, paper, validation.validation_status)
+                known_files.setdefault(receipt.sha256, relative)
                 attempt['local_filename'] = relative
                 if validation.identity_status == 'rejected':
                     attempt['status'] = 'identity_mismatch'
-                    record.error_details.append('PDF content identifies a different paper; quarantined or retained by hash')
                     rejected = (candidate, receipt, validation, relative, duplicate)
+                    continue
+                if validation.document_type in NON_FULL_DOCUMENTS:
+                    attempt['status'] = 'non_full_document'
+                    non_full = (candidate, receipt, validation, relative, duplicate)
                     continue
                 self._record_completed(record, paper, candidate, receipt, validation, relative, duplicate)
                 attempt['status'] = 'completed'
@@ -264,7 +271,10 @@ class PDFDownloader:
             finally:
                 if temporary.exists():
                     temporary.unlink()
-        if rejected is not None:
+        if non_full is not None:
+            self._record_completed(record, paper, *non_full)
+            record.download_status = 'non_full_document'
+        elif rejected is not None:
             self._record_completed(record, paper, *rejected)
             record.download_status = 'rejected_content'
         else:
@@ -293,6 +303,7 @@ class PDFDownloader:
         record.validation = asdict(validation)
         record.validation_status = validation.validation_status
         record.format_status = validation.format_status
+        record.document_type = validation.document_type
         record.identity_status = validation.identity_status
 
     def _duplicate_file(self, root, digest, known_files):
@@ -412,16 +423,28 @@ class PDFDownloader:
         now = datetime.now(timezone.utc).isoformat()
         for record in results:
             record.failure_reasons = pdf_failure_reasons(asdict(record))
+            integrity_checked = bool(record.local_filename and record.sha256 and record.file_size)
+            satisfied, reason = search_satisfaction(asdict(record), integrity_checked)
+            record.search_sufficiently_satisfied = satisfied
+            record.search_satisfaction_reason = reason
         statistics = {
             'total_input_papers': len(results), 'attempted_papers': attempted,
             'downloaded_files': sum(record.download_status == 'downloaded' for record in results),
             'verified_papers': sum(record.validation_status == 'verified' for record in results),
-            'needs_review_papers': sum(record.format_status == 'valid' and record.identity_status == 'needs_review' for record in results),
-            'failed_papers': sum(record.download_status in ('failed', 'rejected_content') for record in results),
+            'needs_review_papers': sum(record.format_status == 'valid' and record.validation_status == 'needs_review' for record in results),
+            'failed_papers': sum(record.download_status == 'failed' for record in results),
+            'rejected_content_papers': sum(record.download_status == 'rejected_content' for record in results),
+            'non_full_document_papers': sum(record.document_type in NON_FULL_DOCUMENTS for record in results),
+            'full_text_verified_papers': sum(record.document_type in ('full_text', 'preprint') and
+                                            record.validation_status == 'verified' for record in results),
+            'search_sufficiently_satisfied_papers': sum(record.search_sufficiently_satisfied is True for record in results),
+            'search_satisfaction_unknown_papers': sum(record.search_sufficiently_satisfied is None for record in results),
             'reused_existing_papers': sum(record.download_status == 'skipped_existing' for record in results),
             'duplicate_content_papers': sum(record.download_status == 'duplicate_content' for record in results),
             'skipped_papers': sum(record.download_status.startswith('skipped_') and record.download_status != 'skipped_existing' for record in results),
         }
+        if isinstance(getattr(self.client, 'transport_statistics', None), dict):
+            statistics['http_transport_statistics'] = deepcopy(self.client.transport_statistics)
         manifest = {'schema_version': 1, 'created_at': previous.get('created_at', now), 'updated_at': now,
                     'run_complete': complete, 'statistics': statistics,
                     'papers': [asdict(record) for record in results] + retained,

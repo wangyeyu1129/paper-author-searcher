@@ -1,0 +1,1317 @@
+{
+  "observed_date": "2026-10-11",
+  "bibliography_sources": [
+    {
+      "source_id": "emma_profile",
+      "url": "https://cs.stanford.edu/people/ebrun/",
+      "status": 200,
+      "content_type": "text/html",
+      "sha256": "b80f305cae8f4826d039323e75451f00672dbba3ad2c0f146566187f8cac3110",
+      "bytes": 4672,
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "emma_publications",
+      "url": "https://cs.stanford.edu/people/ebrun/publications.html",
+      "status": 200,
+      "content_type": "text/html",
+      "sha256": "bda0bc0f0accab06dd5506726e8985cf70167b9af67704c9ec83125ef9a2ebc1",
+      "bytes": 53394,
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "aarti_profile",
+      "url": "https://www.cs.cmu.edu/~aarti/",
+      "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+      "fetch_status": "unavailable"
+    },
+    {
+      "source_id": "jacob_profile",
+      "url": "https://jsteinhardt.stat.berkeley.edu/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "17db21bd77178039975a3b5e7dfc2a88fb1096846cb0d47210f8e36b35e84586",
+      "bytes": 13887,
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "emma_dblp",
+      "url": "https://dblp.org/pid/27/1277.xml",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "19c86f22866e00506e54fd5865c2168aa8a673a520b16d94fb2f69d5ea2636ea",
+      "bytes": 3262,
+      "fetch_status": "blocked_html_access_interstitial",
+      "parsed_records": 0
+    },
+    {
+      "source_id": "aarti_dblp",
+      "url": "https://dblp.org/pid/64/5328.xml",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "db1c042c6671de1b962e54efba132e53f9f4f670838c53d240215b84ff7e54d1",
+      "bytes": 3262,
+      "fetch_status": "blocked_html_access_interstitial",
+      "parsed_records": 0
+    },
+    {
+      "source_id": "jacob_dblp",
+      "url": "https://dblp.org/pid/35/10625.xml",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "a0fcda03e446839707a496dea26655f03fcfe2abb0d27024f2c04aed95deaf9d",
+      "bytes": 3263,
+      "fetch_status": "blocked_html_access_interstitial",
+      "parsed_records": 0
+    },
+    {
+      "source_id": "aarti_publications",
+      "url": "https://www.cs.cmu.edu/~aarti/pubs.html",
+      "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+      "fetch_status": "unavailable"
+    },
+    {
+      "source_id": "jacob_publications",
+      "url": "https://jsteinhardt.stat.berkeley.edu/publications/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "8937726187090558658c2746ee5be6517b39d96b2980acd81da2ed0d3519cd70",
+      "bytes": 131518,
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "pmlr_index",
+      "url": "https://proceedings.mlr.press/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "2c7cef1fb08ece82f267cb252000de8791bb38f8eb4180fbe10f4ffef30791ae",
+      "bytes": 42976,
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "neurips_2020",
+      "url": "https://proceedings.neurips.cc/paper/2020",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "92a206ec3e110f72c1ac352a40291a5ca821878ddac9064551271339e1be4fd9",
+      "bytes": 1015900,
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "neurips_2021",
+      "url": "https://proceedings.neurips.cc/paper/2021",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "22091adee395db305b0dede0b12658386b3f812b11279f042008342fb9ce2564",
+      "bytes": 1254783,
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "neurips_2022",
+      "url": "https://proceedings.neurips.cc/paper/2022",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "a7a50e3897323a5f71bbf5bc71dbc42a4397a6ec6ab9cc6350ece1c895b6951d",
+      "bytes": 1936963,
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "pmlr_v108",
+      "url": "https://proceedings.mlr.press/v108/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 394012,
+      "sha256": "fa936924f2eb7192c3a355266cb3b44e8a3147243b208d6c1e00de433e8be3a3",
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "pmlr_v119",
+      "url": "https://proceedings.mlr.press/v119/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 1093205,
+      "sha256": "c2be66987933e2faa3bb474a8f82a44f124b1cc98776ac8e217d17f0aa5bc9b1",
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "pmlr_v124",
+      "url": "https://proceedings.mlr.press/v124/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 130559,
+      "sha256": "4be4b3199c67588280de2d4d818638cc65217b2cae6702edd9cd5c98eb47b896",
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "pmlr_v125",
+      "url": "https://proceedings.mlr.press/v125/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 93451,
+      "sha256": "cede6519e2b0ead27211a41cc4d63528d4f5dd190150fbc6525497145b3514fd",
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "pmlr_v126",
+      "url": "https://proceedings.mlr.press/v126/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 39131,
+      "sha256": "ff7e9518ced493dcfce6d8b142d2ab953afeb12f6c5881f4a51167b22ca60e1b",
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "pmlr_v130",
+      "url": "https://proceedings.mlr.press/v130/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 422240,
+      "sha256": "1982b45d2ac6ab72838548816fd361db5f711db1f32685f88ea46973a6ab1f33",
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "pmlr_v134",
+      "url": "https://proceedings.mlr.press/v134/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 106432,
+      "sha256": "c4cad03d85de59623f599e60223fab1755c9b5dadee83cb046e9f3f06e7fece5",
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "pmlr_v139",
+      "url": "https://proceedings.mlr.press/v139/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 1054321,
+      "sha256": "7de72193a1f28f67d171ddf27fb067bd2a44d630382c6ae8bdbdb4bca2c8d27a",
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "pmlr_v149",
+      "url": "https://proceedings.mlr.press/v149/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 31706,
+      "sha256": "03212c1345bb9baaa2dd66c62533d27f81dbdbb2b95924aa2839314433d994d1",
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "pmlr_v151",
+      "url": "https://proceedings.mlr.press/v151/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 449774,
+      "sha256": "842ceff521e6afd5f45b3c000ee76c661fe738d5f449654b71a2d53f61850a80",
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "pmlr_v162",
+      "url": "https://proceedings.mlr.press/v162/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 927540,
+      "sha256": "b1e88553275b68a4db9c57c8e9b028c67666e42d240162c74bddd70fd4c2a5f8",
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "pmlr_v161",
+      "url": "https://proceedings.mlr.press/v161/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 194540,
+      "sha256": "f7a81135de10455379753306501ff4d4ff9e57648afea03411cc1708802e2e5f",
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "pmlr_v174",
+      "url": "https://proceedings.mlr.press/v174/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 35058,
+      "sha256": "f1f40d336b5e81b30ef2be6989f173db978396ef9523f2f97549aab999260b1a",
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "pmlr_v178",
+      "url": "https://proceedings.mlr.press/v178/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 121027,
+      "sha256": "f6627cb83a6acbb85a72e2c09b3f3c2da887d7259510f640f6c1471260c8cf36",
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "pmlr_v180",
+      "url": "https://proceedings.mlr.press/v180/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 256197,
+      "sha256": "3dc18d6ee86392f83e046389ed3c13d1fcd90dc08bf87437b9ec23db141ef9d4",
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "pmlr_v182",
+      "url": "https://proceedings.mlr.press/v182/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 37153,
+      "sha256": "cf64dbd7c21b2197ed5e6c854d6a9c5556b4525481de56f3c6cc44a30c935a27",
+      "fetch_status": "html_observed"
+    },
+    {
+      "source_id": "aarti_publications_indexed",
+      "url": "https://www.cs.cmu.edu/~aarti/pubs.html",
+      "fetch_status": "indexed_official_page_observed",
+      "access_method": "web_read",
+      "observed_date": "2026-10-11",
+      "source_text_sha256": "56e35d92027f744013227bf99fc78b6ae96ccc50ad78815f753f882dfb016071",
+      "note": "Python DNS failed; structured bibliography facts were read from the official page using web tooling."
+    }
+  ],
+  "article_metadata_fetches": [
+    {
+      "url": "https://arxiv.org/abs/1602.02210",
+      "observed_at": "2026-10-11T23:38:23.669242+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/1602.02210",
+      "response_sha256": "31976c8c324a33d32893535e13dcbf6c093ad2ca6b639941aea894dba84f161c",
+      "bytes": 45432,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/1806.06237",
+      "observed_at": "2026-10-11T23:38:26.781655+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/1806.06237",
+      "response_sha256": "a1b034fe1eff377b860f22aeb43a784faea78c0168c6d77972b7eb70df165b82",
+      "bytes": 41940,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/1811.00741",
+      "observed_at": "2026-10-11T23:38:29.865586+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/1811.00741",
+      "response_sha256": "922a385f438cd9adf14bffc96c57a02044791666e235d39e71492c0e73899e69",
+      "bytes": 42524,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/1905.09751",
+      "observed_at": "2026-10-11T23:38:32.960212+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/1905.09751",
+      "response_sha256": "2eeeee60b106ff545491031950cce2100a8b34d2649ec7611011546819ae72c5",
+      "bytes": 39810,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/1907.07174",
+      "observed_at": "2026-10-11T23:38:36.042988+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/1907.07174",
+      "response_sha256": "c99cbf6fb3c68366d957fe289c295bfc2633a66410b93aec4ebefda9692f41f8",
+      "bytes": 43986,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/1909.08755",
+      "observed_at": "2026-10-11T23:38:39.138644+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/1909.08755",
+      "response_sha256": "4f140f423e9bab95b5865e42b2de810b3c6e26a9f5f30b12b5bb8828d835f760",
+      "bytes": 42332,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/1910.06368",
+      "observed_at": "2026-10-11T23:38:42.227822+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/1910.06368",
+      "response_sha256": "fdb2a24957fdb0b58a028424157a492e6656cfd004d2db8bf8826e1bd02ca7f3",
+      "bytes": 41909,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/1910.06508",
+      "observed_at": "2026-10-11T23:38:45.311701+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/1910.06508",
+      "response_sha256": "7f576db29ff33a16761ac6b0ae76a2bee0cef92dbfa5403ac214bc1c48469fea",
+      "bytes": 43223,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/1911.00567",
+      "observed_at": "2026-10-11T23:38:48.388688+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/1911.00567",
+      "response_sha256": "8d4bbe00d4d1d4059bbb5f5cb647f19746007b8710d06950b940bf40da6563b2",
+      "bytes": 43406,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/1911.00980",
+      "observed_at": "2026-10-11T23:38:51.482188+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/1911.00980",
+      "response_sha256": "c20820f08b8d3b64e2194d0b993551b9d23b637e21877c7f0906e53801eb5304",
+      "bytes": 42568,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/1911.01546",
+      "observed_at": "2026-10-11T23:38:54.566711+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/1911.01546",
+      "response_sha256": "03830c1c291d6709d5ebaa3000da17452707a5ee58b3307415f652a9bfe547ef",
+      "bytes": 42477,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/1911.11132",
+      "observed_at": "2026-10-11T23:38:57.655795+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/1911.11132",
+      "response_sha256": "d0833f7b1c918bcb7bc6ce36fac04745d33e15f9131b5f2017d41eebae65dbfe",
+      "bytes": 44093,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/1912.06111",
+      "observed_at": "2026-10-11T23:39:00.748627+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/1912.06111",
+      "response_sha256": "c3975c64479db10a0ed51cd584f09dd8f06fa7fffeac7c2a927ec1a59e627f53",
+      "bytes": 41649,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2001.07805",
+      "observed_at": "2026-10-11T23:39:03.958010+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2001.07805",
+      "response_sha256": "174c90d08eb8a73f2b0b4f6801518f332968513362aae382d5006c148e97a92c",
+      "bytes": 39706,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2002.03478",
+      "observed_at": "2026-10-11T23:39:07.068850+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2002.03478",
+      "response_sha256": "90c856878c8b6931d1199da0a9b3777c1c192453ce958b2ee12c008375a003dc",
+      "bytes": 44318,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2002.11328",
+      "observed_at": "2026-10-11T23:39:10.144613+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2002.11328",
+      "response_sha256": "c336a832954cd7d52ce2204ad419301e8dcf00720b5ddaca951fbd4acd53468d",
+      "bytes": 44124,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2003.00153",
+      "observed_at": "2026-10-11T23:39:13.218279+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2003.00153",
+      "response_sha256": "f8ebe55a951f662827ac4b097cf9aa331b8e5972103aebb8a0dca662886d679f",
+      "bytes": 45054,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2003.05623",
+      "observed_at": "2026-10-11T23:39:16.299132+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2003.05623",
+      "response_sha256": "c60514a0f9b10782f9c8ec150b879a2385815cc4a7fc0f94a2009bdf3c66888a",
+      "bytes": 42113,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2004.06230",
+      "observed_at": "2026-10-11T23:39:19.389203+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2004.06230",
+      "response_sha256": "5ecfe3324c37f7da0b964fbad55a86dfde202e780bd193eb86777aeeb671aae9",
+      "bytes": 43396,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2005.09619",
+      "observed_at": "2026-10-11T23:39:22.484236+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2005.09619",
+      "response_sha256": "c6ce6e15375fc29f5e98a7b06b319a758cabb041ad6b7bdca7d36de0f7775b93",
+      "bytes": 41310,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2006.08910",
+      "observed_at": "2026-10-11T23:39:25.555735+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2006.08910",
+      "response_sha256": "562214db4d35a49031b8a0191c24b5591cc33360506770ee4f769c7783d8b29e",
+      "bytes": 43568,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2006.11909",
+      "observed_at": "2026-10-11T23:39:28.752327+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2006.11909",
+      "response_sha256": "25367b2415dd6a8bf1db856071ad1e26b7eacccb2018964fa70c14a331424edb",
+      "bytes": 44110,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2006.16241",
+      "observed_at": "2026-10-11T23:39:31.855383+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2006.16241",
+      "response_sha256": "4dda09e6fd1a435cf20fe801f1144bcef1ae21885ac5e7e75290fc74aa9b5625",
+      "bytes": 44948,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2007.08202",
+      "observed_at": "2026-10-11T23:39:34.937468+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2007.08202",
+      "response_sha256": "e198c06041e1f67924069c541a45b0bb9fadb1cd9c01ab078f3d4ed2854a5288",
+      "bytes": 44451,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2008.02275",
+      "observed_at": "2026-10-11T23:39:38.030113+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2008.02275",
+      "response_sha256": "b1f36e5e5ebc0c94313bcdd91790a760d49996214adea9c51fc7726495cd99f8",
+      "bytes": 42679,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2008.07737",
+      "observed_at": "2026-10-11T23:39:41.113363+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2008.07737",
+      "response_sha256": "39695bca4fdc02df80fe22882c72cdbefad1f6dc2c00d4dd3e16db1c84a58aa5",
+      "bytes": 43324,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2009.03300",
+      "observed_at": "2026-10-11T23:39:44.198319+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2009.03300",
+      "response_sha256": "ffb542b1cf065c035f978c04346b0fd159498856223020214a0193499c7f6460",
+      "bytes": 43216,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2010.11645",
+      "observed_at": "2026-10-11T23:39:47.274822+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2010.11645",
+      "response_sha256": "a58cc28518dc99173352ff5da3a99bbb8527c8c6628d470006f26a63abcb235f",
+      "bytes": 45225,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2011.09750",
+      "observed_at": "2026-10-11T23:39:50.360857+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2011.09750",
+      "response_sha256": "4733ca3d271b7e01c890eeeaa3ab38c89e036a880155c6eafee2ff6eb39a7ed3",
+      "bytes": 44592,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2012.06076",
+      "observed_at": "2026-10-11T23:39:53.494596+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2012.06076",
+      "response_sha256": "964e55bb82c6ade3c29518028360caac12bb76f13fe3cbf721d072da4aea21ed",
+      "bytes": 42932,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2103.03874",
+      "observed_at": "2026-10-11T23:39:56.582335+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2103.03874",
+      "response_sha256": "b84bb6703b798c02389e7cb9f23f2e10bca4ecdfc431e7e15b69179cd152c864",
+      "bytes": 44660,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2103.05898",
+      "observed_at": "2026-10-11T23:39:59.667970+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2103.05898",
+      "response_sha256": "bcfa238ba60b6c3b5ace784cbce9a9152ce903f3e68fc2a03975b0b99b2f631b",
+      "bytes": 41245,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2103.07601",
+      "observed_at": "2026-10-11T23:40:02.753582+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2103.07601",
+      "response_sha256": "888a9438713233bb0e90620e704c71a53b6ae2c455ae9a21c11472f425a5879b",
+      "bytes": 42608,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2103.09947",
+      "observed_at": "2026-10-11T23:40:05.849124+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2103.09947",
+      "response_sha256": "198ced421fd953ea3be5a85a9a5465bdf028f1dbb10f5e8105d140e4036297b4",
+      "bytes": 44195,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2104.08482",
+      "observed_at": "2026-10-11T23:44:07.802412+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2104.08482",
+      "response_sha256": "105b08833c2d3ab692dbb37fa176a9e9609b3d1da28292a8c6a6caebf093f63e",
+      "bytes": 45149,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2104.12820",
+      "observed_at": "2026-10-11T23:44:11.267519+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2104.12820",
+      "response_sha256": "deacaf8a3cb79524d6f03f1a078e758e2d7b813afbad1f0a04acf67dfa724fce",
+      "bytes": 42810,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2105.06020",
+      "observed_at": "2026-10-11T23:44:14.358350+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2105.06020",
+      "response_sha256": "1154500deb21ee4341024fdf085e8030a8fd7181ae6acfb23ad889f5b8823494",
+      "bytes": 42593,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2105.09938",
+      "observed_at": "2026-10-11T23:44:17.474137+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2105.09938",
+      "response_sha256": "a100d611842cdbc2d4a011e5c28b70ca07ccefe0d65459195bf6d05b44383628",
+      "bytes": 44979,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2107.09912",
+      "observed_at": "2026-10-11T23:44:20.604375+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2107.09912",
+      "response_sha256": "77590ca463a1d4f4acf8d6c1daee67293aa3a2b84efbbeedd25ba93059e1e74c",
+      "bytes": 41867,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2108.01661",
+      "observed_at": "2026-10-11T23:44:23.764681+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2108.01661",
+      "response_sha256": "dbca6c5e4fa2893317530a857074e448b0479d88c03f80ad691cc5d89da146bb",
+      "bytes": 43148,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2108.08812",
+      "observed_at": "2026-10-11T23:44:26.917641+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2108.08812",
+      "response_sha256": "a1d9989559a318eb435330a08d5bc1fa21b7b37b81145e004f4dcb8786487842",
+      "bytes": 41952,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2109.13916",
+      "observed_at": "2026-10-11T23:44:30.070004+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2109.13916",
+      "response_sha256": "8a67b2d6925914228a16068c581c8ce17212b9d1c28610acecfc906afdbc9834",
+      "bytes": 42455,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2110.13136",
+      "observed_at": "2026-10-11T23:44:33.205013+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2110.13136",
+      "response_sha256": "bf7833ec80e247eea7262ff3c00043ad1088f938df1e3d7616f5b8dd0272f1d8",
+      "bytes": 44360,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2112.04083",
+      "observed_at": "2026-10-11T23:44:36.354727+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2112.04083",
+      "response_sha256": "2546d6d57f2b2496c6a388914f6fd25d25de30e7f9ad21e1ca3ddf1272a715e1",
+      "bytes": 41467,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2112.04094",
+      "observed_at": "2026-10-11T23:44:39.502348+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2112.04094",
+      "response_sha256": "8dc9cf9f6a2547d214b3e5747584d299a06220ac28ec713ea9d94201602efd79",
+      "bytes": 42843,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2112.05135",
+      "observed_at": "2026-10-11T23:44:42.646322+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2112.05135",
+      "response_sha256": "2ae0a0a214746d6245bc018c59f132eeb928008bb32bf575dd994f725ad075af",
+      "bytes": 43937,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2112.15221",
+      "observed_at": "2026-10-11T23:44:45.789270+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2112.15221",
+      "response_sha256": "211e4bb5402a53244b69078d42595faf2fd59f69c7d384ca309c8e2524e238cc",
+      "bytes": 42095,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2201.03544",
+      "observed_at": "2026-10-11T23:44:48.930223+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2201.03544",
+      "response_sha256": "90055ae5a29ab022a4bd6073ba57ddfd012917fee69813bf22a8f774b6e4e062",
+      "bytes": 42785,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2201.12323",
+      "observed_at": "2026-10-11T23:44:52.061131+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2201.12323",
+      "response_sha256": "96f58fe75f1af824dc53fbe71e4f7bdd5abfc11612645a98a97bd1950f84d1fc",
+      "bytes": 42659,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2202.05834",
+      "observed_at": "2026-10-11T23:44:55.215885+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2202.05834",
+      "response_sha256": "65bbbc2ddcaa6fa00641198c7291e53ea3fd2d78ffdefb342b613f66986a1539",
+      "bytes": 41126,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2202.12299",
+      "observed_at": "2026-10-11T23:44:58.408511+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2202.12299",
+      "response_sha256": "7e9ea284afe4bb63580fcbd9de4c1c95fa28349a4d331a7b82fba12574bf0588",
+      "bytes": 41384,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2203.06176",
+      "observed_at": "2026-10-11T23:45:01.507948+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2203.06176",
+      "response_sha256": "2e740da6d1699af7f389162936fc55efe38ef91af91eb0bfd0013819fece43e3",
+      "bytes": 41924,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2204.03505",
+      "observed_at": "2026-10-11T23:45:04.668317+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2204.03505",
+      "response_sha256": "7f6cd3bffb809c79591794d851d9dce91b49f66e3b2780a6540acf57d0949686",
+      "bytes": 43105,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2204.11174",
+      "observed_at": "2026-10-11T23:45:07.805046+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2204.11174",
+      "response_sha256": "ca2b4eaa60cefc5e57d589458aa5e067c8323925c1ea837770d72470dd59408e",
+      "bytes": 41200,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2206.13498",
+      "observed_at": "2026-10-11T23:45:10.967564+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2206.13498",
+      "response_sha256": "eeab1faadac744da74f65d9ad96ba1244fe0876cdb50adf9c3ab6c8c91abdbfd",
+      "bytes": 42292,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2206.15474",
+      "observed_at": "2026-10-11T23:45:14.296776+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2206.15474",
+      "response_sha256": "2ca0e1dcf86e02e6ff29127fb90ec4f038d82a76beaf62051585c15eb9007c95",
+      "bytes": 44191,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2207.00632",
+      "observed_at": "2026-10-11T23:45:17.387824+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2207.00632",
+      "response_sha256": "a262b23c893387a790852446de952963022345ec608a57753cac079385bc8616",
+      "bytes": 41723,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://arxiv.org/abs/2210.10039",
+      "observed_at": "2026-10-11T23:45:20.460149+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://arxiv.org/abs/2210.10039",
+      "response_sha256": "17ea6a46878b2e029feb3d49bd210000777435ee5a3e9f4275d9b084698dbde4",
+      "bytes": 43050,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://doi.org/10.1093/imaiai/iaab018",
+      "observed_at": "2026-10-11T23:45:23.555550+00:00",
+      "fetch_status": "http_error",
+      "http_status": 403,
+      "error": "HTTP 403"
+    },
+    {
+      "url": "https://link.springer.com/article/10.1557/s43577-022-00466-4",
+      "observed_at": "2026-10-11T23:45:24.828138+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://link.springer.com/article/10.1557/s43577-022-00466-4?error=cookies_not_supported&code=7cd08fdb-f278-41aa-b1e3-546a1066c45d",
+      "response_sha256": "e5ca5753cb398f74efa318a460759cb10b8e1062dec06f4a71619799b5d15f98",
+      "bytes": 540714,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://openreview.net/pdf?id=bKeRHMznzch",
+      "observed_at": "2026-10-11T23:45:27.832530+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://openreview.net/challenge?redirect=%2Fpdf%3Fid%3DbKeRHMznzch",
+      "response_sha256": "0f236a4e0b563b51feacce9b19e77b144ab4095cf394231ec23f525d83481b24",
+      "bytes": 4785,
+      "fetch_status": "no_citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v108/kong20b.html",
+      "observed_at": "2026-10-11T23:45:29.183377+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v108/kong20b.html",
+      "response_sha256": "6e754359ba250b8daab2b2b1342b32be2f51d1b727458ba3147e25595c41a662",
+      "bytes": 14117,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v108/xu20c.html",
+      "observed_at": "2026-10-11T23:45:30.400492+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v108/xu20c.html",
+      "response_sha256": "96efbdb39b13cc0d4a26bdebd65758dc06fd1bac165442ae4e58b985be198eb6",
+      "bytes": 14361,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v108/zanette20a.html",
+      "observed_at": "2026-10-11T23:45:31.537164+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v108/zanette20a.html",
+      "response_sha256": "6826d419b51f62cc9f7a792ff4a9d7e5be17542388363d5bf0152d934e0b428b",
+      "bytes": 15347,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v119/engstrom20a.html",
+      "observed_at": "2026-10-11T23:45:32.657143+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v119/engstrom20a.html",
+      "response_sha256": "c1a31ca200f3a2e62d8d513aafa9683bbe915b3195e6b76dea8b2d11843683fc",
+      "bytes": 15347,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v119/gottesman20a.html",
+      "observed_at": "2026-10-11T23:45:33.791596+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v119/gottesman20a.html",
+      "response_sha256": "95d076970fa1cac7ad76a7ec4f063ae9987c774218b22a5eed272f58eebabca7",
+      "bytes": 16529,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v119/liu20a.html",
+      "observed_at": "2026-10-11T23:45:34.894564+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v119/liu20a.html",
+      "response_sha256": "77d793c39ee18e0b4fc8e185c323fe0c7965b9e942060e7cf53c5d680d0a5187",
+      "bytes": 15713,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v119/yang20j.html",
+      "observed_at": "2026-10-11T23:45:36.008911+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v119/yang20j.html",
+      "response_sha256": "74c820c7c2392a9628eb1e4a388bdc6a7b6b8d05f3d97e7a26107c691ba140b8",
+      "bytes": 16578,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v119/zanette20a.html",
+      "observed_at": "2026-10-11T23:45:37.183282+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v119/zanette20a.html",
+      "response_sha256": "47f1922dfbb17c267255a252a0c0b5f3a2ab4ff51d0bd58918b6ad61e1f55229",
+      "bytes": 17144,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v124/xu20b.html",
+      "observed_at": "2026-10-11T23:45:38.286268+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v124/xu20b.html",
+      "response_sha256": "9f44a0914b4d833c00d51efba4a4c999ba88f51af15809c65300084187efca4b",
+      "bytes": 15251,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v130/lee21d.html",
+      "observed_at": "2026-10-11T23:45:39.390074+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v130/lee21d.html",
+      "response_sha256": "5fc47439c3b5c777998bed2b94e6172fecbac754cf9be2d5ba4c2ecfeb529852",
+      "bytes": 17039,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v130/liu21f.html",
+      "observed_at": "2026-10-11T23:45:40.509819+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v130/liu21f.html",
+      "response_sha256": "206d0ce06ffb22b2f8d5e3bb114397a889924b66957b839a22eb545a4500c389",
+      "bytes": 15727,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v149/yao21a.html",
+      "observed_at": "2026-10-11T23:45:41.610698+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v149/yao21a.html",
+      "response_sha256": "63a96e57afffc99d7d54b791d3f73ded4169e814e9f3f03f116520c16d846c46",
+      "bytes": 15235,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v162/hendrycks22a.html",
+      "observed_at": "2026-10-11T23:45:42.735168+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v162/hendrycks22a.html",
+      "response_sha256": "3f4e5bbe90d25e7896793d250e1faa4e31b1b5fa67c0a24fa4e9d5c9d7b98f60",
+      "bytes": 16317,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v162/wei22a.html",
+      "observed_at": "2026-10-11T23:45:43.922289+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v162/wei22a.html",
+      "response_sha256": "36996f70f0879991c58f1712cdc8b264cda5153630bf4a15775631a5dcaf00e8",
+      "bytes": 15415,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v162/yu22i.html",
+      "observed_at": "2026-10-11T23:45:45.122374+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v162/yu22i.html",
+      "response_sha256": "0936eac3b5aad9f91c9c26366795a240ccd4afbea1a9bac966f9e25702797f91",
+      "bytes": 14518,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v162/zhong22a.html",
+      "observed_at": "2026-10-11T23:45:46.259861+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v162/zhong22a.html",
+      "response_sha256": "b4df6bebc6a4ccddeb1a046d0afa344bc8648dc475d845c1c64659fe3485b656",
+      "bytes": 15721,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v174/keramati22a.html",
+      "observed_at": "2026-10-11T23:45:47.508843+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v174/keramati22a.html",
+      "response_sha256": "fc6d2b3ef2013ec67637d7b14a124433e3941ee43e3f9d13df07185858ad6702",
+      "bytes": 15890,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v178/malik22a.html",
+      "observed_at": "2026-10-11T23:45:48.672031+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v178/malik22a.html",
+      "response_sha256": "969d1a3d7f0823e94ff3674a922baa22b7c721d2776465206de8f9fc974f5e8c",
+      "bytes": 15205,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v180/liu22d.html",
+      "observed_at": "2026-10-11T23:45:49.797992+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.mlr.press/v180/liu22d.html",
+      "response_sha256": "1169081cf6efff805d5fbfa0a28a67bfe21ec33554a08b471871c5828fab17bd",
+      "bytes": 15731,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper/2021/hash/d064bf1ad039ff366564f352226e7640-Abstract.html",
+      "observed_at": "2026-10-11T23:45:51.034821+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper/2021/hash/d064bf1ad039ff366564f352226e7640-Abstract.html",
+      "response_sha256": "52a9adebea4ab96fad76baec74d3fe1384574b69a43541e57f3345057116e30a",
+      "bytes": 9695,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2020/hash/0dc23b6a0e4abc39904388dd3ffadcd1-Abstract.html",
+      "observed_at": "2026-10-11T23:45:52.695577+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2020/hash/0dc23b6a0e4abc39904388dd3ffadcd1-Abstract.html",
+      "response_sha256": "bf3b42198e4751075d8ec98bc8692493a9cbe95c9965cbb84d193c2e16ed4879",
+      "bytes": 10245,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2020/hash/397d6b4c83c91021fe928a8c4220386b-Abstract.html",
+      "observed_at": "2026-10-11T23:45:54.305453+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2020/hash/397d6b4c83c91021fe928a8c4220386b-Abstract.html",
+      "response_sha256": "f5aaf6ff8e55fb9e38ea7ec999b0e6344f3efcbc564e5d082e2d6622743709c4",
+      "bytes": 10841,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2020/hash/87736972ed2fb48230f1052699dedbe7-Abstract.html",
+      "observed_at": "2026-10-11T23:45:58.852963+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2020/hash/87736972ed2fb48230f1052699dedbe7-Abstract.html",
+      "response_sha256": "1a66055ed2deea145953a9a0760b10426b5305a43d46db446467877641a64d8e",
+      "bytes": 9713,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2020/hash/d9d3837ee7981e8c064774da6cdd98bf-Abstract.html",
+      "observed_at": "2026-10-11T23:46:00.364016+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2020/hash/d9d3837ee7981e8c064774da6cdd98bf-Abstract.html",
+      "response_sha256": "932321a4719409fd7c6f162f32eef50429bd2ac0496fee6ffee3d39394fd166f",
+      "bytes": 9701,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2020/hash/da21bae82c02d1e2b8168d57cd3fbab7-Abstract.html",
+      "observed_at": "2026-10-11T23:46:01.919626+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2020/hash/da21bae82c02d1e2b8168d57cd3fbab7-Abstract.html",
+      "response_sha256": "6d66ce0b4a677c8d1916f3c373e35104300240ab220e006c15cfbf3fa26f342e",
+      "bytes": 10083,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/0b9b6d6d154e98ce34b3f2e4ef76eae9-Abstract.html",
+      "observed_at": "2026-10-11T23:46:03.461840+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/0b9b6d6d154e98ce34b3f2e4ef76eae9-Abstract.html",
+      "response_sha256": "e22bca463006e66120ae13f20a5190f5d736465be8f448dbbf231b995e2844e3",
+      "bytes": 9296,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/0c0bf917c7942b5a08df71f9da626f97-Abstract.html",
+      "observed_at": "2026-10-11T23:46:04.979319+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/0c0bf917c7942b5a08df71f9da626f97-Abstract.html",
+      "response_sha256": "6d9adea4b1745d72986dae3c0e7958ef17446e3c6235bc3921a370e28beed6e1",
+      "bytes": 9424,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/1b89a2e980724cb8997459fadb907712-Abstract.html",
+      "observed_at": "2026-10-11T23:46:06.675571+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/1b89a2e980724cb8997459fadb907712-Abstract.html",
+      "response_sha256": "4d4fc6decd13c5026a6f5a42a10f0e5546cf1b6764ee41424795dfeb4a5bd714",
+      "bytes": 9606,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/713fd63d76c8a57b16fc433fb4ae718a-Abstract.html",
+      "observed_at": "2026-10-11T23:46:08.148831+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/713fd63d76c8a57b16fc433fb4ae718a-Abstract.html",
+      "response_sha256": "1975fb30ac7405ce939eb23e2cb22aa193f7de5db1834ee539af522928160f2e",
+      "bytes": 9210,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/83e8fe6279ad25f15b23c6298c6a3584-Abstract.html",
+      "observed_at": "2026-10-11T23:46:09.613016+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/83e8fe6279ad25f15b23c6298c6a3584-Abstract.html",
+      "response_sha256": "f808126da9bac74468f1d74254b443867e7538de0b7fe575d0945a8ee55c8420",
+      "bytes": 9745,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/c00193e70e8e27e70601b26161b4ae86-Abstract.html",
+      "observed_at": "2026-10-11T23:46:11.203915+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/c00193e70e8e27e70601b26161b4ae86-Abstract.html",
+      "response_sha256": "aa206558bd0b9f85ba8df4503a76b0853f7b47a728c68b05accc3edd449923b7",
+      "bytes": 9040,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/d064bf1ad039ff366564f352226e7640-Abstract.html",
+      "observed_at": "2026-10-11T23:46:12.896460+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/d064bf1ad039ff366564f352226e7640-Abstract.html",
+      "response_sha256": "52a9adebea4ab96fad76baec74d3fe1384574b69a43541e57f3345057116e30a",
+      "bytes": 9695,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/e71e5cd119bbc5797164fb0cd7fd94a4-Abstract.html",
+      "observed_at": "2026-10-11T23:46:14.405166+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/e71e5cd119bbc5797164fb0cd7fd94a4-Abstract.html",
+      "response_sha256": "7af094fbae2401292e39b22d5ac7077549e00315aae49db8821cd7556965857f",
+      "bytes": 9440,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/375cc00f0a2297af84304d0c0cd3b7ed-Abstract-Conference.html",
+      "observed_at": "2026-10-11T23:46:15.925648+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/375cc00f0a2297af84304d0c0cd3b7ed-Abstract-Conference.html",
+      "response_sha256": "3970fdd1c4ec6651932df73a00f1ea9c3af6147486e7e14b0812fc57a06f79f1",
+      "bytes": 9746,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/3bf80b34f731313b8292f4578e820c90-Abstract-Conference.html",
+      "observed_at": "2026-10-11T23:46:17.471309+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/3bf80b34f731313b8292f4578e820c90-Abstract-Conference.html",
+      "response_sha256": "9bcd32fe698ec341f11563a08ec6e2ad4f8e0d82e7e69ba42892888904330045",
+      "bytes": 9998,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/4d13b2d99519c5415661dad44ab7edcd-Abstract-Conference.html",
+      "observed_at": "2026-10-11T23:46:18.892492+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/4d13b2d99519c5415661dad44ab7edcd-Abstract-Conference.html",
+      "response_sha256": "832f8ac440a2f77ab2f89947d3f3e20d1d72ef0f4beb864804d5c3aa2fc32b13",
+      "bytes": 9535,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/5ee7ed60a7e8169012224dec5fe0d27f-Abstract-Conference.html",
+      "observed_at": "2026-10-11T23:46:20.356356+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/5ee7ed60a7e8169012224dec5fe0d27f-Abstract-Conference.html",
+      "response_sha256": "e11a0342bd27e35606ea8ade8dad85ca28308c61b49ba9caf823fb5b888f0370",
+      "bytes": 10235,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/75ff01252ab45ce278cb060effce4ca1-Abstract-Datasets_and_Benchmarks.html",
+      "observed_at": "2026-10-11T23:46:21.884988+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/75ff01252ab45ce278cb060effce4ca1-Abstract-Datasets_and_Benchmarks.html",
+      "response_sha256": "1116777e07b8d2bf28ed14b4d334a29d6b0b0c7c47a1841cc9137931087fe3c9",
+      "bytes": 10406,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/aec870a6772336c15dac992c16f2e7c9-Abstract-Datasets_and_Benchmarks.html",
+      "observed_at": "2026-10-11T23:46:23.511756+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/aec870a6772336c15dac992c16f2e7c9-Abstract-Datasets_and_Benchmarks.html",
+      "response_sha256": "946ba767e69845246514922a54089f6ee95a12739fe854812a77518bfd83d23c",
+      "bytes": 10334,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/b51693c2ba5b5ddf67429966576fb962-Abstract-Conference.html",
+      "observed_at": "2026-10-11T23:46:24.935444+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/b51693c2ba5b5ddf67429966576fb962-Abstract-Conference.html",
+      "response_sha256": "368db8f35ebd8cbd4e1d153135b2aef3e2c84a9072de92f6eb708de08fe40984",
+      "bytes": 10042,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/eb6ac5a41d753c35e1c575b350d4116f-Abstract-Conference.html",
+      "observed_at": "2026-10-11T23:46:26.504754+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/eb6ac5a41d753c35e1c575b350d4116f-Abstract-Conference.html",
+      "response_sha256": "e4ca424830f4e6273cd5f8ea32e0a5037e2d1462b8dd7d6372cf9c9320f59a41",
+      "bytes": 10201,
+      "fetch_status": "citation_metadata"
+    },
+    {
+      "url": "https://www.brookings.edu/techstream/how-data-science-can-ease-the-covid-19-pandemic/",
+      "observed_at": "2026-10-11T23:46:28.027929+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "final_url": "https://www.brookings.edu/articles/how-data-science-can-ease-the-covid-19-pandemic/",
+      "response_sha256": "9d8f448dc919f3f0b47fbc5b3aa7dec7abb4970ae9e76e57878f44aa4cb1311a",
+      "bytes": 183273,
+      "fetch_status": "no_citation_metadata"
+    },
+    {
+      "url": "https://www.brookings.edu/techstream/why-robustness-is-key-to-deploying-ai/",
+      "observed_at": "2026-10-11T23:46:30.697472+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "final_url": "https://www.brookings.edu/articles/why-robustness-is-key-to-deploying-ai/",
+      "response_sha256": "e78487418710ff820d9cc61befdaf6e64817d44fcc4db6f0e71364848d58c404",
+      "bytes": 181077,
+      "fetch_status": "no_citation_metadata"
+    }
+  ],
+  "dblp_notes": {
+    "url": "https://dblp.org/pid/64/5328",
+    "access_method": "indexed_public_metadata_via_web",
+    "identity_warning": "ORCID conflict advertised on the bibliography; no ORCID imported as confirmed identity."
+  },
+  "coverage_complete": false
+}

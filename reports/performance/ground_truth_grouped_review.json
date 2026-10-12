@@ -1,0 +1,38 @@
+{
+  "dataset_id": "aarti_singh_2020_2022_pilot_v2",
+  "original_candidates": 37,
+  "added_candidates": 2,
+  "total_candidates": 39,
+  "original_relationship_pairs": 22,
+  "publication_review_groups": 23,
+  "suggested_group_types": {
+    "conference_paper": 10,
+    "journal_article": 7,
+    "review": 1,
+    "workshop_paper": 3,
+    "unknown": 1,
+    "other": 1
+  },
+  "preprint_records": 10,
+  "human_confirmed_count": 0,
+  "complete_positive_list": false,
+  "formal_metrics": null,
+  "integrity": {
+    "original_187_record_snapshot_files_unchanged": true,
+    "original_37_candidates_preserved_exactly": true,
+    "original_22_relationships_preserved": true,
+    "all_human_fields_empty": true,
+    "group_annotation_round_trip_checked": true
+  },
+  "tests": {
+    "python": "3.8.0",
+    "full_suite_passed": 546,
+    "new_group_and_revision_tests": 21
+  },
+  "independent_metadata_requests": 9,
+  "notes": [
+    "No retrieval algorithms, identity thresholds or PDF modules changed.",
+    "Suggested publication groups are display units, not adjudicated publications or automated deduplication.",
+    "Two in-scope journal omissions are now independent next-version candidates, never human confirmed."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "status": "blocked_pending_human_review",
+  "formal_metrics": null,
+  "human_confirmed_count": 0,
+  "candidate_count": 37,
+  "complete_positive_list": false,
+  "pending_reasons": [
+    "Candidate review is unfinished",
+    "Human completeness approval is pending",
+    "Independent source audit is unfinished",
+    "additional_venue_audit_complete is pending",
+    "identity_conflicts_resolved is pending",
+    "Possible missing publication is unresolved",
+    "Possible missing publication is unresolved",
+    "Possible missing publication is unresolved"
+  ],
+  "result_audit": "No saved Aarti Singh Agent result supplied. Independent audit queue is generated only from a user-supplied saved result after freezing the reference set."
+}

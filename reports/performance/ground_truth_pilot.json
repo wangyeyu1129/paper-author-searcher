@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "pilot": "Aarti Singh 2020–2022",
+  "status": "tooling_complete_human_review_pending",
+  "original_dataset_records": 187,
+  "pilot_candidate_records": 37,
+  "human_confirmed_count": 0,
+  "automatically_merged_records": 0,
+  "complete_positive_list": false,
+  "formal_metrics": null,
+  "candidate_publication_types": {
+    "preprint": 10,
+    "workshop_paper": 3,
+    "conference_paper": 17,
+    "journal_article": 5,
+    "unknown": 1,
+    "other": 1
+  },
+  "relationship_pairs": {
+    "possible_preprint_of": 15,
+    "distinct_publication_versions_check": 1,
+    "possible_same_publication": 6
+  },
+  "rows_with_verification_links": 37,
+  "missing_direct_paper_links_in_original_snapshot": 6,
+  "possible_core_omissions": 2,
+  "additional_workshop_claims": 1,
+  "directory_audit": {
+    "snapshots_checked": 19,
+    "exact_paper_author_occurrences": 6,
+    "excluded_editor_or_site_metadata_occurrences": 5,
+    "complete": false
+  },
+  "integrity_checks": {
+    "original_snapshot_sha256_unchanged": true,
+    "original_manifest_files_verified": 10,
+    "pilot_papers_equal_original_subset": true,
+    "csv_record_ids_and_candidate_labels_checked": true
+  },
+  "formal_metrics_blockers": [
+    "37 original candidates await human adjudication",
+    "Source and venue completeness approval is pending",
+    "Possible omitted journal versions and workshop relationship are unresolved",
+    "No saved Aarti Singh Agent result supplied for independent unmatched-record audit"
+  ],
+  "network_execution": "Official scholarly references read for review support only; no Resolver/Collector/PDF rerun",
+  "evaluation_protocol": "Scoped independent reference review, explicit version identities, result-bound independent unmatched-record audit",
+  "validation": {
+    "python": "3.8.0",
+    "full_unit_tests_passed": 525,
+    "new_pilot_tests": 29,
+    "diff_check_passed": true
+  }
+}

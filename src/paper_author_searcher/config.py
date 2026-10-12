@@ -142,6 +142,13 @@ class PDFConfig:
     catalog_preview_bytes: int = 2 * 1024 * 1024
     linked_page_limit: int = 5
     public_page_cache_entries: int = 256
+    public_page_maximum_bytes: int = 1024 * 1024
+    public_page_request_interval: float = 1.0
+    public_page_cooldown: float = 120.0
+    public_page_cache_seconds: float = 3600.0
+    public_page_cache_bytes: int = 8 * 1024 * 1024
+    source_maximum_cooldown: float = 900.0
+    redirect_failure_budget: int = 3
     bibliography_urls: Tuple[str, ...] = ()
     journal_catalogs: Tuple[Tuple[str, str], ...] = (
         ('Journal of Machine Learning Research', 'https://jmlr.org/papers/'),
@@ -162,8 +169,15 @@ class PDFConfig:
         if self.semantic_scholar_request_interval < 0 or self.semantic_scholar_cooldown < 0:
             raise ValueError('Semantic Scholar request intervals must be nonnegative')
         if min(self.crossref_search_results, self.semantic_scholar_search_results,
-               self.linked_page_limit, self.public_page_cache_entries) < 1:
+               self.linked_page_limit, self.public_page_cache_entries, self.redirect_failure_budget) < 1:
             raise ValueError('Discovery and cache limits must be positive')
+        if self.public_page_maximum_bytes < self.html_metadata_bytes:
+            raise ValueError('Public page maximum must cover the initial metadata preview')
+        if self.public_page_cache_bytes < self.public_page_maximum_bytes:
+            raise ValueError('Page cache must accommodate at least one maximum-size response')
+        if min(self.public_page_request_interval, self.public_page_cooldown,
+               self.public_page_cache_seconds, self.source_maximum_cooldown) < 0:
+            raise ValueError('Scheduling and cache intervals must be nonnegative')
 
 
 DEFAULT_PDF = PDFConfig()
@@ -187,6 +201,8 @@ class DownloadConfig:
     maximum_extracted_characters: int = 20000
     minimum_title_words_without_doi: int = 4
     footer_scan_bytes: int = 4096
+    poster_minimum_edge_points: float = 1000
+    slide_minimum_aspect_ratio: float = 1.2
 
     def __post_init__(self):
         if self.maximum_file_bytes < 1024 or self.chunk_bytes < 1024:
@@ -200,7 +216,7 @@ class DownloadConfig:
         limits = (self.maximum_transfer_seconds, self.parser_timeout, self.parser_memory_bytes, self.maximum_pages,
                   self.maximum_page_content_bytes, self.identity_pages, self.title_lines,
                   self.maximum_extracted_characters, self.minimum_title_words_without_doi,
-                  self.footer_scan_bytes)
+                  self.footer_scan_bytes, self.poster_minimum_edge_points, self.slide_minimum_aspect_ratio)
         if any(limit <= 0 for limit in limits):
             raise ValueError('Parsing limits must be positive')
 

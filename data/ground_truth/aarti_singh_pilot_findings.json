@@ -1,0 +1,120 @@
+{
+  "professor_id": "aarti_singh",
+  "year_start": 2020,
+  "year_end": 2022,
+  "observed_date": "2026-10-11",
+  "collection_independence": "Existing independent reference snapshot plus professor and publisher pages read directly. No Agent retrieval or PDF results used.",
+  "review_status": "candidate",
+  "complete_positive_list": false,
+  "dataset_expanded": false,
+  "possible_omissions": [
+    {
+      "omission_id": "jmlr_2020_secondary_journal_version",
+      "title": "Regression with Comparisons: Escaping the Curse of Dimensionality with Ordinal Information",
+      "authors": ["Yichong Xu", "Sivaraman Balakrishnan", "Aarti Singh", "Artur Dubrawski"],
+      "year": 2020,
+      "doi": null,
+      "publication_type": "journal_article",
+      "venue": "Journal of Machine Learning Research 21(162):1–54",
+      "source_urls": ["https://www.cs.cmu.edu/~aarti/pubs.html", "https://jmlr.org/papers/v21/19-505.html"],
+      "evidence": "Professor bibliography reports a longer 2020 journal version underneath an ICML 2018 entry. JMLR supplies a different title and four-author byline; the 37-record pilot contains neither formal title.",
+      "review_status": "candidate",
+      "in_core_scope_suggestion": true
+    },
+    {
+      "omission_id": "mathematical_programming_secondary_journal_version",
+      "title": "Near-optimal discrete optimization for experimental design: a regret minimization approach",
+      "authors": ["Zeyuan Allen-Zhu", "Yuanzhi Li", "Aarti Singh", "Yining Wang"],
+      "year": 2021,
+      "online_publication_year": 2020,
+      "issue_publication_year": 2021,
+      "doi": "10.1007/s10107-019-01464-2",
+      "publication_type": "journal_article",
+      "venue": "Mathematical Programming 186:439–478",
+      "source_urls": ["https://www.cs.cmu.edu/~aarti/pubs.html", "https://link.springer.com/article/10.1007/s10107-019-01464-2"],
+      "evidence": "Professor bibliography reports a 2021 longer journal version underneath an ICML 2017 entry. Publisher reports version of record 10 January 2020 and issue March 2021 under a different title. Both years are inside this pilot; a single reviewed publication identity is required.",
+      "review_status": "candidate",
+      "in_core_scope_suggestion": true
+    },
+    {
+      "omission_id": "integrating_rankings_secondary_workshop_claim",
+      "title": "Integrating Rankings into Quantized Scores in Peer Review",
+      "authors": ["Y. Liu", "Y. Xu", "N. B. Shah", "A. Singh"],
+      "year": 2022,
+      "doi": null,
+      "publication_type": "workshop_paper",
+      "venue": "ICLR workshop on ML Evaluation Standards",
+      "source_urls": ["https://www.cs.cmu.edu/~aarti/pubs.html"],
+      "evidence": "The bibliography lists a workshop alongside TMLR for the same title. The snapshot retained the TMLR claim and a preprint, but no separate workshop observation. Check whether this is a distinct publication or presentation; workshop claims do not enter the formal core automatically.",
+      "review_status": "candidate",
+      "in_core_scope_suggestion": false
+    }
+  ],
+  "candidate_notes": {
+    "aarti_singh_1de0741cb3df604a5174": {
+      "verification_urls": ["https://jmlr.org/papers/v23/20-1304.html"],
+      "flags": ["professor_bibliography_title_differs_from_journal_title", "conference_and_journal_versions_need_separate_identity"],
+      "observed_title": "Two-Sample Testing on Ranked Preference Data and the Role of Modeling Assumptions",
+      "note": "The publisher title agrees with the related preprint but differs from the professor's journal claim. Human approval is needed before adding a formal title alias. The ISIT 2020 publication must remain separate."
+    },
+    "aarti_singh_9766199e305944fc3c79": {
+      "verification_urls": ["https://openreview.net/forum?id=Kb1lb0uSLa"],
+      "flags": ["journal_workshop_preprint_relationship_requires_review", "official_record_page_unavailable_in_web_read"],
+      "note": "The official TMLR PDF indexed by the web service supplies this reviewed-on URL. Forum read returned an internal error; no API acceptance metadata or human confirmation is claimed."
+    },
+    "aarti_singh_3e5663ddd391196d3e57": {
+      "verification_urls": ["https://jmlr.org/papers/v22/20-190.html"],
+      "flags": ["older_conference_and_preprint_are_not_2021_journal_duplicates"],
+      "note": "Official JMLR record reports volume 22(163), 2021. Earlier ALT 2019 and arXiv 2018 dates describe other versions."
+    },
+    "aarti_singh_9f4b27c036c7501e0be1": {
+      "verification_urls": ["https://ojs.aaai.org/index.php/AAAI/article/view/16610"],
+      "observed_doi": "10.1609/aaai.v35i6.16610",
+      "note": "Official AAAI record reports four authors, May 2021 publication and this DOI. Original candidate DOI remains null until human metadata correction."
+    },
+    "aarti_singh_b40323ea0371c6fd372d": {
+      "verification_urls": ["https://ojs.aaai.org/index.php/AAAI/article/view/16611"],
+      "observed_doi": "10.1609/aaai.v35i6.16611",
+      "note": "Official AAAI record reports three authors and 2021 publication. Additional independent reference evidence only; original candidate metadata remains unchanged."
+    },
+    "aarti_singh_4456255c3ad2c0ae23b3": {
+      "flags": ["author_byline_contains_conjunction_prefix"],
+      "note": "The snapshot stores 'and L. Wasserman' as a name. Check the complete publisher byline and use reviewed_authors_json rather than editing the source facts."
+    },
+    "aarti_singh_5b1b7e649b707aa45523": {
+      "flags": ["author_byline_contains_conjunction_prefix", "linked_page_returned_access_challenge"],
+      "note": "The linked OpenReview PDF endpoint was observed as a challenge HTML page. Its contents were not parsed as publication metadata."
+    },
+    "aarti_singh_67aa6a6fbe1ad8977178": {
+      "flags": ["author_list_missing_do_not_substitute_publisher_as_author", "study_report_not_automatically_research_paper"]
+    },
+    "aarti_singh_c768701927dbdac9e13d": {
+      "verification_urls": ["https://peerreviewcongress.org/wp-content/uploads/2022/11/Program2022.pdf", "https://journals.plos.org/plosone/article/citation?id=10.1371%2Fjournal.pone.0287443"],
+      "flags": ["congress_abstract_or_full_paper_type_not_established", "later_journal_version_is_outside_2020_2022_scope"],
+      "note": "Official congress program contains abstracts and cites this work; no full 2022 research-paper publication is established. Publisher citation reports a separate PLOS ONE 2023 journal version. Do not assign that DOI/year to the 2022 congress claim."
+    },
+    "aarti_singh_12fd44c5ba6b8797694e": {
+      "verification_urls": ["https://doi.org/10.1145/3449149", "https://par.nsf.gov/servlets/purl/10310202"],
+      "flags": ["conference_claim_versus_PACM_journal_publication_type_requires_review", "publisher_record_page_unavailable_in_web_read"],
+      "observed_doi": "10.1145/3449149",
+      "note": "The NSF public repository's ACM citation reports Proc. ACM Hum.-Comput. Interact. 5, CSCW1, Article 75, April 2021. DOI publisher page was not readable by web tooling. Check journal versus conference classification without changing candidate labels."
+    },
+    "aarti_singh_237b0f1a688d14493b0f": {
+      "verification_urls": ["https://realworldml.github.io/files/cr/paper26.pdf"],
+      "flags": ["official_homepage_link_was_not_retained_in_snapshot"],
+      "note": "This exact seven-page workshop paper link was followed from the current professor bibliography using web tooling. It is a supplemental reference link, not a PDF Resolver result or human-confirmed label."
+    },
+    "aarti_singh_85fa12e0f0cc629d72c2": {
+      "verification_urls": ["https://cfol-workshop.github.io/"],
+      "flags": ["official_workshop_schedule_supports_authors_but_not_full_paper_publication"],
+      "note": "Official ICML 2022 workshop schedule names Keshav Narayan and Aarti Singh for this contribution. The schedule reports talks and posters, not a linked full paper or archival publication. Keep type and evidence under human review."
+    }
+  },
+  "coverage_limitations": [
+    "The 19 previously covered PMLR/NeurIPS directory snapshots reconcile six exact-full-name records already represented in the pilot. This is not proof of completeness for author-name variants or other venues.",
+    "DBLP XML retrieval was blocked by an HTML access interstitial; no DBLP completeness claim is possible.",
+    "AAAI, JMLR, TMLR, IEEE ISIT/Asilomar, Annals of Statistics, ACM CSCW, materials publications and workshop directories have not all received a complete human venue audit.",
+    "A bibliography-wide ORCID conflict is a warning to inspect identity. It is not evidence that every paper has an identity conflict.",
+    "Possible omissions are separate review findings and have not been inserted into the frozen 187-record reference dataset or the 37-record pilot."
+  ]
+}

@@ -1,0 +1,630 @@
+{
+  "suggestions": [
+    {
+      "candidate_ids": [
+        "aarti_singh_00b908ab65b760554c70",
+        "aarti_singh_0ce1b1f248f705ed9786"
+      ],
+      "titles": [
+        "Best Arm Identification under Additive Transfer Bandits",
+        "Best Arm Identification under Additive Transfer Bandits"
+      ],
+      "years": [
+        2021,
+        2021
+      ],
+      "publication_types": [
+        "preprint",
+        "conference_paper"
+      ],
+      "suggested_relation": "possible_preprint_of",
+      "evidence": [
+        "explicit_bibliography_link",
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_0af1f6fd7ef61c3e388e",
+        "aarti_singh_4456255c3ad2c0ae23b3"
+      ],
+      "titles": [
+        "Classification accuracy as a proxy for two sample testing",
+        "Classification accuracy as a proxy for two-sample testing"
+      ],
+      "years": [
+        2016,
+        2021
+      ],
+      "publication_types": [
+        "preprint",
+        "journal_article"
+      ],
+      "suggested_relation": "possible_preprint_of",
+      "evidence": [
+        "explicit_bibliography_link",
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_1de0741cb3df604a5174",
+        "aarti_singh_89bc8ea4a5960949d366"
+      ],
+      "titles": [
+        "Two-Sample Testing with Pairwise Comparison Data and the Role of Modeling Assumptions",
+        "Two-Sample Testing on Ranked Preference Data and the Role of Modeling Assumptions"
+      ],
+      "years": [
+        2022,
+        2020
+      ],
+      "publication_types": [
+        "journal_article",
+        "preprint"
+      ],
+      "suggested_relation": "possible_preprint_of",
+      "evidence": [
+        "explicit_bibliography_link"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_1de0741cb3df604a5174",
+        "aarti_singh_941eb9e18f23bd37083d"
+      ],
+      "titles": [
+        "Two-Sample Testing with Pairwise Comparison Data and the Role of Modeling Assumptions",
+        "Two-Sample Testing with Pairwise Comparison Data and the Role of Modeling Assumptions"
+      ],
+      "years": [
+        2022,
+        2020
+      ],
+      "publication_types": [
+        "journal_article",
+        "conference_paper"
+      ],
+      "suggested_relation": "distinct_publication_versions_check",
+      "evidence": [
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_3b12df37fa2d24897622",
+        "aarti_singh_5b6316643c16c650fc0e"
+      ],
+      "titles": [
+        "Complete Policy Regret Bounds for Tallying Bandits",
+        "Complete Policy Regret Bounds for Tallying Bandits"
+      ],
+      "years": [
+        2022,
+        2022
+      ],
+      "publication_types": [
+        "preprint",
+        "conference_paper"
+      ],
+      "suggested_relation": "possible_preprint_of",
+      "evidence": [
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_3b12df37fa2d24897622",
+        "aarti_singh_e8f7d5ac951d6e349643"
+      ],
+      "titles": [
+        "Complete Policy Regret Bounds for Tallying Bandits",
+        "Complete Policy Regret Bounds for Tallying Bandits"
+      ],
+      "years": [
+        2022,
+        2022
+      ],
+      "publication_types": [
+        "preprint",
+        "conference_paper"
+      ],
+      "suggested_relation": "possible_preprint_of",
+      "evidence": [
+        "explicit_bibliography_link",
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_3c4730fb37eb3be03bc7",
+        "aarti_singh_4e095abd666f545a86dd"
+      ],
+      "titles": [
+        "Smooth Bandit Optimization: Generalization to Holder Space",
+        "Smooth Bandit Optimization: Generalization to H\\\"older Space"
+      ],
+      "years": [
+        2021,
+        2020
+      ],
+      "publication_types": [
+        "conference_paper",
+        "preprint"
+      ],
+      "suggested_relation": "possible_preprint_of",
+      "evidence": [
+        "explicit_bibliography_link"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_3c4730fb37eb3be03bc7",
+        "aarti_singh_c07d328bd04d6b189c99"
+      ],
+      "titles": [
+        "Smooth Bandit Optimization: Generalization to Holder Space",
+        "Smooth Bandit Optimization: Generalization to Holder Space"
+      ],
+      "years": [
+        2021,
+        2021
+      ],
+      "publication_types": [
+        "conference_paper",
+        "conference_paper"
+      ],
+      "suggested_relation": "possible_same_publication",
+      "evidence": [
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_3e5663ddd391196d3e57",
+        "aarti_singh_8f407c19fda06846b792"
+      ],
+      "titles": [
+        "PeerReview4All: Fair and Accurate Reviewer Assignment in Peer Review",
+        "PeerReview4All: Fair and Accurate Reviewer Assignment in Peer Review"
+      ],
+      "years": [
+        2021,
+        2018
+      ],
+      "publication_types": [
+        "journal_article",
+        "preprint"
+      ],
+      "suggested_relation": "possible_preprint_of",
+      "evidence": [
+        "explicit_bibliography_link",
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_48ef3b670ad81733da9f",
+        "aarti_singh_daba4a2b7093bd78816a"
+      ],
+      "titles": [
+        "Local Signal Adaptivity: Provable Feature Learning in Neural Networks Beyond Kernels",
+        "Local Signal Adaptivity: Provable Feature Learning in Neural Networks Beyond Kernels"
+      ],
+      "years": [
+        2021,
+        2021
+      ],
+      "publication_types": [
+        "conference_paper",
+        "conference_paper"
+      ],
+      "suggested_relation": "possible_same_publication",
+      "evidence": [
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_4a5551aab654841295b5",
+        "aarti_singh_6e781fbdda5246ef7ba0"
+      ],
+      "titles": [
+        "Thresholding Bandit Problem with Both Duels and Pulls",
+        "Thresholding Bandit Problem with Both Duels and Pulls"
+      ],
+      "years": [
+        2019,
+        2020
+      ],
+      "publication_types": [
+        "preprint",
+        "conference_paper"
+      ],
+      "suggested_relation": "possible_preprint_of",
+      "evidence": [
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_4a5551aab654841295b5",
+        "aarti_singh_9979793661b02bdf47a7"
+      ],
+      "titles": [
+        "Thresholding Bandit Problem with Both Duels and Pulls",
+        "Thresholding Bandit Problem with both Duels and Pulls"
+      ],
+      "years": [
+        2019,
+        2020
+      ],
+      "publication_types": [
+        "preprint",
+        "conference_paper"
+      ],
+      "suggested_relation": "possible_preprint_of",
+      "evidence": [
+        "explicit_bibliography_link",
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_5b6316643c16c650fc0e",
+        "aarti_singh_e8f7d5ac951d6e349643"
+      ],
+      "titles": [
+        "Complete Policy Regret Bounds for Tallying Bandits",
+        "Complete Policy Regret Bounds for Tallying Bandits"
+      ],
+      "years": [
+        2022,
+        2022
+      ],
+      "publication_types": [
+        "conference_paper",
+        "conference_paper"
+      ],
+      "suggested_relation": "possible_same_publication",
+      "evidence": [
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_688d288050177a06e9b4",
+        "aarti_singh_77f8e4aed96feb739a8f"
+      ],
+      "titles": [
+        "Preference-based Reinforcement Learning with Finite-Time Guarantees",
+        "Preference-based Reinforcement Learning with Finite-Time Guarantees"
+      ],
+      "years": [
+        2020,
+        2020
+      ],
+      "publication_types": [
+        "preprint",
+        "conference_paper"
+      ],
+      "suggested_relation": "possible_preprint_of",
+      "evidence": [
+        "explicit_bibliography_link",
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_688d288050177a06e9b4",
+        "aarti_singh_c2521bc7a74b89dbbcd8"
+      ],
+      "titles": [
+        "Preference-based Reinforcement Learning with Finite-Time Guarantees",
+        "Preference-based Reinforcement Learning with Finite-Time Guarantees"
+      ],
+      "years": [
+        2020,
+        2020
+      ],
+      "publication_types": [
+        "preprint",
+        "conference_paper"
+      ],
+      "suggested_relation": "possible_preprint_of",
+      "evidence": [
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_6e781fbdda5246ef7ba0",
+        "aarti_singh_9979793661b02bdf47a7"
+      ],
+      "titles": [
+        "Thresholding Bandit Problem with Both Duels and Pulls",
+        "Thresholding Bandit Problem with both Duels and Pulls"
+      ],
+      "years": [
+        2020,
+        2020
+      ],
+      "publication_types": [
+        "conference_paper",
+        "conference_paper"
+      ],
+      "suggested_relation": "possible_same_publication",
+      "evidence": [
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_77f8e4aed96feb739a8f",
+        "aarti_singh_c2521bc7a74b89dbbcd8"
+      ],
+      "titles": [
+        "Preference-based Reinforcement Learning with Finite-Time Guarantees",
+        "Preference-based Reinforcement Learning with Finite-Time Guarantees"
+      ],
+      "years": [
+        2020,
+        2020
+      ],
+      "publication_types": [
+        "conference_paper",
+        "conference_paper"
+      ],
+      "suggested_relation": "possible_same_publication",
+      "evidence": [
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_89bc8ea4a5960949d366",
+        "aarti_singh_941eb9e18f23bd37083d"
+      ],
+      "titles": [
+        "Two-Sample Testing on Ranked Preference Data and the Role of Modeling Assumptions",
+        "Two-Sample Testing with Pairwise Comparison Data and the Role of Modeling Assumptions"
+      ],
+      "years": [
+        2020,
+        2020
+      ],
+      "publication_types": [
+        "preprint",
+        "conference_paper"
+      ],
+      "suggested_relation": "possible_preprint_of",
+      "evidence": [
+        "explicit_bibliography_link"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_9766199e305944fc3c79",
+        "aarti_singh_fb173a3c40ee7cdb141e"
+      ],
+      "titles": [
+        "Integrating Rankings into Quantized Scores in Peer Review",
+        "Integrating Rankings into Quantized Scores in Peer Review"
+      ],
+      "years": [
+        2022,
+        2022
+      ],
+      "publication_types": [
+        "journal_article",
+        "preprint"
+      ],
+      "suggested_relation": "possible_preprint_of",
+      "evidence": [
+        "explicit_bibliography_link",
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_b222de5dcc3deaa0d824",
+        "aarti_singh_ba060aef591086cb8943"
+      ],
+      "titles": [
+        "Zeroth Order Non-convex optimization with Dueling-Choice Bandits",
+        "Zeroth Order Non-convex optimization with Dueling-Choice Bandits"
+      ],
+      "years": [
+        2020,
+        2019
+      ],
+      "publication_types": [
+        "conference_paper",
+        "preprint"
+      ],
+      "suggested_relation": "possible_preprint_of",
+      "evidence": [
+        "explicit_bibliography_link",
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_b222de5dcc3deaa0d824",
+        "aarti_singh_f0fa21130ee28f0621a6"
+      ],
+      "titles": [
+        "Zeroth Order Non-convex optimization with Dueling-Choice Bandits",
+        "Zeroth Order Non-convex optimization with Dueling-Choice Bandits"
+      ],
+      "years": [
+        2020,
+        2020
+      ],
+      "publication_types": [
+        "conference_paper",
+        "conference_paper"
+      ],
+      "suggested_relation": "possible_same_publication",
+      "evidence": [
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_ba060aef591086cb8943",
+        "aarti_singh_f0fa21130ee28f0621a6"
+      ],
+      "titles": [
+        "Zeroth Order Non-convex optimization with Dueling-Choice Bandits",
+        "Zeroth Order Non-convex optimization with Dueling-Choice Bandits"
+      ],
+      "years": [
+        2019,
+        2020
+      ],
+      "publication_types": [
+        "preprint",
+        "conference_paper"
+      ],
+      "suggested_relation": "possible_preprint_of",
+      "evidence": [
+        "same_normalized_title"
+      ],
+      "review_status": "candidate",
+      "human_relation": "",
+      "reviewer": "",
+      "reviewed_at": "",
+      "evidence_urls": [],
+      "notes": ""
+    }
+  ],
+  "automatically_merged": 0,
+  "note": "The original 22 relationship suggestions are preserved. Earlier conference context for new journal candidates is recorded separately."
+}

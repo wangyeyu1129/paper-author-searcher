@@ -1,0 +1,548 @@
+{
+  "cohort_size": 100,
+  "cohort_fingerprint": "f3da025cc712c204015c82f6d3499e8bb2003c527114b3fa770f31b76bfc465c",
+  "metadata_fingerprint": "699697e6b3e652bb3c9a72873272cb7a336c5f6a79998ce5d6e299e6475dd508",
+  "verified_pdf_url_coverage": {
+    "numerator": 48,
+    "denominator": 100,
+    "rate": 0.48
+  },
+  "distinct_verified_urls": 63,
+  "download_attempted_papers": 48,
+  "valid_downloaded_file_coverage": {
+    "numerator": 47,
+    "denominator": 100,
+    "rate": 0.47
+  },
+  "content_confirmed_coverage": {
+    "numerator": 27,
+    "denominator": 100,
+    "rate": 0.27
+  },
+  "download_success_rate": {
+    "numerator": 47,
+    "denominator": 48,
+    "rate": 0.9791666666666666
+  },
+  "needs_review_ratio_among_valid_files": {
+    "numerator": 20,
+    "denominator": 47,
+    "rate": 0.425531914893617
+  },
+  "search_completion_rate": {
+    "numerator": 13,
+    "denominator": 100,
+    "rate": 0.13
+  },
+  "document_type_observations": {
+    "unknown": 47
+  },
+  "full_text_confirmed_coverage": null,
+  "content_needs_review_papers": 20,
+  "failed_without_valid_file_papers": 1,
+  "source_verified_paper_contributions": {
+    "journal_catalog": 2,
+    "public_pages": 46,
+    "unpaywall": 19,
+    "openalex": 19,
+    "existing_metadata": 19,
+    "semantic_scholar": 17,
+    "crossref": 11,
+    "arxiv": 3
+  },
+  "failure_observation_counts": {
+    "access_restricted": 30,
+    "metadata_record_not_found": 5,
+    "rate_limited": 64,
+    "search_incomplete": 77,
+    "source_identity_mismatch": 41,
+    "source_query_failed": 87,
+    "source_temporarily_deferred": 19,
+    "not_pdf_response": 25,
+    "redirect_failure": 9,
+    "insufficient_pdf_identity_evidence": 16,
+    "network_error": 9,
+    "server_error": 1,
+    "url_not_found": 7,
+    "no_public_pdf_found_in_queried_sources": 4
+  },
+  "file_checks": [
+    {
+      "paper_key": "5af93fa5a71e76ad20914e2c13a7e3c92158382a587b71133869ae9d4c255a03",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "8f89adfb0be5c46c772dcf99c79c5196114f49f30d8e26aee3d605e7be51ce28",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "bfdf69c42c2c99d381c348abdd53bb849a729b8c5e5e457482e92f06feeb9c7a",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "e9895d0e3fed61d5d4dc6fa8141c25739cecef11ed074cf0316545ac01ef9e82",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "e292f63f2c44dde699c818bcc8174ebc9d539c9525b152b15ddee4265f3eaa42",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "274de10ababdb4f7c784c980675af42cfdab618b20681f4e433d78177ca10f96",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "ac2194e156647c2a1e692f3859a2412021008cf23f88327b42052ea0e750b5d2",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "0a41bbcd01567a31d803f2e520abe0cff01dbb605955fe045b6c94be6638913e",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "01d806f5277f7b0f54ccdea1448d6ca1da97c49ac361219c208233d7e479ec51",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "484ae91d323c401d1cbbf1548c5808812e433716396993b860381c4541a80c61",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "e619b1a34ef21d5b2af3fda6601fee67e88d4d87d239f15b2e6806ecb2b64968",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "61709aa4aac50d3e15e66fd4e172055f16a1afc21b73aba56fa40f8e3e476f1b",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "076a1f4df5fa95f50aeabc643c74f3812b7a43c33c289fd3221685c267fb9f02",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "be0ccd26fe8aaa434bd24d7e27f24f2cbe32ba199b9fc9aec8cac118ee9701ca",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": false,
+      "evidence": "No local file/checksum recorded"
+    },
+    {
+      "paper_key": "c3785a84ab31a31587c256adaccd3787f6046bf2142ef7c0b050358d52968ce8",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "7f42a9eee83ca6cd33efb28787cb07e8fcda33a95fc842fc42f2b9b71e1bdad9",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "28fe1cab9fde9dc13f3dba66d3d7ed074fcda2db903111391455f104d91e93ed",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "31a0ccf38ee965a15d6d17786c654dc76b01057b1285e10268b80d2f405bfef9",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "cb98fcf1ec898e773bbfc3fa35527b21354e1370e3c4cfecf09d4e04957372a4",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "bfbe1a2c37c54dc06c6d5b8dba11b09ba7015cc23024647706f8ebb8248aed42",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "cfac535787786a1b07dd1b2e3cc10567830ffe0e1917fade60aaef4d8adb4ef0",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "9821f71321c341e6d9f68dbe47d4945d57160e5889089c0ed09e00501c37613a",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "c38891dc512ffa9ee2f6b1253058be1985ce2b2bf3e383778d6c2aacd02972a5",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "f64ce4cea91e55117e590b9d5805b32c83550d4690c6d1653357c3a289171a9b",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "e32189a6d75f5c787940c7d66f5491fed6179b3e58711970ac78a1c90e7bf8c1",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "b39c65a683a320860f65fa68b07025151f595767e38d6ec9048f019625383dae",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "48ef3dfc4d64c181a47015c05054e0bcd6400508c831af369bbbb87dd44ac5e4",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "a2203a3e123e39629fb455914fa9edb689e9ca70b766364e95802b796f466b37",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "b2bcfcef78ef9db62f7963dda81069f21b37bf7f9581126e4c2ae68912367fa9",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "bf368beb7e25d7e9298475ec15776cea0ff2d9ac87b129f79c9520ccf952ed33",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "899a69e0d1e12cb15a573a1dcc7e549f30e28ff90b6de5f60fd979815d5d7a98",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "39ae3d71d2a587e98afa6b3af06b9bd8f60e68527616343856496239fc265b6c",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "42e9fc591b95862c867f0138ea1623578e823bf87651bc5024a588c5b90c1b93",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "6c422e8329a27d82883ff50a991df78146dbcec45bb0af633382f5188f67ae3c",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "44b972d124ab737a4a037d33078b7fe72a0f62572ab0c1b0e7ddf2bb48405dff",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "8b2ff82e3c376f1ccf959b761df67d6457144d9bdd984f8c183ad5f76bff9f80",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "3457da522f0a65ad0a9e13e72b322f635e8b0d507b0a6ce235e4efec506722ee",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "1d304e3bccae4308df127f7d9be54eca0cc93f319f90fc1d3b1b1dd0b25c3d26",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "7355f024426056782519c0c07018e22bcfa460f814e7af85ef9e571cbf65fcab",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "0e4a512e0ce2547f281abb21707541a6465d169fd0868720cf708caded05aa9c",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "f815ae31e58b306690cb03069d18d75301fb1b26b78439c21a0752c1bf4612f7",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "dd826eff8e94e7661431e4fc04c7b827e2aa1ab1dcbeafcfbaa217bb0a3c265a",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "defb1b2e66152e30e791a45060d392a91e8f4f2c6ad8984be9b5b1461d4cf559",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "9f78af8c4f968a8fd4dc6d8813af18b95424ef02dc014e770f416bded2fb4922",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "d2fbe4b4bbf3639371bd224cf3d6000609367ec8a9131f4e4da50c462c15a1cb",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "1dd2743b035299c02ffd3215a55cc92bda9c335ea23f42c3646be4069eda20f0",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "1a9f62295cfa18ebc3d67e7090677b9183fc7d0b7a3e805ece927ba5ea8e4721",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    },
+    {
+      "paper_key": "3426af264e50e9607f9b86143f7598bf6b1b41802df4d1f5c3adcff5b9e617bb",
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "file_integrity_confirmed": true,
+      "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+    }
+  ],
+  "runs": [
+    {
+      "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+      "statistics": {
+        "total_papers": 352,
+        "processed_papers": 100,
+        "valid_pdf_papers": 48,
+        "unverified_only_papers": 16,
+        "not_found_papers": 36,
+        "skipped_ownership_papers": 94,
+        "not_processed_papers": 158,
+        "incomplete_search_papers": 87,
+        "distinct_verified_pdf_urls": 63,
+        "source_contributions": {
+          "existing_metadata": {
+            "candidate_urls": 45,
+            "verified_urls": 23,
+            "papers_with_valid_pdf": 19,
+            "errors": 0,
+            "query_status_counts": {
+              "ok": 100
+            }
+          },
+          "openalex": {
+            "candidate_urls": 45,
+            "verified_urls": 23,
+            "papers_with_valid_pdf": 19,
+            "errors": 0,
+            "query_status_counts": {
+              "ok": 100
+            }
+          },
+          "semantic_scholar": {
+            "candidate_urls": 32,
+            "verified_urls": 17,
+            "papers_with_valid_pdf": 17,
+            "errors": 44,
+            "query_status_counts": {
+              "error": 39,
+              "ok": 61
+            }
+          },
+          "crossref": {
+            "candidate_urls": 37,
+            "verified_urls": 11,
+            "papers_with_valid_pdf": 11,
+            "errors": 3,
+            "query_status_counts": {
+              "ok": 100
+            }
+          },
+          "unpaywall": {
+            "candidate_urls": 43,
+            "verified_urls": 22,
+            "papers_with_valid_pdf": 19,
+            "errors": 3,
+            "query_status_counts": {
+              "not_found": 3,
+              "ok": 59,
+              "not_applicable": 38
+            }
+          },
+          "arxiv": {
+            "candidate_urls": 10,
+            "verified_urls": 3,
+            "papers_with_valid_pdf": 3,
+            "errors": 0,
+            "query_status_counts": {
+              "ok": 100
+            }
+          },
+          "journal_catalog": {
+            "candidate_urls": 2,
+            "verified_urls": 2,
+            "papers_with_valid_pdf": 2,
+            "errors": 0,
+            "query_status_counts": {
+              "ok": 2,
+              "not_applicable": 98
+            }
+          },
+          "public_pages": {
+            "candidate_urls": 158,
+            "verified_urls": 52,
+            "papers_with_valid_pdf": 46,
+            "errors": 400,
+            "query_status_counts": {
+              "partial": 60,
+              "ok": 14,
+              "error": 26
+            }
+          }
+        },
+        "search_complete_for_processed_papers": false,
+        "coverage_note": "Counts describe processed saved entries and public-source observations, not all available PDFs.",
+        "provider_request_statistics": {
+          "semantic_scholar": {
+            "batch_requests": 1,
+            "individual_requests": 0,
+            "title_search_requests": 26,
+            "cooldown_skips": 17,
+            "authentication_skips": 0,
+            "work_cache_hits": 66,
+            "scope": "logical calls; HTTP retries are not included"
+          }
+        }
+      }
+    }
+  ],
+  "verified_paper_keys": [
+    "01d806f5277f7b0f54ccdea1448d6ca1da97c49ac361219c208233d7e479ec51",
+    "076a1f4df5fa95f50aeabc643c74f3812b7a43c33c289fd3221685c267fb9f02",
+    "0a41bbcd01567a31d803f2e520abe0cff01dbb605955fe045b6c94be6638913e",
+    "0e4a512e0ce2547f281abb21707541a6465d169fd0868720cf708caded05aa9c",
+    "1a9f62295cfa18ebc3d67e7090677b9183fc7d0b7a3e805ece927ba5ea8e4721",
+    "1d304e3bccae4308df127f7d9be54eca0cc93f319f90fc1d3b1b1dd0b25c3d26",
+    "1dd2743b035299c02ffd3215a55cc92bda9c335ea23f42c3646be4069eda20f0",
+    "274de10ababdb4f7c784c980675af42cfdab618b20681f4e433d78177ca10f96",
+    "28fe1cab9fde9dc13f3dba66d3d7ed074fcda2db903111391455f104d91e93ed",
+    "31a0ccf38ee965a15d6d17786c654dc76b01057b1285e10268b80d2f405bfef9",
+    "3426af264e50e9607f9b86143f7598bf6b1b41802df4d1f5c3adcff5b9e617bb",
+    "3457da522f0a65ad0a9e13e72b322f635e8b0d507b0a6ce235e4efec506722ee",
+    "39ae3d71d2a587e98afa6b3af06b9bd8f60e68527616343856496239fc265b6c",
+    "42e9fc591b95862c867f0138ea1623578e823bf87651bc5024a588c5b90c1b93",
+    "44b972d124ab737a4a037d33078b7fe72a0f62572ab0c1b0e7ddf2bb48405dff",
+    "484ae91d323c401d1cbbf1548c5808812e433716396993b860381c4541a80c61",
+    "48ef3dfc4d64c181a47015c05054e0bcd6400508c831af369bbbb87dd44ac5e4",
+    "5af93fa5a71e76ad20914e2c13a7e3c92158382a587b71133869ae9d4c255a03",
+    "61709aa4aac50d3e15e66fd4e172055f16a1afc21b73aba56fa40f8e3e476f1b",
+    "6c422e8329a27d82883ff50a991df78146dbcec45bb0af633382f5188f67ae3c",
+    "7355f024426056782519c0c07018e22bcfa460f814e7af85ef9e571cbf65fcab",
+    "7f42a9eee83ca6cd33efb28787cb07e8fcda33a95fc842fc42f2b9b71e1bdad9",
+    "899a69e0d1e12cb15a573a1dcc7e549f30e28ff90b6de5f60fd979815d5d7a98",
+    "8b2ff82e3c376f1ccf959b761df67d6457144d9bdd984f8c183ad5f76bff9f80",
+    "8f89adfb0be5c46c772dcf99c79c5196114f49f30d8e26aee3d605e7be51ce28",
+    "9821f71321c341e6d9f68dbe47d4945d57160e5889089c0ed09e00501c37613a",
+    "9f78af8c4f968a8fd4dc6d8813af18b95424ef02dc014e770f416bded2fb4922",
+    "a2203a3e123e39629fb455914fa9edb689e9ca70b766364e95802b796f466b37",
+    "ac2194e156647c2a1e692f3859a2412021008cf23f88327b42052ea0e750b5d2",
+    "b2bcfcef78ef9db62f7963dda81069f21b37bf7f9581126e4c2ae68912367fa9",
+    "b39c65a683a320860f65fa68b07025151f595767e38d6ec9048f019625383dae",
+    "be0ccd26fe8aaa434bd24d7e27f24f2cbe32ba199b9fc9aec8cac118ee9701ca",
+    "bf368beb7e25d7e9298475ec15776cea0ff2d9ac87b129f79c9520ccf952ed33",
+    "bfbe1a2c37c54dc06c6d5b8dba11b09ba7015cc23024647706f8ebb8248aed42",
+    "bfdf69c42c2c99d381c348abdd53bb849a729b8c5e5e457482e92f06feeb9c7a",
+    "c3785a84ab31a31587c256adaccd3787f6046bf2142ef7c0b050358d52968ce8",
+    "c38891dc512ffa9ee2f6b1253058be1985ce2b2bf3e383778d6c2aacd02972a5",
+    "cb98fcf1ec898e773bbfc3fa35527b21354e1370e3c4cfecf09d4e04957372a4",
+    "cfac535787786a1b07dd1b2e3cc10567830ffe0e1917fade60aaef4d8adb4ef0",
+    "d2fbe4b4bbf3639371bd224cf3d6000609367ec8a9131f4e4da50c462c15a1cb",
+    "dd826eff8e94e7661431e4fc04c7b827e2aa1ab1dcbeafcfbaa217bb0a3c265a",
+    "defb1b2e66152e30e791a45060d392a91e8f4f2c6ad8984be9b5b1461d4cf559",
+    "e292f63f2c44dde699c818bcc8174ebc9d539c9525b152b15ddee4265f3eaa42",
+    "e32189a6d75f5c787940c7d66f5491fed6179b3e58711970ac78a1c90e7bf8c1",
+    "e619b1a34ef21d5b2af3fda6601fee67e88d4d87d239f15b2e6806ecb2b64968",
+    "e9895d0e3fed61d5d4dc6fa8141c25739cecef11ed074cf0316545ac01ef9e82",
+    "f64ce4cea91e55117e590b9d5805b32c83550d4690c6d1653357c3a289171a9b",
+    "f815ae31e58b306690cb03069d18d75301fb1b26b78439c21a0752c1bf4612f7"
+  ],
+  "content_confirmed_paper_keys": [
+    "076a1f4df5fa95f50aeabc643c74f3812b7a43c33c289fd3221685c267fb9f02",
+    "1a9f62295cfa18ebc3d67e7090677b9183fc7d0b7a3e805ece927ba5ea8e4721",
+    "1d304e3bccae4308df127f7d9be54eca0cc93f319f90fc1d3b1b1dd0b25c3d26",
+    "1dd2743b035299c02ffd3215a55cc92bda9c335ea23f42c3646be4069eda20f0",
+    "274de10ababdb4f7c784c980675af42cfdab618b20681f4e433d78177ca10f96",
+    "31a0ccf38ee965a15d6d17786c654dc76b01057b1285e10268b80d2f405bfef9",
+    "3426af264e50e9607f9b86143f7598bf6b1b41802df4d1f5c3adcff5b9e617bb",
+    "42e9fc591b95862c867f0138ea1623578e823bf87651bc5024a588c5b90c1b93",
+    "44b972d124ab737a4a037d33078b7fe72a0f62572ab0c1b0e7ddf2bb48405dff",
+    "484ae91d323c401d1cbbf1548c5808812e433716396993b860381c4541a80c61",
+    "61709aa4aac50d3e15e66fd4e172055f16a1afc21b73aba56fa40f8e3e476f1b",
+    "6c422e8329a27d82883ff50a991df78146dbcec45bb0af633382f5188f67ae3c",
+    "7355f024426056782519c0c07018e22bcfa460f814e7af85ef9e571cbf65fcab",
+    "7f42a9eee83ca6cd33efb28787cb07e8fcda33a95fc842fc42f2b9b71e1bdad9",
+    "899a69e0d1e12cb15a573a1dcc7e549f30e28ff90b6de5f60fd979815d5d7a98",
+    "8f89adfb0be5c46c772dcf99c79c5196114f49f30d8e26aee3d605e7be51ce28",
+    "9821f71321c341e6d9f68dbe47d4945d57160e5889089c0ed09e00501c37613a",
+    "9f78af8c4f968a8fd4dc6d8813af18b95424ef02dc014e770f416bded2fb4922",
+    "ac2194e156647c2a1e692f3859a2412021008cf23f88327b42052ea0e750b5d2",
+    "b39c65a683a320860f65fa68b07025151f595767e38d6ec9048f019625383dae",
+    "bf368beb7e25d7e9298475ec15776cea0ff2d9ac87b129f79c9520ccf952ed33",
+    "bfdf69c42c2c99d381c348abdd53bb849a729b8c5e5e457482e92f06feeb9c7a",
+    "c38891dc512ffa9ee2f6b1253058be1985ce2b2bf3e383778d6c2aacd02972a5",
+    "dd826eff8e94e7661431e4fc04c7b827e2aa1ab1dcbeafcfbaa217bb0a3c265a",
+    "e32189a6d75f5c787940c7d66f5491fed6179b3e58711970ac78a1c90e7bf8c1",
+    "e9895d0e3fed61d5d4dc6fa8141c25739cecef11ed074cf0316545ac01ef9e82",
+    "f815ae31e58b306690cb03069d18d75301fb1b26b78439c21a0752c1bf4612f7"
+  ],
+  "metric_note": "Saved URL probes, parser decisions and current local size/SHA-256 checks. Content confirmation is automated, not human ground truth. Failure observations can overlap across runs."
+}

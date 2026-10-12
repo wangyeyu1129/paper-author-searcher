@@ -236,7 +236,8 @@ class DownloaderTests(unittest.TestCase):
         entry = manifest['papers'][0]
         self.assertEqual(entry['download_status'], 'rejected_content')
         self.assertTrue(entry['local_filename'].startswith('quarantine/'))
-        self.assertEqual(manifest['statistics']['failed_papers'], 1)
+        self.assertEqual(manifest['statistics']['failed_papers'], 0)
+        self.assertEqual(manifest['statistics']['rejected_content_papers'], 1)
         self.assertEqual(manifest['statistics']['verified_papers'], 0)
 
     def test_failed_url_falls_back_to_next_verified_candidate(self):
