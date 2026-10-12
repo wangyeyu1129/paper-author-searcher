@@ -10,18 +10,21 @@ from .config import DEFAULT_DOWNLOAD, DownloadConfig
 from .http import has_pdf_signature
 from .matching import canonical_doi, normalize
 from .models import PDFFileValidation
-from .paper_deduplication import author_signatures_match
 from .pdf_identity import metadata_identity
+from .pdf_front_matter import authors_present, front_matter, metadata_title_kind, publication_years, title_in_region
+from .pdf_document_types import classify_document, NON_FULL_DOCUMENTS
 
 
 def validation_target(paper, candidate=None):
     """Preserve publisher bylines only after the URL's citation metadata was bound."""
     target = {key: paper.get(key) for key in ('title', 'authors', 'year', 'doi')}
+    target['pdf_version_type'] = candidate.get('version_type') if candidate else None
+    target['venue'] = paper.get('venue') or (paper.get('paper_metadata') or {}).get('venue')
     variants = []
     if candidate and candidate.get('identity_status') == 'verified' and candidate.get('validation_status') == 'verified':
         for provenance in candidate.get('provenance') or []:
             authors = provenance.get('metadata_authors') or []
-            title = provenance.get('title')
+            title = provenance.get('title') or provenance.get('metadata_title')
             year = provenance.get('metadata_year')
             if not authors or not target['year'] or str(year) != str(target['year']):
                 continue
@@ -33,23 +36,33 @@ def validation_target(paper, candidate=None):
             if identity == 'verified' and signature_identity == 'verified' and authors not in variants:
                 variants.append(authors)
     target['publisher_author_variants'] = variants
+    target['publication_bindings'] = []
+    if candidate and candidate.get('identity_status') == 'verified' and candidate.get('validation_status') == 'verified':
+        for provenance in candidate.get('provenance') or []:
+            title = provenance.get('title') or provenance.get('metadata_title')
+            if normalize(title or '') != normalize(target['title'] or ''):
+                continue
+            target['publication_bindings'].append({key: provenance.get(key) for key in (
+                'provider', 'metadata_url', 'source_paper_id', 'doi', 'metadata_year', 'metadata_authors', 'metadata_venue')})
     return target
 
 
 def content_identity(paper, titles, title_regions, text, author_metadata, config=DEFAULT_DOWNLOAD):
     expected_title = normalize(paper.get('title') or '')
     metadata_match = any(normalize(title) == expected_title for title in titles)
+    metadata_kinds = [metadata_title_kind(title, paper.get('title') or '') for title in titles]
+    normal_title_match = metadata_match
     title_match = metadata_match
-    for title in title_regions:
-        if expected_title and ' ' + expected_title + ' ' in ' ' + normalize(title) + ' ':
-            title_match = True
-            break
+    for region in title_regions:
+        if title_in_region(paper.get('title') or '', region, compact=False):
+            normal_title_match = True
+        title_match = title_match or title_in_region(paper.get('title') or '', region)
     observed_dois = set()
     for value in re.findall(r'10\.\d{4,9}/[^\s<>"\']+', text, flags=re.IGNORECASE):
         observed_dois.add(canonical_doi(_clean_extracted_doi(value))[len('doi:'):])
     expected_doi = canonical_doi(paper['doi'])[len('doi:'):] if paper.get('doi') else None
     doi_match = bool(expected_doi and expected_doi in observed_dois)
-    title_conflict = bool(titles and not metadata_match)
+    title_conflict = 'conflicting' in metadata_kinds
     evidence = []
     if title_match:
         evidence.append('Expected normalized title occurs in PDF title metadata or the first-page title region')
@@ -57,16 +70,19 @@ def content_identity(paper, titles, title_regions, text, author_metadata, config
         evidence.append('Target DOI found in the downloaded PDF front matter/metadata')
     if title_conflict:
         evidence.append('PDF title metadata differs from the target; content association remains conservative')
-    if title_match and doi_match and not title_conflict:
-        return 'verified', sorted(observed_dois), evidence
+    if 'technical' in metadata_kinds:
+        evidence.append('Technical filename/producer title is not a scientific-title conflict')
+    if 'decorated' in metadata_kinds:
+        evidence.append('Bibliographic series prefix is separated from the scientific title')
     authors_match = _authors_present(paper.get('authors') or [], title_regions, author_metadata)
     publisher_match = False
-    if not authors_match:
-        for authors in paper.get('publisher_author_variants') or []:
-            if _authors_present(authors, title_regions, author_metadata):
-                authors_match = True
-                publisher_match = True
-                break
+    for authors in paper.get('publisher_author_variants') or []:
+        if _authors_present(authors, title_regions, author_metadata):
+            authors_match = True
+            publisher_match = True
+            break
+    if title_match and doi_match and not title_conflict and (normal_title_match or authors_match):
+        return 'verified', sorted(observed_dois), evidence
     long_title = len(expected_title.split()) >= config.minimum_title_words_without_doi
     conflicting_doi = bool(expected_doi and observed_dois and not doi_match)
     if title_match and long_title and authors_match and not conflicting_doi and not title_conflict:
@@ -97,20 +113,7 @@ def _clean_extracted_doi(value):
 
 
 def _authors_present(expected_authors, title_regions, author_metadata):
-    if not expected_authors:
-        return False
-    front_matter = normalize(' '.join(title_regions + [author_metadata]))
-    names = re.split(r'[;,\n]|\s+and\s+', author_metadata)
-    for author in expected_authors:
-        normalized = normalize(author)
-        if len(normalized.split()) < 2:
-            return False
-        if ' ' + normalized + ' ' in ' ' + front_matter + ' ':
-            continue
-        if any(author_signatures_match(author, name.strip()) for name in names if name.strip()):
-            continue
-        return False
-    return True
+    return authors_present(expected_authors, title_regions, author_metadata)
 
 
 def inspect_pdf(path, paper, config=DEFAULT_DOWNLOAD):
@@ -154,7 +157,8 @@ def inspect_pdf(path, paper, config=DEFAULT_DOWNLOAD):
                 try:
                     text = (page.extract_text() or '')[:config.maximum_extracted_characters]
                     text_parts.append(text)
-                    title_regions.append(' '.join(text.splitlines()[:config.title_lines]))
+                    if index == 0:
+                        title_regions.append(front_matter('\n'.join(text.splitlines()[:config.title_lines])))
                 except Exception as exc:
                     result.error_details.append('Text extraction unavailable: ' + str(exc)[:1000])
             root = reader.trailer['/Root']
@@ -163,11 +167,41 @@ def inspect_pdf(path, paper, config=DEFAULT_DOWNLOAD):
             if names is not None and '/JavaScript' in names.get_object():
                 result.active_content_present = True
             metadata_text = ' '.join(str(metadata.get(key) or '') for key in ('/Title', '/Subject', '/Keywords', '/DOI'))
-            text = '\n'.join(text_parts + [metadata_text])
-            identity, dois, evidence = content_identity(paper, result.extracted_titles, title_regions, text, author, config)
+            first_page = text_parts[0] if text_parts else ''
+            # Reference-list DOIs and body citations cannot establish this file's identity.
+            identity_text = front_matter(first_page) + '\n' + metadata_text
+            identity, dois, evidence = content_identity(
+                paper, result.extracted_titles, title_regions, identity_text, author, config)
+            first_size = [float(reader.pages[0].mediabox.width), float(reader.pages[0].mediabox.height)]
+            document_type, document_evidence = classify_document(
+                metadata, first_page, result.page_count, first_size, paper.get('pdf_version_type'), config)
+            result.document_type = document_type
+            result.document_type_evidence = document_evidence
+            result.observations = {
+                'first_page_front_matter': front_matter(first_page)[:config.maximum_extracted_characters],
+                'publication_years': publication_years(first_page),
+                'expected_year': paper.get('year'),
+                'metadata_title_kinds': [metadata_title_kind(value, paper.get('title') or '') for value in result.extracted_titles],
+                'publication_bindings': paper.get('publication_bindings') or [],
+                'full_author_signatures_present': _authors_present(paper.get('authors') or [], title_regions, author),
+                'expected_venue': paper.get('venue'),
+                'venue_present_in_first_page': bool(paper.get('venue') and
+                                                   normalize(paper['venue']) in normalize(first_page)),
+            }
+            if paper.get('year') and str(paper['year']) in result.observations['publication_years']:
+                evidence.append('Publication year in PDF agrees with the saved publication record')
+            elif result.observations['publication_years']:
+                evidence.append('Observed publication year differs or represents another version; retained for review')
+                if identity == 'verified' and paper.get('year') and paper.get('pdf_version_type') != 'preprint':
+                    identity = 'needs_review'
+            if result.observations['venue_present_in_first_page']:
+                evidence.append('Saved publication venue also occurs on the PDF first page; auxiliary evidence only')
             result.format_status = 'valid'
             result.identity_status = identity
             result.validation_status = identity
+            if document_type in NON_FULL_DOCUMENTS and identity != 'rejected':
+                result.validation_status = 'needs_review'
+                evidence.append('Non-full-text document is not counted as a confirmed complete paper')
             result.extracted_dois = dois
             result.evidence = ['Strict PDF parser resolved pages and page content streams; EOF and startxref checked'] + evidence
     except Exception as exc:
@@ -190,7 +224,7 @@ class PDFFileValidator:
             import pypdf  # Dependency is required only by the download stage.
         except ImportError as exc:
             raise RuntimeError('Install the download extra: pip install -e ".[download]"') from exc
-        target = {key: paper.get(key) for key in ('title', 'authors', 'year', 'doi', 'publisher_author_variants')}
+        target = {key: paper.get(key) for key in ('title', 'authors', 'year', 'doi', 'venue', 'publisher_author_variants', 'pdf_version_type', 'publication_bindings')}
         request = json.dumps({'paper': target, 'config': asdict(self.config)})
         try:
             completed = subprocess.run(

@@ -1,0 +1,61 @@
+{
+  "dataset_id": "professor_papers_2020_2022_v1",
+  "release_date": "2026-10-11",
+  "annotation_state": "candidate_collection",
+  "human_confirmed_count": 0,
+  "candidate_count": 187,
+  "complete_positive_list": false,
+  "files": [
+    {
+      "path": "README.md",
+      "size_bytes": 7078,
+      "sha256": "24bdded7a991c6bfc628dc63333a7f88c0764eb48f57ff77349b5aee5b67738c"
+    },
+    {
+      "path": "candidates.csv",
+      "size_bytes": 103667,
+      "sha256": "bc883b9038ac3fe90343bcd9e9f76954ac14d32329682963e0cfe4a1ad7bb785"
+    },
+    {
+      "path": "candidates.json",
+      "size_bytes": 1066737,
+      "sha256": "50c0ba13bd4b511f5be482a1e36e180b4ddc9b2b6cb81068df152fbe430dad0b"
+    },
+    {
+      "path": "duplicate_version_review.csv",
+      "size_bytes": 28981,
+      "sha256": "526d8aaa11d34d796c9f30e741404874be79cb6b5a6069f2183cc9d1e4524489"
+    },
+    {
+      "path": "professors/aarti_singh.pending.json",
+      "size_bytes": 263713,
+      "sha256": "509463692f0f888b646951412b42fe886989b694725be4d74f8dad7f9d6ec52a"
+    },
+    {
+      "path": "professors/emma_brunskill.pending.json",
+      "size_bytes": 372517,
+      "sha256": "7b7c5f8c20b9f49a49b1fd123edfb704971c1628db6e38fb14270f23314ff97b"
+    },
+    {
+      "path": "professors/jacob_steinhardt.pending.json",
+      "size_bytes": 442226,
+      "sha256": "832fce7537e8b02e48fdfa884edade98baee914564144b650fb4bf400c917059"
+    },
+    {
+      "path": "reference_records.json",
+      "size_bytes": 664157,
+      "sha256": "a2714d9e68cc9ec90b45ed7663c8a14ecc88aa0ce4974ac0079549597e6c00d0"
+    },
+    {
+      "path": "scope.json",
+      "size_bytes": 3802,
+      "sha256": "c4f880386cf3b8c18dcb21f154f4c788d100b299b71c6d77537b7489f1618c50"
+    },
+    {
+      "path": "source_inventory.json",
+      "size_bytes": 56417,
+      "sha256": "6f82e4564a4a6ec08734b218e50a72b0aad66aecff4a9b88a2da5c2af7493d60"
+    }
+  ],
+  "note": "Reference data and candidate annotation input snapshot. Not a PDF download manifest or human-confirmed truth."
+}

@@ -20,8 +20,11 @@ class PDFURLValidator:
         except (SourceError, ValueError) as exc:
             candidate.access_status = 'unreachable'
             candidate.http_status = getattr(exc, 'status_code', None)
+            candidate.query_error_type = getattr(exc, 'error_type', 'source_error')
+            candidate.request_context = getattr(exc, 'request_context', {})
             candidate.error_details.append(str(exc))
             return candidate
+        candidate.request_context = response.request_context
         candidate.final_url = response.url
         candidate.http_status = response.status
         candidate.content_type = response.content_type

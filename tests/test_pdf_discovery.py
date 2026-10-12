@@ -180,7 +180,8 @@ class SemanticRequestTests(unittest.TestCase):
         crossref_client.get.return_value = {'status': 'ok', 'message': crossref_work()}
         resolver = PDFResolver([semantic, CrossrefPDFProvider(crossref_client)], Mock())
         report = resolver.resolve({'papers': [saved_paper()]}).to_dict()
-        self.assertEqual(report['papers'][0]['providers'][0]['status'], 'error')
+        self.assertEqual(report['papers'][0]['providers'][0]['status'], 'partial')
+        self.assertTrue(report['papers'][0]['providers'][0]['warnings'])
         self.assertEqual(report['papers'][0]['providers'][1]['status'], 'ok')
         self.assertTrue(report['papers'][0]['pdf_candidates'])
         self.assertIn('search_incomplete', pdf_failure_reasons(dict(report['papers'][0], pdf_candidates=[])))
@@ -393,7 +394,8 @@ class PublicPageTests(unittest.TestCase):
                 '<link rel="alternate" type="application/pdf" href="method.pdf">')
         result, _ = self.discover(html)
         self.assertEqual(len(result.candidates), 1)
-        self.assertEqual(result.status, 'partial')
+        self.assertEqual(result.status, 'ok')
+        self.assertEqual(result.warnings[0]['code'], 'candidate_rejected')
 
 
 class IdentifierDiagnosticTests(unittest.TestCase):

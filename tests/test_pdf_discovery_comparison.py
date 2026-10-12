@@ -90,3 +90,27 @@ class ComparisonTests(unittest.TestCase):
             self.assertEqual(value['url_coverage_change'], 0)
             self.assertEqual(len(value['newly_verified_pdf_paper_keys']), 1)
             self.assertEqual(len(value['lost_verified_pdf_paper_keys']), 1)
+
+    def test_cooldown_partial_and_disabled_sources_remain_incomplete(self):
+        entries = [dict(paper(str(index)), providers=[{'source': 'public_pages', 'status': status}])
+                   for index, status in enumerate(('partial', 'disabled', 'not_found', 'ok'))]
+        with tempfile.TemporaryDirectory() as directory:
+            root = self.write_run(Path(directory), 'run', entries)
+            self.assertEqual(summarize_runs([root])['search_completion_rate']['numerator'], 2)
+
+    def test_poster_is_valid_file_but_not_confirmed_complete_paper(self):
+        entry = dict(paper(), download_status='non_full_document', format_status='valid',
+                     identity_status='verified', validation_status='needs_review', document_type='poster')
+        with tempfile.TemporaryDirectory() as directory, patch(
+                'paper_author_searcher.pdf_discovery_comparison._check_file', return_value=(True, 'verified checksum')):
+            root = self.write_run(Path(directory), 'run', [paper()], [entry])
+            value = summarize_runs([root])
+            self.assertEqual(value['valid_downloaded_file_coverage']['numerator'], 1)
+            self.assertEqual(value['content_confirmed_coverage']['numerator'], 0)
+            self.assertEqual(value['full_text_confirmed_coverage']['numerator'], 0)
+            self.assertEqual(value['needs_review_ratio_among_valid_files']['rate'], 1)
+
+    def test_legacy_missing_classification_is_not_reported_as_zero_full_text(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = self.write_run(Path(directory), 'run', [paper()])
+            self.assertIsNone(summarize_runs([root])['full_text_confirmed_coverage'])

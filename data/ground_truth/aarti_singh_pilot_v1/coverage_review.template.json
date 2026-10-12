@@ -1,0 +1,247 @@
+{
+  "approved": false,
+  "reviewer": "",
+  "reviewed_at": "",
+  "evidence_urls": [],
+  "sources": [
+    {
+      "source_id": "aarti_dblp",
+      "url": "https://dblp.org/pid/64/5328.xml",
+      "observed_fetch_status": "blocked_html_access_interstitial",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "aarti_publications",
+      "url": "https://www.cs.cmu.edu/~aarti/pubs.html",
+      "observed_fetch_status": "unavailable",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "pmlr_index",
+      "url": "https://proceedings.mlr.press/",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "neurips_2020",
+      "url": "https://proceedings.neurips.cc/paper/2020",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "neurips_2021",
+      "url": "https://proceedings.neurips.cc/paper/2021",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "neurips_2022",
+      "url": "https://proceedings.neurips.cc/paper/2022",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "pmlr_v108",
+      "url": "https://proceedings.mlr.press/v108/",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "pmlr_v119",
+      "url": "https://proceedings.mlr.press/v119/",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "pmlr_v124",
+      "url": "https://proceedings.mlr.press/v124/",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "pmlr_v125",
+      "url": "https://proceedings.mlr.press/v125/",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "pmlr_v126",
+      "url": "https://proceedings.mlr.press/v126/",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "pmlr_v130",
+      "url": "https://proceedings.mlr.press/v130/",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "pmlr_v134",
+      "url": "https://proceedings.mlr.press/v134/",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "pmlr_v139",
+      "url": "https://proceedings.mlr.press/v139/",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "pmlr_v149",
+      "url": "https://proceedings.mlr.press/v149/",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "pmlr_v151",
+      "url": "https://proceedings.mlr.press/v151/",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "pmlr_v162",
+      "url": "https://proceedings.mlr.press/v162/",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "pmlr_v161",
+      "url": "https://proceedings.mlr.press/v161/",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "pmlr_v174",
+      "url": "https://proceedings.mlr.press/v174/",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "pmlr_v178",
+      "url": "https://proceedings.mlr.press/v178/",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "pmlr_v180",
+      "url": "https://proceedings.mlr.press/v180/",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "pmlr_v182",
+      "url": "https://proceedings.mlr.press/v182/",
+      "observed_fetch_status": "html_observed",
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "source_id": "aarti_publications_indexed",
+      "url": "https://www.cs.cmu.edu/~aarti/pubs.html",
+      "observed_fetch_status": "indexed_official_page_observed",
+      "human_checked": false,
+      "notes": ""
+    }
+  ],
+  "additional_venue_audit_complete": false,
+  "identity_conflicts_resolved": false,
+  "omissions": [
+    {
+      "omission_id": "jmlr_2020_secondary_journal_version",
+      "title": "Regression with Comparisons: Escaping the Curse of Dimensionality with Ordinal Information",
+      "authors": [
+        "Yichong Xu",
+        "Sivaraman Balakrishnan",
+        "Aarti Singh",
+        "Artur Dubrawski"
+      ],
+      "year": 2020,
+      "doi": null,
+      "publication_type": "journal_article",
+      "venue": "Journal of Machine Learning Research 21(162):1–54",
+      "source_urls": [
+        "https://www.cs.cmu.edu/~aarti/pubs.html",
+        "https://jmlr.org/papers/v21/19-505.html"
+      ],
+      "evidence": "Professor bibliography reports a longer 2020 journal version underneath an ICML 2018 entry. JMLR supplies a different title and four-author byline; the 37-record pilot contains neither formal title.",
+      "review_status": "candidate",
+      "in_core_scope_suggestion": true,
+      "decision": "pending",
+      "covered_candidate_id": "",
+      "human_notes": ""
+    },
+    {
+      "omission_id": "mathematical_programming_secondary_journal_version",
+      "title": "Near-optimal discrete optimization for experimental design: a regret minimization approach",
+      "authors": [
+        "Zeyuan Allen-Zhu",
+        "Yuanzhi Li",
+        "Aarti Singh",
+        "Yining Wang"
+      ],
+      "year": 2021,
+      "online_publication_year": 2020,
+      "issue_publication_year": 2021,
+      "doi": "10.1007/s10107-019-01464-2",
+      "publication_type": "journal_article",
+      "venue": "Mathematical Programming 186:439–478",
+      "source_urls": [
+        "https://www.cs.cmu.edu/~aarti/pubs.html",
+        "https://link.springer.com/article/10.1007/s10107-019-01464-2"
+      ],
+      "evidence": "Professor bibliography reports a 2021 longer journal version underneath an ICML 2017 entry. Publisher reports version of record 10 January 2020 and issue March 2021 under a different title. Both years are inside this pilot; a single reviewed publication identity is required.",
+      "review_status": "candidate",
+      "in_core_scope_suggestion": true,
+      "decision": "pending",
+      "covered_candidate_id": "",
+      "human_notes": ""
+    },
+    {
+      "omission_id": "integrating_rankings_secondary_workshop_claim",
+      "title": "Integrating Rankings into Quantized Scores in Peer Review",
+      "authors": [
+        "Y. Liu",
+        "Y. Xu",
+        "N. B. Shah",
+        "A. Singh"
+      ],
+      "year": 2022,
+      "doi": null,
+      "publication_type": "workshop_paper",
+      "venue": "ICLR workshop on ML Evaluation Standards",
+      "source_urls": [
+        "https://www.cs.cmu.edu/~aarti/pubs.html"
+      ],
+      "evidence": "The bibliography lists a workshop alongside TMLR for the same title. The snapshot retained the TMLR claim and a preprint, but no separate workshop observation. Check whether this is a distinct publication or presentation; workshop claims do not enter the formal core automatically.",
+      "review_status": "candidate",
+      "in_core_scope_suggestion": false,
+      "decision": "pending",
+      "covered_candidate_id": "",
+      "human_notes": ""
+    }
+  ],
+  "note": "Approval requires independent human source/venue/version completeness review. Real missing publications require a later dataset revision, not automatic insertion."
+}

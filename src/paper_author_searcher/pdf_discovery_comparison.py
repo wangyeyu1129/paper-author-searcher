@@ -9,6 +9,7 @@ from .pdf_downloader import paper_key
 from .performance_diagnostics import pdf_failure_reasons
 from .performance_evaluation import _check_file, rate
 from .workflow import read_json, write_json
+from .pdf_search_status import SEARCH_COMPLETION_DEFINITION, provider_search_complete, search_satisfaction
 
 
 def _cohort(report):
@@ -46,6 +47,12 @@ def summarize_runs(run_directories):
     failures, source_contributions = Counter(), {}
     file_checks = []
     query_statistics = []
+    search_observations = {}
+    document_types = Counter()
+    full_text_content = set()
+    classified_documents = False
+    satisfied_papers = set()
+    satisfaction_observations = {}
     for directory in run_directories:
         root = Path(directory)
         report = read_json(root / 'pdf_urls.json')
@@ -60,6 +67,10 @@ def summarize_runs(run_directories):
         query_statistics.append({'run_directory': str(root),
                                  'statistics': report.get('statistics') or {}})
         for key, paper in selected.items():
+            source_states = search_observations.setdefault(key, {})
+            for provider in paper.get('providers') or []:
+                complete = provider_search_complete(provider)
+                source_states.setdefault(provider.get('source'), []).append(complete)
             failures.update(pdf_failure_reasons(paper))
             for candidate in paper.get('pdf_candidates') or []:
                 if candidate.get('validation_status') != 'verified' or candidate.get('identity_status') != 'verified':
@@ -87,22 +98,47 @@ def summarize_runs(run_directories):
             exists, evidence = _check_file(paper, manifest, manifest_path)
             file_checks.append({'paper_key': key, 'run_directory': str(root),
                                 'file_integrity_confirmed': exists, 'evidence': evidence})
+            satisfied, reason = search_satisfaction(paper, exists)
+            if satisfied is True:
+                satisfied_papers.add(key)
+            previous = satisfaction_observations.get(key)
+            if previous is None or satisfied is True or previous['search_sufficiently_satisfied'] is False:
+                satisfaction_observations[key] = {'paper_key': key, 'search_sufficiently_satisfied': satisfied,
+                                                  'reason': reason, 'file_integrity_confirmed': exists}
             if not exists or paper.get('format_status') != 'valid':
                 continue
             files.add(key)
+            document_type = paper.get('document_type') or (paper.get('validation') or {}).get('document_type')
+            classified_documents = classified_documents or document_type is not None
+            document_types[document_type or 'unknown'] += 1
             if paper.get('identity_status') == 'verified' and paper.get('validation_status') == 'verified':
                 content.add(key)
-            elif paper.get('identity_status') == 'needs_review':
+                if document_type in ('full_text', 'preprint'):
+                    full_text_content.add(key)
+            elif paper.get('validation_status') == 'needs_review':
                 review.add(key)
     if cohort is None:
         raise ValueError('At least one saved run is required')
     digest = hashlib.sha256(json.dumps(sorted(cohort)).encode('utf-8')).hexdigest()
+    complete_searches = sum(bool(states) and all(any(observations) for observations in states.values())
+                            for states in search_observations.values())
     return {'cohort_size': len(cohort), 'cohort_fingerprint': digest, 'metadata_fingerprint': metadata_fingerprint,
             'verified_pdf_url_coverage': rate(len(verified_papers), len(cohort)),
             'distinct_verified_urls': len(urls), 'download_attempted_papers': len(attempted),
             'valid_downloaded_file_coverage': rate(len(files), len(cohort)),
             'content_confirmed_coverage': rate(len(content), len(cohort)),
             'download_success_rate': rate(len(files), len(attempted)),
+            'needs_review_ratio_among_valid_files': rate(len(review - content), len(files)),
+            'search_completion_rate': rate(complete_searches, len(cohort)),
+            'search_completion_definition': SEARCH_COMPLETION_DEFINITION,
+            'search_sufficiently_satisfied_rate': rate(len(satisfied_papers), len(cohort)) if classified_documents else None,
+            'search_satisfaction_unknown_papers': sum(item['search_sufficiently_satisfied'] is None
+                                                     for item in satisfaction_observations.values()),
+            'paper_search_satisfaction': [satisfaction_observations.get(key, {
+                'paper_key': key, 'search_sufficiently_satisfied': False, 'reason': 'no_integrity_checked_local_file',
+                'file_integrity_confirmed': False}) for key in sorted(cohort)],
+            'document_type_observations': dict(document_types),
+            'full_text_confirmed_coverage': rate(len(full_text_content), len(cohort)) if classified_documents else None,
             'content_needs_review_papers': len(review - content),
             'failed_without_valid_file_papers': len(failed - files),
             'source_verified_paper_contributions': {source: len(keys) for source, keys in source_contributions.items()},

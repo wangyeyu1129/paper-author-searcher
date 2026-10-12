@@ -1,0 +1,1363 @@
+{
+  "dataset_id": "aarti_singh_2020_2022_pilot_v2",
+  "grouped_review_sha256": "0fba322376203fd0fc82670f121230c8459e6eb070956084042320d2acbb768e",
+  "groups": [
+    {
+      "group_id": "publication_0c4337c0c93de775",
+      "candidate_ids": [
+        "aarti_singh_77f8e4aed96feb739a8f",
+        "aarti_singh_c2521bc7a74b89dbbcd8"
+      ],
+      "title": "Preference-based Reinforcement Learning with Finite-Time Guarantees",
+      "suggested_metadata": {
+        "title": "Preference-based Reinforcement Learning with Finite-Time Guarantees",
+        "authors": [
+          "Xu, Yichong",
+          "Wang, Ruosong",
+          "Yang, Lin",
+          "Singh, Aarti",
+          "Dubrawski, Artur"
+        ],
+        "year": 2020,
+        "doi": null,
+        "venue": "Advances in Neural Information Processing Systems",
+        "publication_type": "conference_paper"
+      },
+      "specific_questions": [
+        "本组是重复书目审核建议；人工核实所有成员为同一出版物后才能使用同一 canonical group。"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_1d8a3b20c4c16526",
+      "candidate_ids": [
+        "aarti_singh_6e781fbdda5246ef7ba0",
+        "aarti_singh_9979793661b02bdf47a7"
+      ],
+      "title": "Thresholding Bandit Problem with Both Duels and Pulls",
+      "suggested_metadata": {
+        "title": "Thresholding Bandit Problem with Both Duels and Pulls",
+        "authors": [
+          "Yichong Xu",
+          "Xi Chen",
+          "Aarti Singh",
+          "Artur Dubrawski"
+        ],
+        "year": 2020,
+        "doi": null,
+        "venue": "Proceedings of the Twenty Third International Conference on Artificial Intelligence and Statistics",
+        "publication_type": "conference_paper"
+      },
+      "specific_questions": [
+        "本组是重复书目审核建议；人工核实所有成员为同一出版物后才能使用同一 canonical group。"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_8367d502e785ad1f",
+      "candidate_ids": [
+        "aarti_singh_941eb9e18f23bd37083d"
+      ],
+      "title": "Two-Sample Testing on Pairwise Comparison Data and the Role of Modeling Assumptions",
+      "suggested_metadata": {
+        "title": "Two-Sample Testing on Pairwise Comparison Data and the Role of Modeling Assumptions",
+        "authors": [
+          "Charvi Rastogi",
+          "Sivaraman Balakrishnan",
+          "Nihar B. Shah",
+          "Aarti Singh"
+        ],
+        "year": 2020,
+        "doi": null,
+        "venue": "ISIT 2020:1271–1276",
+        "publication_type": "conference_paper"
+      },
+      "specific_questions": [
+        "尚未取得正式出版物的完整论文级元数据：核对归档全文、完整署名、类型与年份。",
+        "原书目题名与官方题名不同：核对后更正，旧题名别名需单独人工批准。",
+        "存在会议与期刊等不同正式版本：保留独立出版身份，关联不是合并许可。",
+        "官方 DBLP 的 ISIT 2020 目录本次可通过网页读取；此前 XML 仍不可用。核对 IEEE 出版记录和 DOI，题名 on/with 存在变体，不与 JMLR 2022 合并。"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_7d7fa22570591830",
+      "candidate_ids": [
+        "aarti_singh_b222de5dcc3deaa0d824",
+        "aarti_singh_f0fa21130ee28f0621a6"
+      ],
+      "title": "Zeroth Order Non-convex optimization with Dueling-Choice Bandits",
+      "suggested_metadata": {
+        "title": "Zeroth Order Non-convex optimization with Dueling-Choice Bandits",
+        "authors": [
+          "Yichong Xu",
+          "Aparna Joshi",
+          "Aarti Singh",
+          "Artur Dubrawski"
+        ],
+        "year": 2020,
+        "doi": null,
+        "venue": "Proceedings of the 36th Conference on Uncertainty in Artificial Intelligence (UAI)",
+        "publication_type": "conference_paper"
+      },
+      "specific_questions": [
+        "本组是重复书目审核建议；人工核实所有成员为同一出版物后才能使用同一 canonical group。"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_225cb14e4fed4986",
+      "candidate_ids": [
+        "aarti_singh_9f4b27c036c7501e0be1"
+      ],
+      "title": "A Novice-Reviewer Experiment to Address Scarcity of Qualified Reviewers in Large Conferences",
+      "suggested_metadata": {
+        "title": "A Novice-Reviewer Experiment to Address Scarcity of Qualified Reviewers in Large Conferences",
+        "authors": [
+          "Ivan Stelmakh",
+          "Nihar B. Shah",
+          "Aarti Singh",
+          "Hal Daumé III"
+        ],
+        "year": 2021,
+        "doi": "10.1609/aaai.v35i6.16610",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence 35(6):4785–4793",
+        "publication_type": "conference_paper"
+      },
+      "specific_questions": [
+        "官方页面列出 Aarti Singh 的 Carnegie Mellon University 机构；直接 HTTP 未返回 citation 标签，但通过官方网页读取了署名及出版记录。",
+        "Official AAAI record reports four authors, May 2021 publication and this DOI. Original candidate DOI remains null until human metadata correction."
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_0a428195c9c4155f",
+      "candidate_ids": [
+        "aarti_singh_0ce1b1f248f705ed9786"
+      ],
+      "title": "Best Arm Identification under Additive Transfer Bandits",
+      "suggested_metadata": {
+        "title": "Best Arm Identification under Additive Transfer Bandits",
+        "authors": [
+          "Ojash Neopane",
+          "Aaditya Ramdas",
+          "Aarti Singh"
+        ],
+        "year": 2021,
+        "doi": null,
+        "venue": "Asilomar 2021, paper D-8.4",
+        "publication_type": "conference_paper"
+      },
+      "specific_questions": [
+        "尚未取得正式出版物的完整论文级元数据：核对归档全文、完整署名、类型与年份。",
+        "正式技术日程逐论文列出标题、三位作者和 CMU 机构；仍需核对归档出版/DOI，日程不是全文证据。"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_8923520062404c27",
+      "candidate_ids": [
+        "aarti_singh_b40323ea0371c6fd372d"
+      ],
+      "title": "Catch Me if I Can: Detecting Strategic Behaviour in Peer Assessment",
+      "suggested_metadata": {
+        "title": "Catch Me if I Can: Detecting Strategic Behaviour in Peer Assessment",
+        "authors": [
+          "Ivan Stelmakh",
+          "Nihar B. Shah",
+          "Aarti Singh"
+        ],
+        "year": 2021,
+        "doi": "10.1609/aaai.v35i6.16611",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence 35(6):4794–4802",
+        "publication_type": "conference_paper"
+      },
+      "specific_questions": [
+        "官方页面列出 Aarti Singh 的 Carnegie Mellon University 机构。",
+        "Official AAAI record reports three authors and 2021 publication. Additional independent reference evidence only; original candidate metadata remains unchanged."
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_2ce84b700ef5ef9a",
+      "candidate_ids": [
+        "aarti_singh_48ef3b670ad81733da9f",
+        "aarti_singh_daba4a2b7093bd78816a"
+      ],
+      "title": "Local Signal Adaptivity: Provable Feature Learning in Neural Networks Beyond Kernels",
+      "suggested_metadata": {
+        "title": "Local Signal Adaptivity: Provable Feature Learning in Neural Networks Beyond Kernels",
+        "authors": [
+          "Karp, Stefani",
+          "Winston, Ezra",
+          "Li, Yuanzhi",
+          "Singh, Aarti"
+        ],
+        "year": 2021,
+        "doi": null,
+        "venue": "Advances in Neural Information Processing Systems",
+        "publication_type": "conference_paper"
+      },
+      "specific_questions": [
+        "本组是重复书目审核建议；人工核实所有成员为同一出版物后才能使用同一 canonical group。"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_baff4c4c819652f2",
+      "candidate_ids": [
+        "aarti_singh_3c4730fb37eb3be03bc7",
+        "aarti_singh_c07d328bd04d6b189c99"
+      ],
+      "title": "Smooth Bandit Optimization: Generalization to Holder Space",
+      "suggested_metadata": {
+        "title": "Smooth Bandit Optimization: Generalization to Holder Space",
+        "authors": [
+          "Yusha Liu",
+          "Yining Wang",
+          "Aarti Singh"
+        ],
+        "year": 2021,
+        "doi": null,
+        "venue": "Proceedings of The 24th International Conference on Artificial Intelligence and Statistics",
+        "publication_type": "conference_paper"
+      },
+      "specific_questions": [
+        "本组是重复书目审核建议；人工核实所有成员为同一出版物后才能使用同一 canonical group。"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_956bed54745099e3",
+      "candidate_ids": [
+        "aarti_singh_5b6316643c16c650fc0e",
+        "aarti_singh_e8f7d5ac951d6e349643"
+      ],
+      "title": "Complete Policy Regret Bounds for Tallying Bandits",
+      "suggested_metadata": {
+        "title": "Complete Policy Regret Bounds for Tallying Bandits",
+        "authors": [
+          "Dhruv Malik",
+          "Yuanzhi Li",
+          "Aarti Singh"
+        ],
+        "year": 2022,
+        "doi": null,
+        "venue": "Proceedings of Thirty Fifth Conference on Learning Theory",
+        "publication_type": "conference_paper"
+      },
+      "specific_questions": [
+        "本组是重复书目审核建议；人工核实所有成员为同一出版物后才能使用同一 canonical group。"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_66d07c30fb2994d2",
+      "candidate_ids": [
+        "aarti_singh_c3161f48819a707e9bb6"
+      ],
+      "title": "Regression with Comparisons: Escaping the Curse of Dimensionality with Ordinal Information",
+      "suggested_metadata": {
+        "title": "Regression with Comparisons: Escaping the Curse of Dimensionality with Ordinal Information",
+        "authors": [
+          "Yichong Xu",
+          "Sivaraman Balakrishnan",
+          "Aarti Singh",
+          "Artur Dubrawski"
+        ],
+        "year": 2020,
+        "doi": null,
+        "venue": "Journal of Machine Learning Research",
+        "publication_type": "journal_article"
+      },
+      "specific_questions": [
+        "The public DBLP bibliography reports an ORCID conflict. Neither ORCID nor every record in that bibliography is assumed to belong to this professor.",
+        "DOI not reported in the available reference; absence is not proof that no DOI exists.",
+        "正式期刊版四位作者，早期 ICML 2018 书目五位作者包含 H. Muthakana；不要把早期会议署名拷贝到期刊。",
+        "官方期刊题名去掉 Nonparametric，属于标题/版本差异；不能仅同题合并。"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_184a1d4c9e497e76",
+      "candidate_ids": [
+        "aarti_singh_4456255c3ad2c0ae23b3"
+      ],
+      "title": "Classification accuracy as a proxy for two-sample testing",
+      "suggested_metadata": {
+        "title": "Classification accuracy as a proxy for two-sample testing",
+        "authors": [
+          "Ilmun Kim",
+          "Aaditya Ramdas",
+          "Aarti Singh",
+          "Larry Wasserman"
+        ],
+        "year": 2021,
+        "doi": "10.1214/20-aos1962",
+        "venue": "The Annals of Statistics",
+        "publication_type": "journal_article"
+      },
+      "specific_questions": [
+        "出版社提交的 Crossref 元数据提供四位完整作者；原书目中的 and L. Wasserman 为署名解析问题。Project Euclid 网页本次未提供可读正文，不宣称已核实全文。",
+        "The snapshot stores 'and L. Wasserman' as a name. Check the complete publisher byline and use reviewed_authors_json rather than editing the source facts."
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_e4036623f4378f05",
+      "candidate_ids": [
+        "aarti_singh_bd37f40b3f1251a4f972"
+      ],
+      "title": "Near-optimal discrete optimization for experimental design: a regret minimization approach",
+      "suggested_metadata": {
+        "title": "Near-optimal discrete optimization for experimental design: a regret minimization approach",
+        "authors": [
+          "Allen-Zhu, Zeyuan",
+          "Li, Yuanzhi",
+          "Singh, Aarti",
+          "Wang, Yining"
+        ],
+        "year": 2021,
+        "doi": "10.1007/s10107-019-01464-2",
+        "venue": "Mathematical Programming",
+        "publication_type": "journal_article"
+      },
+      "specific_questions": [
+        "The public DBLP bibliography reports an ORCID conflict. Neither ORCID nor every record in that bibliography is assumed to belong to this professor.",
+        "出版记录在线日期 2020-01-10、卷期日期 2021-03；主年份按卷期取 2021，均在评估窗口，不得排除遗漏或重复计为两篇。",
+        "ICML 2017 与期刊版标题不同，保持独立出版身份，旧会议标题不是自动等价别名。"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_9fd3395611dfbe43",
+      "candidate_ids": [
+        "aarti_singh_3e5663ddd391196d3e57"
+      ],
+      "title": "PeerReview4All: Fair and Accurate Reviewer Assignment in Peer Review",
+      "suggested_metadata": {
+        "title": "PeerReview4All: Fair and Accurate Reviewer Assignment in Peer Review",
+        "authors": [
+          "Ivan Stelmakh",
+          "Nihar Shah",
+          "Aarti Singh"
+        ],
+        "year": 2021,
+        "doi": null,
+        "venue": "Journal of Machine Learning Research",
+        "publication_type": "journal_article"
+      },
+      "specific_questions": [
+        "Official JMLR record reports volume 22(163), 2021. Earlier ALT 2019 and arXiv 2018 dates describe other versions."
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_935107274a48d4b9",
+      "candidate_ids": [
+        "aarti_singh_12fd44c5ba6b8797694e"
+      ],
+      "title": "Prior and Prejudice: The Novice Reviewers’ Bias against Resubmissions in Conference Peer Review",
+      "suggested_metadata": {
+        "title": "Prior and Prejudice: The Novice Reviewers’ Bias against Resubmissions in Conference Peer Review",
+        "authors": [
+          "Ivan Stelmakh",
+          "Nihar B. Shah",
+          "Aarti Singh",
+          "Hal Daumé III"
+        ],
+        "year": 2021,
+        "doi": "10.1145/3449149",
+        "venue": "Proceedings of the ACM on Human-Computer Interaction 5, CSCW1, Article 75",
+        "publication_type": "journal_article"
+      },
+      "specific_questions": [
+        "出版类型有差异：以正式出版记录裁决，不将会议展示和期刊文章混为同一类型。",
+        "NSF 官方仓储的 ACM 引用标为 PACM HCI 期刊文章；原候选为 conference_paper，需裁决出版类型。DOI 页面本次工具不可读，完整题名由仓储引用提供。",
+        "Crossref 本次保存的 title 字段只有短题名 Prior and Prejudice；完整题名见 NSF 仓储引用，不将短题名自动批准为别名。",
+        "The NSF public repository's ACM citation reports Proc. ACM Hum.-Comput. Interact. 5, CSCW1, Article 75, April 2021. DOI publisher page was not readable by web tooling. Check journal versus conference classification without changing candidate labels."
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_bf2cfae28a03958d",
+      "candidate_ids": [
+        "aarti_singh_9766199e305944fc3c79"
+      ],
+      "title": "Integrating Rankings into Quantized Scores in Peer Review",
+      "suggested_metadata": {
+        "title": "Integrating Rankings into Quantized Scores in Peer Review",
+        "authors": [
+          "Yusha Liu",
+          "Yichong Xu",
+          "Nihar B. Shah",
+          "Aarti Singh"
+        ],
+        "year": 2022,
+        "doi": null,
+        "venue": "Transactions on Machine Learning Research",
+        "publication_type": "journal_article"
+      },
+      "specific_questions": [
+        "官方 TMLR 文稿首页标为 Published in TMLR (09/2022)，书目为 October 2022；年份一致但月份需核对。论坛 Kb1lb0uSLa 读取失败，不能声称论坛接受记录已取到；ICLR workshop 另行核查，不新增未知版本。",
+        "The official TMLR PDF indexed by the web service supplies this reviewed-on URL. Forum read returned an internal error; no API acceptance metadata or human confirmation is claimed."
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_16e1e72db8cc2137",
+      "candidate_ids": [
+        "aarti_singh_1de0741cb3df604a5174"
+      ],
+      "title": "Two-Sample Testing on Ranked Preference Data and the Role of Modeling Assumptions",
+      "suggested_metadata": {
+        "title": "Two-Sample Testing on Ranked Preference Data and the Role of Modeling Assumptions",
+        "authors": [
+          "Charvi Rastogi",
+          "Sivaraman Balakrishnan",
+          "Nihar B. Shah",
+          "Aarti Singh"
+        ],
+        "year": 2022,
+        "doi": null,
+        "venue": "Journal of Machine Learning Research",
+        "publication_type": "journal_article"
+      },
+      "specific_questions": [
+        "原书目题名与官方题名不同：核对后更正，旧题名别名需单独人工批准。",
+        "存在会议与期刊等不同正式版本：保留独立出版身份，关联不是合并许可。",
+        "JMLR 正式题名是 Ranked Preference Data，而教授书目写 Pairwise Comparison Data；核对题名更正与别名。ISIT 2020 版本保留独立身份。",
+        "The publisher title agrees with the related preprint but differs from the professor's journal claim. Human approval is needed before adding a formal title alias. The ISIT 2020 publication must remain separate."
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_53545e902b828454",
+      "candidate_ids": [
+        "aarti_singh_4ddb8e5f91001fb26d7b"
+      ],
+      "title": "Artificial intelligence for materials research at extremes",
+      "suggested_metadata": {
+        "title": "Artificial intelligence for materials research at extremes",
+        "authors": [
+          "Maruyama, B.",
+          "Hattrick-Simpers, J.",
+          "Musinski, W.",
+          "Graham-Brady, L.",
+          "Li, K.",
+          "Hollenbach, J.",
+          "Singh, A.",
+          "Taheri, M. L."
+        ],
+        "year": 2022,
+        "doi": "10.1557/s43577-022-00466-4",
+        "venue": "MRS Bulletin",
+        "publication_type": "review"
+      },
+      "specific_questions": [
+        "出版类型有差异：以正式出版记录裁决，不将会议展示和期刊文章混为同一类型。",
+        "出版社原始类型为 Mrs Bulletin Review；建议统一为 review，而非从题名或邀请说明推断研究论文。原候选 journal_article 保留，人工裁决更细的类型。"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_648dd880ca898dad",
+      "candidate_ids": [
+        "aarti_singh_5b1b7e649b707aa45523"
+      ],
+      "title": "Evidential Reasoning with Expert-Guided Machine Learning",
+      "suggested_metadata": {
+        "title": "Evidential Reasoning with Expert-Guided Machine Learning",
+        "authors": [
+          "X. Ding",
+          "G. Atulya",
+          "A. Singh",
+          "A. Davis",
+          "and S. Fazzio"
+        ],
+        "year": 2020,
+        "doi": null,
+        "venue": "NeurIPS workshop on Human And Machine in-the-Loop Evaluation and Learning Strategies, HAMLETS, 2020.",
+        "publication_type": "workshop_paper"
+      },
+      "specific_questions": [
+        "尚未取得正式出版物的完整论文级元数据：核对归档全文、完整署名、类型与年份。",
+        "The linked OpenReview PDF endpoint was observed as a challenge HTML page. Its contents were not parsed as publication metadata."
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_cd66b5a78fc7e8df",
+      "candidate_ids": [
+        "aarti_singh_237b0f1a688d14493b0f"
+      ],
+      "title": "Gaussian Processes for Episodic Experimental Design",
+      "suggested_metadata": {
+        "title": "Gaussian Processes for Episodic Experimental Design",
+        "authors": [
+          "Ari Fiorino",
+          "Ojash Neopane",
+          "Aarti Singh"
+        ],
+        "year": 2022,
+        "doi": null,
+        "venue": "ICML 2022 Workshop on Adaptive Experimental Design and Active Learning in the Real World",
+        "publication_type": "workshop_paper"
+      },
+      "specific_questions": [
+        "This exact seven-page workshop paper link was followed from the current professor bibliography using web tooling. It is a supplemental reference link, not a PDF Resolver result or human-confirmed label.",
+        "官方七页 workshop 文稿首页提供完整署名和 CMU 机构。保留 workshop 分类，不升级为主会议论文。"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_ddc7a32bb9c172d3",
+      "candidate_ids": [
+        "aarti_singh_85fa12e0f0cc629d72c2"
+      ],
+      "title": "Threshold Bandit Problem with Link Assumption between Pulls and Duels",
+      "suggested_metadata": {
+        "title": "Threshold Bandit Problem with Link Assumption between Pulls and Duels",
+        "authors": [
+          "Keshav Narayan",
+          "Aarti Singh"
+        ],
+        "year": 2022,
+        "doi": null,
+        "venue": "ICML 2022 Complex Feedback in Online Learning workshop",
+        "publication_type": "workshop_paper"
+      },
+      "specific_questions": [
+        "尚未取得正式出版物的完整论文级元数据：核对归档全文、完整署名、类型与年份。",
+        "日程支持署名和报告/海报展示，但未提供归档全文。不能仅因有报告而确认 research paper 类型。",
+        "Official ICML 2022 workshop schedule names Keshav Narayan and Aarti Singh for this contribution. The schedule reports talks and posters, not a linked full paper or archival publication. Keep type and evidence under human review."
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_60a204d7a03dc0f2",
+      "candidate_ids": [
+        "aarti_singh_c768701927dbdac9e13d"
+      ],
+      "title": "A Large Scale Randomized Controlled Trial on Herding in Peer-Review Discussions",
+      "suggested_metadata": {
+        "title": "A Large Scale Randomized Controlled Trial on Herding in Peer-Review Discussions",
+        "authors": [
+          "I. Stelmakh",
+          "C. Rastogi",
+          "N. Shah",
+          "A. Singh",
+          "H. Daume III"
+        ],
+        "year": 2022,
+        "doi": null,
+        "venue": "Peer Review Congress, 2022.",
+        "publication_type": "unknown"
+      },
+      "specific_questions": [
+        "尚未取得正式出版物的完整论文级元数据：核对归档全文、完整署名、类型与年份。",
+        "Official congress program contains abstracts and cites this work; no full 2022 research-paper publication is established. Publisher citation reports a separate PLOS ONE 2023 journal version. Do not assign that DOI/year to the 2022 congress claim."
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "group_id": "publication_68483a461d2a03d6",
+      "candidate_ids": [
+        "aarti_singh_67aa6a6fbe1ad8977178"
+      ],
+      "title": "Employing Artificial Intelligence to Accelerate Development and Implementation of Materials and Manufacturing Innovations",
+      "suggested_metadata": {
+        "title": "Employing Artificial Intelligence to Accelerate Development and Implementation of Materials and Manufacturing Innovations",
+        "authors": [],
+        "year": 2022,
+        "doi": null,
+        "venue": "The Minerals, Metals & Materials Society (TMS) study, 2022.",
+        "publication_type": "other"
+      },
+      "specific_questions": [
+        "尚未取得正式出版物的完整论文级元数据：核对归档全文、完整署名、类型与年份。",
+        "原记录缺少作者，不能把出版社、报告组织或贡献者当成论文作者。"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    }
+  ],
+  "preprint_reviews": [
+    {
+      "candidate_id": "aarti_singh_0af1f6fd7ef61c3e388e",
+      "title": "Classification accuracy as a proxy for two sample testing",
+      "year": 2016,
+      "authors": [
+        "Kim, Ilmun",
+        "Ramdas, Aaditya",
+        "Singh, Aarti",
+        "Wasserman, Larry"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "candidate_id": "aarti_singh_8f407c19fda06846b792",
+      "title": "PeerReview4All: Fair and Accurate Reviewer Assignment in Peer Review",
+      "year": 2018,
+      "authors": [
+        "Stelmakh, Ivan",
+        "Shah, Nihar B.",
+        "Singh, Aarti"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "candidate_id": "aarti_singh_4a5551aab654841295b5",
+      "title": "Thresholding Bandit Problem with Both Duels and Pulls",
+      "year": 2019,
+      "authors": [
+        "Xu, Yichong",
+        "Chen, Xi",
+        "Singh, Aarti",
+        "Dubrawski, Artur"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "candidate_id": "aarti_singh_ba060aef591086cb8943",
+      "title": "Zeroth Order Non-convex optimization with Dueling-Choice Bandits",
+      "year": 2019,
+      "authors": [
+        "Xu, Yichong",
+        "Joshi, Aparna",
+        "Singh, Aarti",
+        "Dubrawski, Artur"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "candidate_id": "aarti_singh_688d288050177a06e9b4",
+      "title": "Preference-based Reinforcement Learning with Finite-Time Guarantees",
+      "year": 2020,
+      "authors": [
+        "Xu, Yichong",
+        "Wang, Ruosong",
+        "Yang, Lin F.",
+        "Singh, Aarti",
+        "Dubrawski, Artur"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "candidate_id": "aarti_singh_4e095abd666f545a86dd",
+      "title": "Smooth Bandit Optimization: Generalization to H\\\"older Space",
+      "year": 2020,
+      "authors": [
+        "Liu, Yusha",
+        "Wang, Yining",
+        "Singh, Aarti"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "candidate_id": "aarti_singh_89bc8ea4a5960949d366",
+      "title": "Two-Sample Testing on Ranked Preference Data and the Role of Modeling Assumptions",
+      "year": 2020,
+      "authors": [
+        "Rastogi, Charvi",
+        "Balakrishnan, Sivaraman",
+        "Shah, Nihar B.",
+        "Singh, Aarti"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "candidate_id": "aarti_singh_00b908ab65b760554c70",
+      "title": "Best Arm Identification under Additive Transfer Bandits",
+      "year": 2021,
+      "authors": [
+        "Neopane, Ojash",
+        "Ramdas, Aaditya",
+        "Singh, Aarti"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "candidate_id": "aarti_singh_3b12df37fa2d24897622",
+      "title": "Complete Policy Regret Bounds for Tallying Bandits",
+      "year": 2022,
+      "authors": [
+        "Malik, Dhruv",
+        "Li, Yuanzhi",
+        "Singh, Aarti"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    },
+    {
+      "candidate_id": "aarti_singh_fb173a3c40ee7cdb141e",
+      "title": "Integrating Rankings into Quantized Scores in Peer Review",
+      "year": 2022,
+      "authors": [
+        "Liu, Yusha",
+        "Xu, Yichong",
+        "Shah, Nihar B.",
+        "Singh, Aarti"
+      ],
+      "human_review": {
+        "review_status": "candidate",
+        "ownership": "uncertain",
+        "inclusion_decision": "pending",
+        "canonical_group_id": "",
+        "reviewed_publication_type": "",
+        "reviewed_title": "",
+        "reviewed_authors_json": "",
+        "reviewed_year": "",
+        "reviewed_doi": "",
+        "reviewed_venue": "",
+        "reviewer": "",
+        "reviewed_at": "",
+        "evidence_urls_json": "",
+        "identity_checked": "",
+        "metadata_checked": "",
+        "type_checked": "",
+        "version_checked": "",
+        "review_notes": "",
+        "use_suggested_metadata": false
+      }
+    }
+  ]
+}

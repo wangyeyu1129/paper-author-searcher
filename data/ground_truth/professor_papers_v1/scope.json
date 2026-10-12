@@ -1,0 +1,55 @@
+{
+  "dataset_id": "professor_papers_2020_2022_v1",
+  "dataset_schema_version": 1,
+  "created_date": "2026-10-11",
+  "year_start": 2020,
+  "year_end": 2022,
+  "complete_positive_list": false,
+  "collection_independence": "Official personal bibliographies and official publication metadata only. No Resolver, Collector, ownership, PDF or performance run outputs are used as reference answers.",
+  "professors": [
+    {
+      "professor_id": "emma_brunskill",
+      "name": "Emma Brunskill",
+      "university": "Stanford University",
+      "department": "Computer Science",
+      "identity_source_url": "https://cs.stanford.edu/people/ebrun/",
+      "bibliography_url": "https://cs.stanford.edu/people/ebrun/publications.html",
+      "dblp_reference_url": "https://dblp.org/pid/27/1277",
+      "identity_review_status": "candidate",
+      "selection_reason": "Public chronological bibliography; reinforcement learning and educational applications; bounded historical slice suitable for individual review.",
+      "identity_risks": []
+    },
+    {
+      "professor_id": "aarti_singh",
+      "name": "Aarti Singh",
+      "university": "Carnegie Mellon University",
+      "department": "Machine Learning Department",
+      "identity_source_url": "https://www.cs.cmu.edu/~aarti/",
+      "bibliography_url": "https://www.cs.cmu.edu/~aarti/pubs.html",
+      "dblp_reference_url": "https://dblp.org/pid/64/5328",
+      "identity_review_status": "candidate",
+      "selection_reason": "Public publication list; statistical and interactive machine learning; useful explicit same-name bibliography risk for human identity checking.",
+      "identity_risks": ["The public DBLP bibliography reports an ORCID conflict. Neither ORCID nor every record in that bibliography is assumed to belong to this professor."]
+    },
+    {
+      "professor_id": "jacob_steinhardt",
+      "name": "Jacob Steinhardt",
+      "university": "University of California, Berkeley",
+      "department": "Statistics and EECS",
+      "identity_source_url": "https://jsteinhardt.stat.berkeley.edu/",
+      "bibliography_url": "https://jsteinhardt.stat.berkeley.edu/publications/",
+      "dblp_reference_url": "https://dblp.org/pid/35/10625",
+      "identity_review_status": "candidate",
+      "selection_reason": "Personal bibliography provides machine-readable citations; robustness, language models and alignment; manageable historical publication window.",
+      "identity_risks": []
+    }
+  ],
+  "core_publication_types": ["conference_paper", "journal_article", "review"],
+  "extended_publication_types": ["preprint", "workshop_paper", "book_chapter"],
+  "excluded_publication_types": ["poster", "slides", "supplementary_material", "book", "proceedings", "dataset", "software", "editorial", "thesis", "blog", "other"],
+  "unknown_type_policy": "Remain candidate until reviewed; neither include nor exclude automatically.",
+  "version_policy": "Each formal publication/version has its own identity. Preprints are related versions, not additional core positives. Conference and journal versions stay separate unless a reviewer explicitly establishes an equivalent bibliographic record. Title equality alone never establishes version equivalence.",
+  "doi_policy": "Use only identifiers actually supplied by reference sources. Missing DOI remains null. Journal DOIs reported on preprint pages are related identifiers until a reviewer confirms their meaning.",
+  "coverage_policy": "This is a candidate pool, not a complete professor career bibliography. The human reviewer must audit missing venues, source failures, versions and scope before declaring a positive list complete.",
+  "default_annotation": {"review_status": "candidate", "ownership": "uncertain", "inclusion_decision": "pending", "annotation_status": "pending_human_review"}
+}

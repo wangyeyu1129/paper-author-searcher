@@ -89,9 +89,13 @@ class CrossrefPDFProvider(MetadataPDFProvider):
             if name:
                 authors.append(name)
         year = self._year(work)
+        venues = work.get('container-title') or []
+        if not isinstance(venues, list) or any(not isinstance(venue, str) for venue in venues):
+            raise SourceError('Crossref container titles must be a list of strings', error_type='malformed_response')
         identity = metadata_identity(paper, self.name, doi=work.get('DOI'), title=title, year=year, authors=authors)
         metadata = {'database': self.name, 'metadata_url': metadata_url, 'doi': work.get('DOI'),
-                    'title': title, 'metadata_year': year, 'metadata_authors': authors}
+                    'title': title, 'metadata_year': year, 'metadata_authors': authors,
+                    'metadata_venue': venues[0] if venues else None}
         candidates = []
         for link in work.get('link') or []:
             if not isinstance(link, dict) or str(link.get('content-type') or '').lower() != 'application/pdf':

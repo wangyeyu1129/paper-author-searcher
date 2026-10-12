@@ -1,0 +1,3865 @@
+{
+  "report_type": "offline_pdf_search_diagnostics",
+  "new_network_requests": 0,
+  "comparison": {
+    "before": {
+      "cohort_size": 100,
+      "cohort_fingerprint": "f3da025cc712c204015c82f6d3499e8bb2003c527114b3fa770f31b76bfc465c",
+      "metadata_fingerprint": "699697e6b3e652bb3c9a72873272cb7a336c5f6a79998ce5d6e299e6475dd508",
+      "verified_pdf_url_coverage": {
+        "numerator": 48,
+        "denominator": 100,
+        "rate": 0.48
+      },
+      "distinct_verified_urls": 63,
+      "download_attempted_papers": 48,
+      "valid_downloaded_file_coverage": {
+        "numerator": 47,
+        "denominator": 100,
+        "rate": 0.47
+      },
+      "content_confirmed_coverage": {
+        "numerator": 27,
+        "denominator": 100,
+        "rate": 0.27
+      },
+      "download_success_rate": {
+        "numerator": 47,
+        "denominator": 48,
+        "rate": 0.9791666666666666
+      },
+      "needs_review_ratio_among_valid_files": {
+        "numerator": 20,
+        "denominator": 47,
+        "rate": 0.425531914893617
+      },
+      "search_completion_rate": {
+        "numerator": 13,
+        "denominator": 100,
+        "rate": 0.13
+      },
+      "search_completion_definition": "configured_provider_status_v1",
+      "search_sufficiently_satisfied_rate": null,
+      "search_satisfaction_unknown_papers": 27,
+      "paper_search_satisfaction": [
+        {
+          "paper_key": "01d806f5277f7b0f54ccdea1448d6ca1da97c49ac361219c208233d7e479ec51",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "073d0bbcca11a2d8ba69cf91c6531b7ace7d337c74aa650883555fee07cae81d",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "075527e7b434cb38143169053503cfcf09013d0483282de9f0edfc42e3135366",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "076a1f4df5fa95f50aeabc643c74f3812b7a43c33c289fd3221685c267fb9f02",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "083c45afa807fc39eec747d1f51283a68686c3e9a9cbb260feafbfe3801722cb",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "0a41bbcd01567a31d803f2e520abe0cff01dbb605955fe045b6c94be6638913e",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "0e4a512e0ce2547f281abb21707541a6465d169fd0868720cf708caded05aa9c",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "0eb92378b7f552dc6b423979e9c601c48a0d5f17a925be390fc8e1de08144496",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "139733a56df429524f3a8882c9966b9a2229467ecce9543f873e00a44ae20b02",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "17fa7c369fad5038c79a712473495fa3c8fde9ea6ac6ca36a350b89f93ebcaae",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "197ac1a355fc81fae348b700f3e1fdfa424ba4c38fd26ab0da76c72ba1af68af",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "1a9f62295cfa18ebc3d67e7090677b9183fc7d0b7a3e805ece927ba5ea8e4721",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "1d304e3bccae4308df127f7d9be54eca0cc93f319f90fc1d3b1b1dd0b25c3d26",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "1d6f08cd9d8d9445ac17760a6d35a19b023c39e60543f446a0b24b24ea37ec59",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "1dd2743b035299c02ffd3215a55cc92bda9c335ea23f42c3646be4069eda20f0",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "274de10ababdb4f7c784c980675af42cfdab618b20681f4e433d78177ca10f96",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "28fe1cab9fde9dc13f3dba66d3d7ed074fcda2db903111391455f104d91e93ed",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "29c3428719ff1dad8541d1ab0fb40b7929072ca5b2abd898bab0620577a1517c",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "2aa9f89e4c617d9b2c179b0fad2d2b6973839aa8fd6b6ebd67d6a1510763af79",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "31a0ccf38ee965a15d6d17786c654dc76b01057b1285e10268b80d2f405bfef9",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "334c0ecb749ece266393b6bfbab78950d2933da4c17a44a271f04d6cd2bb39cd",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "3426af264e50e9607f9b86143f7598bf6b1b41802df4d1f5c3adcff5b9e617bb",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "3457da522f0a65ad0a9e13e72b322f635e8b0d507b0a6ce235e4efec506722ee",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "36bfbd71363e2cb9955ef5cd599cee3b4c2934cc585fa5db7959058189c179da",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "377372ea21816435616142228833b8d52e87e6d7841939b0b4aee21b1c9b6909",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "385ae0518a96fa64b38bec4a73e8cca612a8b33461c8668e5ac9fe54da84fb44",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "39ae3d71d2a587e98afa6b3af06b9bd8f60e68527616343856496239fc265b6c",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "3b52d4788f23432ebbe46e3a40c2315ba0598630ce9733b806dbfbc1d40be2af",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "3bbb06c38b71f3eaf76ab94f33724e8fcb51654c245ec98d9424d2eedddc88e0",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "3d17c1ea172d31c62143d0d3182f066a03244fa7ad7d079a565a8bc1235dff84",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "40c3b28feebfbb11271d3f5218ea4374f40c2fb57b55d43f7a1cc10ca99dd5e5",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "4189b5b484ee8d67e698dbdb7165603413fea88d683555344c369438524cbf41",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "426d85692011bbc908e18448311a2f43b8234f72b84e9025928e003ba32c81e9",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "42e9fc591b95862c867f0138ea1623578e823bf87651bc5024a588c5b90c1b93",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "44b972d124ab737a4a037d33078b7fe72a0f62572ab0c1b0e7ddf2bb48405dff",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "484ae91d323c401d1cbbf1548c5808812e433716396993b860381c4541a80c61",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "48ef3dfc4d64c181a47015c05054e0bcd6400508c831af369bbbb87dd44ac5e4",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "58f4706abdd2402ae4a5ea3b77a4a21221036977da365ee2250862bd2c767fd1",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "592cf935c69d3e7f0ddba9c7e3f3cee7a1f8e0ecaf0c5e80bfbeaf027fd08388",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "5af93fa5a71e76ad20914e2c13a7e3c92158382a587b71133869ae9d4c255a03",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "6034d23cf89c02a4553722a0c6bd5f8261da2627098b883575345a28fb3969c2",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "61709aa4aac50d3e15e66fd4e172055f16a1afc21b73aba56fa40f8e3e476f1b",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "6a38cd2aee9a62c17322a50e56def1aa388e717b809d7ed4b7299da4c4bd235c",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "6c422e8329a27d82883ff50a991df78146dbcec45bb0af633382f5188f67ae3c",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "6d1c5d6c07adc9a2564c77c2dfde188110380e59e53e78d2bce6e14e494b8e80",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "7355f024426056782519c0c07018e22bcfa460f814e7af85ef9e571cbf65fcab",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "7ebdfb44d7aa821a1421556ec97337d4e13b9c1f1ed33a1f69eeceb07ab31b90",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "7f42a9eee83ca6cd33efb28787cb07e8fcda33a95fc842fc42f2b9b71e1bdad9",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "81a94975dd3b58833b8340aec8cb03977609d6b0befb8567792a2b9e30537b52",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "8793f8a4b968794a1515b7ecced3723670ef76427e89c8289f58af970c7ac96a",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "899a69e0d1e12cb15a573a1dcc7e549f30e28ff90b6de5f60fd979815d5d7a98",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "8b2ff82e3c376f1ccf959b761df67d6457144d9bdd984f8c183ad5f76bff9f80",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "8f89adfb0be5c46c772dcf99c79c5196114f49f30d8e26aee3d605e7be51ce28",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "93f12b116f49eeb16feecc3197708f1f48a555d141a556897f1155f3a95a664f",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "9821f71321c341e6d9f68dbe47d4945d57160e5889089c0ed09e00501c37613a",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "99adc5670a8ebcb0150b72fd37381db83060eca598b33f89c2334ce9d8a8dcca",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "9c2cafe0bc07cac0a9e173f7c865f7aba58d602268a956081b5f7f9ce581f5b8",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "9d4fe3475439a280e4418917a6f56c037e5fe317a3ddf0afb20a4a3ef347bffe",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "9e6add737900740056905bc98b79a521153ef431813e029996d6587dbc891105",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "9f78af8c4f968a8fd4dc6d8813af18b95424ef02dc014e770f416bded2fb4922",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "a2203a3e123e39629fb455914fa9edb689e9ca70b766364e95802b796f466b37",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "a310793c7168540125802713b223e18ed82b6c3845e8a0f290b159144ddab027",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "a570b844d29bd59c51a3cc7b8cb18ec5b7f4732cee4e59b2a1d4de391c500a30",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "a923f628eb5689c23d7e0f434e3402e240f2bfae86d853958851fc9c2d3d3205",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "ac2194e156647c2a1e692f3859a2412021008cf23f88327b42052ea0e750b5d2",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "ad4c3f17df4f14b6581e529f253922da98202944560da87ef6d469a273b14028",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "afdcf193c029c752f55e4f1e4170076bff4da71effc763a70724394ac8f27206",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "b2bcfcef78ef9db62f7963dda81069f21b37bf7f9581126e4c2ae68912367fa9",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "b39c65a683a320860f65fa68b07025151f595767e38d6ec9048f019625383dae",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "baf76fd38debc3dd0cbe1b722403e6c634d44b6d1259a5563892ca484765dd2b",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "be0ccd26fe8aaa434bd24d7e27f24f2cbe32ba199b9fc9aec8cac118ee9701ca",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "bf368beb7e25d7e9298475ec15776cea0ff2d9ac87b129f79c9520ccf952ed33",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "bf899cd5ded721ef89fe5df53793ff125e2e3470f22df26cf158c541b2abe3a9",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "bfbe1a2c37c54dc06c6d5b8dba11b09ba7015cc23024647706f8ebb8248aed42",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "bfdf69c42c2c99d381c348abdd53bb849a729b8c5e5e457482e92f06feeb9c7a",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "c22f67e4ebe6c965138aaf12b5dd94ceaff576008fd68ca904e95fd950db5b63",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "c3785a84ab31a31587c256adaccd3787f6046bf2142ef7c0b050358d52968ce8",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "c38891dc512ffa9ee2f6b1253058be1985ce2b2bf3e383778d6c2aacd02972a5",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "cada08bba9d77a9910f3a314a74fb562d8799d7e822ea8ca6f77746a876fc5f0",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "cb98fcf1ec898e773bbfc3fa35527b21354e1370e3c4cfecf09d4e04957372a4",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "cc0d95d4aa102f0b33e8b1c104b12d3d85ae9732e738e64bf224838394667866",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "cce9f82d6e9f1f00f7ea9da2a2eaf9cfd8cc5b15d370351a4fca07033b2b9c41",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "cfac535787786a1b07dd1b2e3cc10567830ffe0e1917fade60aaef4d8adb4ef0",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "d2fbe4b4bbf3639371bd224cf3d6000609367ec8a9131f4e4da50c462c15a1cb",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "d9b580f3ad09eb0ea543479fbb0e72530e540f5361ec901740b8c258184b1c03",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "dd826eff8e94e7661431e4fc04c7b827e2aa1ab1dcbeafcfbaa217bb0a3c265a",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "defb1b2e66152e30e791a45060d392a91e8f4f2c6ad8984be9b5b1461d4cf559",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "e292f63f2c44dde699c818bcc8174ebc9d539c9525b152b15ddee4265f3eaa42",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "e32189a6d75f5c787940c7d66f5491fed6179b3e58711970ac78a1c90e7bf8c1",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "e619b1a34ef21d5b2af3fda6601fee67e88d4d87d239f15b2e6806ecb2b64968",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "e9895d0e3fed61d5d4dc6fa8141c25739cecef11ed074cf0316545ac01ef9e82",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "eb7ca457d814ade3e5a62e5980e427141a72d9f1cad13c49833bc7cfdc6e9ed1",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "ef642af2c15d1b7e325a2354b84ff1e1e01b178b79e5233591f9ac85745f2355",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "f14a136d296eae525ecfb0426d3ddfa77ce0c3ea1b8c1f3c6c2e0f7ced2d92c1",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "f44a4cd522cdd914bc2b19f5351c1d2c524f473316be8b5fe8b871d6afdef245",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "f559dd25b477b89b4f0106f726bb3e6610b99e9b6dfa7a6e8388739ca464478c",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "f64ce4cea91e55117e590b9d5805b32c83550d4690c6d1653357c3a289171a9b",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "f815ae31e58b306690cb03069d18d75301fb1b26b78439c21a0752c1bf4612f7",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "fc58985a58e9fda3b2a6ba1442fdb98bc6f7778964ecc947b88fbb119def0ac6",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "fe34f38dad1bce873a2e2c7b0fc52e991d795e5aa0510d09673f0f0180f44b2d",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        }
+      ],
+      "document_type_observations": {
+        "unknown": 47
+      },
+      "full_text_confirmed_coverage": null,
+      "content_needs_review_papers": 20,
+      "failed_without_valid_file_papers": 1,
+      "source_verified_paper_contributions": {
+        "journal_catalog": 2,
+        "public_pages": 46,
+        "existing_metadata": 19,
+        "semantic_scholar": 17,
+        "openalex": 19,
+        "unpaywall": 19,
+        "crossref": 11,
+        "arxiv": 3
+      },
+      "failure_observation_counts": {
+        "access_restricted": 30,
+        "metadata_record_not_found": 5,
+        "rate_limited": 64,
+        "search_incomplete": 77,
+        "source_identity_mismatch": 41,
+        "source_query_failed": 87,
+        "source_temporarily_deferred": 19,
+        "not_pdf_response": 25,
+        "redirect_failure": 9,
+        "insufficient_pdf_identity_evidence": 16,
+        "network_error": 9,
+        "server_error": 1,
+        "url_not_found": 7,
+        "no_public_pdf_found_in_queried_sources": 4
+      },
+      "file_checks": [
+        {
+          "paper_key": "5af93fa5a71e76ad20914e2c13a7e3c92158382a587b71133869ae9d4c255a03",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "8f89adfb0be5c46c772dcf99c79c5196114f49f30d8e26aee3d605e7be51ce28",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "bfdf69c42c2c99d381c348abdd53bb849a729b8c5e5e457482e92f06feeb9c7a",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "e9895d0e3fed61d5d4dc6fa8141c25739cecef11ed074cf0316545ac01ef9e82",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "e292f63f2c44dde699c818bcc8174ebc9d539c9525b152b15ddee4265f3eaa42",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "274de10ababdb4f7c784c980675af42cfdab618b20681f4e433d78177ca10f96",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "ac2194e156647c2a1e692f3859a2412021008cf23f88327b42052ea0e750b5d2",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "0a41bbcd01567a31d803f2e520abe0cff01dbb605955fe045b6c94be6638913e",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "01d806f5277f7b0f54ccdea1448d6ca1da97c49ac361219c208233d7e479ec51",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "484ae91d323c401d1cbbf1548c5808812e433716396993b860381c4541a80c61",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "e619b1a34ef21d5b2af3fda6601fee67e88d4d87d239f15b2e6806ecb2b64968",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "61709aa4aac50d3e15e66fd4e172055f16a1afc21b73aba56fa40f8e3e476f1b",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "076a1f4df5fa95f50aeabc643c74f3812b7a43c33c289fd3221685c267fb9f02",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "be0ccd26fe8aaa434bd24d7e27f24f2cbe32ba199b9fc9aec8cac118ee9701ca",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": false,
+          "evidence": "No local file/checksum recorded"
+        },
+        {
+          "paper_key": "c3785a84ab31a31587c256adaccd3787f6046bf2142ef7c0b050358d52968ce8",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "7f42a9eee83ca6cd33efb28787cb07e8fcda33a95fc842fc42f2b9b71e1bdad9",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "28fe1cab9fde9dc13f3dba66d3d7ed074fcda2db903111391455f104d91e93ed",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "31a0ccf38ee965a15d6d17786c654dc76b01057b1285e10268b80d2f405bfef9",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "cb98fcf1ec898e773bbfc3fa35527b21354e1370e3c4cfecf09d4e04957372a4",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "bfbe1a2c37c54dc06c6d5b8dba11b09ba7015cc23024647706f8ebb8248aed42",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "cfac535787786a1b07dd1b2e3cc10567830ffe0e1917fade60aaef4d8adb4ef0",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "9821f71321c341e6d9f68dbe47d4945d57160e5889089c0ed09e00501c37613a",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "c38891dc512ffa9ee2f6b1253058be1985ce2b2bf3e383778d6c2aacd02972a5",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "f64ce4cea91e55117e590b9d5805b32c83550d4690c6d1653357c3a289171a9b",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "e32189a6d75f5c787940c7d66f5491fed6179b3e58711970ac78a1c90e7bf8c1",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "b39c65a683a320860f65fa68b07025151f595767e38d6ec9048f019625383dae",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "48ef3dfc4d64c181a47015c05054e0bcd6400508c831af369bbbb87dd44ac5e4",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "a2203a3e123e39629fb455914fa9edb689e9ca70b766364e95802b796f466b37",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "b2bcfcef78ef9db62f7963dda81069f21b37bf7f9581126e4c2ae68912367fa9",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "bf368beb7e25d7e9298475ec15776cea0ff2d9ac87b129f79c9520ccf952ed33",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "899a69e0d1e12cb15a573a1dcc7e549f30e28ff90b6de5f60fd979815d5d7a98",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "39ae3d71d2a587e98afa6b3af06b9bd8f60e68527616343856496239fc265b6c",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "42e9fc591b95862c867f0138ea1623578e823bf87651bc5024a588c5b90c1b93",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "6c422e8329a27d82883ff50a991df78146dbcec45bb0af633382f5188f67ae3c",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "44b972d124ab737a4a037d33078b7fe72a0f62572ab0c1b0e7ddf2bb48405dff",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "8b2ff82e3c376f1ccf959b761df67d6457144d9bdd984f8c183ad5f76bff9f80",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "3457da522f0a65ad0a9e13e72b322f635e8b0d507b0a6ce235e4efec506722ee",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "1d304e3bccae4308df127f7d9be54eca0cc93f319f90fc1d3b1b1dd0b25c3d26",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "7355f024426056782519c0c07018e22bcfa460f814e7af85ef9e571cbf65fcab",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "0e4a512e0ce2547f281abb21707541a6465d169fd0868720cf708caded05aa9c",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "f815ae31e58b306690cb03069d18d75301fb1b26b78439c21a0752c1bf4612f7",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "dd826eff8e94e7661431e4fc04c7b827e2aa1ab1dcbeafcfbaa217bb0a3c265a",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "defb1b2e66152e30e791a45060d392a91e8f4f2c6ad8984be9b5b1461d4cf559",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "9f78af8c4f968a8fd4dc6d8813af18b95424ef02dc014e770f416bded2fb4922",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "d2fbe4b4bbf3639371bd224cf3d6000609367ec8a9131f4e4da50c462c15a1cb",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "1dd2743b035299c02ffd3215a55cc92bda9c335ea23f42c3646be4069eda20f0",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "1a9f62295cfa18ebc3d67e7090677b9183fc7d0b7a3e805ece927ba5ea8e4721",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "3426af264e50e9607f9b86143f7598bf6b1b41802df4d1f5c3adcff5b9e617bb",
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        }
+      ],
+      "runs": [
+        {
+          "run_directory": "output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016",
+          "statistics": {
+            "total_papers": 352,
+            "processed_papers": 100,
+            "valid_pdf_papers": 48,
+            "unverified_only_papers": 16,
+            "not_found_papers": 36,
+            "skipped_ownership_papers": 94,
+            "not_processed_papers": 158,
+            "incomplete_search_papers": 87,
+            "distinct_verified_pdf_urls": 63,
+            "source_contributions": {
+              "existing_metadata": {
+                "candidate_urls": 45,
+                "verified_urls": 23,
+                "papers_with_valid_pdf": 19,
+                "errors": 0,
+                "query_status_counts": {
+                  "ok": 100
+                }
+              },
+              "openalex": {
+                "candidate_urls": 45,
+                "verified_urls": 23,
+                "papers_with_valid_pdf": 19,
+                "errors": 0,
+                "query_status_counts": {
+                  "ok": 100
+                }
+              },
+              "semantic_scholar": {
+                "candidate_urls": 32,
+                "verified_urls": 17,
+                "papers_with_valid_pdf": 17,
+                "errors": 44,
+                "query_status_counts": {
+                  "error": 39,
+                  "ok": 61
+                }
+              },
+              "crossref": {
+                "candidate_urls": 37,
+                "verified_urls": 11,
+                "papers_with_valid_pdf": 11,
+                "errors": 3,
+                "query_status_counts": {
+                  "ok": 100
+                }
+              },
+              "unpaywall": {
+                "candidate_urls": 43,
+                "verified_urls": 22,
+                "papers_with_valid_pdf": 19,
+                "errors": 3,
+                "query_status_counts": {
+                  "not_found": 3,
+                  "ok": 59,
+                  "not_applicable": 38
+                }
+              },
+              "arxiv": {
+                "candidate_urls": 10,
+                "verified_urls": 3,
+                "papers_with_valid_pdf": 3,
+                "errors": 0,
+                "query_status_counts": {
+                  "ok": 100
+                }
+              },
+              "journal_catalog": {
+                "candidate_urls": 2,
+                "verified_urls": 2,
+                "papers_with_valid_pdf": 2,
+                "errors": 0,
+                "query_status_counts": {
+                  "ok": 2,
+                  "not_applicable": 98
+                }
+              },
+              "public_pages": {
+                "candidate_urls": 158,
+                "verified_urls": 52,
+                "papers_with_valid_pdf": 46,
+                "errors": 400,
+                "query_status_counts": {
+                  "partial": 60,
+                  "ok": 14,
+                  "error": 26
+                }
+              }
+            },
+            "search_complete_for_processed_papers": false,
+            "coverage_note": "Counts describe processed saved entries and public-source observations, not all available PDFs.",
+            "provider_request_statistics": {
+              "semantic_scholar": {
+                "batch_requests": 1,
+                "individual_requests": 0,
+                "title_search_requests": 26,
+                "cooldown_skips": 17,
+                "authentication_skips": 0,
+                "work_cache_hits": 66,
+                "scope": "logical calls; HTTP retries are not included"
+              }
+            }
+          }
+        }
+      ],
+      "verified_paper_keys": [
+        "01d806f5277f7b0f54ccdea1448d6ca1da97c49ac361219c208233d7e479ec51",
+        "076a1f4df5fa95f50aeabc643c74f3812b7a43c33c289fd3221685c267fb9f02",
+        "0a41bbcd01567a31d803f2e520abe0cff01dbb605955fe045b6c94be6638913e",
+        "0e4a512e0ce2547f281abb21707541a6465d169fd0868720cf708caded05aa9c",
+        "1a9f62295cfa18ebc3d67e7090677b9183fc7d0b7a3e805ece927ba5ea8e4721",
+        "1d304e3bccae4308df127f7d9be54eca0cc93f319f90fc1d3b1b1dd0b25c3d26",
+        "1dd2743b035299c02ffd3215a55cc92bda9c335ea23f42c3646be4069eda20f0",
+        "274de10ababdb4f7c784c980675af42cfdab618b20681f4e433d78177ca10f96",
+        "28fe1cab9fde9dc13f3dba66d3d7ed074fcda2db903111391455f104d91e93ed",
+        "31a0ccf38ee965a15d6d17786c654dc76b01057b1285e10268b80d2f405bfef9",
+        "3426af264e50e9607f9b86143f7598bf6b1b41802df4d1f5c3adcff5b9e617bb",
+        "3457da522f0a65ad0a9e13e72b322f635e8b0d507b0a6ce235e4efec506722ee",
+        "39ae3d71d2a587e98afa6b3af06b9bd8f60e68527616343856496239fc265b6c",
+        "42e9fc591b95862c867f0138ea1623578e823bf87651bc5024a588c5b90c1b93",
+        "44b972d124ab737a4a037d33078b7fe72a0f62572ab0c1b0e7ddf2bb48405dff",
+        "484ae91d323c401d1cbbf1548c5808812e433716396993b860381c4541a80c61",
+        "48ef3dfc4d64c181a47015c05054e0bcd6400508c831af369bbbb87dd44ac5e4",
+        "5af93fa5a71e76ad20914e2c13a7e3c92158382a587b71133869ae9d4c255a03",
+        "61709aa4aac50d3e15e66fd4e172055f16a1afc21b73aba56fa40f8e3e476f1b",
+        "6c422e8329a27d82883ff50a991df78146dbcec45bb0af633382f5188f67ae3c",
+        "7355f024426056782519c0c07018e22bcfa460f814e7af85ef9e571cbf65fcab",
+        "7f42a9eee83ca6cd33efb28787cb07e8fcda33a95fc842fc42f2b9b71e1bdad9",
+        "899a69e0d1e12cb15a573a1dcc7e549f30e28ff90b6de5f60fd979815d5d7a98",
+        "8b2ff82e3c376f1ccf959b761df67d6457144d9bdd984f8c183ad5f76bff9f80",
+        "8f89adfb0be5c46c772dcf99c79c5196114f49f30d8e26aee3d605e7be51ce28",
+        "9821f71321c341e6d9f68dbe47d4945d57160e5889089c0ed09e00501c37613a",
+        "9f78af8c4f968a8fd4dc6d8813af18b95424ef02dc014e770f416bded2fb4922",
+        "a2203a3e123e39629fb455914fa9edb689e9ca70b766364e95802b796f466b37",
+        "ac2194e156647c2a1e692f3859a2412021008cf23f88327b42052ea0e750b5d2",
+        "b2bcfcef78ef9db62f7963dda81069f21b37bf7f9581126e4c2ae68912367fa9",
+        "b39c65a683a320860f65fa68b07025151f595767e38d6ec9048f019625383dae",
+        "be0ccd26fe8aaa434bd24d7e27f24f2cbe32ba199b9fc9aec8cac118ee9701ca",
+        "bf368beb7e25d7e9298475ec15776cea0ff2d9ac87b129f79c9520ccf952ed33",
+        "bfbe1a2c37c54dc06c6d5b8dba11b09ba7015cc23024647706f8ebb8248aed42",
+        "bfdf69c42c2c99d381c348abdd53bb849a729b8c5e5e457482e92f06feeb9c7a",
+        "c3785a84ab31a31587c256adaccd3787f6046bf2142ef7c0b050358d52968ce8",
+        "c38891dc512ffa9ee2f6b1253058be1985ce2b2bf3e383778d6c2aacd02972a5",
+        "cb98fcf1ec898e773bbfc3fa35527b21354e1370e3c4cfecf09d4e04957372a4",
+        "cfac535787786a1b07dd1b2e3cc10567830ffe0e1917fade60aaef4d8adb4ef0",
+        "d2fbe4b4bbf3639371bd224cf3d6000609367ec8a9131f4e4da50c462c15a1cb",
+        "dd826eff8e94e7661431e4fc04c7b827e2aa1ab1dcbeafcfbaa217bb0a3c265a",
+        "defb1b2e66152e30e791a45060d392a91e8f4f2c6ad8984be9b5b1461d4cf559",
+        "e292f63f2c44dde699c818bcc8174ebc9d539c9525b152b15ddee4265f3eaa42",
+        "e32189a6d75f5c787940c7d66f5491fed6179b3e58711970ac78a1c90e7bf8c1",
+        "e619b1a34ef21d5b2af3fda6601fee67e88d4d87d239f15b2e6806ecb2b64968",
+        "e9895d0e3fed61d5d4dc6fa8141c25739cecef11ed074cf0316545ac01ef9e82",
+        "f64ce4cea91e55117e590b9d5805b32c83550d4690c6d1653357c3a289171a9b",
+        "f815ae31e58b306690cb03069d18d75301fb1b26b78439c21a0752c1bf4612f7"
+      ],
+      "content_confirmed_paper_keys": [
+        "076a1f4df5fa95f50aeabc643c74f3812b7a43c33c289fd3221685c267fb9f02",
+        "1a9f62295cfa18ebc3d67e7090677b9183fc7d0b7a3e805ece927ba5ea8e4721",
+        "1d304e3bccae4308df127f7d9be54eca0cc93f319f90fc1d3b1b1dd0b25c3d26",
+        "1dd2743b035299c02ffd3215a55cc92bda9c335ea23f42c3646be4069eda20f0",
+        "274de10ababdb4f7c784c980675af42cfdab618b20681f4e433d78177ca10f96",
+        "31a0ccf38ee965a15d6d17786c654dc76b01057b1285e10268b80d2f405bfef9",
+        "3426af264e50e9607f9b86143f7598bf6b1b41802df4d1f5c3adcff5b9e617bb",
+        "42e9fc591b95862c867f0138ea1623578e823bf87651bc5024a588c5b90c1b93",
+        "44b972d124ab737a4a037d33078b7fe72a0f62572ab0c1b0e7ddf2bb48405dff",
+        "484ae91d323c401d1cbbf1548c5808812e433716396993b860381c4541a80c61",
+        "61709aa4aac50d3e15e66fd4e172055f16a1afc21b73aba56fa40f8e3e476f1b",
+        "6c422e8329a27d82883ff50a991df78146dbcec45bb0af633382f5188f67ae3c",
+        "7355f024426056782519c0c07018e22bcfa460f814e7af85ef9e571cbf65fcab",
+        "7f42a9eee83ca6cd33efb28787cb07e8fcda33a95fc842fc42f2b9b71e1bdad9",
+        "899a69e0d1e12cb15a573a1dcc7e549f30e28ff90b6de5f60fd979815d5d7a98",
+        "8f89adfb0be5c46c772dcf99c79c5196114f49f30d8e26aee3d605e7be51ce28",
+        "9821f71321c341e6d9f68dbe47d4945d57160e5889089c0ed09e00501c37613a",
+        "9f78af8c4f968a8fd4dc6d8813af18b95424ef02dc014e770f416bded2fb4922",
+        "ac2194e156647c2a1e692f3859a2412021008cf23f88327b42052ea0e750b5d2",
+        "b39c65a683a320860f65fa68b07025151f595767e38d6ec9048f019625383dae",
+        "bf368beb7e25d7e9298475ec15776cea0ff2d9ac87b129f79c9520ccf952ed33",
+        "bfdf69c42c2c99d381c348abdd53bb849a729b8c5e5e457482e92f06feeb9c7a",
+        "c38891dc512ffa9ee2f6b1253058be1985ce2b2bf3e383778d6c2aacd02972a5",
+        "dd826eff8e94e7661431e4fc04c7b827e2aa1ab1dcbeafcfbaa217bb0a3c265a",
+        "e32189a6d75f5c787940c7d66f5491fed6179b3e58711970ac78a1c90e7bf8c1",
+        "e9895d0e3fed61d5d4dc6fa8141c25739cecef11ed074cf0316545ac01ef9e82",
+        "f815ae31e58b306690cb03069d18d75301fb1b26b78439c21a0752c1bf4612f7"
+      ],
+      "metric_note": "Saved URL probes, parser decisions and current local size/SHA-256 checks. Content confirmation is automated, not human ground truth. Failure observations can overlap across runs."
+    },
+    "after": {
+      "cohort_size": 100,
+      "cohort_fingerprint": "f3da025cc712c204015c82f6d3499e8bb2003c527114b3fa770f31b76bfc465c",
+      "metadata_fingerprint": "699697e6b3e652bb3c9a72873272cb7a336c5f6a79998ce5d6e299e6475dd508",
+      "verified_pdf_url_coverage": {
+        "numerator": 50,
+        "denominator": 100,
+        "rate": 0.5
+      },
+      "distinct_verified_urls": 63,
+      "download_attempted_papers": 50,
+      "valid_downloaded_file_coverage": {
+        "numerator": 49,
+        "denominator": 100,
+        "rate": 0.49
+      },
+      "content_confirmed_coverage": {
+        "numerator": 44,
+        "denominator": 100,
+        "rate": 0.44
+      },
+      "download_success_rate": {
+        "numerator": 49,
+        "denominator": 50,
+        "rate": 0.98
+      },
+      "needs_review_ratio_among_valid_files": {
+        "numerator": 5,
+        "denominator": 49,
+        "rate": 0.10204081632653061
+      },
+      "search_completion_rate": {
+        "numerator": 7,
+        "denominator": 100,
+        "rate": 0.07
+      },
+      "search_completion_definition": "configured_provider_status_v1",
+      "search_sufficiently_satisfied_rate": {
+        "numerator": 35,
+        "denominator": 100,
+        "rate": 0.35
+      },
+      "search_satisfaction_unknown_papers": 9,
+      "paper_search_satisfaction": [
+        {
+          "paper_key": "01d806f5277f7b0f54ccdea1448d6ca1da97c49ac361219c208233d7e479ec51",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "073d0bbcca11a2d8ba69cf91c6531b7ace7d337c74aa650883555fee07cae81d",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "075527e7b434cb38143169053503cfcf09013d0483282de9f0edfc42e3135366",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "076a1f4df5fa95f50aeabc643c74f3812b7a43c33c289fd3221685c267fb9f02",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "083c45afa807fc39eec747d1f51283a68686c3e9a9cbb260feafbfe3801722cb",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "0a41bbcd01567a31d803f2e520abe0cff01dbb605955fe045b6c94be6638913e",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "0e4a512e0ce2547f281abb21707541a6465d169fd0868720cf708caded05aa9c",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "0eb92378b7f552dc6b423979e9c601c48a0d5f17a925be390fc8e1de08144496",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "139733a56df429524f3a8882c9966b9a2229467ecce9543f873e00a44ae20b02",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "17fa7c369fad5038c79a712473495fa3c8fde9ea6ac6ca36a350b89f93ebcaae",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "197ac1a355fc81fae348b700f3e1fdfa424ba4c38fd26ab0da76c72ba1af68af",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "1a9f62295cfa18ebc3d67e7090677b9183fc7d0b7a3e805ece927ba5ea8e4721",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "1d304e3bccae4308df127f7d9be54eca0cc93f319f90fc1d3b1b1dd0b25c3d26",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "1d6f08cd9d8d9445ac17760a6d35a19b023c39e60543f446a0b24b24ea37ec59",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "1dd2743b035299c02ffd3215a55cc92bda9c335ea23f42c3646be4069eda20f0",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "274de10ababdb4f7c784c980675af42cfdab618b20681f4e433d78177ca10f96",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "28fe1cab9fde9dc13f3dba66d3d7ed074fcda2db903111391455f104d91e93ed",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "29c3428719ff1dad8541d1ab0fb40b7929072ca5b2abd898bab0620577a1517c",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "2aa9f89e4c617d9b2c179b0fad2d2b6973839aa8fd6b6ebd67d6a1510763af79",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "31a0ccf38ee965a15d6d17786c654dc76b01057b1285e10268b80d2f405bfef9",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "334c0ecb749ece266393b6bfbab78950d2933da4c17a44a271f04d6cd2bb39cd",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "3426af264e50e9607f9b86143f7598bf6b1b41802df4d1f5c3adcff5b9e617bb",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "3457da522f0a65ad0a9e13e72b322f635e8b0d507b0a6ce235e4efec506722ee",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "36bfbd71363e2cb9955ef5cd599cee3b4c2934cc585fa5db7959058189c179da",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "377372ea21816435616142228833b8d52e87e6d7841939b0b4aee21b1c9b6909",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "385ae0518a96fa64b38bec4a73e8cca612a8b33461c8668e5ac9fe54da84fb44",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "39ae3d71d2a587e98afa6b3af06b9bd8f60e68527616343856496239fc265b6c",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "3b52d4788f23432ebbe46e3a40c2315ba0598630ce9733b806dbfbc1d40be2af",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "3bbb06c38b71f3eaf76ab94f33724e8fcb51654c245ec98d9424d2eedddc88e0",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "3d17c1ea172d31c62143d0d3182f066a03244fa7ad7d079a565a8bc1235dff84",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "40c3b28feebfbb11271d3f5218ea4374f40c2fb57b55d43f7a1cc10ca99dd5e5",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "4189b5b484ee8d67e698dbdb7165603413fea88d683555344c369438524cbf41",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "426d85692011bbc908e18448311a2f43b8234f72b84e9025928e003ba32c81e9",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "42e9fc591b95862c867f0138ea1623578e823bf87651bc5024a588c5b90c1b93",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "44b972d124ab737a4a037d33078b7fe72a0f62572ab0c1b0e7ddf2bb48405dff",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "484ae91d323c401d1cbbf1548c5808812e433716396993b860381c4541a80c61",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "48ef3dfc4d64c181a47015c05054e0bcd6400508c831af369bbbb87dd44ac5e4",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "58f4706abdd2402ae4a5ea3b77a4a21221036977da365ee2250862bd2c767fd1",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "592cf935c69d3e7f0ddba9c7e3f3cee7a1f8e0ecaf0c5e80bfbeaf027fd08388",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "5af93fa5a71e76ad20914e2c13a7e3c92158382a587b71133869ae9d4c255a03",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "6034d23cf89c02a4553722a0c6bd5f8261da2627098b883575345a28fb3969c2",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "61709aa4aac50d3e15e66fd4e172055f16a1afc21b73aba56fa40f8e3e476f1b",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "6a38cd2aee9a62c17322a50e56def1aa388e717b809d7ed4b7299da4c4bd235c",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "6c422e8329a27d82883ff50a991df78146dbcec45bb0af633382f5188f67ae3c",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "6d1c5d6c07adc9a2564c77c2dfde188110380e59e53e78d2bce6e14e494b8e80",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "7355f024426056782519c0c07018e22bcfa460f814e7af85ef9e571cbf65fcab",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "7ebdfb44d7aa821a1421556ec97337d4e13b9c1f1ed33a1f69eeceb07ab31b90",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "7f42a9eee83ca6cd33efb28787cb07e8fcda33a95fc842fc42f2b9b71e1bdad9",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "81a94975dd3b58833b8340aec8cb03977609d6b0befb8567792a2b9e30537b52",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "8793f8a4b968794a1515b7ecced3723670ef76427e89c8289f58af970c7ac96a",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "899a69e0d1e12cb15a573a1dcc7e549f30e28ff90b6de5f60fd979815d5d7a98",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "8b2ff82e3c376f1ccf959b761df67d6457144d9bdd984f8c183ad5f76bff9f80",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "8f89adfb0be5c46c772dcf99c79c5196114f49f30d8e26aee3d605e7be51ce28",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "93f12b116f49eeb16feecc3197708f1f48a555d141a556897f1155f3a95a664f",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "9821f71321c341e6d9f68dbe47d4945d57160e5889089c0ed09e00501c37613a",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "99adc5670a8ebcb0150b72fd37381db83060eca598b33f89c2334ce9d8a8dcca",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "9c2cafe0bc07cac0a9e173f7c865f7aba58d602268a956081b5f7f9ce581f5b8",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "9d4fe3475439a280e4418917a6f56c037e5fe317a3ddf0afb20a4a3ef347bffe",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "9e6add737900740056905bc98b79a521153ef431813e029996d6587dbc891105",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "9f78af8c4f968a8fd4dc6d8813af18b95424ef02dc014e770f416bded2fb4922",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "a2203a3e123e39629fb455914fa9edb689e9ca70b766364e95802b796f466b37",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "a310793c7168540125802713b223e18ed82b6c3845e8a0f290b159144ddab027",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "a570b844d29bd59c51a3cc7b8cb18ec5b7f4732cee4e59b2a1d4de391c500a30",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "a923f628eb5689c23d7e0f434e3402e240f2bfae86d853958851fc9c2d3d3205",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "ac2194e156647c2a1e692f3859a2412021008cf23f88327b42052ea0e750b5d2",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "ad4c3f17df4f14b6581e529f253922da98202944560da87ef6d469a273b14028",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "afdcf193c029c752f55e4f1e4170076bff4da71effc763a70724394ac8f27206",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "b2bcfcef78ef9db62f7963dda81069f21b37bf7f9581126e4c2ae68912367fa9",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "b39c65a683a320860f65fa68b07025151f595767e38d6ec9048f019625383dae",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "baf76fd38debc3dd0cbe1b722403e6c634d44b6d1259a5563892ca484765dd2b",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "be0ccd26fe8aaa434bd24d7e27f24f2cbe32ba199b9fc9aec8cac118ee9701ca",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "bf368beb7e25d7e9298475ec15776cea0ff2d9ac87b129f79c9520ccf952ed33",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "bf899cd5ded721ef89fe5df53793ff125e2e3470f22df26cf158c541b2abe3a9",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "bfbe1a2c37c54dc06c6d5b8dba11b09ba7015cc23024647706f8ebb8248aed42",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "bfdf69c42c2c99d381c348abdd53bb849a729b8c5e5e457482e92f06feeb9c7a",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "c22f67e4ebe6c965138aaf12b5dd94ceaff576008fd68ca904e95fd950db5b63",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "c3785a84ab31a31587c256adaccd3787f6046bf2142ef7c0b050358d52968ce8",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "c38891dc512ffa9ee2f6b1253058be1985ce2b2bf3e383778d6c2aacd02972a5",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "cada08bba9d77a9910f3a314a74fb562d8799d7e822ea8ca6f77746a876fc5f0",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "cb98fcf1ec898e773bbfc3fa35527b21354e1370e3c4cfecf09d4e04957372a4",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "cc0d95d4aa102f0b33e8b1c104b12d3d85ae9732e738e64bf224838394667866",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "cce9f82d6e9f1f00f7ea9da2a2eaf9cfd8cc5b15d370351a4fca07033b2b9c41",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "cfac535787786a1b07dd1b2e3cc10567830ffe0e1917fade60aaef4d8adb4ef0",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "d2fbe4b4bbf3639371bd224cf3d6000609367ec8a9131f4e4da50c462c15a1cb",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "d9b580f3ad09eb0ea543479fbb0e72530e540f5361ec901740b8c258184b1c03",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "dd826eff8e94e7661431e4fc04c7b827e2aa1ab1dcbeafcfbaa217bb0a3c265a",
+          "search_sufficiently_satisfied": null,
+          "reason": "document_type_unconfirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "defb1b2e66152e30e791a45060d392a91e8f4f2c6ad8984be9b5b1461d4cf559",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "e292f63f2c44dde699c818bcc8174ebc9d539c9525b152b15ddee4265f3eaa42",
+          "search_sufficiently_satisfied": false,
+          "reason": "pdf_content_not_confirmed",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "e32189a6d75f5c787940c7d66f5491fed6179b3e58711970ac78a1c90e7bf8c1",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "e619b1a34ef21d5b2af3fda6601fee67e88d4d87d239f15b2e6806ecb2b64968",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "e9895d0e3fed61d5d4dc6fa8141c25739cecef11ed074cf0316545ac01ef9e82",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "eb7ca457d814ade3e5a62e5980e427141a72d9f1cad13c49833bc7cfdc6e9ed1",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "ef642af2c15d1b7e325a2354b84ff1e1e01b178b79e5233591f9ac85745f2355",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "f14a136d296eae525ecfb0426d3ddfa77ce0c3ea1b8c1f3c6c2e0f7ced2d92c1",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "f44a4cd522cdd914bc2b19f5351c1d2c524f473316be8b5fe8b871d6afdef245",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "f559dd25b477b89b4f0106f726bb3e6610b99e9b6dfa7a6e8388739ca464478c",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "f64ce4cea91e55117e590b9d5805b32c83550d4690c6d1653357c3a289171a9b",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "f815ae31e58b306690cb03069d18d75301fb1b26b78439c21a0752c1bf4612f7",
+          "search_sufficiently_satisfied": true,
+          "reason": "verified_ownership_format_content_and_complete_document",
+          "file_integrity_confirmed": true
+        },
+        {
+          "paper_key": "fc58985a58e9fda3b2a6ba1442fdb98bc6f7778964ecc947b88fbb119def0ac6",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        },
+        {
+          "paper_key": "fe34f38dad1bce873a2e2c7b0fc52e991d795e5aa0510d09673f0f0180f44b2d",
+          "search_sufficiently_satisfied": false,
+          "reason": "no_integrity_checked_local_file",
+          "file_integrity_confirmed": false
+        }
+      ],
+      "document_type_observations": {
+        "full_text": 36,
+        "preprint": 2,
+        "poster": 1,
+        "unknown": 10
+      },
+      "full_text_confirmed_coverage": {
+        "numerator": 35,
+        "denominator": 100,
+        "rate": 0.35
+      },
+      "content_needs_review_papers": 5,
+      "failed_without_valid_file_papers": 1,
+      "source_verified_paper_contributions": {
+        "journal_catalog": 2,
+        "public_pages": 46,
+        "existing_metadata": 20,
+        "semantic_scholar": 18,
+        "openalex": 20,
+        "unpaywall": 20,
+        "crossref": 10,
+        "arxiv": 3
+      },
+      "failure_observation_counts": {
+        "access_restricted": 26,
+        "metadata_record_not_found": 5,
+        "search_incomplete": 88,
+        "source_identity_mismatch": 39,
+        "source_query_failed": 46,
+        "rate_limited": 13,
+        "source_temporarily_deferred": 92,
+        "not_pdf_response": 25,
+        "redirect_failure": 11,
+        "insufficient_pdf_identity_evidence": 16,
+        "network_error": 11,
+        "server_error": 3,
+        "timeout": 6,
+        "url_not_found": 7
+      },
+      "file_checks": [
+        {
+          "paper_key": "5af93fa5a71e76ad20914e2c13a7e3c92158382a587b71133869ae9d4c255a03",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "8f89adfb0be5c46c772dcf99c79c5196114f49f30d8e26aee3d605e7be51ce28",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "bfdf69c42c2c99d381c348abdd53bb849a729b8c5e5e457482e92f06feeb9c7a",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "e9895d0e3fed61d5d4dc6fa8141c25739cecef11ed074cf0316545ac01ef9e82",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "e292f63f2c44dde699c818bcc8174ebc9d539c9525b152b15ddee4265f3eaa42",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "274de10ababdb4f7c784c980675af42cfdab618b20681f4e433d78177ca10f96",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "ac2194e156647c2a1e692f3859a2412021008cf23f88327b42052ea0e750b5d2",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "0a41bbcd01567a31d803f2e520abe0cff01dbb605955fe045b6c94be6638913e",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "01d806f5277f7b0f54ccdea1448d6ca1da97c49ac361219c208233d7e479ec51",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "484ae91d323c401d1cbbf1548c5808812e433716396993b860381c4541a80c61",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "e619b1a34ef21d5b2af3fda6601fee67e88d4d87d239f15b2e6806ecb2b64968",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "61709aa4aac50d3e15e66fd4e172055f16a1afc21b73aba56fa40f8e3e476f1b",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "076a1f4df5fa95f50aeabc643c74f3812b7a43c33c289fd3221685c267fb9f02",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "be0ccd26fe8aaa434bd24d7e27f24f2cbe32ba199b9fc9aec8cac118ee9701ca",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "c3785a84ab31a31587c256adaccd3787f6046bf2142ef7c0b050358d52968ce8",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "7f42a9eee83ca6cd33efb28787cb07e8fcda33a95fc842fc42f2b9b71e1bdad9",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "28fe1cab9fde9dc13f3dba66d3d7ed074fcda2db903111391455f104d91e93ed",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "31a0ccf38ee965a15d6d17786c654dc76b01057b1285e10268b80d2f405bfef9",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "cb98fcf1ec898e773bbfc3fa35527b21354e1370e3c4cfecf09d4e04957372a4",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "9e6add737900740056905bc98b79a521153ef431813e029996d6587dbc891105",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "bfbe1a2c37c54dc06c6d5b8dba11b09ba7015cc23024647706f8ebb8248aed42",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "cfac535787786a1b07dd1b2e3cc10567830ffe0e1917fade60aaef4d8adb4ef0",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "9821f71321c341e6d9f68dbe47d4945d57160e5889089c0ed09e00501c37613a",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "c38891dc512ffa9ee2f6b1253058be1985ce2b2bf3e383778d6c2aacd02972a5",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "f64ce4cea91e55117e590b9d5805b32c83550d4690c6d1653357c3a289171a9b",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "e32189a6d75f5c787940c7d66f5491fed6179b3e58711970ac78a1c90e7bf8c1",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "b39c65a683a320860f65fa68b07025151f595767e38d6ec9048f019625383dae",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "48ef3dfc4d64c181a47015c05054e0bcd6400508c831af369bbbb87dd44ac5e4",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "a2203a3e123e39629fb455914fa9edb689e9ca70b766364e95802b796f466b37",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "b2bcfcef78ef9db62f7963dda81069f21b37bf7f9581126e4c2ae68912367fa9",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "bf368beb7e25d7e9298475ec15776cea0ff2d9ac87b129f79c9520ccf952ed33",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "899a69e0d1e12cb15a573a1dcc7e549f30e28ff90b6de5f60fd979815d5d7a98",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "39ae3d71d2a587e98afa6b3af06b9bd8f60e68527616343856496239fc265b6c",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "42e9fc591b95862c867f0138ea1623578e823bf87651bc5024a588c5b90c1b93",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "6c422e8329a27d82883ff50a991df78146dbcec45bb0af633382f5188f67ae3c",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "44b972d124ab737a4a037d33078b7fe72a0f62572ab0c1b0e7ddf2bb48405dff",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "8b2ff82e3c376f1ccf959b761df67d6457144d9bdd984f8c183ad5f76bff9f80",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "3457da522f0a65ad0a9e13e72b322f635e8b0d507b0a6ce235e4efec506722ee",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "1d304e3bccae4308df127f7d9be54eca0cc93f319f90fc1d3b1b1dd0b25c3d26",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "7355f024426056782519c0c07018e22bcfa460f814e7af85ef9e571cbf65fcab",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "0e4a512e0ce2547f281abb21707541a6465d169fd0868720cf708caded05aa9c",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "f815ae31e58b306690cb03069d18d75301fb1b26b78439c21a0752c1bf4612f7",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "dd826eff8e94e7661431e4fc04c7b827e2aa1ab1dcbeafcfbaa217bb0a3c265a",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "defb1b2e66152e30e791a45060d392a91e8f4f2c6ad8984be9b5b1461d4cf559",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "9f78af8c4f968a8fd4dc6d8813af18b95424ef02dc014e770f416bded2fb4922",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "3bbb06c38b71f3eaf76ab94f33724e8fcb51654c245ec98d9424d2eedddc88e0",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": false,
+          "evidence": "No local file/checksum recorded"
+        },
+        {
+          "paper_key": "d2fbe4b4bbf3639371bd224cf3d6000609367ec8a9131f4e4da50c462c15a1cb",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "1dd2743b035299c02ffd3215a55cc92bda9c335ea23f42c3646be4069eda20f0",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "1a9f62295cfa18ebc3d67e7090677b9183fc7d0b7a3e805ece927ba5ea8e4721",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        },
+        {
+          "paper_key": "3426af264e50e9607f9b86143f7598bf6b1b41802df4d1f5c3adcff5b9e617bb",
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "file_integrity_confirmed": true,
+          "evidence": "Local file exists and its size/SHA-256 agree with the parsed manifest"
+        }
+      ],
+      "runs": [
+        {
+          "run_directory": "output/performance/pdf_validation/search_Andrew_Ng_20261011T210835Z_ae52d92bc37d",
+          "statistics": {
+            "total_papers": 352,
+            "processed_papers": 100,
+            "valid_pdf_papers": 50,
+            "unverified_only_papers": 13,
+            "not_found_papers": 37,
+            "skipped_ownership_papers": 94,
+            "not_processed_papers": 158,
+            "incomplete_search_papers": 93,
+            "distinct_verified_pdf_urls": 63,
+            "source_contributions": {
+              "existing_metadata": {
+                "candidate_urls": 45,
+                "verified_urls": 23,
+                "papers_with_valid_pdf": 20,
+                "errors": 0,
+                "query_status_counts": {
+                  "ok": 100
+                }
+              },
+              "openalex": {
+                "candidate_urls": 45,
+                "verified_urls": 23,
+                "papers_with_valid_pdf": 20,
+                "errors": 0,
+                "query_status_counts": {
+                  "ok": 100
+                }
+              },
+              "semantic_scholar": {
+                "candidate_urls": 32,
+                "verified_urls": 18,
+                "papers_with_valid_pdf": 18,
+                "errors": 7,
+                "query_status_counts": {
+                  "ok": 58,
+                  "error": 7,
+                  "partial": 35
+                }
+              },
+              "crossref": {
+                "candidate_urls": 37,
+                "verified_urls": 10,
+                "papers_with_valid_pdf": 10,
+                "errors": 0,
+                "query_status_counts": {
+                  "ok": 100
+                }
+              },
+              "unpaywall": {
+                "candidate_urls": 43,
+                "verified_urls": 22,
+                "papers_with_valid_pdf": 20,
+                "errors": 0,
+                "query_status_counts": {
+                  "not_found": 3,
+                  "ok": 59,
+                  "not_applicable": 38
+                }
+              },
+              "arxiv": {
+                "candidate_urls": 10,
+                "verified_urls": 3,
+                "papers_with_valid_pdf": 3,
+                "errors": 0,
+                "query_status_counts": {
+                  "ok": 100
+                }
+              },
+              "journal_catalog": {
+                "candidate_urls": 2,
+                "verified_urls": 2,
+                "papers_with_valid_pdf": 2,
+                "errors": 0,
+                "query_status_counts": {
+                  "ok": 2,
+                  "not_applicable": 98
+                }
+              },
+              "public_pages": {
+                "candidate_urls": 149,
+                "verified_urls": 51,
+                "papers_with_valid_pdf": 46,
+                "errors": 76,
+                "query_status_counts": {
+                  "partial": 79,
+                  "ok": 12,
+                  "error": 9
+                }
+              }
+            },
+            "search_complete_for_processed_papers": false,
+            "coverage_note": "Counts describe processed saved entries and public-source observations, not all available PDFs.",
+            "provider_request_statistics": {
+              "public_resources": {
+                "requests": 965,
+                "cache_hits": 119,
+                "cooldown_skips": 204,
+                "rate_limit_responses": 6,
+                "expanded_page_reads": 176,
+                "events": [
+                  {
+                    "host": "direct.mit.edu",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "direct.mit.edu",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "rate_limited",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "escholarship.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "www.nature.com",
+                    "error_type": "source_error",
+                    "status_code": 303
+                  },
+                  {
+                    "host": "idp.nature.com",
+                    "error_type": "source_error",
+                    "status_code": 302
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "direct.mit.edu",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "direct.mit.edu",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "people.ee.duke.edu",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "rate_limited",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "doi.org",
+                    "error_type": "timeout",
+                    "status_code": null
+                  },
+                  {
+                    "host": "theses.fr",
+                    "error_type": "timeout",
+                    "status_code": null
+                  },
+                  {
+                    "host": "dr.ntu.edu.sg",
+                    "error_type": "source_error",
+                    "status_code": 405
+                  },
+                  {
+                    "host": "ieeexplore.ieee.org",
+                    "error_type": "server_error",
+                    "status_code": 502
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "cs.stanford.edu",
+                    "error_type": "not_found",
+                    "status_code": 404
+                  },
+                  {
+                    "host": "www.itm-conferences.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "europepmc.org",
+                    "error_type": "not_found",
+                    "status_code": 404
+                  },
+                  {
+                    "host": "doaj.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "idp.springer.com",
+                    "error_type": "source_error",
+                    "status_code": 302
+                  },
+                  {
+                    "host": "academic.oup.com",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "direct.mit.edu",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "ieeexplore.ieee.org",
+                    "error_type": "source_deferred",
+                    "status_code": 502
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "www.ems-ph.org",
+                    "error_type": "not_found",
+                    "status_code": 404
+                  },
+                  {
+                    "host": "www.ems-ph.org",
+                    "error_type": "not_found",
+                    "status_code": 404
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "rate_limited",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "faratarjome.ir",
+                    "error_type": "not_found",
+                    "status_code": 404
+                  },
+                  {
+                    "host": "escholarship.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "publications.polymtl.ca",
+                    "error_type": "timeout",
+                    "status_code": null
+                  },
+                  {
+                    "host": "depositonce.tu-berlin.de",
+                    "error_type": "network_error",
+                    "status_code": null
+                  },
+                  {
+                    "host": "www.research-collection.ethz.ch",
+                    "error_type": "server_error",
+                    "status_code": 500
+                  },
+                  {
+                    "host": "depositonce.tu-berlin.de",
+                    "error_type": "source_deferred",
+                    "status_code": null
+                  },
+                  {
+                    "host": "www.research-collection.ethz.ch",
+                    "error_type": "source_deferred",
+                    "status_code": 500
+                  },
+                  {
+                    "host": "dspace.mit.edu",
+                    "error_type": "source_error",
+                    "status_code": 405
+                  },
+                  {
+                    "host": "escholarship.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "escholarship.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "dspace.mit.edu",
+                    "error_type": "source_error",
+                    "status_code": 405
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "jov.arvojournals.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "jov.arvojournals.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "doi.org",
+                    "error_type": "source_error",
+                    "status_code": null
+                  },
+                  {
+                    "host": "ijcseonline.org",
+                    "error_type": "not_found",
+                    "status_code": 404
+                  },
+                  {
+                    "host": "www.cjig.cn",
+                    "error_type": "source_error",
+                    "status_code": null
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "idp.springer.com",
+                    "error_type": "source_error",
+                    "status_code": 302
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "direct.mit.edu",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "doaj.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "direct.mit.edu",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "doaj.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "www.inderscienceonline.com",
+                    "error_type": "source_error",
+                    "status_code": 302
+                  },
+                  {
+                    "host": "discovery.ucl.ac.uk",
+                    "error_type": "not_found",
+                    "status_code": 404
+                  },
+                  {
+                    "host": "publications.eng.cam.ac.uk",
+                    "error_type": "network_error",
+                    "status_code": null
+                  },
+                  {
+                    "host": "doi.org",
+                    "error_type": "source_error",
+                    "status_code": 302
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "rate_limited",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "doi.org",
+                    "error_type": "source_error",
+                    "status_code": 302
+                  },
+                  {
+                    "host": "direct.mit.edu",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "direct.mit.edu",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "services.igi-global.com",
+                    "error_type": "rate_limited",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "doi.org",
+                    "error_type": "timeout",
+                    "status_code": null
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "hdl.handle.net",
+                    "error_type": "timeout",
+                    "status_code": null
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "doi.org",
+                    "error_type": "timeout",
+                    "status_code": null
+                  },
+                  {
+                    "host": "www.springerreference.com",
+                    "error_type": "timeout",
+                    "status_code": null
+                  },
+                  {
+                    "host": "doaj.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "www.scitepress.org",
+                    "error_type": "network_error",
+                    "status_code": null
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "idp.springer.com",
+                    "error_type": "source_error",
+                    "status_code": 302
+                  },
+                  {
+                    "host": "idp.springer.com",
+                    "error_type": "source_error",
+                    "status_code": 302
+                  },
+                  {
+                    "host": "jamanetwork.com",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "jamanetwork.com",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "www.cell.com",
+                    "error_type": "source_error",
+                    "status_code": 302
+                  },
+                  {
+                    "host": "doaj.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "doaj.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "escholarship.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "dspace.mit.edu",
+                    "error_type": "source_error",
+                    "status_code": 405
+                  },
+                  {
+                    "host": "idp.springer.com",
+                    "error_type": "source_error",
+                    "status_code": 302
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "rate_limited",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "papers.ssrn.com",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "papers.ssrn.com",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "papers.ssrn.com",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "papers.ssrn.com",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "doaj.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "idp.springer.com",
+                    "error_type": "source_error",
+                    "status_code": 302
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "robotics.stanford.edu",
+                    "error_type": "not_found",
+                    "status_code": 404
+                  },
+                  {
+                    "host": "idp.springer.com",
+                    "error_type": "source_error",
+                    "status_code": 302
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "escholarship.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "researchprofiles.ku.dk",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "www.scopus.com",
+                    "error_type": "source_error",
+                    "status_code": 307
+                  },
+                  {
+                    "host": "www.cineca.it",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "www.sciencedirect.com",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "escholarship.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "research.rug.nl",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "research.vu.nl",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "jamanetwork.com",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "jamanetwork.com",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "web.archive.org",
+                    "error_type": "source_deferred",
+                    "status_code": 429
+                  },
+                  {
+                    "host": "openresearch-repository.anu.edu.au",
+                    "error_type": "server_error",
+                    "status_code": 503
+                  },
+                  {
+                    "host": "vbn.aau.dk",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "doaj.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "link.springer.com",
+                    "error_type": "timeout",
+                    "status_code": null
+                  },
+                  {
+                    "host": "geometry.stanford.edu",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "doi.org",
+                    "error_type": "timeout",
+                    "status_code": null
+                  },
+                  {
+                    "host": "proceedings.elseconference.eu",
+                    "error_type": "timeout",
+                    "status_code": null
+                  },
+                  {
+                    "host": "jamanetwork.com",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "jamanetwork.com",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  },
+                  {
+                    "host": "doaj.org",
+                    "error_type": "access_restricted",
+                    "status_code": 403
+                  }
+                ]
+              },
+              "semantic_scholar": {
+                "batch_requests": 1,
+                "individual_requests": 0,
+                "title_search_requests": 8,
+                "cooldown_skips": 35,
+                "authentication_skips": 0,
+                "work_cache_hits": 66,
+                "events": [
+                  {
+                    "operation": "title_search_requests",
+                    "error_type": "rate_limited",
+                    "status_code": 429
+                  },
+                  {
+                    "operation": "title_search_requests",
+                    "error_type": "rate_limited",
+                    "status_code": 429
+                  },
+                  {
+                    "operation": "title_search_requests",
+                    "error_type": "rate_limited",
+                    "status_code": 429
+                  },
+                  {
+                    "operation": "title_search_requests",
+                    "error_type": "rate_limited",
+                    "status_code": 429
+                  },
+                  {
+                    "operation": "title_search_requests",
+                    "error_type": "rate_limited",
+                    "status_code": 429
+                  },
+                  {
+                    "operation": "title_search_requests",
+                    "error_type": "rate_limited",
+                    "status_code": 429
+                  },
+                  {
+                    "operation": "title_search_requests",
+                    "error_type": "rate_limited",
+                    "status_code": 429
+                  }
+                ],
+                "scope": "logical calls; HTTP retries are not included"
+              }
+            },
+            "complete_search_papers": 7,
+            "search_completion_scope": "Configured bounded source queries; not all legal PDFs or versions on the Internet",
+            "http_configuration": {
+              "timeout": 10.0,
+              "retries": 1
+            }
+          }
+        }
+      ],
+      "verified_paper_keys": [
+        "01d806f5277f7b0f54ccdea1448d6ca1da97c49ac361219c208233d7e479ec51",
+        "076a1f4df5fa95f50aeabc643c74f3812b7a43c33c289fd3221685c267fb9f02",
+        "0a41bbcd01567a31d803f2e520abe0cff01dbb605955fe045b6c94be6638913e",
+        "0e4a512e0ce2547f281abb21707541a6465d169fd0868720cf708caded05aa9c",
+        "1a9f62295cfa18ebc3d67e7090677b9183fc7d0b7a3e805ece927ba5ea8e4721",
+        "1d304e3bccae4308df127f7d9be54eca0cc93f319f90fc1d3b1b1dd0b25c3d26",
+        "1dd2743b035299c02ffd3215a55cc92bda9c335ea23f42c3646be4069eda20f0",
+        "274de10ababdb4f7c784c980675af42cfdab618b20681f4e433d78177ca10f96",
+        "28fe1cab9fde9dc13f3dba66d3d7ed074fcda2db903111391455f104d91e93ed",
+        "31a0ccf38ee965a15d6d17786c654dc76b01057b1285e10268b80d2f405bfef9",
+        "3426af264e50e9607f9b86143f7598bf6b1b41802df4d1f5c3adcff5b9e617bb",
+        "3457da522f0a65ad0a9e13e72b322f635e8b0d507b0a6ce235e4efec506722ee",
+        "39ae3d71d2a587e98afa6b3af06b9bd8f60e68527616343856496239fc265b6c",
+        "3bbb06c38b71f3eaf76ab94f33724e8fcb51654c245ec98d9424d2eedddc88e0",
+        "42e9fc591b95862c867f0138ea1623578e823bf87651bc5024a588c5b90c1b93",
+        "44b972d124ab737a4a037d33078b7fe72a0f62572ab0c1b0e7ddf2bb48405dff",
+        "484ae91d323c401d1cbbf1548c5808812e433716396993b860381c4541a80c61",
+        "48ef3dfc4d64c181a47015c05054e0bcd6400508c831af369bbbb87dd44ac5e4",
+        "5af93fa5a71e76ad20914e2c13a7e3c92158382a587b71133869ae9d4c255a03",
+        "61709aa4aac50d3e15e66fd4e172055f16a1afc21b73aba56fa40f8e3e476f1b",
+        "6c422e8329a27d82883ff50a991df78146dbcec45bb0af633382f5188f67ae3c",
+        "7355f024426056782519c0c07018e22bcfa460f814e7af85ef9e571cbf65fcab",
+        "7f42a9eee83ca6cd33efb28787cb07e8fcda33a95fc842fc42f2b9b71e1bdad9",
+        "899a69e0d1e12cb15a573a1dcc7e549f30e28ff90b6de5f60fd979815d5d7a98",
+        "8b2ff82e3c376f1ccf959b761df67d6457144d9bdd984f8c183ad5f76bff9f80",
+        "8f89adfb0be5c46c772dcf99c79c5196114f49f30d8e26aee3d605e7be51ce28",
+        "9821f71321c341e6d9f68dbe47d4945d57160e5889089c0ed09e00501c37613a",
+        "9e6add737900740056905bc98b79a521153ef431813e029996d6587dbc891105",
+        "9f78af8c4f968a8fd4dc6d8813af18b95424ef02dc014e770f416bded2fb4922",
+        "a2203a3e123e39629fb455914fa9edb689e9ca70b766364e95802b796f466b37",
+        "ac2194e156647c2a1e692f3859a2412021008cf23f88327b42052ea0e750b5d2",
+        "b2bcfcef78ef9db62f7963dda81069f21b37bf7f9581126e4c2ae68912367fa9",
+        "b39c65a683a320860f65fa68b07025151f595767e38d6ec9048f019625383dae",
+        "be0ccd26fe8aaa434bd24d7e27f24f2cbe32ba199b9fc9aec8cac118ee9701ca",
+        "bf368beb7e25d7e9298475ec15776cea0ff2d9ac87b129f79c9520ccf952ed33",
+        "bfbe1a2c37c54dc06c6d5b8dba11b09ba7015cc23024647706f8ebb8248aed42",
+        "bfdf69c42c2c99d381c348abdd53bb849a729b8c5e5e457482e92f06feeb9c7a",
+        "c3785a84ab31a31587c256adaccd3787f6046bf2142ef7c0b050358d52968ce8",
+        "c38891dc512ffa9ee2f6b1253058be1985ce2b2bf3e383778d6c2aacd02972a5",
+        "cb98fcf1ec898e773bbfc3fa35527b21354e1370e3c4cfecf09d4e04957372a4",
+        "cfac535787786a1b07dd1b2e3cc10567830ffe0e1917fade60aaef4d8adb4ef0",
+        "d2fbe4b4bbf3639371bd224cf3d6000609367ec8a9131f4e4da50c462c15a1cb",
+        "dd826eff8e94e7661431e4fc04c7b827e2aa1ab1dcbeafcfbaa217bb0a3c265a",
+        "defb1b2e66152e30e791a45060d392a91e8f4f2c6ad8984be9b5b1461d4cf559",
+        "e292f63f2c44dde699c818bcc8174ebc9d539c9525b152b15ddee4265f3eaa42",
+        "e32189a6d75f5c787940c7d66f5491fed6179b3e58711970ac78a1c90e7bf8c1",
+        "e619b1a34ef21d5b2af3fda6601fee67e88d4d87d239f15b2e6806ecb2b64968",
+        "e9895d0e3fed61d5d4dc6fa8141c25739cecef11ed074cf0316545ac01ef9e82",
+        "f64ce4cea91e55117e590b9d5805b32c83550d4690c6d1653357c3a289171a9b",
+        "f815ae31e58b306690cb03069d18d75301fb1b26b78439c21a0752c1bf4612f7"
+      ],
+      "content_confirmed_paper_keys": [
+        "01d806f5277f7b0f54ccdea1448d6ca1da97c49ac361219c208233d7e479ec51",
+        "076a1f4df5fa95f50aeabc643c74f3812b7a43c33c289fd3221685c267fb9f02",
+        "0a41bbcd01567a31d803f2e520abe0cff01dbb605955fe045b6c94be6638913e",
+        "0e4a512e0ce2547f281abb21707541a6465d169fd0868720cf708caded05aa9c",
+        "1a9f62295cfa18ebc3d67e7090677b9183fc7d0b7a3e805ece927ba5ea8e4721",
+        "1d304e3bccae4308df127f7d9be54eca0cc93f319f90fc1d3b1b1dd0b25c3d26",
+        "1dd2743b035299c02ffd3215a55cc92bda9c335ea23f42c3646be4069eda20f0",
+        "274de10ababdb4f7c784c980675af42cfdab618b20681f4e433d78177ca10f96",
+        "31a0ccf38ee965a15d6d17786c654dc76b01057b1285e10268b80d2f405bfef9",
+        "3426af264e50e9607f9b86143f7598bf6b1b41802df4d1f5c3adcff5b9e617bb",
+        "3457da522f0a65ad0a9e13e72b322f635e8b0d507b0a6ce235e4efec506722ee",
+        "39ae3d71d2a587e98afa6b3af06b9bd8f60e68527616343856496239fc265b6c",
+        "42e9fc591b95862c867f0138ea1623578e823bf87651bc5024a588c5b90c1b93",
+        "44b972d124ab737a4a037d33078b7fe72a0f62572ab0c1b0e7ddf2bb48405dff",
+        "484ae91d323c401d1cbbf1548c5808812e433716396993b860381c4541a80c61",
+        "48ef3dfc4d64c181a47015c05054e0bcd6400508c831af369bbbb87dd44ac5e4",
+        "61709aa4aac50d3e15e66fd4e172055f16a1afc21b73aba56fa40f8e3e476f1b",
+        "6c422e8329a27d82883ff50a991df78146dbcec45bb0af633382f5188f67ae3c",
+        "7355f024426056782519c0c07018e22bcfa460f814e7af85ef9e571cbf65fcab",
+        "7f42a9eee83ca6cd33efb28787cb07e8fcda33a95fc842fc42f2b9b71e1bdad9",
+        "899a69e0d1e12cb15a573a1dcc7e549f30e28ff90b6de5f60fd979815d5d7a98",
+        "8b2ff82e3c376f1ccf959b761df67d6457144d9bdd984f8c183ad5f76bff9f80",
+        "8f89adfb0be5c46c772dcf99c79c5196114f49f30d8e26aee3d605e7be51ce28",
+        "9821f71321c341e6d9f68dbe47d4945d57160e5889089c0ed09e00501c37613a",
+        "9f78af8c4f968a8fd4dc6d8813af18b95424ef02dc014e770f416bded2fb4922",
+        "a2203a3e123e39629fb455914fa9edb689e9ca70b766364e95802b796f466b37",
+        "ac2194e156647c2a1e692f3859a2412021008cf23f88327b42052ea0e750b5d2",
+        "b2bcfcef78ef9db62f7963dda81069f21b37bf7f9581126e4c2ae68912367fa9",
+        "b39c65a683a320860f65fa68b07025151f595767e38d6ec9048f019625383dae",
+        "be0ccd26fe8aaa434bd24d7e27f24f2cbe32ba199b9fc9aec8cac118ee9701ca",
+        "bf368beb7e25d7e9298475ec15776cea0ff2d9ac87b129f79c9520ccf952ed33",
+        "bfbe1a2c37c54dc06c6d5b8dba11b09ba7015cc23024647706f8ebb8248aed42",
+        "bfdf69c42c2c99d381c348abdd53bb849a729b8c5e5e457482e92f06feeb9c7a",
+        "c38891dc512ffa9ee2f6b1253058be1985ce2b2bf3e383778d6c2aacd02972a5",
+        "cb98fcf1ec898e773bbfc3fa35527b21354e1370e3c4cfecf09d4e04957372a4",
+        "cfac535787786a1b07dd1b2e3cc10567830ffe0e1917fade60aaef4d8adb4ef0",
+        "d2fbe4b4bbf3639371bd224cf3d6000609367ec8a9131f4e4da50c462c15a1cb",
+        "dd826eff8e94e7661431e4fc04c7b827e2aa1ab1dcbeafcfbaa217bb0a3c265a",
+        "defb1b2e66152e30e791a45060d392a91e8f4f2c6ad8984be9b5b1461d4cf559",
+        "e32189a6d75f5c787940c7d66f5491fed6179b3e58711970ac78a1c90e7bf8c1",
+        "e619b1a34ef21d5b2af3fda6601fee67e88d4d87d239f15b2e6806ecb2b64968",
+        "e9895d0e3fed61d5d4dc6fa8141c25739cecef11ed074cf0316545ac01ef9e82",
+        "f64ce4cea91e55117e590b9d5805b32c83550d4690c6d1653357c3a289171a9b",
+        "f815ae31e58b306690cb03069d18d75301fb1b26b78439c21a0752c1bf4612f7"
+      ],
+      "metric_note": "Saved URL probes, parser decisions and current local size/SHA-256 checks. Content confirmation is automated, not human ground truth. Failure observations can overlap across runs."
+    },
+    "newly_verified_pdf_paper_keys": [
+      "3bbb06c38b71f3eaf76ab94f33724e8fcb51654c245ec98d9424d2eedddc88e0",
+      "9e6add737900740056905bc98b79a521153ef431813e029996d6587dbc891105"
+    ],
+    "lost_verified_pdf_paper_keys": [],
+    "url_coverage_change": 0.020000000000000018,
+    "content_coverage_change": 0.16999999999999998
+  },
+  "before_trace": {
+    "provider_status_counts": {
+      "existing_metadata": {
+        "ok": 100
+      },
+      "openalex": {
+        "ok": 100
+      },
+      "semantic_scholar": {
+        "error": 39,
+        "ok": 61
+      },
+      "crossref": {
+        "ok": 100
+      },
+      "unpaywall": {
+        "not_found": 3,
+        "ok": 59,
+        "not_applicable": 38
+      },
+      "arxiv": {
+        "ok": 100
+      },
+      "journal_catalog": {
+        "ok": 2,
+        "not_applicable": 98
+      },
+      "public_pages": {
+        "partial": 60,
+        "ok": 14,
+        "error": 26
+      }
+    },
+    "complete_papers": 13,
+    "incomplete_only_due_to_deferral_papers": 0,
+    "incomplete_warning_observations": {},
+    "papers_with_warning": {},
+    "public_resources": {
+      "available": false,
+      "note": "Legacy report has no public-resource request trace"
+    },
+    "semantic_scholar": {
+      "terminal_request_failures": null,
+      "cooldown_skips": 17,
+      "work_cache_hits": 66,
+      "title_cache_hits": null
+    },
+    "http_configuration": null,
+    "http_transport_statistics": null
+  },
+  "after_trace": {
+    "provider_status_counts": {
+      "existing_metadata": {
+        "ok": 100
+      },
+      "openalex": {
+        "ok": 100
+      },
+      "semantic_scholar": {
+        "ok": 58,
+        "error": 7,
+        "partial": 35
+      },
+      "crossref": {
+        "ok": 100
+      },
+      "unpaywall": {
+        "not_found": 3,
+        "ok": 59,
+        "not_applicable": 38
+      },
+      "arxiv": {
+        "ok": 100
+      },
+      "journal_catalog": {
+        "ok": 2,
+        "not_applicable": 98
+      },
+      "public_pages": {
+        "partial": 79,
+        "ok": 12,
+        "error": 9
+      }
+    },
+    "complete_papers": 7,
+    "incomplete_only_due_to_deferral_papers": 47,
+    "incomplete_warning_observations": {
+      "source_deferred": 237,
+      "linked_page_limit": 2,
+      "page_read_limit": 2
+    },
+    "papers_with_warning": {
+      "source_deferred": 81,
+      "linked_page_limit": 1,
+      "page_read_limit": 1
+    },
+    "public_resources": {
+      "available": true,
+      "logical_probe_calls_started": 965,
+      "terminal_request_failures": 97,
+      "failure_types": {
+        "access_restricted": 47,
+        "rate_limited": 6,
+        "source_error": 20,
+        "timeout": 10,
+        "server_error": 3,
+        "not_found": 8,
+        "network_error": 3
+      },
+      "failure_hosts": {
+        "direct.mit.edu": 9,
+        "web.archive.org": 5,
+        "escholarship.org": 7,
+        "www.nature.com": 1,
+        "idp.nature.com": 1,
+        "people.ee.duke.edu": 1,
+        "doi.org": 7,
+        "theses.fr": 1,
+        "dr.ntu.edu.sg": 1,
+        "ieeexplore.ieee.org": 1,
+        "cs.stanford.edu": 1,
+        "www.itm-conferences.org": 1,
+        "europepmc.org": 1,
+        "doaj.org": 9,
+        "idp.springer.com": 7,
+        "academic.oup.com": 1,
+        "www.ems-ph.org": 2,
+        "faratarjome.ir": 1,
+        "publications.polymtl.ca": 1,
+        "depositonce.tu-berlin.de": 1,
+        "www.research-collection.ethz.ch": 1,
+        "dspace.mit.edu": 3,
+        "jov.arvojournals.org": 2,
+        "ijcseonline.org": 1,
+        "www.cjig.cn": 1,
+        "www.inderscienceonline.com": 1,
+        "discovery.ucl.ac.uk": 1,
+        "publications.eng.cam.ac.uk": 1,
+        "services.igi-global.com": 1,
+        "hdl.handle.net": 1,
+        "www.springerreference.com": 1,
+        "www.scitepress.org": 1,
+        "jamanetwork.com": 6,
+        "www.cell.com": 1,
+        "papers.ssrn.com": 4,
+        "robotics.stanford.edu": 1,
+        "researchprofiles.ku.dk": 1,
+        "www.scopus.com": 1,
+        "www.cineca.it": 1,
+        "www.sciencedirect.com": 1,
+        "research.rug.nl": 1,
+        "research.vu.nl": 1,
+        "openresearch-repository.anu.edu.au": 1,
+        "vbn.aau.dk": 1,
+        "link.springer.com": 1,
+        "geometry.stanford.edu": 1,
+        "proceedings.elseconference.eu": 1
+      },
+      "terminal_429_failures": 6,
+      "cooldown_skips": 204,
+      "recorded_redirect_deferrals": 104,
+      "cache_hits": 119,
+      "cache_response_hits": null,
+      "cache_error_hits": null,
+      "expanded_page_reads": 176,
+      "deferral_hosts": {
+        "web.archive.org": 101,
+        "ieeexplore.ieee.org": 1,
+        "depositonce.tu-berlin.de": 1,
+        "www.research-collection.ethz.ch": 1
+      },
+      "scope_note": "Terminal failures count logical probe calls. Historical traces do not reveal every HTTP retry/hop. Legacy source_deferred events are excluded from request failures; legacy cache outcomes cannot be split."
+    },
+    "semantic_scholar": {
+      "terminal_request_failures": 7,
+      "cooldown_skips": 35,
+      "work_cache_hits": 66,
+      "title_cache_hits": null
+    },
+    "http_configuration": {
+      "timeout": 10.0,
+      "retries": 1
+    },
+    "http_transport_statistics": null
+  },
+  "completeness_transition": {
+    "remained_complete": 4,
+    "became_complete": 3,
+    "lost_complete": 9,
+    "lost_complete_only_due_to_deferral": 9,
+    "lost_complete_papers": [
+      {
+        "paper_key": "083c45afa807fc39eec747d1f51283a68686c3e9a9cbb260feafbfe3801722cb",
+        "title": "Deep Voice: Real-time Neural Text-to-Speech",
+        "solely_deferred": true,
+        "incomplete_providers": [
+          {
+            "source": "semantic_scholar",
+            "status": "partial",
+            "errors": [],
+            "diagnostics": [
+              {
+                "lookup_method": "title_search",
+                "status": "error",
+                "status_code": 429,
+                "error_type": "source_deferred",
+                "retry_after": 808.6568762080001
+              }
+            ],
+            "warnings": [
+              {
+                "code": "source_deferred",
+                "incomplete": true,
+                "lookup_method": "title_search"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paper_key": "29c3428719ff1dad8541d1ab0fb40b7929072ca5b2abd898bab0620577a1517c",
+        "title": "Cheap and fast---but is it good?",
+        "solely_deferred": true,
+        "incomplete_providers": [
+          {
+            "source": "public_pages",
+            "status": "partial",
+            "errors": [],
+            "diagnostics": [
+              {
+                "url": "https://doi.org/10.3115/1613715.1613751",
+                "status": "deferred",
+                "context": "public_resource",
+                "error_type": "source_deferred",
+                "status_code": null
+              }
+            ],
+            "warnings": [
+              {
+                "code": "source_deferred",
+                "url": "https://doi.org/10.3115/1613715.1613751",
+                "incomplete": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paper_key": "40c3b28feebfbb11271d3f5218ea4374f40c2fb57b55d43f7a1cc10ca99dd5e5",
+        "title": "Self-taught learning",
+        "solely_deferred": true,
+        "incomplete_providers": [
+          {
+            "source": "public_pages",
+            "status": "partial",
+            "errors": [],
+            "diagnostics": [
+              {
+                "url": "https://doi.org/10.1145/1273496.1273592",
+                "status": "deferred",
+                "context": "public_resource",
+                "error_type": "source_deferred",
+                "status_code": null
+              }
+            ],
+            "warnings": [
+              {
+                "code": "source_deferred",
+                "url": "https://doi.org/10.1145/1273496.1273592",
+                "incomplete": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paper_key": "81a94975dd3b58833b8340aec8cb03977609d6b0befb8567792a2b9e30537b52",
+        "title": "Contextual search and name disambiguation in email using graphs",
+        "solely_deferred": true,
+        "incomplete_providers": [
+          {
+            "source": "public_pages",
+            "status": "partial",
+            "errors": [],
+            "diagnostics": [
+              {
+                "url": "https://doi.org/10.1145/1148170.1148179",
+                "status": "deferred",
+                "context": "public_resource",
+                "error_type": "source_deferred",
+                "status_code": null
+              }
+            ],
+            "warnings": [
+              {
+                "code": "source_deferred",
+                "url": "https://doi.org/10.1145/1148170.1148179",
+                "incomplete": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paper_key": "899a69e0d1e12cb15a573a1dcc7e549f30e28ff90b6de5f60fd979815d5d7a98",
+        "title": "Combining Automatic Labelers and Expert Annotations for Accurate Radiology Report Labeling Using BERT",
+        "solely_deferred": true,
+        "incomplete_providers": [
+          {
+            "source": "public_pages",
+            "status": "partial",
+            "errors": [],
+            "diagnostics": [
+              {
+                "url": "https://doi.org/10.18653/v1/2020.emnlp-main.117",
+                "status": "deferred",
+                "context": "public_resource",
+                "error_type": "source_deferred",
+                "status_code": null
+              }
+            ],
+            "warnings": [
+              {
+                "code": "source_deferred",
+                "url": "https://doi.org/10.18653/v1/2020.emnlp-main.117",
+                "incomplete": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paper_key": "a310793c7168540125802713b223e18ed82b6c3845e8a0f290b159144ddab027",
+        "title": "A control architecture for quadruped locomotion over rough terrain",
+        "solely_deferred": true,
+        "incomplete_providers": [
+          {
+            "source": "public_pages",
+            "status": "partial",
+            "errors": [],
+            "diagnostics": [
+              {
+                "url": "https://doi.org/10.1109/robot.2008.4543305",
+                "status": "deferred",
+                "context": "public_resource",
+                "error_type": "source_deferred",
+                "status_code": null
+              }
+            ],
+            "warnings": [
+              {
+                "code": "source_deferred",
+                "url": "https://doi.org/10.1109/robot.2008.4543305",
+                "incomplete": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paper_key": "a570b844d29bd59c51a3cc7b8cb18ec5b7f4732cee4e59b2a1d4de391c500a30",
+        "title": "Unsupervised learning of hierarchical representations with convolutional deep belief networks",
+        "solely_deferred": true,
+        "incomplete_providers": [
+          {
+            "source": "public_pages",
+            "status": "partial",
+            "errors": [],
+            "diagnostics": [
+              {
+                "url": "https://doi.org/10.1145/2001269.2001295",
+                "status": "deferred",
+                "context": "public_resource",
+                "error_type": "source_deferred",
+                "status_code": null
+              }
+            ],
+            "warnings": [
+              {
+                "code": "source_deferred",
+                "url": "https://doi.org/10.1145/2001269.2001295",
+                "incomplete": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paper_key": "d9b580f3ad09eb0ea543479fbb0e72530e540f5361ec901740b8c258184b1c03",
+        "title": "Robust textual inference via graph matching",
+        "solely_deferred": true,
+        "incomplete_providers": [
+          {
+            "source": "public_pages",
+            "status": "partial",
+            "errors": [],
+            "diagnostics": [
+              {
+                "url": "https://doi.org/10.3115/1220575.1220624",
+                "status": "deferred",
+                "context": "public_resource",
+                "error_type": "source_deferred",
+                "status_code": null
+              }
+            ],
+            "warnings": [
+              {
+                "code": "source_deferred",
+                "url": "https://doi.org/10.3115/1220575.1220624",
+                "incomplete": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paper_key": "f14a136d296eae525ecfb0426d3ddfa77ce0c3ea1b8c1f3c6c2e0f7ced2d92c1",
+        "title": "Near-Bayesian exploration in polynomial time",
+        "solely_deferred": true,
+        "incomplete_providers": [
+          {
+            "source": "public_pages",
+            "status": "partial",
+            "errors": [],
+            "diagnostics": [
+              {
+                "url": "https://doi.org/10.1145/1553374.1553441",
+                "status": "deferred",
+                "context": "public_resource",
+                "error_type": "source_deferred",
+                "status_code": null
+              }
+            ],
+            "warnings": [
+              {
+                "code": "source_deferred",
+                "url": "https://doi.org/10.1145/1553374.1553441",
+                "incomplete": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "attribution_note": "Deferral-only means the recorded reason for incompleteness is cooling, not that the skipped query would have succeeded. Search satisfaction does not change completion."
+}

@@ -101,6 +101,7 @@ def semantic_candidates(paper, work, provider, metadata_url=None):
         'database': 'semantic_scholar', 'source_paper_id': work.get('paperId'),
         'doi': external_ids.get('DOI'), 'metadata_url': metadata_url,
         'metadata_title': work.get('title'), 'metadata_year': work.get('year'),
+        'metadata_authors': [author.get('name', '') for author in authors],
         'oa_status': location.get('status'), 'license': location.get('license'),
     }
     return [make_candidate(location['url'], provider, identity, provenance,
@@ -159,13 +160,21 @@ class MetadataPDFProvider:
                 result.landing_pages.extend(landing_pages)
                 result.diagnostics.append({'identifier': identifier, 'status': 'ok'})
             except (SourceError, ValueError, TypeError) as exc:
-                result.errors.append('{}: {}'.format(identifier, exc))
+                if getattr(exc, 'error_type', None) == 'source_deferred':
+                    result.warnings.append({'code': 'source_deferred', 'incomplete': True, 'identifier': identifier})
+                elif getattr(exc, 'status_code', None) != 404:
+                    result.errors.append('{}: {}'.format(identifier, exc))
                 result.diagnostics.append({
                     'identifier': identifier, 'status': 'error',
                     'status_code': getattr(exc, 'status_code', None),
                     'error_type': getattr(exc, 'error_type', 'malformed_response'),
                     'retry_after': getattr(exc, 'retry_after', None),
+                    'request_context': getattr(exc, 'request_context', {}),
                 })
+        if result.diagnostics and all(item.get('status_code') == 404 for item in result.diagnostics):
+            result.status = 'not_found'
+        if result.warnings:
+            result.status = 'partial'
         if result.errors:
             failures = [item for item in result.diagnostics if item.get('status') == 'error'
                         and item.get('error_type') != 'not_found']
@@ -235,7 +244,8 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
         self.requests.prefetch(identifiers)
 
     def request_statistics(self):
-        return dict(self.requests.statistics, scope='logical calls; HTTP retries are not included')
+        return dict(self.requests.statistics, events=list(self.requests.events),
+                    scope='logical calls; HTTP retries are not included')
 
     def find(self, paper):
         result = super().find(paper)
@@ -262,12 +272,19 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
             result.status = 'partial' if failed else 'ok'
             result.diagnostics.append({'lookup_method': 'title_search', 'status': 'ok'})
         except (SourceError, ValueError, TypeError) as exc:
-            result.status = 'error'
-            result.errors.append('Title search: ' + str(exc))
+            if getattr(exc, 'error_type', None) == 'source_deferred':
+                result.status = 'partial'
+                result.warnings.append({'code': 'source_deferred', 'incomplete': True, 'lookup_method': 'title_search'})
+            elif getattr(exc, 'status_code', None) == 404:
+                result.status = 'not_found'
+            else:
+                result.status = 'error'
+                result.errors.append('Title search: ' + str(exc))
             result.diagnostics.append({'lookup_method': 'title_search', 'status': 'error',
                                        'status_code': getattr(exc, 'status_code', None),
                                        'error_type': getattr(exc, 'error_type', 'malformed_response'),
-                                       'retry_after': getattr(exc, 'retry_after', None)})
+                                       'retry_after': getattr(exc, 'retry_after', None),
+                                       'request_context': getattr(exc, 'request_context', {})})
 
     def lookups(self, paper):
         identifiers = paper_ids(paper, self.name)
@@ -407,7 +424,8 @@ class ArxivPDFProvider:
             candidate = make_candidate(
                 link.get('href'), self.name, identity,
                 {'source_paper_id': identifier, 'metadata_url': self.config.arxiv_url,
-                 'doi': doi, 'metadata_title': title, 'requested_ids': requested}, 'arXiv API PDF link',
+                 'doi': doi, 'metadata_title': title, 'metadata_year': published[:4],
+                 'metadata_authors': authors, 'requested_ids': requested}, 'arXiv API PDF link',
             )
             candidate.version_type = 'preprint'
             candidate.provenance[0]['version_type'] = 'preprint'

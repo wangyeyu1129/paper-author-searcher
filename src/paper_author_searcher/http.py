@@ -6,7 +6,7 @@ import os
 import re
 import time
 import xml.etree.ElementTree as ET
-from dataclasses import dataclass, replace
+from dataclasses import dataclass, field, replace
 from email.utils import parsedate_to_datetime
 from datetime import datetime, timezone
 from http.client import HTTPException
@@ -19,11 +19,14 @@ from .network_safety import secure_download_opener
 
 
 class SourceError(RuntimeError):
-    def __init__(self, message, status_code=None, error_type=None, retry_after=None):
+    def __init__(self, message, status_code=None, error_type=None, retry_after=None, endpoint_host=None,
+                 request_context=None):
         super().__init__(message)
         self.status_code = status_code
         self.retry_after = retry_after
         self.error_type = error_type or self._error_type(status_code)
+        self.endpoint_host = endpoint_host
+        self.request_context = request_context or {}
 
     @staticmethod
     def _error_type(status):
@@ -54,12 +57,15 @@ def require_public_http_url(url):
 
 
 class PublicRedirectHandler(HTTPRedirectHandler):
-    def __init__(self, maximum_redirects):
+    def __init__(self, maximum_redirects, redirect_guard=None):
         self.max_redirections = maximum_redirects
         self.max_repeats = maximum_redirects
+        self.redirect_guard = redirect_guard
 
     def redirect_request(self, request, response, code, message, headers, new_url):
         require_public_http_url(new_url)
+        if self.redirect_guard:
+            self.redirect_guard(new_url)
         return super().redirect_request(request, response, code, message, headers, new_url)
 
 
@@ -70,6 +76,8 @@ class URLProbe:
     content_type: str
     headers: dict
     prefix: bytes
+    body_complete: bool = False
+    request_context: dict = field(default_factory=dict)
 
 
 def has_pdf_signature(prefix):
@@ -95,31 +103,46 @@ class HttpClient:
         self.config = replace(config, **overrides)
         self.timeout = self.config.timeout
         self.retries = self.config.retries
+        self.transport_statistics = {}
 
     def get(self, url, params=None, headers=None, xml=False):
         request = self._request(url, params, headers, xml)
-        return self._with_retries(request, lambda: self._read_response(request, xml))
+        return self._with_retries(request, lambda: self._read_response(request, xml), 'metadata_get')
 
     def post_json(self, url, payload, params=None, headers=None, expected_type=dict):
         request = self._request(url, params, headers, xml=False)
         request.data = json.dumps(payload).encode('utf-8')
         request.add_header('Content-Type', 'application/json')
-        return self._with_retries(request, lambda: self._read_response(request, False, expected_type))
+        return self._with_retries(request, lambda: self._read_response(request, False, expected_type), 'metadata_post')
 
-    def _with_retries(self, request, read_response):
+    def _with_retries(self, request, read_response, operation='request'):
+        statistics = self.transport_statistics.setdefault(operation, {
+            'operation_attempts': 0, 'completed_operations': 0, 'http_error_responses': {},
+            'network_errors': 0, 'response_errors': 0, 'deferred_operations': 0,
+            'scope': 'Read/transfer attempts include retries; redirect hops are not individual attempts',
+        })
         for attempt in range(self.retries + 1):
+            statistics['operation_attempts'] += 1
             try:
-                return read_response()
+                response = read_response()
+                statistics['completed_operations'] += 1
+                return response
             except HTTPError as exc:
+                code = str(exc.code)
+                statuses = statistics['http_error_responses']
+                statuses[code] = statuses.get(code, 0) + 1
                 retryable = exc.code in self.config.retry_statuses
                 retry_after = self._retry_after(exc)
                 wait_exceeds_budget = retry_after is not None and retry_after > self.config.maximum_retry_delay
                 if not retryable or attempt == self.retries or wait_exceeds_budget:
-                    message = "HTTP {} from {}".format(exc.code, request.host)
+                    endpoint_host = urlsplit(exc.filename or request.full_url).hostname or request.host
+                    message = "HTTP {} from {}".format(exc.code, endpoint_host)
                     # Do not retry sooner than the server permits; let callers defer this source.
-                    raise SourceError(message, status_code=exc.code, retry_after=retry_after) from exc
+                    raise SourceError(message, status_code=exc.code, retry_after=retry_after,
+                                      endpoint_host=endpoint_host) from exc
                 time.sleep(self._retry_delay(exc, attempt))
             except (OSError, HTTPException) as exc:
+                statistics['network_errors'] += 1
                 if attempt == self.retries:
                     kind = 'network_error'
                     if isinstance(exc, TimeoutError) or 'timed out' in str(exc).lower():
@@ -128,9 +151,16 @@ class HttpClient:
                 delay = min(self.config.retry_backoff_base ** attempt, self.config.maximum_retry_delay)
                 time.sleep(delay)
             except (ValueError, ET.ParseError) as exc:
+                statistics['response_errors'] += 1
                 raise SourceError("{}: {}".format(request.host, exc)) from exc
+            except SourceError as exc:
+                if exc.error_type == 'source_deferred':
+                    statistics['deferred_operations'] += 1
+                else:
+                    statistics['response_errors'] += 1
+                raise
 
-    def probe(self, url, maximum_bytes=1024, html_bytes=0, maximum_redirects=5):
+    def probe(self, url, maximum_bytes=1024, html_bytes=0, maximum_redirects=5, redirect_guard=None):
         """Read a bounded prefix, even when a server ignores Range; never save a body."""
         require_public_http_url(url)
         if maximum_bytes < 1 or html_bytes < 0:
@@ -140,7 +170,7 @@ class HttpClient:
             'Accept': 'application/pdf,text/html;q=0.8,*/*;q=0.1',
             'Accept-Encoding': 'identity',
         }, params=None, xml=False)
-        opener = secure_download_opener(PublicRedirectHandler(maximum_redirects), DEFAULT_DOWNLOAD.allowed_ports)
+        opener = secure_download_opener(PublicRedirectHandler(maximum_redirects, redirect_guard), DEFAULT_DOWNLOAD.allowed_ports)
 
         def read_prefix():
             with opener.open(request, timeout=self.timeout) as response:
@@ -151,10 +181,19 @@ class HttpClient:
                 prefix = response.read(limit)
                 final_url = response.geturl()
                 require_public_http_url(final_url)
+                complete = len(prefix) < limit
+                length = response.headers.get('Content-Length', '')
+                if response.status == 200 and length.isdigit() and int(length) == len(prefix):
+                    complete = True
+                if response.status == 206:
+                    value = response.headers.get('Content-Range', '')
+                    match = re.fullmatch(r'bytes 0-(\d+)/(\d+)', value)
+                    if match and int(match.group(1)) + 1 == int(match.group(2)) == len(prefix):
+                        complete = True
                 return URLProbe(final_url, response.status, content_type,
-                                dict(response.headers.items()), prefix)
+                                dict(response.headers.items()), prefix, complete)
 
-        return self._with_retries(request, read_prefix)
+        return self._with_retries(request, read_prefix, 'pdf_probe')
 
     def stream_pdf(self, url, destination, config):
         """Restart failed transfers from byte zero; validate public DNS on every connection."""
@@ -202,7 +241,7 @@ class HttpClient:
                     raise OSError('Downloaded size does not match the complete HTTP response')
                 return DownloadReceipt(final_url, response.status, content_type, size, digest.hexdigest())
 
-        return self._with_retries(request, transfer)
+        return self._with_retries(request, transfer, 'pdf_download')
 
     def _download_size(self, response, content_type, config):
         if response.status not in (200, 206):

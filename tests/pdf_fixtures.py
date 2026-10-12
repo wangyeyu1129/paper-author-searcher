@@ -7,17 +7,22 @@ HAS_PYPDF = importlib.util.find_spec('pypdf') is not None
 
 
 def make_pdf(title='Reusable methods for synthetic research', doi='10.1234/example',
-             authors='Alex Example; Taylor Researcher', pages=1, javascript=None):
+             authors='Alex Example; Taylor Researcher', pages=1, javascript=None,
+             metadata_title=None, creator=None, text_lines=None, page_size=(612, 792)):
     from pypdf import PdfWriter
     from pypdf.generic import DecodedStreamObject, DictionaryObject, NameObject
 
     writer = PdfWriter()
-    writer.add_metadata({'/Title': title, '/Author': authors})
+    writer.add_metadata({'/Title': title if metadata_title is None else metadata_title, '/Author': authors})
+    if creator:
+        writer.add_metadata({'/Creator': creator})
     lines = [title, authors]
     if doi:
         lines.append('DOI: ' + doi)
+    if text_lines is not None:
+        lines = text_lines
     for index in range(pages):
-        page = writer.add_blank_page(width=612, height=792)
+        page = writer.add_blank_page(width=page_size[0], height=page_size[1])
         font = DictionaryObject({NameObject('/Type'): NameObject('/Font'),
                                  NameObject('/Subtype'): NameObject('/Type1'),
                                  NameObject('/BaseFont'): NameObject('/Helvetica')})

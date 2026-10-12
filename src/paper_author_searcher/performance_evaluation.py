@@ -86,6 +86,9 @@ class PerformanceEvaluator:
         pdf_scope = _stage_scope(pdf_report)
         _stage_scope(manifest)
         metadata = truth_data.get('metadata') or {}
+        if 'formal_evaluation_ready' in metadata and not reference_only:
+            raise ValueError('Pilot formal metrics require the independent result audit; '
+                             'use python -m scripts.ground_truth.evaluate_pilot')
         reviewer = metadata.get('reviewer')
         reviewed_at = metadata.get('reviewed_at')
         human = bool(isinstance(reviewer, str) and reviewer.strip() and

@@ -209,7 +209,7 @@ PYTHONPATH=src python3 -m paper_author_searcher.pdf_cli \
 
 邮箱通过 `UNPAYWALL_EMAIL` 环境变量读取，不写入结果 JSON。使用 `--require-unpaywall` 可在未配置或格式不合法时提前停止，避免复测时意外禁用该来源；代码不能验证邮箱归属，需要用户提供自己的真实联系邮箱。安全设置方式、相同论文范围的复测与离线对比命令见 [PDF 来源发现](docs/pdf_discovery.md)。
 
-`PDFConfig` 集中管理探测字节数、HTML 元数据读取上限、重定向上限、arXiv 标题查询和请求间隔、期刊目录及版本偏好。`HttpConfig` 继续管理超时、限流重试和最大退避。每次 PDF 探测只读取最多 1024 字节并关闭响应，即使服务器忽略 Range 也不会读取完整正文或写入 PDF 文件；引用页面最多读取 65536 字节，期刊目录预览上限默认 2 MiB，并在同一次运行缓存。
+`PDFConfig` 集中管理探测字节数、HTML 元数据读取上限、重定向上限、arXiv 标题查询和请求间隔、期刊目录及版本偏好。`HttpConfig` 继续管理超时、限流重试和最大退避。每次 PDF 探测只读取最多 1024 字节并关闭响应，即使服务器忽略 Range 也不会读取完整正文或写入 PDF 文件；引用页面先读取 65536 字节，确有截断时最多扩展一次到 1 MiB，期刊目录预览上限默认 2 MiB。共享页面缓存同时受 TTL、条目数及总字节数限制。
 
 候选 `validation_status=verified` 同时要求公开来源依据、论文元数据一致性和实际 `%PDF-` 文件头。Content-Type 为 PDF 或 URL 以 `.pdf` 结尾均不能单独确认。DOI 冲突、已知 arXiv 标识符冲突或来源标题冲突会阻止确认；没有稳定标识符时要求标准化标题、年份和完整作者署名集合相符。PDF 文件头确认但论文对应关系不足时保留 unverified。版本来自来源明确标注，缺失为 unknown；同一 URL 的版本声明冲突也保留 unknown，各来源声明仍保存在 provenance。
 
@@ -279,3 +279,13 @@ python3 -m paper_author_searcher.cli --mode full \
 下载文件位于 `papers/`，根目录的 `manifest.json` 使用 `file_root="papers"`。新数据在 PDF 与下载阶段完整保留年份、作者、来源 Author ID 和 `paper_metadata`；旧 JSON 缺失的字段会明确报告，不编造年份或署名。
 
 详细命令、输出结构、续跑策略和统计含义见 [docs/workflow.md](docs/workflow.md)。
+
+PDF 内容验证、文档类型识别、来源冷却和相同范围复测见 [docs/pdf_validation.md](docs/pdf_validation.md)。本轮 20 篇待审核及全部 47 份现有文件的离线复验、完整联网复测命令和限制见 [验证报告](reports/performance/pdf_validation.md)。
+
+后续 100 篇真实运行的来源完整率下降诊断、重定向缓存修复和独立 `search_sufficiently_satisfied` 指标见 [搜索完整性报告](reports/performance/pdf_search_completion.md)。该指标确认实际取得验证全文，与所有来源是否完成查询分开统计。
+
+独立评估数据见 [Professor Paper Ground Truth 候选集](data/ground_truth/professor_papers_v1/README.md)：3 位教授、2020–2022 年主窗口，共 187 条未确认候选及版本审核队列，未使用 Agent 运行结果构造答案。人工流程与纳入规则见 [审核指南](docs/ground_truth_review.md)；当前没有真实人工 Ground Truth 的正式 Recall。
+
+Aarti Singh 的 37 条记录已整理为 [试点审核包](data/ground_truth/aarti_singh_pilot_v1/README.md)。逐论文审核、版本关联、完整性检查、转换 Ground Truth 和独立核查 Agent 未匹配记录的命令见 [试点评估指南](docs/ground_truth_pilot.md)；人工审核未完成时工具不输出正式 Precision/Recall。
+
+最新 [v2 分组审核页](data/ground_truth/aarti_singh_pilot_v2/review/grouped_review.md) 保留原 37 条并追加两条独立出版来源支持的期刊候选，以出版物为单位展示证据和疑点。按组填写人工决定、转换为现有 Ground Truth 格式的步骤见 [分组审核指南](docs/ground_truth_grouped_review.md)。

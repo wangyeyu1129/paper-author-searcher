@@ -1,6 +1,5 @@
 """Follow explicit scholarly page links without inventing paths or byline evidence."""
 import json
-from collections import OrderedDict
 from html.parser import HTMLParser
 from urllib.parse import urljoin, urlsplit, urlunsplit
 
@@ -9,6 +8,7 @@ from .matching import normalize
 from .models import PDFProviderResult
 from .pdf_identity import metadata_identity
 from .pdf_providers import CitationMetadata, LandingPagePDFProvider, make_candidate
+from .pdf_resource_requests import PublicResourceRequests
 
 
 class PublicLinks(HTMLParser):
@@ -75,7 +75,8 @@ class PublicPagePDFProvider(LandingPagePDFProvider):
             super().__init__(client)
         else:
             super().__init__(client, config)
-        self.cache = OrderedDict()
+        if not isinstance(self.client, PublicResourceRequests):
+            self.client = PublicResourceRequests(self.client, self.config)
 
     def find(self, paper):
         pages = self._pages(paper)
@@ -85,6 +86,7 @@ class PublicPagePDFProvider(LandingPagePDFProvider):
             return PDFProviderResult(self.name, status='not_applicable')
         result = PDFProviderResult(self.name)
         visited = set()
+        linked_budget = {'requests': 0}
         for url, bindings in pages.items():
             try:
                 actual = secure_page_url(url)
@@ -92,40 +94,48 @@ class PublicPagePDFProvider(LandingPagePDFProvider):
                     continue
                 visited.add(actual)
                 response = self._probe(actual)
+                self._record_response(result, actual, response)
                 result.candidates.extend(self._response_candidates(paper, response, bindings))
                 if response.content_type in ('text/html', 'application/xhtml+xml'):
-                    self._linked_candidates(paper, response, result, visited)
+                    self._linked_candidates(paper, response, result, visited, linked_budget)
             except (SourceError, ValueError, TypeError) as exc:
-                result.errors.append('{}: {}'.format(url, exc))
+                self._record_failure(result, url, exc)
+        if any(item.get('incomplete') for item in result.warnings):
+            result.status = 'partial'
         if result.errors:
             result.status = 'partial' if result.candidates else 'error'
         return result
 
     def _probe(self, url):
-        if url in self.cache:
-            self.cache.move_to_end(url)
-            response = self.cache[url]
-            if isinstance(response, Exception):
-                raise response
-            return response
-        try:
-            response = self.client.probe(url, self.config.preview_bytes,
-                                         self.config.html_metadata_bytes, self.config.maximum_redirects)
-        except (SourceError, ValueError, TypeError) as exc:
-            response = exc
-        self.cache[url] = response
-        if len(self.cache) > self.config.public_page_cache_entries:
-            self.cache.popitem(last=False)
-        if isinstance(response, Exception):
-            raise response
-        return response
+        return self.client.probe(url, self.config.preview_bytes,
+                                 self.config.html_metadata_bytes, self.config.maximum_redirects,
+                                 allow_source_backpressure=True)
 
-    def _linked_candidates(self, paper, response, result, visited):
+    @staticmethod
+    def _record_response(result, url, response):
+        result.diagnostics.append(dict(response.request_context, url=url, context='public_resource', status='ok'))
+
+    @staticmethod
+    def _record_failure(result, url, error):
+        kind = getattr(error, 'error_type', 'source_error')
+        request_context = getattr(error, 'request_context', {})
+        if kind == 'source_deferred':
+            result.warnings.append({'code': kind, 'url': url, 'incomplete': True,
+                                    'request_context': request_context})
+        else:
+            result.errors.append('{}: {}'.format(url, error))
+        result.diagnostics.append({'url': url, 'status': 'deferred' if kind == 'source_deferred' else 'error',
+                                   'context': 'public_resource', 'error_type': kind,
+                                   'status_code': getattr(error, 'status_code', None),
+                                   **request_context})
+
+    def _linked_candidates(self, paper, response, result, visited, linked_budget):
         content = response.prefix.decode('utf-8', errors='replace')
         parser = PublicLinks()
         parser.feed(content)
-        if len(response.prefix) >= self.config.html_metadata_bytes:
-            result.errors.append('Public page metadata preview limit reached; parsing may be incomplete')
+        if not response.body_complete and len(response.prefix) >= self.config.html_metadata_bytes:
+            result.warnings.append({'code': 'page_read_limit', 'url': response.url, 'incomplete': True,
+                                    'bytes_read': len(response.prefix)})
         citation = CitationMetadata()
         citation.feed(content)
         values = citation.values
@@ -141,7 +151,8 @@ class PublicPagePDFProvider(LandingPagePDFProvider):
             try:
                 target = secure_page_url(urljoin(response.url, link['href']))
             except (SourceError, ValueError) as exc:
-                result.errors.append('Unsafe linked resource was not queried: ' + str(exc))
+                result.warnings.append({'code': 'candidate_rejected', 'incomplete': False,
+                                        'reason': 'Unsafe linked resource was not queried: ' + str(exc)})
                 continue
             if alternate_pdf:
                 result.candidates.append(make_candidate(
@@ -151,12 +162,19 @@ class PublicPagePDFProvider(LandingPagePDFProvider):
                 continue
             if target in visited:
                 continue
-            if len(visited) >= len(self._pages(paper)) + len(self.config.bibliography_urls) + self.config.linked_page_limit:
-                result.errors.append('Linked-page discovery limit reached; remaining links were not queried')
+            if linked_budget['requests'] >= self.config.linked_page_limit:
+                result.warnings.append({'code': 'linked_page_limit', 'url': response.url, 'incomplete': True,
+                                        'outcome': 'query_budget_exhausted'})
                 break
             visited.add(target)
             try:
                 child = self._probe(target)
+                self._record_response(result, target, child)
+                if child.request_context.get('request_attempted', True):
+                    linked_budget['requests'] += 1
+                if child.content_type in ('text/html', 'application/xhtml+xml') and not child.body_complete:
+                    result.warnings.append({'code': 'page_read_limit', 'url': child.url, 'incomplete': True,
+                                            'bytes_read': len(child.prefix)})
                 found = self._response_candidates(paper, child, [])
                 if not found and has_pdf_signature(child.prefix):
                     found.append(make_candidate(
@@ -165,7 +183,9 @@ class PublicPagePDFProvider(LandingPagePDFProvider):
                         'Explicit public bibliography link returned a PDF; correspondence requires confirmation'))
                 result.candidates.extend(found)
             except (SourceError, ValueError, TypeError) as exc:
-                result.errors.append('{}: {}'.format(target, exc))
+                if getattr(exc, 'request_context', {}).get('request_attempted', True):
+                    linked_budget['requests'] += 1
+                self._record_failure(result, target, exc)
         for script in parser.scripts:
             result.candidates.extend(self._structured_candidates(paper, response.url, script))
 

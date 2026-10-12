@@ -205,6 +205,8 @@ class PDFCandidate:
     pdf_signature_confirmed: bool = False
     validation_evidence: List[str] = field(default_factory=list)
     error_details: List[str] = field(default_factory=list)
+    request_context: dict = field(default_factory=dict)
+    query_error_type: Optional[str] = None
 
 
 @dataclass
@@ -215,6 +217,7 @@ class PDFProviderResult:
     errors: List[str] = field(default_factory=list)
     landing_pages: List[dict] = field(default_factory=list)
     diagnostics: List[dict] = field(default_factory=list)
+    warnings: List[dict] = field(default_factory=list)
 
 
 @dataclass
@@ -240,6 +243,8 @@ class PaperPDFResult:
     source_author_id: Optional[str] = None
     paper_metadata: dict = field(default_factory=dict)
     failure_reasons: List[str] = field(default_factory=list)
+    candidate_decisions: List[dict] = field(default_factory=list)
+    warnings: List[dict] = field(default_factory=list)
 
 
 @dataclass
@@ -253,6 +258,9 @@ class PDFFileValidation:
     evidence: List[str] = field(default_factory=list)
     error_details: List[str] = field(default_factory=list)
     active_content_present: bool = False
+    document_type: str = 'unknown'
+    document_type_evidence: List[str] = field(default_factory=list)
+    observations: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -290,6 +298,9 @@ class PaperDownloadResult:
     external_ids: dict = field(default_factory=dict)
     paper_metadata: dict = field(default_factory=dict)
     failure_reasons: List[str] = field(default_factory=list)
+    document_type: str = 'unknown'
+    search_sufficiently_satisfied: Optional[bool] = False
+    search_satisfaction_reason: str = 'no_integrity_checked_local_file'
 
 
 @dataclass

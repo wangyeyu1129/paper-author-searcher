@@ -1,0 +1,1614 @@
+{
+  "report_type": "offline_pdf_content_revalidation",
+  "manifest_path": "/Users/wangyeyu/Desktop/paper-author-searcher/output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016/manifest.json",
+  "pdf_report_path": "/Users/wangyeyu/Desktop/paper-author-searcher/output/performance/source_discovery/search_Andrew_Ng_20261011T193551Z_c9900b1fb016/pdf_urls.json",
+  "only_needs_review": true,
+  "statistics": {
+    "selected_files": 20,
+    "validation_status_counts": {
+      "needs_review": 4,
+      "verified": 16
+    },
+    "before_validation_status_counts": {
+      "needs_review": 20
+    },
+    "document_type_counts": {
+      "full_text": 17,
+      "preprint": 2,
+      "poster": 1
+    },
+    "full_text_confirmed_files": 16,
+    "newly_verified_paper_keys": [
+      "0a41bbcd01567a31d803f2e520abe0cff01dbb605955fe045b6c94be6638913e",
+      "01d806f5277f7b0f54ccdea1448d6ca1da97c49ac361219c208233d7e479ec51",
+      "e619b1a34ef21d5b2af3fda6601fee67e88d4d87d239f15b2e6806ecb2b64968",
+      "cb98fcf1ec898e773bbfc3fa35527b21354e1370e3c4cfecf09d4e04957372a4",
+      "bfbe1a2c37c54dc06c6d5b8dba11b09ba7015cc23024647706f8ebb8248aed42",
+      "cfac535787786a1b07dd1b2e3cc10567830ffe0e1917fade60aaef4d8adb4ef0",
+      "f64ce4cea91e55117e590b9d5805b32c83550d4690c6d1653357c3a289171a9b",
+      "48ef3dfc4d64c181a47015c05054e0bcd6400508c831af369bbbb87dd44ac5e4",
+      "a2203a3e123e39629fb455914fa9edb689e9ca70b766364e95802b796f466b37",
+      "b2bcfcef78ef9db62f7963dda81069f21b37bf7f9581126e4c2ae68912367fa9",
+      "39ae3d71d2a587e98afa6b3af06b9bd8f60e68527616343856496239fc265b6c",
+      "8b2ff82e3c376f1ccf959b761df67d6457144d9bdd984f8c183ad5f76bff9f80",
+      "3457da522f0a65ad0a9e13e72b322f635e8b0d507b0a6ce235e4efec506722ee",
+      "0e4a512e0ce2547f281abb21707541a6465d169fd0868720cf708caded05aa9c",
+      "defb1b2e66152e30e791a45060d392a91e8f4f2c6ad8984be9b5b1461d4cf559",
+      "d2fbe4b4bbf3639371bd224cf3d6000609367ec8a9131f4e4da50c462c15a1cb"
+    ],
+    "regressed_paper_keys": []
+  },
+  "papers": [
+    {
+      "paper_key": "5af93fa5a71e76ad20914e2c13a7e3c92158382a587b71133869ae9d4c255a03",
+      "title": "Latent dirichlet allocation",
+      "local_filename": "needs_review/2003_Latent_dirichlet_allocation_5af93fa5a71e76ad.pdf",
+      "ownership_status": "verified",
+      "sha256": "4667de63545b57d55d6c43e5af6f3429edfaac9472ed9eff68fdf43572735dd9",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 30,
+        "extracted_titles": [
+          "blei03a.dvi"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "PDF title metadata differs from the target; content association remains conservative",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": false
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 30,
+        "extracted_titles": [
+          "blei03a.dvi"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "Technical filename/producer title is not a scientific-title conflict",
+          "File is parseable, but its correspondence to the target paper requires review",
+          "Saved publication venue also occurs on the PDF first page; auxiliary evidence only"
+        ],
+        "error_details": [],
+        "active_content_present": false,
+        "document_type": "full_text",
+        "document_type_evidence": [
+          "Article front matter and document structure agree; publication version retained separately"
+        ],
+        "observations": {
+          "first_page_front_matter": "Journal of Machine Learning Research 3 (2003) 993-1022 Submitted 2/02; Published 1/03\nLatent Dirichlet Allocation\nDavid M. Blei BLEI @ CS .BERKELEY .EDU\nComputer Science Division\nUniversity of California\nBerkeley, CA 94720, USA\nAndrew Y. Ng ANG @ CS .STANFORD .EDU\nComputer Science Department\nStanford University\nStanford, CA 94305, USA\nMichael I. Jordan JORDAN @ CS .BERKELEY .EDU\nComputer Science Division and Department of Statistics\nUniversity of California\nBerkeley, CA 94720, USA\nEditor:John Lafferty\n",
+          "publication_years": [],
+          "expected_year": 2003,
+          "metadata_title_kinds": [
+            "technical"
+          ],
+          "publication_bindings": [
+            {
+              "provider": "journal_catalog",
+              "metadata_url": "https://jmlr.org/papers/v3/blei03a.html",
+              "source_paper_id": null,
+              "doi": null,
+              "metadata_year": "2003",
+              "metadata_authors": [
+                "Blei, David M.",
+                "Ng, Andrew Y.",
+                "Jordan, Michael I."
+              ],
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": "Journal of Machine Learning Research",
+          "venue_present_in_first_page": true
+        }
+      }
+    },
+    {
+      "paper_key": "e292f63f2c44dde699c818bcc8174ebc9d539c9525b152b15ddee4265f3eaa42",
+      "title": "Multimodal Deep Learning",
+      "local_filename": "needs_review/2011_Multimodal_Deep_Learning_e292f63f2c44dde6.pdf",
+      "ownership_status": "verified",
+      "sha256": "5385c8520b7380eb6d1a807888c8006fd59a86c39154c3b08ae98281983a0658",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 8,
+        "extracted_titles": [
+          "Multimodal Deep Learning"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": true
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 8,
+        "extracted_titles": [
+          "Multimodal Deep Learning"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "File is parseable, but its correspondence to the target paper requires review",
+          "Publication year in PDF agrees with the saved publication record"
+        ],
+        "error_details": [],
+        "active_content_present": true,
+        "document_type": "full_text",
+        "document_type_evidence": [
+          "Article front matter and document structure agree; publication version retained separately"
+        ],
+        "observations": {
+          "first_page_front_matter": "Multimodal Deep Learning\nJiquan Ngiam1 jngiam@cs.stanford.edu\nAditya Khosla1 aditya86@cs.stanford.edu\nMingyu Kim1 minkyu89@cs.stanford.edu\nJuhan Nam1 juhan@ccrma.stanford.edu\nHonglak Lee2 honglak@eecs.umich.edu\nAndrew Y. Ng1 ang@cs.stanford.edu\n1 Computer Science Department, Stanford University, Stanford, CA 94305, USA\n2 Computer Science and Engineering Division, University of Michigan, Ann Arbor, MI 48109, USA\n",
+          "publication_years": [
+            "2011"
+          ],
+          "expected_year": 2011,
+          "metadata_title_kinds": [
+            "matching"
+          ],
+          "publication_bindings": [
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~ang/papers/icml11-MultimodalDeepLearning.pdf",
+              "source_paper_id": "https://openalex.org/W2184188583",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~ang/papers/icml11-MultimodalDeepLearning.pdf",
+              "source_paper_id": "https://openalex.org/W2184188583",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": null,
+          "venue_present_in_first_page": false
+        }
+      }
+    },
+    {
+      "paper_key": "0a41bbcd01567a31d803f2e520abe0cff01dbb605955fe045b6c94be6638913e",
+      "title": "Semi-Supervised Recursive Autoencoders for Predicting Sentiment Distributions",
+      "local_filename": "needs_review/2011_Semi-Supervised_Recursive_Autoencoders_for_Predicting_Sentiment_Distributions_0a41bbcd01567a31.pdf",
+      "ownership_status": "verified",
+      "sha256": "6f7ff2f97f8658e86bcac5c72f3f260eea0ae0e40b2940296d3d97e678034f0e",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 11,
+        "extracted_titles": [],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": false
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "verified",
+        "validation_status": "verified",
+        "page_count": 11,
+        "extracted_titles": [],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "Full expected author signatures corroborate a distinctive title without requiring DOI"
+        ],
+        "error_details": [],
+        "active_content_present": false,
+        "document_type": "full_text",
+        "document_type_evidence": [
+          "Article front matter and document structure agree; publication version retained separately"
+        ],
+        "observations": {
+          "first_page_front_matter": "Semi-Supervised Recursive Autoencoders\nfor Predicting Sentiment Distributions\nRichard Socher Jeffrey Pennington ∗ Eric H. Huang Andrew Y. Ng Christopher D. Manning\nComputer Science Department, Stanford University, Stanford, CA 94305, USA\n∗SLAC National Accelerator Laboratory, Stanford University, Stanford, CA 94309, USA\nrichard@socher.org {jpennin,ehhuang,ang,manning}@stanford.edu ang@cs.stanford.edu\n",
+          "publication_years": [],
+          "expected_year": 2011,
+          "metadata_title_kinds": [],
+          "publication_bindings": [
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~ang/papers/emnlp11-RecursiveAutoencodersSentimentDistributions.pdf",
+              "source_paper_id": "https://openalex.org/W71795751",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~ang/papers/emnlp11-RecursiveAutoencodersSentimentDistributions.pdf",
+              "source_paper_id": "https://openalex.org/W71795751",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": null,
+          "venue_present_in_first_page": false
+        }
+      }
+    },
+    {
+      "paper_key": "01d806f5277f7b0f54ccdea1448d6ca1da97c49ac361219c208233d7e479ec51",
+      "title": "Tackling Climate Change with Machine Learning",
+      "local_filename": "needs_review/2022_Tackling_Climate_Change_with_Machine_Learning_01d806f5277f7b0f.pdf",
+      "ownership_status": "verified",
+      "sha256": "132cdad1036648e8bb3bf13a0169ce8708d31fa9f4c0d041de55be38000a90bb",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 111,
+        "extracted_titles": [],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": true
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "verified",
+        "validation_status": "verified",
+        "page_count": 111,
+        "extracted_titles": [],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "Full expected author signatures corroborate a distinctive title without requiring DOI"
+        ],
+        "error_details": [],
+        "active_content_present": true,
+        "document_type": "preprint",
+        "document_type_evidence": [
+          "Article front matter and independently supplied preprint version metadata agree"
+        ],
+        "observations": {
+          "first_page_front_matter": "Tackling Climate Change with Machine Learning\nDavid Rolnick1 ∗, Priya L. Donti2, Lynn H. Kaack3, Kelly Kochanski4, Alexandre Lacoste5,\nKris Sankaran6,7, Andrew Slavin Ross9, Nikola Milojevic-Dupont10,11, Natasha Jaques12,\nAnna Waldman-Brown12, Alexandra Luccioni6,7, Tegan Maharaj6,8, Evan D. Sherwin2,\nS. Karthik Mukkavilli6,7, Konrad P. K¨ording1, Carla Gomes13, Andrew Y . Ng14,\nDemis Hassabis15, John C. Platt16, Felix Creutzig10,11, Jennifer Chayes17, Yoshua Bengio6,7\n1University of Pennsylvania, 2Carnegie Mellon University, 3ETH Z¨urich, 4University of Colorado Boulder,\n5Element AI, 6Mila, 7Universit´e de Montr´eal, 8 ´Ecole Polytechnique de Montr´eal, 9Harvard University,\n10Mercator Research Institute on Global Commons and Climate Change, 11Technische Universit¨at Berlin,\n12Massachusetts Institute of Technology,13Cornell University, 14Stanford University,\n15DeepMind, 16Google AI, 17Microsoft Research\n",
+          "publication_years": [],
+          "expected_year": 2022,
+          "metadata_title_kinds": [],
+          "publication_bindings": [
+            {
+              "provider": "arxiv",
+              "metadata_url": "https://export.arxiv.org/api/query",
+              "source_paper_id": "1906.05433v2",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": "OPUS 4 (Zuse Institute Berlin)",
+          "venue_present_in_first_page": false
+        }
+      }
+    },
+    {
+      "paper_key": "e619b1a34ef21d5b2af3fda6601fee67e88d4d87d239f15b2e6806ecb2b64968",
+      "title": "Unsupervised feature learning for audio classification using convolutional deep belief networks",
+      "local_filename": "needs_review/2009_Unsupervised_feature_learning_for_audio_classification_using_convolutional_deep_belief_networks_e619b1a34ef21d5b.pdf",
+      "ownership_status": "verified",
+      "sha256": "98420e57f5fd7d8d90e9c78f6365768e171b2427ec0a2cd10d998bc229c53931",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 9,
+        "extracted_titles": [],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": false
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "verified",
+        "validation_status": "verified",
+        "page_count": 9,
+        "extracted_titles": [],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "Full expected author signatures corroborate a distinctive title without requiring DOI"
+        ],
+        "error_details": [],
+        "active_content_present": false,
+        "document_type": "full_text",
+        "document_type_evidence": [
+          "Article front matter and document structure agree; publication version retained separately"
+        ],
+        "observations": {
+          "first_page_front_matter": "Unsupervised feature learning for audio classiﬁcation\nusing convolutional deep belief networks\nHonglak Lee Yan Largman Peter Pham Andrew Y. Ng\nComputer Science Department\nStanford University\nStanford, CA 94305\n",
+          "publication_years": [],
+          "expected_year": 2009,
+          "metadata_title_kinds": [],
+          "publication_bindings": [
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~hllee//nips09-AudioConvolutionalDBN.pdf",
+              "source_paper_id": "https://openalex.org/W2107789863",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~hllee//nips09-AudioConvolutionalDBN.pdf",
+              "source_paper_id": "https://openalex.org/W2107789863",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~hllee//nips09-AudioConvolutionalDBN.pdf",
+              "source_paper_id": "https://openalex.org/W2107789863",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~hllee//nips09-AudioConvolutionalDBN.pdf",
+              "source_paper_id": "https://openalex.org/W2107789863",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": "neural information processing systems",
+          "venue_present_in_first_page": false
+        }
+      }
+    },
+    {
+      "paper_key": "c3785a84ab31a31587c256adaccd3787f6046bf2142ef7c0b050358d52968ce8",
+      "title": "Dynamic Pooling and Unfolding Recursive Autoencoders for Paraphrase Detection",
+      "local_filename": "needs_review/2011_Dynamic_Pooling_and_Unfolding_Recursive_Autoencoders_for_Paraphrase_Detection_c3785a84ab31a315.pdf",
+      "ownership_status": "verified",
+      "sha256": "00372113b5c16620c48de001c6638c550bf48df535180e7447a27957a8c1db6c",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 9,
+        "extracted_titles": [],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": false
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 9,
+        "extracted_titles": [],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": false,
+        "document_type": "full_text",
+        "document_type_evidence": [
+          "Article front matter and document structure agree; publication version retained separately"
+        ],
+        "observations": {
+          "first_page_front_matter": "Dynamic Pooling and Unfolding Recursive\nAutoencoders for Paraphrase Detection\nRichard Socher, Eric H. Huang, Jeffrey Pennington∗, Andrew Y. Ng, Christopher D. Manning\nComputer Science Department, Stanford University, Stanford, CA 94305, USA\n∗SLAC National Accelerator Laboratory, Stanford University, Stanford, CA 94309, USA\nrichard@socher.org, {ehhuang,jpennin,ang,manning}@stanford.edu\n",
+          "publication_years": [],
+          "expected_year": 2011,
+          "metadata_title_kinds": [],
+          "publication_bindings": [
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~ang/papers/nips11-DynamicPoolingUnfoldingRecursiveAutoencoders.pdf",
+              "source_paper_id": "https://openalex.org/W2103305545",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~ang/papers/nips11-DynamicPoolingUnfoldingRecursiveAutoencoders.pdf",
+              "source_paper_id": "https://openalex.org/W2103305545",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": false,
+          "expected_venue": null,
+          "venue_present_in_first_page": false
+        }
+      }
+    },
+    {
+      "paper_key": "28fe1cab9fde9dc13f3dba66d3d7ed074fcda2db903111391455f104d91e93ed",
+      "title": "Learning Syntactic Patterns for Automatic Hypernym Discovery",
+      "local_filename": "needs_review/2004_Learning_Syntactic_Patterns_for_Automatic_Hypernym_Discovery_28fe1cab9fde9dc1.pdf",
+      "ownership_status": "verified",
+      "sha256": "d93cd75c69065f54ab850b977dfa4c885ef19caa64aaeb9161f676125bc1c93a",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 1,
+        "extracted_titles": [
+          "Microsoft PowerPoint - NIPS_poster3_646a.ppt"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "PDF title metadata differs from the target; content association remains conservative",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": false
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "verified",
+        "validation_status": "needs_review",
+        "page_count": 1,
+        "extracted_titles": [
+          "Microsoft PowerPoint - NIPS_poster3_646a.ppt"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "Technical filename/producer title is not a scientific-title conflict",
+          "Full expected author signatures corroborate a distinctive title without requiring DOI",
+          "Non-full-text document is not counted as a confirmed complete paper"
+        ],
+        "error_details": [],
+        "active_content_present": false,
+        "document_type": "poster",
+        "document_type_evidence": [
+          "Poster metadata and oversized single-page layout agree"
+        ],
+        "observations": {
+          "first_page_front_matter": "Building a Semantic Taxonomy \nUsing this classifier we may now extend and construct semantic taxonomies. \nWe assume that the semantic taxonomy is a directed acyclic graph G;\nWe then consider the set Dof probabilities                  given by our classifier \nas noisy observations of the corresponding ancestry relations.  \nWe condition the probability of our observations given a particular DAG G:\nhere we take the product over all pairs of words           (or synsets, in WordNet). \nOur goal is to return the graph that maximizes this probability. \nAlgorithm:  at each step we add the single link             that maximizes the \nchange in probability                , where:   \nWe continue adding links               so long as \nWe have begun constructing these extended taxonomies;  we plan to release \nthe first of these for use in NLP applications in early 2005.  Please let us \nknow if you’re interested in an early release! \nDependency Paths as Features \nFor every noun pair in a large newswire corpus we use as \nfeatures 69,592 of the most frequent directed paths (with \nredundant ‘satellite’ links of length 1) occurring between \nnoun pairs in MINIPAR syntactic dependency graphs.  \nMINIPAR is a principle-based parser (Lin, 1998) which \nproduces a dependency graph of the form below: \nMotivation \nLearning syntactic patterns for automatic hypernym discovery \nRion Snow    Daniel Jurafsky   Andrew Y. Ng \nStanford University \n-N:s:VBE, “be” VBE:pred:N \n-N:s:VBE, “be” VBE:pred:N,(the,Det:det:N) \n-N:s:VBE, “be” VBE:pred:N,(most,PostDet:post:N) \n-N:s:VBE, “be” VBE:pred:N,(abundant,A:mod:N) \n-N:s:VBE, “be” VBE:pred:N,(on,Prep:mod:N) \n( )()\n() ( ) { }\n( ) { }\n( )\n,\n,\nSuccessors \nPredecessors \nSuccessors \n1\ni j H\ns i i \np j j \nc p \ns p H\ne e \ne e e s p H e e e \ne e \nP e e \nG\nP e e \nδ←\n∈\n∈\n∉\n<\n=\n− < ∏\nsan_diego \nsan_francisco \ndenver \nseattle \ncincinnati \npittsburgh \nnew_york_city \ndetroit \nboston \nchicago \n-------- \ncity \n-------- \n-------- \n-------- \n-------- \n-------- \nplace ,  city \n-------- \ncity \nHypernym \nClassifier \nCoordinate \nClassifier \n10\n=-2\n10-1100 0\n0. 1\n0. 2\n0. 3\n0. 4\n0. 5\n0. 6\n0. 7\n0. 8\n0. 9\n1\nX and/or other Y\nY such as X\nsuch Y as X\nY including X \nY, especially X\nY like X\nY called X\nX is Y\nX, a Y (appositive)\n-2\nIndividual feature analysis\nRecall (log)\nPrecision\n()()()() 1 2 \nˆ ˆ ˆ ˆ \nnew i j old i j i k old k j H H C H k\nP e e P e e P e e P e e \nλ λ < = < + < ∑∼\n",
+          "publication_years": [],
+          "expected_year": 2004,
+          "metadata_title_kinds": [
+            "technical"
+          ],
+          "publication_bindings": [
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~rion/nips04/RLS_nips04_poster.pdf",
+              "source_paper_id": "https://openalex.org/W2142086811",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~rion/nips04/RLS_nips04_poster.pdf",
+              "source_paper_id": "https://openalex.org/W2142086811",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~rion/nips04/RLS_nips04_poster.pdf",
+              "source_paper_id": "https://openalex.org/W2142086811",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~rion/nips04/RLS_nips04_poster.pdf",
+              "source_paper_id": "https://openalex.org/W2142086811",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": "neural information processing systems",
+          "venue_present_in_first_page": false
+        }
+      }
+    },
+    {
+      "paper_key": "cb98fcf1ec898e773bbfc3fa35527b21354e1370e3c4cfecf09d4e04957372a4",
+      "title": "Learning Feature Representations with K-Means",
+      "local_filename": "needs_review/2012_Learning_Feature_Representations_with_K-Means_cb98fcf1ec898e77.pdf",
+      "ownership_status": "verified",
+      "sha256": "c382e0ffccd77fe69f3989c1d8a44d5a882d8dd5a763490889668db07928b4a4",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 20,
+        "extracted_titles": [
+          "LNCS 7700 - Learning Feature Representations with K-Means"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "PDF title metadata differs from the target; content association remains conservative",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": true
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "verified",
+        "validation_status": "verified",
+        "page_count": 20,
+        "extracted_titles": [
+          "LNCS 7700 - Learning Feature Representations with K-Means"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "Bibliographic series prefix is separated from the scientific title",
+          "Full expected author signatures corroborate a distinctive title without requiring DOI",
+          "All bylines from the independently bound publisher citation metadata occur in PDF front matter"
+        ],
+        "error_details": [],
+        "active_content_present": true,
+        "document_type": "full_text",
+        "document_type_evidence": [
+          "Article front matter and document structure agree; publication version retained separately"
+        ],
+        "observations": {
+          "first_page_front_matter": "22\nLearning Feature Representations with K-Means\nAdam Coates and Andrew Y. Ng\nStanford University, Stanford CA 94306, USA\n",
+          "publication_years": [],
+          "expected_year": 2012,
+          "metadata_title_kinds": [
+            "decorated"
+          ],
+          "publication_bindings": [
+            {
+              "provider": "public_pages",
+              "metadata_url": "https://link.springer.com/chapter/10.1007/978-3-642-35289-8_30?error=cookies_not_supported&code=74a88263-2ea3-4201-ace6-201e63d0835d",
+              "source_paper_id": null,
+              "doi": "10.1007/978-3-642-35289-8_30",
+              "metadata_year": "2012",
+              "metadata_authors": [
+                "Coates, Adam",
+                "Ng, Andrew Y."
+              ],
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "https://link.springer.com/chapter/10.1007/978-3-642-35289-8_30?error=cookies_not_supported&code=b29f2e39-e3e1-44ce-9458-d1bd285d5ff9",
+              "source_paper_id": null,
+              "doi": "10.1007/978-3-642-35289-8_30",
+              "metadata_year": "2012",
+              "metadata_authors": [
+                "Coates, Adam",
+                "Ng, Andrew Y."
+              ],
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": "Lecture notes in computer science",
+          "venue_present_in_first_page": false
+        }
+      }
+    },
+    {
+      "paper_key": "bfbe1a2c37c54dc06c6d5b8dba11b09ba7015cc23024647706f8ebb8248aed42",
+      "title": "Convolutional-Recursive Deep Learning for 3D Object Classification",
+      "local_filename": "needs_review/2012_Convolutional-Recursive_Deep_Learning_for_3D_Object_Classification_bfbe1a2c37c54dc0.pdf",
+      "ownership_status": "verified",
+      "sha256": "221883bf6560a40cf041136064ea356b14e1c471139a942299147eda1434f18c",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 9,
+        "extracted_titles": [],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": false
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "verified",
+        "validation_status": "verified",
+        "page_count": 9,
+        "extracted_titles": [],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "Full expected author signatures corroborate a distinctive title without requiring DOI"
+        ],
+        "error_details": [],
+        "active_content_present": false,
+        "document_type": "full_text",
+        "document_type_evidence": [
+          "Article front matter and document structure agree; publication version retained separately"
+        ],
+        "observations": {
+          "first_page_front_matter": "Convolutional-Recursive Deep Learning\nfor 3D Object Classiﬁcation\nRichard Socher, Brody Huval, Bharath Bhat, Christopher D. Manning, Andrew Y. Ng\nComputer Science Department, Stanford University, Stanford, CA 94305, USA\nrichard@socher.org, {brodyh,bbhat,manning}@stanford.edu, ang@cs.stanford.edu\n",
+          "publication_years": [],
+          "expected_year": 2012,
+          "metadata_title_kinds": [],
+          "publication_bindings": [
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~ang/papers/nips2012_3drae%20(2).pdf",
+              "source_paper_id": "https://openalex.org/W2109992539",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~ang/papers/nips2012_3drae%20(2).pdf",
+              "source_paper_id": "https://openalex.org/W2109992539",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": null,
+          "venue_present_in_first_page": false
+        }
+      }
+    },
+    {
+      "paper_key": "cfac535787786a1b07dd1b2e3cc10567830ffe0e1917fade60aaef4d8adb4ef0",
+      "title": "The Importance of Encoding Versus Training with Sparse Coding and Vector Quantization",
+      "local_filename": "needs_review/2011_The_Importance_of_Encoding_Versus_Training_with_Sparse_Coding_and_Vector_Quantization_cfac535787786a1b.pdf",
+      "ownership_status": "verified",
+      "sha256": "e8f601dc173be75b66770cd7e2f5d3a00d0d643a94d6d3ac53a7c02c59819def",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 8,
+        "extracted_titles": [
+          "icml_2011.dvi"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "PDF title metadata differs from the target; content association remains conservative",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": false
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "verified",
+        "validation_status": "verified",
+        "page_count": 8,
+        "extracted_titles": [
+          "icml_2011.dvi"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "Technical filename/producer title is not a scientific-title conflict",
+          "Full expected author signatures corroborate a distinctive title without requiring DOI",
+          "Publication year in PDF agrees with the saved publication record"
+        ],
+        "error_details": [],
+        "active_content_present": false,
+        "document_type": "full_text",
+        "document_type_evidence": [
+          "Article front matter and document structure agree; publication version retained separately"
+        ],
+        "observations": {
+          "first_page_front_matter": "The Importance of Encoding V ersus T raining with Sparse Coding\nand V ector Quantization\nAdam Coates acoates@cs.stanford.edu\nAndrew Y. Ng ang@cs.stanford.edu\nStanford University , 353 Serra Mall, Stanford, CA 94305\n",
+          "publication_years": [
+            "2011"
+          ],
+          "expected_year": 2011,
+          "metadata_title_kinds": [
+            "technical"
+          ],
+          "publication_bindings": [
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~ang/papers/icml11-EncodingVsTraining.pdf",
+              "source_paper_id": "https://openalex.org/W2184852195",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~ang/papers/icml11-EncodingVsTraining.pdf",
+              "source_paper_id": "https://openalex.org/W2184852195",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": null,
+          "venue_present_in_first_page": false
+        }
+      }
+    },
+    {
+      "paper_key": "f64ce4cea91e55117e590b9d5805b32c83550d4690c6d1653357c3a289171a9b",
+      "title": "Measuring Invariances in Deep Networks",
+      "local_filename": "needs_review/2009_Measuring_Invariances_in_Deep_Networks_f64ce4cea91e5511.pdf",
+      "ownership_status": "verified",
+      "sha256": "45a72cdb4de4fa4048d93a5d6d349798767f83c953988b1888ad96181247844c",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 9,
+        "extracted_titles": [
+          "nips2009.dvi"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "PDF title metadata differs from the target; content association remains conservative",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": false
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "verified",
+        "validation_status": "verified",
+        "page_count": 9,
+        "extracted_titles": [
+          "nips2009.dvi"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "Technical filename/producer title is not a scientific-title conflict",
+          "Full expected author signatures corroborate a distinctive title without requiring DOI"
+        ],
+        "error_details": [],
+        "active_content_present": false,
+        "document_type": "full_text",
+        "document_type_evidence": [
+          "Article front matter and document structure agree; publication version retained separately"
+        ],
+        "observations": {
+          "first_page_front_matter": "Measuring Invariances in Deep Networks\nIan J. Goodfellow, Quoc V . Le, Andrew M. Saxe, Honglak Lee, Andrew Y. Ng\nComputer Science Department\nStanford University\nStanford, CA 94305\n{ia3n,quocle,asaxe,hllee,ang}@cs.stanford.edu\n",
+          "publication_years": [],
+          "expected_year": 2009,
+          "metadata_title_kinds": [
+            "technical"
+          ],
+          "publication_bindings": [
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~hllee/nips09-MeasuringInvariancesDeepNetworks.pdf",
+              "source_paper_id": "https://openalex.org/W2105728138",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~hllee/nips09-MeasuringInvariancesDeepNetworks.pdf",
+              "source_paper_id": "https://openalex.org/W2105728138",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": null,
+          "venue_present_in_first_page": false
+        }
+      }
+    },
+    {
+      "paper_key": "48ef3dfc4d64c181a47015c05054e0bcd6400508c831af369bbbb87dd44ac5e4",
+      "title": "Energy Disaggregation via Discriminative Sparse Coding",
+      "local_filename": "needs_review/2010_Energy_Disaggregation_via_Discriminative_Sparse_Coding_48ef3dfc4d64c181.pdf",
+      "ownership_status": "verified",
+      "sha256": "fc6f35bdcfeea09b6b34ba45a4bb20b3170be807e64b0e5fe80ce0bfca52fa37",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 9,
+        "extracted_titles": [
+          "nips2010_2.dvi"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "PDF title metadata differs from the target; content association remains conservative",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": false
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "verified",
+        "validation_status": "verified",
+        "page_count": 9,
+        "extracted_titles": [
+          "nips2010_2.dvi"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "Technical filename/producer title is not a scientific-title conflict",
+          "Full expected author signatures corroborate a distinctive title without requiring DOI"
+        ],
+        "error_details": [],
+        "active_content_present": false,
+        "document_type": "full_text",
+        "document_type_evidence": [
+          "Article front matter and document structure agree; publication version retained separately"
+        ],
+        "observations": {
+          "first_page_front_matter": "Energy Disaggregation via Discriminative\nSparse Coding\nJ. Zico Kolter\nComputer Science and\nArtiﬁcial Intelligence Laboratory\nMassachusetts Institute of Technology\nCambridge, MA 02139\nkolter@csail.mit.edu\nSiddarth Batra, Andrew Y. Ng\nComputer Science Department\nStanford University\nStanford, CA 94305\n{sidbatra,ang}@cs.stanford.edu\n",
+          "publication_years": [],
+          "expected_year": 2010,
+          "metadata_title_kinds": [
+            "technical"
+          ],
+          "publication_bindings": [
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/%7Eang/papers/nips10-EnergyDisaggregationDiscriminativeSparseCoding.pdf",
+              "source_paper_id": "https://openalex.org/W2167985623",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/%7Eang/papers/nips10-EnergyDisaggregationDiscriminativeSparseCoding.pdf",
+              "source_paper_id": "https://openalex.org/W2167985623",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": null,
+          "venue_present_in_first_page": false
+        }
+      }
+    },
+    {
+      "paper_key": "a2203a3e123e39629fb455914fa9edb689e9ca70b766364e95802b796f466b37",
+      "title": "EfficientL 1 regularized logistic regression",
+      "local_filename": "needs_review/2006_EfficientL_1_regularized_logistic_regression_a2203a3e123e3962.pdf",
+      "ownership_status": "verified",
+      "sha256": "d6e8b6e5cb2774c050fbd1360e3cb03d880587ddcb08a3a154b894a5d113d501",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 8,
+        "extracted_titles": [],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": false
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "verified",
+        "validation_status": "verified",
+        "page_count": 8,
+        "extracted_titles": [],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "Full expected author signatures corroborate a distinctive title without requiring DOI"
+        ],
+        "error_details": [],
+        "active_content_present": false,
+        "document_type": "full_text",
+        "document_type_evidence": [
+          "Article front matter and document structure agree; publication version retained separately"
+        ],
+        "observations": {
+          "first_page_front_matter": "Efﬁcient L1 Regularized Logistic Regression\nSu-In Lee, Honglak Lee, Pieter Abbeel and Andrew Y. Ng\nComputer Science Department\nStanford University\nStanford, CA 94305\n",
+          "publication_years": [],
+          "expected_year": 2006,
+          "metadata_title_kinds": [],
+          "publication_bindings": [
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/%7Eang/papers/aaai06-efficientL1logisticregression.pdf",
+              "source_paper_id": "https://openalex.org/W2138145347",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/%7Eang/papers/aaai06-efficientL1logisticregression.pdf",
+              "source_paper_id": "https://openalex.org/W2138145347",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": null,
+          "venue_present_in_first_page": false
+        }
+      }
+    },
+    {
+      "paper_key": "b2bcfcef78ef9db62f7963dda81069f21b37bf7f9581126e4c2ae68912367fa9",
+      "title": "ICA with Reconstruction Cost for Efficient Overcomplete Feature Learning",
+      "local_filename": "needs_review/2011_ICA_with_Reconstruction_Cost_for_Efficient_Overcomplete_Feature_Learning_b2bcfcef78ef9db6.pdf",
+      "ownership_status": "verified",
+      "sha256": "102a70be0f8a277b23ae956c7638fe34f0679f93c7c6043ca1721de5c44587e6",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 9,
+        "extracted_titles": [
+          "nips2011.dvi"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "PDF title metadata differs from the target; content association remains conservative",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": false
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "verified",
+        "validation_status": "verified",
+        "page_count": 9,
+        "extracted_titles": [
+          "nips2011.dvi"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "Technical filename/producer title is not a scientific-title conflict",
+          "Full expected author signatures corroborate a distinctive title without requiring DOI"
+        ],
+        "error_details": [],
+        "active_content_present": false,
+        "document_type": "full_text",
+        "document_type_evidence": [
+          "Article front matter and document structure agree; publication version retained separately"
+        ],
+        "observations": {
+          "first_page_front_matter": "ICA with Reconstruction Cost for Efﬁcient\nOvercomplete Feature Learning\nQuoc V . Le, Alexandre Karpenko, Jiquan Ngiam and Andrew Y. Ng\n{quocle,akarpenko,jngiam,ang}@cs.stanford.edu\nComputer Science Department, Stanford University\n",
+          "publication_years": [],
+          "expected_year": 2011,
+          "metadata_title_kinds": [
+            "technical"
+          ],
+          "publication_bindings": [
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~ang/papers/nips11-ICAReconstructionCost.pdf",
+              "source_paper_id": "https://openalex.org/W2112274848",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~ang/papers/nips11-ICAReconstructionCost.pdf",
+              "source_paper_id": "https://openalex.org/W2112274848",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": null,
+          "venue_present_in_first_page": false
+        }
+      }
+    },
+    {
+      "paper_key": "39ae3d71d2a587e98afa6b3af06b9bd8f60e68527616343856496239fc265b6c",
+      "title": "Classification with Hybrid Generative/Discriminative Models",
+      "local_filename": "needs_review/2003_Classification_with_Hybrid_Generative_Discriminative_Models_39ae3d71d2a587e9.pdf",
+      "ownership_status": "verified",
+      "sha256": "342358d3730475a7c47d417b416875f276ded45af005438ee1bbbe8b0c55a617",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 8,
+        "extracted_titles": [
+          "hybrid.dvi"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "PDF title metadata differs from the target; content association remains conservative",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": false
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "verified",
+        "validation_status": "verified",
+        "page_count": 8,
+        "extracted_titles": [
+          "hybrid.dvi"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "Technical filename/producer title is not a scientific-title conflict",
+          "Full expected author signatures corroborate a distinctive title without requiring DOI"
+        ],
+        "error_details": [],
+        "active_content_present": false,
+        "document_type": "full_text",
+        "document_type_evidence": [
+          "Article front matter and document structure agree; publication version retained separately"
+        ],
+        "observations": {
+          "first_page_front_matter": "Classiﬁcation with Hybrid\nGenerative/Discriminative Models\nRajat Raina, Yirong Shen, Andrew Y. Ng\nComputer Science Department\nStanford University\nStanford, CA 94305\nAndrew McCallum\nDepartment of Computer Science\nUniversity of Massachusetts\nAmherst, MA 01003\n",
+          "publication_years": [],
+          "expected_year": 2003,
+          "metadata_title_kinds": [
+            "technical"
+          ],
+          "publication_bindings": [
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/%7Eang/papers/nips03-hybrid.pdf",
+              "source_paper_id": "https://openalex.org/W2171849160",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/%7Eang/papers/nips03-hybrid.pdf",
+              "source_paper_id": "https://openalex.org/W2171849160",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": "ScholarWorks@UMassAmherst (University of Massachusetts Amherst)",
+          "venue_present_in_first_page": false
+        }
+      }
+    },
+    {
+      "paper_key": "8b2ff82e3c376f1ccf959b761df67d6457144d9bdd984f8c183ad5f76bff9f80",
+      "title": "Learning grasp strategies with partial shape information",
+      "local_filename": "needs_review/2008_Learning_grasp_strategies_with_partial_shape_information_8b2ff82e3c376f1c.pdf",
+      "ownership_status": "verified",
+      "sha256": "40c797428ad14a9b46916a9b30937137d2d59b91bd97d311e0d05793e5350242",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 4,
+        "extracted_titles": [],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": false
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "verified",
+        "validation_status": "verified",
+        "page_count": 4,
+        "extracted_titles": [],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "Full expected author signatures corroborate a distinctive title without requiring DOI"
+        ],
+        "error_details": [],
+        "active_content_present": false,
+        "document_type": "full_text",
+        "document_type_evidence": [
+          "Article front matter and document structure agree; publication version retained separately"
+        ],
+        "observations": {
+          "first_page_front_matter": "Learning Grasp Strategies with Partial Shape Information\nAshutosh Saxena, Lawson L.S. Wongand Andrew Y. Ng\nComputer Science Department,\nStanford University, Stanford, CA 94305\n{asaxena,lsw,ang}cs.stanford.edu\n",
+          "publication_years": [],
+          "expected_year": 2008,
+          "metadata_title_kinds": [],
+          "publication_bindings": [
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~asaxena/learninggrasp/graspingpartialshape.pdf",
+              "source_paper_id": "https://openalex.org/W2169241897",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~asaxena/learninggrasp/graspingpartialshape.pdf",
+              "source_paper_id": "https://openalex.org/W2169241897",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": null,
+          "venue_present_in_first_page": false
+        }
+      }
+    },
+    {
+      "paper_key": "3457da522f0a65ad0a9e13e72b322f635e8b0d507b0a6ce235e4efec506722ee",
+      "title": "From uncertainty to belief: inferring the specification within",
+      "local_filename": "needs_review/2006_From_uncertainty_to_belief__inferring_the_specification_within_3457da522f0a65ad.pdf",
+      "ownership_status": "verified",
+      "sha256": "9c658922de7b33e62c9076fde9f9db8959c78e7770a8dede6dea3e9990ba6a1f",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 16,
+        "extracted_titles": [
+          "paper.dvi"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "PDF title metadata differs from the target; content association remains conservative",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": false
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "verified",
+        "validation_status": "verified",
+        "page_count": 16,
+        "extracted_titles": [
+          "paper.dvi"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "Technical filename/producer title is not a scientific-title conflict",
+          "Full expected author signatures corroborate a distinctive title without requiring DOI"
+        ],
+        "error_details": [],
+        "active_content_present": false,
+        "document_type": "full_text",
+        "document_type_evidence": [
+          "Article front matter and document structure agree; publication version retained separately"
+        ],
+        "observations": {
+          "first_page_front_matter": "From Uncertainty to Belief: Inferring the Speciﬁcation Wit hin\nT ed Kremenek† Paul T wohey† Godmar Back ‡ Andrew Y . Ng † Dawson Engler †\nComputer Science Department † Computer Science Department ‡\nStanford University V irginia T ech\nStanford, CA, U.S.A. Blacksburg, VA, U.S.A.\n",
+          "publication_years": [],
+          "expected_year": 2006,
+          "metadata_title_kinds": [
+            "technical"
+          ],
+          "publication_bindings": [
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://cs.brown.edu/courses/cs295-11/2007/inference.pdf",
+              "source_paper_id": "https://openalex.org/W1968027261",
+              "doi": "https://doi.org/10.5555/1298455.1298471",
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://cs.brown.edu/courses/cs295-11/2007/inference.pdf",
+              "source_paper_id": "https://openalex.org/W1968027261",
+              "doi": "https://doi.org/10.5555/1298455.1298471",
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": null,
+          "venue_present_in_first_page": false
+        }
+      }
+    },
+    {
+      "paper_key": "0e4a512e0ce2547f281abb21707541a6465d169fd0868720cf708caded05aa9c",
+      "title": "Deep Learning of Invariant Features via Simulated Fixations in Video",
+      "local_filename": "needs_review/2012_Deep_Learning_of_Invariant_Features_via_Simulated_Fixations_in_Video_0e4a512e0ce2547f.pdf",
+      "ownership_status": "verified",
+      "sha256": "6d31aafcb71ef5659dcb22ee47bbbddf3ede3765548f3e69afc9190652dc5bf3",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 9,
+        "extracted_titles": [
+          "nips2012.dvi"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "PDF title metadata differs from the target; content association remains conservative",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": false
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "verified",
+        "validation_status": "verified",
+        "page_count": 9,
+        "extracted_titles": [
+          "nips2012.dvi"
+        ],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "Technical filename/producer title is not a scientific-title conflict",
+          "Full expected author signatures corroborate a distinctive title without requiring DOI"
+        ],
+        "error_details": [],
+        "active_content_present": false,
+        "document_type": "full_text",
+        "document_type_evidence": [
+          "Article front matter and document structure agree; publication version retained separately"
+        ],
+        "observations": {
+          "first_page_front_matter": "Deep Learning of Invariant Features via Simulated\nFixations in Video\nWill Y. Zou1, Shenghuo Zhu3, Andrew Y. Ng2, Kai Yu3\n1Department of Electrical Engineering, Stanford University, CA\n2Department of Computer Science, Stanford University, CA\n3NEC Laboratories America, Inc., Cupertino, CA\n{wzou, ang}@cs.stanford.edu{zsh, kyu}@sv.nec-labs.com\n",
+          "publication_years": [],
+          "expected_year": 2012,
+          "metadata_title_kinds": [
+            "technical"
+          ],
+          "publication_bindings": [
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~wzou/nips_ZouZhuNgYu12.pdf",
+              "source_paper_id": "https://openalex.org/W2104985274",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~wzou/nips_ZouZhuNgYu12.pdf",
+              "source_paper_id": "https://openalex.org/W2104985274",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": null,
+          "venue_present_in_first_page": false
+        }
+      }
+    },
+    {
+      "paper_key": "defb1b2e66152e30e791a45060d392a91e8f4f2c6ad8984be9b5b1461d4cf559",
+      "title": "Building DNN acoustic models for large vocabulary speech recognition",
+      "local_filename": "needs_review/2016_Building_DNN_acoustic_models_for_large_vocabulary_speech_recognition_defb1b2e66152e30.pdf",
+      "ownership_status": "verified",
+      "sha256": "f252751a111762540f49ea48713ddc81eb6b8212e2a4146d42b3a8b5339429ab",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 22,
+        "extracted_titles": [],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": true
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "verified",
+        "validation_status": "verified",
+        "page_count": 22,
+        "extracted_titles": [],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "Full expected author signatures corroborate a distinctive title without requiring DOI"
+        ],
+        "error_details": [],
+        "active_content_present": true,
+        "document_type": "preprint",
+        "document_type_evidence": [
+          "Article front matter and independently supplied preprint version metadata agree"
+        ],
+        "observations": {
+          "first_page_front_matter": "1\nBuilding DNN Acoustic Models for Large\nV ocabulary Speech Recognition\nAndrew L. Maas, Peng Qi, Ziang Xie, Awni Y . Hannun, Christopher T. Lengerich, Daniel Jurafsky, Andrew Y . Ng,\n",
+          "publication_years": [],
+          "expected_year": 2016,
+          "metadata_title_kinds": [],
+          "publication_bindings": [
+            {
+              "provider": "arxiv",
+              "metadata_url": "https://export.arxiv.org/api/query",
+              "source_paper_id": "1406.7806v2",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": "Computer Speech & Language",
+          "venue_present_in_first_page": false
+        }
+      }
+    },
+    {
+      "paper_key": "d2fbe4b4bbf3639371bd224cf3d6000609367ec8a9131f4e4da50c462c15a1cb",
+      "title": "Integrating Visual and Range Data for Robotic Object Detection",
+      "local_filename": "needs_review/2008_Integrating_Visual_and_Range_Data_for_Robotic_Object_Detection_d2fbe4b4bbf36393.pdf",
+      "ownership_status": "verified",
+      "sha256": "647c540afb23991ab039289a4ccfd1bd19332774b84aca16cfd65249386b5002",
+      "before": {
+        "format_status": "valid",
+        "identity_status": "needs_review",
+        "validation_status": "needs_review",
+        "page_count": 12,
+        "extracted_titles": [],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "File is parseable, but its correspondence to the target paper requires review"
+        ],
+        "error_details": [],
+        "active_content_present": false
+      },
+      "before_status": "needs_review",
+      "file_integrity_confirmed": true,
+      "file_check": "Local file exists and its size/SHA-256 agree with the parsed manifest",
+      "after": {
+        "format_status": "valid",
+        "identity_status": "verified",
+        "validation_status": "verified",
+        "page_count": 12,
+        "extracted_titles": [],
+        "extracted_dois": [],
+        "evidence": [
+          "Strict PDF parser resolved pages and page content streams; EOF and startxref checked",
+          "Expected normalized title occurs in PDF title metadata or the first-page title region",
+          "Full expected author signatures corroborate a distinctive title without requiring DOI"
+        ],
+        "error_details": [],
+        "active_content_present": false,
+        "document_type": "full_text",
+        "document_type_evidence": [
+          "Article front matter and document structure agree; publication version retained separately"
+        ],
+        "observations": {
+          "first_page_front_matter": "Integrating Visual and Range Data for Robotic\nObject Detection\nStephen Gould∗ Paul Baumstarck∗ Morgan Quigley†\nAndrew Y. Ng† Daphne Koller†\n∗Department of Elec. Eng. †Department of Comp. Sc.\nStanford University Stanford University\n",
+          "publication_years": [],
+          "expected_year": 2008,
+          "metadata_title_kinds": [],
+          "publication_bindings": [
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~sgould/papers/eccv08-vision3d.pdf",
+              "source_paper_id": "https://openalex.org/W1540402457",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            },
+            {
+              "provider": "public_pages",
+              "metadata_url": "http://ai.stanford.edu/~sgould/papers/eccv08-vision3d.pdf",
+              "source_paper_id": "https://openalex.org/W1540402457",
+              "doi": null,
+              "metadata_year": null,
+              "metadata_authors": null,
+              "metadata_venue": null
+            }
+          ],
+          "full_author_signatures_present": true,
+          "expected_venue": null,
+          "venue_present_in_first_page": false
+        }
+      }
+    }
+  ],
+  "scope_note": "Current local content parsing with original metadata and verified URL bindings; no new API queries, downloads, ownership changes or manual ground-truth labels."
+}

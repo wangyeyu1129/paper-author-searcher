@@ -15,7 +15,14 @@ def main(argv=None):
     args = parser.parse_args(argv)
     try:
         saved = json.loads(args.result.read_text(encoding='utf-8'))
-        truth = GroundTruth.from_dict(json.loads(args.ground_truth.read_text(encoding='utf-8')))
+        truth_data = json.loads(args.ground_truth.read_text(encoding='utf-8'))
+        metadata = truth_data.get('metadata') or {}
+        if 'formal_evaluation_ready' in metadata:
+            raise ValueError('Pilot reference sets require the independent result audit; '
+                             'use python -m scripts.ground_truth.evaluate_pilot')
+        if metadata.get('annotation_state') in ('candidate_collection', 'partially_human_reviewed', 'review_incomplete'):
+            raise ValueError('Ground Truth human review is unfinished; formal Precision/Recall is unavailable')
+        truth = GroundTruth.from_dict(truth_data)
         report = Evaluator().evaluate(saved, truth)
         if args.output:
             args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')

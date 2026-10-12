@@ -14,6 +14,7 @@ from .paper_collector import PaperCollector, IdentityConfirmationRequired
 from .paper_reanalysis import saved_collection_profile
 from .pdf_resolver import PDFResolver
 from .resolver import ProfessorResolver
+from .performance_diagnostics import workflow_outcomes
 
 
 MODES = ('metadata', 'pdf-urls', 'full')
@@ -194,6 +195,8 @@ class PaperSearchWorkflow:
                                             'maximum_downloads': maximum_downloads},
                   'include_needs_review': include_needs_review,
                   'count_scope': 'retrieved_metadata_not_total_publications'}
+        report['warnings'] = []
+        report['candidate_decisions'] = []
         if query:
             report['query'] = asdict(query)
         write_json(root / 'report.json', report)
@@ -222,6 +225,10 @@ class PaperSearchWorkflow:
                 report['artifacts']['pdf_urls'] = 'pdf_urls.json'
                 report['pdf_statistics'] = pdf.get('statistics', {})
                 for item in pdf['papers']:
+                    report['warnings'].extend(dict(warning, stage=stage, title=item.get('title'))
+                                              for warning in item.get('warnings') or [])
+                    report['candidate_decisions'].extend(dict(decision, stage=stage, title=item.get('title'))
+                                                         for decision in item.get('candidate_decisions') or [])
                     report['errors'].extend(dict(error, stage=stage, title=item.get('title'))
                                             for error in item.get('error_details') or [])
                 write_json(root / 'report.json', report)
@@ -236,6 +243,15 @@ class PaperSearchWorkflow:
                     manifest_path=root / 'manifest.json', progress=self._progress)
                 report['artifacts']['manifest'] = 'manifest.json'
                 report['download_statistics'] = manifest['statistics']
+                processed = report['pdf_statistics'].get('processed_papers', 0)
+                satisfied = manifest['statistics'].get('search_sufficiently_satisfied_papers', 0)
+                report['search_satisfaction'] = {
+                    'satisfied_papers': satisfied, 'processed_papers': processed,
+                    'rate': satisfied / processed if processed else None,
+                    'unknown_document_type_papers': manifest['statistics'].get('search_satisfaction_unknown_papers', 0),
+                    'definition': 'Verified ownership, local integrity, PDF format, content identity and full_text/preprint type',
+                    'independent_of_search_completion': True,
+                }
                 report['download_run_complete'] = manifest['run_complete']
                 report['stages'].append({'stage': stage, 'status': 'completed'})
                 for item in manifest['papers']:
@@ -243,7 +259,8 @@ class PaperSearchWorkflow:
                         report['errors'].append({'stage': stage, 'title': item.get('title'), 'error': error})
             report['metadata_audit'] = metadata_audit(original, pdf, manifest)
             review_files = bool(manifest and manifest['statistics']['needs_review_papers'])
-            partial = bool(report['errors'] or report['metadata_audit']['transmission_losses'] or review_files)
+            incomplete_pdf_search = bool(pdf and pdf.get('statistics', {}).get('incomplete_search_papers'))
+            partial = bool(report['errors'] or report['metadata_audit']['transmission_losses'] or review_files or incomplete_pdf_search)
             report['run_status'] = 'partial' if partial else 'completed'
             self._progress('Generating report')
         except IdentityConfirmationRequired as exc:
@@ -257,6 +274,7 @@ class PaperSearchWorkflow:
             report['run_status'] = 'failed'
             report['errors'].append({'stage': self.current_stage, 'error': str(exc)})
         finally:
+            report['outcomes'] = workflow_outcomes(report)
             write_json(root / 'report.json', report)
         return report
 

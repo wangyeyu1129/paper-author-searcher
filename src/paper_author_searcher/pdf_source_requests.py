@@ -21,8 +21,11 @@ class SemanticScholarRequests:
         self.cooldown_until = 0.0
         self.deferred_error = None
         self.blocked_error = None
+        self.failure_streak = 0
+        self.events = []
         self.statistics = {'batch_requests': 0, 'individual_requests': 0, 'title_search_requests': 0,
-                           'cooldown_skips': 0, 'authentication_skips': 0, 'work_cache_hits': 0}
+                           'cooldown_skips': 0, 'authentication_skips': 0, 'work_cache_hits': 0,
+                           'title_cache_hits': 0, 'request_failures': 0}
 
     def url(self, identifier):
         return self.sources.semantic_scholar_url + '/paper/' + quote(identifier, safe=':')
@@ -30,10 +33,15 @@ class SemanticScholarRequests:
     def _call(self, request, operation):
         if self.blocked_error is not None:
             self.statistics['authentication_skips'] += 1
-            raise self.blocked_error
+            raise SourceError('Semantic Scholar unavailable after an authentication/access error (no new request)',
+                              status_code=self.blocked_error.status_code, error_type='source_deferred',
+                              request_context={'outcome': 'source_unavailable_skip', 'request_attempted': False})
         if time.monotonic() < self.cooldown_until:
             self.statistics['cooldown_skips'] += 1
-            raise self.deferred_error
+            raise SourceError('Semantic Scholar temporarily deferred (no new request)',
+                              status_code=self.deferred_error.status_code, error_type='source_deferred',
+                              retry_after=self.cooldown_until - time.monotonic(),
+                              request_context={'outcome': 'cooldown_skip', 'request_attempted': False})
         if self.last_request is not None:
             remaining = self.config.semantic_scholar_request_interval - (time.monotonic() - self.last_request)
             if remaining > 0:
@@ -41,13 +49,20 @@ class SemanticScholarRequests:
         self.last_request = time.monotonic()
         self.statistics[operation] += 1
         try:
-            return request()
+            result = request()
+            self.failure_streak = 0
+            return result
         except SourceError as exc:
+            self.statistics['request_failures'] += 1
+            exc.request_context = {'outcome': 'request_failure', 'request_attempted': True}
+            self.events.append({'operation': operation, 'error_type': exc.error_type, 'status_code': exc.status_code})
             if exc.status_code in (401, 403):
                 self.blocked_error = exc
             elif exc.status_code == 429 or exc.error_type in (
                     'timeout', 'network_error', 'server_error', 'invalid_content_type', 'empty_response'):
-                wait = max(self.config.semantic_scholar_cooldown, exc.retry_after or 0)
+                self.failure_streak += 1
+                delay = self.config.semantic_scholar_cooldown * (2 ** min(self.failure_streak - 1, 10))
+                wait = max(min(delay, self.config.source_maximum_cooldown), exc.retry_after or 0)
                 self.cooldown_until = time.monotonic() + wait
                 self.deferred_error = exc
             raise
@@ -114,6 +129,8 @@ class SemanticScholarRequests:
                 raise SourceError('Semantic Scholar search response must contain a paper list',
                                   error_type='malformed_response')
             self.cache[key] = items
+        else:
+            self.statistics['title_cache_hits'] += 1
         return self.cache[key]
 
     def diagnostics(self, identifier):

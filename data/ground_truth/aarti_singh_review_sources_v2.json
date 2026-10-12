@@ -1,0 +1,1447 @@
+{
+  "source_scope": "independent_official_references",
+  "next_dataset_id": "aarti_singh_2020_2022_pilot_v2",
+  "observed_date": "2026-10-11",
+  "observations": [
+    {
+      "candidate_ids": [
+        "aarti_singh_4ddb8e5f91001fb26d7b"
+      ],
+      "url": "https://link.springer.com/article/10.1557/s43577-022-00466-4",
+      "source_role": "formal_publication",
+      "access_status": "metadata_observed",
+      "collection_method": "independent_existing_publisher_metadata_snapshot",
+      "metadata": {
+        "title": "Artificial intelligence for materials research at extremes",
+        "authors": [
+          "Maruyama, B.",
+          "Hattrick-Simpers, J.",
+          "Musinski, W.",
+          "Graham-Brady, L.",
+          "Li, K.",
+          "Hollenbach, J.",
+          "Singh, A.",
+          "Taheri, M. L."
+        ],
+        "year": 2022,
+        "doi": "10.1557/s43577-022-00466-4",
+        "venue": "MRS Bulletin",
+        "publication_type": "review"
+      },
+      "reported_article_type": [
+        "Mrs Bulletin Review"
+      ],
+      "notes": [
+        "出版社原始类型为 Mrs Bulletin Review；建议统一为 review，而非从题名或邀请说明推断研究论文。原候选 journal_article 保留，人工裁决更细的类型。"
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_3e5663ddd391196d3e57"
+      ],
+      "url": "https://jmlr.org/papers/v22/20-190.html",
+      "source_role": "formal_publication",
+      "access_status": "metadata_observed",
+      "collection_method": "independent_official_metadata_request",
+      "response_sha256": "36ef3f2ad65daea1eb1c9449183c7a1db18ef2bc27336a2e1ad2cddaf4e79283",
+      "observed_at": "2026-10-12T02:19:03.567317+00:00",
+      "metadata": {
+        "title": "PeerReview4All: Fair and Accurate Reviewer Assignment in Peer Review",
+        "authors": [
+          "Ivan Stelmakh",
+          "Nihar Shah",
+          "Aarti Singh"
+        ],
+        "year": 2021,
+        "doi": null,
+        "venue": "Journal of Machine Learning Research",
+        "publication_type": "journal_article"
+      },
+      "notes": []
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_1de0741cb3df604a5174"
+      ],
+      "url": "https://jmlr.org/papers/v23/20-1304.html",
+      "source_role": "formal_publication",
+      "access_status": "metadata_observed",
+      "collection_method": "independent_official_metadata_request",
+      "response_sha256": "59520a36bd5d71cad6072c33b607da48d2d69bef9394b7e46a6e657201458c35",
+      "observed_at": "2026-10-12T02:19:04.772559+00:00",
+      "metadata": {
+        "title": "Two-Sample Testing on Ranked Preference Data and the Role of Modeling Assumptions",
+        "authors": [
+          "Charvi Rastogi",
+          "Sivaraman Balakrishnan",
+          "Nihar B. Shah",
+          "Aarti Singh"
+        ],
+        "year": 2022,
+        "doi": null,
+        "venue": "Journal of Machine Learning Research",
+        "publication_type": "journal_article"
+      },
+      "notes": [
+        "JMLR 正式题名是 Ranked Preference Data，而教授书目写 Pairwise Comparison Data；核对题名更正与别名。ISIT 2020 版本保留独立身份。"
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_9f4b27c036c7501e0be1"
+      ],
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/16610",
+      "source_role": "formal_publication",
+      "access_status": "metadata_observed",
+      "collection_method": "independent_official_page_read_via_web",
+      "observed_date": "2026-10-11",
+      "metadata": {
+        "title": "A Novice-Reviewer Experiment to Address Scarcity of Qualified Reviewers in Large Conferences",
+        "authors": [
+          "Ivan Stelmakh",
+          "Nihar B. Shah",
+          "Aarti Singh",
+          "Hal Daumé III"
+        ],
+        "year": 2021,
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence 35(6):4785–4793",
+        "publication_type": "conference_paper",
+        "doi": "10.1609/aaai.v35i6.16610"
+      },
+      "notes": [
+        "官方页面列出 Aarti Singh 的 Carnegie Mellon University 机构；直接 HTTP 未返回 citation 标签，但通过官方网页读取了署名及出版记录。"
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_b40323ea0371c6fd372d"
+      ],
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/16611",
+      "source_role": "formal_publication",
+      "access_status": "metadata_observed",
+      "collection_method": "independent_official_page_read_via_web",
+      "observed_date": "2026-10-11",
+      "metadata": {
+        "title": "Catch Me if I Can: Detecting Strategic Behaviour in Peer Assessment",
+        "authors": [
+          "Ivan Stelmakh",
+          "Nihar B. Shah",
+          "Aarti Singh"
+        ],
+        "year": 2021,
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence 35(6):4794–4802",
+        "publication_type": "conference_paper",
+        "doi": "10.1609/aaai.v35i6.16611"
+      },
+      "notes": [
+        "官方页面列出 Aarti Singh 的 Carnegie Mellon University 机构。"
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_4456255c3ad2c0ae23b3"
+      ],
+      "url": "https://api.crossref.org/works/10.1214%2F20-AOS1962",
+      "source_role": "formal_publication",
+      "access_status": "metadata_observed",
+      "collection_method": "independent_official_metadata_request",
+      "observed_date": "2026-10-11",
+      "metadata": {
+        "title": "Classification accuracy as a proxy for two-sample testing",
+        "authors": [
+          "Ilmun Kim",
+          "Aaditya Ramdas",
+          "Aarti Singh",
+          "Larry Wasserman"
+        ],
+        "year": 2021,
+        "venue": "The Annals of Statistics",
+        "publication_type": "journal_article",
+        "doi": "10.1214/20-aos1962"
+      },
+      "notes": [
+        "出版社提交的 Crossref 元数据提供四位完整作者；原书目中的 and L. Wasserman 为署名解析问题。Project Euclid 网页本次未提供可读正文，不宣称已核实全文。"
+      ],
+      "observed_at": "2026-10-12T02:19:08.987562+00:00",
+      "response_sha256": "b0d854d84d751ab4c4cd3cddb0f2f0bb705c93bddd9598404db5077b1eb8f225",
+      "publication_url": "https://doi.org/10.1214/20-AOS1962"
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_12fd44c5ba6b8797694e"
+      ],
+      "url": "https://par.nsf.gov/servlets/purl/10310202",
+      "source_role": "formal_publication",
+      "access_status": "metadata_observed",
+      "collection_method": "independent_official_page_read_via_web",
+      "observed_date": "2026-10-11",
+      "metadata": {
+        "title": "Prior and Prejudice: The Novice Reviewers’ Bias against Resubmissions in Conference Peer Review",
+        "authors": [
+          "Ivan Stelmakh",
+          "Nihar B. Shah",
+          "Aarti Singh",
+          "Hal Daumé III"
+        ],
+        "year": 2021,
+        "venue": "Proceedings of the ACM on Human-Computer Interaction 5, CSCW1, Article 75",
+        "publication_type": "journal_article",
+        "doi": "10.1145/3449149"
+      },
+      "notes": [
+        "NSF 官方仓储的 ACM 引用标为 PACM HCI 期刊文章；原候选为 conference_paper，需裁决出版类型。DOI 页面本次工具不可读，完整题名由仓储引用提供。"
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_12fd44c5ba6b8797694e"
+      ],
+      "url": "https://api.crossref.org/works/10.1145%2F3449149",
+      "source_role": "formal_publication",
+      "access_status": "metadata_observed",
+      "collection_method": "independent_official_metadata_request",
+      "observed_date": "2026-10-11",
+      "metadata": {
+        "title": "Prior and Prejudice",
+        "authors": [
+          "Ivan Stelmakh",
+          "Nihar B. Shah",
+          "Aarti Singh",
+          "Hal Daumé III"
+        ],
+        "year": 2021,
+        "venue": "Proceedings of the ACM on Human-Computer Interaction",
+        "publication_type": "journal_article",
+        "doi": "10.1145/3449149"
+      },
+      "notes": [
+        "Crossref 本次保存的 title 字段只有短题名 Prior and Prejudice；完整题名见 NSF 仓储引用，不将短题名自动批准为别名。"
+      ],
+      "observed_at": "2026-10-12T02:19:10.301561+00:00",
+      "response_sha256": "eb53adfa59bd90adc4127e0936b9e47e6a6684bbf2973885d97ceb0012ee3261",
+      "publication_url": "https://doi.org/10.1145/3449149"
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_0ce1b1f248f705ed9786"
+      ],
+      "url": "https://cmsworkshops.com/Asilomar2021/Papers/ViewPapers.asp?Mode=2&PaperNum=1571",
+      "source_role": "official_program",
+      "access_status": "metadata_observed",
+      "collection_method": "independent_official_page_read_via_web",
+      "observed_date": "2026-10-11",
+      "metadata": {
+        "title": "Best Arm Identification under Additive Transfer Bandits",
+        "authors": [
+          "Ojash Neopane",
+          "Aaditya Ramdas",
+          "Aarti Singh"
+        ],
+        "year": 2021,
+        "venue": "Asilomar 2021, paper D-8.4",
+        "publication_type": "conference_paper",
+        "doi": null
+      },
+      "notes": [
+        "正式技术日程逐论文列出标题、三位作者和 CMU 机构；仍需核对归档出版/DOI，日程不是全文证据。"
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_941eb9e18f23bd37083d"
+      ],
+      "url": "https://dblp.org/rec/conf/isit/RastogiBSS20",
+      "source_role": "official_bibliographic_directory",
+      "access_status": "metadata_observed",
+      "collection_method": "independent_official_page_read_via_web",
+      "observed_date": "2026-10-11",
+      "metadata": {
+        "title": "Two-Sample Testing on Pairwise Comparison Data and the Role of Modeling Assumptions",
+        "authors": [
+          "Charvi Rastogi",
+          "Sivaraman Balakrishnan",
+          "Nihar B. Shah",
+          "Aarti Singh"
+        ],
+        "year": 2020,
+        "venue": "ISIT 2020:1271–1276",
+        "publication_type": "conference_paper",
+        "doi": null
+      },
+      "notes": [
+        "官方 DBLP 的 ISIT 2020 目录本次可通过网页读取；此前 XML 仍不可用。核对 IEEE 出版记录和 DOI，题名 on/with 存在变体，不与 JMLR 2022 合并。"
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_9766199e305944fc3c79"
+      ],
+      "url": "https://openreview.net/pdf?id=Kb1lb0vSLa",
+      "source_role": "formal_publication",
+      "access_status": "metadata_observed",
+      "collection_method": "independent_official_page_read_via_web",
+      "observed_date": "2026-10-11",
+      "metadata": {
+        "title": "Integrating Rankings into Quantized Scores in Peer Review",
+        "authors": [
+          "Yusha Liu",
+          "Yichong Xu",
+          "Nihar B. Shah",
+          "Aarti Singh"
+        ],
+        "year": 2022,
+        "venue": "Transactions on Machine Learning Research",
+        "publication_type": "journal_article",
+        "doi": null
+      },
+      "notes": [
+        "官方 TMLR 文稿首页标为 Published in TMLR (09/2022)，书目为 October 2022；年份一致但月份需核对。论坛 Kb1lb0uSLa 读取失败，不能声称论坛接受记录已取到；ICLR workshop 另行核查，不新增未知版本。"
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_85fa12e0f0cc629d72c2"
+      ],
+      "url": "https://cfol-workshop.github.io/",
+      "source_role": "official_program",
+      "access_status": "metadata_observed",
+      "collection_method": "independent_official_page_read_via_web",
+      "observed_date": "2026-10-11",
+      "metadata": {
+        "title": "Threshold Bandit Problem with Link Assumption between Pulls and Duels",
+        "authors": [
+          "Keshav Narayan",
+          "Aarti Singh"
+        ],
+        "year": 2022,
+        "venue": "ICML 2022 Complex Feedback in Online Learning workshop",
+        "publication_type": "workshop_paper",
+        "doi": null
+      },
+      "notes": [
+        "日程支持署名和报告/海报展示，但未提供归档全文。不能仅因有报告而确认 research paper 类型。"
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_1de0741cb3df604a5174"
+      ],
+      "url": "https://jmlr.org/papers/v23/20-1304.html",
+      "source_role": "review_guidance",
+      "access_status": "reference_guidance_only",
+      "metadata": {},
+      "notes": [
+        "The publisher title agrees with the related preprint but differs from the professor's journal claim. Human approval is needed before adding a formal title alias. The ISIT 2020 publication must remain separate."
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_9766199e305944fc3c79"
+      ],
+      "url": "https://openreview.net/forum?id=Kb1lb0uSLa",
+      "source_role": "review_guidance",
+      "access_status": "reference_guidance_only",
+      "metadata": {},
+      "notes": [
+        "The official TMLR PDF indexed by the web service supplies this reviewed-on URL. Forum read returned an internal error; no API acceptance metadata or human confirmation is claimed."
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_3e5663ddd391196d3e57"
+      ],
+      "url": "https://jmlr.org/papers/v22/20-190.html",
+      "source_role": "review_guidance",
+      "access_status": "reference_guidance_only",
+      "metadata": {},
+      "notes": [
+        "Official JMLR record reports volume 22(163), 2021. Earlier ALT 2019 and arXiv 2018 dates describe other versions."
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_9f4b27c036c7501e0be1"
+      ],
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/16610",
+      "source_role": "review_guidance",
+      "access_status": "reference_guidance_only",
+      "metadata": {},
+      "notes": [
+        "Official AAAI record reports four authors, May 2021 publication and this DOI. Original candidate DOI remains null until human metadata correction."
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_b40323ea0371c6fd372d"
+      ],
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/16611",
+      "source_role": "review_guidance",
+      "access_status": "reference_guidance_only",
+      "metadata": {},
+      "notes": [
+        "Official AAAI record reports three authors and 2021 publication. Additional independent reference evidence only; original candidate metadata remains unchanged."
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_4456255c3ad2c0ae23b3"
+      ],
+      "url": "https://arxiv.org/abs/1602.02210",
+      "source_role": "review_guidance",
+      "access_status": "reference_guidance_only",
+      "metadata": {},
+      "notes": [
+        "The snapshot stores 'and L. Wasserman' as a name. Check the complete publisher byline and use reviewed_authors_json rather than editing the source facts."
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_5b1b7e649b707aa45523"
+      ],
+      "url": "https://arxiv.org/abs/1602.02210",
+      "source_role": "review_guidance",
+      "access_status": "reference_guidance_only",
+      "metadata": {},
+      "notes": [
+        "The linked OpenReview PDF endpoint was observed as a challenge HTML page. Its contents were not parsed as publication metadata."
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_c768701927dbdac9e13d"
+      ],
+      "url": "https://peerreviewcongress.org/wp-content/uploads/2022/11/Program2022.pdf",
+      "source_role": "review_guidance",
+      "access_status": "reference_guidance_only",
+      "metadata": {},
+      "notes": [
+        "Official congress program contains abstracts and cites this work; no full 2022 research-paper publication is established. Publisher citation reports a separate PLOS ONE 2023 journal version. Do not assign that DOI/year to the 2022 congress claim."
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_12fd44c5ba6b8797694e"
+      ],
+      "url": "https://doi.org/10.1145/3449149",
+      "source_role": "review_guidance",
+      "access_status": "reference_guidance_only",
+      "metadata": {},
+      "notes": [
+        "The NSF public repository's ACM citation reports Proc. ACM Hum.-Comput. Interact. 5, CSCW1, Article 75, April 2021. DOI publisher page was not readable by web tooling. Check journal versus conference classification without changing candidate labels."
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_237b0f1a688d14493b0f"
+      ],
+      "url": "https://realworldml.github.io/files/cr/paper26.pdf",
+      "source_role": "review_guidance",
+      "access_status": "reference_guidance_only",
+      "metadata": {},
+      "notes": [
+        "This exact seven-page workshop paper link was followed from the current professor bibliography using web tooling. It is a supplemental reference link, not a PDF Resolver result or human-confirmed label."
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_85fa12e0f0cc629d72c2"
+      ],
+      "url": "https://cfol-workshop.github.io/",
+      "source_role": "review_guidance",
+      "access_status": "reference_guidance_only",
+      "metadata": {},
+      "notes": [
+        "Official ICML 2022 workshop schedule names Keshav Narayan and Aarti Singh for this contribution. The schedule reports talks and posters, not a linked full paper or archival publication. Keep type and evidence under human review."
+      ]
+    },
+    {
+      "candidate_ids": [],
+      "url": "https://jmlr.org/papers/v21/19-505.html",
+      "source_role": "formal_publication",
+      "access_status": "metadata_observed",
+      "collection_method": "independent_official_metadata_request",
+      "response_sha256": "0cd7f1887482db1246d93b8638b8a95d95b1b8a05604c8724315785a2801b31e",
+      "observed_at": "2026-10-12T02:18:58.033169+00:00",
+      "metadata": {
+        "title": "Regression with Comparisons: Escaping the Curse of Dimensionality with Ordinal Information",
+        "authors": [
+          "Yichong Xu",
+          "Sivaraman Balakrishnan",
+          "Aarti Singh",
+          "Artur Dubrawski"
+        ],
+        "year": 2020,
+        "doi": null,
+        "venue": "Journal of Machine Learning Research",
+        "publication_type": "journal_article"
+      },
+      "notes": [
+        "正式期刊版四位作者，早期 ICML 2018 书目五位作者包含 H. Muthakana；不要把早期会议署名拷贝到期刊。",
+        "官方期刊题名去掉 Nonparametric，属于标题/版本差异；不能仅同题合并。"
+      ]
+    },
+    {
+      "candidate_ids": [],
+      "url": "https://link.springer.com/article/10.1007/s10107-019-01464-2",
+      "source_role": "formal_publication",
+      "access_status": "metadata_observed",
+      "collection_method": "independent_official_metadata_request",
+      "response_sha256": "8028397ebd67a999a215199aa4e8c566654baa3ab1a147c7be800f6ed723b497",
+      "observed_at": "2026-10-12T02:18:59.364871+00:00",
+      "metadata": {
+        "title": "Near-optimal discrete optimization for experimental design: a regret minimization approach",
+        "authors": [
+          "Allen-Zhu, Zeyuan",
+          "Li, Yuanzhi",
+          "Singh, Aarti",
+          "Wang, Yining"
+        ],
+        "year": 2021,
+        "doi": "10.1007/s10107-019-01464-2",
+        "venue": "Mathematical Programming",
+        "publication_type": "journal_article"
+      },
+      "notes": [
+        "出版记录在线日期 2020-01-10、卷期日期 2021-03；主年份按卷期取 2021，均在评估窗口，不得排除遗漏或重复计为两篇。",
+        "ICML 2017 与期刊版标题不同，保持独立出版身份，旧会议标题不是自动等价别名。"
+      ]
+    },
+    {
+      "candidate_ids": [
+        "aarti_singh_237b0f1a688d14493b0f"
+      ],
+      "url": "https://realworldml.github.io/files/cr/paper26.pdf",
+      "source_role": "formal_publication",
+      "access_status": "metadata_observed",
+      "collection_method": "independent_official_workshop_manuscript_front_page_read_via_web",
+      "observed_date": "2026-10-11",
+      "metadata": {
+        "title": "Gaussian Processes for Episodic Experimental Design",
+        "authors": [
+          "Ari Fiorino",
+          "Ojash Neopane",
+          "Aarti Singh"
+        ],
+        "year": 2022,
+        "doi": null,
+        "venue": "ICML 2022 Workshop on Adaptive Experimental Design and Active Learning in the Real World",
+        "publication_type": "workshop_paper"
+      },
+      "notes": [
+        "官方七页 workshop 文稿首页提供完整署名和 CMU 机构。保留 workshop 分类，不升级为主会议论文。"
+      ]
+    }
+  ],
+  "metadata_requests": [
+    {
+      "url": "https://jmlr.org/papers/v21/19-505.html",
+      "observed_at": "2026-10-12T02:18:58.033169+00:00",
+      "collection_method": "independent_official_metadata_request",
+      "http_status": 200,
+      "content_type": "text/html",
+      "final_url": "https://jmlr.org/papers/v21/19-505.html",
+      "response_sha256": "0cd7f1887482db1246d93b8638b8a95d95b1b8a05604c8724315785a2801b31e",
+      "bytes_observed": 6282,
+      "metadata": {
+        "citation_title": [
+          "Regression with Comparisons: Escaping the Curse of Dimensionality with Ordinal Information"
+        ],
+        "citation_author": [
+          "Yichong Xu",
+          "Sivaraman Balakrishnan",
+          "Aarti Singh",
+          "Artur Dubrawski"
+        ],
+        "citation_journal_title": [
+          "Journal of Machine Learning Research"
+        ],
+        "citation_volume": [
+          "21"
+        ],
+        "citation_issue": [
+          "162"
+        ],
+        "citation_firstpage": [
+          "1"
+        ],
+        "citation_lastpage": [
+          "54"
+        ],
+        "citation_publication_date": [
+          "2020"
+        ],
+        "citation_public_url": [
+          "http://jmlr.org/papers/v21/19-505.html"
+        ],
+        "citation_abstract_html_url": [
+          "http://jmlr.org/papers/v21/19-505.html"
+        ],
+        "citation_issn": [
+          "1533-7928"
+        ]
+      },
+      "access_status": "metadata_observed"
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s10107-019-01464-2",
+      "observed_at": "2026-10-12T02:18:59.364871+00:00",
+      "collection_method": "independent_official_metadata_request",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://link.springer.com/article/10.1007/s10107-019-01464-2?error=cookies_not_supported&code=ab5a9812-c654-47c0-8aea-76643b3ada5c",
+      "response_sha256": "8028397ebd67a999a215199aa4e8c566654baa3ab1a147c7be800f6ed723b497",
+      "bytes_observed": 350338,
+      "metadata": {
+        "citation_fulltext_html_url": [
+          "https://link.springer.com/article/10.1007/s10107-019-01464-2"
+        ],
+        "citation_journal_title": [
+          "Mathematical Programming"
+        ],
+        "citation_journal_abbrev": [
+          "Math. Program."
+        ],
+        "citation_publisher": [
+          "Springer Berlin Heidelberg"
+        ],
+        "citation_issn": [
+          "1436-4646"
+        ],
+        "citation_title": [
+          "Near-optimal discrete optimization for experimental design: a regret minimization approach"
+        ],
+        "citation_volume": [
+          "186"
+        ],
+        "citation_issue": [
+          "1"
+        ],
+        "citation_publication_date": [
+          "2021/03"
+        ],
+        "citation_online_date": [
+          "2020/01/10"
+        ],
+        "citation_firstpage": [
+          "439"
+        ],
+        "citation_lastpage": [
+          "478"
+        ],
+        "citation_article_type": [
+          "Full Length Paper"
+        ],
+        "citation_language": [
+          "en"
+        ],
+        "citation_doi": [
+          "10.1007/s10107-019-01464-2"
+        ],
+        "citation_author": [
+          "Allen-Zhu, Zeyuan",
+          "Li, Yuanzhi",
+          "Singh, Aarti",
+          "Wang, Yining"
+        ],
+        "citation_author_institution": [
+          "Microsoft Research Redmond, Redmond, USA",
+          "Machine Learning Department, Carnegie Mellon University, Pittsburgh, USA",
+          "Machine Learning Department, Carnegie Mellon University, Pittsburgh, USA",
+          "Warrington College of Business, University of Florida, Gainesville, USA"
+        ],
+        "citation_cover_date": [
+          "2021/03/01"
+        ]
+      },
+      "access_status": "metadata_observed"
+    },
+    {
+      "url": "https://jmlr.org/papers/v22/20-190.html",
+      "observed_at": "2026-10-12T02:19:03.567317+00:00",
+      "collection_method": "independent_official_metadata_request",
+      "http_status": 200,
+      "content_type": "text/html",
+      "final_url": "https://jmlr.org/papers/v22/20-190.html",
+      "response_sha256": "36ef3f2ad65daea1eb1c9449183c7a1db18ef2bc27336a2e1ad2cddaf4e79283",
+      "bytes_observed": 6004,
+      "metadata": {
+        "citation_title": [
+          "PeerReview4All: Fair and Accurate Reviewer Assignment in Peer Review"
+        ],
+        "citation_author": [
+          "Ivan Stelmakh",
+          "Nihar Shah",
+          "Aarti Singh"
+        ],
+        "citation_journal_title": [
+          "Journal of Machine Learning Research"
+        ],
+        "citation_volume": [
+          "22"
+        ],
+        "citation_issue": [
+          "163"
+        ],
+        "citation_firstpage": [
+          "1"
+        ],
+        "citation_lastpage": [
+          "66"
+        ],
+        "citation_publication_date": [
+          "2021"
+        ],
+        "citation_public_url": [
+          "http://jmlr.org/papers/v22/20-190.html"
+        ],
+        "citation_abstract_html_url": [
+          "http://jmlr.org/papers/v22/20-190.html"
+        ],
+        "citation_issn": [
+          "1533-7928"
+        ]
+      },
+      "access_status": "metadata_observed"
+    },
+    {
+      "url": "https://jmlr.org/papers/v23/20-1304.html",
+      "observed_at": "2026-10-12T02:19:04.772559+00:00",
+      "collection_method": "independent_official_metadata_request",
+      "http_status": 200,
+      "content_type": "text/html",
+      "final_url": "https://jmlr.org/papers/v23/20-1304.html",
+      "response_sha256": "59520a36bd5d71cad6072c33b607da48d2d69bef9394b7e46a6e657201458c35",
+      "bytes_observed": 6337,
+      "metadata": {
+        "citation_title": [
+          "Two-Sample Testing on Ranked Preference Data and the Role of Modeling Assumptions"
+        ],
+        "citation_author": [
+          "Charvi Rastogi",
+          "Sivaraman Balakrishnan",
+          "Nihar B. Shah",
+          "Aarti Singh"
+        ],
+        "citation_journal_title": [
+          "Journal of Machine Learning Research"
+        ],
+        "citation_volume": [
+          "23"
+        ],
+        "citation_issue": [
+          "225"
+        ],
+        "citation_firstpage": [
+          "1"
+        ],
+        "citation_lastpage": [
+          "48"
+        ],
+        "citation_publication_date": [
+          "2022"
+        ],
+        "citation_public_url": [
+          "http://jmlr.org/papers/v23/20-1304.html"
+        ],
+        "citation_abstract_html_url": [
+          "http://jmlr.org/papers/v23/20-1304.html"
+        ],
+        "citation_issn": [
+          "1533-7928"
+        ]
+      },
+      "access_status": "metadata_observed"
+    },
+    {
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/16610",
+      "observed_at": "2026-10-12T02:19:05.984922+00:00",
+      "collection_method": "independent_official_metadata_request",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://ojs.aaai.org/index.php/AAAI/article/view/16610",
+      "response_sha256": "3b484f04168087279e1cf67a2e963fad969700decd4a2ec88b58d4a9f04856f5",
+      "bytes_observed": 4837,
+      "metadata": {},
+      "access_status": "no_citation_metadata"
+    },
+    {
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/16611",
+      "observed_at": "2026-10-12T02:19:07.592750+00:00",
+      "collection_method": "independent_official_metadata_request",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://ojs.aaai.org/index.php/AAAI/article/view/16611",
+      "response_sha256": "acc8210bf614d98339ab3ba5042a651907d72ba5c7e10d62e0912962d12edb01",
+      "bytes_observed": 4629,
+      "metadata": {},
+      "access_status": "no_citation_metadata"
+    },
+    {
+      "url": "https://api.crossref.org/works/10.1214%2F20-AOS1962",
+      "observed_at": "2026-10-12T02:19:08.987562+00:00",
+      "collection_method": "independent_official_metadata_request",
+      "http_status": 200,
+      "content_type": "application/json",
+      "final_url": "https://api.crossref.org/works/10.1214%2F20-AOS1962",
+      "response_sha256": "b0d854d84d751ab4c4cd3cddb0f2f0bb705c93bddd9598404db5077b1eb8f225",
+      "bytes_observed": 18293,
+      "metadata": {
+        "DOI": "10.1214/20-aos1962",
+        "title": [
+          "Classification accuracy as a proxy for two-sample testing"
+        ],
+        "author": [
+          {
+            "given": "Ilmun",
+            "family": "Kim",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Aaditya",
+            "family": "Ramdas",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Aarti",
+            "family": "Singh",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Larry",
+            "family": "Wasserman",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "type": "journal-article",
+        "container-title": [
+          "The Annals of Statistics"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2021,
+              2,
+              1
+            ]
+          ]
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2021,
+              2,
+              1
+            ]
+          ]
+        },
+        "volume": "49",
+        "issue": "1",
+        "page": "411-434",
+        "URL": "https://doi.org/10.1214/20-aos1962"
+      },
+      "access_status": "metadata_observed"
+    },
+    {
+      "url": "https://api.crossref.org/works/10.1145%2F3449149",
+      "observed_at": "2026-10-12T02:19:10.301561+00:00",
+      "collection_method": "independent_official_metadata_request",
+      "http_status": 200,
+      "content_type": "application/json",
+      "final_url": "https://api.crossref.org/works/10.1145%2F3449149",
+      "response_sha256": "eb53adfa59bd90adc4127e0936b9e47e6a6684bbf2973885d97ceb0012ee3261",
+      "bytes_observed": 19094,
+      "metadata": {
+        "DOI": "10.1145/3449149",
+        "title": [
+          "Prior and Prejudice"
+        ],
+        "author": [
+          {
+            "given": "Ivan",
+            "family": "Stelmakh",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Carnegie Mellon University, Pittsburgh, PA, USA"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Nihar B.",
+            "family": "Shah",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Carnegie Mellon University, Pittsburgh, PA, USA"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Aarti",
+            "family": "Singh",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Carnegie Mellon University, Pittsburgh, PA, USA"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "suffix": "III",
+            "given": "Hal",
+            "family": "Daumé",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "University of Maryland &amp; Microsoft Research, College Park, MD, USA"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "type": "journal-article",
+        "container-title": [
+          "Proceedings of the ACM on Human-Computer Interaction"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2021,
+              4,
+              13
+            ]
+          ]
+        },
+        "published-online": {
+          "date-parts": [
+            [
+              2021,
+              4,
+              22
+            ]
+          ]
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2021,
+              4,
+              13
+            ]
+          ]
+        },
+        "volume": "5",
+        "issue": "CSCW1",
+        "page": "1-17",
+        "URL": "https://doi.org/10.1145/3449149"
+      },
+      "access_status": "metadata_observed"
+    },
+    {
+      "url": "https://api.crossref.org/works/10.1007%2Fs10107-019-01464-2",
+      "observed_at": "2026-10-12T02:19:11.620911+00:00",
+      "collection_method": "independent_official_metadata_request",
+      "http_status": 200,
+      "content_type": "application/json",
+      "final_url": "https://api.crossref.org/works/10.1007%2Fs10107-019-01464-2",
+      "response_sha256": "20ad7a412727d3605886f9e4aac42230cf37e3af63b8aac944b841c6001db475",
+      "bytes_observed": 18349,
+      "metadata": {
+        "DOI": "10.1007/s10107-019-01464-2",
+        "title": [
+          "Near-optimal discrete optimization for experimental design: a regret minimization approach"
+        ],
+        "author": [
+          {
+            "given": "Zeyuan",
+            "family": "Allen-Zhu",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yuanzhi",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Aarti",
+            "family": "Singh",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yining",
+            "family": "Wang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "type": "journal-article",
+        "container-title": [
+          "Mathematical Programming"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2021,
+              3
+            ]
+          ]
+        },
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              1,
+              10
+            ]
+          ]
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2020,
+              1,
+              10
+            ]
+          ]
+        },
+        "volume": "186",
+        "issue": "1-2",
+        "page": "439-478",
+        "URL": "https://doi.org/10.1007/s10107-019-01464-2"
+      },
+      "access_status": "metadata_observed"
+    }
+  ],
+  "additions": [
+    {
+      "omission_id": "jmlr_2020_secondary_journal_version",
+      "primary_reference": {
+        "reference_id": "71b05c0f97337b48819b856e",
+        "professor_id": "aarti_singh",
+        "source_id": "official_71b05c0f97337b48819b856e",
+        "source_url": "https://jmlr.org/papers/v21/19-505.html",
+        "collection_method": "independent_official_publisher_metadata",
+        "observed_date": "2026-10-11",
+        "response_sha256": "0cd7f1887482db1246d93b8638b8a95d95b1b8a05604c8724315785a2801b31e",
+        "metadata": {
+          "title": "Regression with Comparisons: Escaping the Curse of Dimensionality with Ordinal Information",
+          "authors": [
+            "Yichong Xu",
+            "Sivaraman Balakrishnan",
+            "Aarti Singh",
+            "Artur Dubrawski"
+          ],
+          "year": 2020,
+          "doi": null,
+          "venue": "Journal of Machine Learning Research",
+          "publication_type": "journal_article"
+        },
+        "extra": {
+          "publication_identity_url": "https://jmlr.org/papers/v21/19-505.html",
+          "publisher_citation_metadata": {
+            "citation_title": [
+              "Regression with Comparisons: Escaping the Curse of Dimensionality with Ordinal Information"
+            ],
+            "citation_author": [
+              "Yichong Xu",
+              "Sivaraman Balakrishnan",
+              "Aarti Singh",
+              "Artur Dubrawski"
+            ],
+            "citation_journal_title": [
+              "Journal of Machine Learning Research"
+            ],
+            "citation_volume": [
+              "21"
+            ],
+            "citation_issue": [
+              "162"
+            ],
+            "citation_firstpage": [
+              "1"
+            ],
+            "citation_lastpage": [
+              "54"
+            ],
+            "citation_publication_date": [
+              "2020"
+            ],
+            "citation_public_url": [
+              "http://jmlr.org/papers/v21/19-505.html"
+            ],
+            "citation_abstract_html_url": [
+              "http://jmlr.org/papers/v21/19-505.html"
+            ],
+            "citation_issn": [
+              "1533-7928"
+            ]
+          },
+          "linked_metadata_observations": [
+            {
+              "url": "https://jmlr.org/papers/v21/19-505.html",
+              "fetch_status": "citation_metadata",
+              "metadata": {
+                "citation_title": [
+                  "Regression with Comparisons: Escaping the Curse of Dimensionality with Ordinal Information"
+                ],
+                "citation_author": [
+                  "Yichong Xu",
+                  "Sivaraman Balakrishnan",
+                  "Aarti Singh",
+                  "Artur Dubrawski"
+                ],
+                "citation_journal_title": [
+                  "Journal of Machine Learning Research"
+                ],
+                "citation_volume": [
+                  "21"
+                ],
+                "citation_issue": [
+                  "162"
+                ],
+                "citation_firstpage": [
+                  "1"
+                ],
+                "citation_lastpage": [
+                  "54"
+                ],
+                "citation_publication_date": [
+                  "2020"
+                ],
+                "citation_public_url": [
+                  "http://jmlr.org/papers/v21/19-505.html"
+                ],
+                "citation_abstract_html_url": [
+                  "http://jmlr.org/papers/v21/19-505.html"
+                ],
+                "citation_issn": [
+                  "1533-7928"
+                ]
+              },
+              "response_sha256": "0cd7f1887482db1246d93b8638b8a95d95b1b8a05604c8724315785a2801b31e"
+            }
+          ]
+        }
+      },
+      "supporting_references": [
+        {
+          "reference_id": "b435dbeef285a86fdabb252f",
+          "professor_id": "aarti_singh",
+          "source_id": "aarti_publications_secondary_claim",
+          "source_url": "https://www.cs.cmu.edu/~aarti/pubs.html",
+          "collection_method": "independent_official_bibliography_read_via_web",
+          "observed_date": "2026-10-11",
+          "metadata": {
+            "title": "Nonparametric Regression with Comparisons: Escaping the Curse of Dimensionality with Ordinal Information",
+            "authors": [
+              "Y. Xu",
+              "H. Muthakana",
+              "S. Balakrishnan",
+              "A. Singh",
+              "A. Dubrawski"
+            ],
+            "year": 2018,
+            "venue": "ICML 2018",
+            "publication_type": "conference_paper"
+          },
+          "extra": {
+            "secondary_journal_claim": {
+              "year": 2020,
+              "venue": "JMLR",
+              "volume": 21,
+              "issue": 162,
+              "pages": "1–54"
+            },
+            "relationship_status": "candidate",
+            "note": "Earlier conference entry supplies a secondary journal citation; its byline/title are not attributed to the journal."
+          }
+        }
+      ],
+      "review_questions": [
+        "正式期刊版四位作者，早期 ICML 2018 书目五位作者包含 H. Muthakana；不要把早期会议署名拷贝到期刊。",
+        "官方期刊题名去掉 Nonparametric，属于标题/版本差异；不能仅同题合并。"
+      ]
+    },
+    {
+      "omission_id": "mathematical_programming_secondary_journal_version",
+      "primary_reference": {
+        "reference_id": "b00a58fefd3c109451b3eeeb",
+        "professor_id": "aarti_singh",
+        "source_id": "official_b00a58fefd3c109451b3eeeb",
+        "source_url": "https://link.springer.com/article/10.1007/s10107-019-01464-2",
+        "collection_method": "independent_official_publisher_metadata",
+        "observed_date": "2026-10-11",
+        "response_sha256": "8028397ebd67a999a215199aa4e8c566654baa3ab1a147c7be800f6ed723b497",
+        "metadata": {
+          "title": "Near-optimal discrete optimization for experimental design: a regret minimization approach",
+          "authors": [
+            "Allen-Zhu, Zeyuan",
+            "Li, Yuanzhi",
+            "Singh, Aarti",
+            "Wang, Yining"
+          ],
+          "year": 2021,
+          "doi": "10.1007/s10107-019-01464-2",
+          "venue": "Mathematical Programming",
+          "publication_type": "journal_article"
+        },
+        "extra": {
+          "publication_identity_url": "https://link.springer.com/article/10.1007/s10107-019-01464-2",
+          "publisher_citation_metadata": {
+            "citation_fulltext_html_url": [
+              "https://link.springer.com/article/10.1007/s10107-019-01464-2"
+            ],
+            "citation_journal_title": [
+              "Mathematical Programming"
+            ],
+            "citation_journal_abbrev": [
+              "Math. Program."
+            ],
+            "citation_publisher": [
+              "Springer Berlin Heidelberg"
+            ],
+            "citation_issn": [
+              "1436-4646"
+            ],
+            "citation_title": [
+              "Near-optimal discrete optimization for experimental design: a regret minimization approach"
+            ],
+            "citation_volume": [
+              "186"
+            ],
+            "citation_issue": [
+              "1"
+            ],
+            "citation_publication_date": [
+              "2021/03"
+            ],
+            "citation_online_date": [
+              "2020/01/10"
+            ],
+            "citation_firstpage": [
+              "439"
+            ],
+            "citation_lastpage": [
+              "478"
+            ],
+            "citation_article_type": [
+              "Full Length Paper"
+            ],
+            "citation_language": [
+              "en"
+            ],
+            "citation_doi": [
+              "10.1007/s10107-019-01464-2"
+            ],
+            "citation_author": [
+              "Allen-Zhu, Zeyuan",
+              "Li, Yuanzhi",
+              "Singh, Aarti",
+              "Wang, Yining"
+            ],
+            "citation_author_institution": [
+              "Microsoft Research Redmond, Redmond, USA",
+              "Machine Learning Department, Carnegie Mellon University, Pittsburgh, USA",
+              "Machine Learning Department, Carnegie Mellon University, Pittsburgh, USA",
+              "Warrington College of Business, University of Florida, Gainesville, USA"
+            ],
+            "citation_cover_date": [
+              "2021/03/01"
+            ]
+          },
+          "linked_metadata_observations": [
+            {
+              "url": "https://link.springer.com/article/10.1007/s10107-019-01464-2",
+              "fetch_status": "citation_metadata",
+              "metadata": {
+                "citation_fulltext_html_url": [
+                  "https://link.springer.com/article/10.1007/s10107-019-01464-2"
+                ],
+                "citation_journal_title": [
+                  "Mathematical Programming"
+                ],
+                "citation_journal_abbrev": [
+                  "Math. Program."
+                ],
+                "citation_publisher": [
+                  "Springer Berlin Heidelberg"
+                ],
+                "citation_issn": [
+                  "1436-4646"
+                ],
+                "citation_title": [
+                  "Near-optimal discrete optimization for experimental design: a regret minimization approach"
+                ],
+                "citation_volume": [
+                  "186"
+                ],
+                "citation_issue": [
+                  "1"
+                ],
+                "citation_publication_date": [
+                  "2021/03"
+                ],
+                "citation_online_date": [
+                  "2020/01/10"
+                ],
+                "citation_firstpage": [
+                  "439"
+                ],
+                "citation_lastpage": [
+                  "478"
+                ],
+                "citation_article_type": [
+                  "Full Length Paper"
+                ],
+                "citation_language": [
+                  "en"
+                ],
+                "citation_doi": [
+                  "10.1007/s10107-019-01464-2"
+                ],
+                "citation_author": [
+                  "Allen-Zhu, Zeyuan",
+                  "Li, Yuanzhi",
+                  "Singh, Aarti",
+                  "Wang, Yining"
+                ],
+                "citation_author_institution": [
+                  "Microsoft Research Redmond, Redmond, USA",
+                  "Machine Learning Department, Carnegie Mellon University, Pittsburgh, USA",
+                  "Machine Learning Department, Carnegie Mellon University, Pittsburgh, USA",
+                  "Warrington College of Business, University of Florida, Gainesville, USA"
+                ],
+                "citation_cover_date": [
+                  "2021/03/01"
+                ]
+              },
+              "response_sha256": "8028397ebd67a999a215199aa4e8c566654baa3ab1a147c7be800f6ed723b497"
+            }
+          ],
+          "publication_dates": {
+            "online": "2020-01-10",
+            "issue": "2021-03",
+            "primary_year_basis": "publisher_issue_year"
+          }
+        }
+      },
+      "supporting_references": [
+        {
+          "reference_id": "71bb46c73f6cb0eadbd7e8a9",
+          "professor_id": "aarti_singh",
+          "source_id": "aarti_publications_secondary_claim",
+          "source_url": "https://www.cs.cmu.edu/~aarti/pubs.html",
+          "collection_method": "independent_official_bibliography_read_via_web",
+          "observed_date": "2026-10-11",
+          "metadata": {
+            "title": "Near-Optimal Design of Experiments via Regret Minimization",
+            "authors": [
+              "Z. A.-Zhu",
+              "Y. Li",
+              "A. Singh",
+              "Y. Wang"
+            ],
+            "year": 2017,
+            "venue": "ICML 2017",
+            "publication_type": "conference_paper"
+          },
+          "extra": {
+            "secondary_journal_claim": {
+              "year": 2021,
+              "venue": "Mathematical Programming",
+              "volume": 186,
+              "pages": "439–478"
+            },
+            "relationship_status": "candidate",
+            "note": "Earlier conference entry supplies a secondary journal citation; its byline/title are not attributed to the journal."
+          }
+        }
+      ],
+      "review_questions": [
+        "出版记录在线日期 2020-01-10、卷期日期 2021-03；主年份按卷期取 2021，均在评估窗口，不得排除遗漏或重复计为两篇。",
+        "ICML 2017 与期刊版标题不同，保持独立出版身份，旧会议标题不是自动等价别名。"
+      ]
+    }
+  ],
+  "review_status": "candidate",
+  "human_confirmed_count": 0,
+  "note": "Machine observations only. No Agent collection/PDF outputs or human labels used."
+}
