@@ -1,0 +1,3613 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "eng_lu_lu",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Lu Lu",
+      "university": "Yale University"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.897789+00:00",
+    "sources": [
+      {
+        "kind": "orcid",
+        "locator": "0000-0002-5476-5768",
+        "url": "https://orcid.org/0000-0002-5476-5768",
+        "records": 87
+      }
+    ],
+    "excluded_counts": {
+      "outside_year_window": 27
+    }
+  },
+  "papers": [
+    {
+      "evaluation_id": "eng_lu_lu:3fc327343c5d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Dying ReLU and Initialization: Theory and Numerical Examples",
+      "year": 2020,
+      "authors": [
+        "Lu, Lu",
+        "Shin, Yeonjong",
+        "Su, Yanhui",
+        "Karniadakis, George Em"
+      ],
+      "listed_venue": "Communications in Computational Physics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638052"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.4208/cicp.oa-2020-0165"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Dying ReLU and Initialization: Theory and Numerical Examples",
+          "year": 2019,
+          "authors": [
+            "Lu, Lu",
+            "Shin, Yeonjong",
+            "Su, Yanhui",
+            "Karniadakis, George Em"
+          ]
+        },
+        {
+          "title": "Dying ReLU and Initialization: Theory and Numerical Examples",
+          "year": 2021,
+          "authors": [
+            "Lu, Lu",
+            "Shin, Yeonjong",
+            "Su, Yanhui",
+            "Karniadakis, George Em"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:e06461e07301",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Extraction of mechanical properties of materials through deep learning from instrumented indentation",
+      "year": 2020,
+      "authors": [
+        "Lu, Lu",
+        "Dao, Ming",
+        "Kumar, Punit",
+        "Ramamurty, Upadrasta",
+        "Karniadakis, George Em",
+        "Suresh, Subra"
+      ],
+      "listed_venue": "Proceedings of the National Academy of Sciences",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638051"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1073/pnas.1922210117"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Extraction of mechanical properties of materials through deep learning from instrumented indentation",
+          "year": 2019,
+          "authors": [
+            "Lu, Lu",
+            "Dao, Ming",
+            "Kumar, Punit",
+            "Ramamurty, Upadrasta",
+            "Karniadakis, George Em",
+            "Suresh, Subra"
+          ]
+        },
+        {
+          "title": "Extraction of mechanical properties of materials through deep learning from instrumented indentation",
+          "year": 2021,
+          "authors": [
+            "Lu, Lu",
+            "Dao, Ming",
+            "Kumar, Punit",
+            "Ramamurty, Upadrasta",
+            "Karniadakis, George Em",
+            "Suresh, Subra"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:bb904f205f77",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "In Silico Medicine Advances the Development of Sickle Cell Disease Therapies",
+      "year": 2020,
+      "authors": [
+        "Li, He",
+        "Lu, Lu",
+        "Vekilov, Peter",
+        "Karniadakis, George Em"
+      ],
+      "listed_venue": "SIAM News",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 173067177"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "In Silico Medicine Advances the Development of Sickle Cell Disease Therapies",
+          "year": 2019,
+          "authors": [
+            "Li, He",
+            "Lu, Lu",
+            "Vekilov, Peter",
+            "Karniadakis, George Em"
+          ]
+        },
+        {
+          "title": "In Silico Medicine Advances the Development of Sickle Cell Disease Therapies",
+          "year": 2021,
+          "authors": [
+            "Li, He",
+            "Lu, Lu",
+            "Vekilov, Peter",
+            "Karniadakis, George Em"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:64372ae272db",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Physics-informed neural networks for inverse problems in nano-optics and metamaterials",
+      "year": 2020,
+      "authors": [
+        "Chen, Yuyao",
+        "Lu, Lu",
+        "Karniadakis, George Em",
+        "Dal Negro, Luca"
+      ],
+      "listed_venue": "Optics Express",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638046"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1364/oe.384875"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Physics-informed neural networks for inverse problems in nano-optics and metamaterials",
+          "year": 2019,
+          "authors": [
+            "Chen, Yuyao",
+            "Lu, Lu",
+            "Karniadakis, George Em",
+            "Dal Negro, Luca"
+          ]
+        },
+        {
+          "title": "Physics-informed neural networks for inverse problems in nano-optics and metamaterials",
+          "year": 2021,
+          "authors": [
+            "Chen, Yuyao",
+            "Lu, Lu",
+            "Karniadakis, George Em",
+            "Dal Negro, Luca"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:1a311c9a568a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Quantifying the generalization error in deep learning in terms of data distribution and neural network smoothness",
+      "year": 2020,
+      "authors": [
+        "Jin, Pengzhan",
+        "Lu, Lu",
+        "Tang, Yifa",
+        "Karniadakis, George Em"
+      ],
+      "listed_venue": "Neural Networks",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638033"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.neunet.2020.06.024"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Quantifying the generalization error in deep learning in terms of data distribution and neural network smoothness",
+          "year": 2019,
+          "authors": [
+            "Jin, Pengzhan",
+            "Lu, Lu",
+            "Tang, Yifa",
+            "Karniadakis, George Em"
+          ]
+        },
+        {
+          "title": "Quantifying the generalization error in deep learning in terms of data distribution and neural network smoothness",
+          "year": 2021,
+          "authors": [
+            "Jin, Pengzhan",
+            "Lu, Lu",
+            "Tang, Yifa",
+            "Karniadakis, George Em"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:b3c879e9a74e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Systems biology informed deep learning for inferring parameters and hidden dynamics",
+      "year": 2020,
+      "authors": [
+        "Alireza Yazdani",
+        "Vassily Hatzimanikatis",
+        "Lu Lu",
+        "Maziar Raissi",
+        "George Em Karniadakis"
+      ],
+      "listed_venue": "PLOS Computational Biology",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 83689042"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1371/journal.pcbi.1007575"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Systems biology informed deep learning for inferring parameters and hidden dynamics",
+          "year": 2019,
+          "authors": [
+            "Alireza Yazdani",
+            "Vassily Hatzimanikatis",
+            "Lu Lu",
+            "Maziar Raissi",
+            "George Em Karniadakis"
+          ]
+        },
+        {
+          "title": "Systems biology informed deep learning for inferring parameters and hidden dynamics",
+          "year": 2021,
+          "authors": [
+            "Alireza Yazdani",
+            "Vassily Hatzimanikatis",
+            "Lu Lu",
+            "Maziar Raissi",
+            "George Em Karniadakis"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:d20761899799",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Deep transfer learning and data augmentation improve glucose levels prediction in type 2 diabetes patients",
+      "year": 2021,
+      "authors": [
+        "Deng, Yixiang",
+        "Lu, Lu",
+        "Aponte, Laura",
+        "Angelidi, Angeliki M.",
+        "Novak, Vera",
+        "Karniadakis, George Em",
+        "Mantzoros, Christos S."
+      ],
+      "listed_venue": "Npj Digital Medicine",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638054"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41746-021-00480-x"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Deep transfer learning and data augmentation improve glucose levels prediction in type 2 diabetes patients",
+          "year": 2020,
+          "authors": [
+            "Deng, Yixiang",
+            "Lu, Lu",
+            "Aponte, Laura",
+            "Angelidi, Angeliki M.",
+            "Novak, Vera",
+            "Karniadakis, George Em",
+            "Mantzoros, Christos S."
+          ]
+        },
+        {
+          "title": "Deep transfer learning and data augmentation improve glucose levels prediction in type 2 diabetes patients",
+          "year": 2022,
+          "authors": [
+            "Deng, Yixiang",
+            "Lu, Lu",
+            "Aponte, Laura",
+            "Angelidi, Angeliki M.",
+            "Novak, Vera",
+            "Karniadakis, George Em",
+            "Mantzoros, Christos S."
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:683e6f22c06b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "DeepM&Mnet for hypersonics: Predicting the coupled flow and finite-rate chemistry behind a normal shock using neural-network approximation of operators",
+      "year": 2021,
+      "authors": [
+        "Mao, Zhiping",
+        "Lu, Lu",
+        "Marxen, Olaf",
+        "Zaki, Tamer A.",
+        "Karniadakis, George Em"
+      ],
+      "listed_venue": "Journal of Computational Physics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638049"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.jcp.2021.110698"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "DeepM&Mnet for hypersonics: Predicting the coupled flow and finite-rate chemistry behind a normal shock using neural-network approximation of operators",
+          "year": 2020,
+          "authors": [
+            "Mao, Zhiping",
+            "Lu, Lu",
+            "Marxen, Olaf",
+            "Zaki, Tamer A.",
+            "Karniadakis, George Em"
+          ]
+        },
+        {
+          "title": "DeepM&Mnet for hypersonics: Predicting the coupled flow and finite-rate chemistry behind a normal shock using neural-network approximation of operators",
+          "year": 2022,
+          "authors": [
+            "Mao, Zhiping",
+            "Lu, Lu",
+            "Marxen, Olaf",
+            "Zaki, Tamer A.",
+            "Karniadakis, George Em"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:fce9eab106bb",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "DeepM&Mnet: Inferring the electroconvection multiphysics fields based on operator approximation by neural networks",
+      "year": 2021,
+      "authors": [
+        "Cai, Shengze",
+        "Wang, Zhicheng",
+        "Lu, Lu",
+        "Zaki, Tamer A.",
+        "Karniadakis, George Em"
+      ],
+      "listed_venue": "Journal of Computational Physics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638041"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.jcp.2021.110296"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "DeepM&Mnet: Inferring the electroconvection multiphysics fields based on operator approximation by neural networks",
+          "year": 2020,
+          "authors": [
+            "Cai, Shengze",
+            "Wang, Zhicheng",
+            "Lu, Lu",
+            "Zaki, Tamer A.",
+            "Karniadakis, George Em"
+          ]
+        },
+        {
+          "title": "DeepM&Mnet: Inferring the electroconvection multiphysics fields based on operator approximation by neural networks",
+          "year": 2022,
+          "authors": [
+            "Cai, Shengze",
+            "Wang, Zhicheng",
+            "Lu, Lu",
+            "Zaki, Tamer A.",
+            "Karniadakis, George Em"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:3c15c4a5ad9a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "DeepXDE: A Deep Learning Library for Solving Differential Equations",
+      "year": 2021,
+      "authors": [
+        "Lu, Lu",
+        "Meng, Xuhui",
+        "Mao, Zhiping",
+        "Karniadakis, George Em"
+      ],
+      "listed_venue": "SIAM Review",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638040"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1137/19m1274067"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "DeepXDE: A Deep Learning Library for Solving Differential Equations",
+          "year": 2020,
+          "authors": [
+            "Lu, Lu",
+            "Meng, Xuhui",
+            "Mao, Zhiping",
+            "Karniadakis, George Em"
+          ]
+        },
+        {
+          "title": "DeepXDE: A Deep Learning Library for Solving Differential Equations",
+          "year": 2022,
+          "authors": [
+            "Lu, Lu",
+            "Meng, Xuhui",
+            "Mao, Zhiping",
+            "Karniadakis, George Em"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:2d4f8bfb03d5",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "How the spleen reshapes and retains young and old red blood cells: A computational investigation",
+      "year": 2021,
+      "authors": [
+        "Li, He",
+        "Liu, Zixiang Leonardo",
+        "Lu, Lu",
+        "Buffet, Pierre",
+        "Karniadakis, George Em"
+      ],
+      "listed_venue": "PLOS Computational Biology",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196637986"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1371/journal.pcbi.1009516"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "How the spleen reshapes and retains young and old red blood cells: A computational investigation",
+          "year": 2020,
+          "authors": [
+            "Li, He",
+            "Liu, Zixiang Leonardo",
+            "Lu, Lu",
+            "Buffet, Pierre",
+            "Karniadakis, George Em"
+          ]
+        },
+        {
+          "title": "How the spleen reshapes and retains young and old red blood cells: A computational investigation",
+          "year": 2022,
+          "authors": [
+            "Li, He",
+            "Liu, Zixiang Leonardo",
+            "Lu, Lu",
+            "Buffet, Pierre",
+            "Karniadakis, George Em"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:5536a55602dd",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Learning nonlinear operators via DeepONet based on the universal approximation theorem of operators",
+      "year": 2021,
+      "authors": [
+        "Lu, Lu",
+        "Jin, Pengzhan",
+        "Pang, Guofei",
+        "Zhang, Zhongqiang",
+        "Karniadakis, George Em"
+      ],
+      "listed_venue": "Nature Machine Intelligence",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638037"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s42256-021-00302-5"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Learning nonlinear operators via DeepONet based on the universal approximation theorem of operators",
+          "year": 2020,
+          "authors": [
+            "Lu, Lu",
+            "Jin, Pengzhan",
+            "Pang, Guofei",
+            "Zhang, Zhongqiang",
+            "Karniadakis, George Em"
+          ]
+        },
+        {
+          "title": "Learning nonlinear operators via DeepONet based on the universal approximation theorem of operators",
+          "year": 2022,
+          "authors": [
+            "Lu, Lu",
+            "Jin, Pengzhan",
+            "Pang, Guofei",
+            "Zhang, Zhongqiang",
+            "Karniadakis, George Em"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:85f056f51f79",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Operator learning for predicting multiscale bubble growth dynamics",
+      "year": 2021,
+      "authors": [
+        "Lin, Chensen",
+        "Li, Zhen",
+        "Lu, Lu",
+        "Cai, Shengze",
+        "Maxey, Martin",
+        "Karniadakis, George Em"
+      ],
+      "listed_venue": "The Journal of Chemical Physics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196637980"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1063/5.0041203"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Operator learning for predicting multiscale bubble growth dynamics",
+          "year": 2020,
+          "authors": [
+            "Lin, Chensen",
+            "Li, Zhen",
+            "Lu, Lu",
+            "Cai, Shengze",
+            "Maxey, Martin",
+            "Karniadakis, George Em"
+          ]
+        },
+        {
+          "title": "Operator learning for predicting multiscale bubble growth dynamics",
+          "year": 2022,
+          "authors": [
+            "Lin, Chensen",
+            "Li, Zhen",
+            "Lu, Lu",
+            "Cai, Shengze",
+            "Maxey, Martin",
+            "Karniadakis, George Em"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:342ef1a7e023",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Physics-informed machine learning",
+      "year": 2021,
+      "authors": [
+        "Karniadakis, George Em",
+        "Kevrekidis, Ioannis G.",
+        "Lu, Lu",
+        "Perdikaris, Paris",
+        "Wang, Sifan",
+        "Yang, Liu"
+      ],
+      "listed_venue": "Nature Reviews Physics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638035"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s42254-021-00314-5"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Physics-informed machine learning",
+          "year": 2020,
+          "authors": [
+            "Karniadakis, George Em",
+            "Kevrekidis, Ioannis G.",
+            "Lu, Lu",
+            "Perdikaris, Paris",
+            "Wang, Sifan",
+            "Yang, Liu"
+          ]
+        },
+        {
+          "title": "Physics-informed machine learning",
+          "year": 2022,
+          "authors": [
+            "Karniadakis, George Em",
+            "Kevrekidis, Ioannis G.",
+            "Lu, Lu",
+            "Perdikaris, Paris",
+            "Wang, Sifan",
+            "Yang, Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:73d946f34b80",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Physics-Informed Neural Networks with Hard Constraints for Inverse Design",
+      "year": 2021,
+      "authors": [],
+      "listed_venue": "SIAM Journal on Scientific Computing",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 103519268"
+      ],
+      "review_flags": [
+        "byline_unavailable_in_sources"
+      ],
+      "dois": [
+        "10.1137/21m1397908"
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:ba3d381cc564",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A comprehensive and fair comparison of two neural operators (with practical extensions) based on FAIR data",
+      "year": 2022,
+      "authors": [
+        "Lu, Lu",
+        "Meng, Xuhui",
+        "Cai, Shengze",
+        "Mao, Zhiping",
+        "Goswami, Somdatta",
+        "Zhang, Zhongqiang",
+        "Karniadakis, George Em"
+      ],
+      "listed_venue": "Computer Methods in Applied Mechanics and Engineering",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638038"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.cma.2022.114778"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A comprehensive and fair comparison of two neural operators (with practical extensions) based on FAIR data",
+          "year": 2021,
+          "authors": [
+            "Lu, Lu",
+            "Meng, Xuhui",
+            "Cai, Shengze",
+            "Mao, Zhiping",
+            "Goswami, Somdatta",
+            "Zhang, Zhongqiang",
+            "Karniadakis, George Em"
+          ]
+        },
+        {
+          "title": "A comprehensive and fair comparison of two neural operators (with practical extensions) based on FAIR data",
+          "year": 2023,
+          "authors": [
+            "Lu, Lu",
+            "Meng, Xuhui",
+            "Cai, Shengze",
+            "Mao, Zhiping",
+            "Goswami, Somdatta",
+            "Zhang, Zhongqiang",
+            "Karniadakis, George Em"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:068f9d4e3f29",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Approximation rates of DeepONets for learning operators arising from advection-diffusion equations",
+      "year": 2022,
+      "authors": [
+        "Deng, Beichuan",
+        "Shin, Yeonjong",
+        "Lu, Lu",
+        "Zhang, Zhongqiang",
+        "Karniadakis, George Em"
+      ],
+      "listed_venue": "Neural Networks",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638036"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.neunet.2022.06.019"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Approximation rates of DeepONets for learning operators arising from advection-diffusion equations",
+          "year": 2021,
+          "authors": [
+            "Deng, Beichuan",
+            "Shin, Yeonjong",
+            "Lu, Lu",
+            "Zhang, Zhongqiang",
+            "Karniadakis, George Em"
+          ]
+        },
+        {
+          "title": "Approximation rates of DeepONets for learning operators arising from advection-diffusion equations",
+          "year": 2023,
+          "authors": [
+            "Deng, Beichuan",
+            "Shin, Yeonjong",
+            "Lu, Lu",
+            "Zhang, Zhongqiang",
+            "Karniadakis, George Em"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:d4e525d07015",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Gradient-enhanced physics-informed neural networks for forward and inverse PDE",
+      "year": 2022,
+      "authors": [
+        "Yu, Jeremy",
+        "Lu, Lu",
+        "Meng, Xuhui",
+        "Karniadakis, George Em"
+      ],
+      "listed_venue": "Computer Methods in Applied Mechanics and Engineering",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196637981"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.cma.2022.114823"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Gradient-enhanced physics-informed neural networks for forward and inverse PDE",
+          "year": 2021,
+          "authors": [
+            "Yu, Jeremy",
+            "Lu, Lu",
+            "Meng, Xuhui",
+            "Karniadakis, George Em"
+          ]
+        },
+        {
+          "title": "Gradient-enhanced physics-informed neural networks for forward and inverse PDE",
+          "year": 2023,
+          "authors": [
+            "Yu, Jeremy",
+            "Lu, Lu",
+            "Meng, Xuhui",
+            "Karniadakis, George Em"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:9f7ae3705c94",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "MIONET: LEARNING MULTIPLE-INPUT OPERATORS VIA TENSOR PRODUCT",
+      "year": 2022,
+      "authors": [
+        "Jin, Pengzhan",
+        "Meng, Shuai",
+        "Lu, Lu"
+      ],
+      "listed_venue": "SIAM Journal on Scientific Computing",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196637983"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1137/22m1477751"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "MIONET: LEARNING MULTIPLE-INPUT OPERATORS VIA TENSOR PRODUCT",
+          "year": 2021,
+          "authors": [
+            "Jin, Pengzhan",
+            "Meng, Shuai",
+            "Lu, Lu"
+          ]
+        },
+        {
+          "title": "MIONET: LEARNING MULTIPLE-INPUT OPERATORS VIA TENSOR PRODUCT",
+          "year": 2023,
+          "authors": [
+            "Jin, Pengzhan",
+            "Meng, Shuai",
+            "Lu, Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:58112ed2a965",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Multifidelity deep neural operators for efficient learning of partial differential equations with application to fast inverse design of nanoscale heat transport",
+      "year": 2022,
+      "authors": [
+        "Lu, Lu",
+        "Pestourie, Raphael",
+        "Johnson, Steven G.",
+        "Romano, Giuseppe"
+      ],
+      "listed_venue": "Physical Review Research",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196637987"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1103/physrevresearch.4.023210"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Multifidelity deep neural operators for efficient learning of partial differential equations with application to fast inverse design of nanoscale heat transport",
+          "year": 2021,
+          "authors": [
+            "Lu, Lu",
+            "Pestourie, Raphael",
+            "Johnson, Steven G.",
+            "Romano, Giuseppe"
+          ]
+        },
+        {
+          "title": "Multifidelity deep neural operators for efficient learning of partial differential equations with application to fast inverse design of nanoscale heat transport",
+          "year": 2023,
+          "authors": [
+            "Lu, Lu",
+            "Pestourie, Raphael",
+            "Johnson, Steven G.",
+            "Romano, Giuseppe"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:64d7af015402",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A comprehensive study of non-adaptive and residual-based adaptive sampling for physics-informed neural networks",
+      "year": 2023,
+      "authors": [
+        "Wu, Chenxi",
+        "Zhu, Min",
+        "Tan, Qinyang",
+        "Kartha, Yadhu",
+        "Lu, Lu"
+      ],
+      "listed_venue": "Computer Methods in Applied Mechanics and Engineering",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638028"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.cma.2022.115671"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A comprehensive study of non-adaptive and residual-based adaptive sampling for physics-informed neural networks",
+          "year": 2022,
+          "authors": [
+            "Wu, Chenxi",
+            "Zhu, Min",
+            "Tan, Qinyang",
+            "Kartha, Yadhu",
+            "Lu, Lu"
+          ]
+        },
+        {
+          "title": "A comprehensive study of non-adaptive and residual-based adaptive sampling for physics-informed neural networks",
+          "year": 2024,
+          "authors": [
+            "Wu, Chenxi",
+            "Zhu, Min",
+            "Tan, Qinyang",
+            "Kartha, Yadhu",
+            "Lu, Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:237519fce156",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A systematic study of the performance of machine learning models on analyzing the association between semen quality and environmental pollutants",
+      "year": 2023,
+      "authors": [
+        "Lu, Lu",
+        "Qian, Ying",
+        "Dong, Yihang",
+        "Su, Han",
+        "Deng, Yunxin",
+        "Zeng, Qiang",
+        "Li, He"
+      ],
+      "listed_venue": "Frontiers in Physics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638055"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.3389/fphy.2023.1259273"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A systematic study of the performance of machine learning models on analyzing the association between semen quality and environmental pollutants",
+          "year": 2022,
+          "authors": [
+            "Lu, Lu",
+            "Qian, Ying",
+            "Dong, Yihang",
+            "Su, Han",
+            "Deng, Yunxin",
+            "Zeng, Qiang",
+            "Li, He"
+          ]
+        },
+        {
+          "title": "A systematic study of the performance of machine learning models on analyzing the association between semen quality and environmental pollutants",
+          "year": 2024,
+          "authors": [
+            "Lu, Lu",
+            "Qian, Ying",
+            "Dong, Yihang",
+            "Su, Han",
+            "Deng, Yunxin",
+            "Zeng, Qiang",
+            "Li, He"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:4e9b0fb51c2c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Effective data sampling strategies and boundary condition constraints of physics-informed neural networks for identifying material properties in solid mechanics",
+      "year": 2023,
+      "authors": [
+        "Wu, W.",
+        "Daneker, M.",
+        "Jolley, M. A.",
+        "Turner, K. T.",
+        "Lu, L."
+      ],
+      "listed_venue": "Applied Mathematics and Mechanics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196637985"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1007/s10483-023-2995-8"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Effective data sampling strategies and boundary condition constraints of physics-informed neural networks for identifying material properties in solid mechanics",
+          "year": 2022,
+          "authors": [
+            "Wu, W.",
+            "Daneker, M.",
+            "Jolley, M. A.",
+            "Turner, K. T.",
+            "Lu, L."
+          ]
+        },
+        {
+          "title": "Effective data sampling strategies and boundary condition constraints of physics-informed neural networks for identifying material properties in solid mechanics",
+          "year": 2024,
+          "authors": [
+            "Wu, W.",
+            "Daneker, M.",
+            "Jolley, M. A.",
+            "Turner, K. T.",
+            "Lu, L."
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:a28ba6b4aa0a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Fourier-DeepONet: Fourier-enhanced deep operator networks for full waveform inversion with improved accuracy, generalizability, and robustness",
+      "year": 2023,
+      "authors": [
+        "Zhu, Min",
+        "Feng, Shihang",
+        "Lin, Youzuo",
+        "Lu, Lu"
+      ],
+      "listed_venue": "Computer Methods in Applied Mechanics and Engineering",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638048"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.cma.2023.116300"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Fourier-DeepONet: Fourier-enhanced deep operator networks for full waveform inversion with improved accuracy, generalizability, and robustness",
+          "year": 2022,
+          "authors": [
+            "Zhu, Min",
+            "Feng, Shihang",
+            "Lin, Youzuo",
+            "Lu, Lu"
+          ]
+        },
+        {
+          "title": "Fourier-DeepONet: Fourier-enhanced deep operator networks for full waveform inversion with improved accuracy, generalizability, and robustness",
+          "year": 2024,
+          "authors": [
+            "Zhu, Min",
+            "Feng, Shihang",
+            "Lin, Youzuo",
+            "Lu, Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:339f426e236f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Integration of multi-physics and machine learning-based surrogate modelling approaches for multi-objective optimization of deformed GDL of PEM fuel cells",
+      "year": 2023,
+      "authors": [
+        "Wang, Jiankang",
+        "Jiang, Hai",
+        "Chen, Gaojian",
+        "Wang, Huizhi",
+        "Lu, Lu",
+        "Liu, Jianguo",
+        "Xing, Lei"
+      ],
+      "listed_venue": "Energy and AI",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638029"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.egyai.2023.100261"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Integration of multi-physics and machine learning-based surrogate modelling approaches for multi-objective optimization of deformed GDL of PEM fuel cells",
+          "year": 2022,
+          "authors": [
+            "Wang, Jiankang",
+            "Jiang, Hai",
+            "Chen, Gaojian",
+            "Wang, Huizhi",
+            "Lu, Lu",
+            "Liu, Jianguo",
+            "Xing, Lei"
+          ]
+        },
+        {
+          "title": "Integration of multi-physics and machine learning-based surrogate modelling approaches for multi-objective optimization of deformed GDL of PEM fuel cells",
+          "year": 2024,
+          "authors": [
+            "Wang, Jiankang",
+            "Jiang, Hai",
+            "Chen, Gaojian",
+            "Wang, Huizhi",
+            "Lu, Lu",
+            "Liu, Jianguo",
+            "Xing, Lei"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:de7ab082604c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Learning Specialized Activation Functions for Physics-Informed Neural Networks",
+      "year": 2023,
+      "authors": [
+        "Wang, Honghui",
+        "Lu, Lu",
+        "Song, Shiji",
+        "Huang, Gao"
+      ],
+      "listed_venue": "Communications in Computational Physics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638042"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.4208/cicp.oa-2023-0058"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Learning Specialized Activation Functions for Physics-Informed Neural Networks",
+          "year": 2022,
+          "authors": [
+            "Wang, Honghui",
+            "Lu, Lu",
+            "Song, Shiji",
+            "Huang, Gao"
+          ]
+        },
+        {
+          "title": "Learning Specialized Activation Functions for Physics-Informed Neural Networks",
+          "year": 2024,
+          "authors": [
+            "Wang, Honghui",
+            "Lu, Lu",
+            "Song, Shiji",
+            "Huang, Gao"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:4d2152742c56",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Neural operator prediction of linear instability waves in high-speed boundary layers",
+      "year": 2023,
+      "authors": [
+        "Di Leoni, Patricio Clark",
+        "Lu, Lu",
+        "Meneveau, Charles",
+        "Karniadakis, George Em",
+        "Zaki, Tamer A."
+      ],
+      "listed_venue": "Journal of Computational Physics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196637979"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.jcp.2022.111793"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Neural operator prediction of linear instability waves in high-speed boundary layers",
+          "year": 2022,
+          "authors": [
+            "Di Leoni, Patricio Clark",
+            "Lu, Lu",
+            "Meneveau, Charles",
+            "Karniadakis, George Em",
+            "Zaki, Tamer A."
+          ]
+        },
+        {
+          "title": "Neural operator prediction of linear instability waves in high-speed boundary layers",
+          "year": 2024,
+          "authors": [
+            "Di Leoni, Patricio Clark",
+            "Lu, Lu",
+            "Meneveau, Charles",
+            "Karniadakis, George Em",
+            "Zaki, Tamer A."
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:0ff323ce7f3a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Pose estimation of robotic manipulators using deep transfer learning towards video-based system identification",
+      "year": 2023,
+      "authors": [
+        "Antonio Weiller Corrêa do Lago",
+        "Lucas Castro Sousa",
+        "Daniel Henrique Braz de Sousa",
+        "Lu Lu",
+        "Helon Vicente Hultmann Ayala"
+      ],
+      "listed_venue": "Brazilian Symposium on Intelligent Automation",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 207760245"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.20906/sbai-sbse-2023/3858"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Pose estimation of robotic manipulators using deep transfer learning towards video-based system identification",
+          "year": 2022,
+          "authors": [
+            "Antonio Weiller Corrêa do Lago",
+            "Lucas Castro Sousa",
+            "Daniel Henrique Braz de Sousa",
+            "Lu Lu",
+            "Helon Vicente Hultmann Ayala"
+          ]
+        },
+        {
+          "title": "Pose estimation of robotic manipulators using deep transfer learning towards video-based system identification",
+          "year": 2024,
+          "authors": [
+            "Antonio Weiller Corrêa do Lago",
+            "Lucas Castro Sousa",
+            "Daniel Henrique Braz de Sousa",
+            "Lu Lu",
+            "Helon Vicente Hultmann Ayala"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:763f1ef924c4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "PPDONet: Deep Operator Networks for Fast Prediction of Steady-state Solutions in Disk-Planet Systems",
+      "year": 2023,
+      "authors": [
+        "Mao, Shunyuan",
+        "Dong, Ruobing",
+        "Lu, Lu",
+        "Yi, Kwang Moo",
+        "Wang, Sifan",
+        "Perdikaris, Paris"
+      ],
+      "listed_venue": "Astrophysical Journal Letters",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638034"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.3847/2041-8213/acd77f"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "PPDONet: Deep Operator Networks for Fast Prediction of Steady-state Solutions in Disk-Planet Systems",
+          "year": 2022,
+          "authors": [
+            "Mao, Shunyuan",
+            "Dong, Ruobing",
+            "Lu, Lu",
+            "Yi, Kwang Moo",
+            "Wang, Sifan",
+            "Perdikaris, Paris"
+          ]
+        },
+        {
+          "title": "PPDONet: Deep Operator Networks for Fast Prediction of Steady-state Solutions in Disk-Planet Systems",
+          "year": 2024,
+          "authors": [
+            "Mao, Shunyuan",
+            "Dong, Ruobing",
+            "Lu, Lu",
+            "Yi, Kwang Moo",
+            "Wang, Sifan",
+            "Perdikaris, Paris"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:5935d0892ec6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Reliable extrapolation of deep neural operators informed by physics or sparse observations",
+      "year": 2023,
+      "authors": [
+        "Zhu, Min",
+        "Zhang, Handi",
+        "Jiao, Anran",
+        "Karniadakis, George Em",
+        "Lu, Lu"
+      ],
+      "listed_venue": "Computer Methods in Applied Mechanics and Engineering",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638045"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.cma.2023.116064"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Reliable extrapolation of deep neural operators informed by physics or sparse observations",
+          "year": 2022,
+          "authors": [
+            "Zhu, Min",
+            "Zhang, Handi",
+            "Jiao, Anran",
+            "Karniadakis, George Em",
+            "Lu, Lu"
+          ]
+        },
+        {
+          "title": "Reliable extrapolation of deep neural operators informed by physics or sparse observations",
+          "year": 2024,
+          "authors": [
+            "Zhu, Min",
+            "Zhang, Handi",
+            "Jiao, Anran",
+            "Karniadakis, George Em",
+            "Lu, Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:84d509c65c73",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Systems Biology: Identifiability Analysis and Parameter Identification via Systems-Biology-Informed Neural Networks",
+      "year": 2023,
+      "authors": [
+        "Mitchell Daneker",
+        "Zhen Zhang",
+        "George Em Karniadakis",
+        "Lu Lu"
+      ],
+      "listed_venue": "Computational Modeling of Signaling Networks",
+      "work_types": [
+        "book_chapter"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 133589774"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1007/978-1-0716-3008-2_4"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Systems Biology: Identifiability Analysis and Parameter Identification via Systems-Biology-Informed Neural Networks",
+          "year": 2022,
+          "authors": [
+            "Mitchell Daneker",
+            "Zhen Zhang",
+            "George Em Karniadakis",
+            "Lu Lu"
+          ]
+        },
+        {
+          "title": "Systems Biology: Identifiability Analysis and Parameter Identification via Systems-Biology-Informed Neural Networks",
+          "year": 2024,
+          "authors": [
+            "Mitchell Daneker",
+            "Zhen Zhang",
+            "George Em Karniadakis",
+            "Lu Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:0347db125273",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A scalable framework for learning the geometry-dependent solution operators of partial differential equations",
+      "year": 2024,
+      "authors": [
+        "Minglang Yin",
+        "Nicolas Charon",
+        "Ryan Brody",
+        "Lu Lu",
+        "Natalia Trayanova",
+        "Mauro Maggioni"
+      ],
+      "listed_venue": "Nature Computational Science",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 173383372"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s43588-024-00732-2"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A scalable framework for learning the geometry-dependent solution operators of partial differential equations",
+          "year": 2023,
+          "authors": [
+            "Minglang Yin",
+            "Nicolas Charon",
+            "Ryan Brody",
+            "Lu Lu",
+            "Natalia Trayanova",
+            "Mauro Maggioni"
+          ]
+        },
+        {
+          "title": "A scalable framework for learning the geometry-dependent solution operators of partial differential equations",
+          "year": 2025,
+          "authors": [
+            "Minglang Yin",
+            "Nicolas Charon",
+            "Ryan Brody",
+            "Lu Lu",
+            "Natalia Trayanova",
+            "Mauro Maggioni"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:479f76d2a1e0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Challenges in Training PINNs: A Loss Landscape Perspective",
+      "year": 2024,
+      "authors": [
+        "Pratik Rathore",
+        "Weimu Lei",
+        "Zachary Frangella",
+        "Lu Lu",
+        "Madeleine Udell"
+      ],
+      "listed_venue": "International Conference on Machine Learning",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 207760123"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.48550/arxiv.2402.01868"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Challenges in Training PINNs: A Loss Landscape Perspective",
+          "year": 2023,
+          "authors": [
+            "Pratik Rathore",
+            "Weimu Lei",
+            "Zachary Frangella",
+            "Lu Lu",
+            "Madeleine Udell"
+          ]
+        },
+        {
+          "title": "Challenges in Training PINNs: A Loss Landscape Perspective",
+          "year": 2025,
+          "authors": [
+            "Pratik Rathore",
+            "Weimu Lei",
+            "Zachary Frangella",
+            "Lu Lu",
+            "Madeleine Udell"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:c7183c58c727",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Computational Physics PCDMD: Physics-constrained dynamic mode decomposition for accurate and robust forecasting of dynamical systems with imperfect data and physics",
+      "year": 2024,
+      "authors": [
+        "Yin, Yuhui",
+        "Kou, Chenhui",
+        "Jia, Shengkun",
+        "Lu, Lu",
+        "Yuan, Xigang",
+        "Luo, Yiqing"
+      ],
+      "listed_venue": "Computer Physics Communications",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196637975"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.cpc.2024.109303"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Computational Physics PCDMD: Physics-constrained dynamic mode decomposition for accurate and robust forecasting of dynamical systems with imperfect data and physics",
+          "year": 2023,
+          "authors": [
+            "Yin, Yuhui",
+            "Kou, Chenhui",
+            "Jia, Shengkun",
+            "Lu, Lu",
+            "Yuan, Xigang",
+            "Luo, Yiqing"
+          ]
+        },
+        {
+          "title": "Computational Physics PCDMD: Physics-constrained dynamic mode decomposition for accurate and robust forecasting of dynamical systems with imperfect data and physics",
+          "year": 2025,
+          "authors": [
+            "Yin, Yuhui",
+            "Kou, Chenhui",
+            "Jia, Shengkun",
+            "Lu, Lu",
+            "Yuan, Xigang",
+            "Luo, Yiqing"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:d8b61ba4af81",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "D2NO: Efficient handling of heterogeneous input function spaces with distributed deep neural operators",
+      "year": 2024,
+      "authors": [
+        "Zhang, Zecheng",
+        "Moya, Christian",
+        "Lu, Lu",
+        "Lin, Guang",
+        "Schaeffer, Hayden"
+      ],
+      "listed_venue": "Computer Methods in Applied Mechanics and Engineering",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196637972"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.cma.2024.117084"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "D2NO: Efficient handling of heterogeneous input function spaces with distributed deep neural operators",
+          "year": 2023,
+          "authors": [
+            "Zhang, Zecheng",
+            "Moya, Christian",
+            "Lu, Lu",
+            "Lin, Guang",
+            "Schaeffer, Hayden"
+          ]
+        },
+        {
+          "title": "D2NO: Efficient handling of heterogeneous input function spaces with distributed deep neural operators",
+          "year": 2025,
+          "authors": [
+            "Zhang, Zecheng",
+            "Moya, Christian",
+            "Lu, Lu",
+            "Lin, Guang",
+            "Schaeffer, Hayden"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:613f7d5ef473",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Disk2Planet: A Robust and Automated Machine Learning Tool for Parameter Inference in Disk–Planet Systems",
+      "year": 2024,
+      "authors": [
+        "Shunyuan 顺元 Mao 毛",
+        "Ruobing 若冰 Dong 董",
+        "Kwang Moo Yi",
+        "Lu Lu",
+        "Sifan Wang",
+        "Paris Perdikaris"
+      ],
+      "listed_venue": "The Astrophysical Journal",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 172268355"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.3847/1538-4357/ad8086"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Disk2Planet: A Robust and Automated Machine Learning Tool for Parameter Inference in Disk–Planet Systems",
+          "year": 2023,
+          "authors": [
+            "Shunyuan 顺元 Mao 毛",
+            "Ruobing 若冰 Dong 董",
+            "Kwang Moo Yi",
+            "Lu Lu",
+            "Sifan Wang",
+            "Paris Perdikaris"
+          ]
+        },
+        {
+          "title": "Disk2Planet: A Robust and Automated Machine Learning Tool for Parameter Inference in Disk–Planet Systems",
+          "year": 2025,
+          "authors": [
+            "Shunyuan 顺元 Mao 毛",
+            "Ruobing 若冰 Dong 董",
+            "Kwang Moo Yi",
+            "Lu Lu",
+            "Sifan Wang",
+            "Paris Perdikaris"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:624ae277e9d0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Efficient and generalizable nested Fourier-DeepONet for three-dimensional geological carbon sequestration",
+      "year": 2024,
+      "authors": [
+        "Jonathan E. Lee",
+        "Min Zhu",
+        "Ziqiao Xi",
+        "Kun Wang",
+        "Yanhua O. Yuan",
+        "Lu Lu"
+      ],
+      "listed_venue": "Engineering Applications of Computational Fluid Mechanics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 173092462"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1080/19942060.2024.2435457"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Efficient and generalizable nested Fourier-DeepONet for three-dimensional geological carbon sequestration",
+          "year": 2023,
+          "authors": [
+            "Jonathan E. Lee",
+            "Min Zhu",
+            "Ziqiao Xi",
+            "Kun Wang",
+            "Yanhua O. Yuan",
+            "Lu Lu"
+          ]
+        },
+        {
+          "title": "Efficient and generalizable nested Fourier-DeepONet for three-dimensional geological carbon sequestration",
+          "year": 2025,
+          "authors": [
+            "Jonathan E. Lee",
+            "Min Zhu",
+            "Ziqiao Xi",
+            "Kun Wang",
+            "Yanhua O. Yuan",
+            "Lu Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:8ecca65b3e99",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Fourier-MIONet: Fourier-enhanced multiple-input neural operators for multiphase modeling of geological carbon sequestration",
+      "year": 2024,
+      "authors": [
+        "Zhongyi Jiang",
+        "Min Zhu",
+        "Lu Lu"
+      ],
+      "listed_venue": "Reliability Engineering & System Safety",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 164427203"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.ress.2024.110392"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Fourier-MIONet: Fourier-enhanced multiple-input neural operators for multiphase modeling of geological carbon sequestration",
+          "year": 2023,
+          "authors": [
+            "Zhongyi Jiang",
+            "Min Zhu",
+            "Lu Lu"
+          ]
+        },
+        {
+          "title": "Fourier-MIONet: Fourier-enhanced multiple-input neural operators for multiphase modeling of geological carbon sequestration",
+          "year": 2025,
+          "authors": [
+            "Zhongyi Jiang",
+            "Min Zhu",
+            "Lu Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:5009d701cabe",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Identification of the friction model of a single elastic robot actuator from video",
+      "year": 2024,
+      "authors": [
+        "Correa do Lago, Antonio Weiller",
+        "Braz de Sousa, Daniel Henrique",
+        "Lu, Lu",
+        "Hultmann Ayala, Helon Vicente"
+      ],
+      "listed_venue": "IFAC-PapersOnLine",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638056"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.ifacol.2024.08.581"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Identification of the friction model of a single elastic robot actuator from video",
+          "year": 2023,
+          "authors": [
+            "Correa do Lago, Antonio Weiller",
+            "Braz de Sousa, Daniel Henrique",
+            "Lu, Lu",
+            "Hultmann Ayala, Helon Vicente"
+          ]
+        },
+        {
+          "title": "Identification of the friction model of a single elastic robot actuator from video",
+          "year": 2025,
+          "authors": [
+            "Correa do Lago, Antonio Weiller",
+            "Braz de Sousa, Daniel Henrique",
+            "Lu, Lu",
+            "Hultmann Ayala, Helon Vicente"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:8cf4cf06d515",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Multi-resolution partial differential equations preserved learning framework for spatiotemporal dynamics",
+      "year": 2024,
+      "authors": [
+        "Liu, Xin-Yang",
+        "Zhu, Min",
+        "Lu, Lu",
+        "Sun, Hao",
+        "Wang, Jian-Xun"
+      ],
+      "listed_venue": "Communications Physics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638053"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s42005-024-01521-z"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Multi-resolution partial differential equations preserved learning framework for spatiotemporal dynamics",
+          "year": 2023,
+          "authors": [
+            "Liu, Xin-Yang",
+            "Zhu, Min",
+            "Lu, Lu",
+            "Sun, Hao",
+            "Wang, Jian-Xun"
+          ]
+        },
+        {
+          "title": "Multi-resolution partial differential equations preserved learning framework for spatiotemporal dynamics",
+          "year": 2025,
+          "authors": [
+            "Liu, Xin-Yang",
+            "Zhu, Min",
+            "Lu, Lu",
+            "Sun, Hao",
+            "Wang, Jian-Xun"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:8e460c12d640",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Physics-informed and black-box identification of robotic actuator with a flexible joint",
+      "year": 2024,
+      "authors": [
+        "Correa do Lago, Antonio Weiller",
+        "Braz de Sousa, Daniel Henrique",
+        "Domingues, Pedro Henrique",
+        "Daneker, Mitchell",
+        "Lu, Lu",
+        "Hultmann Ayala, Helon Vicente"
+      ],
+      "listed_venue": "IFAC-PapersOnLine",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638031"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.ifacol.2024.08.538"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Physics-informed and black-box identification of robotic actuator with a flexible joint",
+          "year": 2023,
+          "authors": [
+            "Correa do Lago, Antonio Weiller",
+            "Braz de Sousa, Daniel Henrique",
+            "Domingues, Pedro Henrique",
+            "Daneker, Mitchell",
+            "Lu, Lu",
+            "Hultmann Ayala, Helon Vicente"
+          ]
+        },
+        {
+          "title": "Physics-informed and black-box identification of robotic actuator with a flexible joint",
+          "year": 2025,
+          "authors": [
+            "Correa do Lago, Antonio Weiller",
+            "Braz de Sousa, Daniel Henrique",
+            "Domingues, Pedro Henrique",
+            "Daneker, Mitchell",
+            "Lu, Lu",
+            "Hultmann Ayala, Helon Vicente"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:af0944a58b90",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "PINNacle: A Comprehensive Benchmark of Physics-Informed Neural Networks for Solving PDEs",
+      "year": 2024,
+      "authors": [
+        "Zhongkai Hao",
+        "Jiachen Yao",
+        "Chang Su",
+        "Hang Su",
+        "Ziao Wang",
+        "Fanzhi Lu",
+        "Zeyu Xia",
+        "Yichi Zhang",
+        "Songming Liu",
+        "Lu Lu",
+        "Jun Zhu"
+      ],
+      "listed_venue": "Conference on Neural Information Processing Systems",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 207760040"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.52202/079017-2442"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "PINNacle: A Comprehensive Benchmark of Physics-Informed Neural Networks for Solving PDEs",
+          "year": 2023,
+          "authors": [
+            "Zhongkai Hao",
+            "Jiachen Yao",
+            "Chang Su",
+            "Hang Su",
+            "Ziao Wang",
+            "Fanzhi Lu",
+            "Zeyu Xia",
+            "Yichi Zhang",
+            "Songming Liu",
+            "Lu Lu",
+            "Jun Zhu"
+          ]
+        },
+        {
+          "title": "PINNacle: A Comprehensive Benchmark of Physics-Informed Neural Networks for Solving PDEs",
+          "year": 2025,
+          "authors": [
+            "Zhongkai Hao",
+            "Jiachen Yao",
+            "Chang Su",
+            "Hang Su",
+            "Ziao Wang",
+            "Fanzhi Lu",
+            "Zeyu Xia",
+            "Yichi Zhang",
+            "Songming Liu",
+            "Lu Lu",
+            "Jun Zhu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:44c82a7761cb",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Signaling-biophysical modeling unravels mechanistic control of red blood cell phagocytosis by macrophages in sickle cell disease",
+      "year": 2024,
+      "authors": [
+        "Zhang, Yu",
+        "Qiang, Yuhao",
+        "Li, He",
+        "Li, Guansheng",
+        "Lu, Lu",
+        "Dao, Ming",
+        "Karniadakis, George E.",
+        "Popel, Aleksander S.",
+        "Zhao, Chen"
+      ],
+      "listed_venue": "PNAS Nexus",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638043"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1093/pnasnexus/pgae031"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Signaling-biophysical modeling unravels mechanistic control of red blood cell phagocytosis by macrophages in sickle cell disease",
+          "year": 2023,
+          "authors": [
+            "Zhang, Yu",
+            "Qiang, Yuhao",
+            "Li, He",
+            "Li, Guansheng",
+            "Lu, Lu",
+            "Dao, Ming",
+            "Karniadakis, George E.",
+            "Popel, Aleksander S.",
+            "Zhao, Chen"
+          ]
+        },
+        {
+          "title": "Signaling-biophysical modeling unravels mechanistic control of red blood cell phagocytosis by macrophages in sickle cell disease",
+          "year": 2025,
+          "authors": [
+            "Zhang, Yu",
+            "Qiang, Yuhao",
+            "Li, He",
+            "Li, Guansheng",
+            "Lu, Lu",
+            "Dao, Ming",
+            "Karniadakis, George E.",
+            "Popel, Aleksander S.",
+            "Zhao, Chen"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:594cfcbd67e1",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Speeding up and reducing memory usage for scientific machine learning via mixed precision",
+      "year": 2024,
+      "authors": [
+        "Joel Hayford",
+        "Jacob Goldman-Wetzler",
+        "Eric Wang",
+        "Lu Lu"
+      ],
+      "listed_venue": "Computer Methods in Applied Mechanics and Engineering",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 161146367"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.cma.2024.117093"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Speeding up and reducing memory usage for scientific machine learning via mixed precision",
+          "year": 2023,
+          "authors": [
+            "Joel Hayford",
+            "Jacob Goldman-Wetzler",
+            "Eric Wang",
+            "Lu Lu"
+          ]
+        },
+        {
+          "title": "Speeding up and reducing memory usage for scientific machine learning via mixed precision",
+          "year": 2025,
+          "authors": [
+            "Joel Hayford",
+            "Jacob Goldman-Wetzler",
+            "Eric Wang",
+            "Lu Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:3bfb9ebf9d76",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Transfer learning on physics-informed neural networks for tracking the hemodynamics in the evolving false lumen of dissected aorta",
+      "year": 2024,
+      "authors": [
+        "Mitchell Daneker",
+        "Shengze Cai",
+        "Ying Qian",
+        "Eric Myzelev",
+        "Arsh Kumbhat",
+        "He Li",
+        "Lu Lu"
+      ],
+      "listed_venue": "Nexus",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 160100907"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.ynexs.2024.100016"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Transfer learning on physics-informed neural networks for tracking the hemodynamics in the evolving false lumen of dissected aorta",
+          "year": 2023,
+          "authors": [
+            "Mitchell Daneker",
+            "Shengze Cai",
+            "Ying Qian",
+            "Eric Myzelev",
+            "Arsh Kumbhat",
+            "He Li",
+            "Lu Lu"
+          ]
+        },
+        {
+          "title": "Transfer learning on physics-informed neural networks for tracking the hemodynamics in the evolving false lumen of dissected aorta",
+          "year": 2025,
+          "authors": [
+            "Mitchell Daneker",
+            "Shengze Cai",
+            "Ying Qian",
+            "Eric Myzelev",
+            "Arsh Kumbhat",
+            "He Li",
+            "Lu Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:a16887112367",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Transferable machine learning model for the aerodynamic prediction of swept wings",
+      "year": 2024,
+      "authors": [
+        "Yunjia Yang",
+        "Runze Li",
+        "Yufei Zhang",
+        "Lu Lu",
+        "Haixin Chen"
+      ],
+      "listed_venue": "Physics of Fluids",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 163174020"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1063/5.0213830"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Transferable machine learning model for the aerodynamic prediction of swept wings",
+          "year": 2023,
+          "authors": [
+            "Yunjia Yang",
+            "Runze Li",
+            "Yufei Zhang",
+            "Lu Lu",
+            "Haixin Chen"
+          ]
+        },
+        {
+          "title": "Transferable machine learning model for the aerodynamic prediction of swept wings",
+          "year": 2025,
+          "authors": [
+            "Yunjia Yang",
+            "Runze Li",
+            "Yufei Zhang",
+            "Lu Lu",
+            "Haixin Chen"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:72dfa4f90717",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A noninvasive method for determining elastic parameters of valve tissue using physics-informed neural networks",
+      "year": 2025,
+      "authors": [
+        "Wensi Wu",
+        "Mitchell Daneker",
+        "Christian Herz",
+        "Hannah Dewey",
+        "Jeffrey A. Weiss",
+        "Alison M. Pouch",
+        "Lu Lu",
+        "Matthew A. Jolley"
+      ],
+      "listed_venue": "Acta Biomaterialia",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 184788919"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.actbio.2025.05.021"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A noninvasive method for determining elastic parameters of valve tissue using physics-informed neural networks",
+          "year": 2024,
+          "authors": [
+            "Wensi Wu",
+            "Mitchell Daneker",
+            "Christian Herz",
+            "Hannah Dewey",
+            "Jeffrey A. Weiss",
+            "Alison M. Pouch",
+            "Lu Lu",
+            "Matthew A. Jolley"
+          ]
+        },
+        {
+          "title": "A noninvasive method for determining elastic parameters of valve tissue using physics-informed neural networks",
+          "year": 2026,
+          "authors": [
+            "Wensi Wu",
+            "Mitchell Daneker",
+            "Christian Herz",
+            "Hannah Dewey",
+            "Jeffrey A. Weiss",
+            "Alison M. Pouch",
+            "Lu Lu",
+            "Matthew A. Jolley"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:8ffff601152b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Conformalized-DeepONet: A distribution-free framework for uncertainty quantification in deep operator networks",
+      "year": 2025,
+      "authors": [
+        "Moya, Christian",
+        "Mollaali, Amirhossein",
+        "Zhang, Zecheng",
+        "Lu, Lu",
+        "Lin, Guang"
+      ],
+      "listed_venue": "Physica D: Nonlinear Phenomena",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638060"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.physd.2024.134418"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Conformalized-DeepONet: A distribution-free framework for uncertainty quantification in deep operator networks",
+          "year": 2024,
+          "authors": [
+            "Moya, Christian",
+            "Mollaali, Amirhossein",
+            "Zhang, Zecheng",
+            "Lu, Lu",
+            "Lin, Guang"
+          ]
+        },
+        {
+          "title": "Conformalized-DeepONet: A distribution-free framework for uncertainty quantification in deep operator networks",
+          "year": 2026,
+          "authors": [
+            "Moya, Christian",
+            "Mollaali, Amirhossein",
+            "Zhang, Zecheng",
+            "Lu, Lu",
+            "Lin, Guang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:dbfd4584587d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Deep Learning for Solving and Estimating Dynamic Macro-finance Models",
+      "year": 2025,
+      "authors": [
+        "Benjamin Fan",
+        "Edward Qiao",
+        "Anran Jiao",
+        "Zhouzhou Gu",
+        "Wenhao Li",
+        "Lu Lu"
+      ],
+      "listed_venue": "Computational Economics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 165226334"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1007/s10614-024-10693-3"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Deep Learning for Solving and Estimating Dynamic Macro-finance Models",
+          "year": 2024,
+          "authors": [
+            "Benjamin Fan",
+            "Edward Qiao",
+            "Anran Jiao",
+            "Zhouzhou Gu",
+            "Wenhao Li",
+            "Lu Lu"
+          ]
+        },
+        {
+          "title": "Deep Learning for Solving and Estimating Dynamic Macro-finance Models",
+          "year": 2026,
+          "authors": [
+            "Benjamin Fan",
+            "Edward Qiao",
+            "Anran Jiao",
+            "Zhouzhou Gu",
+            "Wenhao Li",
+            "Lu Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:4b7a3d22d960",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Deep operator learning for blood flow modelling in stenosed vessels",
+      "year": 2025,
+      "authors": [
+        "Alexis Velikorodny",
+        "Lu Lu",
+        "Vladimir Dudenkov",
+        "Victor Glanz",
+        "Boris Chernyavsky",
+        "Antoinette Neylon",
+        "Pieter C. Smits"
+      ],
+      "listed_venue": "npj Artificial Intelligence",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 195920867"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s44387-025-00035-5"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Deep operator learning for blood flow modelling in stenosed vessels",
+          "year": 2024,
+          "authors": [
+            "Alexis Velikorodny",
+            "Lu Lu",
+            "Vladimir Dudenkov",
+            "Victor Glanz",
+            "Boris Chernyavsky",
+            "Antoinette Neylon",
+            "Pieter C. Smits"
+          ]
+        },
+        {
+          "title": "Deep operator learning for blood flow modelling in stenosed vessels",
+          "year": 2026,
+          "authors": [
+            "Alexis Velikorodny",
+            "Lu Lu",
+            "Vladimir Dudenkov",
+            "Victor Glanz",
+            "Boris Chernyavsky",
+            "Antoinette Neylon",
+            "Pieter C. Smits"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:110eb62e8060",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Federated Scientific Machine Learning for Approximating Functions and Solving Differential Equations With Data Heterogeneity",
+      "year": 2025,
+      "authors": [
+        "Handi Zhang",
+        "Langchen Liu",
+        "Kangyu Weng",
+        "Lu Lu"
+      ],
+      "listed_venue": "IEEE Transactions on Neural Networks and Learning Systems",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 186813723"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1109/tnnls.2025.3580409"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Federated Scientific Machine Learning for Approximating Functions and Solving Differential Equations With Data Heterogeneity",
+          "year": 2024,
+          "authors": [
+            "Handi Zhang",
+            "Langchen Liu",
+            "Kangyu Weng",
+            "Lu Lu"
+          ]
+        },
+        {
+          "title": "Federated Scientific Machine Learning for Approximating Functions and Solving Differential Equations With Data Heterogeneity",
+          "year": 2026,
+          "authors": [
+            "Handi Zhang",
+            "Langchen Liu",
+            "Kangyu Weng",
+            "Lu Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:905d7f46b4f1",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "From imaging to computational domains for physics-driven molecular biology simulations: Hindered diffusion in platelet masses",
+      "year": 2025,
+      "authors": [
+        "House, Catherine",
+        "Huang, Ziyi",
+        "Shankar, Kaushik N.",
+        "Young, Sandra J.",
+        "Roberts, Meghan E.",
+        "Diamond, Scott L.",
+        "Tomaiuolo, Maurizio",
+        "Stalker, Timothy J.",
+        "Lu, Lu",
+        "Sinno, Talid"
+      ],
+      "listed_venue": "PLOS Computational Biology",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638018"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1371/journal.pcbi.1012853"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "From imaging to computational domains for physics-driven molecular biology simulations: Hindered diffusion in platelet masses",
+          "year": 2024,
+          "authors": [
+            "House, Catherine",
+            "Huang, Ziyi",
+            "Shankar, Kaushik N.",
+            "Young, Sandra J.",
+            "Roberts, Meghan E.",
+            "Diamond, Scott L.",
+            "Tomaiuolo, Maurizio",
+            "Stalker, Timothy J.",
+            "Lu, Lu",
+            "Sinno, Talid"
+          ]
+        },
+        {
+          "title": "From imaging to computational domains for physics-driven molecular biology simulations: Hindered diffusion in platelet masses",
+          "year": 2026,
+          "authors": [
+            "House, Catherine",
+            "Huang, Ziyi",
+            "Shankar, Kaushik N.",
+            "Young, Sandra J.",
+            "Roberts, Meghan E.",
+            "Diamond, Scott L.",
+            "Tomaiuolo, Maurizio",
+            "Stalker, Timothy J.",
+            "Lu, Lu",
+            "Sinno, Talid"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:00198346dc73",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Generalized Domain Prompt Learning for Accessible Scientific Vision-Language Models",
+      "year": 2025,
+      "authors": [
+        "Qinglong Cao",
+        "Yuntian Chen",
+        "Lu Lu",
+        "Hao Sun",
+        "Zhengzhong Zeng",
+        "Xiaokang Yang",
+        "Dongxiao Zhang"
+      ],
+      "listed_venue": "Nexus",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 181164964"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.ynexs.2025.100069"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Generalized Domain Prompt Learning for Accessible Scientific Vision-Language Models",
+          "year": 2024,
+          "authors": [
+            "Qinglong Cao",
+            "Yuntian Chen",
+            "Lu Lu",
+            "Hao Sun",
+            "Zhengzhong Zeng",
+            "Xiaokang Yang",
+            "Dongxiao Zhang"
+          ]
+        },
+        {
+          "title": "Generalized Domain Prompt Learning for Accessible Scientific Vision-Language Models",
+          "year": 2026,
+          "authors": [
+            "Qinglong Cao",
+            "Yuntian Chen",
+            "Lu Lu",
+            "Hao Sun",
+            "Zhengzhong Zeng",
+            "Xiaokang Yang",
+            "Dongxiao Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:fe3b816fa139",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Identifying Heterogeneous Micromechanical Properties of Biological Tissues via Physics‐Informed Neural Networks",
+      "year": 2025,
+      "authors": [
+        "Wensi Wu",
+        "Mitchell Daneker",
+        "Kevin T. Turner",
+        "Matthew A. Jolley",
+        "Lu Lu"
+      ],
+      "listed_venue": "Small Methods",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 164788133"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1002/smtd.202400620"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Identifying Heterogeneous Micromechanical Properties of Biological Tissues via Physics‐Informed Neural Networks",
+          "year": 2024,
+          "authors": [
+            "Wensi Wu",
+            "Mitchell Daneker",
+            "Kevin T. Turner",
+            "Matthew A. Jolley",
+            "Lu Lu"
+          ]
+        },
+        {
+          "title": "Identifying Heterogeneous Micromechanical Properties of Biological Tissues via Physics‐Informed Neural Networks",
+          "year": 2026,
+          "authors": [
+            "Wensi Wu",
+            "Mitchell Daneker",
+            "Kevin T. Turner",
+            "Matthew A. Jolley",
+            "Lu Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:02bb0c8b3ec6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Identifying Trustworthiness Challenges in Deep Learning Models for Continental-Scale Water Quality Prediction",
+      "year": 2025,
+      "authors": [
+        "Xiaobo Xia",
+        "Xiaofeng Liu",
+        "Jiale Liu",
+        "Kuai Fang",
+        "Lu Lu",
+        "Samet Oymak",
+        "William S. Currie",
+        "Tongliang Liu"
+      ],
+      "listed_venue": "Nexus",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196895157"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.ynexs.2025.100104"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Identifying Trustworthiness Challenges in Deep Learning Models for Continental-Scale Water Quality Prediction",
+          "year": 2024,
+          "authors": [
+            "Xiaobo Xia",
+            "Xiaofeng Liu",
+            "Jiale Liu",
+            "Kuai Fang",
+            "Lu Lu",
+            "Samet Oymak",
+            "William S. Currie",
+            "Tongliang Liu"
+          ]
+        },
+        {
+          "title": "Identifying Trustworthiness Challenges in Deep Learning Models for Continental-Scale Water Quality Prediction",
+          "year": 2026,
+          "authors": [
+            "Xiaobo Xia",
+            "Xiaofeng Liu",
+            "Jiale Liu",
+            "Kuai Fang",
+            "Lu Lu",
+            "Samet Oymak",
+            "William S. Currie",
+            "Tongliang Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:751413d59e7b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Neural Networks as Surrogate Solvers for Time-dependent Accretion Disk Dynamics",
+      "year": 2025,
+      "authors": [
+        "Shunyuan Mao",
+        "Weiqi Wang",
+        "Sifan Wang",
+        "Ruobing Dong",
+        "Lu Lu",
+        "Kwang Moo Yi",
+        "Paris Perdikaris",
+        "Andrea Isella",
+        "Sébastien Fabbro",
+        "Lile Wang"
+      ],
+      "listed_venue": "The Astrophysical Journal Letters",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 194120200"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.3847/2041-8213/ae0b60"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Neural Networks as Surrogate Solvers for Time-dependent Accretion Disk Dynamics",
+          "year": 2024,
+          "authors": [
+            "Shunyuan Mao",
+            "Weiqi Wang",
+            "Sifan Wang",
+            "Ruobing Dong",
+            "Lu Lu",
+            "Kwang Moo Yi",
+            "Paris Perdikaris",
+            "Andrea Isella",
+            "Sébastien Fabbro",
+            "Lile Wang"
+          ]
+        },
+        {
+          "title": "Neural Networks as Surrogate Solvers for Time-dependent Accretion Disk Dynamics",
+          "year": 2026,
+          "authors": [
+            "Shunyuan Mao",
+            "Weiqi Wang",
+            "Sifan Wang",
+            "Ruobing Dong",
+            "Lu Lu",
+            "Kwang Moo Yi",
+            "Paris Perdikaris",
+            "Andrea Isella",
+            "Sébastien Fabbro",
+            "Lile Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:53f9a29ff2ba",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Neural Topology Optimization Via Active Learning for Efficient Channel Design in Turbulent Mass Transfer",
+      "year": 2025,
+      "authors": [
+        "Chenhui Kou",
+        "Yuhui Yin",
+        "Min Zhu",
+        "Shengkun Jia",
+        "Yiqing Luo",
+        "Xigang Yuan",
+        "Lu Lu"
+      ],
+      "listed_venue": "Advanced Science",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 187854882"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1002/advs.202508386"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Neural Topology Optimization Via Active Learning for Efficient Channel Design in Turbulent Mass Transfer",
+          "year": 2024,
+          "authors": [
+            "Chenhui Kou",
+            "Yuhui Yin",
+            "Min Zhu",
+            "Shengkun Jia",
+            "Yiqing Luo",
+            "Xigang Yuan",
+            "Lu Lu"
+          ]
+        },
+        {
+          "title": "Neural Topology Optimization Via Active Learning for Efficient Channel Design in Turbulent Mass Transfer",
+          "year": 2026,
+          "authors": [
+            "Chenhui Kou",
+            "Yuhui Yin",
+            "Min Zhu",
+            "Shengkun Jia",
+            "Yiqing Luo",
+            "Xigang Yuan",
+            "Lu Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:45081d8e1f2c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "One-shot learning for solution operators of partial differential equations",
+      "year": 2025,
+      "authors": [
+        "Anran Jiao",
+        "Haiyang He",
+        "Rishikesh Ranade",
+        "Jay Pathak",
+        "Lu Lu"
+      ],
+      "listed_venue": "Nature Communications",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 192717156"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41467-025-63076-z"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "One-shot learning for solution operators of partial differential equations",
+          "year": 2024,
+          "authors": [
+            "Anran Jiao",
+            "Haiyang He",
+            "Rishikesh Ranade",
+            "Jay Pathak",
+            "Lu Lu"
+          ]
+        },
+        {
+          "title": "One-shot learning for solution operators of partial differential equations",
+          "year": 2026,
+          "authors": [
+            "Anran Jiao",
+            "Haiyang He",
+            "Rishikesh Ranade",
+            "Jay Pathak",
+            "Lu Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:1addfcee0b6f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Quantum DeepONet: Neural operators accelerated by quantum computing",
+      "year": 2025,
+      "authors": [
+        "Pengpeng Xiao",
+        "Muqing Zheng",
+        "Anran Jiao",
+        "Xiu Yang",
+        "Lu Lu"
+      ],
+      "listed_venue": "Quantum",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 185362188"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.22331/q-2025-06-04-1761"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Quantum DeepONet: Neural operators accelerated by quantum computing",
+          "year": 2024,
+          "authors": [
+            "Pengpeng Xiao",
+            "Muqing Zheng",
+            "Anran Jiao",
+            "Xiu Yang",
+            "Lu Lu"
+          ]
+        },
+        {
+          "title": "Quantum DeepONet: Neural operators accelerated by quantum computing",
+          "year": 2026,
+          "authors": [
+            "Pengpeng Xiao",
+            "Muqing Zheng",
+            "Anran Jiao",
+            "Xiu Yang",
+            "Lu Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_lu_lu:970b5f1e83bc",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Rapid Aerodynamic Prediction of Swept Wings via Physics-Embedded Transfer Learning",
+      "year": 2025,
+      "authors": [
+        "Yunjia Yang",
+        "Runze Li",
+        "Yufei Zhang",
+        "Lu Lu",
+        "Haixin Chen"
+      ],
+      "listed_venue": "AIAA Journal",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 174605182"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.2514/1.j064576"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Rapid Aerodynamic Prediction of Swept Wings via Physics-Embedded Transfer Learning",
+          "year": 2024,
+          "authors": [
+            "Yunjia Yang",
+            "Runze Li",
+            "Yufei Zhang",
+            "Lu Lu",
+            "Haixin Chen"
+          ]
+        },
+        {
+          "title": "Rapid Aerodynamic Prediction of Swept Wings via Physics-Embedded Transfer Learning",
+          "year": 2026,
+          "authors": [
+            "Yunjia Yang",
+            "Runze Li",
+            "Yufei Zhang",
+            "Lu Lu",
+            "Haixin Chen"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "reason": "outside_year_window",
+      "title": "Active operator learning with predictive uncertainty quantification for partial differential equations",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 206874002"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "NOEM: efficient and scalable finite element method enabled by reusable neural operators",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 213075123"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Neural Operator-enabled Topology-informed Evolutionary Strategy for PDE-Constrained Optimization",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 221500992"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "FunDiff: diffusion models over function spaces for physics-informed generative modeling",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 212927216"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Regularization by denoising diffusion models for solving inverse PDE problems with application to full waveform inversion",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 214332823"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "DeepONet as a multi-Operator extrapolation model: Distributed pretraining with physics-Informed fine-Tuning",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 198177258"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Solving Forward and Inverse Partial Differential Equation Problems on Unknown Manifolds via Physics-Informed Neural Operators",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 205119432"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning multi-physical system on a unified manifold by collaboratively fused features",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 206183347"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Machine learning accelerated radiative transfer modeling in CFD fire simulations",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 211878457"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "PHM-Vibench: A unified and factory-style vibration benchmarking framework for the foundation model era",
+      "year": 2026,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 207759809"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "TANTE: Time-adaptive operator learning via neural Taylor expansion",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 215558951"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "RAMS: Residual‐Based Adversarial‐Gradient Moving Sample Method for Scientific Machine Learning in Solving Partial Differential Equations",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 207783494"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "In silico postscreening study of antisickling agents to treat sickle cell disease",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 211847857"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Stochastic Operator Network: A Stochastic Maximum Principle Based Approach to Operator Learning",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 227068114"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Injective attention neural operators for partial differential equations on large-scale problems",
+      "year": 2027,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 228949371"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Theoretical analysis of natural-gas leakage in urban medium-pressure pipelines",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 88375202"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Cytoskeleton Remodeling Induces Membrane Stiffness and Stability Changes of Maturing Reticulocytes",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 46916898"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "OpenRBC: A Fast Simulator of Red Blood Cells at Protein Resolution",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 46916899"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Modeling biomembranes and red blood cells by coarse-grained particle methods",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 46916900"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mesoscopic Adaptive Resolution Scheme toward Understanding of Interactions between Sickle Cell Fibers",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 46916901"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Probing the Twisted Structure of Sickle Hemoglobin Fibers via Particle Simulations",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 46916902"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "fPINNs: Fractional Physics-Informed Neural Networks",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 60804214"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Understanding the Twisted Structure of Amyloid Fibrils via Molecular Simulations",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 47750147"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mechanics of diseased red blood cells in human spleen and consequences for hereditary blood disorders",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 48068324"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Quantitative prediction of erythrocyte sickling for the development of advanced sickle cell therapies",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 60759714"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Synergistic Integration of Laboratory and Numerical Approaches in Studies of the Biomechanics of Diseased Red Blood Cells",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 47328847"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Quantifying total uncertainty in physics-informed neural networks for solving forward and inverse stochastic problems",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-5476-5768 put-code 196638047"
+      ]
+    }
+  ],
+  "professor": {
+    "orcid": "0000-0002-5476-5768",
+    "author_ids": {},
+    "author_ids_complete": false
+  }
+}

@@ -1,0 +1,6260 @@
+{
+  "orcid": "0000-0003-2217-6982",
+  "fetched_at": "2026-10-18T18:52:49.858188+00:00",
+  "api_url": "https://pub.orcid.org/v3.0/0000-0003-2217-6982",
+  "work_groups": 52,
+  "works": [
+    {
+      "created-date": {
+        "value": 1587149954331
+      },
+      "last-modified-date": {
+        "value": 1587149954331
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72290547,
+      "path": "/0000-0003-2217-6982/work/72290547",
+      "title": {
+        "title": {
+          "value": "Fundamental Limits to the Electrochemical Impedance Stability of Dielectric Elastomers in Bioelectronics"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nano Letters"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2020"
+        },
+        "month": {
+          "value": "01"
+        },
+        "day": {
+          "value": "08"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1021/acs.nanolett.9b03705",
+            "external-id-normalized": {
+              "value": "10.1021/acs.nanolett.9b03705",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1021/acs.nanolett.9b03705"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1530-6984",
+            "external-id-normalized": {
+              "value": "1530-6984",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1530-6984"
+            },
+            "external-id-relationship": "part-of"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1530-6992",
+            "external-id-normalized": {
+              "value": "1530-6992",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1530-6992"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1021/acs.nanolett.9b03705"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587149832188
+      },
+      "last-modified-date": {
+        "value": 1587149832188
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72290482,
+      "path": "/0000-0003-2217-6982/work/72290482",
+      "title": {
+        "title": {
+          "value": "Genetically targeted chemical assembly of functional materials in living cells, tissues, and animals"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Science"
+      },
+      "short-description": "<jats:p>The structural and functional complexity of multicellular biological systems, such as the brain, are beyond the reach of human design or assembly capabilities. Cells in living organisms may be recruited to construct synthetic materials or structures if treated as anatomically defined compartments for specific chemistry, harnessing biology for the assembly of complex functional structures. By integrating engineered-enzyme targeting and polymer chemistry, we genetically instructed specific living neurons to guide chemical synthesis of electrically functional (conductive or insulating) polymers at the plasma membrane. Electrophysiological and behavioral analyses confirmed that rationally designed, genetically targeted assembly of functional polymers not only preserved neuronal viability but also achieved remodeling of membrane properties and modulated cell type–specific behaviors in freely moving animals. This approach may enable the creation of diverse, complex, and functional structures and materials within living systems.</jats:p>",
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2020"
+        },
+        "month": {
+          "value": "03"
+        },
+        "day": {
+          "value": "20"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1126/science.aay4866",
+            "external-id-normalized": {
+              "value": "10.1126/science.aay4866",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1126/science.aay4866"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "0036-8075",
+            "external-id-normalized": {
+              "value": "0036-8075",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/0036-8075"
+            },
+            "external-id-relationship": "part-of"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1095-9203",
+            "external-id-normalized": {
+              "value": "1095-9203",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1095-9203"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1126/science.aay4866"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587396734221
+      },
+      "last-modified-date": {
+        "value": 1587396734221
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72444910,
+      "path": "/0000-0003-2217-6982/work/72444910",
+      "title": {
+        "title": {
+          "value": "Roadmap on semiconductor–cell biointerfaces"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Physical Biology"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2018"
+        },
+        "month": {
+          "value": "03"
+        },
+        "day": {
+          "value": "09"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1088/1478-3975/aa9f34",
+            "external-id-normalized": {
+              "value": "10.1088/1478-3975/aa9f34",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1088/1478-3975/aa9f34"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1478-3975",
+            "external-id-normalized": {
+              "value": "1478-3975",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1478-3975"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1088/1478-3975/aa9f34"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587395633268
+      },
+      "last-modified-date": {
+        "value": 1587395633268
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72443241,
+      "path": "/0000-0003-2217-6982/work/72443241",
+      "title": {
+        "title": {
+          "value": "Cyborg Organoids: Implantation of Nanoelectronics via Organogenesis for Tissue-Wide Electrophysiology"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nano Letters"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2019"
+        },
+        "month": {
+          "value": "08"
+        },
+        "day": {
+          "value": "14"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1021/acs.nanolett.9b02512",
+            "external-id-normalized": {
+              "value": "10.1021/acs.nanolett.9b02512",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1021/acs.nanolett.9b02512"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1530-6984",
+            "external-id-normalized": {
+              "value": "1530-6984",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1530-6984"
+            },
+            "external-id-relationship": "part-of"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1530-6992",
+            "external-id-normalized": {
+              "value": "1530-6992",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1530-6992"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1021/acs.nanolett.9b02512"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587396601164
+      },
+      "last-modified-date": {
+        "value": 1587396601164
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72444599,
+      "path": "/0000-0003-2217-6982/work/72444599",
+      "title": {
+        "title": {
+          "value": "Three-dimensional intact-tissue sequencing of single-cell transcriptional states"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Science"
+      },
+      "short-description": "<jats:p>Retrieving high-content gene-expression information while retaining three-dimensional (3D) positional anatomy at cellular resolution has been difficult, limiting integrative understanding of structure and function in complex biological tissues. We developed and applied a technology for 3D intact-tissue RNA sequencing, termed STARmap (spatially-resolved transcript amplicon readout mapping), which integrates hydrogel-tissue chemistry, targeted signal amplification, and in situ sequencing. The capabilities of STARmap were tested by mapping 160 to 1020 genes simultaneously in sections of mouse brain at single-cell resolution with high efficiency, accuracy, and reproducibility. Moving to thick tissue blocks, we observed a molecularly defined gradient distribution of excitatory-neuron subtypes across cubic millimeter–scale volumes (&gt;30,000 cells) and a short-range 3D self-clustering in many inhibitory-neuron subtypes that could be identified and described with 3D STARmap.</jats:p>",
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2018"
+        },
+        "month": {
+          "value": "07"
+        },
+        "day": {
+          "value": "27"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1126/science.aat5691",
+            "external-id-normalized": {
+              "value": "10.1126/science.aat5691",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1126/science.aat5691"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "0036-8075",
+            "external-id-normalized": {
+              "value": "0036-8075",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/0036-8075"
+            },
+            "external-id-relationship": "part-of"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1095-9203",
+            "external-id-normalized": {
+              "value": "1095-9203",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1095-9203"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1126/science.aat5691"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587396998468
+      },
+      "last-modified-date": {
+        "value": 1587396998468
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72445136,
+      "path": "/0000-0003-2217-6982/work/72445136",
+      "title": {
+        "title": {
+          "value": "Pursuing prosthetic electronic skin"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nature Materials"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2016"
+        },
+        "month": {
+          "value": "09"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1038/nmat4671",
+            "external-id-normalized": {
+              "value": "10.1038/nmat4671",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1038/nmat4671"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1476-1122",
+            "external-id-normalized": {
+              "value": "1476-1122",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1476-1122"
+            },
+            "external-id-relationship": "part-of"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1476-4660",
+            "external-id-normalized": {
+              "value": "1476-4660",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1476-4660"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1038/nmat4671"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587396787417
+      },
+      "last-modified-date": {
+        "value": 1587396787417
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72444946,
+      "path": "/0000-0003-2217-6982/work/72444946",
+      "title": {
+        "title": {
+          "value": "A bioinspired flexible organic artificial afferent nerve"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Science"
+      },
+      "short-description": "<jats:p>The distributed network of receptors, neurons, and synapses in the somatosensory system efficiently processes complex tactile information. We used flexible organic electronics to mimic the functions of a sensory nerve. Our artificial afferent nerve collects pressure information (1 to 80 kilopascals) from clusters of pressure sensors, converts the pressure information into action potentials (0 to 100 hertz) by using ring oscillators, and integrates the action potentials from multiple ring oscillators with a synaptic transistor. Biomimetic hierarchical structures can detect movement of an object, combine simultaneous pressure inputs, and distinguish braille characters. Furthermore, we connected our artificial afferent nerve to motor nerves to construct a hybrid bioelectronic reflex arc to actuate muscles. Our system has potential applications in neurorobotics and neuroprosthetics.</jats:p>",
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2018"
+        },
+        "month": {
+          "value": "06"
+        },
+        "day": {
+          "value": "01"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1126/science.aao0098",
+            "external-id-normalized": {
+              "value": "10.1126/science.aao0098",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1126/science.aao0098"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "0036-8075",
+            "external-id-normalized": {
+              "value": "0036-8075",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/0036-8075"
+            },
+            "external-id-relationship": "part-of"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1095-9203",
+            "external-id-normalized": {
+              "value": "1095-9203",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1095-9203"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1126/science.aao0098"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587396832709
+      },
+      "last-modified-date": {
+        "value": 1587396832709
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72444967,
+      "path": "/0000-0003-2217-6982/work/72444967",
+      "title": {
+        "title": {
+          "value": "Biocompatible and totally disintegrable semiconducting polymer for ultrathin and ultralightweight transient electronics"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Proceedings of the National Academy of Sciences"
+      },
+      "short-description": "<jats:p>Increasing performance demands and shorter use lifetimes of consumer electronics have resulted in the rapid growth of electronic waste. Currently, consumer electronics are typically made with nondecomposable, nonbiocompatible, and sometimes even toxic materials, leading to serious ecological challenges worldwide. Here, we report an example of totally disintegrable and biocompatible semiconducting polymers for thin-film transistors. The polymer consists of reversible imine bonds and building blocks that can be easily decomposed under mild acidic conditions. In addition, an ultrathin (800-nm) biodegradable cellulose substrate with high chemical and thermal stability is developed. Coupled with iron electrodes, we have successfully fabricated fully disintegrable and biocompatible polymer transistors. Furthermore, disintegrable and biocompatible pseudo-complementary metal–oxide–semiconductor (CMOS) flexible circuits are demonstrated. These flexible circuits are ultrathin (&lt;1 μm) and ultralightweight (∼2 g/m<jats:sup>2</jats:sup>) with low operating voltage (4 V), yielding potential applications of these disintegrable semiconducting polymers in low-cost, biocompatible, and ultralightweight transient electronics.</jats:p>",
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2017"
+        },
+        "month": {
+          "value": "05"
+        },
+        "day": {
+          "value": "16"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1073/pnas.1701478114",
+            "external-id-normalized": {
+              "value": "10.1073/pnas.1701478114",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1073/pnas.1701478114"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "0027-8424",
+            "external-id-normalized": {
+              "value": "0027-8424",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/0027-8424"
+            },
+            "external-id-relationship": "part-of"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1091-6490",
+            "external-id-normalized": {
+              "value": "1091-6490",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1091-6490"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1073/pnas.1701478114"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587396873683
+      },
+      "last-modified-date": {
+        "value": 1587396873683
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72445092,
+      "path": "/0000-0003-2217-6982/work/72445092",
+      "title": {
+        "title": {
+          "value": "A highly stretchable, transparent, and conductive polymer"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Science Advances"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2017"
+        },
+        "month": {
+          "value": "03"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1126/sciadv.1602076",
+            "external-id-normalized": {
+              "value": "10.1126/sciadv.1602076",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1126/sciadv.1602076"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "2375-2548",
+            "external-id-normalized": {
+              "value": "2375-2548",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/2375-2548"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1126/sciadv.1602076"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587397092472
+      },
+      "last-modified-date": {
+        "value": 1587397092472
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72445297,
+      "path": "/0000-0003-2217-6982/work/72445297",
+      "title": {
+        "title": {
+          "value": "Three-dimensional mapping and regulation of action potential propagation in nanoelectronics-innervated tissues"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nature Nanotechnology"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2016"
+        },
+        "month": {
+          "value": "09"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1038/nnano.2016.96",
+            "external-id-normalized": {
+              "value": "10.1038/nnano.2016.96",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1038/nnano.2016.96"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1748-3387",
+            "external-id-normalized": {
+              "value": "1748-3387",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1748-3387"
+            },
+            "external-id-relationship": "part-of"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1748-3395",
+            "external-id-normalized": {
+              "value": "1748-3395",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1748-3395"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1038/nnano.2016.96"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587397792475
+      },
+      "last-modified-date": {
+        "value": 1587397792475
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72446361,
+      "path": "/0000-0003-2217-6982/work/72446361",
+      "title": {
+        "title": {
+          "value": "Ultra-Large-Pore Mesoporous Carbons Templated from Poly(ethylene oxide)-b-Polystyrene Diblock Copolymer by Adding Polystyrene Homopolymer as a Pore Expander"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Chemistry of Materials"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2008"
+        },
+        "month": {
+          "value": "12"
+        },
+        "day": {
+          "value": "09"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1021/cm802413q",
+            "external-id-normalized": {
+              "value": "10.1021/cm802413q",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1021/cm802413q"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "0897-4756",
+            "external-id-normalized": {
+              "value": "0897-4756",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/0897-4756"
+            },
+            "external-id-relationship": "part-of"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1520-5002",
+            "external-id-normalized": {
+              "value": "1520-5002",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1520-5002"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1021/cm802413q"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587397139893
+      },
+      "last-modified-date": {
+        "value": 1587397139893
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72445353,
+      "path": "/0000-0003-2217-6982/work/72445353",
+      "title": {
+        "title": {
+          "value": "Three-dimensional macroporous nanoelectronic networks as minimally invasive brain probes"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nature Materials"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2015"
+        },
+        "month": {
+          "value": "12"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1038/nmat4427",
+            "external-id-normalized": {
+              "value": "10.1038/nmat4427",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1038/nmat4427"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1476-1122",
+            "external-id-normalized": {
+              "value": "1476-1122",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1476-1122"
+            },
+            "external-id-relationship": "part-of"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1476-4660",
+            "external-id-normalized": {
+              "value": "1476-4660",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1476-4660"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1038/nmat4427"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587397513365
+      },
+      "last-modified-date": {
+        "value": 1587397513365
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72446006,
+      "path": "/0000-0003-2217-6982/work/72446006",
+      "title": {
+        "title": {
+          "value": "Multifunctional Mesoporous Composite Microspheres with Well-Designed Nanostructure: A Highly Integrated Catalyst System"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Journal of the American Chemical Society"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2010"
+        },
+        "month": {
+          "value": "06"
+        },
+        "day": {
+          "value": "23"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1021/ja1025744",
+            "external-id-normalized": {
+              "value": "10.1021/ja1025744",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1021/ja1025744"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "0002-7863",
+            "external-id-normalized": {
+              "value": "0002-7863",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/0002-7863"
+            },
+            "external-id-relationship": "part-of"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1520-5126",
+            "external-id-normalized": {
+              "value": "1520-5126",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1520-5126"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1021/ja1025744"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587397051197
+      },
+      "last-modified-date": {
+        "value": 1587397051197
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72445257,
+      "path": "/0000-0003-2217-6982/work/72445257",
+      "title": {
+        "title": {
+          "value": "Fast and reversible thermoresponsive polymer switching materials for safer batteries"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nature Energy"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2016"
+        },
+        "month": {
+          "value": "01"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1038/nenergy.2015.9",
+            "external-id-normalized": {
+              "value": "10.1038/nenergy.2015.9",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1038/nenergy.2015.9"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "2058-7546",
+            "external-id-normalized": {
+              "value": "2058-7546",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/2058-7546"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1038/nenergy.2015.9"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587397621466
+      },
+      "last-modified-date": {
+        "value": 1587397621466
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72446114,
+      "path": "/0000-0003-2217-6982/work/72446114",
+      "title": {
+        "title": {
+          "value": "A simple approach to the synthesis of hollow microspheres with magnetite/silica hybrid walls"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Journal of Colloid and Interface Science"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2009"
+        },
+        "month": {
+          "value": "05"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1016/j.jcis.2009.02.013",
+            "external-id-normalized": {
+              "value": "10.1016/j.jcis.2009.02.013",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1016/j.jcis.2009.02.013"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "0021-9797",
+            "external-id-normalized": {
+              "value": "0021-9797",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/0021-9797"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1016/j.jcis.2009.02.013"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587397227990
+      },
+      "last-modified-date": {
+        "value": 1587397227990
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72445728,
+      "path": "/0000-0003-2217-6982/work/72445728",
+      "title": {
+        "title": {
+          "value": "Long Term Stability of Nanowire Nanoelectronics in Physiological Environments"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nano Letters"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2014"
+        },
+        "month": {
+          "value": "03"
+        },
+        "day": {
+          "value": "12"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1021/nl500070h",
+            "external-id-normalized": {
+              "value": "10.1021/nl500070h",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1021/nl500070h"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1530-6984",
+            "external-id-normalized": {
+              "value": "1530-6984",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1530-6984"
+            },
+            "external-id-relationship": "part-of"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1530-6992",
+            "external-id-normalized": {
+              "value": "1530-6992",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1530-6992"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1021/nl500070h"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587397183802
+      },
+      "last-modified-date": {
+        "value": 1587397183802
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72445563,
+      "path": "/0000-0003-2217-6982/work/72445563",
+      "title": {
+        "title": {
+          "value": "Syringe-injectable electronics"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nature Nanotechnology"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2015"
+        },
+        "month": {
+          "value": "07"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1038/nnano.2015.115",
+            "external-id-normalized": {
+              "value": "10.1038/nnano.2015.115",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1038/nnano.2015.115"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1748-3387",
+            "external-id-normalized": {
+              "value": "1748-3387",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1748-3387"
+            },
+            "external-id-relationship": "part-of"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1748-3395",
+            "external-id-normalized": {
+              "value": "1748-3395",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1748-3395"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1038/nnano.2015.115"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587397581835
+      },
+      "last-modified-date": {
+        "value": 1587397581835
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72446080,
+      "path": "/0000-0003-2217-6982/work/72446080",
+      "title": {
+        "title": {
+          "value": "Highly Water-Dispersible Biocompatible Magnetite Particles with Low Cytotoxicity Stabilized by Citrate Groups"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Angewandte Chemie International Edition"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2009"
+        },
+        "month": {
+          "value": "07"
+        },
+        "day": {
+          "value": "27"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1002/anie.200901566",
+            "external-id-normalized": {
+              "value": "10.1002/anie.200901566",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1002/anie.200901566"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1433-7851",
+            "external-id-normalized": {
+              "value": "1433-7851",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1433-7851"
+            },
+            "external-id-relationship": "part-of"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1521-3773",
+            "external-id-normalized": {
+              "value": "1521-3773",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1521-3773"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1002/anie.200901566"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587397464673
+      },
+      "last-modified-date": {
+        "value": 1587397464673
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72445942,
+      "path": "/0000-0003-2217-6982/work/72445942",
+      "title": {
+        "title": {
+          "value": "Magnetic 3-D ordered macroporous silica templated from binary colloidal crystals and its application for effective removal of microcystin"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Microporous and Mesoporous Materials"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2010"
+        },
+        "month": {
+          "value": "05"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1016/j.micromeso.2009.10.008",
+            "external-id-normalized": {
+              "value": "10.1016/j.micromeso.2009.10.008",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1016/j.micromeso.2009.10.008"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1387-1811",
+            "external-id-normalized": {
+              "value": "1387-1811",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1387-1811"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1016/j.micromeso.2009.10.008"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587397298673
+      },
+      "last-modified-date": {
+        "value": 1587397298673
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72445774,
+      "path": "/0000-0003-2217-6982/work/72445774",
+      "title": {
+        "title": {
+          "value": "Nanoelectronics-biology frontier: From nanoscopic probes for action potential recording in live cells to three-dimensional cyborg tissues"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nano Today"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2013"
+        },
+        "month": {
+          "value": "08"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1016/j.nantod.2013.05.001",
+            "external-id-normalized": {
+              "value": "10.1016/j.nantod.2013.05.001",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1016/j.nantod.2013.05.001"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1748-0132",
+            "external-id-normalized": {
+              "value": "1748-0132",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1748-0132"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1016/j.nantod.2013.05.001"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587397353220
+      },
+      "last-modified-date": {
+        "value": 1587397353220
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72445821,
+      "path": "/0000-0003-2217-6982/work/72445821",
+      "title": {
+        "title": {
+          "value": "Multifunctional three-dimensional macroporous nanoelectronic networks for smart materials"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Proceedings of the National Academy of Sciences"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2013"
+        },
+        "month": {
+          "value": "04"
+        },
+        "day": {
+          "value": "23"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1073/pnas.1305209110",
+            "external-id-normalized": {
+              "value": "10.1073/pnas.1305209110",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1073/pnas.1305209110"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "0027-8424",
+            "external-id-normalized": {
+              "value": "0027-8424",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/0027-8424"
+            },
+            "external-id-relationship": "part-of"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1091-6490",
+            "external-id-normalized": {
+              "value": "1091-6490",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1091-6490"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1073/pnas.1305209110"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587397406569
+      },
+      "last-modified-date": {
+        "value": 1587397406569
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72445858,
+      "path": "/0000-0003-2217-6982/work/72445858",
+      "title": {
+        "title": {
+          "value": "Macroporous nanowire nanoelectronic scaffolds for synthetic tissues"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nature Materials"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2012"
+        },
+        "month": {
+          "value": "11"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1038/nmat3404",
+            "external-id-normalized": {
+              "value": "10.1038/nmat3404",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1038/nmat3404"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1476-1122",
+            "external-id-normalized": {
+              "value": "1476-1122",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1476-1122"
+            },
+            "external-id-relationship": "part-of"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1476-4660",
+            "external-id-normalized": {
+              "value": "1476-4660",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1476-4660"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1038/nmat3404"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587397654426
+      },
+      "last-modified-date": {
+        "value": 1587397654426
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72446171,
+      "path": "/0000-0003-2217-6982/work/72446171",
+      "title": {
+        "title": {
+          "value": "Synthesis of Core/Shell Colloidal Magnetic Zeolite Microspheres for the Immobilization of Trypsin"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Advanced Materials"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2009"
+        },
+        "month": {
+          "value": "04"
+        },
+        "day": {
+          "value": "06"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1002/adma.200801766",
+            "external-id-normalized": {
+              "value": "10.1002/adma.200801766",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1002/adma.200801766"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "0935-9648",
+            "external-id-normalized": {
+              "value": "0935-9648",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/0935-9648"
+            },
+            "external-id-relationship": "part-of"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1521-4095",
+            "external-id-normalized": {
+              "value": "1521-4095",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1521-4095"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1002/adma.200801766"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587396527309
+      },
+      "last-modified-date": {
+        "value": 1587396527309
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72444548,
+      "path": "/0000-0003-2217-6982/work/72444548",
+      "title": {
+        "title": {
+          "value": "Soft and elastic hydrogel-based microelectronics for localized low-voltage neuromodulation"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nature Biomedical Engineering"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2019"
+        },
+        "month": {
+          "value": "01"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1038/s41551-018-0335-6",
+            "external-id-normalized": {
+              "value": "10.1038/s41551-018-0335-6",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1038/s41551-018-0335-6"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "2157-846X",
+            "external-id-normalized": {
+              "value": "2157-846X",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/2157-846X"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1038/s41551-018-0335-6"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1592316822373
+      },
+      "last-modified-date": {
+        "value": 1592316822373
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 75728145,
+      "path": "/0000-0003-2217-6982/work/75728145",
+      "title": {
+        "title": {
+          "value": "Intrinsically stretchable electrode array enabled in vivo electrophysiological mapping of atrial fibrillation at cellular resolution"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Proc. Natl. Acad. Sci. USA"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2020"
+        },
+        "month": {
+          "value": "06"
+        },
+        "day": {
+          "value": "15"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1073/pnas.2000207117",
+            "external-id-normalized": {
+              "value": "10.1073/pnas.2000207117",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1073/pnas.2000207117"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1605295927209
+      },
+      "last-modified-date": {
+        "value": 1605296021305
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 83426442,
+      "path": "/0000-0003-2217-6982/work/83426442",
+      "title": {
+        "title": {
+          "value": "From lithographically patternable to genetically patternable electronic materials for miniaturized, scalable, and soft implantable bioelectronics to interface with nervous and cardiac systems"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "ACS Applied Electronic Materials"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "formatted-unspecified",
+        "citation-value": "https://dx.doi.org/10.1021/acsaelm.0c00753"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2020"
+        },
+        "month": {
+          "value": "11"
+        },
+        "day": {
+          "value": "09"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "https://dx.doi.org/10.1021/acsaelm.0c00753",
+            "external-id-normalized": {
+              "value": "10.1021/acsaelm.0c00753",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1021/acsaelm.0c00753"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://dx.doi.org/10.1021/acsaelm.0c00753"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1760574385114
+      },
+      "last-modified-date": {
+        "value": 1760574385114
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0003-1003-360X",
+          "path": "0000-0003-1003-360X",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "AAAS - Science"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 194361275,
+      "path": "/0000-0003-2217-6982/work/194361275",
+      "title": {
+        "title": {
+          "value": "Flexible Nanoelectronics Reveal Arrhythmogenesis in Transplanted Human Cardiomyocytes"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Science"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2025"
+        },
+        "month": {
+          "value": "10"
+        },
+        "day": {
+          "value": "16"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1126/science.adw4612",
+            "external-id-normalized": {
+              "value": "10.1126/science.adw4612",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1126/science.adw4612"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://www.science.org/doi/10.1126/science.adw4612"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0000-0001-9464-8374",
+              "path": "0000-0001-9464-8374",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Jeffrey J. Saucerman"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0000-0003-4687-1381",
+              "path": "0000-0003-4687-1381",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Richard  Lee"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0000-0002-2397-5180",
+              "path": "0000-0002-2397-5180",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Jessica C. Garbern"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0009-0005-0936-1552",
+              "path": "0009-0005-0936-1552",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Ren  Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0000-0003-2217-6982",
+              "path": "0000-0003-2217-6982",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Jia  Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Irving  Barrera"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0000-0003-0024-4067",
+              "path": "0000-0003-0024-4067",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Junya  Aoyama"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "first",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0000-0002-1223-220X",
+              "path": "0000-0002-1223-220X",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Xinhe  Zhang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0009-0002-0228-0838",
+              "path": "0009-0002-0228-0838",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Anthony Yixiao Zhu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Pichayathida  Luanpaisanon"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Fang  Cao"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0000-0003-1261-2146",
+              "path": "0000-0003-1261-2146",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Morgan  Sokol"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Satvik  Dasariraju"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Hannah  Fandl"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Eun Seok  Gil"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Elton  Aleksi"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Toshi  Amanuma"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0000-0003-2308-3649",
+              "path": "0000-0003-2308-3649",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Fei  Chen"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0000-0001-7591-8164",
+              "path": "0000-0001-7591-8164",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Nivedhitha  Velayutham"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1594057384302
+      },
+      "last-modified-date": {
+        "value": 1594057384302
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 76839923,
+      "path": "/0000-0003-2217-6982/work/76839923",
+      "title": {
+        "title": {
+          "value": "Fully stretchable active-matrix organic light-emitting electrochemical cell array"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nat. Commun."
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2020"
+        },
+        "month": {
+          "value": "07"
+        },
+        "day": {
+          "value": "03"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1038/s41467-020-17084-w",
+            "external-id-normalized": {
+              "value": "10.1038/s41467-020-17084-w",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1038/s41467-020-17084-w"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1589984311927
+      },
+      "last-modified-date": {
+        "value": 1589984311929
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 74299716,
+      "path": "/0000-0003-2217-6982/work/74299716",
+      "title": {
+        "title": {
+          "value": "Stretchable electrets: nanoparticle-elastomer composites"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nano Letters"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2020"
+        },
+        "month": {
+          "value": "05"
+        },
+        "day": {
+          "value": "15"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1021/acs.nanolett.0c01434",
+            "external-id-normalized": {
+              "value": "10.1021/acs.nanolett.0c01434",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1021/acs.nanolett.0c01434"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1765191428507
+      },
+      "last-modified-date": {
+        "value": 1765191428507
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 199019167,
+      "path": "/0000-0003-2217-6982/work/199019167",
+      "title": {
+        "title": {
+          "value": "Wireless recording with ultrathin brain interfaces"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nature Electronics"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2025"
+        },
+        "month": {
+          "value": "12"
+        },
+        "day": {
+          "value": "08"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1038/s41928-025-01510-2",
+            "external-id-normalized": {
+              "value": "10.1038/s41928-025-01510-2",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1038/s41928-025-01510-2"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1038/s41928-025-01510-2"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Arnau Marin-Llobet"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1745832090141
+      },
+      "last-modified-date": {
+        "value": 1751620226088
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 183040462,
+      "path": "/0000-0003-2217-6982/work/183040462",
+      "title": {
+        "title": {
+          "value": "Material Selection and Device Design of Scalable Flexible Brain‐Computer Interfaces: A Balance Between Electrical and Mechanical Performance"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Advanced Materials"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2025"
+        },
+        "month": {
+          "value": "07"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1002/adma.202413938",
+            "external-id-normalized": {
+              "value": "10.1002/adma.202413938",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1002/adma.202413938"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1002/adma.202413938"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xinyi Lin"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xuyue Zhang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Juntao Chen"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1742166980148
+      },
+      "last-modified-date": {
+        "value": 1742166980148
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 180201037,
+      "path": "/0000-0003-2217-6982/work/180201037",
+      "title": {
+        "title": {
+          "value": "Flexible brain–computer interfaces"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nature Electronics"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2023"
+        },
+        "month": {
+          "value": "02"
+        },
+        "day": {
+          "value": "02"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1038/s41928-022-00913-9",
+            "external-id-normalized": {
+              "value": "10.1038/s41928-022-00913-9",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1038/s41928-022-00913-9"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1038/s41928-022-00913-9"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xin Tang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Hao Shen"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Siyuan Zhao"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Na Li"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1742166979173
+      },
+      "last-modified-date": {
+        "value": 1742166979173
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 180201034,
+      "path": "/0000-0003-2217-6982/work/180201034",
+      "title": {
+        "title": {
+          "value": "Stretchable Mesh Nanoelectronics for 3D Single‐Cell Chronic Electrophysiology from Developing Brain Organoids"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Advanced Materials"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2022"
+        },
+        "month": {
+          "value": "03"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1002/adma.202106829",
+            "external-id-normalized": {
+              "value": "10.1002/adma.202106829",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1002/adma.202106829"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1002/adma.202106829"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Paul Le Floch"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Qiang Li"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zuwan Lin"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Siyuan Zhao"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Ren Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Kazi Tasnim"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Han Jiang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1742166978798
+      },
+      "last-modified-date": {
+        "value": 1742166978798
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 180201033,
+      "path": "/0000-0003-2217-6982/work/180201033",
+      "title": {
+        "title": {
+          "value": "Chemically Modified mocRNAs for Highly Efficient Protein Expression in Mammalian Cells"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "ACS Chemical Biology"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2022"
+        },
+        "month": {
+          "value": "12"
+        },
+        "day": {
+          "value": "16"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1021/acschembio.1c00569",
+            "external-id-normalized": {
+              "value": "10.1021/acschembio.1c00569",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1021/acschembio.1c00569"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1021/acschembio.1c00569"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Abhishek Aditham"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Hailing Shi"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jianting Guo"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Hu Zeng"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Yiming Zhou"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Sarah Dunn Wade"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jiahao Huang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xiao Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1742166980457
+      },
+      "last-modified-date": {
+        "value": 1742166980457
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 180201038,
+      "path": "/0000-0003-2217-6982/work/180201038",
+      "title": {
+        "title": {
+          "value": "Tracking neural activity from the same cells during the entire adult life of mice"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nature Neuroscience"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2023"
+        },
+        "month": {
+          "value": "04"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1038/s41593-023-01267-x",
+            "external-id-normalized": {
+              "value": "10.1038/s41593-023-01267-x",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1038/s41593-023-01267-x"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1038/s41593-023-01267-x"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Siyuan Zhao"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xin Tang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Weiwen Tian"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Sebastian Partarrieu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Ren Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Hao Shen"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jaeyong Lee"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Shiqi Guo"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zuwan Lin"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1742166978145
+      },
+      "last-modified-date": {
+        "value": 1742166978145
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 180201031,
+      "path": "/0000-0003-2217-6982/work/180201031",
+      "title": {
+        "title": {
+          "value": "Functional nanomaterial-enabled synthetic biology"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nano Futures"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2021"
+        },
+        "month": {
+          "value": "06"
+        },
+        "day": {
+          "value": "01"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1088/2399-1984/abfd97",
+            "external-id-normalized": {
+              "value": "10.1088/2399-1984/abfd97",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1088/2399-1984/abfd97"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1088/2399-1984/abfd97"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Chanan Sessler"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zhengkai Huang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xiao Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1742166978489
+      },
+      "last-modified-date": {
+        "value": 1742166978489
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 180201032,
+      "path": "/0000-0003-2217-6982/work/180201032",
+      "title": {
+        "title": {
+          "value": "Emerging Bioelectronics for Brain Organoid Electrophysiology"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Journal of Molecular Biology"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2022"
+        },
+        "month": {
+          "value": "02"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1016/j.jmb.2021.167165",
+            "external-id-normalized": {
+              "value": "10.1016/j.jmb.2021.167165",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1016/j.jmb.2021.167165"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1016/j.jmb.2021.167165"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Kazi Tasnim"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1742166979517
+      },
+      "last-modified-date": {
+        "value": 1742166979517
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 180201035,
+      "path": "/0000-0003-2217-6982/work/180201035",
+      "title": {
+        "title": {
+          "value": "Soft bioelectronics for cardiac interfaces"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Biophysics Reviews"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2022"
+        },
+        "month": {
+          "value": "03"
+        },
+        "day": {
+          "value": "01"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1063/5.0069516",
+            "external-id-normalized": {
+              "value": "10.1063/5.0069516",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1063/5.0069516"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1063/5.0069516"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xin Tang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Yichun He"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1742166979794
+      },
+      "last-modified-date": {
+        "value": 1742166979794
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 180201036,
+      "path": "/0000-0003-2217-6982/work/180201036",
+      "title": {
+        "title": {
+          "value": "Optogenetic polymerization and assembly of electrically functional polymers for modulation of single-neuron excitability"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Science Advances"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2022"
+        },
+        "month": {
+          "value": "12"
+        },
+        "day": {
+          "value": "09"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1126/sciadv.ade1136",
+            "external-id-normalized": {
+              "value": "10.1126/sciadv.ade1136",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1126/sciadv.ade1136"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1126/sciadv.ade1136"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Chanan D. Sessler"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Yiming Zhou"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Wenbo Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Nolan D. Hartley"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zhanyan Fu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "David Graykowski"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Morgan Sheng"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xiao Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1742166980889
+      },
+      "last-modified-date": {
+        "value": 1742166980889
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 180201039,
+      "path": "/0000-0003-2217-6982/work/180201039",
+      "title": {
+        "title": {
+          "value": "Flexible and smart electronics for single-cell resolved brain–machine interfaces"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Applied Physics Reviews"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2023"
+        },
+        "month": {
+          "value": "03"
+        },
+        "day": {
+          "value": "01"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1063/5.0115879",
+            "external-id-normalized": {
+              "value": "10.1063/5.0115879",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1063/5.0115879"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1063/5.0115879"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Ariel J. Lee"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Wenbo Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1742166981243
+      },
+      "last-modified-date": {
+        "value": 1742166981243
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 180201040,
+      "path": "/0000-0003-2217-6982/work/180201040",
+      "title": {
+        "title": {
+          "value": "Author Correction: Tracking neural activity from the same cells during the entire adult life of mice"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nature Neuroscience"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2023"
+        },
+        "month": {
+          "value": "06"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1038/s41593-023-01329-0",
+            "external-id-normalized": {
+              "value": "10.1038/s41593-023-01329-0",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1038/s41593-023-01329-0"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1038/s41593-023-01329-0"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Siyuan Zhao"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xin Tang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Weiwen Tian"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Sebastian Partarrieu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Ren Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Hao Shen"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jaeyong Lee"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Shiqi Guo"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zuwan Lin"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1742166981634
+      },
+      "last-modified-date": {
+        "value": 1742166981634
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 180201041,
+      "path": "/0000-0003-2217-6982/work/180201041",
+      "title": {
+        "title": {
+          "value": "In Situ Synthesis and Assembly of Functional Materials and Devices in Living Systems"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Accounts of Chemical Research"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2024"
+        },
+        "month": {
+          "value": "08"
+        },
+        "day": {
+          "value": "06"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1021/acs.accounts.4c00049",
+            "external-id-normalized": {
+              "value": "10.1021/acs.accounts.4c00049",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1021/acs.accounts.4c00049"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1021/acs.accounts.4c00049"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Wenbo Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Chanan D. Sessler"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xiao Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1742166981951
+      },
+      "last-modified-date": {
+        "value": 1742166981951
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 180201042,
+      "path": "/0000-0003-2217-6982/work/180201042",
+      "title": {
+        "title": {
+          "value": "Scalable spatial single-cell transcriptomics and translatomics in 3D thick tissue blocks"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": null,
+      "short-description": null,
+      "citation": null,
+      "type": "preprint",
+      "publication-date": {
+        "year": {
+          "value": "2024"
+        },
+        "month": {
+          "value": "08"
+        },
+        "day": {
+          "value": "07"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1101/2024.08.05.606553",
+            "external-id-normalized": {
+              "value": "10.1101/2024.08.05.606553",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1101/2024.08.05.606553"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1101/2024.08.05.606553"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xin Sui"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jennifer A. Lo"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Shuchen Luo"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Yichun He"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zefang Tang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zuwan Lin"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Yiming Zhou"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Wendy Xueyi Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xiao Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1742166982329
+      },
+      "last-modified-date": {
+        "value": 1742166982329
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 180201043,
+      "path": "/0000-0003-2217-6982/work/180201043",
+      "title": {
+        "title": {
+          "value": "Flexible and stretchable bioelectronics for organoids"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Med-X"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2025"
+        },
+        "month": {
+          "value": "12"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1007/s44258-024-00046-y",
+            "external-id-normalized": {
+              "value": "10.1007/s44258-024-00046-y",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1007/s44258-024-00046-y"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1007/s44258-024-00046-y"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jaeyong Lee"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1743316427887
+      },
+      "last-modified-date": {
+        "value": 1752527117735
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 181179354,
+      "path": "/0000-0003-2217-6982/work/181179354",
+      "title": {
+        "title": {
+          "value": "In Situ Graphene-Seq: Spatial Transcriptomics and Chronic Electrophysiological Characterization of Tissue Microenvironments"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": null,
+      "short-description": null,
+      "citation": null,
+      "type": "preprint",
+      "publication-date": {
+        "year": {
+          "value": "2025"
+        },
+        "month": {
+          "value": "03"
+        },
+        "day": {
+          "value": "28"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1101/2025.03.25.645278",
+            "external-id-normalized": {
+              "value": "10.1101/2025.03.25.645278",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1101/2025.03.25.645278"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1101/2025.03.25.645278"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jaeyong Lee"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Wenbo Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Qiang Li"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zuwan Lin"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Ren Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zefang Tang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Junya Aoyama"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Richard T. Lee"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xiao Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1743009884766
+      },
+      "last-modified-date": {
+        "value": 1757089055074
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 180945396,
+      "path": "/0000-0003-2217-6982/work/180945396",
+      "title": {
+        "title": {
+          "value": "Cyborg organoids integrated with stretchable nanoelectronics can be functionally mapped during development"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nature Protocols"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2025"
+        },
+        "month": {
+          "value": "09"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1038/s41596-025-01147-7",
+            "external-id-normalized": {
+              "value": "10.1038/s41596-025-01147-7",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1038/s41596-025-01147-7"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1038/s41596-025-01147-7"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zuwan Lin"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Wenbo Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Ren Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Qiang Li"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jaeyong Lee"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Charles Hirschler"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1763980684808
+      },
+      "last-modified-date": {
+        "value": 1765422419222
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 197757031,
+      "path": "/0000-0003-2217-6982/work/197757031",
+      "title": {
+        "title": {
+          "value": "Scalable spatial single-cell transcriptomics and translatomics in 3D thick tissue blocks"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nature Methods"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2025"
+        },
+        "month": {
+          "value": "12"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1038/s41592-025-02867-0",
+            "external-id-normalized": {
+              "value": "10.1038/s41592-025-02867-0",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1038/s41592-025-02867-0"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1038/s41592-025-02867-0"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xin Sui"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jennifer A. Lo"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Shuchen Luo"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Yichun He"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zefang Tang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zuwan Lin"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Dániel L. Barabási"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Yiming Zhou"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Wendy Xueyi Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xiao Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1771460733529
+      },
+      "last-modified-date": {
+        "value": 1771460733529
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0003-1003-360X",
+          "path": "0000-0003-1003-360X",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "AAAS - Science"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 206096132,
+      "path": "/0000-0003-2217-6982/work/206096132",
+      "title": {
+        "title": {
+          "value": "Implanted flexible electronics reveal principles of human islet cell electrical maturation"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Science"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2026"
+        },
+        "month": {
+          "value": "02"
+        },
+        "day": {
+          "value": "19"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1126/science.aeb3295",
+            "external-id-normalized": {
+              "value": "10.1126/science.aeb3295",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1126/science.aeb3295"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://www.science.org/doi/10.1126/science.aeb3295"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0000-0002-4282-2542",
+              "path": "0000-0002-4282-2542",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Wenbo  Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0000-0001-5786-9768",
+              "path": "0000-0001-5786-9768",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Zuwan  Lin"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0000-0001-6716-4630",
+              "path": "0000-0001-6716-4630",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Qiang  Li"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "first",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0009-0000-7253-7112",
+              "path": "0009-0000-7253-7112",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Zihan  Gao"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0000-0002-7136-2311",
+              "path": "0000-0002-7136-2311",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Juan R Alvarez Dominguez"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0009-0009-5279-1071",
+              "path": "0009-0009-5279-1071",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Mai  Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Samuel  Pollock"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0009-0008-8710-7877",
+              "path": "0009-0008-8710-7877",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Israeli M. Galicia-Silva"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0000-0002-1223-220X",
+              "path": "0000-0002-1223-220X",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Xinhe  Zhang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0000-0003-2217-6982",
+              "path": "0000-0003-2217-6982",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Jia  Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": {
+              "uri": "https://orcid.org/0009-0005-0936-1552",
+              "path": "0009-0005-0936-1552",
+              "host": "orcid.org"
+            },
+            "credit-name": {
+              "value": "Ren  Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": "additional",
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1781898301020
+      },
+      "last-modified-date": {
+        "value": 1781898301020
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 218245488,
+      "path": "/0000-0003-2217-6982/work/218245488",
+      "title": {
+        "title": {
+          "value": "In situ graphene-seq: spatial transcriptomics and chronic electrophysiological characterization of tissue microenvironments"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nature Communications"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2026"
+        },
+        "month": {
+          "value": "06"
+        },
+        "day": {
+          "value": "19"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1038/s41467-026-73883-7",
+            "external-id-normalized": {
+              "value": "10.1038/s41467-026-73883-7",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1038/s41467-026-73883-7"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1038/s41467-026-73883-7"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jaeyong Lee"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Wenbo Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Qiang Li"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zuwan Lin"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Ren Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zefang Tang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Junya Aoyama"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Richard T. Lee"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xiao Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1786723340275
+      },
+      "last-modified-date": {
+        "value": 1786723340275
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 223810821,
+      "path": "/0000-0003-2217-6982/work/223810821",
+      "title": {
+        "title": {
+          "value": "Machine Learning Directed Organoid Morphogenesis Uncovers an Excitable System Driving Human Axial Elongation"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": null,
+      "short-description": null,
+      "citation": null,
+      "type": "preprint",
+      "publication-date": {
+        "year": {
+          "value": "2022"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.2139/ssrn.4115864",
+            "external-id-normalized": {
+              "value": "10.2139/ssrn.4115864",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.2139/ssrn.4115864"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.2139/ssrn.4115864"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Giridhar Anand"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Heitor C. Megale"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Sean H. Murphy"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Theresa Weis"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zuwan Lin"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Yichun He"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xiao Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Sharad Ramanathan"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587397692654
+      },
+      "last-modified-date": {
+        "value": 1587397692654
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72446234,
+      "path": "/0000-0003-2217-6982/work/72446234",
+      "title": {
+        "title": {
+          "value": "Homopolymer induced phase evolution in mesoporous silica from evaporation induced self-assembly process"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Microporous and Mesoporous Materials"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2008"
+        },
+        "month": {
+          "value": "12"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1016/j.micromeso.2008.05.043",
+            "external-id-normalized": {
+              "value": "10.1016/j.micromeso.2008.05.043",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1016/j.micromeso.2008.05.043"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1387-1811",
+            "external-id-normalized": {
+              "value": "1387-1811",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1387-1811"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1016/j.micromeso.2008.05.043"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1587397755338
+      },
+      "last-modified-date": {
+        "value": 1587397755338
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0003-2217-6982",
+          "path": "0000-0003-2217-6982",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Jia Liu"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 72446316,
+      "path": "/0000-0003-2217-6982/work/72446316",
+      "title": {
+        "title": {
+          "value": "A novel approach to the construction of 3-D ordered macrostructures with polyhedral particles"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "J. Mater. Chem."
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2008"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1039/b714288a",
+            "external-id-normalized": {
+              "value": "10.1039/b714288a",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1039/b714288a"
+            },
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "0959-9428",
+            "external-id-normalized": {
+              "value": "0959-9428",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/0959-9428"
+            },
+            "external-id-relationship": "part-of"
+          },
+          {
+            "external-id-type": "issn",
+            "external-id-value": "1364-5501",
+            "external-id-normalized": {
+              "value": "1364-5501",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://portal.issn.org/resource/ISSN/1364-5501"
+            },
+            "external-id-relationship": "part-of"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.1039/b714288a"
+      },
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": "en",
+      "country": null,
+      "visibility": "public"
+    }
+  ],
+  "errors": []
+}

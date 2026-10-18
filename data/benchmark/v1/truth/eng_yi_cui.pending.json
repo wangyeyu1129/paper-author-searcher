@@ -1,0 +1,2694 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "eng_yi_cui",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Yi Cui",
+      "university": "Stanford University"
+    },
+    "scope": {
+      "year_start": 2024,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.816998+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "group_publications.json",
+        "url": "https://web.stanford.edu/group/cui_group/publications.htm",
+        "records": 35
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "eng_yi_cui:8af5624a0c03",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Capacity Recovery by Transient Voltage Pulse in Silicon-Anode Batteries",
+      "year": 2024,
+      "authors": [
+        "Y. Yang",
+        "S. Biswas",
+        "R. Xu",
+        "X. Xiao",
+        "X. Xu",
+        "P. Zhang",
+        "H. Gong",
+        "X. Zheng",
+        "Y. Peng",
+        "J. Li",
+        "H. Ai",
+        "Y. Wu",
+        "Y. Ye",
+        "X. Gao",
+        "C. Serrao",
+        "W. Zhang",
+        "P. Sayavong",
+        "Z. Huang",
+        "Z. Chen",
+        "Y. Cui",
+        "R. A. Vilá",
+        "D. T. Boyle",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 25 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1126/science.adn1749"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Capacity Recovery by Transient Voltage Pulse in Silicon-Anode Batteries",
+          "year": 2023,
+          "authors": [
+            "Y. Yang",
+            "S. Biswas",
+            "R. Xu",
+            "X. Xiao",
+            "X. Xu",
+            "P. Zhang",
+            "H. Gong",
+            "X. Zheng",
+            "Y. Peng",
+            "J. Li",
+            "H. Ai",
+            "Y. Wu",
+            "Y. Ye",
+            "X. Gao",
+            "C. Serrao",
+            "W. Zhang",
+            "P. Sayavong",
+            "Z. Huang",
+            "Z. Chen",
+            "Y. Cui",
+            "R. A. Vilá",
+            "D. T. Boyle",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "Capacity Recovery by Transient Voltage Pulse in Silicon-Anode Batteries",
+          "year": 2025,
+          "authors": [
+            "Y. Yang",
+            "S. Biswas",
+            "R. Xu",
+            "X. Xiao",
+            "X. Xu",
+            "P. Zhang",
+            "H. Gong",
+            "X. Zheng",
+            "Y. Peng",
+            "J. Li",
+            "H. Ai",
+            "Y. Wu",
+            "Y. Ye",
+            "X. Gao",
+            "C. Serrao",
+            "W. Zhang",
+            "P. Sayavong",
+            "Z. Huang",
+            "Z. Chen",
+            "Y. Cui",
+            "R. A. Vilá",
+            "D. T. Boyle",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:57a67b530a7d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Colossal Magnetoresistance from Spin-Polarized Polarons in an Ising System",
+      "year": 2024,
+      "authors": [
+        "Y.-F. Li",
+        "E. M. Been",
+        "S. Balguri",
+        "C.-J. Jia",
+        "M. B. Mahendru",
+        "Z.-C. Wang",
+        "Y. Cui",
+        "S.-D. Chen",
+        "M. Hashimoto",
+        "D.-H. Lu",
+        "B. Moritz",
+        "J. Zaanen",
+        "F. Tafti",
+        "T. P. Devereaux",
+        "Z.-X. Shen"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 21 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1073/pnas.2409846121"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Colossal Magnetoresistance from Spin-Polarized Polarons in an Ising System",
+          "year": 2023,
+          "authors": [
+            "Y.-F. Li",
+            "E. M. Been",
+            "S. Balguri",
+            "C.-J. Jia",
+            "M. B. Mahendru",
+            "Z.-C. Wang",
+            "Y. Cui",
+            "S.-D. Chen",
+            "M. Hashimoto",
+            "D.-H. Lu",
+            "B. Moritz",
+            "J. Zaanen",
+            "F. Tafti",
+            "T. P. Devereaux",
+            "Z.-X. Shen"
+          ]
+        },
+        {
+          "title": "Colossal Magnetoresistance from Spin-Polarized Polarons in an Ising System",
+          "year": 2025,
+          "authors": [
+            "Y.-F. Li",
+            "E. M. Been",
+            "S. Balguri",
+            "C.-J. Jia",
+            "M. B. Mahendru",
+            "Z.-C. Wang",
+            "Y. Cui",
+            "S.-D. Chen",
+            "M. Hashimoto",
+            "D.-H. Lu",
+            "B. Moritz",
+            "J. Zaanen",
+            "F. Tafti",
+            "T. P. Devereaux",
+            "Z.-X. Shen"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:073b5ace1106",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Continuous Lithium Extraction from Brine by Efficient Redox-Couple Electrodialysis",
+      "year": 2024,
+      "authors": [
+        "R. Xu",
+        "X. Xiao",
+        "G. Zhang",
+        "Y. Ye",
+        "P. Zhang",
+        "Y. Yang",
+        "S. B. Shuchi",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 27 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.matt.2024.07.014"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Continuous Lithium Extraction from Brine by Efficient Redox-Couple Electrodialysis",
+          "year": 2023,
+          "authors": [
+            "R. Xu",
+            "X. Xiao",
+            "G. Zhang",
+            "Y. Ye",
+            "P. Zhang",
+            "Y. Yang",
+            "S. B. Shuchi",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "Continuous Lithium Extraction from Brine by Efficient Redox-Couple Electrodialysis",
+          "year": 2025,
+          "authors": [
+            "R. Xu",
+            "X. Xiao",
+            "G. Zhang",
+            "Y. Ye",
+            "P. Zhang",
+            "Y. Yang",
+            "S. B. Shuchi",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:89d01ae56fb7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Electrified Operando-Freezing of Electrocatalytic CO2 Reduction Cells for Cryogenic Electron Microscopy",
+      "year": 2024,
+      "authors": [
+        "Y. Li",
+        "Y. Liu",
+        "Z. Zhang",
+        "W. Zhou",
+        "J. Xu",
+        "Y. Ye",
+        "Y. Peng",
+        "X. Xiao",
+        "W. Chiu",
+        "R. Sinclair",
+        "Y. Li",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 29 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1021/acs.nanolett.3c03000"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Electrified Operando-Freezing of Electrocatalytic CO2 Reduction Cells for Cryogenic Electron Microscopy",
+          "year": 2023,
+          "authors": [
+            "Y. Li",
+            "Y. Liu",
+            "Z. Zhang",
+            "W. Zhou",
+            "J. Xu",
+            "Y. Ye",
+            "Y. Peng",
+            "X. Xiao",
+            "W. Chiu",
+            "R. Sinclair",
+            "Y. Li",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "Electrified Operando-Freezing of Electrocatalytic CO2 Reduction Cells for Cryogenic Electron Microscopy",
+          "year": 2025,
+          "authors": [
+            "Y. Li",
+            "Y. Liu",
+            "Z. Zhang",
+            "W. Zhou",
+            "J. Xu",
+            "Y. Ye",
+            "Y. Peng",
+            "X. Xiao",
+            "W. Chiu",
+            "R. Sinclair",
+            "Y. Li",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:3b78f32f8b4b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Electrochemical Formation of Bis(Fluorosulfonyl)Imide-Derived Solid-Electrolyte Interphase at Li-Metal Potential",
+      "year": 2024,
+      "authors": [
+        "W. Yu",
+        "K.-Y. Lin",
+        "D. T. Boyle",
+        "M. T. Tang",
+        "Y. Cui",
+        "Y. Chen",
+        "Z. Yu",
+        "R. Xu",
+        "Y. Lin",
+        "G. Feng",
+        "Z. Huang",
+        "L. Michalek",
+        "W. Li",
+        "S. J. Harris",
+        "J.-C. Jiang",
+        "F. Abild-Pedersen",
+        "J. Qin",
+        "Y. Cui",
+        "Z. Bao"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 22 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41557-024-01689-5"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Electrochemical Formation of Bis(Fluorosulfonyl)Imide-Derived Solid-Electrolyte Interphase at Li-Metal Potential",
+          "year": 2023,
+          "authors": [
+            "W. Yu",
+            "K.-Y. Lin",
+            "D. T. Boyle",
+            "M. T. Tang",
+            "Y. Cui",
+            "Y. Chen",
+            "Z. Yu",
+            "R. Xu",
+            "Y. Lin",
+            "G. Feng",
+            "Z. Huang",
+            "L. Michalek",
+            "W. Li",
+            "S. J. Harris",
+            "J.-C. Jiang",
+            "F. Abild-Pedersen",
+            "J. Qin",
+            "Y. Cui",
+            "Z. Bao"
+          ]
+        },
+        {
+          "title": "Electrochemical Formation of Bis(Fluorosulfonyl)Imide-Derived Solid-Electrolyte Interphase at Li-Metal Potential",
+          "year": 2025,
+          "authors": [
+            "W. Yu",
+            "K.-Y. Lin",
+            "D. T. Boyle",
+            "M. T. Tang",
+            "Y. Cui",
+            "Y. Chen",
+            "Z. Yu",
+            "R. Xu",
+            "Y. Lin",
+            "G. Feng",
+            "Z. Huang",
+            "L. Michalek",
+            "W. Li",
+            "S. J. Harris",
+            "J.-C. Jiang",
+            "F. Abild-Pedersen",
+            "J. Qin",
+            "Y. Cui",
+            "Z. Bao"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:3c422c31af18",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Failure Process During Fast Charging of Lithium Metal Batteries with Weakly Solvating Fluoroether Electrolytes",
+      "year": 2024,
+      "authors": [
+        "Y. Chen",
+        "Z. Yu",
+        "H. Gong",
+        "W. Zhang",
+        "P. E. Rudnicki",
+        "Z. Huang",
+        "W. Yu",
+        "S. C. Kim",
+        "D. T. Boyle",
+        "P. Sayavong",
+        "H. Celik",
+        "R. Xu",
+        "Y. Lin",
+        "S. Wang",
+        "J. Qin",
+        "Y. Cui",
+        "Z. Bao"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 28 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1021/acs.jpcc.4c01740"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Failure Process During Fast Charging of Lithium Metal Batteries with Weakly Solvating Fluoroether Electrolytes",
+          "year": 2023,
+          "authors": [
+            "Y. Chen",
+            "Z. Yu",
+            "H. Gong",
+            "W. Zhang",
+            "P. E. Rudnicki",
+            "Z. Huang",
+            "W. Yu",
+            "S. C. Kim",
+            "D. T. Boyle",
+            "P. Sayavong",
+            "H. Celik",
+            "R. Xu",
+            "Y. Lin",
+            "S. Wang",
+            "J. Qin",
+            "Y. Cui",
+            "Z. Bao"
+          ]
+        },
+        {
+          "title": "Failure Process During Fast Charging of Lithium Metal Batteries with Weakly Solvating Fluoroether Electrolytes",
+          "year": 2025,
+          "authors": [
+            "Y. Chen",
+            "Z. Yu",
+            "H. Gong",
+            "W. Zhang",
+            "P. E. Rudnicki",
+            "Z. Huang",
+            "W. Yu",
+            "S. C. Kim",
+            "D. T. Boyle",
+            "P. Sayavong",
+            "H. Celik",
+            "R. Xu",
+            "Y. Lin",
+            "S. Wang",
+            "J. Qin",
+            "Y. Cui",
+            "Z. Bao"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:ccf7ac6bc636",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "In Situ Formation of Liquid Crystal Interphase in Electrolytes with Soft Templating Effects for Aqueous Dual-Electrode-Free Batteries",
+      "year": 2024,
+      "authors": [
+        "Y. Li",
+        "X. Zheng",
+        "E. Z. Carlson",
+        "X. Xiao",
+        "X. Chi",
+        "Y. Cui",
+        "L. C. Greenburg",
+        "G. Zhang",
+        "E. Zhang",
+        "C. Liu",
+        "Y. Yang",
+        "M. S. Kim",
+        "G. Feng",
+        "P. Zhang",
+        "H. Su",
+        "X. Guan",
+        "J. Zhou",
+        "Y. Wu",
+        "Z. Xue",
+        "W. Li",
+        "M. Bajdich",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 26 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41560-024-01638-z"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "In Situ Formation of Liquid Crystal Interphase in Electrolytes with Soft Templating Effects for Aqueous Dual-Electrode-Free Batteries",
+          "year": 2023,
+          "authors": [
+            "Y. Li",
+            "X. Zheng",
+            "E. Z. Carlson",
+            "X. Xiao",
+            "X. Chi",
+            "Y. Cui",
+            "L. C. Greenburg",
+            "G. Zhang",
+            "E. Zhang",
+            "C. Liu",
+            "Y. Yang",
+            "M. S. Kim",
+            "G. Feng",
+            "P. Zhang",
+            "H. Su",
+            "X. Guan",
+            "J. Zhou",
+            "Y. Wu",
+            "Z. Xue",
+            "W. Li",
+            "M. Bajdich",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "In Situ Formation of Liquid Crystal Interphase in Electrolytes with Soft Templating Effects for Aqueous Dual-Electrode-Free Batteries",
+          "year": 2025,
+          "authors": [
+            "Y. Li",
+            "X. Zheng",
+            "E. Z. Carlson",
+            "X. Xiao",
+            "X. Chi",
+            "Y. Cui",
+            "L. C. Greenburg",
+            "G. Zhang",
+            "E. Zhang",
+            "C. Liu",
+            "Y. Yang",
+            "M. S. Kim",
+            "G. Feng",
+            "P. Zhang",
+            "H. Su",
+            "X. Guan",
+            "J. Zhou",
+            "Y. Wu",
+            "Z. Xue",
+            "W. Li",
+            "M. Bajdich",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:2a3278a1eb2f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Interlayer Engineering of Fe3GeTe2: From 3D Superlattice to 2D Monolayer",
+      "year": 2024,
+      "authors": [
+        "Y. Wu",
+        "B. Y. Wang",
+        "Y. Yu",
+        "Y. Li",
+        "H. B. Ribeiro",
+        "J. Wang",
+        "R. Xu",
+        "Y. Liu",
+        "Y. Ye",
+        "J. Zhou",
+        "F. Ke",
+        "V. Harbola",
+        "T. F. Heinz",
+        "H. Y. Hwang",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 33 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1073/pnas.2314454121"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Interlayer Engineering of Fe3GeTe2: From 3D Superlattice to 2D Monolayer",
+          "year": 2023,
+          "authors": [
+            "Y. Wu",
+            "B. Y. Wang",
+            "Y. Yu",
+            "Y. Li",
+            "H. B. Ribeiro",
+            "J. Wang",
+            "R. Xu",
+            "Y. Liu",
+            "Y. Ye",
+            "J. Zhou",
+            "F. Ke",
+            "V. Harbola",
+            "T. F. Heinz",
+            "H. Y. Hwang",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "Interlayer Engineering of Fe3GeTe2: From 3D Superlattice to 2D Monolayer",
+          "year": 2025,
+          "authors": [
+            "Y. Wu",
+            "B. Y. Wang",
+            "Y. Yu",
+            "Y. Li",
+            "H. B. Ribeiro",
+            "J. Wang",
+            "R. Xu",
+            "Y. Liu",
+            "Y. Ye",
+            "J. Zhou",
+            "F. Ke",
+            "V. Harbola",
+            "T. F. Heinz",
+            "H. Y. Hwang",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:b144fad5b2f7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Quadruple the Rate Capability of High-Energy Batteries through a Porous Current Collector Design",
+      "year": 2024,
+      "authors": [
+        "Y. Ye",
+        "R. Xu",
+        "W. Huang",
+        "H. Ai",
+        "W. Zhang",
+        "J. O. Affeld",
+        "A. Cui",
+        "F. Liu",
+        "X. Gao",
+        "Z. Chen",
+        "T. Li",
+        "X. Xiao",
+        "Z. Zhang",
+        "Y. Peng",
+        "R. A. Vila",
+        "Y. Wu",
+        "S. T. Oyakhire",
+        "H. Kuwajima",
+        "Y. Suzuki",
+        "R. Matsumoto",
+        "Y. Masuda",
+        "T. Yuuki",
+        "Y. Nakayama",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 30 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41560-024-01473-2"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Quadruple the Rate Capability of High-Energy Batteries through a Porous Current Collector Design",
+          "year": 2023,
+          "authors": [
+            "Y. Ye",
+            "R. Xu",
+            "W. Huang",
+            "H. Ai",
+            "W. Zhang",
+            "J. O. Affeld",
+            "A. Cui",
+            "F. Liu",
+            "X. Gao",
+            "Z. Chen",
+            "T. Li",
+            "X. Xiao",
+            "Z. Zhang",
+            "Y. Peng",
+            "R. A. Vila",
+            "Y. Wu",
+            "S. T. Oyakhire",
+            "H. Kuwajima",
+            "Y. Suzuki",
+            "R. Matsumoto",
+            "Y. Masuda",
+            "T. Yuuki",
+            "Y. Nakayama",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "Quadruple the Rate Capability of High-Energy Batteries through a Porous Current Collector Design",
+          "year": 2025,
+          "authors": [
+            "Y. Ye",
+            "R. Xu",
+            "W. Huang",
+            "H. Ai",
+            "W. Zhang",
+            "J. O. Affeld",
+            "A. Cui",
+            "F. Liu",
+            "X. Gao",
+            "Z. Chen",
+            "T. Li",
+            "X. Xiao",
+            "Z. Zhang",
+            "Y. Peng",
+            "R. A. Vila",
+            "Y. Wu",
+            "S. T. Oyakhire",
+            "H. Kuwajima",
+            "Y. Suzuki",
+            "R. Matsumoto",
+            "Y. Masuda",
+            "T. Yuuki",
+            "Y. Nakayama",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:a90e21c6afb0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Recovery of Isolated Lithium through Discharged State Calendar Ageing",
+      "year": 2024,
+      "authors": [
+        "W. Zhang",
+        "P. Sayavong",
+        "X. Xiao",
+        "S. T. Oyakhire",
+        "S. B. Shuchi",
+        "R. A. Vilá",
+        "D. T. Boyle",
+        "S. C. Kim",
+        "M. S. Kim",
+        "S. E. Holmes",
+        "Y. Ye",
+        "D. Li",
+        "S. F. Bent",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 32 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41586-023-06992-8"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Recovery of Isolated Lithium through Discharged State Calendar Ageing",
+          "year": 2023,
+          "authors": [
+            "W. Zhang",
+            "P. Sayavong",
+            "X. Xiao",
+            "S. T. Oyakhire",
+            "S. B. Shuchi",
+            "R. A. Vilá",
+            "D. T. Boyle",
+            "S. C. Kim",
+            "M. S. Kim",
+            "S. E. Holmes",
+            "Y. Ye",
+            "D. Li",
+            "S. F. Bent",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "Recovery of Isolated Lithium through Discharged State Calendar Ageing",
+          "year": 2025,
+          "authors": [
+            "W. Zhang",
+            "P. Sayavong",
+            "X. Xiao",
+            "S. T. Oyakhire",
+            "S. B. Shuchi",
+            "R. A. Vilá",
+            "D. T. Boyle",
+            "S. C. Kim",
+            "M. S. Kim",
+            "S. E. Holmes",
+            "Y. Ye",
+            "D. Li",
+            "S. F. Bent",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:7e2bee5a9214",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Seawater Alkalization via an Energy-Efficient Electrochemical Process for CO2 Capture",
+      "year": 2024,
+      "authors": [
+        "X. Guan",
+        "G. Zhang",
+        "J. Li",
+        "S. C. Kim",
+        "G. Feng",
+        "Y. Li",
+        "T. Cui",
+        "A. Brest",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 23 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1073/pnas.2410841121"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Seawater Alkalization via an Energy-Efficient Electrochemical Process for CO2 Capture",
+          "year": 2023,
+          "authors": [
+            "X. Guan",
+            "G. Zhang",
+            "J. Li",
+            "S. C. Kim",
+            "G. Feng",
+            "Y. Li",
+            "T. Cui",
+            "A. Brest",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "Seawater Alkalization via an Energy-Efficient Electrochemical Process for CO2 Capture",
+          "year": 2025,
+          "authors": [
+            "X. Guan",
+            "G. Zhang",
+            "J. Li",
+            "S. C. Kim",
+            "G. Feng",
+            "Y. Li",
+            "T. Cui",
+            "A. Brest",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:2f9b077bc96b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Solvation-Property Relationship of Lithium-Sulphur Battery Electrolytes",
+      "year": 2024,
+      "authors": [
+        "S. C. Kim",
+        "X. Gao",
+        "S.-L. Liao",
+        "H. Su",
+        "Y. Chen",
+        "W. Zhang",
+        "L. C. Greenburg",
+        "J.-A. Pan",
+        "X. Zheng",
+        "Y. Ye",
+        "M. S. Kim",
+        "P. Sayavong",
+        "A. Brest",
+        "J. Qin",
+        "Z. Bao",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 31 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41467-023-44527-x"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Solvation-Property Relationship of Lithium-Sulphur Battery Electrolytes",
+          "year": 2023,
+          "authors": [
+            "S. C. Kim",
+            "X. Gao",
+            "S.-L. Liao",
+            "H. Su",
+            "Y. Chen",
+            "W. Zhang",
+            "L. C. Greenburg",
+            "J.-A. Pan",
+            "X. Zheng",
+            "Y. Ye",
+            "M. S. Kim",
+            "P. Sayavong",
+            "A. Brest",
+            "J. Qin",
+            "Z. Bao",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "Solvation-Property Relationship of Lithium-Sulphur Battery Electrolytes",
+          "year": 2025,
+          "authors": [
+            "S. C. Kim",
+            "X. Gao",
+            "S.-L. Liao",
+            "H. Su",
+            "Y. Chen",
+            "W. Zhang",
+            "L. C. Greenburg",
+            "J.-A. Pan",
+            "X. Zheng",
+            "Y. Ye",
+            "M. S. Kim",
+            "P. Sayavong",
+            "A. Brest",
+            "J. Qin",
+            "Z. Bao",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:6d992ea857f7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Spontaneous Lithium Extraction and Enrichment from Brine with Net Energy Output Driven by Counter-Ion Gradients",
+      "year": 2024,
+      "authors": [
+        "G. Zhang",
+        "Y. Li",
+        "X. Guan",
+        "G. Hu",
+        "H. Su",
+        "X. Xu",
+        "G. Feng",
+        "S. B. Shuchi",
+        "S. C. Kim",
+        "J. Zhou",
+        "R. Xu",
+        "X. Xiao",
+        "A. Wu",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 24 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s44221-024-00326-2"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Spontaneous Lithium Extraction and Enrichment from Brine with Net Energy Output Driven by Counter-Ion Gradients",
+          "year": 2023,
+          "authors": [
+            "G. Zhang",
+            "Y. Li",
+            "X. Guan",
+            "G. Hu",
+            "H. Su",
+            "X. Xu",
+            "G. Feng",
+            "S. B. Shuchi",
+            "S. C. Kim",
+            "J. Zhou",
+            "R. Xu",
+            "X. Xiao",
+            "A. Wu",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "Spontaneous Lithium Extraction and Enrichment from Brine with Net Energy Output Driven by Counter-Ion Gradients",
+          "year": 2025,
+          "authors": [
+            "G. Zhang",
+            "Y. Li",
+            "X. Guan",
+            "G. Hu",
+            "H. Su",
+            "X. Xu",
+            "G. Feng",
+            "S. B. Shuchi",
+            "S. C. Kim",
+            "J. Zhou",
+            "R. Xu",
+            "X. Xiao",
+            "A. Wu",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:d92cce1121f2",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Twisted Epitaxy of Gold Nanodisks Grown between Twisted Substrate Layers of Molybdenum Disulfide",
+      "year": 2024,
+      "authors": [
+        "Y. Cui",
+        "J. Wang",
+        "Y. Li",
+        "Y. Wu",
+        "E. Been",
+        "Z. Zhang",
+        "J. Zhou",
+        "W. Zhang",
+        "H. Y. Hwang",
+        "R. Sinclair",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 34 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1126/science.adk5947"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Twisted Epitaxy of Gold Nanodisks Grown between Twisted Substrate Layers of Molybdenum Disulfide",
+          "year": 2023,
+          "authors": [
+            "Y. Cui",
+            "J. Wang",
+            "Y. Li",
+            "Y. Wu",
+            "E. Been",
+            "Z. Zhang",
+            "J. Zhou",
+            "W. Zhang",
+            "H. Y. Hwang",
+            "R. Sinclair",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "Twisted Epitaxy of Gold Nanodisks Grown between Twisted Substrate Layers of Molybdenum Disulfide",
+          "year": 2025,
+          "authors": [
+            "Y. Cui",
+            "J. Wang",
+            "Y. Li",
+            "Y. Wu",
+            "E. Been",
+            "Z. Zhang",
+            "J. Zhou",
+            "W. Zhang",
+            "H. Y. Hwang",
+            "R. Sinclair",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:e946d6e0fd27",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A Solvation-Driven Reevaluation of Organic Electrolytes for Zinc Batteries",
+      "year": 2025,
+      "authors": [
+        "J. Holoubek",
+        "P. Zhang",
+        "C. Serrao",
+        "H. Ai",
+        "I. R. Choi",
+        "L. C. Greenburg",
+        "X. Guan",
+        "A. Cai",
+        "W. Zhang",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 7 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1039/d5ee02978c"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A Solvation-Driven Reevaluation of Organic Electrolytes for Zinc Batteries",
+          "year": 2024,
+          "authors": [
+            "J. Holoubek",
+            "P. Zhang",
+            "C. Serrao",
+            "H. Ai",
+            "I. R. Choi",
+            "L. C. Greenburg",
+            "X. Guan",
+            "A. Cai",
+            "W. Zhang",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "A Solvation-Driven Reevaluation of Organic Electrolytes for Zinc Batteries",
+          "year": 2026,
+          "authors": [
+            "J. Holoubek",
+            "P. Zhang",
+            "C. Serrao",
+            "H. Ai",
+            "I. R. Choi",
+            "L. C. Greenburg",
+            "X. Guan",
+            "A. Cai",
+            "W. Zhang",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:538e072bec7e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Asymmetric Ether Solvents for High-Rate Lithium Metal Batteries",
+      "year": 2025,
+      "authors": [
+        "I. R. Choi",
+        "Y. Chen",
+        "A. Shah",
+        "J. Florian",
+        "C. Serrao",
+        "J. Holoubek",
+        "H. Lyu",
+        "E. Zhang",
+        "J. H. Lee",
+        "Y. Lin",
+        "S. C. Kim",
+        "H. Park",
+        "P. Zhang",
+        "J. Lee",
+        "J. Qin",
+        "Y. Cui",
+        "Z. Bao"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 17 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41560-025-01716-w"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Asymmetric Ether Solvents for High-Rate Lithium Metal Batteries",
+          "year": 2024,
+          "authors": [
+            "I. R. Choi",
+            "Y. Chen",
+            "A. Shah",
+            "J. Florian",
+            "C. Serrao",
+            "J. Holoubek",
+            "H. Lyu",
+            "E. Zhang",
+            "J. H. Lee",
+            "Y. Lin",
+            "S. C. Kim",
+            "H. Park",
+            "P. Zhang",
+            "J. Lee",
+            "J. Qin",
+            "Y. Cui",
+            "Z. Bao"
+          ]
+        },
+        {
+          "title": "Asymmetric Ether Solvents for High-Rate Lithium Metal Batteries",
+          "year": 2026,
+          "authors": [
+            "I. R. Choi",
+            "Y. Chen",
+            "A. Shah",
+            "J. Florian",
+            "C. Serrao",
+            "J. Holoubek",
+            "H. Lyu",
+            "E. Zhang",
+            "J. H. Lee",
+            "Y. Lin",
+            "S. C. Kim",
+            "H. Park",
+            "P. Zhang",
+            "J. Lee",
+            "J. Qin",
+            "Y. Cui",
+            "Z. Bao"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:e72ce1ecdff9",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Correlating Solvation Free Energy to Electrolyte Properties for Lithium Metal Batteries",
+      "year": 2025,
+      "authors": [
+        "S. C. Kim",
+        "J.-A. Pan",
+        "A. Shah",
+        "Y. Chen",
+        "H. Park",
+        "Y. Yang",
+        "W. Zhang",
+        "L. C. Greenburg",
+        "T. Sogade",
+        "A. Chen",
+        "J. Qin",
+        "Z. Bao",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 15 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1021/acs.nanolett.4c04991"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Correlating Solvation Free Energy to Electrolyte Properties for Lithium Metal Batteries",
+          "year": 2024,
+          "authors": [
+            "S. C. Kim",
+            "J.-A. Pan",
+            "A. Shah",
+            "Y. Chen",
+            "H. Park",
+            "Y. Yang",
+            "W. Zhang",
+            "L. C. Greenburg",
+            "T. Sogade",
+            "A. Chen",
+            "J. Qin",
+            "Z. Bao",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "Correlating Solvation Free Energy to Electrolyte Properties for Lithium Metal Batteries",
+          "year": 2026,
+          "authors": [
+            "S. C. Kim",
+            "J.-A. Pan",
+            "A. Shah",
+            "Y. Chen",
+            "H. Park",
+            "Y. Yang",
+            "W. Zhang",
+            "L. C. Greenburg",
+            "T. Sogade",
+            "A. Chen",
+            "J. Qin",
+            "Z. Bao",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:de9730d91aa9",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Crowding Agent Stabilizes Aqueous Electrolyte for Reversible Iron Metal Anode",
+      "year": 2025,
+      "authors": [
+        "L. C. Greenburg",
+        "J. Holoubek",
+        "Y. Cui",
+        "P. Zhang",
+        "H. Ai",
+        "E. Zhang",
+        "C. Liu",
+        "G. Feng",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 20 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1021/acsenergylett.4c03268"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Crowding Agent Stabilizes Aqueous Electrolyte for Reversible Iron Metal Anode",
+          "year": 2024,
+          "authors": [
+            "L. C. Greenburg",
+            "J. Holoubek",
+            "Y. Cui",
+            "P. Zhang",
+            "H. Ai",
+            "E. Zhang",
+            "C. Liu",
+            "G. Feng",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "Crowding Agent Stabilizes Aqueous Electrolyte for Reversible Iron Metal Anode",
+          "year": 2026,
+          "authors": [
+            "L. C. Greenburg",
+            "J. Holoubek",
+            "Y. Cui",
+            "P. Zhang",
+            "H. Ai",
+            "E. Zhang",
+            "C. Liu",
+            "G. Feng",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:7fd5255ce3d3",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Cryogenic X-Ray Photoelectron Spectroscopy for Battery Interfaces",
+      "year": 2025,
+      "authors": [
+        "S. B. Shuchi",
+        "G. D’Acunto",
+        "P. Sayavong",
+        "S. T. Oyakhire",
+        "K. M. Sanroman Gutierrez",
+        "J. Risner-Jamtgaard",
+        "I. R. Choi",
+        "Y. Cui",
+        "S. F. Bent"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 16 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41586-025-09618-3"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Cryogenic X-Ray Photoelectron Spectroscopy for Battery Interfaces",
+          "year": 2024,
+          "authors": [
+            "S. B. Shuchi",
+            "G. D’Acunto",
+            "P. Sayavong",
+            "S. T. Oyakhire",
+            "K. M. Sanroman Gutierrez",
+            "J. Risner-Jamtgaard",
+            "I. R. Choi",
+            "Y. Cui",
+            "S. F. Bent"
+          ]
+        },
+        {
+          "title": "Cryogenic X-Ray Photoelectron Spectroscopy for Battery Interfaces",
+          "year": 2026,
+          "authors": [
+            "S. B. Shuchi",
+            "G. D’Acunto",
+            "P. Sayavong",
+            "S. T. Oyakhire",
+            "K. M. Sanroman Gutierrez",
+            "J. Risner-Jamtgaard",
+            "I. R. Choi",
+            "Y. Cui",
+            "S. F. Bent"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:3d93e44aa1b2",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Design Strategies for Ion-Sieving Charge Mosaic Membranes toward Sustainable Lithium Extraction",
+      "year": 2025,
+      "authors": [
+        "G. Zhang",
+        "G. Hu",
+        "J. Li",
+        "G. Feng",
+        "Y. Cui",
+        "Z. Chen",
+        "Z. Liu",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 3 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1073/pnas.2511666122"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Design Strategies for Ion-Sieving Charge Mosaic Membranes toward Sustainable Lithium Extraction",
+          "year": 2024,
+          "authors": [
+            "G. Zhang",
+            "G. Hu",
+            "J. Li",
+            "G. Feng",
+            "Y. Cui",
+            "Z. Chen",
+            "Z. Liu",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "Design Strategies for Ion-Sieving Charge Mosaic Membranes toward Sustainable Lithium Extraction",
+          "year": 2026,
+          "authors": [
+            "G. Zhang",
+            "G. Hu",
+            "J. Li",
+            "G. Feng",
+            "Y. Cui",
+            "Z. Chen",
+            "Z. Liu",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:939f3686f49f",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "title": "E.C",
+      "year": 2025,
+      "authors": [
+        "Garnett",
+        "W"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 35 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "target_name_not_found_in_byline"
+      ],
+      "dois": [
+        "10.1038/nmat3238"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "E.C",
+          "year": 2024,
+          "authors": [
+            "Garnett",
+            "W"
+          ]
+        },
+        {
+          "title": "E.C",
+          "year": 2026,
+          "authors": [
+            "Garnett",
+            "W"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:8819cfd97b3f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Elucidating the Effects of LiF on Lithium Metal Anodes",
+      "year": 2025,
+      "authors": [
+        "M. S. Kim",
+        "J. Wang",
+        "W. Zhang",
+        "P. Sayavong",
+        "Z. Zhang",
+        "S. T. Oyakhire",
+        "S. B. Shuchi",
+        "S. C. Kim",
+        "Y. Cui",
+        "Y. Chen",
+        "Z. Yu",
+        "H. Gong",
+        "R. Xu",
+        "J. Lee",
+        "I. R. Choi",
+        "J. H. Lee",
+        "K. A. Persson",
+        "J. Qin",
+        "Z. Bao",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 6 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1021/acs.nanolett.5c03437"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Elucidating the Effects of LiF on Lithium Metal Anodes",
+          "year": 2024,
+          "authors": [
+            "M. S. Kim",
+            "J. Wang",
+            "W. Zhang",
+            "P. Sayavong",
+            "Z. Zhang",
+            "S. T. Oyakhire",
+            "S. B. Shuchi",
+            "S. C. Kim",
+            "Y. Cui",
+            "Y. Chen",
+            "Z. Yu",
+            "H. Gong",
+            "R. Xu",
+            "J. Lee",
+            "I. R. Choi",
+            "J. H. Lee",
+            "K. A. Persson",
+            "J. Qin",
+            "Z. Bao",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "Elucidating the Effects of LiF on Lithium Metal Anodes",
+          "year": 2026,
+          "authors": [
+            "M. S. Kim",
+            "J. Wang",
+            "W. Zhang",
+            "P. Sayavong",
+            "Z. Zhang",
+            "S. T. Oyakhire",
+            "S. B. Shuchi",
+            "S. C. Kim",
+            "Y. Cui",
+            "Y. Chen",
+            "Z. Yu",
+            "H. Gong",
+            "R. Xu",
+            "J. Lee",
+            "I. R. Choi",
+            "J. H. Lee",
+            "K. A. Persson",
+            "J. Qin",
+            "Z. Bao",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:b77c2e1f14f3",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Epitaxial Electrodeposition of Zinc on Different Single Crystal Copper Substrates for High Performance Aqueous Batteries",
+      "year": 2025,
+      "authors": [
+        "X. Xiao",
+        "L. C. Greenburg",
+        "Y. Li",
+        "M. Yang",
+        "Y.-K. Tzeng",
+        "C. Sui",
+        "Y. Peng",
+        "Y. Wu",
+        "Z. Zhang",
+        "X. Gao",
+        "R. Xu",
+        "Y. Ye",
+        "P. Zhang",
+        "Y. Yang",
+        "A. Vailionis",
+        "P.-C. Hsu",
+        "J. Qin",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 18 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1021/acs.nanolett.4c04535"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Epitaxial Electrodeposition of Zinc on Different Single Crystal Copper Substrates for High Performance Aqueous Batteries",
+          "year": 2024,
+          "authors": [
+            "X. Xiao",
+            "L. C. Greenburg",
+            "Y. Li",
+            "M. Yang",
+            "Y.-K. Tzeng",
+            "C. Sui",
+            "Y. Peng",
+            "Y. Wu",
+            "Z. Zhang",
+            "X. Gao",
+            "R. Xu",
+            "Y. Ye",
+            "P. Zhang",
+            "Y. Yang",
+            "A. Vailionis",
+            "P.-C. Hsu",
+            "J. Qin",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "Epitaxial Electrodeposition of Zinc on Different Single Crystal Copper Substrates for High Performance Aqueous Batteries",
+          "year": 2026,
+          "authors": [
+            "X. Xiao",
+            "L. C. Greenburg",
+            "Y. Li",
+            "M. Yang",
+            "Y.-K. Tzeng",
+            "C. Sui",
+            "Y. Peng",
+            "Y. Wu",
+            "Z. Zhang",
+            "X. Gao",
+            "R. Xu",
+            "Y. Ye",
+            "P. Zhang",
+            "Y. Yang",
+            "A. Vailionis",
+            "P.-C. Hsu",
+            "J. Qin",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:ca07ce8ddef2",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Equal-Resistance Single- and Bilayer Films Decouple Role of Solid Electrolyte Interphase from Lithium Morphology in Batteries",
+      "year": 2025,
+      "authors": [
+        "S. B.‡ Shuchi",
+        "K. M.‡ Sanroman Gutierrez",
+        "A. B. Shearer",
+        "S. T. Oyakhire",
+        "Y. Cui",
+        "S. F. Bent"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 13 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1039/d5eb00004a"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Equal-Resistance Single- and Bilayer Films Decouple Role of Solid Electrolyte Interphase from Lithium Morphology in Batteries",
+          "year": 2024,
+          "authors": [
+            "S. B.‡ Shuchi",
+            "K. M.‡ Sanroman Gutierrez",
+            "A. B. Shearer",
+            "S. T. Oyakhire",
+            "Y. Cui",
+            "S. F. Bent"
+          ]
+        },
+        {
+          "title": "Equal-Resistance Single- and Bilayer Films Decouple Role of Solid Electrolyte Interphase from Lithium Morphology in Batteries",
+          "year": 2026,
+          "authors": [
+            "S. B.‡ Shuchi",
+            "K. M.‡ Sanroman Gutierrez",
+            "A. B. Shearer",
+            "S. T. Oyakhire",
+            "Y. Cui",
+            "S. F. Bent"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:fa57ce366c30",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Hydrotrope-Enabled High-Concentration Aqueous Electrolytes for Reversible and Sustainable Iron Metal Anodes",
+      "year": 2025,
+      "authors": [
+        "G. Feng",
+        "Z. Liu",
+        "J. Holoubek",
+        "L. C. Greenburg",
+        "G. Zhang",
+        "Y. Li",
+        "X. Guan",
+        "Y. Cui",
+        "P. Zhang",
+        "A. Brest",
+        "X. Zheng",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41467-025-65160-w"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Hydrotrope-Enabled High-Concentration Aqueous Electrolytes for Reversible and Sustainable Iron Metal Anodes",
+          "year": 2024,
+          "authors": [
+            "G. Feng",
+            "Z. Liu",
+            "J. Holoubek",
+            "L. C. Greenburg",
+            "G. Zhang",
+            "Y. Li",
+            "X. Guan",
+            "Y. Cui",
+            "P. Zhang",
+            "A. Brest",
+            "X. Zheng",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "Hydrotrope-Enabled High-Concentration Aqueous Electrolytes for Reversible and Sustainable Iron Metal Anodes",
+          "year": 2026,
+          "authors": [
+            "G. Feng",
+            "Z. Liu",
+            "J. Holoubek",
+            "L. C. Greenburg",
+            "G. Zhang",
+            "Y. Li",
+            "X. Guan",
+            "Y. Cui",
+            "P. Zhang",
+            "A. Brest",
+            "X. Zheng",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:816f17d4f424",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "LiI-Modified Glass-Ceramic Lithium Thioborate: From Fundamentals to Applications in Solid-State Batteries",
+      "year": 2025,
+      "authors": [
+        "S. E. Holmes",
+        "J. Kondek",
+        "P. Zhang",
+        "V. Faka",
+        "J. A. Newnham",
+        "L. M. Gronych",
+        "M. R. Hansen",
+        "W. G. Zeier",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 14 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1021/acs.chemmater.5c00224"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "LiI-Modified Glass-Ceramic Lithium Thioborate: From Fundamentals to Applications in Solid-State Batteries",
+          "year": 2024,
+          "authors": [
+            "S. E. Holmes",
+            "J. Kondek",
+            "P. Zhang",
+            "V. Faka",
+            "J. A. Newnham",
+            "L. M. Gronych",
+            "M. R. Hansen",
+            "W. G. Zeier",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "LiI-Modified Glass-Ceramic Lithium Thioborate: From Fundamentals to Applications in Solid-State Batteries",
+          "year": 2026,
+          "authors": [
+            "S. E. Holmes",
+            "J. Kondek",
+            "P. Zhang",
+            "V. Faka",
+            "J. A. Newnham",
+            "L. M. Gronych",
+            "M. R. Hansen",
+            "W. G. Zeier",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:c54a1b73706a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Mechanism for the Fluctuation in Coulombic Efficiency of Lithium Metal Anodes After Calendar Aging",
+      "year": 2025,
+      "authors": [
+        "E. Zhang",
+        "H. Lyu",
+        "W. Zhang",
+        "Y. Chen",
+        "P. Sayavong",
+        "I. R. Choi",
+        "Y. Cui",
+        "Z. Bao"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 4 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1002/aenm.202504010"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Mechanism for the Fluctuation in Coulombic Efficiency of Lithium Metal Anodes After Calendar Aging",
+          "year": 2024,
+          "authors": [
+            "E. Zhang",
+            "H. Lyu",
+            "W. Zhang",
+            "Y. Chen",
+            "P. Sayavong",
+            "I. R. Choi",
+            "Y. Cui",
+            "Z. Bao"
+          ]
+        },
+        {
+          "title": "Mechanism for the Fluctuation in Coulombic Efficiency of Lithium Metal Anodes After Calendar Aging",
+          "year": 2026,
+          "authors": [
+            "E. Zhang",
+            "H. Lyu",
+            "W. Zhang",
+            "Y. Chen",
+            "P. Sayavong",
+            "I. R. Choi",
+            "Y. Cui",
+            "Z. Bao"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:289f515968b4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Mesh-Like Structure Integrated Core-Shell-Shell Nanocomposites for Enhanced Stability and Performance in Carbon Capture",
+      "year": 2025,
+      "authors": [
+        "S. Yang",
+        "H. Mao",
+        "C. Dun",
+        "J. Liu",
+        "K. Hou",
+        "A. Cai",
+        "J. Wang",
+        "J. K. J. Lee",
+        "D. Li",
+        "H. Lyu",
+        "Z. Chen",
+        "X. Lv",
+        "H. Zhuang",
+        "X. Xu",
+        "X. Zheng",
+        "G. Ren",
+        "J. A. Reimer",
+        "Y. Cui",
+        "J. J. Urban"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 2 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41467-025-65531-3"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Mesh-Like Structure Integrated Core-Shell-Shell Nanocomposites for Enhanced Stability and Performance in Carbon Capture",
+          "year": 2024,
+          "authors": [
+            "S. Yang",
+            "H. Mao",
+            "C. Dun",
+            "J. Liu",
+            "K. Hou",
+            "A. Cai",
+            "J. Wang",
+            "J. K. J. Lee",
+            "D. Li",
+            "H. Lyu",
+            "Z. Chen",
+            "X. Lv",
+            "H. Zhuang",
+            "X. Xu",
+            "X. Zheng",
+            "G. Ren",
+            "J. A. Reimer",
+            "Y. Cui",
+            "J. J. Urban"
+          ]
+        },
+        {
+          "title": "Mesh-Like Structure Integrated Core-Shell-Shell Nanocomposites for Enhanced Stability and Performance in Carbon Capture",
+          "year": 2026,
+          "authors": [
+            "S. Yang",
+            "H. Mao",
+            "C. Dun",
+            "J. Liu",
+            "K. Hou",
+            "A. Cai",
+            "J. Wang",
+            "J. K. J. Lee",
+            "D. Li",
+            "H. Lyu",
+            "Z. Chen",
+            "X. Lv",
+            "H. Zhuang",
+            "X. Xu",
+            "X. Zheng",
+            "G. Ren",
+            "J. A. Reimer",
+            "Y. Cui",
+            "J. J. Urban"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:6eabfe431c05",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Monofluorinated acetal electrolyte for high-performance lithium metal batteries",
+      "year": 2025,
+      "authors": [
+        "E. Zhang",
+        "Y. Chen",
+        "J. Holoubek",
+        "Z. Yu",
+        "W. Zhang",
+        "H. Lyu",
+        "I. R. Choi",
+        "S. C. Kim",
+        "C. Serrao",
+        "Y. Cui",
+        "Z. Bao"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 19 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1073/pnas.2418623122"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Monofluorinated acetal electrolyte for high-performance lithium metal batteries",
+          "year": 2024,
+          "authors": [
+            "E. Zhang",
+            "Y. Chen",
+            "J. Holoubek",
+            "Z. Yu",
+            "W. Zhang",
+            "H. Lyu",
+            "I. R. Choi",
+            "S. C. Kim",
+            "C. Serrao",
+            "Y. Cui",
+            "Z. Bao"
+          ]
+        },
+        {
+          "title": "Monofluorinated acetal electrolyte for high-performance lithium metal batteries",
+          "year": 2026,
+          "authors": [
+            "E. Zhang",
+            "Y. Chen",
+            "J. Holoubek",
+            "Z. Yu",
+            "W. Zhang",
+            "H. Lyu",
+            "I. R. Choi",
+            "S. C. Kim",
+            "C. Serrao",
+            "Y. Cui",
+            "Z. Bao"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:4563aa750b16",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "One-Step Integration of Sulfonated Polymer Films with Separators for Shuttle Mitigation in Lithium-Sulfur Batteries",
+      "year": 2025,
+      "authors": [
+        "L. Greenburg",
+        "K. Abels",
+        "Y. Cho",
+        "H. Ai",
+        "Y. Cui",
+        "W. Tarpeh",
+        "Y.-K. Tzeng"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 5 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.26434/chemrxiv-2025-s5wzj"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "One-Step Integration of Sulfonated Polymer Films with Separators for Shuttle Mitigation in Lithium-Sulfur Batteries",
+          "year": 2024,
+          "authors": [
+            "L. Greenburg",
+            "K. Abels",
+            "Y. Cho",
+            "H. Ai",
+            "Y. Cui",
+            "W. Tarpeh",
+            "Y.-K. Tzeng"
+          ]
+        },
+        {
+          "title": "One-Step Integration of Sulfonated Polymer Films with Separators for Shuttle Mitigation in Lithium-Sulfur Batteries",
+          "year": 2026,
+          "authors": [
+            "L. Greenburg",
+            "K. Abels",
+            "Y. Cho",
+            "H. Ai",
+            "Y. Cui",
+            "W. Tarpeh",
+            "Y.-K. Tzeng"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:734259c04ae0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Phase Segregation Dynamics in Mixed-Halide Perovskites Revealed by Plunge-Freeze Cryo-Electron Microscopy",
+      "year": 2025,
+      "authors": [
+        "Q. Fan",
+        "Y. Cui",
+        "Y. Li",
+        "J. A. Vigil",
+        "Z. Jiang",
+        "P. Nandi",
+        "R. Colby",
+        "C. Zhang",
+        "Y. Cui",
+        "H. I. Karunadasa",
+        "A. M. Lindenberg"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 11 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.xcrp.2025.102653"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Phase Segregation Dynamics in Mixed-Halide Perovskites Revealed by Plunge-Freeze Cryo-Electron Microscopy",
+          "year": 2024,
+          "authors": [
+            "Q. Fan",
+            "Y. Cui",
+            "Y. Li",
+            "J. A. Vigil",
+            "Z. Jiang",
+            "P. Nandi",
+            "R. Colby",
+            "C. Zhang",
+            "Y. Cui",
+            "H. I. Karunadasa",
+            "A. M. Lindenberg"
+          ]
+        },
+        {
+          "title": "Phase Segregation Dynamics in Mixed-Halide Perovskites Revealed by Plunge-Freeze Cryo-Electron Microscopy",
+          "year": 2026,
+          "authors": [
+            "Q. Fan",
+            "Y. Cui",
+            "Y. Li",
+            "J. A. Vigil",
+            "Z. Jiang",
+            "P. Nandi",
+            "R. Colby",
+            "C. Zhang",
+            "Y. Cui",
+            "H. I. Karunadasa",
+            "A. M. Lindenberg"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:adee779ed544",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Reactive Suspension Electrolytes for Lithium Metal Batteries",
+      "year": 2025,
+      "authors": [
+        "J. Lee",
+        "M. S. Kim",
+        "Y. Cui",
+        "W. Zhang",
+        "S. B. Shuchi",
+        "S. E. Holmes",
+        "J. H. Lee",
+        "C. Serrao",
+        "S. C. Kim",
+        "J. Holoubek",
+        "P. Sayavong",
+        "A. Cai",
+        "I. R. Choi",
+        "Y. Cui"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 8 captured 2026-10-18",
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 9 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1021/acsenergylett.5c01406"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Homogeneous 3D Porous Conductive Electrodes for High-Energy Battery Fast Charging",
+          "year": 2025,
+          "authors": [
+            "H. Ai",
+            "A. Cai",
+            "J. Holoubek",
+            "W. Zhang",
+            "L. C. Greenburg",
+            "J. Lee",
+            "S. Holmes",
+            "Y. Suzuki",
+            "H. Kuwajima",
+            "R. Matsumoto",
+            "Y. Ye",
+            "Y. Nakayama",
+            "Y. Cui",
+            "A. M. Lindenberg"
+          ]
+        },
+        {
+          "title": "Reactive Suspension Electrolytes for Lithium Metal Batteries",
+          "year": 2024,
+          "authors": [
+            "J. Lee",
+            "M. S. Kim",
+            "Y. Cui",
+            "W. Zhang",
+            "S. B. Shuchi",
+            "S. E. Holmes",
+            "J. H. Lee",
+            "C. Serrao",
+            "S. C. Kim",
+            "J. Holoubek",
+            "P. Sayavong",
+            "A. Cai",
+            "I. R. Choi",
+            "Y. Cui"
+          ]
+        },
+        {
+          "title": "Reactive Suspension Electrolytes for Lithium Metal Batteries",
+          "year": 2026,
+          "authors": [
+            "J. Lee",
+            "M. S. Kim",
+            "Y. Cui",
+            "W. Zhang",
+            "S. B. Shuchi",
+            "S. E. Holmes",
+            "J. H. Lee",
+            "C. Serrao",
+            "S. C. Kim",
+            "J. Holoubek",
+            "P. Sayavong",
+            "A. Cai",
+            "I. R. Choi",
+            "Y. Cui"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:52c6c9d4f468",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Revealing and Quantifying Carbon Corrosion in Aqueous Manganese-Based Batteries",
+      "year": 2025,
+      "authors": [
+        "A. Ravi",
+        "G. Zhang",
+        "J. Holoubek",
+        "Y. Li",
+        "H. Hao",
+        "A. Cai",
+        "S. B. Shuchi",
+        "G. Feng",
+        "J. Han",
+        "J. Li",
+        "S. F. Bent",
+        "X. Zheng",
+        "Y. Cui",
+        "A. M. Lindenberg"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 10 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1021/acs.nanolett.5c02166"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Revealing and Quantifying Carbon Corrosion in Aqueous Manganese-Based Batteries",
+          "year": 2024,
+          "authors": [
+            "A. Ravi",
+            "G. Zhang",
+            "J. Holoubek",
+            "Y. Li",
+            "H. Hao",
+            "A. Cai",
+            "S. B. Shuchi",
+            "G. Feng",
+            "J. Han",
+            "J. Li",
+            "S. F. Bent",
+            "X. Zheng",
+            "Y. Cui",
+            "A. M. Lindenberg"
+          ]
+        },
+        {
+          "title": "Revealing and Quantifying Carbon Corrosion in Aqueous Manganese-Based Batteries",
+          "year": 2026,
+          "authors": [
+            "A. Ravi",
+            "G. Zhang",
+            "J. Holoubek",
+            "Y. Li",
+            "H. Hao",
+            "A. Cai",
+            "S. B. Shuchi",
+            "G. Feng",
+            "J. Han",
+            "J. Li",
+            "S. F. Bent",
+            "X. Zheng",
+            "Y. Cui",
+            "A. M. Lindenberg"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_yi_cui:8f25390f8c5f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Stabilizing Lithium-Metal Electrodes with Polymer Coatings",
+      "year": 2025,
+      "authors": [
+        "Z. Huang",
+        "H. Lyu",
+        "L. C. Greenburg",
+        "Y. Cui",
+        "Z. Bao"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.stanford.edu/group/cui_group/publications.htm entry 12 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41560-025-01767-z"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Stabilizing Lithium-Metal Electrodes with Polymer Coatings",
+          "year": 2024,
+          "authors": [
+            "Z. Huang",
+            "H. Lyu",
+            "L. C. Greenburg",
+            "Y. Cui",
+            "Z. Bao"
+          ]
+        },
+        {
+          "title": "Stabilizing Lithium-Metal Electrodes with Polymer Coatings",
+          "year": 2026,
+          "authors": [
+            "Z. Huang",
+            "H. Lyu",
+            "L. C. Greenburg",
+            "Y. Cui",
+            "Z. Bao"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

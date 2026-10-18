@@ -1,0 +1,6014 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": true,
+  "metadata": {
+    "annotation_state": "assistant_reviewed",
+    "reviewer": "Claude (AI review requested by the user, 2026-10-18)",
+    "reviewed_at": "2026-10-18",
+    "person_id": "cs_wei_wang_ucla",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Wei Wang",
+      "university": "University of California, Los Angeles"
+    },
+    "scope": {
+      "year_start": 2024,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T23:25:44.222939+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://web.cs.ucla.edu/~weiwang/chrolist.html",
+        "records": 43
+      },
+      {
+        "kind": "orcid",
+        "locator": "0000-0002-8180-2886",
+        "url": "https://orcid.org/0000-0002-8180-2886",
+        "records": 316
+      }
+    ],
+    "excluded_counts": {
+      "outside_year_window": 291
+    },
+    "review_progress": {
+      "decided": 44,
+      "pending": 0
+    }
+  },
+  "papers": [
+    {
+      "evaluation_id": "cs_wei_wang_ucla:b5381711984a",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "A Comprehensive Survey of Scientific Large Language Models and Their Applications in Scientific Discovery",
+      "year": 2024,
+      "authors": [
+        "Yu Zhang",
+        "Xiusi Chen",
+        "Bowen Jin",
+        "Sheng Wang",
+        "Shuiwang Ji",
+        "Wei Wang",
+        "Jiawei Han"
+      ],
+      "listed_venue": ", Wei Wang, Jiawei Han, Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP), 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 27 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "A Comprehensive Survey of Scientific Large Language Models and Their Applications in Scientific Discovery",
+          "year": 2023,
+          "authors": [
+            "Yu Zhang",
+            "Xiusi Chen",
+            "Bowen Jin",
+            "Sheng Wang",
+            "Shuiwang Ji",
+            "Wei Wang",
+            "Jiawei Han"
+          ]
+        },
+        {
+          "title": "A Comprehensive Survey of Scientific Large Language Models and Their Applications in Scientific Discovery",
+          "year": 2025,
+          "authors": [
+            "Yu Zhang",
+            "Xiusi Chen",
+            "Bowen Jin",
+            "Sheng Wang",
+            "Shuiwang Ji",
+            "Wei Wang",
+            "Jiawei Han"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:d2650de0378f",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "A Survey on Self-Supervised Learning for Non-Sequential Tabular Data",
+      "year": 2024,
+      "authors": [
+        "Wei-Yao Wang",
+        "Wei-Wei Du",
+        "Derek Xu",
+        "Wei Wang",
+        "Wen-Chih Peng"
+      ],
+      "listed_venue": "ang, Wei-Wei Du, Derek Xu, Wei Wang, and Wen-Chih Peng, Asian Conference on Machine Learning (ACML) Journal Track, 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 23 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "A Survey on Self-Supervised Learning for Non-Sequential Tabular Data",
+          "year": 2023,
+          "authors": [
+            "Wei-Yao Wang",
+            "Wei-Wei Du",
+            "Derek Xu",
+            "Wei Wang",
+            "Wen-Chih Peng"
+          ]
+        },
+        {
+          "title": "A Survey on Self-Supervised Learning for Non-Sequential Tabular Data",
+          "year": 2025,
+          "authors": [
+            "Wei-Yao Wang",
+            "Wei-Wei Du",
+            "Derek Xu",
+            "Wei Wang",
+            "Wen-Chih Peng"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:2c945b3c9be7",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "BioinformaticsBench: A collaboratively built large language model benchmark for Bioinformatics reasoning",
+      "year": 2024,
+      "authors": [
+        "Varuni Sarwal",
+        "Seungmo Lee",
+        "Rosemary He",
+        "Aingela Kattapuram",
+        "Xiaoxuan Wang",
+        "Eleazar Eskin",
+        "Wei Wang",
+        "Serghei Mangul"
+      ],
+      "listed_venue": "d Serghei Mangul, ICML Workshop on Accessible and Efficient Foundation Models for Biological Discovery (AccMLBio), 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 31 captured 2026-10-18",
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 32 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "BioinformaticsBench: A collaboratively built large language model benchmark for Bioinformatics reasoning",
+          "year": 2023,
+          "authors": [
+            "Varuni Sarwal",
+            "Seungmo Lee",
+            "Rosemary He",
+            "Aingela Kattapuram",
+            "Xiaoxuan Wang",
+            "Eleazar Eskin",
+            "Wei Wang",
+            "Serghei Mangul"
+          ]
+        },
+        {
+          "title": "BioinformaticsBench: A collaboratively built large language model benchmark for Bioinformatics reasoning",
+          "year": 2025,
+          "authors": [
+            "Varuni Sarwal",
+            "Seungmo Lee",
+            "Rosemary He",
+            "Aingela Kattapuram",
+            "Xiaoxuan Wang",
+            "Eleazar Eskin",
+            "Wei Wang",
+            "Serghei Mangul"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:0d6c8c8ccd55",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Building an Ethical and Trustworthy Biomedical AI Ecosystem for the Translational and Clinical Integration of Foundation Models",
+      "year": 2024,
+      "authors": [
+        "Baradwaj Simha Sankar",
+        "Destiny Gilliland",
+        "Jack Rincon",
+        "Henning Hermjakob",
+        "Yu Yan",
+        "Irsyad Adam",
+        "Gwyneth Lemaster",
+        "Dean Wang",
+        "Karol Watson",
+        "Alex Bui",
+        "Wei Wang",
+        "Peipei Ping"
+      ],
+      "listed_venue": "Bioengineering",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 168868197"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.3390/bioengineering11100984"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Building an Ethical and Trustworthy Biomedical AI Ecosystem for the Translational and Clinical Integration of Foundation Models",
+          "year": 2023,
+          "authors": [
+            "Baradwaj Simha Sankar",
+            "Destiny Gilliland",
+            "Jack Rincon",
+            "Henning Hermjakob",
+            "Yu Yan",
+            "Irsyad Adam",
+            "Gwyneth Lemaster",
+            "Dean Wang",
+            "Karol Watson",
+            "Alex Bui",
+            "Wei Wang",
+            "Peipei Ping"
+          ]
+        },
+        {
+          "title": "Building an Ethical and Trustworthy Biomedical AI Ecosystem for the Translational and Clinical Integration of Foundation Models",
+          "year": 2025,
+          "authors": [
+            "Baradwaj Simha Sankar",
+            "Destiny Gilliland",
+            "Jack Rincon",
+            "Henning Hermjakob",
+            "Yu Yan",
+            "Irsyad Adam",
+            "Gwyneth Lemaster",
+            "Dean Wang",
+            "Karol Watson",
+            "Alex Bui",
+            "Wei Wang",
+            "Peipei Ping"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:d38a77fc205a",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "title": "Building an Ethical and Trustworthy Biomedical AI Ecosystem for the Translational and Clinical Integration of Foundational Models",
+      "year": 2024,
+      "authors": [
+        "Baradwaj Simha Sankar",
+        "Destiny Gilliland",
+        "Jack Rincon",
+        "Henning Hermjakob",
+        "Yu Yan",
+        "Irsyad Adam",
+        "Gwyneth Lemaster",
+        "Dean Wang",
+        "Karol Watson",
+        "Alex Bui",
+        "Wei Wang",
+        "Peipei Ping"
+      ],
+      "listed_venue": " Lemaster, Dean Wang, Karol Watson, Alex Bui, Wei Wang, and Peipei Ping, Bioengineering, vol. 11, no. 10, pp. 984, 2024.",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 21 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Building an Ethical and Trustworthy Biomedical AI Ecosystem for the Translational and Clinical Integration of Foundational Models",
+          "year": 2023,
+          "authors": [
+            "Baradwaj Simha Sankar",
+            "Destiny Gilliland",
+            "Jack Rincon",
+            "Henning Hermjakob",
+            "Yu Yan",
+            "Irsyad Adam",
+            "Gwyneth Lemaster",
+            "Dean Wang",
+            "Karol Watson",
+            "Alex Bui",
+            "Wei Wang",
+            "Peipei Ping"
+          ]
+        },
+        {
+          "title": "Building an Ethical and Trustworthy Biomedical AI Ecosystem for the Translational and Clinical Integration of Foundational Models",
+          "year": 2025,
+          "authors": [
+            "Baradwaj Simha Sankar",
+            "Destiny Gilliland",
+            "Jack Rincon",
+            "Henning Hermjakob",
+            "Yu Yan",
+            "Irsyad Adam",
+            "Gwyneth Lemaster",
+            "Dean Wang",
+            "Karol Watson",
+            "Alex Bui",
+            "Wei Wang",
+            "Peipei Ping"
+          ]
+        }
+      ],
+      "reviewer_note": "Duplicate of row 3 (same paper from ORCID)"
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:28c2aa75ae00",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Causal Graph ODE: Continuous Treatment Effect Modeling in Multi-agent Dynamical Systems",
+      "year": 2024,
+      "authors": [
+        "Zijie Huang",
+        "Jeehyun Hwang",
+        "Junkai Zhang",
+        "Jinwoo Baik",
+        "Weitong Zhang",
+        "Dominik Wodarz",
+        "Yizhou Sun",
+        "Quanquan Gu",
+        "Wei Wang"
+      ],
+      "listed_venue": "Dominik Wodarz, Yizhou Sun, Quanquan Gu, and Wei Wang, Proceedings of the ACM Web Conference (WWW), pp. 4607-4617, 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 159213402",
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 41 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1145/3589334.3648148"
+      ],
+      "external_ids": {
+        "arxiv": "2403.00178"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Causal Graph ODE: Continuous Treatment Effect Modeling in Multi-agent Dynamical Systems",
+          "year": 2023,
+          "authors": [
+            "Zijie Huang",
+            "Jeehyun Hwang",
+            "Junkai Zhang",
+            "Jinwoo Baik",
+            "Weitong Zhang",
+            "Dominik Wodarz",
+            "Yizhou Sun",
+            "Quanquan Gu",
+            "Wei Wang"
+          ]
+        },
+        {
+          "title": "Causal Graph ODE: Continuous Treatment Effect Modeling in Multi-agent Dynamical Systems",
+          "year": 2025,
+          "authors": [
+            "Zijie Huang",
+            "Jeehyun Hwang",
+            "Junkai Zhang",
+            "Jinwoo Baik",
+            "Weitong Zhang",
+            "Dominik Wodarz",
+            "Yizhou Sun",
+            "Quanquan Gu",
+            "Wei Wang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2403.00178",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Causal Graph ODE: Continuous Treatment Effect Modeling in Multi-agent Dynamical Systems",
+          "arxiv_year": 2024
+        },
+        {
+          "arxiv": "2403.00178",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Causal Graph ODE: Continuous Treatment Effect Modeling in Multi-agent Dynamical Systems",
+          "arxiv_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:e36084833607",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Data-Driven Insights into the Association Between Oxidative Stress and Calcium-Regulating Proteins in Cardiovascular Disease",
+      "year": 2024,
+      "authors": [
+        "Namuna Panday",
+        "Dibakar Sigdel",
+        "Irsyad Adam",
+        "Joseph Ramirez",
+        "Aarushi Verma",
+        "Anirudh N. Eranki",
+        "Wei Wang",
+        "Ding Wang",
+        "Peipei Ping"
+      ],
+      "listed_venue": "Antioxidants",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 172119192"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.3390/antiox13111420"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Data-Driven Insights into the Association Between Oxidative Stress and Calcium-Regulating Proteins in Cardiovascular Disease",
+          "year": 2023,
+          "authors": [
+            "Namuna Panday",
+            "Dibakar Sigdel",
+            "Irsyad Adam",
+            "Joseph Ramirez",
+            "Aarushi Verma",
+            "Anirudh N. Eranki",
+            "Wei Wang",
+            "Ding Wang",
+            "Peipei Ping"
+          ]
+        },
+        {
+          "title": "Data-Driven Insights into the Association Between Oxidative Stress and Calcium-Regulating Proteins in Cardiovascular Disease",
+          "year": 2025,
+          "authors": [
+            "Namuna Panday",
+            "Dibakar Sigdel",
+            "Irsyad Adam",
+            "Joseph Ramirez",
+            "Aarushi Verma",
+            "Anirudh N. Eranki",
+            "Wei Wang",
+            "Ding Wang",
+            "Peipei Ping"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:3a1b167605c0",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Decoding Susceptibility: Modeling Misbelief to Misinformation Through a Computational Approach",
+      "year": 2024,
+      "authors": [
+        "Yanchen Liu",
+        "Mingyu Derek Ma",
+        "Wenna Qin",
+        "Azure Zhou",
+        "Jiaao Chen",
+        "Weiyan Shi",
+        "Wei Wang",
+        "Diyi Yang"
+      ],
+      "listed_venue": "ei Wang, and Diyi Yang, Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP), 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 30 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Decoding Susceptibility: Modeling Misbelief to Misinformation Through a Computational Approach",
+          "year": 2023,
+          "authors": [
+            "Yanchen Liu",
+            "Mingyu Derek Ma",
+            "Wenna Qin",
+            "Azure Zhou",
+            "Jiaao Chen",
+            "Weiyan Shi",
+            "Wei Wang",
+            "Diyi Yang"
+          ]
+        },
+        {
+          "title": "Decoding Susceptibility: Modeling Misbelief to Misinformation Through a Computational Approach",
+          "year": 2025,
+          "authors": [
+            "Yanchen Liu",
+            "Mingyu Derek Ma",
+            "Wenna Qin",
+            "Azure Zhou",
+            "Jiaao Chen",
+            "Weiyan Shi",
+            "Wei Wang",
+            "Diyi Yang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:07f4c98504db",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Enhancing Large Vision Language Models with Self-Training on Image Comprehension",
+      "year": 2024,
+      "authors": [
+        "Yihe Deng",
+        "Pan Lu",
+        "Fan Yin",
+        "Ziniu Hu",
+        "Sheng Shen",
+        "Quanquan Gu",
+        "James Zou",
+        "Kai-Wei Chang",
+        "Wei Wang"
+      ],
+      "listed_venue": "Chang, and Wei Wang, Proceedings of the 38th Annual Conference on Neural Information Processing Systems (NeurIPS), 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 24 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Enhancing Large Vision Language Models with Self-Training on Image Comprehension",
+          "year": 2023,
+          "authors": [
+            "Yihe Deng",
+            "Pan Lu",
+            "Fan Yin",
+            "Ziniu Hu",
+            "Sheng Shen",
+            "Quanquan Gu",
+            "James Zou",
+            "Kai-Wei Chang",
+            "Wei Wang"
+          ]
+        },
+        {
+          "title": "Enhancing Large Vision Language Models with Self-Training on Image Comprehension",
+          "year": 2025,
+          "authors": [
+            "Yihe Deng",
+            "Pan Lu",
+            "Fan Yin",
+            "Ziniu Hu",
+            "Sheng Shen",
+            "Quanquan Gu",
+            "James Zou",
+            "Kai-Wei Chang",
+            "Wei Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:35f98f4c35dd",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Event Detection from Social Media for Epidemic Prediction",
+      "year": 2024,
+      "authors": [
+        "Tanmay Parekh",
+        "Anh Mac",
+        "Jiarui Yu",
+        "Yuxuan Dong",
+        "Syed Shahriar",
+        "Bonnie Liu",
+        "Eric J Yang",
+        "Kuan-Hao Huang",
+        "Wei Wang",
+        "Nanyun Peng",
+        "Kai-Wei Chang"
+      ],
+      "listed_venue": " Conference of the North American Chapter of the Association for Computational Linguistics (NAACL), pp. 5758-5783, 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 40 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Event Detection from Social Media for Epidemic Prediction",
+          "year": 2023,
+          "authors": [
+            "Tanmay Parekh",
+            "Anh Mac",
+            "Jiarui Yu",
+            "Yuxuan Dong",
+            "Syed Shahriar",
+            "Bonnie Liu",
+            "Eric J Yang",
+            "Kuan-Hao Huang",
+            "Wei Wang",
+            "Nanyun Peng",
+            "Kai-Wei Chang"
+          ]
+        },
+        {
+          "title": "Event Detection from Social Media for Epidemic Prediction",
+          "year": 2025,
+          "authors": [
+            "Tanmay Parekh",
+            "Anh Mac",
+            "Jiarui Yu",
+            "Yuxuan Dong",
+            "Syed Shahriar",
+            "Bonnie Liu",
+            "Eric J Yang",
+            "Kuan-Hao Huang",
+            "Wei Wang",
+            "Nanyun Peng",
+            "Kai-Wei Chang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:999b4a9a151e",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "GraphVis: Boosting LLMs with Visual Knowledge Graph Integration",
+      "year": 2024,
+      "authors": [
+        "Yihe Deng",
+        "Chenchen Ye",
+        "Zijie Huang",
+        "Mingyu Derek Ma",
+        "Yiwen Kou",
+        "Wei Wang"
+      ],
+      "listed_venue": "n Kou, and Wei Wang, Proceedings of the 38th Annual Conference on Neural Information Processing Systems (NeurIPS), 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 26 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "GraphVis: Boosting LLMs with Visual Knowledge Graph Integration",
+          "year": 2023,
+          "authors": [
+            "Yihe Deng",
+            "Chenchen Ye",
+            "Zijie Huang",
+            "Mingyu Derek Ma",
+            "Yiwen Kou",
+            "Wei Wang"
+          ]
+        },
+        {
+          "title": "GraphVis: Boosting LLMs with Visual Knowledge Graph Integration",
+          "year": 2025,
+          "authors": [
+            "Yihe Deng",
+            "Chenchen Ye",
+            "Zijie Huang",
+            "Mingyu Derek Ma",
+            "Yiwen Kou",
+            "Wei Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:31771ecc8a2f",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "How the experience of California wildfires shape Twitter climate change framings",
+      "year": 2024,
+      "authors": [
+        "W. Jessie"
+      ],
+      "listed_venue": "eem Alsudais, Zuozhi Wang, Xiaozhen Liu, Wei Wang, Chen Li, and Suellen Hopfer, Climatic Change, Vol. 177, no. 17, 2024.",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 20 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "target_name_not_found_in_byline"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "How the experience of California wildfires shape Twitter climate change framings",
+          "year": 2023,
+          "authors": [
+            "W. Jessie"
+          ]
+        },
+        {
+          "title": "How the experience of California wildfires shape Twitter climate change framings",
+          "year": 2025,
+          "authors": [
+            "W. Jessie"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:ab9b7df52199",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Improving Event Definition Following for Zero-Shot Event Detection",
+      "year": 2024,
+      "authors": [
+        "Zefan Cai",
+        "Po-Nien Kung",
+        "Ashima Suvarna",
+        "Mingyu Derek Ma",
+        "Hritik Bansal",
+        "Baobao Chang",
+        "P"
+      ],
+      "listed_venue": "eng, Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (ACL), pp. 2842-2863, 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 35 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "target_name_not_found_in_byline"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Improving Event Definition Following for Zero-Shot Event Detection",
+          "year": 2023,
+          "authors": [
+            "Zefan Cai",
+            "Po-Nien Kung",
+            "Ashima Suvarna",
+            "Mingyu Derek Ma",
+            "Hritik Bansal",
+            "Baobao Chang",
+            "P"
+          ]
+        },
+        {
+          "title": "Improving Event Definition Following for Zero-Shot Event Detection",
+          "year": 2025,
+          "authors": [
+            "Zefan Cai",
+            "Po-Nien Kung",
+            "Ashima Suvarna",
+            "Mingyu Derek Ma",
+            "Hritik Bansal",
+            "Baobao Chang",
+            "P"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:640f5223ce0e",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "IterAlign: Iterative Constitutional Alignment of Large Language Models",
+      "year": 2024,
+      "authors": [
+        "Xiusi Chen",
+        "Hongzhi Wen",
+        "Sreyashi Nag",
+        "Chen Luo",
+        "Qingyu Yin",
+        "Ruirui Li",
+        "Zheng Li",
+        "Wei Wang"
+      ],
+      "listed_venue": " Conference of the North American Chapter of the Association for Computational Linguistics (NAACL), pp. 1423-1433, 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 39 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "IterAlign: Iterative Constitutional Alignment of Large Language Models",
+          "year": 2023,
+          "authors": [
+            "Xiusi Chen",
+            "Hongzhi Wen",
+            "Sreyashi Nag",
+            "Chen Luo",
+            "Qingyu Yin",
+            "Ruirui Li",
+            "Zheng Li",
+            "Wei Wang"
+          ]
+        },
+        {
+          "title": "IterAlign: Iterative Constitutional Alignment of Large Language Models",
+          "year": 2025,
+          "authors": [
+            "Xiusi Chen",
+            "Hongzhi Wen",
+            "Sreyashi Nag",
+            "Chen Luo",
+            "Qingyu Yin",
+            "Ruirui Li",
+            "Zheng Li",
+            "Wei Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:e176ac4f2986",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Large Language Models Can Be Contextual Privacy Protection Learners",
+      "year": 2024,
+      "authors": [
+        "Yijia Xiao",
+        "Yiqiao Jin",
+        "Yushi Bai",
+        "Yue Wu",
+        "Xianjun Yang",
+        "Xiao Luo",
+        "Wenchao Yu",
+        "Xujiang Zhao",
+        "Yanchi Liu",
+        "Quanquan Gu",
+        "Haifeng Chen",
+        "Wei Wang",
+        "Wei Cheng"
+      ],
+      "listed_venue": "n, Wei Wang, Wei Cheng, Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP), 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 29 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Large Language Models Can Be Contextual Privacy Protection Learners",
+          "year": 2023,
+          "authors": [
+            "Yijia Xiao",
+            "Yiqiao Jin",
+            "Yushi Bai",
+            "Yue Wu",
+            "Xianjun Yang",
+            "Xiao Luo",
+            "Wenchao Yu",
+            "Xujiang Zhao",
+            "Yanchi Liu",
+            "Quanquan Gu",
+            "Haifeng Chen",
+            "Wei Wang",
+            "Wei Cheng"
+          ]
+        },
+        {
+          "title": "Large Language Models Can Be Contextual Privacy Protection Learners",
+          "year": 2025,
+          "authors": [
+            "Yijia Xiao",
+            "Yiqiao Jin",
+            "Yushi Bai",
+            "Yue Wu",
+            "Xianjun Yang",
+            "Xiao Luo",
+            "Wenchao Yu",
+            "Xujiang Zhao",
+            "Yanchi Liu",
+            "Quanquan Gu",
+            "Haifeng Chen",
+            "Wei Wang",
+            "Wei Cheng"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:56b12235c99e",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Learning Over Molecular Conformer Ensembles: Datasets and Benchmarks",
+      "year": 2024,
+      "authors": [
+        "Yanqiao Zhu",
+        "Jeehyun Hwang",
+        "Keir Adams",
+        "Zhen Liu",
+        "Bozhao Nan",
+        "Brock Stenfors",
+        "Yuanqi Du",
+        "Jatin Chauhan",
+        "Olaf Wiest",
+        "Olexandr Isayev",
+        "W. Connor"
+      ],
+      "listed_venue": "ey, Yizhou Sun, and Wei Wang, Proceedings of the 12th International Conference on Learning Representations (ICLR), 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 42 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "target_name_not_found_in_byline"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Learning Over Molecular Conformer Ensembles: Datasets and Benchmarks",
+          "year": 2023,
+          "authors": [
+            "Yanqiao Zhu",
+            "Jeehyun Hwang",
+            "Keir Adams",
+            "Zhen Liu",
+            "Bozhao Nan",
+            "Brock Stenfors",
+            "Yuanqi Du",
+            "Jatin Chauhan",
+            "Olaf Wiest",
+            "Olexandr Isayev",
+            "W. Connor"
+          ]
+        },
+        {
+          "title": "Learning Over Molecular Conformer Ensembles: Datasets and Benchmarks",
+          "year": 2025,
+          "authors": [
+            "Yanqiao Zhu",
+            "Jeehyun Hwang",
+            "Keir Adams",
+            "Zhen Liu",
+            "Bozhao Nan",
+            "Brock Stenfors",
+            "Yuanqi Du",
+            "Jatin Chauhan",
+            "Olaf Wiest",
+            "Olexandr Isayev",
+            "W. Connor"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:c1f3f39ebfc9",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "MinPrompt: Graph-based Minimal Prompt Data Augmentation for Few-shot Question Answering",
+      "year": 2024,
+      "authors": [
+        "Xiusi Chen",
+        "Jyun-Yu Jiang",
+        "Wei-Cheng Chang",
+        "Cho-Jui Hsieh",
+        "Hsiang-Fu Yu",
+        "Wei Wang"
+      ],
+      "listed_venue": "i Wang, Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (ACL), pp.254-266, 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 34 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "MinPrompt: Graph-based Minimal Prompt Data Augmentation for Few-shot Question Answering",
+          "year": 2023,
+          "authors": [
+            "Xiusi Chen",
+            "Jyun-Yu Jiang",
+            "Wei-Cheng Chang",
+            "Cho-Jui Hsieh",
+            "Hsiang-Fu Yu",
+            "Wei Wang"
+          ]
+        },
+        {
+          "title": "MinPrompt: Graph-based Minimal Prompt Data Augmentation for Few-shot Question Answering",
+          "year": 2025,
+          "authors": [
+            "Xiusi Chen",
+            "Jyun-Yu Jiang",
+            "Wei-Cheng Chang",
+            "Cho-Jui Hsieh",
+            "Hsiang-Fu Yu",
+            "Wei Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:5d70db013e5e",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Missing Values in Longitudinal Proteome Dynamics Studies: Making a Case for Data Multiple Imputation",
+      "year": 2024,
+      "authors": [
+        "Yu Yan",
+        "Baradwaj S Sankar",
+        "Bilal Mirza",
+        "Dominic Ng",
+        "Alexander Pelletier",
+        "Sarah Huang",
+        "Wei Wang",
+        "Karol Watson",
+        "Ding Wang",
+        "Peipei Ping"
+      ],
+      "listed_venue": "g, Alexander Pelletier, Sarah Huang, Wei Wang, Karol Watson, Ding Wang, Peipei Ping, Journal of Proteome Research, 2024.",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 22 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Missing Values in Longitudinal Proteome Dynamics Studies: Making a Case for Data Multiple Imputation",
+          "year": 2023,
+          "authors": [
+            "Yu Yan",
+            "Baradwaj S Sankar",
+            "Bilal Mirza",
+            "Dominic Ng",
+            "Alexander Pelletier",
+            "Sarah Huang",
+            "Wei Wang",
+            "Karol Watson",
+            "Ding Wang",
+            "Peipei Ping"
+          ]
+        },
+        {
+          "title": "Missing Values in Longitudinal Proteome Dynamics Studies: Making a Case for Data Multiple Imputation",
+          "year": 2025,
+          "authors": [
+            "Yu Yan",
+            "Baradwaj S Sankar",
+            "Bilal Mirza",
+            "Dominic Ng",
+            "Alexander Pelletier",
+            "Sarah Huang",
+            "Wei Wang",
+            "Karol Watson",
+            "Ding Wang",
+            "Peipei Ping"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:0db2d5a34073",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Mitigating Bias for Question Answering Models by Tracking Bias Influence",
+      "year": 2024,
+      "authors": [
+        "Mingyu Derek Ma",
+        "Jiun-Yu Kao",
+        "Arpit Gupta",
+        "Yu-Hsiang Lin",
+        "Wenbo Zhao",
+        "Tagyoung Chung",
+        "Wei Wang",
+        "Kai-Wei Chang",
+        "Nanyun Peng"
+      ],
+      "listed_venue": "s of the Annual Conference of the North American Chapter of the Association for Computational Linguistics (NAACL), 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 38 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Mitigating Bias for Question Answering Models by Tracking Bias Influence",
+          "year": 2023,
+          "authors": [
+            "Mingyu Derek Ma",
+            "Jiun-Yu Kao",
+            "Arpit Gupta",
+            "Yu-Hsiang Lin",
+            "Wenbo Zhao",
+            "Tagyoung Chung",
+            "Wei Wang",
+            "Kai-Wei Chang",
+            "Nanyun Peng"
+          ]
+        },
+        {
+          "title": "Mitigating Bias for Question Answering Models by Tracking Bias Influence",
+          "year": 2025,
+          "authors": [
+            "Mingyu Derek Ma",
+            "Jiun-Yu Kao",
+            "Arpit Gupta",
+            "Yu-Hsiang Lin",
+            "Wenbo Zhao",
+            "Tagyoung Chung",
+            "Wei Wang",
+            "Kai-Wei Chang",
+            "Nanyun Peng"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:c86bb424b77a",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Physics-Informed Regularization for Domain-Agnostic Dynamical System Modeling",
+      "year": 2024,
+      "authors": [
+        "Zijie Huang",
+        "Wanjia Zhao",
+        "Jingdong Gao",
+        "Ziniu Hu",
+        "Xiao Luo",
+        "Yadi Cao",
+        "Yuanzhou Chen",
+        "Yizhou Sun",
+        "Wei Wang"
+      ],
+      "listed_venue": "u Sun, and Wei Wang, Proceedings of the 38th Annual Conference on Neural Information Processing Systems (NeurIPS), 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 25 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Physics-Informed Regularization for Domain-Agnostic Dynamical System Modeling",
+          "year": 2023,
+          "authors": [
+            "Zijie Huang",
+            "Wanjia Zhao",
+            "Jingdong Gao",
+            "Ziniu Hu",
+            "Xiao Luo",
+            "Yadi Cao",
+            "Yuanzhou Chen",
+            "Yizhou Sun",
+            "Wei Wang"
+          ]
+        },
+        {
+          "title": "Physics-Informed Regularization for Domain-Agnostic Dynamical System Modeling",
+          "year": 2025,
+          "authors": [
+            "Zijie Huang",
+            "Wanjia Zhao",
+            "Jingdong Gao",
+            "Ziniu Hu",
+            "Xiao Luo",
+            "Yadi Cao",
+            "Yuanzhou Chen",
+            "Yizhou Sun",
+            "Wei Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:6fd63206713c",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "PlayBest: Professional Basketball Player Behavior Synthesis via Planning with Diffusion",
+      "year": 2024,
+      "authors": [
+        "Xiusi Chen",
+        "Wei-Yao Wang",
+        "Ziniu Hu",
+        "David Reynoso",
+        "Kun Jin",
+        "Mingyan Liu",
+        "Jeffrey Brantingham",
+        "Wei Wang"
+      ],
+      "listed_venue": "and Wei Wang, Proceedings of the 33rd ACM International Conference on Information and Knowledge Management (CIKM), 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 169947182",
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 33 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1145/3627673.3680092"
+      ],
+      "external_ids": {
+        "arxiv": "2306.04090"
+      },
+      "metadata_aliases": [
+        {
+          "title": "PlayBest: Professional Basketball Player Behavior Synthesis via Planning with Diffusion",
+          "year": 2023,
+          "authors": [
+            "Xiusi Chen",
+            "Wei-Yao Wang",
+            "Ziniu Hu",
+            "David Reynoso",
+            "Kun Jin",
+            "Mingyan Liu",
+            "Jeffrey Brantingham",
+            "Wei Wang"
+          ]
+        },
+        {
+          "title": "PlayBest: Professional Basketball Player Behavior Synthesis via Planning with Diffusion",
+          "year": 2025,
+          "authors": [
+            "Xiusi Chen",
+            "Wei-Yao Wang",
+            "Ziniu Hu",
+            "David Reynoso",
+            "Kun Jin",
+            "Mingyan Liu",
+            "Jeffrey Brantingham",
+            "Wei Wang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2306.04090",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "PlayBest: Professional Basketball Player Behavior Synthesis via Planning with Diffusion",
+          "arxiv_year": 2023
+        },
+        {
+          "arxiv": "2306.04090",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "PlayBest: Professional Basketball Player Behavior Synthesis via Planning with Diffusion",
+          "arxiv_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:ec0fb02980db",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "SciBench: Evaluating College-Level Scientific Problem-Solving Abilities of Large Language Models",
+      "year": 2024,
+      "authors": [
+        "Xiaoxuan Wang",
+        "Ziniu Hu",
+        "Pan Lu",
+        "Yanqiao Zhu",
+        "Jieyu Zhang",
+        "Satyen Subramaniam",
+        "Arjun R Loomba",
+        "Shichang Zhang",
+        "Yizhou Sun",
+        "Wei Wang"
+      ],
+      "listed_venue": "hang Zhang, Yizhou Sun, and Wei Wang, Proceedings of the 41st International Conference on Machine Learning (ICML), 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 37 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "SciBench: Evaluating College-Level Scientific Problem-Solving Abilities of Large Language Models",
+          "year": 2023,
+          "authors": [
+            "Xiaoxuan Wang",
+            "Ziniu Hu",
+            "Pan Lu",
+            "Yanqiao Zhu",
+            "Jieyu Zhang",
+            "Satyen Subramaniam",
+            "Arjun R Loomba",
+            "Shichang Zhang",
+            "Yizhou Sun",
+            "Wei Wang"
+          ]
+        },
+        {
+          "title": "SciBench: Evaluating College-Level Scientific Problem-Solving Abilities of Large Language Models",
+          "year": 2025,
+          "authors": [
+            "Xiaoxuan Wang",
+            "Ziniu Hu",
+            "Pan Lu",
+            "Yanqiao Zhu",
+            "Jieyu Zhang",
+            "Satyen Subramaniam",
+            "Arjun R Loomba",
+            "Shichang Zhang",
+            "Yizhou Sun",
+            "Wei Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:d15b8e635ba0",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "SPEED++: A Multilingual Event Extraction Framework for Epidemic Prediction and Preparedness",
+      "year": 2024,
+      "authors": [
+        "Tanmay Parekh",
+        "Jeffrey Kwan",
+        "Jiarui Yu",
+        "Sparsh Johri",
+        "Hyosang Ahn",
+        "Sreya Muppalla",
+        "Kai-Wei Chang",
+        "Wei Wang",
+        "Nanyun Peng"
+      ],
+      "listed_venue": " Wang, and Nanyun Peng, Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP), 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 28 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "SPEED++: A Multilingual Event Extraction Framework for Epidemic Prediction and Preparedness",
+          "year": 2023,
+          "authors": [
+            "Tanmay Parekh",
+            "Jeffrey Kwan",
+            "Jiarui Yu",
+            "Sparsh Johri",
+            "Hyosang Ahn",
+            "Sreya Muppalla",
+            "Kai-Wei Chang",
+            "Wei Wang",
+            "Nanyun Peng"
+          ]
+        },
+        {
+          "title": "SPEED++: A Multilingual Event Extraction Framework for Epidemic Prediction and Preparedness",
+          "year": 2025,
+          "authors": [
+            "Tanmay Parekh",
+            "Jeffrey Kwan",
+            "Jiarui Yu",
+            "Sparsh Johri",
+            "Hyosang Ahn",
+            "Sreya Muppalla",
+            "Kai-Wei Chang",
+            "Wei Wang",
+            "Nanyun Peng"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:f4dcb5ff84da",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "STAR: Boosting Low-Resource Information Extraction by Structure-to-Text Data Generation with Large Language Models",
+      "year": 2024,
+      "authors": [
+        "Mingyu Derek Ma",
+        "Xiaoxuan Wang",
+        "Po-Nien Kung",
+        "P"
+      ],
+      "listed_venue": "rey Brantingham, Nanyun Peng, Wei Wang, Proceedings of the 38th AAAI Conference on Artificial Intelligence (AAAI), 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 43 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "target_name_not_found_in_byline"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "STAR: Boosting Low-Resource Information Extraction by Structure-to-Text Data Generation with Large Language Models",
+          "year": 2023,
+          "authors": [
+            "Mingyu Derek Ma",
+            "Xiaoxuan Wang",
+            "Po-Nien Kung",
+            "P"
+          ]
+        },
+        {
+          "title": "STAR: Boosting Low-Resource Information Extraction by Structure-to-Text Data Generation with Large Language Models",
+          "year": 2025,
+          "authors": [
+            "Mingyu Derek Ma",
+            "Xiaoxuan Wang",
+            "Po-Nien Kung",
+            "P"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:9491b7ec32d9",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "The PGNSC Benchmark: How Do We Predict Where Information Spreads?",
+      "year": 2024,
+      "authors": [
+        "Alexander K Taylor",
+        "Wei Wang"
+      ],
+      "listed_venue": "g, Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (ACL), pp. 15787-15803, 2024.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 36 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "The PGNSC Benchmark: How Do We Predict Where Information Spreads?",
+          "year": 2023,
+          "authors": [
+            "Alexander K Taylor",
+            "Wei Wang"
+          ]
+        },
+        {
+          "title": "The PGNSC Benchmark: How Do We Predict Where Information Spreads?",
+          "year": 2025,
+          "authors": [
+            "Alexander K Taylor",
+            "Wei Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:14c978edf66c",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "ATHENA: Atherosclerosis through Hierarchical Explainable Neural Network Analysis",
+      "year": 2025,
+      "authors": [
+        "Irsyad Adam",
+        "Steven Swee",
+        "Erika Yilin Zheng",
+        "Ethan Ji",
+        "William Speier",
+        "Ding Wang",
+        "Alex Bui",
+        "Wei Wang",
+        "Karol Watson",
+        "Peipei Ping"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 199301757"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1145/3765612.3767226"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "ATHENA: Atherosclerosis through Hierarchical Explainable Neural Network Analysis",
+          "year": 2024,
+          "authors": [
+            "Irsyad Adam",
+            "Steven Swee",
+            "Erika Yilin Zheng",
+            "Ethan Ji",
+            "William Speier",
+            "Ding Wang",
+            "Alex Bui",
+            "Wei Wang",
+            "Karol Watson",
+            "Peipei Ping"
+          ]
+        },
+        {
+          "title": "ATHENA: Atherosclerosis through Hierarchical Explainable Neural Network Analysis",
+          "year": 2026,
+          "authors": [
+            "Irsyad Adam",
+            "Steven Swee",
+            "Erika Yilin Zheng",
+            "Ethan Ji",
+            "William Speier",
+            "Ding Wang",
+            "Alex Bui",
+            "Wei Wang",
+            "Karol Watson",
+            "Peipei Ping"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:b8c776b3ddcd",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Beyond Answers: Transferring Reasoning Capabilities to Smaller LLMs Using Multi-Teacher Knowledge Distillation",
+      "year": 2025,
+      "authors": [
+        "Yijun Tian",
+        "Yikun Han",
+        "Xiusi Chen",
+        "Wei Wang",
+        "Nitesh Chawla"
+      ],
+      "listed_venue": "sh Chawla, Proceedings of the 18th ACM International Conference on Web Search and Data Mining (WSDM), pp. 251-260, 2025.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 178991151",
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 17 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1145/3701551.3703577"
+      ],
+      "external_ids": {
+        "arxiv": "2402.04616"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Beyond Answers: Transferring Reasoning Capabilities to Smaller LLMs Using Multi-Teacher Knowledge Distillation",
+          "year": 2024,
+          "authors": [
+            "Yijun Tian",
+            "Yikun Han",
+            "Xiusi Chen",
+            "Wei Wang",
+            "Nitesh Chawla"
+          ]
+        },
+        {
+          "title": "Beyond Answers: Transferring Reasoning Capabilities to Smaller LLMs Using Multi-Teacher Knowledge Distillation",
+          "year": 2026,
+          "authors": [
+            "Yijun Tian",
+            "Yikun Han",
+            "Xiusi Chen",
+            "Wei Wang",
+            "Nitesh Chawla"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2402.04616",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Beyond Answers: Transferring Reasoning Capabilities to Smaller LLMs Using Multi-Teacher Knowledge Distillation",
+          "arxiv_year": 2024
+        },
+        {
+          "arxiv": "2402.04616",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Beyond Answers: Transferring Reasoning Capabilities to Smaller LLMs Using Multi-Teacher Knowledge Distillation",
+          "arxiv_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:7038068880f3",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Designing metamaterials with programmable nonlinear responses and geometric constraints in graph space",
+      "year": 2025,
+      "authors": [
+        "Marco Maurizi",
+        "Derek Xu",
+        "Yu-Tong Wang",
+        "Desheng Yao",
+        "David Hahn",
+        "Mourad Oudich",
+        "Anish Satpati",
+        "Mathieu Bauchy",
+        "Wei Wang",
+        "Yizhou Sun",
+        "Yun Jing",
+        "Xiaoyu Rayne Zheng"
+      ],
+      "listed_venue": "nish Satpati, Mathieu Bauchy, Wei Wang, Yizhou Sun, Yun Jing, and Xiaoyu Rayne Zheng. Nature Machine Intelligence, 2025.",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Designing metamaterials with programmable nonlinear responses and geometric constraints in graph space",
+          "year": 2024,
+          "authors": [
+            "Marco Maurizi",
+            "Derek Xu",
+            "Yu-Tong Wang",
+            "Desheng Yao",
+            "David Hahn",
+            "Mourad Oudich",
+            "Anish Satpati",
+            "Mathieu Bauchy",
+            "Wei Wang",
+            "Yizhou Sun",
+            "Yun Jing",
+            "Xiaoyu Rayne Zheng"
+          ]
+        },
+        {
+          "title": "Designing metamaterials with programmable nonlinear responses and geometric constraints in graph space",
+          "year": 2026,
+          "authors": [
+            "Marco Maurizi",
+            "Derek Xu",
+            "Yu-Tong Wang",
+            "Desheng Yao",
+            "David Hahn",
+            "Mourad Oudich",
+            "Anish Satpati",
+            "Mathieu Bauchy",
+            "Wei Wang",
+            "Yizhou Sun",
+            "Yun Jing",
+            "Xiaoyu Rayne Zheng"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:8e274df72b7c",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "DoMiNO: Down-scaling Molecular Dynamics with Neural Graph Ordinary Differential Equations",
+      "year": 2025,
+      "authors": [
+        "Fang Sun",
+        "Zijie Huang",
+        "Yadi Cao",
+        "Xiao Luo",
+        "Wei Wang",
+        "Yizhou Sun"
+      ],
+      "listed_venue": "Fang Sun, Zijie Huang, Yadi Cao, Xiao Luo, Wei Wang, and Yizhou Sun, Proceedings of ICLR-MLMP Workshop, 2025.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 15 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "DoMiNO: Down-scaling Molecular Dynamics with Neural Graph Ordinary Differential Equations",
+          "year": 2024,
+          "authors": [
+            "Fang Sun",
+            "Zijie Huang",
+            "Yadi Cao",
+            "Xiao Luo",
+            "Wei Wang",
+            "Yizhou Sun"
+          ]
+        },
+        {
+          "title": "DoMiNO: Down-scaling Molecular Dynamics with Neural Graph Ordinary Differential Equations",
+          "year": 2026,
+          "authors": [
+            "Fang Sun",
+            "Zijie Huang",
+            "Yadi Cao",
+            "Xiao Luo",
+            "Wei Wang",
+            "Yizhou Sun"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:8ac3a735db20",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "GIVE: Structured Reasoning of Large Language Models with Knowledge Graph Inspired Veracity Extrapolation",
+      "year": 2025,
+      "authors": [
+        "Jiashu He",
+        "Mingyu Derek Ma",
+        "Jinxuan Fan",
+        "Dan Roth",
+        "Wei Wang",
+        "Alejandro Ribeiro"
+      ],
+      "listed_venue": "oth, Wei Wang, and Alejandro Ribeiro, Proceedings of the 42nd International Conference on Machine Learning (ICML), 2025.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 7 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "GIVE: Structured Reasoning of Large Language Models with Knowledge Graph Inspired Veracity Extrapolation",
+          "year": 2024,
+          "authors": [
+            "Jiashu He",
+            "Mingyu Derek Ma",
+            "Jinxuan Fan",
+            "Dan Roth",
+            "Wei Wang",
+            "Alejandro Ribeiro"
+          ]
+        },
+        {
+          "title": "GIVE: Structured Reasoning of Large Language Models with Knowledge Graph Inspired Veracity Extrapolation",
+          "year": 2026,
+          "authors": [
+            "Jiashu He",
+            "Mingyu Derek Ma",
+            "Jinxuan Fan",
+            "Dan Roth",
+            "Wei Wang",
+            "Alejandro Ribeiro"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:c2dab24f06be",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "GSR-Bench: Benchmarking Deployment in GitHub Science Repositories with LLMs",
+      "year": 2025,
+      "authors": [
+        "Yijia Xiao",
+        "Runhui Wang",
+        "Luyang Kong",
+        "Davor Golac",
+        "Wei Wang"
+      ],
+      "listed_venue": "s of the Annual Conference of the North American Chapter of the Association for Computational Linguistics (NAACL), 2025.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 10 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "GSR-Bench: Benchmarking Deployment in GitHub Science Repositories with LLMs",
+          "year": 2024,
+          "authors": [
+            "Yijia Xiao",
+            "Runhui Wang",
+            "Luyang Kong",
+            "Davor Golac",
+            "Wei Wang"
+          ]
+        },
+        {
+          "title": "GSR-Bench: Benchmarking Deployment in GitHub Science Repositories with LLMs",
+          "year": 2026,
+          "authors": [
+            "Yijia Xiao",
+            "Runhui Wang",
+            "Luyang Kong",
+            "Davor Golac",
+            "Wei Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:860384917ccf",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Inferring from Logits: Exploring Best Practices for Decoding-Free Generative Candidate Selection",
+      "year": 2025,
+      "authors": [
+        "Mingyu Derek Ma",
+        "Yanna Ding",
+        "Zijie Huang",
+        "Jianxi Gao",
+        "Yizhou Sun",
+        "Wei Wang"
+      ],
+      "listed_venue": " Sun, and Wei Wang, Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (ACL), 2025.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 6 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Inferring from Logits: Exploring Best Practices for Decoding-Free Generative Candidate Selection",
+          "year": 2024,
+          "authors": [
+            "Mingyu Derek Ma",
+            "Yanna Ding",
+            "Zijie Huang",
+            "Jianxi Gao",
+            "Yizhou Sun",
+            "Wei Wang"
+          ]
+        },
+        {
+          "title": "Inferring from Logits: Exploring Best Practices for Decoding-Free Generative Candidate Selection",
+          "year": 2026,
+          "authors": [
+            "Mingyu Derek Ma",
+            "Yanna Ding",
+            "Zijie Huang",
+            "Jianxi Gao",
+            "Yizhou Sun",
+            "Wei Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:942573501681",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Large Language Models Are Innate Crystal Structure Generators",
+      "year": 2025,
+      "authors": [
+        "Jingru Gan",
+        "Peichen Zhong",
+        "Yuanqi Du",
+        "Yanqiao Zhu",
+        "Chenru Duan",
+        "Haorui Wang",
+        "Daniel Schwalbe-Koda",
+        "Carla P Gomes",
+        "Kristin Persson",
+        "Wei Wang"
+      ],
+      "listed_venue": "Wang, Daniel Schwalbe-Koda, Carla P Gomes, Kristin Persson, and Wei Wang, Proceedings of the ICLR-AI4MAT Workshop, 2025.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 12 captured 2026-10-18",
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 13 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Large Language Models Are Innate Crystal Structure Generators",
+          "year": 2024,
+          "authors": [
+            "Jingru Gan",
+            "Peichen Zhong",
+            "Yuanqi Du",
+            "Yanqiao Zhu",
+            "Chenru Duan",
+            "Haorui Wang",
+            "Daniel Schwalbe-Koda",
+            "Carla P Gomes",
+            "Kristin Persson",
+            "Wei Wang"
+          ]
+        },
+        {
+          "title": "Large Language Models Are Innate Crystal Structure Generators",
+          "year": 2026,
+          "authors": [
+            "Jingru Gan",
+            "Peichen Zhong",
+            "Yuanqi Du",
+            "Yanqiao Zhu",
+            "Chenru Duan",
+            "Haorui Wang",
+            "Daniel Schwalbe-Koda",
+            "Carla P Gomes",
+            "Kristin Persson",
+            "Wei Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:74a426544d75",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Memorize and Rank: Elevating Large Language Models for Clinical Diagnosis Prediction",
+      "year": 2025,
+      "authors": [
+        "Mingyu Derek Ma",
+        "Xiaoxuan Wang",
+        "Yijia Xiao",
+        "Anthony Cuturrufo",
+        "Vijay S Nori",
+        "Eran Halperin",
+        "Wei Wang"
+      ],
+      "listed_venue": "ay S Nori, Eran Halperin, and Wei Wang, Proceedings of the 39th AAAI Conference on Artificial Intelligence (AAAI), 2025.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 18 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Memorize and Rank: Elevating Large Language Models for Clinical Diagnosis Prediction",
+          "year": 2024,
+          "authors": [
+            "Mingyu Derek Ma",
+            "Xiaoxuan Wang",
+            "Yijia Xiao",
+            "Anthony Cuturrufo",
+            "Vijay S Nori",
+            "Eran Halperin",
+            "Wei Wang"
+          ]
+        },
+        {
+          "title": "Memorize and Rank: Elevating Large Language Models for Clinical Diagnosis Prediction",
+          "year": 2026,
+          "authors": [
+            "Mingyu Derek Ma",
+            "Xiaoxuan Wang",
+            "Yijia Xiao",
+            "Anthony Cuturrufo",
+            "Vijay S Nori",
+            "Eran Halperin",
+            "Wei Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:d48cfc8be9d0",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "MetamatBench: Integrating Heterogeneous Data, Computational Tools, and Visual Interface for Metamaterial Discovery",
+      "year": 2025,
+      "authors": [
+        "Jianpeng Chen",
+        "Wangzhi Zhan",
+        "Haohui Wang",
+        "Zian Jia",
+        "Jingru Gan",
+        "Junkai Zhang",
+        "Jingyuan Qi",
+        "Tingwei Chen",
+        "Lifu Huang",
+        "Muhao Chen",
+        "Ling Li",
+        "Wei Wang",
+        "Dawei Zhou"
+      ],
+      "listed_venue": "Zhou, Proceedings of the 28th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (SIGKDD), 2025.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 4 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "MetamatBench: Integrating Heterogeneous Data, Computational Tools, and Visual Interface for Metamaterial Discovery",
+          "year": 2024,
+          "authors": [
+            "Jianpeng Chen",
+            "Wangzhi Zhan",
+            "Haohui Wang",
+            "Zian Jia",
+            "Jingru Gan",
+            "Junkai Zhang",
+            "Jingyuan Qi",
+            "Tingwei Chen",
+            "Lifu Huang",
+            "Muhao Chen",
+            "Ling Li",
+            "Wei Wang",
+            "Dawei Zhou"
+          ]
+        },
+        {
+          "title": "MetamatBench: Integrating Heterogeneous Data, Computational Tools, and Visual Interface for Metamaterial Discovery",
+          "year": 2026,
+          "authors": [
+            "Jianpeng Chen",
+            "Wangzhi Zhan",
+            "Haohui Wang",
+            "Zian Jia",
+            "Jingru Gan",
+            "Junkai Zhang",
+            "Jingyuan Qi",
+            "Tingwei Chen",
+            "Lifu Huang",
+            "Muhao Chen",
+            "Ling Li",
+            "Wei Wang",
+            "Dawei Zhou"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:eaea31af5bcc",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "MetaScientist: A Human-AI Synergistic Framework for Automated Mechanical Metamaterial Design",
+      "year": 2025,
+      "authors": [
+        "Jingyuan Qi",
+        "Zian Jia",
+        "Minqian Liu",
+        "Wangzhi Zhan",
+        "Junkai Zhang",
+        "Xiaofei Wen",
+        "Jingru Gan",
+        "Jianpeng Chen",
+        "Qin Liu",
+        "Mingyu Derek Ma",
+        "Bangzheng Li",
+        "Haohui Wang",
+        "Adithya Kulkarni",
+        "Muhao Chen",
+        "Dawei Zhou",
+        "Ling Li",
+        "Wei Wang",
+        "Lifu Huang"
+      ],
+      "listed_venue": "s of the Annual Conference of the North American Chapter of the Association for Computational Linguistics (NAACL), 2025.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 11 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "MetaScientist: A Human-AI Synergistic Framework for Automated Mechanical Metamaterial Design",
+          "year": 2024,
+          "authors": [
+            "Jingyuan Qi",
+            "Zian Jia",
+            "Minqian Liu",
+            "Wangzhi Zhan",
+            "Junkai Zhang",
+            "Xiaofei Wen",
+            "Jingru Gan",
+            "Jianpeng Chen",
+            "Qin Liu",
+            "Mingyu Derek Ma",
+            "Bangzheng Li",
+            "Haohui Wang",
+            "Adithya Kulkarni",
+            "Muhao Chen",
+            "Dawei Zhou",
+            "Ling Li",
+            "Wei Wang",
+            "Lifu Huang"
+          ]
+        },
+        {
+          "title": "MetaScientist: A Human-AI Synergistic Framework for Automated Mechanical Metamaterial Design",
+          "year": 2026,
+          "authors": [
+            "Jingyuan Qi",
+            "Zian Jia",
+            "Minqian Liu",
+            "Wangzhi Zhan",
+            "Junkai Zhang",
+            "Xiaofei Wen",
+            "Jingru Gan",
+            "Jianpeng Chen",
+            "Qin Liu",
+            "Mingyu Derek Ma",
+            "Bangzheng Li",
+            "Haohui Wang",
+            "Adithya Kulkarni",
+            "Muhao Chen",
+            "Dawei Zhou",
+            "Ling Li",
+            "Wei Wang",
+            "Lifu Huang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:2a3ea34e37a3",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Mixture of In-Context Prompters for Tabular PFNs",
+      "year": 2025,
+      "authors": [
+        "Derek Xu",
+        "F Olcay Cirit",
+        "Reza Asadi",
+        "Yizhou Sun",
+        "Wei Wang"
+      ],
+      "listed_venue": "di, Yizhou Sun, and Wei Wang, Proceedings of the 13th International Conference on Learning Representations (ICLR), 2025.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 16 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Mixture of In-Context Prompters for Tabular PFNs",
+          "year": 2024,
+          "authors": [
+            "Derek Xu",
+            "F Olcay Cirit",
+            "Reza Asadi",
+            "Yizhou Sun",
+            "Wei Wang"
+          ]
+        },
+        {
+          "title": "Mixture of In-Context Prompters for Tabular PFNs",
+          "year": 2026,
+          "authors": [
+            "Derek Xu",
+            "F Olcay Cirit",
+            "Reza Asadi",
+            "Yizhou Sun",
+            "Wei Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:628bcdfdf1bf",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Neural Network-Assisted Personalized Handwriting Analysis for Parkinson�s Disease Diagnostics",
+      "year": 2025,
+      "authors": [
+        "Guorui Chen",
+        "Trinny Tat",
+        "Yihao Zhou",
+        "Zhaoqi Duan",
+        "Junkai Zhang",
+        "Kamryn Scott",
+        "Xun Zhao",
+        "Zeyang Liu",
+        "Wei Wang",
+        "Song Li",
+        "A. Katy"
+      ],
+      "listed_venue": ", Kamryn Scott, Xun Zhao, Zeyang Liu, Wei Wang, Song Li, Katy A. Cross, and Jun Chen, Nature Chemical Engineering, 2025.",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 2 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Neural Network-Assisted Personalized Handwriting Analysis for Parkinson�s Disease Diagnostics",
+          "year": 2024,
+          "authors": [
+            "Guorui Chen",
+            "Trinny Tat",
+            "Yihao Zhou",
+            "Zhaoqi Duan",
+            "Junkai Zhang",
+            "Kamryn Scott",
+            "Xun Zhao",
+            "Zeyang Liu",
+            "Wei Wang",
+            "Song Li",
+            "A. Katy"
+          ]
+        },
+        {
+          "title": "Neural Network-Assisted Personalized Handwriting Analysis for Parkinson�s Disease Diagnostics",
+          "year": 2026,
+          "authors": [
+            "Guorui Chen",
+            "Trinny Tat",
+            "Yihao Zhou",
+            "Zhaoqi Duan",
+            "Junkai Zhang",
+            "Kamryn Scott",
+            "Xun Zhao",
+            "Zeyang Liu",
+            "Wei Wang",
+            "Song Li",
+            "A. Katy"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:8fd1c635b69e",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Neural Network Pruning for Invariance Learning",
+      "year": 2025,
+      "authors": [
+        "Derek Xu",
+        "Yuanzhou Chen",
+        "Yizhou Sun",
+        "Wei Wang"
+      ],
+      "listed_venue": "Wang, Proceedings of the 28th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (SIGKDD), 2025.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 181627613",
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 5 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1145/3690624.3709262"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Neural Network Pruning for Invariance Learning",
+          "year": 2024,
+          "authors": [
+            "Derek Xu",
+            "Yuanzhou Chen",
+            "Yizhou Sun",
+            "Wei Wang"
+          ]
+        },
+        {
+          "title": "Neural Network Pruning for Invariance Learning",
+          "year": 2026,
+          "authors": [
+            "Derek Xu",
+            "Yuanzhou Chen",
+            "Yizhou Sun",
+            "Wei Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:65ffd40df39a",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "ProteinGPT: Multimodal LLM for Protein Property Prediction and Structure Understanding",
+      "year": 2025,
+      "authors": [
+        "Yijia Xiao",
+        "Edward Sun",
+        "Yiqiao Jin",
+        "Qifan Wang",
+        "Wei Wang"
+      ],
+      "listed_venue": "Yijia Xiao, Edward Sun, Yiqiao Jin, Qifan Wang, and Wei Wang, Proceedings of ICLR-MLGenX Workshop, 2025.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 14 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "ProteinGPT: Multimodal LLM for Protein Property Prediction and Structure Understanding",
+          "year": 2024,
+          "authors": [
+            "Yijia Xiao",
+            "Edward Sun",
+            "Yiqiao Jin",
+            "Qifan Wang",
+            "Wei Wang"
+          ]
+        },
+        {
+          "title": "ProteinGPT: Multimodal LLM for Protein Property Prediction and Structure Understanding",
+          "year": 2026,
+          "authors": [
+            "Yijia Xiao",
+            "Edward Sun",
+            "Yiqiao Jin",
+            "Qifan Wang",
+            "Wei Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:b1df474fae07",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Rethink GraphODE Generalization within Coupled Dynamical System",
+      "year": 2025,
+      "authors": [
+        "Guancheng Wan",
+        "Zijie Huang",
+        "Wanjia Zhao",
+        "Xiao Luo",
+        "Yizhou Sun",
+        "Wei Wang"
+      ],
+      "listed_venue": ", Xiao Luo, Yizhou Sun, and Wei Wang, Proceedings of the 42nd International Conference on Machine Learning (ICML), 2025.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 8 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Rethink GraphODE Generalization within Coupled Dynamical System",
+          "year": 2024,
+          "authors": [
+            "Guancheng Wan",
+            "Zijie Huang",
+            "Wanjia Zhao",
+            "Xiao Luo",
+            "Yizhou Sun",
+            "Wei Wang"
+          ]
+        },
+        {
+          "title": "Rethink GraphODE Generalization within Coupled Dynamical System",
+          "year": 2026,
+          "authors": [
+            "Guancheng Wan",
+            "Zijie Huang",
+            "Wanjia Zhao",
+            "Xiao Luo",
+            "Yizhou Sun",
+            "Wei Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:0592d5c5d0d1",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "ShuttleSHAP: A Turn-Based Feature Attribution Approach for Analyzing Forecasting Models in Badminton",
+      "year": 2025,
+      "authors": [
+        "Wei-Yao Wang",
+        "Wen-Chih Peng",
+        "Wei Wang",
+        "S. Philip"
+      ],
+      "listed_venue": " and Philip S. Yu, Proceedings of the 29th Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD), 2025.",
+      "work_types": [
+        "book_chapter",
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 186317595",
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 9 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1007/978-981-96-8295-9_33"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "ShuttleSHAP: A Turn-Based Feature Attribution Approach for Analyzing Forecasting Models in Badminton",
+          "year": 2024,
+          "authors": [
+            "Wei-Yao Wang",
+            "Wen-Chih Peng",
+            "Wei Wang",
+            "S. Philip"
+          ]
+        },
+        {
+          "title": "ShuttleSHAP: A Turn-Based Feature Attribution Approach for Analyzing Forecasting Models in Badminton",
+          "year": 2026,
+          "authors": [
+            "Wei-Yao Wang",
+            "Wen-Chih Peng",
+            "Wei Wang",
+            "S. Philip"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:8675698b41c2",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Towards LifeSpan Cognitive Systems",
+      "year": 2025,
+      "authors": [
+        "Yu Wang",
+        "Chi Han",
+        "Tongtong Wu",
+        "Xiaoxin He",
+        "Wangchunshu Zhou",
+        "Nafis Sadeq",
+        "Xiusi Chen",
+        "Zexue He",
+        "Wei Wang",
+        "Gholamreza Haffari",
+        "Heng Ji",
+        "Julian McAuley"
+      ],
+      "listed_venue": " Chen, Zexue He, Wei Wang, Gholamreza Haffari, Heng Ji, Julian McAuley, Transactions on Machine Learning Research, 2025.",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 3 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Towards LifeSpan Cognitive Systems",
+          "year": 2024,
+          "authors": [
+            "Yu Wang",
+            "Chi Han",
+            "Tongtong Wu",
+            "Xiaoxin He",
+            "Wangchunshu Zhou",
+            "Nafis Sadeq",
+            "Xiusi Chen",
+            "Zexue He",
+            "Wei Wang",
+            "Gholamreza Haffari",
+            "Heng Ji",
+            "Julian McAuley"
+          ]
+        },
+        {
+          "title": "Towards LifeSpan Cognitive Systems",
+          "year": 2026,
+          "authors": [
+            "Yu Wang",
+            "Chi Han",
+            "Tongtong Wu",
+            "Xiaoxin He",
+            "Wangchunshu Zhou",
+            "Nafis Sadeq",
+            "Xiusi Chen",
+            "Zexue He",
+            "Wei Wang",
+            "Gholamreza Haffari",
+            "Heng Ji",
+            "Julian McAuley"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_wei_wang_ucla:27abc49e77f7",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "TradingAgents: Multi-agent LLM financial trading framework",
+      "year": 2025,
+      "authors": [
+        "Yijia Xiao",
+        "Edward Sun",
+        "Di Luo",
+        "Wei Wang"
+      ],
+      "listed_venue": "Multi-Agent AI in the Real World Track, Proceedings of the 39th AAAI Conference on Artificial Intelligence (AAAI), 2025.",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 19 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "TradingAgents: Multi-agent LLM financial trading framework",
+          "year": 2024,
+          "authors": [
+            "Yijia Xiao",
+            "Edward Sun",
+            "Di Luo",
+            "Wei Wang"
+          ]
+        },
+        {
+          "title": "TradingAgents: Multi-agent LLM financial trading framework",
+          "year": 2026,
+          "authors": [
+            "Yijia Xiao",
+            "Edward Sun",
+            "Di Luo",
+            "Wei Wang"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "reason": "outside_year_window",
+      "title": "COVID-19 Surveiller: toward a robust and effective pandemic surveillance system based on social media mining",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 103545775"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "CREATe: Clinical report extraction and annotation technology",
+      "year": 2021,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880186",
+        "ORCID 0000-0002-8180-2886 put-code 108880438"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Towards fine-grained reasoning for fake news detection",
+      "year": 2021,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880180"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Powering Comparative Classification with Sentiment Analysis via Domain Adaptive Knowledge Transfer",
+      "year": 2021,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880181"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "#StayHome or #Marathon? social media enhanced pandemic surveillance on spatial-temporal dynamic graphs",
+      "year": 2021,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880182"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Linical named entity recognition using contextualized token representations",
+      "year": 2021,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880183"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Universal representation learning of knowledge bases by jointly embedding instances and ontological concepts",
+      "year": 2019,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880184",
+        "ORCID 0000-0002-8180-2886 put-code 108880389"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Bi-level graph neural networks for drug-drug interaction prediction",
+      "year": 2020,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880191"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "SEIZE: Runtime Inspection for Parallel Dataflow Systems",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880249"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "JEDI: Circular RNA Prediction based on Junction Encoders and Deep Interaction among Splice Sites",
+      "year": 2020,
+      "work_types": [
+        "journal_article",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880283",
+        "ORCID 0000-0002-8180-2886 put-code 108880414"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "You Are What and Where You Are: Graph Enhanced Attention Network for Explainable POI Recommendation",
+      "year": 2021,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880343"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Node Classification in Temporal Graphs Through Stochastic Sparsification and Temporal Structural Convolution",
+      "year": 2021,
+      "work_types": [
+        "book"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880402"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Code Recommendation for Open Source Software Developers",
+      "year": 2023,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 133846205"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Generalizing Graph ODE for Learning Complex System Dynamics across Environments",
+      "year": 2023,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 139908716"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Bio-JOIE: Joint Representation Learning of Biological Knowledge Bases",
+      "year": 2020,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880185",
+        "ORCID 0000-0002-8180-2886 put-code 108880279",
+        "ORCID 0000-0002-8180-2886 put-code 108880475"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "#StayHome or #Marathon?: Social Media Enhanced Pandemic Surveillance on Spatialoral Dynamic Graphs",
+      "year": 2021,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880282"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Discovering Undisclosed Paid Partnership on Social Media via Aspect-Attentive Sponsored Post Learning",
+      "year": 2021,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880285"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Automatic speaker recognition with limited data",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880291"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Adversarial Cooperative Imitation Learning for Dynamic Treatment Regimes",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880298"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Adversarial learning to compare: Self-attentive prospective customer recommendation in location based social networks",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880337"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Knowledge Source Rankings for Semi-Supervised Topic Modeling",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880377"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Second Look at FAIR in Proteomic Investigations",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880381"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "On the Utility of Combining Topic Models and Recurrent Neural Networks",
+      "year": 2021,
+      "work_types": [
+        "book"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880390"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Coupled Graph ODE for Learning Interacting System Dynamics",
+      "year": 2021,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880427"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "The Biased Coin Flip Process for Nonparametric Topic Modeling",
+      "year": 2021,
+      "work_types": [
+        "book"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880440"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "MEDTO: Medical Data to Ontology Matching Using Hybrid Graph Neural Networks",
+      "year": 2021,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880447"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "TahcoRoll: fast genomic signature profiling via thinned automaton and rolling hash",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108079905"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Where Does Your News Come From? Predicting Information Pathways in Social Media",
+      "year": 2023,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 138921552"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "CoRGI: GNNs with Convolutional Residual Global Interactions for Lagrangian Simulation",
+      "year": 2026,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 222963867"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "RelSciFM 2026: The workshop on Reliable Scientific Foundation Models: Design, Training, Grounding, and Verification",
+      "year": 2026,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 222963865"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "The International Workshop on AI for Cognitive and Mental Health Support",
+      "year": 2026,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 222963866"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "TIDAL: A Temporal Causal Diffusion Framework for Visualizing Knee Osteoarthritis Treatment Outcomes",
+      "year": 2026,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 222963868"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Multimodal LLM with Hierarchical Mixture-of-Experts for VQA on 3D Brain MRI",
+      "year": 2026,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 222963869"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "From VAEs to Diffusion and LLMs: Modern Generative Models for Molecular Discovery",
+      "year": 2026,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 222963870"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "FD-Bench: A Modular and Fair Benchmark for Data-driven Fluid Simulation",
+      "year": 2026,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 222963871"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "DoMiNO: Decomposing Molecular Dynamics with Multi-Scale Neural Graph Ordinary Differential Equations",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 218243436"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "RespMultimodal 2026: Responsible Multimodal Foundation Models for Knowledge Discovery",
+      "year": 2026,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 222982509"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Self-Guided Diffusion Model for Accelerating Computational Fluid Dynamics",
+      "year": 2026,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 222402038"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Introduction to the Special Issue on Integrating Large Language Models and Knowledge Graphs for Generative AI",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 219356055"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Clinical temporal relation extraction with probabilistic soft logic regularization and global inference",
+      "year": 2020,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880187"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Long document ranking with query-directed sparse transformer",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880197"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning continuous system dynamics from irregularly-sampled partial observations",
+      "year": 2020,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880188",
+        "ORCID 0000-0002-8180-2886 put-code 108880198"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Multivariate time series classification with hierarchical variational graph pooling",
+      "year": 2020,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880189"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning to create better Ads: generation and ranking approaches for Ad creative refinement",
+      "year": 2020,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880190",
+        "ORCID 0000-0002-8180-2886 put-code 108880333"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "GLSearch: Maximum common subgraph detection via learning to search",
+      "year": 2020,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880195"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Robust graph representation learning via neural sparsification",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880199"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning-based efficient graph similarity computation via multi-scale convolutional set matching",
+      "year": 2018,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880200",
+        "ORCID 0000-0002-8180-2886 put-code 108880210"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "De novo Nanopore read quality improvement using deep learning",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880270"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Clustering and Constructing User Coresets to Accelerate Large-scale Top-K Recommender Systems",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880312"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "SpEC: Sparse Embedding-Based Community Detection in Attributed Graphs",
+      "year": 2020,
+      "work_types": [
+        "book"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880342"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Few-Shot Learning for New User Recommendation in Location-based Social Networks",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880346"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Corals: Who are my potential new customers? Tapping into the wisdom of customers' decisions",
+      "year": 2019,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880351"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Multimodal Post Attentive Profiling for Influencer Marketing",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880356"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "End-to-End Deep Attentive Personalized Item Retrieval for Online Content-sharing Platforms",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880357"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Deep learning in bioinformatics",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880272"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "CoSimGNN: Towards large-scale graph similarity computation",
+      "year": 2020,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880192"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "The boating store had its best sail ever: Pronunciation-Attentive contextualized pun recognition",
+      "year": 2020,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880193"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Software language comprehension using a program-derived semantic graph",
+      "year": 2020,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880194"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Recommending themes for ad creative design via visual-linguistic representations",
+      "year": 2020,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880196",
+        "ORCID 0000-0002-8180-2886 put-code 108880301"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning to discriminate perturbations for blocking adversarial attacks in text classification",
+      "year": 2019,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880201",
+        "ORCID 0000-0002-8180-2886 put-code 108880205"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Enhancing air quality prediction with social media and natural language processing",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880202"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning gender-neutral word embeddings",
+      "year": 2018,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880203",
+        "ORCID 0000-0002-8180-2886 put-code 108880211"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Sparse regression models for unraveling group and individual associations in eQTL mapping",
+      "year": 2020,
+      "work_types": [
+        "book"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880376"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Social Media User Geolocation via Hybrid Attention",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880305"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "P-Companion: A Principled Framework for Diversified Complementary Product Recommendation",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880321"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "MARU: Meta-context Aware Random Walks for Heterogeneous Network Representation Learning",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880336"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "DynGraphGAN: Dynamic graph embedding via generative adversarial networks",
+      "year": 2019,
+      "work_types": [
+        "book"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880353"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Crowdsourced Traffic Data as an Emerging Tool to Monitor Car Crashes",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880364"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Interpretable click-through rate prediction through hierarchical attention",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880367"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Measuring Time-Sensitive and Topic-Specific Influence in Social Networks with LSTM and Self-Attention",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880369"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "On-demand Influencer Discovery on Social Media",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880371"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Identifying temporal molecular signatures underlying cardiovascular diseases: A data science platform",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880372"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "PolyCluster: Minimum Fragment Disagreement Clustering for Polyploid Phasing",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880374"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Fast adaptation for cold-start collaborative filtering with meta-learning",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880379"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Memory-based random walk for multi-query local community detection",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880407"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mutation effect estimation on protein-protein interactions using deep contextualized representation learning",
+      "year": 2019,
+      "work_types": [
+        "journal_article",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880332",
+        "ORCID 0000-0002-8180-2886 put-code 108880412"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A comprehensive typing system for information extraction from clinical narratives",
+      "year": 2019,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880420"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Cloud-Based Phrase Mining and Analysis of User-Defined Phrase-Category Association in Biomedical Publications",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880424"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Heterogeneous network embedding enabling accurate disease association predictions",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880431"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Seize user desired moments: Runtime inspection for parallel dataflow systems",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880455"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Click feedback-aware query recommendation using adversarial examples",
+      "year": 2019,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880461"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Correction to: Memory-based random walk for multi-query local community detection (Knowledge and Information Systems, (2020), 62, 5, (2067-2101), 10.1007/s10115-019-01398-3)",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880472"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Bridging Mixture Density Networks with Meta-Learning for Automatic Speaker Identification",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880473"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "MetaPheno: A critical evaluation of deep learning and machine learning in metagenome-based disease prediction",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 56517326"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Identifying Sleep-Deprived Authors of Tweets: Prospective Study",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 65646255"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Convolutional set matching for graph similarity",
+      "year": 2018,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880209"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "OpBerg: Discovering causal sentences using optimal alignments",
+      "year": 2019,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880206"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Unsupervised inductive graph-level representation learning via graph-graph proximity",
+      "year": 2019,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880207",
+        "ORCID 0000-0002-8180-2886 put-code 108880260"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Personalized question routing via heterogeneous network embedding",
+      "year": 2019,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880208"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Phrase mining of textual data to analyze extracellular matrix protein patterns across cardiovascular disease",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880243"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Graph edit distance computation via graph neural networks",
+      "year": 2018,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880212"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Aztec: A platform to render biomedical software findable, accessible, interoperable, and reusable",
+      "year": 2017,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880214"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "On Multi-query Local Community Detection",
+      "year": 2018,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880262"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "AZTEC: A cloud-based computational platform to integrate biomedical resources",
+      "year": 2017,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880264"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Open source repository recommendation in social coding",
+      "year": 2017,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880277"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Inferring Microbial Communities for City Scale Metagenomics Using Neural Networks",
+      "year": 2019,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880275"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning to predict human stress level with incomplete sensor data from wearable devices",
+      "year": 2019,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880344"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learn smart with less: Building better online decision trees with fewer training examples",
+      "year": 2019,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880385"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Identifying users behind shared accounts in online streaming services",
+      "year": 2018,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880354"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A reference set of curated biomedical data and metadata from clinical case reports",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880408"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Efficient Approach to Correct Read Alignment for Pseudogene Abundance Estimates",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880413"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "SimgNN: A neural network approach to fast graph similarity computation",
+      "year": 2019,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880278"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Modeling co-evolution across multiple networks",
+      "year": 2018,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880280"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "RiN: Reformulation inference network for context-aware query suggestion",
+      "year": 2018,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880281"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning robust representations with graph denoising policy network",
+      "year": 2019,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880204",
+        "ORCID 0000-0002-8180-2886 put-code 108880325"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning to disentangle interleaved conversational threads with a siamese hierarchical network and similarity ranking",
+      "year": 2018,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880213"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Source-LDA: Enhancing probabilistic topic models using prior knowledge sources",
+      "year": 2017,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880250"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Predicting Disease-related Associations by Heterogeneous Network Embedding",
+      "year": 2019,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880292"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Biomedical informatics on the cloud: A treasure hunt for advancing cardiovascular medicine",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880302"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Event Detection and Summarization Using Phrase Network",
+      "year": 2017,
+      "work_types": [
+        "book"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880303"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "MiniScrub: de novo long read scrubbing using approximate alignment and deep learning",
+      "year": 2018,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880308"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "ResearchMaps.org for integrating and planning research",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880317"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Approximating Isotope Distributions of Biomolecule Fragments",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880318"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Multifaceted protein-protein interaction prediction based on Siamese residual RCNN",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880326"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Computer-aided experiment planning toward causal discovery in neuroscience",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880339"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A randomized approach to speed up the analysis of large-scale read-count data in the application of CNV detection",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880360"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Self-attentive attributed network embedding through adversarial learning",
+      "year": 2019,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880368"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Machine learning and integrative analysis of biomedical big data",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880388"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "TahcoRoll: An Efficient Approach for Signature Profiling in Genomic Data through Variable-Length k-mers",
+      "year": 2017,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880404"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Ranking causal anomalies for system fault diagnosis via temporal and dynamical analysis on vanishing correlations",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880405"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "NetWalk: A flexible deep embedding approach for anomaly detection in dynamic networks",
+      "year": 2018,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880409"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Fleximer: Accurate quantification of RNA-Seq via variable-length k-mers",
+      "year": 2017,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880418"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Link prediction with spatial and temporal consistency in dynamic networks",
+      "year": 2017,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880428"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Unsupervised classification of multi-omics data during cardiac remodeling using deep learning",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880432"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning deep network representations with adversarially regularized autoencoders",
+      "year": 2018,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880453"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A metadata extraction approach for clinical case reports to enable advanced understanding of biomedical concepts",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880458"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Prediction of microbial communities for urban metagenomics using neural network approach",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880474"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Identifying Sleep-Deprived Authors of Tweets: Prospective Study (Preprint)",
+      "year": 2018,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 65646254"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Robust methods for expression quantitative trait loci mapping",
+      "year": 2016,
+      "work_types": [
+        "book"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880215"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Spotlite: Web application and augmented algorithms for predicting co-complexed proteins from affinity purification - Mass spectrometry data",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880256"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Robust multi-network clustering via joint cross-domain cluster alignment",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880258"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Translating literature into causal graphs: Toward automated experiment selection",
+      "year": 2017,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880273"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Fast and robust group-wise eQTL mapping using sparse graphical models",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880286"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "HTreeQA: Using semi-perfect phylogeny trees in quantitative trait loci study on genotype data",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880323"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Demo: Towards customer trouble tickets resolution automation in large cellular services",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880329"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Metric learning from relative comparisons by minimizing squared residual",
+      "year": 2012,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880330"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Bayesian modeling of haplotype effects in multiparent populations",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880348"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "CGC: A flexible and robust approach to integrating co-regularized multi-domain graph for clustering",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880352"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Max-intensity: Detecting competitive advertiser communities in sponsored search market",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880362"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Heritability and genomics of gene expression in peripheral blood",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880261"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Data science for social good 2014 KDD highlights",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880216"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Toward automating HIV identification: Machine learning for rapid identification of HIV-related social media data",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880244"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Analyses of allele-specific gene expression in highly divergent mouse crosses identifies pervasive allelic imbalance",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880290"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Improving detection of copy-number variation by simultaneous bias correction and read-depth segmentation",
+      "year": 2013,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880294"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Sparse regression models for unraveling group and individual associations in eQTL mapping",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880295"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Individual haplotyping prediction agreements",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880296"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A novel multi-alignment pipeline for high-throughput sequencing data",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880299"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Flexible and robust co-regularized multi-domain graph clustering",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880309"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "PseudoLasso: Leveraging read alignment in homologous regions to correct pseudogene expression estimates via RNASeq",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880310"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "ICSC 2015 message from the program chairs",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880311"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "HapColor: A graph coloring framework for polyploidy phasing",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880313"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "FastHap: Fast and accurate single individual haplotype reconstruction using fuzzy conflict graphs",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880314"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "REAFUM: Representative approximate frequent subgraph mining",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880315"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "MaCH-Admix: Genotype Imputation for Admixed Populations",
+      "year": 2013,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880338"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Ranking causal anomalies via temporal and dynamical analysis on vanishing correlations",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880345"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Inferring novel associations between SNP sets and gene sets in eQTL study using sparse graphical model",
+      "year": 2012,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880358"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Temporally factorized network modeling for evolutionary network analysis",
+      "year": 2017,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880375"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Hierarchical co-clustering based on entropy splitting",
+      "year": 2012,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880391"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Transforming genomes using MOD files with applications",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880397"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Read annotation pipeline for high-throughput sequencing data",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880399"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "GeneScissors: A comprehensive approach to detecting and correcting spurious transcriptome inference owing to RNA-seq reads misalignment",
+      "year": 2013,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880401"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Using the emerging Collaborative Cross to probe the immune system",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880403"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "MSAcquisitionSimulator: Data-dependent acquisition simulator for LC-MS shotgun proteomics",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880410"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Genome-wide association mapping of loci for antipsychotic-induced extrapyramidal symptoms in mice",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880411"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Graph-regularized dual Lasso for robust eQTL mapping",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880421"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "RNA-Skim: A rapid method for RNA-Seq quantification at transcript level",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880429"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "High-resolution sex-specific linkage maps of the mouse reveal polarized distribution of crossovers in male germline",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880435"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Message from the workshop co-chairs",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880436"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Message from the Program Chairs",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880439"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Uncovering Medical Insights from Vast Amounts of Biomedical Data in Clinical Case Reports",
+      "year": 2017,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880441"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "HICC: an entropy splitting-based framework for hierarchical co-clustering",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880444"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning transcriptional regulatory relationships using sparse graphical models",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880445"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Allele-specific copy-number discovery from whole-genome and whole-exome sequencing",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880449"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Genotype Imputation of Metabochip SNPs Using a Study-Specific Reference Panel of ~4,000 haplotypes in African Americans From the women's health initiative",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880451"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Chapter 10: Mining Genome-Wide Genetic Markers",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880454"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Searching dimension incomplete databases",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880457"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Dual transfer learning",
+      "year": 2012,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880462"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Total orderings defined on the set of all fuzzy numbers",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880464"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Finding high-order correlations in high-dimensional biological data",
+      "year": 2010,
+      "work_types": [
+        "book"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880217"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Treeqa: Quantitative genome wide association mapping using local perfect phylogeny trees",
+      "year": 2009,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880219"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Identification of family-specific residue packing motifs and their use for structure-based protein function prediction: II. Case studies and applications",
+      "year": 2009,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880252"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Functional neighbors: Inferring relationships between nonhomologous protein families using family-specific packing motifs",
+      "year": 2010,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880254"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A fast algorithm for approximate quantiles in high speed data streams",
+      "year": 2007,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880259"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "On demand phenotype ranking through subspace clustering",
+      "year": 2007,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880263"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "An efficient algorithm for mining coherent patterns from heterogeneous microarrays",
+      "year": 2007,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880274"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Gene set analysis using principal components",
+      "year": 2010,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880267"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mining RNA tertiary motifs with structure graphs",
+      "year": 2007,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880276"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Accelerating profile queries in elevation maps",
+      "year": 2007,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880297"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Benchmarking the effectiveness of sequential pattern mining methods",
+      "year": 2007,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880293"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Rapid and robust resampling-based multiple-testing correction with application in a genome-wide expression quantitative trait loci study",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880341"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mining approximate order preserving clusters in the presence of noise",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880384"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Intelligent sequential mining via alignment: Optimization techniques for very large DB",
+      "year": 2007,
+      "work_types": [
+        "book"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880349"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Genome-wide compatible SNP intervals and their properties",
+      "year": 2010,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880383"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "CARE: Finding local linear correlations in high dimensional data",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880386"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mining non-redundant high order correlations in binary data",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880416"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Efficient algorithms for genome-wide association study",
+      "year": 2009,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880419"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "COE: A general approach for efficient genome-wide two-locus epistasis test in disease association study",
+      "year": 2009,
+      "work_types": [
+        "book",
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880324",
+        "ORCID 0000-0002-8180-2886 put-code 108880433"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "FastANOVA: An efficient algorithm for genome-wide association study",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880434"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "CRD: Fast co-clustering on large datasets utilizing sampling-based matrix decomposition",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880442"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Incremental subspace clustering over multiple data streams",
+      "year": 2007,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880446"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Graph database indexing using structured graph decomposition",
+      "year": 2007,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880257"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Quantitative association analysis using tree hierarchies",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880271"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Fastchi: An efficient algorithm for analyzing gene-gene interactions",
+      "year": 2009,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880218"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Inferring genome-wide mosaic structure",
+      "year": 2009,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880220"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "TKDD special issue SIGKDD 2009",
+      "year": 2010,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880253"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "The genome architecture of the collaborative cross mouse genetic reference population",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880284"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "SeeQTL: A searchable database for human eQTLs",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880287"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A general framework for fast co-clustering on large datasets using matrix decomposition",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880382"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "REDUS: Finding reducible subspaces in high dimensional data",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880327"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "LTS: Discriminative subgraph mining by learning from search history",
+      "year": 2011,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880334"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Classification of mouse sperm motility patterns using an automated multiclass support vector machines model",
+      "year": 2011,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880340"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "An efficient algorithm for approximate biased quantile computation in data streams",
+      "year": 2007,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880347"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Approximate clustering on distributed data streams",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880359"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Graph classification based on pattern co-occurrence",
+      "year": 2009,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880361"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Identification of family-specific residue packing motifs and their use for structure-based protein function prediction: I. Method development",
+      "year": 2009,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880366"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Genetic analysis of complex traits in the emerging Collaborative Cross",
+      "year": 2011,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880387"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "TEAM: Efficient two-locus epistasis tests in human genome-wide association study",
+      "year": 2010,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880395"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Efficient genome ancestry inference in complex pedigrees with inbreeding",
+      "year": 2010,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880398"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Measuring opinion relevance in latent topic space",
+      "year": 2011,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880422"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "GAIA: Graph classification using evolutionary computation",
+      "year": 2010,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880426"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Genotype sequence segmentation: Handling constraints and noise",
+      "year": 2008,
+      "work_types": [
+        "book"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880437"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Introduction to special issue on bioinformatics",
+      "year": 2008,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880448"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Split-order distance for clustering and classification hierarchies",
+      "year": 2009,
+      "work_types": [
+        "book"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880452"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Inferring missing genotypes in large SNP panels using fast nearest-neighbor searches over sliding windows",
+      "year": 2007,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880459"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Functional neighbors: Inferring relationships between non-homologous protein families using family-specific packing motifs",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880460"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Clustering with relative constraints",
+      "year": 2011,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880463"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Tools for efficient epistasis detection in genome-wide association study",
+      "year": 2011,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880468"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Revealing true subspace clusters in high dimensions",
+      "year": 2004,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880222"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "AGILE: A general approach to detect transitions in evolving data streams",
+      "year": 2004,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880223"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "SPIN: Mining maximal frequent subgraphs from graph databases",
+      "year": 2004,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880224"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "BASS: Approximate search on large string databases",
+      "year": 2004,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880225"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Accurate classification of protein structural families using coherent subgraph analysis.",
+      "year": 2004,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880226"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Biclustering in gene expression data by tendency",
+      "year": 2004,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880227"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "CLUSEQ: Efficient and effective sequence clustering",
+      "year": 2003,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880230"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Advances in web-age information management: 4th international conference, WAIM 2003 chengdu, china, august 17-19, 2003 proceedings",
+      "year": 2003,
+      "work_types": [
+        "book"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880231"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "InfoMiner+: Mining partial periodic patterns with gap penalties",
+      "year": 2002,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880232"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "An improved biclustering method for analyzing gene expression profiles",
+      "year": 2005,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880245"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Poclustering: Lossless clustering of dissimilarity data",
+      "year": 2007,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880246"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "δ-clusters: Capturing subspace correlation in a large data set",
+      "year": 2002,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880234"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Meta-patterns: Revealing hidden periodic patterns",
+      "year": 2001,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880235"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "InfoMiner: Mining surprising periodic patterns",
+      "year": 2001,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880236"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Human motion estimation from a reduced marker set",
+      "year": 2006,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880247",
+        "ORCID 0000-0002-8180-2886 put-code 108880470"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Fast computation of database operations using graphics processors",
+      "year": 2004,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880248",
+        "ORCID 0000-0002-8180-2886 put-code 108880266"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Local Structure Comparison of Proteins",
+      "year": 2006,
+      "work_types": [
+        "book"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880255"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mining coherent patterns from heterogeneous microarray data",
+      "year": 2006,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880268"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Comparing graph representations of protein structure for mining family-specific residue-based packing motifs",
+      "year": 2005,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880269"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mining shifting-and-scaling Co-regulation patterns on gene expression profiles",
+      "year": 2006,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880306"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Gene ontology friendly biclustering of expression profiles",
+      "year": 2004,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880307"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Discovering compact and highly discriminative features or combinations of drug activities using support vector machines",
+      "year": 2003,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880350"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A framework for ontology-driven subspace clustering",
+      "year": 2004,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880365"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mining approximate frequent itemsets in the presence of noise: Algorithm and analysis",
+      "year": 2006,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880392"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "BIOKDD05: Workshop on data mining in bioinformatics august 21, 2005 chicago, il, usa",
+      "year": 2005,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880221"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Efficient mining of frequent subgraphs in the presence of isomorphism",
+      "year": 2003,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880228"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "OP-cluster: Clustering by tendency in high dimensional space",
+      "year": 2003,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880229"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A framework towards efficient and effective sequence clustering",
+      "year": 2002,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880233"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mining approximate frequent itemsets from noisy data",
+      "year": 2005,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880319"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mining long sequential patterns in a noisy environment",
+      "year": 2002,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880288"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Clustering by pattern similarity in large data sets",
+      "year": 2002,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880289"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A System for analyzing and indexing human-motion databases",
+      "year": 2005,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880300"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Enhanced biclustering on expression data",
+      "year": 2003,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880322"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Structure-based function inference using protein family-specific fingerprints",
+      "year": 2006,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880328"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Finding representative set from massive data",
+      "year": 2005,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880335"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Sample selection for maximal diversity",
+      "year": 2007,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880355"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mining surprising periodic patterns",
+      "year": 2004,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880370"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Recent Progress on Selected Topics in Database Research - A Report by Nine Young Chinese Researchers Working in the United States",
+      "year": 2003,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880393"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mining protein family specific residue packing patterns from protein structure graphs",
+      "year": 2004,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880400"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Distance-based identification of structure motifs in proteins using constrained frequent subgraph mining.",
+      "year": 2006,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880406"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Sequential pattern mining in multi-databases via multiple alignment",
+      "year": 2006,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880415"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "The polymorphism architecture of mouse genetic resources elucidated using genome-wide resequencing data: Implications for QTL discovery and systems genetics",
+      "year": 2007,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880417"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Accelerating approximate subsequence search on large protein sequence databases",
+      "year": 2002,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880423"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Towards automatic clustering of protein sequences",
+      "year": 2002,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880430"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Reconstruction of ancestral gene order after segmental duplication and gene loss",
+      "year": 2003,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880443"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Guest editors' introduction: Special issue on mining biological data",
+      "year": 2005,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880450"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mining asynchronous periodic patterns in time series data",
+      "year": 2003,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880456"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Clustering pair-wise dissimilarity data into partially ordered sets",
+      "year": 2006,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880466"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Dynamic adaptive file management in a local area network",
+      "year": 2000,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880237"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "STING+: an approach to active spatial data mining",
+      "year": 1999,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880238"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Genetic algorithms for determining fuzzy measures from data",
+      "year": 1998,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880239"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "STING : A statistical information grid approach to spatial data mining",
+      "year": 1997,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880240"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Determining fuzzy measures by Choquet integral",
+      "year": 1995,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880241"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Absolute continuity of fuzzy measures",
+      "year": 1995,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880242"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Performance analysis of three text-join algorithms",
+      "year": 1998,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880251"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Fuzzy measures defined by fuzzy integral and their absolute continuity",
+      "year": 1996,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880304"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "An approach to active spatial data mining based on statistical information",
+      "year": 2000,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880316"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Efficient mining of weighted association rules (WAR)",
+      "year": 2000,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880320"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Pan-integrals with respect to imprecise probabilities",
+      "year": 1996,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880363"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "TAR: Temporal association rules on evolving numerical attributes",
+      "year": 2001,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880373"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mining asynchronous periodic patterns in time series data",
+      "year": 2000,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880394"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Collaborative web caching based on proxy affinities",
+      "year": 2000,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880396"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Monotone set functions defined by Choquet integral",
+      "year": 1996,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880469"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Dynamo: design, implementation, and evaluation of cooperative persistent object management in a local area network",
+      "year": 2000,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0002-8180-2886 put-code 108880471"
+      ]
+    }
+  ],
+  "professor": {
+    "orcid": "0000-0002-8180-2886",
+    "author_ids": {},
+    "author_ids_complete": false
+  }
+}

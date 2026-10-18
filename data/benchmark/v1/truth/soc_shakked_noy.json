@@ -1,0 +1,800 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "assistant_reviewed",
+    "reviewer": "Claude (AI review requested by the user, 2026-10-18)",
+    "reviewed_at": "2026-10-18",
+    "person_id": "soc_shakked_noy",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Shakked Noy",
+      "university": "Massachusetts Institute of Technology"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.926303+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "mit_profile.json",
+        "url": "https://economics.mit.edu/people/phd-students/shakked-noy",
+        "records": 3
+      }
+    ],
+    "excluded_counts": {},
+    "review_progress": {
+      "decided": 23,
+      "pending": 0
+    }
+  },
+  "papers": [
+    {
+      "evaluation_id": "soc_shakked_noy:75070055eb3c",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "The Effects of Neighborhood and Workplace Income Comparisons on Subjective Wellbeing",
+      "year": 2021,
+      "authors": [
+        "Shakked Noy",
+        "Isabelle Sin"
+      ],
+      "listed_venue": "Journal of Economic Behavior and Organization 185",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://economics.mit.edu/people/phd-students/shakked-noy entry 3 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "version_identifiers_added_in_review"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "The Effects of Neighborhood and Workplace Income Comparisons on Subjective Wellbeing",
+          "year": 2020,
+          "authors": [
+            "Shakked Noy",
+            "Isabelle Sin"
+          ]
+        },
+        {
+          "title": "The Effects of Neighborhood and Workplace Income Comparisons on Subjective Wellbeing",
+          "year": 2022,
+          "authors": [
+            "Shakked Noy",
+            "Isabelle Sin"
+          ]
+        },
+        {
+          "title": "The effects of neighbourhood and workplace income comparisons on subjective wellbeing",
+          "year": 2020,
+          "authors": [
+            "Shakked Noy",
+            "Isabelle Sin"
+          ]
+        }
+      ],
+      "dois": [
+        "10.1016/j.jebo.2020.11.008"
+      ]
+    },
+    {
+      "evaluation_id": "soc_shakked_noy:30f27de80356",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "The German Model of Industrial Relations: Balancing Flexibility and Collective Action",
+      "year": 2022,
+      "authors": [
+        "Simon Jäger",
+        "Shakked Noy",
+        "Benjamin Schoefer"
+      ],
+      "listed_venue": "Journal of Economic Perspectives 36(4)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://economics.mit.edu/people/phd-students/shakked-noy entry 2 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3386/w30377"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "The German Model of Industrial Relations: Balancing Flexibility and Collective Action",
+          "year": 2021,
+          "authors": [
+            "Simon Jäger",
+            "Shakked Noy",
+            "Benjamin Schoefer"
+          ]
+        },
+        {
+          "title": "The German Model of Industrial Relations: Balancing Flexibility and Collective Action",
+          "year": 2023,
+          "authors": [
+            "Simon Jäger",
+            "Shakked Noy",
+            "Benjamin Schoefer"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3386/w30377",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "The German Model of Industrial Relations: Balancing Flexibility and Collective Action",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_shakked_noy:f8e3b069f2e7",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Experimental Evidence on the Productivity Effects of Generative Artificial Intelligence",
+      "year": 2023,
+      "authors": [
+        "Shakked Noy",
+        "Whitney Zhang"
+      ],
+      "listed_venue": "Science 381(6654)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://economics.mit.edu/people/phd-students/shakked-noy entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.2139/ssrn.4375283"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Experimental Evidence on the Productivity Effects of Generative Artificial Intelligence",
+          "year": 2022,
+          "authors": [
+            "Shakked Noy",
+            "Whitney Zhang"
+          ]
+        },
+        {
+          "title": "Experimental Evidence on the Productivity Effects of Generative Artificial Intelligence",
+          "year": 2024,
+          "authors": [
+            "Shakked Noy",
+            "Whitney Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.2139/ssrn.4375283",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Experimental Evidence on the Productivity Effects of Generative Artificial Intelligence",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "title": "The Business of the Culture War",
+      "year": 2025,
+      "authors": [
+        "Shakked Noy",
+        "Aakaash Rao"
+      ],
+      "listed_venue": "SSRN Electronic Journal",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref author list names the researcher; working paper with Aakaash Rao, also on his MIT job-market profile"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.2139/ssrn.5694622"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-c99ce69bc8",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref author list names the researcher; working paper with Aakaash Rao, also on his MIT job-market profile"
+    },
+    {
+      "title": "The Transmission of Reliable and Unreiable Information",
+      "year": 2025,
+      "authors": [
+        "Christopher Roth",
+        "Thomas Graeber",
+        "Shakked Noy"
+      ],
+      "listed_venue": "AEA Randomized Controlled Trials",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: AEA RCT registry entry, not a publication"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1257/rct.17479-1.0"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-d86635509f",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "AEA RCT registry entry, not a publication"
+    },
+    {
+      "title": "The Transmission of Reliable and Unreiable Information",
+      "year": 2025,
+      "authors": [
+        "Christopher Roth",
+        "Thomas Graeber",
+        "Shakked Noy"
+      ],
+      "listed_venue": "AEA Randomized Controlled Trials",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: AEA RCT registry entry, not a publication"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1257/rct.17479"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-0dd1a8e425",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "AEA RCT registry entry, not a publication"
+    },
+    {
+      "title": "Endogenous Transmission",
+      "year": 2025,
+      "authors": [
+        "Christopher Roth",
+        "Shakked Noy",
+        "Thomas Graeber"
+      ],
+      "listed_venue": "AEA Randomized Controlled Trials",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: AEA RCT registry entry, not a publication"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1257/rct.17540-1.0"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-0b4615807b",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "AEA RCT registry entry, not a publication"
+    },
+    {
+      "title": "Transmission - Investment Task",
+      "year": 2025,
+      "authors": [
+        "Christopher Roth",
+        "Shakked Noy",
+        "Thomas Graeber"
+      ],
+      "listed_venue": "AEA Randomized Controlled Trials",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: AEA RCT registry entry, not a publication"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1257/rct.17533-1.0"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-ff1e12512f",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "AEA RCT registry entry, not a publication"
+    },
+    {
+      "title": "Endogenous Transmission",
+      "year": 2025,
+      "authors": [
+        "Christopher Roth",
+        "Shakked Noy",
+        "Thomas Graeber"
+      ],
+      "listed_venue": "AEA Randomized Controlled Trials",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: AEA RCT registry entry, not a publication"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1257/rct.17540"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-84b9d8c198",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "AEA RCT registry entry, not a publication"
+    },
+    {
+      "title": "Transmission - Investment Task",
+      "year": 2025,
+      "authors": [
+        "Christopher Roth",
+        "Shakked Noy",
+        "Thomas Graeber"
+      ],
+      "listed_venue": "AEA Randomized Controlled Trials",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: AEA RCT registry entry, not a publication"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1257/rct.17533"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-3800f416e4",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "AEA RCT registry entry, not a publication"
+    },
+    {
+      "title": "Endogenous Transmission",
+      "year": 2025,
+      "authors": [
+        "Christopher Roth",
+        "Shakked Noy",
+        "Thomas Graeber"
+      ],
+      "listed_venue": "AEA Randomized Controlled Trials",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: AEA RCT registry entry, not a publication"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1257/rct.17540-2.0"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-08f54edf0f",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "AEA RCT registry entry, not a publication"
+    },
+    {
+      "title": "The Transmission of Reliable and Unreiable Information",
+      "year": 2025,
+      "authors": [
+        "Christopher Roth",
+        "Thomas Graeber",
+        "Shakked Noy"
+      ],
+      "listed_venue": "AEA Randomized Controlled Trials",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: AEA RCT registry entry, not a publication"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1257/rct.17479-2.0"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-3d12007baa",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "AEA RCT registry entry, not a publication"
+    },
+    {
+      "title": "Transmission - Investment Task",
+      "year": 2025,
+      "authors": [
+        "Christopher Roth",
+        "Shakked Noy",
+        "Thomas Graeber"
+      ],
+      "listed_venue": "AEA Randomized Controlled Trials",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: AEA RCT registry entry, not a publication"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1257/rct.17533-2.0"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-a6986e0ef4",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "AEA RCT registry entry, not a publication"
+    },
+    {
+      "title": "Lost in Transmission",
+      "year": 2024,
+      "authors": [
+        "Thomas Graeber",
+        "Shakked Noy",
+        "Christopher Roth"
+      ],
+      "listed_venue": "SSRN Electronic Journal",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref author list names the researcher; 2024 working paper with Graeber and Roth, earlier version of the QJE paper on his profile"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.2139/ssrn.4711260"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-abda504e54",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref author list names the researcher; 2024 working paper with Graeber and Roth, earlier version of the QJE paper on his profile"
+    },
+    {
+      "title": "Lost in Transmission",
+      "year": 2024,
+      "authors": [
+        "Thomas Graeber",
+        "Shakked Noy",
+        "Christopher Roth"
+      ],
+      "listed_venue": "SSRN Electronic Journal",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Second SSRN version of row 13"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.2139/ssrn.4699881"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-7641727aa6",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Second SSRN version of row 13"
+    },
+    {
+      "title": "Lost in Transmission",
+      "year": 2024,
+      "authors": [
+        "Thomas Graeber",
+        "Shakked Noy",
+        "Christopher Roth"
+      ],
+      "listed_venue": "Social Science Research Network",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: DOI 10.1016/s1470-2045(07)70048-7 is a 2007 Lancet Oncology article by other authors"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/s1470-2045(07)70048-7"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-4e78fe5344",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "DOI 10.1016/s1470-2045(07)70048-7 is a 2007 Lancet Oncology article by other authors"
+    },
+    {
+      "title": "Codetermination and Power in the Workplace",
+      "year": 2022,
+      "authors": [
+        "Simon Jäger",
+        "Shakked Noy",
+        "Benjamin Schoefer"
+      ],
+      "listed_venue": "Journal of Law and Political Economy",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref author list names the researcher with Jäger and Schoefer (same coauthors as his JEP 2022 paper)"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.5070/lp63159039"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-16e116b543",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref author list names the researcher with Jäger and Schoefer (same coauthors as his JEP 2022 paper)"
+    },
+    {
+      "title": "The German Model of Industrial Relations: A Primer",
+      "year": 2022,
+      "authors": [
+        "Simon Jäger",
+        "Shakked Noy",
+        "Benjamin Schoefer"
+      ],
+      "listed_venue": null,
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Primer version of the JEP 2022 paper (row 1)"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-d6734d982d",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Primer version of the JEP 2022 paper (row 1)"
+    },
+    {
+      "title": "What Does Codetermination Do?",
+      "year": 2021,
+      "authors": [
+        "Simon Jäger",
+        "Shakked Noy",
+        "Benjamin Schoefer"
+      ],
+      "listed_venue": "Industrial and Labor Relations Review",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref author list names the researcher with Jäger and Schoefer, ILR Review"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1177/00197939211065727"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-a028f4f9b9",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref author list names the researcher with Jäger and Schoefer, ILR Review"
+    },
+    {
+      "title": "People Judge Discrimination Against Women More Harshly Than Discrimination Against Men – Does Statistical Fairness Discrimination Explain Why?",
+      "year": 2021,
+      "authors": [
+        "Eberhard Feess",
+        "Jan Feld",
+        "Shakked Noy"
+      ],
+      "listed_venue": "Frontiers in Psychology",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref author list names the researcher with Feess and Feld (New Zealand-based coauthors, matching his NZ work)"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.3389/fpsyg.2021.675776"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-1bbcfe0143",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref author list names the researcher with Feess and Feld (New Zealand-based coauthors, matching his NZ work)"
+    },
+    {
+      "title": "What Does Codetermination Do?",
+      "year": 2021,
+      "authors": [
+        "Simon Jäger",
+        "Shakked Noy",
+        "Benjamin Schoefer"
+      ],
+      "listed_venue": "National Bureau of Economic Research",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: NBER version of row 18"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.3386/w28921"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-8be49fa1d3",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "NBER version of row 18"
+    },
+    {
+      "title": "Involuntary job loss: Welfare effects, earnings impacts and policy options",
+      "year": 2021,
+      "authors": [
+        "Dean R. Hyslop",
+        "David C. Maré",
+        "Shakked Noy",
+        "Isabelle Sin"
+      ],
+      "listed_venue": "Motu working paper",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref author list names the researcher with Isabelle Sin (coauthor of row 0), Motu working paper"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.2139/ssrn.3937734"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-9864052693",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref author list names the researcher with Isabelle Sin (coauthor of row 0), Motu working paper"
+    },
+    {
+      "title": "What Does Codetermination Do?",
+      "year": 2021,
+      "authors": [
+        "Simon Jäger",
+        "Shakked Noy",
+        "Benjamin Schoefer"
+      ],
+      "listed_venue": "SSRN Electronic Journal",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: SSRN version of row 18"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.2139/ssrn.3875990"
+      ],
+      "evaluation_id": "soc_shakked_noy:added-01e55fd83b",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "SSRN version of row 18"
+    }
+  ],
+  "excluded": []
+}

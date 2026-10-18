@@ -1,0 +1,509 @@
+{
+  "lookups": {
+    "axbench steering llms even simple baselines outperform sparse autoencoders": {
+      "title": "AxBench: Steering LLMs? Even Simple Baselines Outperform Sparse Autoencoders",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1101/2024.09.16.613342",
+          "title": "Deep learning-based predictions of gene perturbation effects do not yet outperform simple linear baselines",
+          "year": 2024,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Ahlmann-Eltze",
+            "Huber",
+            "Anders"
+          ]
+        },
+        {
+          "doi": "10.1038/s41592-025-02772-6",
+          "title": "Deep-learning-based gene perturbation effect prediction does not yet outperform simple linear baselines",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "Nature Methods",
+          "family_names": [
+            "Ahlmann-Eltze",
+            "Huber",
+            "Anders"
+          ]
+        },
+        {
+          "doi": "10.52202/085713-5301",
+          "title": "SAEMark: Steering Personalized Multilingual LLM Watermarks with Sparse Autoencoders",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "Yu",
+            "Jiang",
+            "Gu",
+            "Wang",
+            "Wen",
+            "Zhang",
+            "Ye"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/2025.emnlp-main.641",
+          "title": "Breaking Bad Tokens: Detoxification of LLMs Using Sparse Autoencoders",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+          "family_names": [
+            "Goyal",
+            "Rathi",
+            "Yeh",
+            "Wang",
+            "Chen",
+            "Sundaram"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/2026.findings-eacl.40",
+          "title": "Denoising Concept Vectors with Sparse Autoencoders for Improved Language Model Steering",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Findings of the Association for Computational Linguistics: EACL 2026",
+          "family_names": [
+            "Zhao",
+            "Wu",
+            "Yang",
+            "Shen",
+            "Liu",
+            "Du"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:08:21.105663+00:00"
+    },
+    "blackbox model provenance via palimpsestic membership inference": {
+      "title": "Blackbox Model Provenance via Palimpsestic Membership Inference",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.2139/ssrn.6138226",
+          "title": "Review of \"Blackbox Model Provenance via Palimpsestic Membership Inference\": Advances, Limitations, and Empirical Validation Strategies",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Mamun"
+          ]
+        },
+        {
+          "doi": "10.52202/085713-5421",
+          "title": "Blackbox Model Provenance via Palimpsestic Membership Inference",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "Kuditipudi",
+            "Huang",
+            "Zhu",
+            "Yang",
+            "Potts",
+            "Liang"
+          ]
+        },
+        {
+          "doi": "10.1017/9781139236003.011",
+          "title": "Blackbox Techniques",
+          "year": null,
+          "type": "book-chapter",
+          "container": "Predictive Statistics",
+          "family_names": []
+        },
+        {
+          "doi": "10.66816/po3565063",
+          "title": "Evaluation of a Reduced-Order Model for IBR Fault Response Representation via OEM Blackbox Models",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1201/b17258-21",
+          "title": "Inference and Provenance",
+          "year": 2014,
+          "type": "book-chapter",
+          "container": "Secure Data Provenance and Inference Control with Semantic Web",
+          "family_names": []
+        }
+      ],
+      "fetched_at": "2026-10-18T18:08:24.616840+00:00"
+    },
+    "causal abstraction a theoretical foundation for mechanistic interpretability": {
+      "title": "Causal Abstraction: A Theoretical Foundation for Mechanistic Interpretability",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.52202/085713-5000",
+          "title": "The Non-Linear Representation Dilemma: Is Causal Abstraction Enough for Mechanistic Interpretability?",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "Sutter",
+            "Minder",
+            "Hofmann",
+            "Pimentel"
+          ]
+        },
+        {
+          "doi": "10.67599/anr-25-ce23-2059",
+          "title": "",
+          "year": 2025,
+          "type": "grant",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.21203/rs.3.rs-6599791/v1",
+          "title": "Causal Intervention Framework for Variational Auto Encoder Mechanistic Interpretability",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Roy"
+          ]
+        },
+        {
+          "doi": "10.1016/j.compbiolchem.2026.109438",
+          "title": "Mechanistic interpretability of a plant genomic foundation model: Data probes, causal interventions, and motif-grounded features",
+          "year": 2027,
+          "type": "journal-article",
+          "container": "Computational Biology and Chemistry",
+          "family_names": [
+            "Kendiukhov"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.6967579",
+          "title": "The Model as Microscope: Knowledge Discovery via Mechanistic Interpretability of Scientific Foundation Models",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Denvis"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:08:24.826714+00:00"
+    },
+    "demystifying verbatim memorization in large language models": {
+      "title": "Demystifying Verbatim Memorization in Large Language Models",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.18653/v1/2024.emnlp-main.598",
+          "title": "Demystifying Verbatim Memorization in Large Language Models",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing",
+          "family_names": [
+            "Huang",
+            "Yang",
+            "Potts"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/2025.l2m2-1.7",
+          "title": "Understanding Verbatim Memorization in LLMs Through Circuit Discovery",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Proceedings of the First Workshop on Large Language Model Memorization (L2M2)",
+          "family_names": [
+            "Lasy",
+            "Knees",
+            "Woltran"
+          ]
+        },
+        {
+          "doi": "10.38023/14cdbd3b-a488-4d47-aa91-4024a032438c",
+          "title": "Verbatim Memorization in language models and EU Copyright Law",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "Jusletter-IT",
+          "family_names": [
+            "Havlikova"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/2025.l2m2-1.2",
+          "title": "Memorization in Language Models through the Lens of Intrinsic Dimension",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Proceedings of the First Workshop on Large Language Model Memorization (L2M2)",
+          "family_names": [
+            "Arnold"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/2026.acl-long.2178",
+          "title": "Revisiting Non-Verbatim Memorization in Large Language Models: The Role of Entity Surface Forms",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+          "family_names": [
+            "Nishida",
+            "Shikoda",
+            "Kishinami",
+            "Fujii",
+            "Morishita",
+            "Kamigaito",
+            "Watanabe"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:08:25.054567+00:00"
+    },
+    "hyperdas towards automating mechanistic interpretability with hypernetworks": {
+      "title": "HyperDAS: Towards Automating Mechanistic Interpretability with Hypernetworks",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.31979/etd.tj23-rm78",
+          "title": "Towards Mechanistic Interpretability of Antimicrobial Resistance Proteins Using Sparse Autoencoders and Cross-Layer Transcoders",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Chon"
+          ]
+        },
+        {
+          "doi": "10.70675/84736523ze4aez490fzbfadzde545be035e6",
+          "title": "Semantic-based approaches for automating feature engineering and enhancing machine learning interpretability",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Bouadi"
+          ]
+        },
+        {
+          "doi": "10.52202/075280-0719",
+          "title": "Towards Automated Circuit Discovery for Mechanistic Interpretability",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 36",
+          "family_names": [
+            "Conmy",
+            "Mavor-Parker",
+            "Lynch",
+            "Heimersheim",
+            "Garriga-Alonso"
+          ]
+        },
+        {
+          "doi": "10.36227/techrxiv.173713226.66476652/v1",
+          "title": "Mechanistic Interpretability for Transformers in Financial Engineering",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Sharkey",
+            "Treleaven"
+          ]
+        },
+        {
+          "doi": "10.31224/5115",
+          "title": "Mechanistic Interpretability of Transformers: Extracting Maximum Values from Lists",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Thaker"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:08:26.437922+00:00"
+    },
+    "internal causal mechanisms robustly predict language model out of distribution behaviors": {
+      "title": "Internal Causal Mechanisms Robustly Predict Language Model Out-of-Distribution Behaviors",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.61686/zqpbq46314",
+          "title": "",
+          "year": 2024,
+          "type": "grant",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.61686/injbp36767",
+          "title": "",
+          "year": 2017,
+          "type": "grant",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.15703/kjc.13.1.201202.135",
+          "title": "The Exploration of Causal Model between Social Skills, Peer Victimization, and Internal Problem Behaviors",
+          "year": 2012,
+          "type": "journal-article",
+          "container": "Korea Journal of Counseling",
+          "family_names": [
+            "Sumi Choi",
+            "김동일"
+          ]
+        },
+        {
+          "doi": "10.20944/preprints202608.1081.v1",
+          "title": "Auditing Prospective Memory in Frozen Language-Model Systems: Causal Mechanisms and the Limits of Naturalistic Trigger Grounding",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Joudaki"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.4654806",
+          "title": "Causal Softmax for Out-of-Distribution Generalization",
+          "year": 2023,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Luo",
+            "Zhao",
+            "Guan"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:08:26.654054+00:00"
+    },
+    "ravel evaluating interpretability methods on disentangling language model representations": {
+      "title": "RAVEL: Evaluating Interpretability Methods on Disentangling Language Model Representations",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.18653/v1/2024.acl-long.470",
+          "title": "RAVEL: Evaluating Interpretability Methods on Disentangling Language Model Representations",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+          "family_names": [
+            "Huang",
+            "Wu",
+            "Potts",
+            "Geva",
+            "Geiger"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/d17-1041",
+          "title": "Rotated Word Vector Representations and their Interpretability",
+          "year": 2017,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 2017 Conference on Empirical Methods in Natural\n          Language Processing",
+          "family_names": [
+            "Park",
+            "Bak",
+            "Oh"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/2021.emnlp-main.60",
+          "title": "Disentangling Representations of Text by Masking Transformers",
+          "year": 2021,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+          "family_names": [
+            "Zhang",
+            "van de Meent",
+            "Wallace"
+          ]
+        },
+        {
+          "doi": "10.32657/10356/224309",
+          "title": "Interpretability and safety in language models: methods, mechanisms and evaluations",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Yeo"
+          ]
+        },
+        {
+          "doi": "10.5772/intechopen.1014250",
+          "title": "Perspective Chapter: Toward a Quantitative Framework for Evaluating AI-Generated Creativity – A Linguistic and Computational Analysis of Language Model Outputs",
+          "year": 2026,
+          "type": "book-chapter",
+          "container": "Artificial Intelligence",
+          "family_names": [
+            "Emuna",
+            "Elkayam",
+            "Brill"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:08:26.937975+00:00"
+    },
+    "rigorously assessing natural language explanations of neurons": {
+      "title": "Rigorously Assessing Natural Language Explanations of Neurons",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.18653/v1/2023.blackboxnlp-1.24",
+          "title": "Rigorously Assessing Natural Language Explanations of Neurons",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 6th BlackboxNLP Workshop: Analyzing and Interpreting Neural Networks for NLP",
+          "family_names": [
+            "Huang",
+            "Geiger",
+            "D’Oosterlinck",
+            "Wu",
+            "Potts"
+          ]
+        },
+        {
+          "doi": "10.1145/3672608.3707811",
+          "title": "Assessing Argument-based Natural Language Explanations in Medical Text",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 40th ACM/SIGAPP Symposium on Applied Computing",
+          "family_names": [
+            "Molinet",
+            "Cabrio",
+            "Villata"
+          ]
+        },
+        {
+          "doi": "10.1145/3746252.3760918",
+          "title": "Assessing Natural Language Explanations of Relational Graph Neural Networks",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 34th ACM International Conference on Information and Knowledge Management",
+          "family_names": [
+            "Heindorf",
+            "Neib"
+          ]
+        },
+        {
+          "doi": "10.11606/d.3.2020.tde-22012021-130945",
+          "title": "Natural language explanations of classifier behavior.",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Aquino"
+          ]
+        },
+        {
+          "doi": "10.1021/acscatal.0c03028.s001",
+          "title": "Critical Practices in Rigorously Assessing the Inherent Activity of Nanoparticle Electrocatalysts",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        }
+      ],
+      "fetched_at": "2026-10-18T18:08:27.146104+00:00"
+    }
+  }
+}

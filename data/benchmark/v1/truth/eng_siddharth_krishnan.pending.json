@@ -1,0 +1,989 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "eng_siddharth_krishnan",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Siddharth Krishnan",
+      "university": "Stanford University"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.905110+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "stanford_profile.json",
+        "url": "https://profiles.stanford.edu/siddharth-krishnan?tab=publications",
+        "records": 5
+      },
+      {
+        "kind": "orcid",
+        "locator": "0000-0001-8032-7043",
+        "url": "https://orcid.org/0000-0001-8032-7043",
+        "records": 35
+      }
+    ],
+    "excluded_counts": {
+      "outside_year_window": 29
+    }
+  },
+  "papers": [
+    {
+      "evaluation_id": "eng_siddharth_krishnan:b4028a8a79fa",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Continuous, noninvasive wireless monitoring of flow of cerebrospinal fluid through shunts in patients with hydrocephalus",
+      "year": 2020,
+      "authors": [
+        "S. R. Krishnan",
+        "H. M. Arafa",
+        "K. Kwon",
+        "Y. Deng",
+        "C. Su",
+        "J. T. Reeder",
+        "J. Freudman",
+        "I. Stankiewicz",
+        "H. Chen",
+        "R. Loza",
+        "M. Mims",
+        "M. Mims",
+        "K. Lee",
+        "Z. Abecassis",
+        "A. Banks",
+        "D. Ostojich",
+        "M. Patel",
+        "H. Wang",
+        "K. Borekci",
+        "J. Rosenow",
+        "M. Tate",
+        "Y. Huang",
+        "T. Alden",
+        "M. B. Potts",
+        "A. B. Ayer",
+        "J. A. Rogers"
+      ],
+      "listed_venue": "NPJ DIGITAL MEDICINE",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198805",
+        "Public list https://profiles.stanford.edu/siddharth-krishnan?tab=publications entry 3 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1038/s41746-020-0239-1"
+      ],
+      "external_ids": {
+        "pubmed": "32195364",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/32195364"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Continuous, noninvasive wireless monitoring of flow of cerebrospinal fluid through shunts in patients with hydrocephalus",
+          "year": 2019,
+          "authors": [
+            "S. R. Krishnan",
+            "H. M. Arafa",
+            "K. Kwon",
+            "Y. Deng",
+            "C. Su",
+            "J. T. Reeder",
+            "J. Freudman",
+            "I. Stankiewicz",
+            "H. Chen",
+            "R. Loza",
+            "M. Mims",
+            "M. Mims",
+            "K. Lee",
+            "Z. Abecassis",
+            "A. Banks",
+            "D. Ostojich",
+            "M. Patel",
+            "H. Wang",
+            "K. Borekci",
+            "J. Rosenow",
+            "M. Tate",
+            "Y. Huang",
+            "T. Alden",
+            "M. B. Potts",
+            "A. B. Ayer",
+            "J. A. Rogers"
+          ]
+        },
+        {
+          "title": "Continuous, noninvasive wireless monitoring of flow of cerebrospinal fluid through shunts in patients with hydrocephalus",
+          "year": 2021,
+          "authors": [
+            "S. R. Krishnan",
+            "H. M. Arafa",
+            "K. Kwon",
+            "Y. Deng",
+            "C. Su",
+            "J. T. Reeder",
+            "J. Freudman",
+            "I. Stankiewicz",
+            "H. Chen",
+            "R. Loza",
+            "M. Mims",
+            "M. Mims",
+            "K. Lee",
+            "Z. Abecassis",
+            "A. Banks",
+            "D. Ostojich",
+            "M. Patel",
+            "H. Wang",
+            "K. Borekci",
+            "J. Rosenow",
+            "M. Tate",
+            "Y. Huang",
+            "T. Alden",
+            "M. B. Potts",
+            "A. B. Ayer",
+            "J. A. Rogers"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s41746-020-0239-1",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Continuous, noninvasive wireless monitoring of flow of cerebrospinal fluid through shunts in patients with hydrocephalus",
+          "crossref_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_siddharth_krishnan:3dcaf9270678",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "An on-skin platform for wireless monitoring of flow rate, cumulative loss and temperature of sweat in real time",
+      "year": 2021,
+      "authors": [
+        "K. Kwon",
+        "J. Kim",
+        "Y. Deng",
+        "S. R. Krishnan",
+        "J. Choi",
+        "H. Jang",
+        "K. Lee",
+        "C. Su",
+        "I. Yoo",
+        "Y. Wu",
+        "L. Lipschultz",
+        "J. Kim",
+        "T. S. Chung",
+        "D. Wu",
+        "Y. Park",
+        "T. Kim",
+        "R. Ghaffari",
+        "S. Lee",
+        "Y. Huang",
+        "J. A. Rogers"
+      ],
+      "listed_venue": "NATURE ELECTRONICS",
+      "work_types": [
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://profiles.stanford.edu/siddharth-krishnan?tab=publications entry 5 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41928-021-00556-2"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "An on-skin platform for wireless monitoring of flow rate, cumulative loss and temperature of sweat in real time",
+          "year": 2020,
+          "authors": [
+            "K. Kwon",
+            "J. Kim",
+            "Y. Deng",
+            "S. R. Krishnan",
+            "J. Choi",
+            "H. Jang",
+            "K. Lee",
+            "C. Su",
+            "I. Yoo",
+            "Y. Wu",
+            "L. Lipschultz",
+            "J. Kim",
+            "T. S. Chung",
+            "D. Wu",
+            "Y. Park",
+            "T. Kim",
+            "R. Ghaffari",
+            "S. Lee",
+            "Y. Huang",
+            "J. A. Rogers"
+          ]
+        },
+        {
+          "title": "An on-skin platform for wireless monitoring of flow rate, cumulative loss and temperature of sweat in real time",
+          "year": 2022,
+          "authors": [
+            "K. Kwon",
+            "J. Kim",
+            "Y. Deng",
+            "S. R. Krishnan",
+            "J. Choi",
+            "H. Jang",
+            "K. Lee",
+            "C. Su",
+            "I. Yoo",
+            "Y. Wu",
+            "L. Lipschultz",
+            "J. Kim",
+            "T. S. Chung",
+            "D. Wu",
+            "Y. Park",
+            "T. Kim",
+            "R. Ghaffari",
+            "S. Lee",
+            "Y. Huang",
+            "J. A. Rogers"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_siddharth_krishnan:b49a359115c6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Soft, bioresorbable coolers for reversible conduction block of peripheral nerves",
+      "year": 2022,
+      "authors": [
+        "Jonathan T. Reeder",
+        "Zhaoqian Xie",
+        "Quansan Yang",
+        "Min-Ho Seo",
+        "Ying Yan",
+        "Yujun Deng",
+        "Katherine R. Jinkins",
+        "Siddharth R. Krishnan",
+        "Claire Liu",
+        "Shannon McKay",
+        "Emily Patnaude",
+        "Alexandra Johnson",
+        "Zichen Zhao",
+        "Moon Joo Kim",
+        "Yameng Xu",
+        "Ivy Huang",
+        "Raudel Avila",
+        "Christopher Felicelli",
+        "Emily Ray",
+        "Xu Guo",
+        "Wilson Z. Ray",
+        "Yonggang Huang",
+        "Matthew R. MacEwan",
+        "John A. Rogers"
+      ],
+      "listed_venue": "Science",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 115205326"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1126/science.abl8532"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Soft, bioresorbable coolers for reversible conduction block of peripheral nerves",
+          "year": 2021,
+          "authors": [
+            "Jonathan T. Reeder",
+            "Zhaoqian Xie",
+            "Quansan Yang",
+            "Min-Ho Seo",
+            "Ying Yan",
+            "Yujun Deng",
+            "Katherine R. Jinkins",
+            "Siddharth R. Krishnan",
+            "Claire Liu",
+            "Shannon McKay",
+            "Emily Patnaude",
+            "Alexandra Johnson",
+            "Zichen Zhao",
+            "Moon Joo Kim",
+            "Yameng Xu",
+            "Ivy Huang",
+            "Raudel Avila",
+            "Christopher Felicelli",
+            "Emily Ray",
+            "Xu Guo",
+            "Wilson Z. Ray",
+            "Yonggang Huang",
+            "Matthew R. MacEwan",
+            "John A. Rogers"
+          ]
+        },
+        {
+          "title": "Soft, bioresorbable coolers for reversible conduction block of peripheral nerves",
+          "year": 2023,
+          "authors": [
+            "Jonathan T. Reeder",
+            "Zhaoqian Xie",
+            "Quansan Yang",
+            "Min-Ho Seo",
+            "Ying Yan",
+            "Yujun Deng",
+            "Katherine R. Jinkins",
+            "Siddharth R. Krishnan",
+            "Claire Liu",
+            "Shannon McKay",
+            "Emily Patnaude",
+            "Alexandra Johnson",
+            "Zichen Zhao",
+            "Moon Joo Kim",
+            "Yameng Xu",
+            "Ivy Huang",
+            "Raudel Avila",
+            "Christopher Felicelli",
+            "Emily Ray",
+            "Xu Guo",
+            "Wilson Z. Ray",
+            "Yonggang Huang",
+            "Matthew R. MacEwan",
+            "John A. Rogers"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_siddharth_krishnan:3bd944cc6a46",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The road ahead for applications of mechanics in drug delivery br",
+      "year": 2022,
+      "authors": [
+        "M. Sarmadi",
+        "S. R. Krishnan",
+        "K. B. Ramadi",
+        "R. Langer"
+      ],
+      "listed_venue": "MECHANICS RESEARCH COMMUNICATIONS",
+      "work_types": [
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://profiles.stanford.edu/siddharth-krishnan?tab=publications entry 4 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.mechrescom.2022.103956"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "The road ahead for applications of mechanics in drug delivery br",
+          "year": 2021,
+          "authors": [
+            "M. Sarmadi",
+            "S. R. Krishnan",
+            "K. B. Ramadi",
+            "R. Langer"
+          ]
+        },
+        {
+          "title": "The road ahead for applications of mechanics in drug delivery br",
+          "year": 2023,
+          "authors": [
+            "M. Sarmadi",
+            "S. R. Krishnan",
+            "K. B. Ramadi",
+            "R. Langer"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_siddharth_krishnan:d6d5db5e40f9",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A wireless, battery-free device enables oxygen generation and immune protection of therapeutic xenotransplants in vivo",
+      "year": 2023,
+      "authors": [
+        "S. R. Krishnan",
+        "C. Liu",
+        "M. A. Bochenek",
+        "S. Bose",
+        "N. Khatib",
+        "B. Walters",
+        "L. O'Keeffe",
+        "A. Facklam",
+        "R. Langer",
+        "D. G. Anderson"
+      ],
+      "listed_venue": "Proceedings of the National Academy of Sciences of the United States of America",
+      "work_types": [
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://profiles.stanford.edu/siddharth-krishnan?tab=publications entry 2 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1073/pnas.2311707120"
+      ],
+      "external_ids": {
+        "pubmed": "37738292",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/37738292"
+      },
+      "metadata_aliases": [
+        {
+          "title": "A wireless, battery-free device enables oxygen generation and immune protection of therapeutic xenotransplants in vivo",
+          "year": 2022,
+          "authors": [
+            "S. R. Krishnan",
+            "C. Liu",
+            "M. A. Bochenek",
+            "S. Bose",
+            "N. Khatib",
+            "B. Walters",
+            "L. O'Keeffe",
+            "A. Facklam",
+            "R. Langer",
+            "D. G. Anderson"
+          ]
+        },
+        {
+          "title": "A wireless, battery-free device enables oxygen generation and immune protection of therapeutic xenotransplants in vivo",
+          "year": 2024,
+          "authors": [
+            "S. R. Krishnan",
+            "C. Liu",
+            "M. A. Bochenek",
+            "S. Bose",
+            "N. Khatib",
+            "B. Walters",
+            "L. O'Keeffe",
+            "A. Facklam",
+            "R. Langer",
+            "D. G. Anderson"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_siddharth_krishnan:9a8c2f497334",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Materials approaches for next-generation encapsulated cell therapies",
+      "year": 2024,
+      "authors": [
+        "S. R. Krishnan",
+        "R. Langer",
+        "D. G. Anderson"
+      ],
+      "listed_venue": "MRS Communications",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 172943429",
+        "Public list https://profiles.stanford.edu/siddharth-krishnan?tab=publications entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1557/s43579-024-00678-6"
+      ],
+      "external_ids": {
+        "pubmed": "39958992",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/39958992"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Materials approaches for next-generation encapsulated cell therapies",
+          "year": 2025,
+          "authors": [
+            "S. R. Krishnan",
+            "R. Langer",
+            "D. G. Anderson"
+          ]
+        },
+        {
+          "title": "Materials approaches for next-generation encapsulated cell therapies",
+          "year": 2023,
+          "authors": [
+            "S. R. Krishnan",
+            "R. Langer",
+            "D. G. Anderson"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_siddharth_krishnan:0d7cfe864569",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Emergency delivery of particulate drugs by active ejection using in vivo wireless devices",
+      "year": 2025,
+      "authors": [
+        "Siddharth R. Krishnan",
+        "Laura O’Keeffe",
+        "Arnab Rudra",
+        "Derin Gumustop",
+        "Nima Khatib",
+        "Claudia Liu",
+        "Jiawei Yang",
+        "Athena Wang",
+        "Matthew A. Bochenek",
+        "Yen-Chun Lu",
+        "Suman Bose",
+        "Kaelan Reed",
+        "Robert Langer",
+        "Daniel G. Anderson"
+      ],
+      "listed_venue": "Nature Biomedical Engineering",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 187665503"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41551-025-01436-2"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Emergency delivery of particulate drugs by active ejection using in vivo wireless devices",
+          "year": 2024,
+          "authors": [
+            "Siddharth R. Krishnan",
+            "Laura O’Keeffe",
+            "Arnab Rudra",
+            "Derin Gumustop",
+            "Nima Khatib",
+            "Claudia Liu",
+            "Jiawei Yang",
+            "Athena Wang",
+            "Matthew A. Bochenek",
+            "Yen-Chun Lu",
+            "Suman Bose",
+            "Kaelan Reed",
+            "Robert Langer",
+            "Daniel G. Anderson"
+          ]
+        },
+        {
+          "title": "Emergency delivery of particulate drugs by active ejection using in vivo wireless devices",
+          "year": 2026,
+          "authors": [
+            "Siddharth R. Krishnan",
+            "Laura O’Keeffe",
+            "Arnab Rudra",
+            "Derin Gumustop",
+            "Nima Khatib",
+            "Claudia Liu",
+            "Jiawei Yang",
+            "Athena Wang",
+            "Matthew A. Bochenek",
+            "Yen-Chun Lu",
+            "Suman Bose",
+            "Kaelan Reed",
+            "Robert Langer",
+            "Daniel G. Anderson"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "reason": "outside_year_window",
+      "title": "An Approach to Thermocouple Measurements That Reduces Uncertainties in High-Temperature Environments",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198785"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Theoretical and Experimental Studies of Epidermal Heat Flux Sensors for Measurements of Core Body Temperature",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198787"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "6th, T",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198792"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Epidermal electronics for noninvasive, wireless, quantitative assessment of ventricular shunt function in patients with hydrocephalus",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 69705410",
+        "ORCID 0000-0001-8032-7043 put-code 88198793"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Ultrathin, Skin-Like Devices for Precise, Continuous Thermal Property Mapping of Human Skin and Soft Tissues",
+      "year": 2016,
+      "work_types": [
+        "book_chapter"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198794"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Measurement of Localized Temperature in Highly Radiating Particle-Laden Environments",
+      "year": 2011,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198810"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Wireless skin sensor with methods and uses",
+      "year": 2019,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198811"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Flexible Electronics: Theoretical and Experimental Studies of Epidermal Heat Flux Sensors for Measurements of Core Body Temperature (Adv. Healthcare Mater. 1/2016)",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198812"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Epidermal Electronics: Wireless, Battery-Free Epidermal Electronics for Continuous, Quantitative, Multimodal Thermal Characterization of Skin (Small 47/2018)",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198813"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Wireless, Battery‐Free Epidermal Electronics for Continuous, Quantitative, Multimodal Thermal Characterization of Skin",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 69705409",
+        "ORCID 0000-0001-8032-7043 put-code 88198800"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Battery-free, fully implantable optofluidic cuff system for wireless optogenetic and pharmacological neuromodulation of peripheral nerves",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198801"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Waterproof, electronics-enabled, epidermal microfluidic devices for sweat collection, biomarker analysis, and thermography in aquatic settings",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198802"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Resettable skin interfaced microfluidic sweat collection devices with chemesthetic hydration feedback",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198803"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Appendix C An Approach to Thermocouple Temperature Measurements that Reduces Uncertainties Associated with Radiative Corrections",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198804"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Soft, wireless electronics for the thermal characterization of skin and soft tissue",
+      "year": 2019,
+      "work_types": [
+        "thesis"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198806"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Wireless and noninvasive epidermal electronics",
+      "year": 2019,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198807"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Multimodal epidermal devices for hydration monitoring Microsyst",
+      "year": 2017,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198808"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Fully implantable optoelectronic systems for battery-free, multimodal operation in neuroscience research",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198797"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Bio-integrated wearable systems: A comprehensive review",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198798"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Flexible and Stretchable 3$ω$ Sensors for Thermal Characterization of Human Skin",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198788"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Multimodal epidermal devices for hydration monitoring",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198789"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Thermal Transport Characteristics of Human Skin Measured In Vivo Using Thermal Elements",
+      "year": 2017,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198790"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Epidermal electronic systems for measuring the thermal properties of human skin at depths of up to several millimeters",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198791"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "An Approach to Thermocouple Temperature Measurements that Reduces Uncertainties Associated with Radiative Corrections",
+      "year": 2014,
+      "work_types": [
+        "thesis"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198795"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Advanced approaches for quantitative characterization of thermal transport properties in soft materials using thin, conformable resistive sensors",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198796"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Epidermal devices for noninvasive, precise, and continuous mapping of macrovascular and microvascular blood flow",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198786"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Battery-free, skin-interfaced microfluidic/electronic systems for simultaneous electrochemical, colorimetric, and volumetric analysis of sweat",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198799"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Epidermal Thermal Depth Sensors: Epidermal Electronic Systems for Measuring the Thermal Properties of Human Skin at Depths of up to Several Millimeters (Adv. Funct. Mater. 34/2018)",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 88198809"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Distributed resonant coupling enables high efficiency power transfer to mm-scale bioelectronics",
+      "year": 2026,
+      "work_types": [
+        "preprint"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-8032-7043 put-code 221881830"
+      ]
+    }
+  ],
+  "professor": {
+    "orcid": "0000-0001-8032-7043",
+    "author_ids": {},
+    "author_ids_complete": false
+  }
+}

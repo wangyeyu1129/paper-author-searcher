@@ -1,0 +1,825 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "soc_christian_wolf",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Christian Wolf",
+      "university": "Massachusetts Institute of Technology"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.921218+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "research.json",
+        "url": "https://www.christiankwolf.com/research",
+        "records": 15
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "soc_christian_wolf:07f55653fb27",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Aggregation in Heterogeneous-Firm Models: Theory and Measurement",
+      "year": 2020,
+      "authors": [
+        "Yann Koby",
+        "Christian Wolf"
+      ],
+      "listed_venue": "Working paper",
+      "work_types": [
+        "working_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.christiankwolf.com/research entry 15 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Aggregation in Heterogeneous-Firm Models: Theory and Measurement",
+          "year": 2019,
+          "authors": [
+            "Yann Koby",
+            "Christian Wolf"
+          ]
+        },
+        {
+          "title": "Aggregation in Heterogeneous-Firm Models: Theory and Measurement",
+          "year": 2021,
+          "authors": [
+            "Yann Koby",
+            "Christian Wolf"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_christian_wolf:49a5c8766069",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "SVAR (Mis-)Identification and the Real Effects of Monetary Policy Shocks",
+      "year": 2020,
+      "authors": [
+        "Christian Wolf"
+      ],
+      "listed_venue": "American Economic Journal: Macroeconomics 12(4)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.christiankwolf.com/research entry 10 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1257/mac.20180328"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "SVAR (Mis-)Identification and the Real Effects of Monetary Policy Shocks",
+          "year": 2019,
+          "authors": [
+            "Christian Wolf"
+          ]
+        },
+        {
+          "title": "SVAR (Mis-)Identification and the Real Effects of Monetary Policy Shocks",
+          "year": 2021,
+          "authors": [
+            "Christian Wolf"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1257/mac.20180328",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "SVAR (Mis)Identification and the Real Effects of Monetary Policy Shocks",
+          "crossref_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_christian_wolf:cc947b426430",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Local Projections and VARs Estimate the Same Impulse Responses",
+      "year": 2021,
+      "authors": [
+        "Mikkel Plagborg-Møller",
+        "Christian Wolf"
+      ],
+      "listed_venue": "Econometrica 89(2)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.christiankwolf.com/research entry 9 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3982/ecta17813"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Local Projections and VARs Estimate the Same Impulse Responses",
+          "year": 2020,
+          "authors": [
+            "Mikkel Plagborg-Møller",
+            "Christian Wolf"
+          ]
+        },
+        {
+          "title": "Local Projections and VARs Estimate the Same Impulse Responses",
+          "year": 2022,
+          "authors": [
+            "Mikkel Plagborg-Møller",
+            "Christian Wolf"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3982/ecta17813",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Local Projections and VARs Estimate the Same Impulse Responses",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_christian_wolf:5718fd5fc559",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Demand Composition and the Strength of Recoveries",
+      "year": 2022,
+      "authors": [
+        "Martin Beraja",
+        "Christian Wolf"
+      ],
+      "listed_venue": "Working paper (R&R Review of Economic Studies)",
+      "work_types": [
+        "working_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.christiankwolf.com/research entry 14 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3386/w29304"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Demand Composition and the Strength of Recoveries",
+          "year": 2021,
+          "authors": [
+            "Martin Beraja",
+            "Christian Wolf"
+          ]
+        },
+        {
+          "title": "Demand Composition and the Strength of Recoveries",
+          "year": 2023,
+          "authors": [
+            "Martin Beraja",
+            "Christian Wolf"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3386/w29304",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Demand Composition and the Strength of Recoveries",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_christian_wolf:1a717c633425",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Instrumental Variable Identification of Dynamic Variance Decompositions",
+      "year": 2022,
+      "authors": [
+        "Mikkel Plagborg-Møller",
+        "Christian Wolf"
+      ],
+      "listed_venue": "Journal of Political Economy 130(8)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.christiankwolf.com/research entry 8 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3386/w29044"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Instrumental Variable Identification of Dynamic Variance Decompositions",
+          "year": 2021,
+          "authors": [
+            "Mikkel Plagborg-Møller",
+            "Christian Wolf"
+          ]
+        },
+        {
+          "title": "Instrumental Variable Identification of Dynamic Variance Decompositions",
+          "year": 2023,
+          "authors": [
+            "Mikkel Plagborg-Møller",
+            "Christian Wolf"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3386/w29044",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Instrumental Variable Identification of Dynamic Variance Decompositions",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_christian_wolf:2cba47a807a6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "What Can We Learn From Sign-Restricted VARs?",
+      "year": 2022,
+      "authors": [
+        "Christian Wolf"
+      ],
+      "listed_venue": "AEA Papers and Proceedings 112",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.christiankwolf.com/research entry 13 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1257/pandp.20221045"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "What Can We Learn From Sign-Restricted VARs?",
+          "year": 2021,
+          "authors": [
+            "Christian Wolf"
+          ]
+        },
+        {
+          "title": "What Can We Learn From Sign-Restricted VARs?",
+          "year": 2023,
+          "authors": [
+            "Christian Wolf"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1257/pandp.20221045",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "What Can We Learn from Sign-Restricted VARs?",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_christian_wolf:85a7c1fb4d11",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Fiscal Stimulus and the Systematic Response of Monetary Policy",
+      "year": 2023,
+      "authors": [
+        "Christian Wolf"
+      ],
+      "listed_venue": "AEA Papers and Proceedings 113",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.christiankwolf.com/research entry 11 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1257/pandp.20231072"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Fiscal Stimulus and the Systematic Response of Monetary Policy",
+          "year": 2022,
+          "authors": [
+            "Christian Wolf"
+          ]
+        },
+        {
+          "title": "Fiscal Stimulus and the Systematic Response of Monetary Policy",
+          "year": 2024,
+          "authors": [
+            "Christian Wolf"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1257/pandp.20231072",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Fiscal Stimulus and the Systematic Response of Monetary Policy",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_christian_wolf:f05d549b03e1",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Monetary Policy and Inequality",
+      "year": 2023,
+      "authors": [
+        "Alisdair McKay",
+        "Christian Wolf"
+      ],
+      "listed_venue": "Journal of Economic Perspectives 37(1)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.christiankwolf.com/research entry 12 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Monetary Policy and Inequality",
+          "year": 2022,
+          "authors": [
+            "Alisdair McKay",
+            "Christian Wolf"
+          ]
+        },
+        {
+          "title": "Monetary Policy and Inequality",
+          "year": 2024,
+          "authors": [
+            "Alisdair McKay",
+            "Christian Wolf"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_christian_wolf:ff729510b196",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The Missing Intercept: A Demand Equivalence Approach",
+      "year": 2023,
+      "authors": [
+        "Christian Wolf"
+      ],
+      "listed_venue": "American Economic Review 113(8)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.christiankwolf.com/research entry 7 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1257/aer.20211751"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "The Missing Intercept: A Demand Equivalence Approach",
+          "year": 2022,
+          "authors": [
+            "Christian Wolf"
+          ]
+        },
+        {
+          "title": "The Missing Intercept: A Demand Equivalence Approach",
+          "year": 2024,
+          "authors": [
+            "Christian Wolf"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1257/aer.20211751",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "The Missing Intercept: A Demand Equivalence Approach",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_christian_wolf:696a6fb77617",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "What Can Time Series Regressions Tell Us About Policy Counterfactuals?",
+      "year": 2023,
+      "authors": [
+        "Alisdair McKay",
+        "Christian Wolf"
+      ],
+      "listed_venue": "Econometrica 91(5)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.christiankwolf.com/research entry 6 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3386/w30358"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "What Can Time Series Regressions Tell Us About Policy Counterfactuals?",
+          "year": 2022,
+          "authors": [
+            "Alisdair McKay",
+            "Christian Wolf"
+          ]
+        },
+        {
+          "title": "What Can Time Series Regressions Tell Us About Policy Counterfactuals?",
+          "year": 2024,
+          "authors": [
+            "Alisdair McKay",
+            "Christian Wolf"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3386/w30358",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "What Can Time-Series Regressions Tell Us About Policy Counterfactuals?",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_christian_wolf:1177e4e0df30",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Can Deficits Finance Themselves?",
+      "year": 2024,
+      "authors": [
+        "George-Marios Angeletos",
+        "Chen Lian",
+        "Christian Wolf"
+      ],
+      "listed_venue": "Econometrica 92(5)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.christiankwolf.com/research entry 4 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3386/w31185"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Can Deficits Finance Themselves?",
+          "year": 2023,
+          "authors": [
+            "George-Marios Angeletos",
+            "Chen Lian",
+            "Christian Wolf"
+          ]
+        },
+        {
+          "title": "Can Deficits Finance Themselves?",
+          "year": 2025,
+          "authors": [
+            "George-Marios Angeletos",
+            "Chen Lian",
+            "Christian Wolf"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3386/w31185",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Can Deficits Finance Themselves?",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_christian_wolf:33ff926739ea",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Local Projections vs. VARs: Lessons From Thousands of DGPs",
+      "year": 2024,
+      "authors": [
+        "Dake Li",
+        "Mikkel Plagborg-Møller",
+        "Christian Wolf"
+      ],
+      "listed_venue": "Journal of Econometrics 244(2)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.christiankwolf.com/research entry 3 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.jeconom.2024.105722"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Local Projections vs. VARs: Lessons From Thousands of DGPs",
+          "year": 2023,
+          "authors": [
+            "Dake Li",
+            "Mikkel Plagborg-Møller",
+            "Christian Wolf"
+          ]
+        },
+        {
+          "title": "Local Projections vs. VARs: Lessons From Thousands of DGPs",
+          "year": 2025,
+          "authors": [
+            "Dake Li",
+            "Mikkel Plagborg-Møller",
+            "Christian Wolf"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.jeconom.2024.105722",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Local projections vs. VARs: Lessons from thousands of DGPs",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_christian_wolf:a0ff414023de",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Fiscal Inaction as Monetary Support",
+      "year": 2025,
+      "authors": [
+        "George-Marios Angeletos",
+        "Chen Lian",
+        "Christian Wolf"
+      ],
+      "listed_venue": "Working paper (R&R Econometrica)",
+      "work_types": [
+        "working_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.christiankwolf.com/research entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3386/w34654"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Fiscal Inaction as Monetary Support",
+          "year": 2024,
+          "authors": [
+            "George-Marios Angeletos",
+            "Chen Lian",
+            "Christian Wolf"
+          ]
+        },
+        {
+          "title": "Fiscal Inaction as Monetary Support",
+          "year": 2026,
+          "authors": [
+            "George-Marios Angeletos",
+            "Chen Lian",
+            "Christian Wolf"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3386/w34654",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Fiscal Inaction as Monetary Support",
+          "crossref_year": 2026
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_christian_wolf:e8b59b12abad",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Interest Rate Cuts vs. Stimulus Payments: An Equivalence Result",
+      "year": 2025,
+      "authors": [
+        "Christian Wolf"
+      ],
+      "listed_venue": "Journal of Political Economy 133(4)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.christiankwolf.com/research entry 2 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Interest Rate Cuts vs. Stimulus Payments: An Equivalence Result",
+          "year": 2024,
+          "authors": [
+            "Christian Wolf"
+          ]
+        },
+        {
+          "title": "Interest Rate Cuts vs. Stimulus Payments: An Equivalence Result",
+          "year": 2026,
+          "authors": [
+            "Christian Wolf"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_christian_wolf:5b5ab6c41aed",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Local Projections or VARs? A Primer for Macroeconomists",
+      "year": 2025,
+      "authors": [
+        "José Luis Montiel Olea",
+        "Mikkel Plagborg-Møller",
+        "Eric Qian",
+        "Christian Wolf"
+      ],
+      "listed_venue": "NBER Macroeconomics Annual 2025",
+      "work_types": [
+        "book_chapter"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.christiankwolf.com/research entry 5 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.2139/ssrn.5278374"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Local Projections or VARs? A Primer for Macroeconomists",
+          "year": 2024,
+          "authors": [
+            "José Luis Montiel Olea",
+            "Mikkel Plagborg-Møller",
+            "Eric Qian",
+            "Christian Wolf"
+          ]
+        },
+        {
+          "title": "Local Projections or VARs? A Primer for Macroeconomists",
+          "year": 2026,
+          "authors": [
+            "José Luis Montiel Olea",
+            "Mikkel Plagborg-Møller",
+            "Eric Qian",
+            "Christian Wolf"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.2139/ssrn.5278374",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Local Projections or VARs? A Primer for Macroeconomists",
+          "crossref_year": 2025
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

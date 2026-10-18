@@ -1,0 +1,388 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "cs_julie_kallini",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Julie Kallini",
+      "university": "Stanford University"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.422600+00:00",
+    "sources": [
+      {
+        "kind": "bibtex",
+        "locator": "papers.bib",
+        "url": "https://juliekallini.com/papers/",
+        "records": 6
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "cs_julie_kallini:04da2dfc6895",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A Corpus-based Syntactic Analysis of Two-termed Unlike Coordination",
+      "year": 2021,
+      "authors": [
+        "Kallini, Julie",
+        "Fellbaum, Christiane"
+      ],
+      "listed_venue": "Findings of the Association for Computational Linguistics: EMNLP 2021",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "bibtex"
+      ],
+      "annotation_evidence": [
+        "BibTeX papers.bib (https://juliekallini.com/papers/)"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.18653/v1/2021.findings-emnlp.335"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A Corpus-based Syntactic Analysis of Two-termed Unlike Coordination",
+          "year": 2020,
+          "authors": [
+            "Kallini, Julie",
+            "Fellbaum, Christiane"
+          ]
+        },
+        {
+          "title": "A Corpus-based Syntactic Analysis of Two-termed Unlike Coordination",
+          "year": 2022,
+          "authors": [
+            "Kallini, Julie",
+            "Fellbaum, Christiane"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_julie_kallini:732efb9cf9a5",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Computational Approaches for Understanding Semantic Constraints on Two-termed Coordination Structures",
+      "year": 2022,
+      "authors": [
+        "Kallini, Julie",
+        "Fellbaum, Christiane"
+      ],
+      "listed_venue": "Proceedings of the 25th International Conference on Text, Speech and Dialogue",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "bibtex"
+      ],
+      "annotation_evidence": [
+        "BibTeX papers.bib (https://juliekallini.com/papers/)"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/978-3-031-16270-1_6"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Computational Approaches for Understanding Semantic Constraints on Two-termed Coordination Structures",
+          "year": 2021,
+          "authors": [
+            "Kallini, Julie",
+            "Fellbaum, Christiane"
+          ]
+        },
+        {
+          "title": "Computational Approaches for Understanding Semantic Constraints on Two-termed Coordination Structures",
+          "year": 2023,
+          "authors": [
+            "Kallini, Julie",
+            "Fellbaum, Christiane"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1007/978-3-031-16270-1_6",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Computational Approaches for Understanding Semantic Constraints on Two-termed Coordination Structures",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_julie_kallini:b3f5bbf12d25",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "What to Make of make? Sense Distinctions for Light Verbs",
+      "year": 2023,
+      "authors": [
+        "Kallini, Julie",
+        "Fellbaum, Christiane"
+      ],
+      "listed_venue": "Proceedings of the 12th Global Wordnet Conference",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "bibtex"
+      ],
+      "annotation_evidence": [
+        "BibTeX papers.bib (https://juliekallini.com/papers/)"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.18653/v1/2023.gwc-1.3"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "What to Make of make? Sense Distinctions for Light Verbs",
+          "year": 2022,
+          "authors": [
+            "Kallini, Julie",
+            "Fellbaum, Christiane"
+          ]
+        },
+        {
+          "title": "What to Make of make? Sense Distinctions for Light Verbs",
+          "year": 2024,
+          "authors": [
+            "Kallini, Julie",
+            "Fellbaum, Christiane"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_julie_kallini:7a408b1641ba",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Mission: Impossible Language Models",
+      "year": 2024,
+      "authors": [
+        "Kallini, Julie",
+        "Papadimitriou, Isabel",
+        "Futrell, Richard",
+        "Mahowald, Kyle",
+        "Potts, Christopher"
+      ],
+      "listed_venue": "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "bibtex"
+      ],
+      "annotation_evidence": [
+        "BibTeX papers.bib (https://juliekallini.com/papers/)"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2024.acl-long.787"
+      ],
+      "external_ids": {
+        "arxiv": "2401.06416"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Mission: Impossible Language Models",
+          "year": 2023,
+          "authors": [
+            "Kallini, Julie",
+            "Papadimitriou, Isabel",
+            "Futrell, Richard",
+            "Mahowald, Kyle",
+            "Potts, Christopher"
+          ]
+        },
+        {
+          "title": "Mission: Impossible Language Models",
+          "year": 2025,
+          "authors": [
+            "Kallini, Julie",
+            "Papadimitriou, Isabel",
+            "Futrell, Richard",
+            "Mahowald, Kyle",
+            "Potts, Christopher"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2401.06416",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Mission: Impossible Language Models",
+          "arxiv_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_julie_kallini:d8a907d8204b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "False Friends Are Not Foes: Investigating Vocabulary Overlap in Multilingual Language Models",
+      "year": 2025,
+      "authors": [
+        "Kallini, Julie",
+        "Jurafsky, Dan",
+        "Potts, Christopher",
+        "Bartelds, Martijn"
+      ],
+      "listed_venue": "Findings of the Association for Computational Linguistics: EMNLP 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "bibtex"
+      ],
+      "annotation_evidence": [
+        "BibTeX papers.bib (https://juliekallini.com/papers/)"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2025.findings-emnlp.1153"
+      ],
+      "external_ids": {
+        "arxiv": "2509.18750"
+      },
+      "metadata_aliases": [
+        {
+          "title": "False Friends Are Not Foes: Investigating Vocabulary Overlap in Multilingual Language Models",
+          "year": 2024,
+          "authors": [
+            "Kallini, Julie",
+            "Jurafsky, Dan",
+            "Potts, Christopher",
+            "Bartelds, Martijn"
+          ]
+        },
+        {
+          "title": "False Friends Are Not Foes: Investigating Vocabulary Overlap in Multilingual Language Models",
+          "year": 2026,
+          "authors": [
+            "Kallini, Julie",
+            "Jurafsky, Dan",
+            "Potts, Christopher",
+            "Bartelds, Martijn"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2509.18750",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "False Friends Are Not Foes: Investigating Vocabulary Overlap in Multilingual Language Models",
+          "arxiv_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_julie_kallini:208d8874d2c7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "MrT5: Dynamic Token Merging for Efficient Byte-level Language Models",
+      "year": 2025,
+      "authors": [
+        "Kallini, Julie",
+        "Murty, Shikhar",
+        "Manning, Christopher D",
+        "Potts, Christopher",
+        "Csordas, Robert"
+      ],
+      "listed_venue": "The Thirteenth International Conference on Learning Representations",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "bibtex"
+      ],
+      "annotation_evidence": [
+        "BibTeX papers.bib (https://juliekallini.com/papers/)"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2410.20771"
+      },
+      "metadata_aliases": [
+        {
+          "title": "MrT5: Dynamic Token Merging for Efficient Byte-level Language Models",
+          "year": 2024,
+          "authors": [
+            "Kallini, Julie",
+            "Murty, Shikhar",
+            "Manning, Christopher D",
+            "Potts, Christopher",
+            "Csordas, Robert"
+          ]
+        },
+        {
+          "title": "MrT5: Dynamic Token Merging for Efficient Byte-level Language Models",
+          "year": 2026,
+          "authors": [
+            "Kallini, Julie",
+            "Murty, Shikhar",
+            "Manning, Christopher D",
+            "Potts, Christopher",
+            "Csordas, Robert"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2410.20771",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "MrT5: Dynamic Token Merging for Efficient Byte-level Language Models",
+          "arxiv_year": 2024
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

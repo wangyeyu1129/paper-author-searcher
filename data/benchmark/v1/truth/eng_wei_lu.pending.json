@@ -1,0 +1,3635 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "eng_wei_lu",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Wei Lu",
+      "university": "University of Michigan"
+    },
+    "scope": {
+      "year_start": 2024,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.872662+00:00",
+    "sources": [
+      {
+        "kind": "orcid",
+        "locator": "0000-0003-4731-1976",
+        "url": "https://orcid.org/0000-0003-4731-1976",
+        "records": 326
+      }
+    ],
+    "excluded_counts": {
+      "outside_year_window": 265,
+      "missing_year": 3
+    }
+  },
+  "papers": [
+    {
+      "evaluation_id": "eng_wei_lu:dc337fb8aff7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Compute-In-Memory Technologies for Deep Learning Acceleration",
+      "year": 2024,
+      "authors": [
+        "Meng, F.-H.",
+        "Lu, W.D."
+      ],
+      "listed_venue": "IEEE Nanotechnology Magazine",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 167788688"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1109/mnano.2023.3340321"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Compute-In-Memory Technologies for Deep Learning Acceleration",
+          "year": 2023,
+          "authors": [
+            "Meng, F.-H.",
+            "Lu, W.D."
+          ]
+        },
+        {
+          "title": "Compute-In-Memory Technologies for Deep Learning Acceleration",
+          "year": 2025,
+          "authors": [
+            "Meng, F.-H.",
+            "Lu, W.D."
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_wei_lu:9a6df4115dea",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Dramaton: A Near-DRAM Accelerator for Large Number Theoretic Transforms",
+      "year": 2024,
+      "authors": [
+        "Park, Y.",
+        "Pal, S.",
+        "Amarnath, A.",
+        "Swaminathan, K.",
+        "Lu, W.D.",
+        "Buyuktosunoglu, A.",
+        "Bose, P."
+      ],
+      "listed_venue": "IEEE Computer Architecture Letters",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 167788690"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1109/lca.2024.3381452"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Dramaton: A Near-DRAM Accelerator for Large Number Theoretic Transforms",
+          "year": 2023,
+          "authors": [
+            "Park, Y.",
+            "Pal, S.",
+            "Amarnath, A.",
+            "Swaminathan, K.",
+            "Lu, W.D.",
+            "Buyuktosunoglu, A.",
+            "Bose, P."
+          ]
+        },
+        {
+          "title": "Dramaton: A Near-DRAM Accelerator for Large Number Theoretic Transforms",
+          "year": 2025,
+          "authors": [
+            "Park, Y.",
+            "Pal, S.",
+            "Amarnath, A.",
+            "Swaminathan, K.",
+            "Lu, W.D.",
+            "Buyuktosunoglu, A.",
+            "Bose, P."
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_wei_lu:354f2db5661b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Editorial: Focus issue on in-memory computing",
+      "year": 2024,
+      "authors": [
+        "Lu, W.D.",
+        "Payvand, M.",
+        "Yang, Y."
+      ],
+      "listed_venue": "Neuromorphic Computing and Engineering",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 167788670"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1088/2634-4386/ad5829"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Editorial: Focus issue on in-memory computing",
+          "year": 2023,
+          "authors": [
+            "Lu, W.D.",
+            "Payvand, M.",
+            "Yang, Y."
+          ]
+        },
+        {
+          "title": "Editorial: Focus issue on in-memory computing",
+          "year": 2025,
+          "authors": [
+            "Lu, W.D.",
+            "Payvand, M.",
+            "Yang, Y."
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_wei_lu:6fc74d3b2531",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Efficient data processing using tunable entropy-stabilized oxide memristors",
+      "year": 2024,
+      "authors": [
+        "Yoo, S.",
+        "Chae, S.",
+        "Chiang, T.",
+        "Webb, M.",
+        "Ma, T.",
+        "Paik, H.",
+        "Park, Y.",
+        "Williams, L.",
+        "Nomoto, K.",
+        "Xing, H.G.",
+        "Trolier-McKinstry, S.",
+        "Kioupakis, E.",
+        "Heron, J.T.",
+        "Lu, W.D."
+      ],
+      "listed_venue": "Nature Electronics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 167788677"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41928-024-01169-1"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Efficient data processing using tunable entropy-stabilized oxide memristors",
+          "year": 2023,
+          "authors": [
+            "Yoo, S.",
+            "Chae, S.",
+            "Chiang, T.",
+            "Webb, M.",
+            "Ma, T.",
+            "Paik, H.",
+            "Park, Y.",
+            "Williams, L.",
+            "Nomoto, K.",
+            "Xing, H.G.",
+            "Trolier-McKinstry, S.",
+            "Kioupakis, E.",
+            "Heron, J.T.",
+            "Lu, W.D."
+          ]
+        },
+        {
+          "title": "Efficient data processing using tunable entropy-stabilized oxide memristors",
+          "year": 2025,
+          "authors": [
+            "Yoo, S.",
+            "Chae, S.",
+            "Chiang, T.",
+            "Webb, M.",
+            "Ma, T.",
+            "Paik, H.",
+            "Park, Y.",
+            "Williams, L.",
+            "Nomoto, K.",
+            "Xing, H.G.",
+            "Trolier-McKinstry, S.",
+            "Kioupakis, E.",
+            "Heron, J.T.",
+            "Lu, W.D."
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_wei_lu:9536651bed42",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Exploiting deep learning accelerators for neuromorphic workloads",
+      "year": 2024,
+      "authors": [
+        "Sun, P.V.",
+        "Titterton, A.",
+        "Gopiani, A.",
+        "Santos, T.",
+        "Basu, A.",
+        "Lu, W.D.",
+        "Eshraghian, J.K."
+      ],
+      "listed_venue": "Neuromorphic Computing and Engineering",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 167788679"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1088/2634-4386/ad2373"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Exploiting deep learning accelerators for neuromorphic workloads",
+          "year": 2023,
+          "authors": [
+            "Sun, P.V.",
+            "Titterton, A.",
+            "Gopiani, A.",
+            "Santos, T.",
+            "Basu, A.",
+            "Lu, W.D.",
+            "Eshraghian, J.K."
+          ]
+        },
+        {
+          "title": "Exploiting deep learning accelerators for neuromorphic workloads",
+          "year": 2025,
+          "authors": [
+            "Sun, P.V.",
+            "Titterton, A.",
+            "Gopiani, A.",
+            "Santos, T.",
+            "Basu, A.",
+            "Lu, W.D.",
+            "Eshraghian, J.K."
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_wei_lu:62889398d1be",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Interspecies-chimera machine vision with polarimetry for real-time navigation and anti-glare pattern recognition",
+      "year": 2024,
+      "authors": [
+        "Guo, T.",
+        "Li, S.",
+        "Zhou, Y.N.",
+        "Lu, W.D.",
+        "Yan, Y.",
+        "Wu, Y.A."
+      ],
+      "listed_venue": "Nature Communications",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 167788697"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41467-024-51178-z"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Interspecies-chimera machine vision with polarimetry for real-time navigation and anti-glare pattern recognition",
+          "year": 2023,
+          "authors": [
+            "Guo, T.",
+            "Li, S.",
+            "Zhou, Y.N.",
+            "Lu, W.D.",
+            "Yan, Y.",
+            "Wu, Y.A."
+          ]
+        },
+        {
+          "title": "Interspecies-chimera machine vision with polarimetry for real-time navigation and anti-glare pattern recognition",
+          "year": 2025,
+          "authors": [
+            "Guo, T.",
+            "Li, S.",
+            "Zhou, Y.N.",
+            "Lu, W.D.",
+            "Yan, Y.",
+            "Wu, Y.A."
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_wei_lu:de6329b1a5f2",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Perspective: Entropy-stabilized oxide memristors",
+      "year": 2024,
+      "authors": [
+        "Sieun Chae",
+        "Sangmin Yoo",
+        "Emmanouil Kioupakis",
+        "Wei D. Lu",
+        "John T. Heron"
+      ],
+      "listed_venue": "Applied Physics Letters",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 165348413"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1063/5.0216429"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Perspective: Entropy-stabilized oxide memristors",
+          "year": 2023,
+          "authors": [
+            "Sieun Chae",
+            "Sangmin Yoo",
+            "Emmanouil Kioupakis",
+            "Wei D. Lu",
+            "John T. Heron"
+          ]
+        },
+        {
+          "title": "Perspective: Entropy-stabilized oxide memristors",
+          "year": 2025,
+          "authors": [
+            "Sieun Chae",
+            "Sangmin Yoo",
+            "Emmanouil Kioupakis",
+            "Wei D. Lu",
+            "John T. Heron"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_wei_lu:b5fd47ddbebb",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Safe, secure and trustworthy compute-in-memory accelerators",
+      "year": 2024,
+      "authors": [
+        "Ziyu Wang",
+        "Yuting Wu",
+        "Yongmo Park",
+        "Wei D. Lu"
+      ],
+      "listed_venue": "Nature Electronics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 173697814"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41928-024-01312-y"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Safe, secure and trustworthy compute-in-memory accelerators",
+          "year": 2023,
+          "authors": [
+            "Ziyu Wang",
+            "Yuting Wu",
+            "Yongmo Park",
+            "Wei D. Lu"
+          ]
+        },
+        {
+          "title": "Safe, secure and trustworthy compute-in-memory accelerators",
+          "year": 2025,
+          "authors": [
+            "Ziyu Wang",
+            "Yuting Wu",
+            "Yongmo Park",
+            "Wei D. Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_wei_lu:8d43d5bce714",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "TT-CIM: Tensor Train Decomposition for Neural Network in RRAM-Based Compute-in-Memory Systems",
+      "year": 2024,
+      "authors": [
+        "Meng, F.-H.",
+        "Wu, Y.",
+        "Zhang, Z.",
+        "Lu, W.D."
+      ],
+      "listed_venue": "IEEE Transactions on Circuits and Systems I: Regular Papers",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 167788676"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1109/tcsi.2023.3344550"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "TT-CIM: Tensor Train Decomposition for Neural Network in RRAM-Based Compute-in-Memory Systems",
+          "year": 2023,
+          "authors": [
+            "Meng, F.-H.",
+            "Wu, Y.",
+            "Zhang, Z.",
+            "Lu, W.D."
+          ]
+        },
+        {
+          "title": "TT-CIM: Tensor Train Decomposition for Neural Network in RRAM-Based Compute-in-Memory Systems",
+          "year": 2025,
+          "authors": [
+            "Meng, F.-H.",
+            "Wu, Y.",
+            "Zhang, Z.",
+            "Lu, W.D."
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_wei_lu:33e3a5c53039",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A Non-Linear Partial Differential Equation Solver Based on Analog Memristor Crossbar Arrays",
+      "year": 2025,
+      "authors": [
+        "Jiabao Ye",
+        "Bing Chen",
+        "Nuo Xu",
+        "Jiantao Zhou",
+        "Rongjun Mu",
+        "Chao Du",
+        "Wei D. Lu"
+      ],
+      "listed_venue": "IEEE Journal of the Electron Devices Society",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 184794855"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1109/jeds.2025.3573409"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A Non-Linear Partial Differential Equation Solver Based on Analog Memristor Crossbar Arrays",
+          "year": 2024,
+          "authors": [
+            "Jiabao Ye",
+            "Bing Chen",
+            "Nuo Xu",
+            "Jiantao Zhou",
+            "Rongjun Mu",
+            "Chao Du",
+            "Wei D. Lu"
+          ]
+        },
+        {
+          "title": "A Non-Linear Partial Differential Equation Solver Based on Analog Memristor Crossbar Arrays",
+          "year": 2026,
+          "authors": [
+            "Jiabao Ye",
+            "Bing Chen",
+            "Nuo Xu",
+            "Jiantao Zhou",
+            "Rongjun Mu",
+            "Chao Du",
+            "Wei D. Lu"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "reason": "outside_year_window",
+      "title": "Research Challenges for Energy-Efficient Computing in Automated Vehicles",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 130128539"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "How to Build a Memristive Integrate-and-Fire Model for Spiking Neuronal Signal Generation",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579680"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "RN-Net: Reservoir Nodes-Enabled Neuromorphic Vision Sensing Network",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138489899",
+        "ORCID 0000-0003-4731-1976 put-code 167788687"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "PowerGAN: A Machine Learning Approach for Power Side-Channel Attack on Compute-in-Memory Accelerators",
+      "year": 2023,
+      "work_types": [
+        "journal_article",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138489884",
+        "ORCID 0000-0003-4731-1976 put-code 167788668",
+        "ORCID 0000-0003-4731-1976 put-code 167788684"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Side-Channel Attack Analysis on In-Memory Computing Architectures",
+      "year": 2022,
+      "work_types": [
+        "journal_article",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138489886",
+        "ORCID 0000-0003-4731-1976 put-code 167788692"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Exploring Compute-in-Memory Architecture Granularity for Structured Pruning of Neural Networks",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138489909"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Demonstration of a Multi-Level μA-Range Bulk Switching ReRAM and its Application for Keyword Spotting",
+      "year": 2022,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138489915"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Gradient-Based Neuromorphic Learning on Dynamical RRAM Arrays",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138489920"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Intelligence Processing Units Accelerate Neuromorphic Learning",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138489926"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Columnar Learning Networks for Multisensory Spatiotemporal Learning",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138489939"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "RM-NTT: An RRAM-Based Compute-in-Memory Number Theoretic Transform Accelerator",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138489951"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Tuning Resistive Switching Behavior by Controlling Internal Ionic Dynamics for Biorealistic Implementation of Synaptic Plasticity",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138489955"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Device Variation Effects on Neural Network Inference Accuracy in Analog In‐Memory Computing Systems",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138489959"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Dynamical memristors for higher-complexity neuromorphic computing",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138489965"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Navigating Local Minima in Quantized Spiking Neural Networks",
+      "year": 2022,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138489972"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Memristor-Based Binarized Spiking Neural Networks: Challenges and applications",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490056"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "An 8-bit 20.7 TOPS/W Multi-Level Cell ReRAM-based Compute Engine",
+      "year": 2022,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138489980"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Memristive technologies for data storage, computation, encryption, and radio-frequency communication",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138489987"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Spatiotemporal Spike Pattern Detection with Second-order Memristive Synapses",
+      "year": 2022,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138489992"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Design Space Exploration of Dense and Sparse Mapping Schemes for RRAM Architectures",
+      "year": 2022,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138489999"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Analog Computation with RRAM and Supporting Circuits",
+      "year": 2022,
+      "work_types": [
+        "book_chapter"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490006",
+        "ORCID 0000-0003-4731-1976 put-code 167788669"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Physical Unclonable Function Systems Based on Pattern Transfer of Fingerprint-Like Patterns",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490013"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "The fine line between dead neurons and sparsity in binarized spiking neural networks",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490023"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Investigating Selectorless Property within Niobium Devices for Storage Applications",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490074"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Dynamic resistive switching devices for neuromorphic computing",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490077"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Hierarchical architectures in reservoir computing systems",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490117"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Neural Functional Connectivity Reconstruction with Second‐Order Memristor Network",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490124"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Neural connectivity inference with spike-timing dependent plasticity network",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490129"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Bulk-Switching Memristor-based Compute-In-Memory Module for Deep Neural Network Training",
+      "year": 2023,
+      "work_types": [
+        "journal_article",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 167788667",
+        "ORCID 0000-0003-4731-1976 put-code 167788691"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Training Spiking Neural Networks Using Lessons From Deep Learning",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490113",
+        "ORCID 0000-0003-4731-1976 put-code 167788678"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "PIM-GPT: A Hybrid Process-in-Memory Accelerator for Autoregressive Transformers",
+      "year": 2023,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 167788682",
+        "ORCID 0000-0003-4731-1976 put-code 167788683"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Compute-in-memory implementation of state space models for event sequence processing",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 201889106"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Noise-Tolerant CIM-DNNs Explained",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 195629761"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Memristors Based on (Zr, Hf, Nb, Ta, Mo, W) High‐Entropy Oxides",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579693"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "TAICHI: A Tiled Architecture for In-memory Computing and Heterogeneous Integration",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579699"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A high-speed MIM resistive memory cell with an inherent vanadium selector",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579701"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Filament‐Free Bulk Resistive Memory Enables Deterministic Analogue Switching",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579710"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Adaptive Synaptic Memory via Lithium Ion Modulation in RRAM Devices",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579769"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Power-efficient combinatorial optimization using intrinsic noise in memristor Hopfield neural networks",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579778"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Fully Integrated Reprogrammable CMOS-RRAM Compute-in-Memory Coprocessor for Neuromorphic Applications",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579780"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Memristor networks for real-time neural activity analysis",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579798"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nanoscale resistive switching devices for memory and computing applications",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579806"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Near infrared neuromorphic computing via upconversion-mediated optogenetics",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579812"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "In Situ Nano-thermomechanical Experiment Reveals Brittle to Ductile Transition in Silicon Nanowires",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579821"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nanoionic Resistive‐Switching Devices",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579818"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "RRAM fabric for neuromorphic and reconfigurable compute-in-memory systems",
+      "year": 2018,
+      "work_types": [
+        "conference_paper",
+        "poster"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579877",
+        "ORCID 0000-0003-4731-1976 put-code 138491105",
+        "ORCID 0000-0003-4731-1976 put-code 138504705"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Charge Transition of Oxygen Vacancies during Resistive Switching in Oxide-Based RRAM",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579884"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Neuromorphic computing with memristive devices",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579948"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Temporal data classification and forecasting using a memristor-based reservoir computing system",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579910"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Recommended Methods to Study Resistive Switching Devices",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579915"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Hardware Acceleration of Simulated Annealing of Spin Glass by RRAM Crossbar Array",
+      "year": 2018,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579928"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Neuromorphic Computing Using Memristor Crossbar Networks: A Focus on Bio-Inspired Approaches",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579944"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "K-means Data Clustering with Memristor Networks",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579966"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "MoS2 Memristors Exhibiting Variable Switching Characteristics toward Biorealistic Synaptic Emulation",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579932"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A general memristor-based partial differential equation solver",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579947"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Optogenetics-Inspired Tunable Synaptic Functions in Memristors",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579951"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Field-Programmable Crossbar Array (FPCA) for Reconfigurable Computing",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579956"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "RRAM-enabled AI Accelerator Architecture",
+      "year": 2021,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490099"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Memristive Stochastic Computing for Deep Learning Parameter Optimization",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490135"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Techniques for computing dot products with memory devices",
+      "year": 2020,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490201"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Deep Neural Network Mapping and Performance Analysis on Tiled RRAM Architecture",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490222"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Crossbar-Based In-Memory Computing Architecture",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490242"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Quantitative, Dynamic TaO<sub><i>x</i></sub> Memristor/Resistive Random Access Memory Model",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490275"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Real-Time Retinomorphic Simulator Using a Conductance-Based Discrete Neuronal Network",
+      "year": 2020,
+      "work_types": [
+        "conference_paper",
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490271",
+        "ORCID 0000-0003-4731-1976 put-code 138490403"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Vector multiplications using memristive devices and applications thereof",
+      "year": 2020,
+      "work_types": [
+        "book_chapter"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490283"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Sparse coding with memristor networks",
+      "year": 2017,
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490478",
+        "ORCID 0000-0003-4731-1976 put-code 138490615",
+        "ORCID 0000-0003-4731-1976 put-code 138491163"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Live Demonstration: Video-to-Spike Conversion Using a Real-Time Retina Cell Network Simulator",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490365"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Deep Neural Network Accelerator Based on Tiled RRAM Architecture",
+      "year": 2019,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490406"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Field-programmable crossbar array for reconfigurable computing",
+      "year": 2019,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490499"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A fully integrated reprogrammable memristor–CMOS system for efficient multiply–accumulate operations",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490505"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Harnessing Intrinsic Noise in Memristor Hopfield Neural Networks for Combinatorial Optimization",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490522"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Device switching using layered device structure",
+      "year": 2017,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490540",
+        "ORCID 0000-0003-4731-1976 put-code 138491532"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Memristors and Memristive Devices for Neuromorphic Computing",
+      "year": 2019,
+      "work_types": [
+        "book_chapter"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490568",
+        "ORCID 0000-0003-4731-1976 put-code 138490627"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "RRAM Solutions for Stochastic Computing",
+      "year": 2019,
+      "work_types": [
+        "book_chapter"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490606"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Non-volatile solid state resistive switching devices",
+      "year": 2018,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490649",
+        "ORCID 0000-0003-4731-1976 put-code 138490658",
+        "ORCID 0000-0003-4731-1976 put-code 138490814"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Ionic modulation and ionic coupling effects in MoS2 devices for neuromorphic computing",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 51195803"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Stabilization of Mode-Dependent Impulsive Hybrid Systems Driven by DFA With Mixed-Mode Effects",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 58946214"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Tuning Ionic Transport in Memristive Devices by Graphene with Engineered Nanopores",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491604",
+        "ORCID 0000-0003-4731-1976 put-code 31993501"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Feature extraction and analysis using memristor networks",
+      "year": 2018,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579960"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Parasitic Effect Analysis in Memristor-Array-Based Neuromorphic Systems",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579953"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "The future of electronics based on memristive systems",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 105579961"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Multifunctional Nanoionic Devices Enabling Simultaneous Heterosynaptic Plasticity and Efficient In-Memory Boolean Logic",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491238"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Ge nanowire photodetector with high photoconductive gain epitaxially integrated on Si substrate",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491254"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Self-Limited and Forming-Free CBRAM Device With Double Al2O3 ALD Layers",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138490818"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "On‐Demand Reconfiguration of Nanomaterials: When Electronics Meets Ionics",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491137"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Reservoir computing using dynamic memristors for temporal information processing",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491139"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Memristive computing devices and applications",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491141"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Iodine Vacancy Redistribution in Organic–Inorganic Halide Perovskite Films and Resistive Switching Effects",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491150"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Epsilon-greedy strategy for online dictionary learning with realistic memristor array constraints",
+      "year": 2017,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491176"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Temporal Learning Using Second-Order Memristors",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491228"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Hybrid neural network using binary RRAM devices",
+      "year": 2017,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491178"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Experimental Demonstration of Feature Extraction and Dimensionality Reduction Using Memristor Networks",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491247"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Resistive switching for non volatile memory device using an integrated breakdown element",
+      "year": 2014,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491263",
+        "ORCID 0000-0003-4731-1976 put-code 138491297",
+        "ORCID 0000-0003-4731-1976 put-code 138491826",
+        "ORCID 0000-0003-4731-1976 put-code 138502155"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Memory array architecture with two-terminal memory cells",
+      "year": 2017,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491328",
+        "ORCID 0000-0003-4731-1976 put-code 138491359"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Charge Transition of Oxygen Vacancies during Resistive Switching in Oxide-based Memristors",
+      "year": 2017,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491376"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Device nonideality effects on image reconstruction using memristor arrays",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491569"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Emulation of synaptic metaplasticity in memristors",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491555"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Switching device having a non-linear element",
+      "year": 2013,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491538",
+        "ORCID 0000-0003-4731-1976 put-code 138501462",
+        "ORCID 0000-0003-4731-1976 put-code 138501715",
+        "ORCID 0000-0003-4731-1976 put-code 138502559"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Electronic and optical properties of oxygen vacancies in amorphous Ta<sub>2</sub>O<sub>5</sub>from first principles",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491543"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Silicon based nanoscale crossbar memory",
+      "year": 2015,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491563",
+        "ORCID 0000-0003-4731-1976 put-code 138491778"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nanoscale metal oxide resistive switching element",
+      "year": 2016,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491581"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Schottky diode and method of fabricating the same",
+      "year": 2016,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491594"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "High Responsivity Graphene-SOI Heterojunction Photodetectors and Imaging Array",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491600"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Vertical Ge/Si Core/Shell Nanowire Junctionless Transistor",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491607"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Oxygen vacancies in amorphous-Ta2O5 from first-principles calculations",
+      "year": 2016,
+      "work_types": [
+        "abstract"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491623"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Single-Readout High-Density Memristor Crossbar",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491631"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nanoscale electrochemistry using dielectric thin films as solid electrolytes",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491644"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Very Low-Programming-Current RRAM With Self-Rectifying Characteristics",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491649"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Progress in the Characterizations and Understanding of Conducting Filaments in Resistive Switching Devices",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491663"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Electrochemistry at the Nanoscale",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491669"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "In Situ Nanoscale Electric Field Control of Magnetism by Nanoionics",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491665"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Temporal information encoding in dynamic memristive devices",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491689"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Utilizing multiple state variables to improve the dynamic range of analog switching in a memristor",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491695"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Memristive Physically Evolving Networks Enabling the Emulation of Heterosynaptic Plasticity",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491699"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Feature Extraction Using Memristor Networks",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491715"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Data Clustering using Memristor Networks",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491831"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Low-Power Variation-Aware Adaptive Write Scheme for Access-Transistor-Free Memristive Memory",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491799"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Biorealistic Implementation of Synaptic Functions with Oxide Memristors through Internal Ionic Dynamics",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491818"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Front cover",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504711"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Photoelectric characteristics of Schottky diode based on a Ge/Si core/shell nanowire",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491673"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Efficient in-memory computing architecture based on crossbar arrays",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491682"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Characterizations and understanding of conducting filaments in resistive switching devices",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491806"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Defect consideratons for robust sparse coding using memristor arrays",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491809"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Method and structure of monolithically integrated IC and resistive memory using IC foundry-compatible processes",
+      "year": 2015,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491855"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "An Optoelectronic Resistive Switching Memory with Integrated Demodulating and Arithmetic Functions",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491862"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Experimental Demonstration of a Second-Order Memristor and Its Ability to Biorealistically Implement Synaptic Plasticity",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138491878"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Memristive Devices for Stochastic Computing",
+      "year": 2014,
+      "work_types": [
+        "book_chapter",
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502158",
+        "ORCID 0000-0003-4731-1976 put-code 16819780"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Analog signal processing on a FPAA/memristor hybrid circuit",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502174"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Semiconductor Nanowire Growth and Integration",
+      "year": 2014,
+      "work_types": [
+        "book_chapter"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138501656"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Conduction mechanism of a TaO<sub>x</sub>-based selector and its application in crossbar memory arrays",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138501553"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Retention failure analysis of metal-oxide based resistive memory",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138501692"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "3D-stackable crossbar resistive memory based on Field Assisted Superlinear Threshold (FAST) selector",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138501559"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Semiconductor Nanowires: From Next-generation Electronics to Sustainable Energy",
+      "year": 2014,
+      "work_types": [
+        "book",
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138501627",
+        "ORCID 0000-0003-4731-1976 put-code 138502501"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "FPAA/Memristor Hybrid Computing Infrastructure",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138501444"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "3D ReRAM with Field Assisted Super-Linear Threshold (FASTTM) Selector technology for super-dense, low power, low latency data storage systems",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138501475"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Resistance-Switchable and Ferroelectric Metal–Organic Framework",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138501593"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Modeling technique for resistive random access memory (RRAM) cells",
+      "year": 2015,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138501487"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "High Performance, Low Power Nanowire Transistor Devices",
+      "year": 2014,
+      "work_types": [
+        "book_chapter"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138501647"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Ultralow Sub-1-nA Operating Current Resistive Memory With Intrinsic Non-Linear Characteristics",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138501663"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Device switching using layered device structure",
+      "year": 2014,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138501670"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Tuning Resistive Switching Characteristics of Tantalum Oxide Memristors through Si Doping",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138501688",
+        "ORCID 0000-0003-4731-1976 put-code 16819783"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Crossbar RRAM Arrays: Selector Device Requirements During Write Operation",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138501695"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "3-D Vertical Dual-Layer Oxide Memristive Devices",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138501718"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Electrochemical dynamics of nanoscale metallic inclusions in dielectrics",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138501723"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Replicating Kernels with a Short Stride Allows Sparse Reconstructions with Fewer Independent Kernels",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138501733"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Resistive memory using SiGe material",
+      "year": 2013,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502148",
+        "ORCID 0000-0003-4731-1976 put-code 138502637"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Pattern Recognition with Memristor Networks",
+      "year": 2014,
+      "work_types": [
+        "book_chapter",
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502165",
+        "ORCID 0000-0003-4731-1976 put-code 16819781"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Crossbar RRAM Arrays: Selector Device Requirements During Read Operation",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502178"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Silicon-based nanoscale resistive device with adjustable resistance",
+      "year": 2014,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502239",
+        "ORCID 0000-0003-4731-1976 put-code 138502362"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Efficient Si Nanowire Array Transfer via Bi-Layer Structure Formation Through Metal-Assisted Chemical Etching",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502307"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Electronic and optical properties of tantalum pentoxide polymorphs from first principles calculations",
+      "year": 2014,
+      "work_types": [
+        "abstract"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502321"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Native Stochastic Computing Architecture Enabled by Memristors",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502327"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Oxide Resistive Memory with Functionalized Graphene as Built-in Selector Element",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502332"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Comprehensive Physical Model of Dynamic Resistive Switching in an Oxide Memristor",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502343"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Electrochemical dynamics of nanoscale metallic inclusions in dielectrics Nat",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502406"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Electronic properties of tantalum pentoxide polymorphs from first-principles calculations",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502419"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Memristive Devices: Switching Effects, Modeling, and Applications",
+      "year": 2014,
+      "work_types": [
+        "book_chapter"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502510"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Random telegraph noise and resistance switching analysis of oxide based resistive memory",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502519"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Interface control for improved switching in RRAM",
+      "year": 2013,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502533",
+        "ORCID 0000-0003-4731-1976 put-code 138502584"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Vertical Nanowire Heterojunction Devices Based on a Clean Si/Ge Interface",
+      "year": 2013,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502546"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Reconfigurable memristive device technologies",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 167788695"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nanoscale resistive memory with intrinsic diode characteristics and long endurance",
+      "year": 2010,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503463"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Latch-up based bidirectional npn selector for bipolar resistance-change memory",
+      "year": 2013,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502564"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Stochastic memristive devices for computing and neuromorphic applications",
+      "year": 2013,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502605"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Interference and memory capacity effects in memristive systems",
+      "year": 2013,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502614"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Memristors: going active",
+      "year": 2013,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 12440434",
+        "ORCID 0000-0003-4731-1976 put-code 138502660"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Rectification element and method for resistive switching for non volatile memory device",
+      "year": 2013,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502913"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nanoscale resistive switching devices: mechanisms and modeling",
+      "year": 2013,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502929"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Building Neuromorphic Circuits with Memristive Devices",
+      "year": 2013,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502936"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Oxide Heterostructure Resistive Memory",
+      "year": 2013,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502946"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Modeling and Implementation of Oxide Memristors for Neuromorphic Applications",
+      "year": 2012,
+      "work_types": [
+        "conference_paper",
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502957",
+        "ORCID 0000-0003-4731-1976 put-code 16819788"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Observation of Conductance Quantization in Oxide-Based Resistive Switching Memory",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502959"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Ambipolar inverters using SnO thin-film transistors with balanced electron and hole mobilities",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502965"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nanosession: Neuromorphic Concepts",
+      "year": 2013,
+      "work_types": [
+        "book_chapter"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502971"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nanosession: Logic Devices and Circuit Design",
+      "year": 2013,
+      "work_types": [
+        "book_chapter"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502977"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Memristive analog arithmetic within cellular arrays",
+      "year": 2012,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502983"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Electrochemical metallization cells—blending nanoionics into nanoelectronics?",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502989"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Intrinsic Programming Current Control for a RRAM",
+      "year": 2012,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138502999"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Functional Hybrid Memristor Crossbar-Array/CMOS System for Data Storage and Neuromorphic Applications",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503004"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Complementary resistive switching in tantalum oxide-based resistive memory devices",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503008"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Improvement of RRAM Device Performance Through On-Chip Resistors",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503013"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Observation of conducting filament growth in nanoscale resistive memories",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503019"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "CMOS-integrated memristors for neuromorphic architectures",
+      "year": 2011,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503023"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Silicon based nanoscale crossbar memory",
+      "year": 2011,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503035"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Andreev tunneling enhanced by Coulomb oscillations in superconductor-semiconductor hybrid Ge/Si nanowire devices",
+      "year": 2011,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503039"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "ITO nanowires and nanoparticles for transparent films",
+      "year": 2011,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503046"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Esaki tunnel diodes based on vertical Si-Ge nanowire heterojunctions",
+      "year": 2011,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503049"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Short-Term Memory to Long-Term Memory Transition in a Nanoscale Memristor",
+      "year": 2011,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503062"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Device and SPICE modeling of RRAM devices",
+      "year": 2011,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503072"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Synaptic behaviors and modeling of a metal oxide memristive device",
+      "year": 2011,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503220"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Time-dependency of the threshold voltage in memristive devices",
+      "year": 2011,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503196"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Ultrafast Optical-Pump Terahertz-Probe Spectroscopy of Oriented Ge and Ge/Si Core/Shell Nanowires",
+      "year": 2011,
+      "work_types": [
+        "conference_paper",
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 12440457",
+        "ORCID 0000-0003-4731-1976 put-code 138503203"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Organic vapor discrimination with chemiresistor arrays of temperature modulated tin-oxide nanowires and thiolate-monolayer-protected gold nanoparticles",
+      "year": 2011,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503212"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Two-Terminal Resistive Switches (Memristors) for Memory and Logic Applications",
+      "year": 2011,
+      "work_types": [
+        "conference_paper",
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503223",
+        "ORCID 0000-0003-4731-1976 put-code 16819789"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Controlled 3D Buckling of Silicon Nanowires for Stretchable Electronics",
+      "year": 2011,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503230"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Growth and electrical properties of Al-catalyzed Si nanowires",
+      "year": 2011,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503238"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nanoscale wire-based memory devices",
+      "year": 2011,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503267"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Hierarchical 3D Nanostructure Organization for Next-Generation Devices",
+      "year": 2011,
+      "work_types": [
+        "book_chapter"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503272"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nanowire heterostructures",
+      "year": 2010,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503312"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Resistance switching in polycrystalline BiFeO3 thin films",
+      "year": 2010,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503342"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Strong and Tunable Spin−Orbit Coupling of One-Dimensional Holes in Ge/Si Core/Shell Nanowires",
+      "year": 2010,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503355"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Andreev reflection enhanced single hole tunneling in Ge/Si core/shell nanowire quantum dot",
+      "year": 2010,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503394"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nanoscale Memristor Device as Synapse in Neuromorphic Systems",
+      "year": 2010,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503426"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "OPL volume 1430 Author and Subject Indexes",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504732"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Si-Based Two-Terminal Resistive Switching Nonvolatile Memory",
+      "year": 2008,
+      "work_types": [
+        "conference_paper",
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 12440477",
+        "ORCID 0000-0003-4731-1976 put-code 138503898",
+        "ORCID 0000-0003-4731-1976 put-code 16819794"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nanowire Based Electronics: Challenges and Prospects",
+      "year": 2009,
+      "work_types": [
+        "conference_paper",
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 12440467",
+        "ORCID 0000-0003-4731-1976 put-code 138503508",
+        "ORCID 0000-0003-4731-1976 put-code 16819792"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Radio-Frequency Operation of Transparent Nanowire Thin-Film Transistors",
+      "year": 2009,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503771"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Radio frequency nanowire resonators and <i>in situ</i> frequency tuning",
+      "year": 2009,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503782"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mechanical Properties of Vapor−Liquid−Solid Synthesized Silicon Nanowires",
+      "year": 2009,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503659"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "CMOS Compatible Nanoscale Nonvolatile Resistance Switching Memory",
+      "year": 2008,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503874"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "NANOWIRE-BASED HIGH SPEED TRANSPARENT AND FLEXIBLE THIN-FILM TRANSISTOR DEVICES",
+      "year": 2008,
+      "work_types": [
+        "conference_paper",
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 12440475",
+        "ORCID 0000-0003-4731-1976 put-code 138503892",
+        "ORCID 0000-0003-4731-1976 put-code 16819793"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Experimental, Modeling and Simulation Studies of Nanoscale Resistance Switching Devices",
+      "year": 2009,
+      "work_types": [
+        "conference_paper",
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 12440463",
+        "ORCID 0000-0003-4731-1976 put-code 138503739",
+        "ORCID 0000-0003-4731-1976 put-code 16819791"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Si Memristive Devices Applied to Memory and Neuromorphic Circuits",
+      "year": 2010,
+      "work_types": [
+        "conference_paper",
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503387",
+        "ORCID 0000-0003-4731-1976 put-code 16819790"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nanowire-Based Thin-Film Devices as High-Performance Transparent and Flexible Electronics",
+      "year": 2009,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503767"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Megahertz frequency characterization of transparent nanowire-based thin-film transistors",
+      "year": 2009,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503775"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "In-situ Transduction of the In-Plane and Out-of-Plane Modes of Nanowire-based Very-High Frequency Electromechanical Resonators",
+      "year": 2009,
+      "work_types": [
+        "abstract"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503792"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "High-Density Crossbar Arrays Based on a Si Memristive System",
+      "year": 2009,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503797"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Programmable Resistance Switching in Nanoscale Two-Terminal Devices",
+      "year": 2009,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503810"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nanostructures Containing Metal Semiconductor Compounds",
+      "year": 2009,
+      "work_types": [
+        "unknown"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503850"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Semiconductor nanowire devices",
+      "year": 2008,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503854"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nanowire Transistor Performance Limits and Applications",
+      "year": 2008,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503858"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Doping-Dependent Electrical Characteristics of SnO2 Nanowires",
+      "year": 2008,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503863"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Silicon-Based Crossbar Ultra-High-Density Non-Volatile Memory",
+      "year": 2007,
+      "work_types": [
+        "report"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503922"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Branched SnO2 nanowires on metallic nanowire backbones for ethanol sensors application",
+      "year": 2008,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503868"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Si/a-Si Core/Shell Nanowires as Nonvolatile Crossbar Switches",
+      "year": 2008,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503878"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nanostructured Thin Films Made by Dewetting Method of Layer-By-Layer Assembly",
+      "year": 2007,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503900"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Fully Transparent Thin-Film Transistor Devices Based on SnO<sub>2</sub> Nanowires",
+      "year": 2007,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503907"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Transparent metallic Sb-doped SnO2 nanowires",
+      "year": 2007,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503910"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nonvolatile resistive switching devices based on nanoscale metal/amorphous silicon/crystalline silicon junctions",
+      "year": 2007,
+      "work_types": [
+        "book_chapter",
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503930",
+        "ORCID 0000-0003-4731-1976 put-code 16819795"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Versatile Metal Oxide Nanowire Devices Achieved via Controlled Doping",
+      "year": 2007,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503936"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "High-Performance Transparent Conducting Oxide Nanowires",
+      "year": 2006,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503951"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Semiconductor nanowires",
+      "year": 2006,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138503960"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "7th Annual Non-Volatile Memory Technology Symposium",
+      "year": 2006,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504028"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Ag/a-Si : H/c-Si resistive switching nonvolatile memory devices",
+      "year": 2006,
+      "work_types": [
+        "conference_paper",
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504033",
+        "ORCID 0000-0003-4731-1976 put-code 16819796"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Ge/Si nanowire heterostructures as high-performance field-effect transistors",
+      "year": 2006,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504041"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Ultrahigh sensitive protein detection by frequency analysis using nanowire field effect sensors",
+      "year": 2006,
+      "work_types": [
+        "abstract"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504058"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Physics and Applications of Ge/Si Core/Shell Nanowires",
+      "year": 2006,
+      "work_types": [
+        "abstract"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504104"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "One-dimensional hole gas in germanium/silicon nanowire heterostructures",
+      "year": 2005,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504112"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Coherent Single Charge Transport in Molecular-Scale Silicon Nanowires",
+      "year": 2005,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504120"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Real-time electron counting studies on charge fluctuations in a semiconductor quantum dot (Invited Paper)",
+      "year": 2005,
+      "work_types": [
+        "abstract"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504124"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Single charge transport studies in silicon nanowires.",
+      "year": 2005,
+      "work_types": [
+        "abstract"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504145"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Real-time electron counting in semiconductor nanostructures",
+      "year": 2005,
+      "work_types": [
+        "abstract"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504230"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nanoelectronics from the bottom up",
+      "year": 2007,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 12440480"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "One-dimensional hole gas in Ge/Si nanowire heterostructures",
+      "year": 2005,
+      "work_types": [
+        "abstract"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504188"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Synthesis and Fabrication of High-Performance n-Type Silicon Nanowire Transistors",
+      "year": 2004,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504243"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Coherent Single Charge Transport in Molecular-Scale Silicon Nanowire Transistors",
+      "year": 2004,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504232"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Single-crystal metallic nanowires and metal/semiconductor nanowire heterostructures",
+      "year": 2004,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504246"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Ge-Si core-shell nanowires as high-performance nanodevices",
+      "year": 2004,
+      "work_types": [
+        "abstract"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504414"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Single crystal NiSi nanowires as metallic building blocks for nanoelectronics",
+      "year": 2004,
+      "work_types": [
+        "abstract"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504458"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Resonant Tunneling in Molecular-Scale Silicon Nanowires",
+      "year": 2004,
+      "work_types": [
+        "abstract"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504469"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Real-time detection of electron tunnelling in a quantum dot",
+      "year": 2003,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504474"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Use of a Radio-Frequency Single-Electron Transistor to Investigate Charge Fluctuations in a Semiconductor Single-Electron Box",
+      "year": 2003,
+      "work_types": [
+        "abstract"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504480"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Operation of a Radio-Frequency Single-Electron Transistor Strongly Coupled to a Semiconductor Single-Electron Box",
+      "year": 2003,
+      "work_types": [
+        "abstract"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504515"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "W. Lu, Z. Ji, L. Pfeiffer, KW West, and AJ Rimberg, Nature (London) 423, 422 (2003).",
+      "year": 2003,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504521"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Superconducting single-electron transistor coupled to a locally tunable electromagnetic environment",
+      "year": 2002,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504523"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Superconducting single-electron transistor coupled to a two dimensional electron gas",
+      "year": 2002,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504533"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Superconducting single-electron transistor coupled to a two dimensional electron gas: Transmission lines, dissipation, and charge averaging",
+      "year": 2002,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504635"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Superconducting Single-Electron Transistor in a Locally Tunable Electromagnetic Environment: Dissipation and Charge Fluctuations",
+      "year": 2002,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504637"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Radio-Frequency Single-Electron Transistor Coupled to an Electrostatically Defined Quantum Dot",
+      "year": 2002,
+      "work_types": [
+        "abstract"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504651"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Charge transport processes in a superconducting single-electron transistor coupled to a microstrip transmission line",
+      "year": 2002,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504655"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "RAPID COMMUNICATIONS-Superfluidity and superconductivity-Charge transport processes in a superconducting single-electron transistor coupled to a microstrip transmission line",
+      "year": 2002,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504662"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Single-electron transistor strongly coupled to an electrostatically defined quantum dot",
+      "year": 2000,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504670"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Non-monotonic Dependence of the Supercurrent in an S-SET on Dissipation in the Environment",
+      "year": 2000,
+      "work_types": [
+        "abstract"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504686"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Controlled deposition of individual single-walled carbon nanotubes on chemically functionalized templates",
+      "year": 1999,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504690"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Proc. Natl. Acad. Sci. USA",
+      "year": 1992,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504701"
+      ]
+    },
+    {
+      "reason": "missing_year",
+      "title": "RRAM-Based Reconfigurable Computing",
+      "year": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504717"
+      ]
+    },
+    {
+      "reason": "missing_year",
+      "title": "A Nanowire-Based Very-High-Frequency Electromechanical Resonator",
+      "year": null,
+      "work_types": [
+        "report"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504724"
+      ]
+    },
+    {
+      "reason": "missing_year",
+      "title": "A Collection of Reviews from Nature Journals",
+      "year": null,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4731-1976 put-code 138504735"
+      ]
+    }
+  ],
+  "professor": {
+    "orcid": "0000-0003-4731-1976",
+    "author_ids": {},
+    "author_ids_complete": false
+  }
+}

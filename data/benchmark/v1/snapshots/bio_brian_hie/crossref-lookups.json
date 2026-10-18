@@ -1,0 +1,137 @@
+{
+  "lookups": {
+    "learning inverse folding from millions of predicted structures": {
+      "title": "Learning inverse folding from millions of predicted structures",
+      "year": 2022,
+      "candidates": [
+        {
+          "doi": "10.1101/2022.04.10.487779",
+          "title": "Learning inverse folding from millions of predicted structures",
+          "year": 2022,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Hsu",
+            "Verkuil",
+            "Liu",
+            "Lin",
+            "Hie",
+            "Sercu",
+            "Lerer",
+            "Rives"
+          ]
+        },
+        {
+          "doi": "10.1021/acs.jcim.5c02385.s001",
+          "title": "Rapid and Accurate Protein Structure Database Search Using Inverse Folding Model and Contrastive Learning",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.64898/2026.01.16.700031",
+          "title": "Struct2SeQ: RNA inverse folding with Deep Q-Learning",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "He",
+            "Sun"
+          ]
+        },
+        {
+          "doi": "10.1101/2022.05.25.493516",
+          "title": "Masked Inverse Folding with Sequence Transfer for Protein Representation Learning",
+          "year": 2022,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Yang",
+            "Yeh",
+            "Zanichelli"
+          ]
+        },
+        {
+          "doi": "10.1101/2022.04.15.488492",
+          "title": "A Deep SE(3)-Equivariant Model for Learning Inverse Protein Folding",
+          "year": 2022,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "McPartlon",
+            "Lai",
+            "Xu"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:56:00.831826+00:00"
+    },
+    "sidechain conditioning and modeling for full atom protein sequence design with fampnn": {
+      "title": "Sidechain conditioning and modeling for full-atom protein sequence design with FAMPNN",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1101/2025.02.13.637498",
+          "title": "Sidechain conditioning and modeling for full-atom protein sequence design with FAMPNN",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Shuai",
+            "Widatalla",
+            "Huang",
+            "Hie"
+          ]
+        },
+        {
+          "doi": "10.1101/2021.04.12.437963",
+          "title": "A memetic algorithm enables efficient local and global all-atom protein-protein docking with backbone and sidechain flexibility",
+          "year": 2021,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Varela",
+            "Karlin",
+            "André"
+          ]
+        },
+        {
+          "doi": "10.1021/acs.biochem.0c00570.s001",
+          "title": "Protein Sequence Selection Method That Enables Full Consensus Design of Artificial lThreonine 3Dehydrogenases with Unique Enzymatic Properties",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1101/2024.03.18.585651",
+          "title": "All-atom protein sequence design based on geometric deep learning",
+          "year": 2024,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Liu",
+            "Guo",
+            "Zhang",
+            "Lai"
+          ]
+        },
+        {
+          "doi": "10.1101/2025.06.13.659451",
+          "title": "All-Atom Protein Sequence Design using Discrete Diffusion Models",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Villegas-Morcillo",
+            "Admiraal",
+            "Reinders",
+            "Weber"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:56:01.076860+00:00"
+    }
+  }
+}

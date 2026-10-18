@@ -1,0 +1,298 @@
+{
+ "snapshot_schema_version": 1,
+ "source_url": "https://profiles.stanford.edu/brian-hie?tab=publications",
+ "captured_at": "2026-10-18",
+ "captured_by": "Script parsing of the Stanford Profiles publication tab; pending human review",
+ "scope_note": "Stanford Profiles \"All Publications\", 2020-2025",
+ "entries": [
+  {
+   "title": "Semantic design of functional de novo genes from a genomic language model",
+   "year": 2025,
+   "type": null,
+   "venue": "Nature",
+   "authors": [
+    "A. T. Merchant",
+    "S. H. King",
+    "E. Nguyen",
+    "B. L. Hie"
+   ],
+   "doi": "10.1038/s41586-025-09749-7",
+   "pmid": "41261132"
+  },
+  {
+   "title": "Efficient generation of epitope-targetedde novoantibodies with Germinal",
+   "year": 2025,
+   "type": null,
+   "venue": "bioRxiv : the preprint server for biology",
+   "authors": [
+    "L. S. Mille-Fragoso",
+    "J. N. Wang",
+    "C. L. Driscoll",
+    "H. Dai",
+    "T. Widatalla",
+    "X. Zhang",
+    "B. L. Hie",
+    "X. J. Gao"
+   ],
+   "doi": "10.1101/2025.09.19.677421",
+   "pmid": "41040335"
+  },
+  {
+   "title": "Sidechain conditioning and modeling for full-atom protein sequence design with FAMPNN",
+   "year": 2025,
+   "type": null,
+   "venue": "Proceedings of machine learning research",
+   "authors": [
+    "T. Widatalla",
+    "R. W. Shuai",
+    "B. L. Hie",
+    "P. S. Huang"
+   ],
+   "doi": "10.1101/2024.09.25.614868",
+   "pmid": "41307002"
+  },
+  {
+   "title": "Sidechain conditioning and modeling for full-atom protein sequence design with FAMPNN",
+   "year": 2025,
+   "type": null,
+   "venue": "Proceedings of machine learning research",
+   "authors": [
+    "T. Widatalla",
+    "R. W. Shuai",
+    "B. L. Hie",
+    "P. Huang"
+   ],
+   "pmid": "41307002"
+  },
+  {
+   "title": "Utilizing Machine Learning to Improve Neutralization Potency of an HIV-1 Antibody Targeting the gp41 N-Heptad Repeat",
+   "year": 2025,
+   "type": null,
+   "venue": "ACS chemical biology",
+   "authors": [
+    "M. V. Filsinger Interrante",
+    "S. Tang",
+    "S. Kim",
+    "V. R. Shanker",
+    "B. L. Hie",
+    "T. U. Bruun",
+    "W. Wu",
+    "J. E. Pak",
+    "D. Fernandez",
+    "P. S. Kim"
+   ],
+   "doi": "10.1021/acschembio.5c00035",
+   "pmid": "40540236"
+  },
+  {
+   "title": "Sequence modeling and design from molecular to genome scale with Evo",
+   "year": 2024,
+   "type": null,
+   "venue": "Science (New York, N.Y.)",
+   "authors": [
+    "E. Nguyen",
+    "M. Poli",
+    "M. G. Durrant",
+    "B. Kang",
+    "D. Katrekar",
+    "D. B. Li",
+    "L. J. Bartie",
+    "A. W. Thomas",
+    "S. H. King",
+    "G. Brixi",
+    "J. Sullivan",
+    "M. Y. Ng",
+    "A. Lewis",
+    "A. Lou",
+    "S. Ermon",
+    "S. A. Baccus",
+    "T. Hernandez-Boussard",
+    "C. Re",
+    "P. D. Hsu",
+    "B. L. Hie"
+   ],
+   "doi": "10.1126/science.ado9336",
+   "pmid": "39541441"
+  },
+  {
+   "title": "Unsupervised evolution of protein and antibody complexes with a structure-informed language model",
+   "year": 2024,
+   "type": null,
+   "venue": "Science (New York, N.Y.)",
+   "authors": [
+    "V. R. Shanker",
+    "T. U. Bruun",
+    "B. L. Hie",
+    "P. S. Kim"
+   ],
+   "doi": "10.1126/science.adk8946",
+   "pmid": "38963838"
+  },
+  {
+   "title": "Scanorama: integrating large and diverse single-cell transcriptomic datasets",
+   "year": 2024,
+   "type": null,
+   "venue": "Nature protocols",
+   "authors": [
+    "B. L. Hie",
+    "S. Kim",
+    "T. A. Rando",
+    "B. Bryson",
+    "B. Berger"
+   ],
+   "doi": "10.1038/s41596-024-00991-3",
+   "pmid": "38844552"
+  },
+  {
+   "title": "Generative artificial intelligence for de novo protein design",
+   "year": 2024,
+   "type": null,
+   "venue": "Current opinion in structural biology",
+   "authors": [
+    "A. Winnifrith",
+    "C. Outeiral",
+    "B. L. Hie"
+   ],
+   "doi": "10.1016/j.sbi.2024.102794",
+   "pmid": "38663170"
+  },
+  {
+   "title": "Inverse folding of protein complexes with a structure-informed language model enables unsupervised antibody evolution",
+   "year": 2023,
+   "type": null,
+   "venue": "bioRxiv : the preprint server for biology",
+   "authors": [
+    "V. R. Shanker",
+    "T. U. Bruun",
+    "B. L. Hie",
+    "P. S. Kim"
+   ],
+   "doi": "10.1101/2023.12.19.572475",
+   "pmid": "38187780"
+  },
+  {
+   "title": "Machine Learning for Protein Engineering",
+   "year": 2023,
+   "type": null,
+   "venue": "ArXiv",
+   "authors": [
+    "K. E. Johnston",
+    "C. Fannjiang",
+    "B. J. Wittmann",
+    "B. L. Hie",
+    "K. K. Yang",
+    "Z. Wu"
+   ],
+   "doi": "10.1038/nrm2805",
+   "pmid": "37292483"
+  },
+  {
+   "title": "Efficient evolution of human antibodies from general protein language models",
+   "year": 2023,
+   "type": null,
+   "venue": "Nature biotechnology",
+   "authors": [
+    "B. L. Hie",
+    "V. R. Shanker",
+    "D. Xu",
+    "T. U. Bruun",
+    "P. A. Weidenbacher",
+    "S. Tang",
+    "W. Wu",
+    "J. E. Pak",
+    "P. S. Kim"
+   ],
+   "doi": "10.1038/s41587-023-01763-2",
+   "pmid": "37095349"
+  },
+  {
+   "title": "Evolutionary-scale prediction of atomic-level protein structure with a language model",
+   "year": 2023,
+   "type": null,
+   "venue": "Science (New York, N.Y.)",
+   "authors": [
+    "Z. Lin",
+    "H. Akin",
+    "R. Rao",
+    "B. Hie",
+    "Z. Zhu",
+    "W. Lu",
+    "N. Smetanin",
+    "R. Verkuil",
+    "O. Kabeli",
+    "Y. Shmueli",
+    "A. Dos Santos Costa",
+    "M. Fazel-Zarandi",
+    "T. Sercu",
+    "S. Candido",
+    "A. Rives"
+   ],
+   "doi": "10.1126/science.ade2574",
+   "pmid": "36927031"
+  },
+  {
+   "title": "Evolutionary velocity with protein language models predicts evolutionary dynamics of diverse proteins",
+   "year": 2022,
+   "type": null,
+   "venue": "Cell systems",
+   "authors": [
+    "B. L. Hie",
+    "K. K. Yang",
+    "P. S. Kim"
+   ],
+   "doi": "10.1016/j.cels.2022.01.003",
+   "pmid": "35120643"
+  },
+  {
+   "title": "Schema: metric learning enables interpretable synthesis of heterogeneous single-cell modalities",
+   "year": 2021,
+   "type": null,
+   "venue": "GENOME BIOLOGY",
+   "authors": [
+    "R. Singh",
+    "B. L. Hie",
+    "A. Narayan",
+    "B. Berger"
+   ],
+   "doi": "10.1186/s13059-021-02313-2",
+   "pmid": "33941239"
+  },
+  {
+   "title": "Learning the language of viral evolution and escape",
+   "year": 2021,
+   "type": null,
+   "venue": "SCIENCE",
+   "authors": [
+    "B. Hie",
+    "E. D. Zhong",
+    "B. Berger",
+    "B. Bryson"
+   ],
+   "doi": "10.1126/science.abd7331",
+   "pmid": "33446556"
+  },
+  {
+   "title": "Leveraging Uncertainty in Machine Learning Accelerates Biological Discovery and Design",
+   "year": 2020,
+   "type": null,
+   "venue": "CELL SYSTEMS",
+   "authors": [
+    "B. Hie",
+    "B. D. Bryson",
+    "B. Berger"
+   ],
+   "doi": "10.1016/j.cels.2020.09.007",
+   "pmid": "33065027"
+  },
+  {
+   "title": "Hie, B., Peters, J., Nyquist, S. K., Shalek, A. K., Berger, B., Bryson, B. D",
+   "year": 2020,
+   "type": null,
+   "venue": null,
+   "authors": [
+    "R. B. edited by Altman"
+   ],
+   "doi": "10.1146/annurev-biodatasci-012220-100601"
+  }
+ ]
+}

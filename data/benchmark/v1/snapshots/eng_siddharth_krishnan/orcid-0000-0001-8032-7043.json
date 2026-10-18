@@ -1,0 +1,3101 @@
+{
+  "orcid": "0000-0001-8032-7043",
+  "fetched_at": "2026-10-18T19:24:27.937708+00:00",
+  "api_url": "https://pub.orcid.org/v3.0/0000-0001-8032-7043",
+  "work_groups": 35,
+  "works": [
+    {
+      "created-date": {
+        "value": 1612560178383
+      },
+      "last-modified-date": {
+        "value": 1612560178383
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198785,
+      "path": "/0000-0001-8032-7043/work/88198785",
+      "title": {
+        "title": {
+          "value": "An Approach to Thermocouple Measurements That Reduces Uncertainties in High-Temperature Environments"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Energy and Fuels"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{krishnan2015approach, title= {An Approach to Thermocouple Measurements That Reduces Uncertainties in High-Temperature Environments}, author= {Krishnan, Siddharth and Kumfer, Benjamin M and Wu, Wendong and Li, Jichuan and Nehorai, Arye and Axelbaum, Richard L.}, journal= {Energy and Fuels}, volume= {29}, number= {5}, pages= {3446--3455}, year= {2015}, publisher= {ACS}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2015"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178426
+      },
+      "last-modified-date": {
+        "value": 1612560178426
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198787,
+      "path": "/0000-0001-8032-7043/work/88198787",
+      "title": {
+        "title": {
+          "value": "Theoretical and Experimental Studies of Epidermal Heat Flux Sensors for Measurements of Core Body Temperature"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Advanced Healthcare Materials"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{zhang2016theoretical, title= {Theoretical and Experimental Studies of Epidermal Heat Flux Sensors for Measurements of Core Body Temperature}, author= {Zhang, Yihui and Webb, R.Chad and Luo, Hongying and Xue, Yeguang and Kurniawan, Jonas and Cho, Nam Heon and Krishnan, Siddharth and Li, Yuhang and Huang, Yonggang and Rogers, John A}, journal= {Advanced Healthcare Materials}, volume= {5}, number= {1}, pages= {119--127}, year= {2016}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2016"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178531
+      },
+      "last-modified-date": {
+        "value": 1612560178531
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198792,
+      "path": "/0000-0001-8032-7043/work/88198792",
+      "title": {
+        "title": {
+          "value": "6th, T"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Darlington, K. Chang, W. Huang, J. Ayers, A. Gruebele, RM Pielak, MJ Slepian, Y. Huang, AM Gorbach, and JA Rogers,“Epidermal devices for noninvasive, precise, and continuous mapping of macrovascular and microvascular blood flow,” Sci. Adv"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{webb20156th, title= {6th, T}, author= {Webb, RC and Ma, Y and Krishnan, S and Li, Y and Yoon, S and Guo, X and Feng, X and Shi, Y and Seidel, M and Cho, NH and others}, journal= {Darlington, K. Chang, W. Huang, J. Ayers, A. Gruebele, RM Pielak, MJ Slepian, Y. Huang, AM Gorbach, and JA Rogers,“Epidermal devices for noninvasive, precise, and continuous mapping of macrovascular and microvascular blood flow,” Sci. Adv}, volume= {1}, number= {9}, pages= {e1500701}, year= {2015}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2015"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178550
+      },
+      "last-modified-date": {
+        "value": 1612560178550
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198793,
+      "path": "/0000-0001-8032-7043/work/88198793",
+      "title": {
+        "title": {
+          "value": "Epidermal electronics for noninvasive, wireless, quantitative assessment of ventricular shunt function in patients with hydrocephalus"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Science translational medicine"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{krishnan2018epidermal, title= {Epidermal electronics for noninvasive, wireless, quantitative assessment of ventricular shunt function in patients with hydrocephalus}, author= {Krishnan, Siddharth R and Ray, Tyler R and Ayer, Amit B and Ma, Yinji and Gutruf, Philipp and Lee, KunHyuck and Lee, Jong Yoon and Wei, Chen and Feng, Xue and Ng, Barry and others}, journal= {Science translational medicine}, volume= {10}, number= {465}, year= {2018}, publisher= {American Association for the Advancement of Science}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2018"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178570
+      },
+      "last-modified-date": {
+        "value": 1612560178570
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198794,
+      "path": "/0000-0001-8032-7043/work/88198794",
+      "title": {
+        "title": {
+          "value": "Ultrathin, Skin-Like Devices for Precise, Continuous Thermal Property Mapping of Human Skin and Soft Tissues"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Stretchable Bioelectronics for Medical Devices and Systems"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@incollection{webb2016ultrathin, title= {Ultrathin, Skin-Like Devices for Precise, Continuous Thermal Property Mapping of Human Skin and Soft Tissues}, author= {Webb, R. Chad and Krishnan, Siddharth and Rogers, John A.}, booktitle= {Stretchable Bioelectronics for Medical Devices and Systems}, pages= {117--132}, year= {2016}, publisher= {Springer}}\n\n"
+      },
+      "type": "book-chapter",
+      "publication-date": {
+        "year": {
+          "value": "2016"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178974
+      },
+      "last-modified-date": {
+        "value": 1612560178974
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198810,
+      "path": "/0000-0001-8032-7043/work/88198810",
+      "title": {
+        "title": {
+          "value": "Measurement of Localized Temperature in Highly Radiating Particle-Laden Environments"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": null,
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{krishnan2011measurement, title= {Measurement of Localized Temperature in Highly Radiating Particle-Laden Environments}, author= {Krishnan, Siddharth}, year= {2011}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2011"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560179018
+      },
+      "last-modified-date": {
+        "value": 1612560179018
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198811,
+      "path": "/0000-0001-8032-7043/work/88198811",
+      "title": {
+        "title": {
+          "value": "Wireless skin sensor with methods and uses"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": null,
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@misc{rogers2019wireless, title= {Wireless skin sensor with methods and uses}, author= {Rogers, John A. and Xu, Shuai and LI, Yajing and Gutruf, Philipp and MADHVAPATHY, Surabhi R. and KRISHNAN, Siddharth}, year= {2019}}\n\n"
+      },
+      "type": "other",
+      "publication-date": {
+        "year": {
+          "value": "2019"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560179029
+      },
+      "last-modified-date": {
+        "value": 1612560179029
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198812,
+      "path": "/0000-0001-8032-7043/work/88198812",
+      "title": {
+        "title": {
+          "value": "Flexible Electronics: Theoretical and Experimental Studies of Epidermal Heat Flux Sensors for Measurements of Core Body Temperature (Adv. Healthcare Mater. 1/2016)"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Advanced healthcare materials"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{zhang2016flexible, title= {Flexible Electronics: Theoretical and Experimental Studies of Epidermal Heat Flux Sensors for Measurements of Core Body Temperature (Adv. Healthcare Mater. 1/2016)}, author= {Zhang, Yihui and Chad Webb, Richard and Luo, Hongying and Xue, Yeguang and Kurniawan, Jonas and Cho, Nam Heon and Krishnan, Siddharth and Li, Yuhang and Huang, Yonggang and Rogers, John A}, journal= {Advanced healthcare materials}, volume= {5}, number= {1}, pages= {2--2}, year= {2016}, publisher= {Wiley Online Library}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2016"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560179039
+      },
+      "last-modified-date": {
+        "value": 1612560179039
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198813,
+      "path": "/0000-0001-8032-7043/work/88198813",
+      "title": {
+        "title": {
+          "value": "Epidermal Electronics: Wireless, Battery-Free Epidermal Electronics for Continuous, Quantitative, Multimodal Thermal Characterization of Skin (Small 47/2018)"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Small"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{krishnan2018epidermal, title= {Epidermal Electronics: Wireless, Battery-Free Epidermal Electronics for Continuous, Quantitative, Multimodal Thermal Characterization of Skin (Small 47/2018)}, author= {Krishnan, Siddharth R and Su, Chun-Ju and Xie, Zhaoqian and Patel, Manish and Madhvapathy, Surabhi R and Xu, Yeshou and Freudman, Juliet and Ng, Barry and Heo, Seung Yun and Wang, Heling and others}, journal= {Small}, volume= {14}, number= {47}, pages= {1870226}, year= {2018}, publisher= {Wiley Online Library}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2018"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1656615509573
+      },
+      "last-modified-date": {
+        "value": 1656615509573
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 115205326,
+      "path": "/0000-0001-8032-7043/work/115205326",
+      "title": {
+        "title": {
+          "value": "Soft, bioresorbable coolers for reversible conduction block of peripheral nerves"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Science"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2022"
+        },
+        "month": {
+          "value": "07"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1126/science.abl8532",
+            "external-id-normalized": {
+              "value": "10.1126/science.abl8532",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1126/science.abl8532"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1126/science.abl8532"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jonathan T. Reeder"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zhaoqian Xie"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Quansan Yang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Min-Ho Seo"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Ying Yan"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Yujun Deng"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Katherine R. Jinkins"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Siddharth R. Krishnan"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Claire Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Shannon McKay"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Emily Patnaude"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Alexandra Johnson"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zichen Zhao"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Moon Joo Kim"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Yameng Xu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Ivy Huang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Raudel Avila"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Christopher Felicelli"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Emily Ray"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xu Guo"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Wilson Z. Ray"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Yonggang Huang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Matthew R. MacEwan"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "John A. Rogers"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1752146882569
+      },
+      "last-modified-date": {
+        "value": 1752146882569
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 187665503,
+      "path": "/0000-0001-8032-7043/work/187665503",
+      "title": {
+        "title": {
+          "value": "Emergency delivery of particulate drugs by active ejection using in vivo wireless devices"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nature Biomedical Engineering"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2025"
+        },
+        "month": {
+          "value": "07"
+        },
+        "day": {
+          "value": "09"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1038/s41551-025-01436-2",
+            "external-id-normalized": {
+              "value": "10.1038/s41551-025-01436-2",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1038/s41551-025-01436-2"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1038/s41551-025-01436-2"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Siddharth R. Krishnan"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Laura O’Keeffe"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Arnab Rudra"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Derin Gumustop"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Nima Khatib"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Claudia Liu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jiawei Yang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Athena Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Matthew A. Bochenek"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Yen-Chun Lu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Suman Bose"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Kaelan Reed"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Robert Langer"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Daniel G. Anderson"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178697
+      },
+      "last-modified-date": {
+        "value": 1612560178697
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198800,
+      "path": "/0000-0001-8032-7043/work/88198800",
+      "title": {
+        "title": {
+          "value": "Wireless, Battery-Free Epidermal Electronics for Continuous, Quantitative, Multimodal Thermal Characterization of Skin"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Small"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{krishnan2018wireless, title= {Wireless, Battery-Free Epidermal Electronics for Continuous, Quantitative, Multimodal Thermal Characterization of Skin}, author= {Krishnan, Siddharth R and Su, Chun-Ju and Xie, Zhaoqian and Patel, Manish and Madhvapathy, Surabhi R and Xu, Yeshou and Freudman, Juliet and Ng, Barry and Heo, Seung Yun and Wang, Heling and others}, journal= {Small}, volume= {14}, number= {47}, pages= {1803192}, year= {2018}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2018"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178718
+      },
+      "last-modified-date": {
+        "value": 1612560178718
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198801,
+      "path": "/0000-0001-8032-7043/work/88198801",
+      "title": {
+        "title": {
+          "value": "Battery-free, fully implantable optofluidic cuff system for wireless optogenetic and pharmacological neuromodulation of peripheral nerves"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Science advances"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{zhang2019battery, title= {Battery-free, fully implantable optofluidic cuff system for wireless optogenetic and pharmacological neuromodulation of peripheral nerves}, author= {Zhang, Yi and Mickle, Aaron D and Gutruf, Philipp and McIlvried, Lisa A and Guo, Hexia and Wu, Yixin and Golden, Judith P and Xue, Yeguang and Grajales-Reyes, Jose G and Wang, Xueju and others}, journal= {Science advances}, volume= {5}, number= {7}, pages= {eaaw5296}, year= {2019}, publisher= {American Association for the Advancement of Science}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2019"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178748
+      },
+      "last-modified-date": {
+        "value": 1612560178748
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198802,
+      "path": "/0000-0001-8032-7043/work/88198802",
+      "title": {
+        "title": {
+          "value": "Waterproof, electronics-enabled, epidermal microfluidic devices for sweat collection, biomarker analysis, and thermography in aquatic settings"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Science Advances"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{reeder2019waterproof, title= {Waterproof, electronics-enabled, epidermal microfluidic devices for sweat collection, biomarker analysis, and thermography in aquatic settings}, author= {Reeder, Jonathan T and Choi, Jungil and Xue, Yeguang and Gutruf, Philipp and Hanson, Justin and Liu, Mark and Ray, Tyler and Bandodkar, Amay J and Avila, Raudel and Xia, Wei and others}, journal= {Science Advances}, volume= {5}, number= {1}, pages= {eaau6356}, year= {2019}, publisher= {American Association for the Advancement of Science}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2019"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178759
+      },
+      "last-modified-date": {
+        "value": 1612560178759
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198803,
+      "path": "/0000-0001-8032-7043/work/88198803",
+      "title": {
+        "title": {
+          "value": "Resettable skin interfaced microfluidic sweat collection devices with chemesthetic hydration feedback"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nature Communications"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{reeder2019resettable, title= {Resettable skin interfaced microfluidic sweat collection devices with chemesthetic hydration feedback}, author= {Reeder, Jonathan and Xue, Yeguang and Franklin, Daniel and Deng, Yujun and Choi, Jungil and Prado, Olivia and Kim, Robin and Liu, Claire and Ciraldo, John and Bandodkar, Amay J and others}, journal= {Nature Communications}, volume= {10}, number= {1}, pages= {1--12}, year= {2019}, publisher= {Nature Publishing Group}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2019"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178778
+      },
+      "last-modified-date": {
+        "value": 1612560178778
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198804,
+      "path": "/0000-0001-8032-7043/work/88198804",
+      "title": {
+        "title": {
+          "value": "Appendix C An Approach to Thermocouple Temperature Measurements that Reduces Uncertainties Associated with Radiative Corrections"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Fundamental Studies Of Flame Structure Through Laser Plasma Diagnostics"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{krishnan2017appendix, title= {Appendix C An Approach to Thermocouple Temperature Measurements that Reduces Uncertainties Associated with Radiative Corrections}, author= {Krishnan, Siddharth and Kumfer, Benjamin M and Wu, Wendong and Li, Jichuan and Nehorai, Arye and Axelbaum, Richard L}, journal= {Fundamental Studies Of Flame Structure Through Laser Plasma Diagnostics}, pages= {134}, year= {2017}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2017"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178870
+      },
+      "last-modified-date": {
+        "value": 1612560178870
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198805,
+      "path": "/0000-0001-8032-7043/work/88198805",
+      "title": {
+        "title": {
+          "value": "Continuous, noninvasive wireless monitoring of flow of cerebrospinal fluid through shunts in patients with hydrocephalus"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "NPJ digital medicine"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{krishnan2020continuous, title= {Continuous, noninvasive wireless monitoring of flow of cerebrospinal fluid through shunts in patients with hydrocephalus}, author= {Krishnan, Siddharth R and Arafa, Hany M and Kwon, Kyeongha and Deng, Yujun and Su, Chun-Ju and Reeder, Jonathan T and Freudman, Juliet and Stankiewicz, Izabela and Chen, Hsuan-Ming and Loza, Robert and others}, journal= {NPJ digital medicine}, volume= {3}, number= {1}, pages= {1--11}, year= {2020}, publisher= {Nature Publishing Group}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2020"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178891
+      },
+      "last-modified-date": {
+        "value": 1612560178891
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198806,
+      "path": "/0000-0001-8032-7043/work/88198806",
+      "title": {
+        "title": {
+          "value": "Soft, wireless electronics for the thermal characterization of skin and soft tissue"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": null,
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@phdthesis{krishnan2019soft, title= {Soft, wireless electronics for the thermal characterization of skin and soft tissue}, author= {Krishnan, Siddharth}, year= {2019}, school= {University of Illinois at Urbana-Champaign}}\n\n"
+      },
+      "type": "dissertation-thesis",
+      "publication-date": {
+        "year": {
+          "value": "2019"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178914
+      },
+      "last-modified-date": {
+        "value": 1612560178914
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198807,
+      "path": "/0000-0001-8032-7043/work/88198807",
+      "title": {
+        "title": {
+          "value": "Wireless and noninvasive epidermal electronics"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": null,
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@misc{rogers2019wireless, title= {Wireless and noninvasive epidermal electronics}, author= {Rogers, John A and KRISHNAN, Siddharth and Gutruf, Philipp and REEDER, Jonathan T and LEE, Kun Hyuck and Chun-Ju, SU and others}, year= {2019}}\n\n"
+      },
+      "type": "other",
+      "publication-date": {
+        "year": {
+          "value": "2019"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178934
+      },
+      "last-modified-date": {
+        "value": 1612560178934
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198808,
+      "path": "/0000-0001-8032-7043/work/88198808",
+      "title": {
+        "title": {
+          "value": "Multimodal epidermal devices for hydration monitoring Microsyst"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": null,
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@misc{krishnan2017multimodal, title= {Multimodal epidermal devices for hydration monitoring Microsyst}, author= {Krishnan, S and Shi, Y and Webb, RC and Ma, Y and Bastien, P and Crawford, KE and Wang, A and Feng, X and Manco, M and Kurniawan, J and others}, year= {2017}, publisher= {Nanoengineering}}\n\n"
+      },
+      "type": "other",
+      "publication-date": {
+        "year": {
+          "value": "2017"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178635
+      },
+      "last-modified-date": {
+        "value": 1612560178635
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198797,
+      "path": "/0000-0001-8032-7043/work/88198797",
+      "title": {
+        "title": {
+          "value": "Fully implantable optoelectronic systems for battery-free, multimodal operation in neuroscience research"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Nature Electronics"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{gutruf2018fully, title= {Fully implantable optoelectronic systems for battery-free, multimodal operation in neuroscience research}, author= {Gutruf, Philipp and Krishnamurthi, Vaishnavi and V{\\'a}zquez-Guardado, Abraham and Xie, Zhaoqian and Banks, Anthony and Su, Chun-Ju and Xu, Yeshou and Haney, Chad R and Waters, Emily A and Kandela, Irawati and others}, journal= {Nature Electronics}, volume= {1}, number= {12}, pages= {652--660}, year= {2018}, publisher= {Nature Publishing Group}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2018"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178655
+      },
+      "last-modified-date": {
+        "value": 1612560178655
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198798,
+      "path": "/0000-0001-8032-7043/work/88198798",
+      "title": {
+        "title": {
+          "value": "Bio-integrated wearable systems: A comprehensive review"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Chemical reviews"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{ray2019bio, title= {Bio-integrated wearable systems: A comprehensive review}, author= {Ray, Tyler R and Choi, Jungil and Bandodkar, Amay J and Krishnan, Siddharth and Gutruf, Philipp and Tian, Limei and Ghaffari, Roozbeh and Rogers, John A}, journal= {Chemical reviews}, volume= {119}, number= {8}, pages= {5461--5533}, year= {2019}, publisher= {American Chemical Society}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2019"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178446
+      },
+      "last-modified-date": {
+        "value": 1612560178446
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198788,
+      "path": "/0000-0001-8032-7043/work/88198788",
+      "title": {
+        "title": {
+          "value": "Flexible and Stretchable 3$ω$ Sensors for Thermal Characterization of Human Skin"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Advanced Functional Materials"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{tian2017flexible, title= {Flexible and Stretchable 3$\\omega$ Sensors for Thermal Characterization of Human Skin}, author= {Tian, Limei and Li, Yuhang and Webb, Richard Chad and Krishnan, Siddharth and Bian, Zuguang and Song, Jizhou and Ning, Xin and Crawford, Kaitlyn and Kurniawan, Jonas and Bonifas, Andrew and others}, journal= {Advanced Functional Materials}, year= {2017}, publisher= {Wiley}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2017"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178466
+      },
+      "last-modified-date": {
+        "value": 1612560178466
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198789,
+      "path": "/0000-0001-8032-7043/work/88198789",
+      "title": {
+        "title": {
+          "value": "Multimodal epidermal devices for hydration monitoring"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Microsystems and Nanoengineering"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{krishnan2017multimodal, title= {Multimodal epidermal devices for hydration monitoring}, author= {Krishnan, Siddharth and Shi, Yunzhou and Webb, R. Chad and Ma, Yinji and Bastien, Philippe and Crawford, Kaitlyn E. and Wang, Ao and Feng, Xue and Manco, Megan and Kurniawan, Jonas and others}, journal= {Microsystems and Nanoengineering}, volume= {3}, number= {17014}, year= {2017}, publisher= {Nature Publishing Group}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2017"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178495
+      },
+      "last-modified-date": {
+        "value": 1612560178495
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198790,
+      "path": "/0000-0001-8032-7043/work/88198790",
+      "title": {
+        "title": {
+          "value": "Thermal Transport Characteristics of Human Skin Measured In Vivo Using Thermal Elements"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": null,
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@misc{rogers2017thermal, title= {Thermal Transport Characteristics of Human Skin Measured In Vivo Using Thermal Elements}, author= {Rogers, John A and Webb, Richard Chad and Krishnan, Siddharth and Balooch, Guive and Pielak, Rafal M}, year= {2017}, month= {dec~7}, note= {US Patent App. 15/515,494}}\n\n"
+      },
+      "type": "other",
+      "publication-date": {
+        "year": {
+          "value": "2017"
+        },
+        "month": {
+          "value": "12"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178511
+      },
+      "last-modified-date": {
+        "value": 1612560178511
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198791,
+      "path": "/0000-0001-8032-7043/work/88198791",
+      "title": {
+        "title": {
+          "value": "Epidermal electronic systems for measuring the thermal properties of human skin at depths of up to several millimeters"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Advanced Functional Materials"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{madhvapathy2018epidermal, title= {Epidermal electronic systems for measuring the thermal properties of human skin at depths of up to several millimeters}, author= {Madhvapathy, Surabhi R and Ma, Yinji and Patel, Manish and Krishnan, Siddharth and Wei, Chen and Li, Yajing and Xu, Shuai and Feng, Xue and Huang, Yonggang and Rogers, John A}, journal= {Advanced Functional Materials}, volume= {28}, number= {34}, pages= {1802083}, year= {2018}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2018"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178590
+      },
+      "last-modified-date": {
+        "value": 1612560178590
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198795,
+      "path": "/0000-0001-8032-7043/work/88198795",
+      "title": {
+        "title": {
+          "value": "An Approach to Thermocouple Temperature Measurements that Reduces Uncertainties Associated with Radiative Corrections"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": null,
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@phdthesis{krishnan2014approach, title= {An Approach to Thermocouple Temperature Measurements that Reduces Uncertainties Associated with Radiative Corrections}, author= {Krishnan, Siddharth}, year= {2014}, school= {Washington University in St. Louis}}\n\n"
+      },
+      "type": "dissertation-thesis",
+      "publication-date": {
+        "year": {
+          "value": "2014"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178613
+      },
+      "last-modified-date": {
+        "value": 1612560178613
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198796,
+      "path": "/0000-0001-8032-7043/work/88198796",
+      "title": {
+        "title": {
+          "value": "Advanced approaches for quantitative characterization of thermal transport properties in soft materials using thin, conformable resistive sensors"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Extreme Mechanics Letters"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{crawford2018advanced, title= {Advanced approaches for quantitative characterization of thermal transport properties in soft materials using thin, conformable resistive sensors}, author= {Crawford, Kaitlyn E and Ma, Yinji and Krishnan, Siddharth and Wei, Chen and Capua, Daniel and Xue, Yeguang and Xu, Shuai and Xie, Zhaoqian and Won, Sang Min and Tian, Limei and others}, journal= {Extreme Mechanics Letters}, volume= {22}, pages= {27--35}, year= {2018}, publisher= {Elsevier}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2018"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178404
+      },
+      "last-modified-date": {
+        "value": 1612560178404
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198786,
+      "path": "/0000-0001-8032-7043/work/88198786",
+      "title": {
+        "title": {
+          "value": "Epidermal devices for noninvasive, precise, and continuous mapping of macrovascular and microvascular blood flow"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Science Advances"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{webb2015epidermal, title= {Epidermal devices for noninvasive, precise, and continuous mapping of macrovascular and microvascular blood flow}, author= {Webb, R. C. and Ma, Y. and Krishnan, S. and Li, Y. Yoon and S. Guo, X. and Feng, X. and Shi, Y. and Seidel, M. and Cho, N. H. and Kurniawan, J. and others}, journal= {Science Advances}, volume= {1}, number= {9}, pages= {e1500701}, year= {2015}, publisher= {AAAS}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2015"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178674
+      },
+      "last-modified-date": {
+        "value": 1612560178674
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198799,
+      "path": "/0000-0001-8032-7043/work/88198799",
+      "title": {
+        "title": {
+          "value": "Battery-free, skin-interfaced microfluidic/electronic systems for simultaneous electrochemical, colorimetric, and volumetric analysis of sweat"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Science advances"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{bandodkar2019battery, title= {Battery-free, skin-interfaced microfluidic/electronic systems for simultaneous electrochemical, colorimetric, and volumetric analysis of sweat}, author= {Bandodkar, Amay J and Gutruf, Philipp and Choi, Jungil and Lee, KunHyuck and Sekine, Yurina and Reeder, Jonathan T and Jeang, William J and Aranyosi, Alexander J and Lee, Stephen P and Model, Jeffrey B and others}, journal= {Science advances}, volume= {5}, number= {1}, pages= {eaav3294}, year= {2019}, publisher= {American Association for the Advancement of Science}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2019"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1612560178955
+      },
+      "last-modified-date": {
+        "value": 1612560178955
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 88198809,
+      "path": "/0000-0001-8032-7043/work/88198809",
+      "title": {
+        "title": {
+          "value": "Epidermal Thermal Depth Sensors: Epidermal Electronic Systems for Measuring the Thermal Properties of Human Skin at Depths of up to Several Millimeters (Adv. Funct. Mater. 34/2018)"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Advanced Functional Materials"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{madhvapathy2018epidermal, title= {Epidermal Thermal Depth Sensors: Epidermal Electronic Systems for Measuring the Thermal Properties of Human Skin at Depths of up to Several Millimeters (Adv. Funct. Mater. 34/2018)}, author= {Madhvapathy, Surabhi R and Ma, Yinji and Patel, Manish and Krishnan, Siddharth and Wei, Chen and Li, Yajing and Xu, Shuai and Feng, Xue and Huang, Yonggang and Rogers, John A}, journal= {Advanced Functional Materials}, volume= {28}, number= {34}, pages= {1870242}, year= {2018}, publisher= {Wiley Online Library}}\n\n"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2018"
+        },
+        "month": null,
+        "day": null
+      },
+      "external-ids": {
+        "external-id": null
+      },
+      "url": null,
+      "contributors": {
+        "contributor": []
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1785134577968
+      },
+      "last-modified-date": {
+        "value": 1785134577968
+      },
+      "source": {
+        "source-orcid": {
+          "uri": "https://orcid.org/0000-0001-8032-7043",
+          "path": "0000-0001-8032-7043",
+          "host": "orcid.org"
+        },
+        "source-client-id": null,
+        "source-name": {
+          "value": "Siddharth Krishnan"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 221881830,
+      "path": "/0000-0001-8032-7043/work/221881830",
+      "title": {
+        "title": {
+          "value": "Distributed resonant coupling enables high efficiency power transfer to mm-scale bioelectronics"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": null,
+      "short-description": "<jats:title>Summary</jats:title>\n                <jats:p>\n                  Miniaturized implantable bioelectronics offer breakthrough potential in disease treatment, biomarker monitoring, and physiological sensing. However, wireless power transfer (WPT) remains a central limitation for millimeter-scale devices, as scaling down the receiver size rapidly decreases coupling efficiency due to tissue attenuation, low quality-factors, reduced mutual inductance, and limited tolerance to spatial and angular displacement. Here, we introduce distributed resonant coupling (DRC), a 3-coil WPT paradigm which enables the receiver (Rx) to actively participate in a strongly coupled resonance, transforming the Rx from a passive energy harvester into an active participant in a strongly coupled regime. By co-designing transmitters (Tx), resonators (Rs), and mm-scale receiver coils (Rx) as fully coupled systems, DRC exhibits simulated maximum power levels of 66%, measured received power transfer efficiencies of ∼56%, and end-to-end DC power transfer efficiencies of 42%, delivering &gt;420 mW to loads at 1 W of transmitted power while maintaining robust performance across a range of practically relevant orientations and tissue media. Systematic theoretical and experimental efforts establish core design rules for DRC systems enabling operation without specialized tuning integrated circuits or components. To illustrate the capabilities of DRC in practical applications\n                  <jats:italic>in vivo</jats:italic>\n                  , we demonstrate three technologies that capture a broad application space in bioelectronics: implant localization, rapid wireless battery charging, and ultraminiaturized drug delivery devices compatible with particulate drug formulations. Taken together, these results suggest operational capabilities across a wide range of angular tolerances (up to 60°), tissue depths and dielectric and scattering media.\n                </jats:p>",
+      "citation": null,
+      "type": "preprint",
+      "publication-date": {
+        "year": {
+          "value": "2026"
+        },
+        "month": {
+          "value": "07"
+        },
+        "day": {
+          "value": "17"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.64898/2026.07.16.739014",
+            "external-id-normalized": {
+              "value": "10.64898/2026.07.16.739014",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.64898/2026.07.16.739014"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "http://dx.doi.org/10.64898/2026.07.16.739014"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Sunghoon Rho"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Garrett Knuf"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Atharv Naik"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "KunHyung Roh"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Kecheng Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Seeva Lakshmi Cherukuri"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Akash Pai"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Sawson Taheri"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Constantine Sideris"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Siddharth R. Krishnan"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1582813316799
+      },
+      "last-modified-date": {
+        "value": 1653867468630
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 69705409,
+      "path": "/0000-0001-8032-7043/work/69705409",
+      "title": {
+        "title": {
+          "value": "Wireless, Battery‐Free Epidermal Electronics for Continuous, Quantitative, Multimodal Thermal Characterization of Skin"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Small"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{Krishnan_2018,\n\tdoi = {10.1002/smll.201803192},\n\turl = {https://doi.org/10.1002%2Fsmll.201803192},\n\tyear = 2018,\n\tmonth = {oct},\n\tpublisher = {Wiley},\n\tvolume = {14},\n\tnumber = {47},\n\tpages = {1803192},\n\tauthor = {Siddharth R. Krishnan and Chun-Ju Su and Zhaoqian Xie and Manish Patel and Surabhi R. Madhvapathy and Yeshou Xu and Juliet Freudman and Barry Ng and Seung Yun Heo and Heling Wang and Tyler R. Ray and John Leshock and Izabela Stankiewicz and Xue Feng and Yonggang Huang and Philipp Gutruf and John A. Rogers},\n\ttitle = {Wireless, Battery-Free Epidermal Electronics for Continuous, Quantitative, Multimodal Thermal Characterization of Skin},\n\tjournal = {Small}\n}"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2018"
+        },
+        "month": {
+          "value": "11"
+        },
+        "day": null
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1002/smll.201803192",
+            "external-id-normalized": {
+              "value": "10.1002/smll.201803192",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1002/smll.201803192"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1002/smll.201803192"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Siddharth R. Krishnan"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Chun‐Ju Su"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zhaoqian Xie"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Manish Patel"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Surabhi R. Madhvapathy"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Yeshou Xu"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Juliet Freudman"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Barry Ng"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Seung Yun Heo"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Heling Wang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Tyler R. Ray"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "John Leshock"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Izabela Stankiewicz"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xue Feng"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Yonggang Huang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Philipp Gutruf"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "John A. Rogers"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1582813316992
+      },
+      "last-modified-date": {
+        "value": 1653867468641
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 69705410,
+      "path": "/0000-0001-8032-7043/work/69705410",
+      "title": {
+        "title": {
+          "value": "Epidermal electronics for noninvasive, wireless, quantitative assessment of ventricular shunt function in patients with hydrocephalus"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "Science Translational Medicine"
+      },
+      "short-description": null,
+      "citation": {
+        "citation-type": "bibtex",
+        "citation-value": "@article{Krishnan_2018,\n\tdoi = {10.1126/scitranslmed.aat8437},\n\turl = {https://doi.org/10.1126%2Fscitranslmed.aat8437},\n\tyear = 2018,\n\tmonth = {oct},\n\tpublisher = {American Association for the Advancement of Science ({AAAS})},\n\tvolume = {10},\n\tnumber = {465},\n\tauthor = {Siddharth R. Krishnan and Tyler R. Ray and Amit B. Ayer and Yinji Ma and Philipp Gutruf and KunHyuck Lee and Jong Yoon Lee and Chen Wei and Xue Feng and Barry Ng and Zachary A. Abecassis and Nikhil Murthy and Izabela Stankiewicz and Juliet Freudman and Julia Stillman and Natalie Kim and Grace Young and Camille Goudeseune and John Ciraldo and Matthew Tate and Yonggang Huang and Matthew Potts and John A. Rogers},\n\ttitle = {Epidermal electronics for noninvasive, wireless, quantitative assessment of ventricular shunt function in patients with hydrocephalus},\n\tjournal = {Science Translational Medicine}\n}"
+      },
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2018"
+        },
+        "month": {
+          "value": "10"
+        },
+        "day": {
+          "value": "31"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1126/scitranslmed.aat8437",
+            "external-id-normalized": {
+              "value": "10.1126/scitranslmed.aat8437",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1126/scitranslmed.aat8437"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1126/scitranslmed.aat8437"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Siddharth R. Krishnan"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Tyler R. Ray"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Amit B. Ayer"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Yinji Ma"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Philipp Gutruf"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "KunHyuck Lee"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Jong Yoon Lee"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Chen Wei"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Xue Feng"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Barry Ng"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Zachary A. Abecassis"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Nikhil Murthy"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Izabela Stankiewicz"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Juliet Freudman"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Julia Stillman"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Natalie Kim"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Grace Young"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Camille Goudeseune"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "John Ciraldo"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Matthew Tate"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Yonggang Huang"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Matthew Potts"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "John A. Rogers"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    },
+    {
+      "created-date": {
+        "value": 1733171785989
+      },
+      "last-modified-date": {
+        "value": 1733171785989
+      },
+      "source": {
+        "source-orcid": null,
+        "source-client-id": {
+          "uri": "https://orcid.org/client/0000-0001-9884-1913",
+          "path": "0000-0001-9884-1913",
+          "host": "orcid.org"
+        },
+        "source-name": {
+          "value": "Crossref"
+        },
+        "assertion-origin-orcid": null,
+        "assertion-origin-client-id": null,
+        "assertion-origin-name": null
+      },
+      "put-code": 172943429,
+      "path": "/0000-0001-8032-7043/work/172943429",
+      "title": {
+        "title": {
+          "value": "Materials approaches for next-generation encapsulated cell therapies"
+        },
+        "subtitle": null,
+        "translated-title": null
+      },
+      "journal-title": {
+        "value": "MRS Communications"
+      },
+      "short-description": null,
+      "citation": null,
+      "type": "journal-article",
+      "publication-date": {
+        "year": {
+          "value": "2024"
+        },
+        "month": {
+          "value": "12"
+        },
+        "day": {
+          "value": "02"
+        }
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1557/s43579-024-00678-6",
+            "external-id-normalized": {
+              "value": "10.1557/s43579-024-00678-6",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1557/s43579-024-00678-6"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "url": {
+        "value": "https://doi.org/10.1557/s43579-024-00678-6"
+      },
+      "contributors": {
+        "contributor": [
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Siddharth R. Krishnan"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Robert Langer"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          },
+          {
+            "contributor-orcid": null,
+            "credit-name": {
+              "value": "Daniel G. Anderson"
+            },
+            "contributor-email": null,
+            "contributor-attributes": {
+              "contributor-sequence": null,
+              "contributor-role": "author"
+            }
+          }
+        ]
+      },
+      "language-code": null,
+      "country": null,
+      "visibility": "public"
+    }
+  ],
+  "errors": []
+}

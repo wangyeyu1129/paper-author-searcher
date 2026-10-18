@@ -1,0 +1,280 @@
+{
+  "lookups": {
+    "agent data protocol": {
+      "title": "Agent Data Protocol",
+      "year": 2026,
+      "candidates": [
+        {
+          "arxiv": "2510.24702",
+          "title": "Agent Data Protocol: Unifying Datasets for Diverse, Effective Fine-tuning of LLM Agents",
+          "year": 2025,
+          "authors": [
+            "Yueqi Song",
+            "Ketan Ramaneti",
+            "Zaid Sheikh",
+            "Ziru Chen",
+            "Boyu Gou",
+            "Tianbao Xie",
+            "Yiheng Xu",
+            "Danyang Zhang",
+            "Apurva Gandhi",
+            "Fan Yang",
+            "Joseph Liu",
+            "Tianyue Ou",
+            "Zhihao Yuan",
+            "Frank Xu",
+            "Shuyan Zhou",
+            "Xingyao Wang",
+            "Xiang Yue",
+            "Tao Yu",
+            "Huan Sun",
+            "Yu Su",
+            "Graham Neubig"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:04:41.192344+00:00"
+    },
+    "agentdiagnose an open toolkit for diagnosing llm agent trajectories": {
+      "title": "AgentDiagnose: An Open Toolkit for Diagnosing LLM Agent Trajectories",
+      "year": 2025,
+      "candidates": [],
+      "fetched_at": "2026-10-18T18:04:44.547070+00:00"
+    },
+    "automated high level code optimization for warehouse performance": {
+      "title": "Automated High-Level Code Optimization for Warehouse Performance",
+      "year": 2025,
+      "candidates": [],
+      "fetched_at": "2026-10-18T18:04:47.908295+00:00"
+    },
+    "better synthetic data by retrieving and transforming existing datasets": {
+      "title": "Better Synthetic Data by Retrieving and Transforming Existing Datasets",
+      "year": 2024,
+      "candidates": [
+        {
+          "arxiv": "2404.14361",
+          "title": "Better Synthetic Data by Retrieving and Transforming Existing Datasets",
+          "year": 2024,
+          "authors": [
+            "Saumya Gandhi",
+            "Ritu Gala",
+            "Vijay Viswanathan",
+            "Tongshuang Wu",
+            "Graham Neubig"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:04:51.323306+00:00"
+    },
+    "coding agents with multimodal browsing are generalist problem solvers": {
+      "title": "Coding Agents with Multimodal Browsing are Generalist Problem Solvers",
+      "year": 2026,
+      "candidates": [
+        {
+          "arxiv": "2506.03011",
+          "title": "Coding Agents with Multimodal Browsing are Generalist Problem Solvers",
+          "year": 2025,
+          "authors": [
+            "Aditya Bharat Soni",
+            "Boxuan Li",
+            "Xingyao Wang",
+            "Valerie Chen",
+            "Graham Neubig"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:04:54.681054+00:00"
+    },
+    "excalibur evaluating and encouraging embodied exploration": {
+      "title": "EXCALIBUR: Evaluating and Encouraging Embodied Exploration",
+      "year": 2023,
+      "candidates": [],
+      "fetched_at": "2026-10-18T18:04:58.195806+00:00"
+    },
+    "editbench evaluating llm abilities to perform real world instructed code edits": {
+      "title": "EditBench: Evaluating LLM Abilities to Perform Real-World Instructed Code Edits",
+      "year": 2026,
+      "candidates": [],
+      "fetched_at": "2026-10-18T18:05:01.540803+00:00"
+    },
+    "go browse training web agents with structured exploration": {
+      "title": "Go-Browse: Training Web Agents with Structured Exploration",
+      "year": 2026,
+      "candidates": [
+        {
+          "arxiv": "2506.03533",
+          "title": "Go-Browse: Training Web Agents with Structured Exploration",
+          "year": 2025,
+          "authors": [
+            "Apurva Gandhi",
+            "Graham Neubig"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:05:04.934187+00:00"
+    },
+    "interactive agents to overcome underspecificity in software engineering": {
+      "title": "Interactive Agents to Overcome Underspecificity in Software Engineering",
+      "year": 2026,
+      "candidates": [
+        {
+          "arxiv": "2502.13069",
+          "title": "Ambig-SWE: Interactive Agents to Overcome Underspecificity in Software Engineering",
+          "year": 2025,
+          "authors": [
+            "Sanidhya Vijayvargiya",
+            "Xuhui Zhou",
+            "Akhila Yerukola",
+            "Maarten Sap",
+            "Graham Neubig"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:05:08.359560+00:00"
+    },
+    "measuring time delay tolerance in third person live commentary for super smash bros ultimate": {
+      "title": "Measuring Time Delay Tolerance in Third-Person Live Commentary for Super Smash Bros. Ultimate",
+      "year": 2025,
+      "candidates": [],
+      "fetched_at": "2026-10-18T18:05:11.622752+00:00"
+    },
+    "naturalbench evaluating vision language models on natural adversarial samples": {
+      "title": "NaturalBench: Evaluating Vision-Language Models on Natural Adversarial Samples",
+      "year": 2024,
+      "candidates": [
+        {
+          "arxiv": "2410.14669",
+          "title": "NaturalBench: Evaluating Vision-Language Models on Natural Adversarial Samples",
+          "year": 2024,
+          "authors": [
+            "Baiqi Li",
+            "Zhiqiu Lin",
+            "Wenxuan Peng",
+            "Jean de Dieu Nyandwi",
+            "Daniel Jiang",
+            "Zixian Ma",
+            "Simran Khanuja",
+            "Ranjay Krishna",
+            "Graham Neubig",
+            "Deva Ramanan"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:05:14.888733+00:00"
+    },
+    "openagentsafety a comprehensive framework for evaluating real world ai agent safety": {
+      "title": "OpenAgentSafety: A Comprehensive Framework For Evaluating Real-World AI Agent Safety",
+      "year": 2026,
+      "candidates": [],
+      "fetched_at": "2026-10-18T18:05:18.172916+00:00"
+    },
+    "ppt eval a benchmark for computer use agents on powerpoint tasks": {
+      "title": "PPT-Eval: A Benchmark for Computer-Use Agents on PowerPoint Tasks",
+      "year": 2026,
+      "candidates": [],
+      "fetched_at": "2026-10-18T18:05:21.475876+00:00"
+    },
+    "position agentic systems should be general": {
+      "title": "Position: Agentic Systems Should be General",
+      "year": 2026,
+      "candidates": [],
+      "fetched_at": "2026-10-18T18:05:24.770866+00:00"
+    },
+    "prompt mii meta learning instruction induction for llms": {
+      "title": "Prompt-MII: Meta-Learning Instruction Induction for LLMs",
+      "year": 2026,
+      "candidates": [
+        {
+          "arxiv": "2510.16932",
+          "title": "Prompt-MII: Meta-Learning Instruction Induction for LLMs",
+          "year": 2025,
+          "authors": [
+            "Emily Xiao",
+            "Yixiao Zeng",
+            "Ada Chen",
+            "Chin-Jou Li",
+            "Amanda Bertsch",
+            "Graham Neubig"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:05:28.035176+00:00"
+    },
+    "refinebench evaluating refinement capability in language models": {
+      "title": "RefineBench: Evaluating Refinement Capability in Language Models",
+      "year": 2026,
+      "candidates": [
+        {
+          "arxiv": "2511.22173",
+          "title": "RefineBench: Evaluating Refinement Capability of Language Models via Checklists",
+          "year": 2025,
+          "authors": [
+            "Young-Jun Lee",
+            "Seungone Kim",
+            "Byung-Kwan Lee",
+            "Minkyeong Moon",
+            "Yechan Hwang",
+            "Jong Myoung Kim",
+            "Graham Neubig",
+            "Sean Welleck",
+            "Ho-Jin Choi"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:05:31.360231+00:00"
+    },
+    "synthesizing scientific literature with retrieval augmented language models": {
+      "title": "Synthesizing scientific literature with retrieval-augmented language models",
+      "year": 2026,
+      "candidates": [],
+      "fetched_at": "2026-10-18T18:05:34.621108+00:00"
+    },
+    "teaching agents to ask effective clarification questions": {
+      "title": "Teaching Agents to Ask Effective Clarification Questions",
+      "year": 2026,
+      "candidates": [],
+      "fetched_at": "2026-10-18T18:05:38.006659+00:00"
+    },
+    "the cot encyclopedia analyzing predicting and controlling how a reasoning model will think": {
+      "title": "The CoT Encyclopedia: Analyzing, Predicting, and Controlling how a Reasoning Model will Think",
+      "year": 2026,
+      "candidates": [],
+      "fetched_at": "2026-10-18T18:05:41.347596+00:00"
+    },
+    "think before you link rarity reasoning and retrieval in multilingual entity linking": {
+      "title": "Think Before You Link: Rarity, Reasoning, and Retrieval in Multilingual Entity Linking",
+      "year": 2026,
+      "candidates": [
+        {
+          "arxiv": "2609.10745",
+          "title": "Think Before You Link: Rarity, Reasoning, and Retrieval in Multilingual Entity Linking",
+          "year": 2026,
+          "authors": [
+            "Parinthapat Pengpun",
+            "Simran Khanuja",
+            "Graham Neubig"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:05:44.614008+00:00"
+    },
+    "zina multimodal fine grained hallucination detection and editing": {
+      "title": "ZINA: Multimodal Fine-grained Hallucination Detection and Editing",
+      "year": 2026,
+      "candidates": [
+        {
+          "arxiv": "2506.13130",
+          "title": "ZINA: Multimodal Fine-grained Hallucination Detection and Editing",
+          "year": 2025,
+          "authors": [
+            "Yuiga Wada",
+            "Kazuki Matsuda",
+            "Komei Sugiura",
+            "Graham Neubig"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:05:54.041224+00:00"
+    }
+  }
+}

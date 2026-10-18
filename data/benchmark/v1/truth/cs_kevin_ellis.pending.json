@@ -1,0 +1,2006 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "cs_kevin_ellis",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Kevin Ellis",
+      "university": "Cornell University"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.414839+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://www.cs.cornell.edu/~ellisk/",
+        "records": 30
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "cs_kevin_ellis:22e18997908f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Learning abstract structure for drawing by efficient motor program induction",
+      "year": 2020,
+      "authors": [
+        "Lucas Y. Tian",
+        "Kevin Ellis",
+        "Marta Kryven",
+        "Joshua B. Tenenbaum"
+      ],
+      "listed_venue": "NeurIPS 2020",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 29 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2008.03519"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Learning abstract structure for drawing by efficient motor program induction",
+          "year": 2019,
+          "authors": [
+            "Lucas Y. Tian",
+            "Kevin Ellis",
+            "Marta Kryven",
+            "Joshua B. Tenenbaum"
+          ]
+        },
+        {
+          "title": "Learning abstract structure for drawing by efficient motor program induction",
+          "year": 2021,
+          "authors": [
+            "Lucas Y. Tian",
+            "Kevin Ellis",
+            "Marta Kryven",
+            "Joshua B. Tenenbaum"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2008.03519",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Learning abstract structure for drawing by efficient motor program induction",
+          "arxiv_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:8274fcb5206b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Program Synthesis with Pragmatic Communication",
+      "year": 2020,
+      "authors": [
+        "Yewen Pu",
+        "Kevin Ellis",
+        "Marta Kryven",
+        "Joshua B. Tenenbaum",
+        "Armando Solar-Lezama"
+      ],
+      "listed_venue": "NeurIPS 2020",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 30 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2007.05060"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Program Synthesis with Pragmatic Communication",
+          "year": 2019,
+          "authors": [
+            "Yewen Pu",
+            "Kevin Ellis",
+            "Marta Kryven",
+            "Joshua B. Tenenbaum",
+            "Armando Solar-Lezama"
+          ]
+        },
+        {
+          "title": "Program Synthesis with Pragmatic Communication",
+          "year": 2021,
+          "authors": [
+            "Yewen Pu",
+            "Kevin Ellis",
+            "Marta Kryven",
+            "Joshua B. Tenenbaum",
+            "Armando Solar-Lezama"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2007.05060",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Program Synthesis with Pragmatic Communication",
+          "arxiv_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:2a78f334bf71",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "DreamCoder: Bootstrapping Inductive Program Synthesis with Wake-Sleep Library Learning",
+      "year": 2021,
+      "authors": [
+        "Kevin Ellis",
+        "Catherine Wong",
+        "Maxwell Nye",
+        "Mathias Sablé-Meyer",
+        "Lucas Morales",
+        "Luke Hewitt",
+        "Luc Cary",
+        "Armando Solar-Lezama",
+        "Joshua B. Tenenbaum"
+      ],
+      "listed_venue": "PLDI 2021",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 24 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3453483.3454080"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "DreamCoder: Bootstrapping Inductive Program Synthesis with Wake-Sleep Library Learning",
+          "year": 2020,
+          "authors": [
+            "Kevin Ellis",
+            "Catherine Wong",
+            "Maxwell Nye",
+            "Mathias Sablé-Meyer",
+            "Lucas Morales",
+            "Luke Hewitt",
+            "Luc Cary",
+            "Armando Solar-Lezama",
+            "Joshua B. Tenenbaum"
+          ]
+        },
+        {
+          "title": "DreamCoder: Bootstrapping Inductive Program Synthesis with Wake-Sleep Library Learning",
+          "year": 2022,
+          "authors": [
+            "Kevin Ellis",
+            "Catherine Wong",
+            "Maxwell Nye",
+            "Mathias Sablé-Meyer",
+            "Lucas Morales",
+            "Luke Hewitt",
+            "Luc Cary",
+            "Armando Solar-Lezama",
+            "Joshua B. Tenenbaum"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3453483.3454080",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "DreamCoder: bootstrapping inductive program synthesis with wake-sleep library learning",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:5618f6e557ee",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Leveraging natural language for program search and abstraction learning",
+      "year": 2021,
+      "authors": [
+        "Catherine Wong",
+        "Kevin Ellis",
+        "Josh Tenenbaum",
+        "Jacob Andreas"
+      ],
+      "listed_venue": "ICML 2021",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 27 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Leveraging natural language for program search and abstraction learning",
+          "year": 2020,
+          "authors": [
+            "Catherine Wong",
+            "Kevin Ellis",
+            "Josh Tenenbaum",
+            "Jacob Andreas"
+          ]
+        },
+        {
+          "title": "Leveraging natural language for program search and abstraction learning",
+          "year": 2022,
+          "authors": [
+            "Catherine Wong",
+            "Kevin Ellis",
+            "Josh Tenenbaum",
+            "Jacob Andreas"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:631a84407f35",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Making sense of raw input",
+      "year": 2021,
+      "authors": [
+        "Richard Evans",
+        "Matko Bošnjak",
+        "Lars Buesing",
+        "Kevin Ellis",
+        "David Pfau",
+        "Pushmeet Kohli",
+        "Marek Sergot"
+      ],
+      "listed_venue": "Artificial Intelligence 2021",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 26 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.artint.2021.103521"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Making sense of raw input",
+          "year": 2020,
+          "authors": [
+            "Richard Evans",
+            "Matko Bošnjak",
+            "Lars Buesing",
+            "Kevin Ellis",
+            "David Pfau",
+            "Pushmeet Kohli",
+            "Marek Sergot"
+          ]
+        },
+        {
+          "title": "Making sense of raw input",
+          "year": 2022,
+          "authors": [
+            "Richard Evans",
+            "Matko Bošnjak",
+            "Lars Buesing",
+            "Kevin Ellis",
+            "David Pfau",
+            "Pushmeet Kohli",
+            "Marek Sergot"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.artint.2021.103521",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Making sense of raw input",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:10e03fb46e83",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Neurosymbolic Programming",
+      "year": 2021,
+      "authors": [
+        "Swarat Chaudhuri",
+        "Kevin Ellis",
+        "Oleksandr Polozov",
+        "Rishabh Singh",
+        "Armando Solar-Lezama",
+        "Yisong Yue"
+      ],
+      "listed_venue": "Foundations and Trends in Programming Languages 2021",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 25 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1561/9781680839357"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Neurosymbolic Programming",
+          "year": 2020,
+          "authors": [
+            "Swarat Chaudhuri",
+            "Kevin Ellis",
+            "Oleksandr Polozov",
+            "Rishabh Singh",
+            "Armando Solar-Lezama",
+            "Yisong Yue"
+          ]
+        },
+        {
+          "title": "Neurosymbolic Programming",
+          "year": 2022,
+          "authors": [
+            "Swarat Chaudhuri",
+            "Kevin Ellis",
+            "Oleksandr Polozov",
+            "Rishabh Singh",
+            "Armando Solar-Lezama",
+            "Yisong Yue"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1561/9781680839357",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Neurosymbolic Programming",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:2f01f504b083",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Phonological Interactions, Process Types, and Minimum Description Length Principles",
+      "year": 2021,
+      "authors": [
+        "Christopher Yang",
+        "Kevin Ellis"
+      ],
+      "listed_venue": "CogSci 2021",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 28 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Phonological Interactions, Process Types, and Minimum Description Length Principles",
+          "year": 2020,
+          "authors": [
+            "Christopher Yang",
+            "Kevin Ellis"
+          ]
+        },
+        {
+          "title": "Phonological Interactions, Process Types, and Minimum Description Length Principles",
+          "year": 2022,
+          "authors": [
+            "Christopher Yang",
+            "Kevin Ellis"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:3160ad0c9bcf",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "CrossBeam: Learning to Search in Bottom-Up Program Synthesis",
+      "year": 2022,
+      "authors": [
+        "Kensen Shi",
+        "Hanjun Dai",
+        "Kevin Ellis",
+        "Charles Sutton"
+      ],
+      "listed_venue": "ICLR 2022",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 21 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2203.10452"
+      },
+      "metadata_aliases": [
+        {
+          "title": "CrossBeam: Learning to Search in Bottom-Up Program Synthesis",
+          "year": 2021,
+          "authors": [
+            "Kensen Shi",
+            "Hanjun Dai",
+            "Kevin Ellis",
+            "Charles Sutton"
+          ]
+        },
+        {
+          "title": "CrossBeam: Learning to Search in Bottom-Up Program Synthesis",
+          "year": 2023,
+          "authors": [
+            "Kensen Shi",
+            "Hanjun Dai",
+            "Kevin Ellis",
+            "Charles Sutton"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2203.10452",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "CrossBeam: Learning to Search in Bottom-Up Program Synthesis",
+          "arxiv_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:e4d7ed35322e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Hybrid Memoised Wake-Sleep: Approximate Inference at the Discrete-Continuous Interface",
+      "year": 2022,
+      "authors": [
+        "Tuan Anh Le",
+        "Katherine M. Collins",
+        "Luke Hewitt",
+        "Kevin Ellis",
+        "N. Siddharth",
+        "Samuel J. Gershman",
+        "Joshua B. Tenenbaum"
+      ],
+      "listed_venue": "ICLR 2022",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 22 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2107.06393"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Hybrid Memoised Wake-Sleep: Approximate Inference at the Discrete-Continuous Interface",
+          "year": 2021,
+          "authors": [
+            "Tuan Anh Le",
+            "Katherine M. Collins",
+            "Luke Hewitt",
+            "Kevin Ellis",
+            "N. Siddharth",
+            "Samuel J. Gershman",
+            "Joshua B. Tenenbaum"
+          ]
+        },
+        {
+          "title": "Hybrid Memoised Wake-Sleep: Approximate Inference at the Discrete-Continuous Interface",
+          "year": 2023,
+          "authors": [
+            "Tuan Anh Le",
+            "Katherine M. Collins",
+            "Luke Hewitt",
+            "Kevin Ellis",
+            "N. Siddharth",
+            "Samuel J. Gershman",
+            "Joshua B. Tenenbaum"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2107.06393",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Hybrid Memoised Wake-Sleep: Approximate Inference at the Discrete-Continuous Interface",
+          "arxiv_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:0f6e4f5922f5",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Scaling Neural Program Synthesis with Distribution-based Search",
+      "year": 2022,
+      "authors": [
+        "Nathanaël Fijalkow",
+        "Guillaume Lagarde",
+        "Théo Matricon",
+        "Kevin Ellis",
+        "Pierre Ohlmann",
+        "Akarsh Potta"
+      ],
+      "listed_venue": "AAAI 2022",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 23 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1609/aaai.v36i6.20616"
+      ],
+      "external_ids": {
+        "arxiv": "2110.12485"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Scaling Neural Program Synthesis with Distribution-based Search",
+          "year": 2021,
+          "authors": [
+            "Nathanaël Fijalkow",
+            "Guillaume Lagarde",
+            "Théo Matricon",
+            "Kevin Ellis",
+            "Pierre Ohlmann",
+            "Akarsh Potta"
+          ]
+        },
+        {
+          "title": "Scaling Neural Program Synthesis with Distribution-based Search",
+          "year": 2023,
+          "authors": [
+            "Nathanaël Fijalkow",
+            "Guillaume Lagarde",
+            "Théo Matricon",
+            "Kevin Ellis",
+            "Pierre Ohlmann",
+            "Akarsh Potta"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2110.12485",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Scaling Neural Program Synthesis with Distribution-based Search",
+          "arxiv_year": 2021,
+          "doi": "10.1609/aaai.v36i6.20616",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Scaling Neural Program Synthesis with Distribution-Based Search",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:eb8ba90d4830",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Synthesizing theories of human language with Bayesian program induction",
+      "year": 2022,
+      "authors": [
+        "Kevin Ellis",
+        "Adam Albright",
+        "Armando Solar-Lezama",
+        "Joshua B. Tenenbaum",
+        "Timothy J. O'Donnell"
+      ],
+      "listed_venue": "Nature Communications 2022",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 20 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1038/s41467-022-32012-w"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Synthesizing theories of human language with Bayesian program induction",
+          "year": 2021,
+          "authors": [
+            "Kevin Ellis",
+            "Adam Albright",
+            "Armando Solar-Lezama",
+            "Joshua B. Tenenbaum",
+            "Timothy J. O'Donnell"
+          ]
+        },
+        {
+          "title": "Synthesizing theories of human language with Bayesian program induction",
+          "year": 2023,
+          "authors": [
+            "Kevin Ellis",
+            "Adam Albright",
+            "Armando Solar-Lezama",
+            "Joshua B. Tenenbaum",
+            "Timothy J. O'Donnell"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s41467-022-32012-w",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Synthesizing theories of human language with Bayesian program induction",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:bdd0a2c3e189",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A language of thought for the mental representation of geometric shapes",
+      "year": 2023,
+      "authors": [
+        "Mathias Sablé-Meyer",
+        "Kevin Ellis",
+        "Josh Tenenbaum",
+        "Stanislas Dehaene"
+      ],
+      "listed_venue": "Cognitive Psychology 2023",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 19 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.cogpsych.2022.101527"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A language of thought for the mental representation of geometric shapes",
+          "year": 2022,
+          "authors": [
+            "Mathias Sablé-Meyer",
+            "Kevin Ellis",
+            "Josh Tenenbaum",
+            "Stanislas Dehaene"
+          ]
+        },
+        {
+          "title": "A language of thought for the mental representation of geometric shapes",
+          "year": 2024,
+          "authors": [
+            "Mathias Sablé-Meyer",
+            "Kevin Ellis",
+            "Josh Tenenbaum",
+            "Stanislas Dehaene"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.cogpsych.2022.101527",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "A language of thought for the mental representation of geometric shapes",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:39a0a137cad5",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "From Perception to Programs: Regularize, Overparameterize, and Amortize",
+      "year": 2023,
+      "authors": [
+        "Hao Tang",
+        "Kevin Ellis"
+      ],
+      "listed_venue": "ICML 2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 17 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3520312.3534865"
+      ],
+      "external_ids": {
+        "arxiv": "2206.05922"
+      },
+      "metadata_aliases": [
+        {
+          "title": "From Perception to Programs: Regularize, Overparameterize, and Amortize",
+          "year": 2022,
+          "authors": [
+            "Hao Tang",
+            "Kevin Ellis"
+          ]
+        },
+        {
+          "title": "From Perception to Programs: Regularize, Overparameterize, and Amortize",
+          "year": 2024,
+          "authors": [
+            "Hao Tang",
+            "Kevin Ellis"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2206.05922",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "From Perception to Programs: Regularize, Overparameterize, and Amortize",
+          "arxiv_year": 2022,
+          "doi": "10.1145/3520312.3534865",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "From perception to programs: regularize, overparameterize, and amortize",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:cc9adda7e305",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Human-like Few-Shot Learning via Bayesian Reasoning over Natural Language",
+      "year": 2023,
+      "authors": [
+        "Kevin Ellis"
+      ],
+      "listed_venue": "NeurIPS 2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 14 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/075280-0577"
+      ],
+      "external_ids": {
+        "arxiv": "2306.02797"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Human-like Few-Shot Learning via Bayesian Reasoning over Natural Language",
+          "year": 2022,
+          "authors": [
+            "Kevin Ellis"
+          ]
+        },
+        {
+          "title": "Human-like Few-Shot Learning via Bayesian Reasoning over Natural Language",
+          "year": 2024,
+          "authors": [
+            "Kevin Ellis"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2306.02797",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Human-like Few-Shot Learning via Bayesian Reasoning over Natural Language",
+          "arxiv_year": 2023,
+          "doi": "10.52202/075280-0577",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Human-like Few-Shot Learning via Bayesian Reasoning over Natural Language",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:1360d5903de0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "LambdaBeam: Neural Program Search with Higher-Order Functions and Lambdas",
+      "year": 2023,
+      "authors": [
+        "Kensen Shi",
+        "Hanjun Dai",
+        "Wen-Ding Li",
+        "Kevin Ellis",
+        "Charles Sutton"
+      ],
+      "listed_venue": "NeurIPS 2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 15 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/075280-2234"
+      ],
+      "external_ids": {
+        "arxiv": "2306.02049"
+      },
+      "metadata_aliases": [
+        {
+          "title": "LambdaBeam: Neural Program Search with Higher-Order Functions and Lambdas",
+          "year": 2022,
+          "authors": [
+            "Kensen Shi",
+            "Hanjun Dai",
+            "Wen-Ding Li",
+            "Kevin Ellis",
+            "Charles Sutton"
+          ]
+        },
+        {
+          "title": "LambdaBeam: Neural Program Search with Higher-Order Functions and Lambdas",
+          "year": 2024,
+          "authors": [
+            "Kensen Shi",
+            "Hanjun Dai",
+            "Wen-Ding Li",
+            "Kevin Ellis",
+            "Charles Sutton"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2306.02049",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "LambdaBeam: Neural Program Search with Higher-Order Functions and Lambdas",
+          "arxiv_year": 2023,
+          "doi": "10.52202/075280-2234",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "LambdaBeam: Neural Program Search with Higher-Order Functions and Lambdas",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:13b1add476bf",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Top-Down Synthesis For Library Learning",
+      "year": 2023,
+      "authors": [
+        "Matthew Bowers",
+        "Theo X. Olausson",
+        "Catherine Wong",
+        "Gabriel Grand",
+        "Joshua B. Tenenbaum",
+        "Kevin Ellis",
+        "Armando Solar-Lezama"
+      ],
+      "listed_venue": "POPL 2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 18 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3571234"
+      ],
+      "external_ids": {
+        "arxiv": "2211.16605"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Top-Down Synthesis For Library Learning",
+          "year": 2022,
+          "authors": [
+            "Matthew Bowers",
+            "Theo X. Olausson",
+            "Catherine Wong",
+            "Gabriel Grand",
+            "Joshua B. Tenenbaum",
+            "Kevin Ellis",
+            "Armando Solar-Lezama"
+          ]
+        },
+        {
+          "title": "Top-Down Synthesis For Library Learning",
+          "year": 2024,
+          "authors": [
+            "Matthew Bowers",
+            "Theo X. Olausson",
+            "Catherine Wong",
+            "Gabriel Grand",
+            "Joshua B. Tenenbaum",
+            "Kevin Ellis",
+            "Armando Solar-Lezama"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2211.16605",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Top-Down Synthesis for Library Learning",
+          "arxiv_year": 2022,
+          "doi": "10.1145/3571234",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Top-Down Synthesis for Library Learning",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:77eb0f797e05",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Toward Trustworthy Neural Program Synthesis",
+      "year": 2023,
+      "authors": [
+        "Wen-Ding Li",
+        "Darren Key",
+        "Kevin Ellis"
+      ],
+      "listed_venue": "arXiv 2023",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 16 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2210.00848"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Toward Trustworthy Neural Program Synthesis",
+          "year": 2022,
+          "authors": [
+            "Wen-Ding Li",
+            "Darren Key",
+            "Kevin Ellis"
+          ]
+        },
+        {
+          "title": "Toward Trustworthy Neural Program Synthesis",
+          "year": 2024,
+          "authors": [
+            "Wen-Ding Li",
+            "Darren Key",
+            "Kevin Ellis"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2210.00848",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Toward Trustworthy Neural Program Synthesis",
+          "arxiv_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:58dbdca352f1",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Code Repair with LLMs gives an Exploration-Exploitation Tradeoff",
+      "year": 2024,
+      "authors": [
+        "Hao Tang",
+        "Keya Hu",
+        "Jin Peng Zhou",
+        "Sicheng Zhong",
+        "Wei-Long Zheng",
+        "Xujie Si",
+        "Kevin Ellis"
+      ],
+      "listed_venue": "NeurIPS 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 10 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/079017-3746"
+      ],
+      "external_ids": {
+        "arxiv": "2405.17503"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Code Repair with LLMs gives an Exploration-Exploitation Tradeoff",
+          "year": 2023,
+          "authors": [
+            "Hao Tang",
+            "Keya Hu",
+            "Jin Peng Zhou",
+            "Sicheng Zhong",
+            "Wei-Long Zheng",
+            "Xujie Si",
+            "Kevin Ellis"
+          ]
+        },
+        {
+          "title": "Code Repair with LLMs gives an Exploration-Exploitation Tradeoff",
+          "year": 2025,
+          "authors": [
+            "Hao Tang",
+            "Keya Hu",
+            "Jin Peng Zhou",
+            "Sicheng Zhong",
+            "Wei-Long Zheng",
+            "Xujie Si",
+            "Kevin Ellis"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2405.17503",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Code Repair with LLMs gives an Exploration-Exploitation Tradeoff",
+          "arxiv_year": 2024,
+          "doi": "10.52202/079017-3746",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Code Repair with LLMs gives an Exploration-Exploitation Tradeoff",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:661e2ba1af80",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Discovering quantum circuit components with program synthesis",
+      "year": 2024,
+      "authors": [
+        "Leopoldo Sarra",
+        "Kevin Ellis",
+        "Florian Marquardt"
+      ],
+      "listed_venue": "Machine Learning: Science and Technology 2024",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 13 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1088/2632-2153/ad4252"
+      ],
+      "external_ids": {
+        "arxiv": "2305.01707"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Discovering quantum circuit components with program synthesis",
+          "year": 2023,
+          "authors": [
+            "Leopoldo Sarra",
+            "Kevin Ellis",
+            "Florian Marquardt"
+          ]
+        },
+        {
+          "title": "Discovering quantum circuit components with program synthesis",
+          "year": 2025,
+          "authors": [
+            "Leopoldo Sarra",
+            "Kevin Ellis",
+            "Florian Marquardt"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2305.01707",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Discovering Quantum Circuit Components with Program Synthesis",
+          "arxiv_year": 2023,
+          "doi": "10.1088/2632-2153/ad4252",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Discovering quantum circuit components with program synthesis",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:4d5cbd96bf14",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Doing Experiments and Revising Rules with Natural Language and Probabilistic Reasoning",
+      "year": 2024,
+      "authors": [
+        "Wasu Top Piriyakulkij",
+        "Cassidy Langenfeld",
+        "Tuan-Anh Le",
+        "Kevin Ellis"
+      ],
+      "listed_venue": "NeurIPS 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 8 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/079017-1682"
+      ],
+      "external_ids": {
+        "arxiv": "2402.06025"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Doing Experiments and Revising Rules with Natural Language and Probabilistic Reasoning",
+          "year": 2023,
+          "authors": [
+            "Wasu Top Piriyakulkij",
+            "Cassidy Langenfeld",
+            "Tuan-Anh Le",
+            "Kevin Ellis"
+          ]
+        },
+        {
+          "title": "Doing Experiments and Revising Rules with Natural Language and Probabilistic Reasoning",
+          "year": 2025,
+          "authors": [
+            "Wasu Top Piriyakulkij",
+            "Cassidy Langenfeld",
+            "Tuan-Anh Le",
+            "Kevin Ellis"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2402.06025",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Doing Experiments and Revising Rules with Natural Language and Probabilistic Reasoning",
+          "arxiv_year": 2024,
+          "doi": "10.52202/079017-1682",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Doing Experiments and Revising Rules with Natural Language and Probabilistic Reasoning",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:cb784c2b7ad7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Is Programming by Example Solved by LLMs?",
+      "year": 2024,
+      "authors": [
+        "Wen-Ding Li",
+        "Kevin Ellis"
+      ],
+      "listed_venue": "NeurIPS 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 9 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/079017-1422"
+      ],
+      "external_ids": {
+        "arxiv": "2406.08316"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Is Programming by Example Solved by LLMs?",
+          "year": 2023,
+          "authors": [
+            "Wen-Ding Li",
+            "Kevin Ellis"
+          ]
+        },
+        {
+          "title": "Is Programming by Example Solved by LLMs?",
+          "year": 2025,
+          "authors": [
+            "Wen-Ding Li",
+            "Kevin Ellis"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2406.08316",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Is Programming by Example solved by LLMs?",
+          "arxiv_year": 2024,
+          "doi": "10.52202/079017-1422",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Is Programming by Example Solved by LLMs?",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:0252f427e33b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Rapid Motor Adaptation for Robotic Manipulator Arms",
+      "year": 2024,
+      "authors": [
+        "Yichao Liang",
+        "Kevin Ellis",
+        "João Henriques"
+      ],
+      "listed_venue": "CVPR 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 12 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/cvpr52733.2024.01552"
+      ],
+      "external_ids": {
+        "arxiv": "2312.04670"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Rapid Motor Adaptation for Robotic Manipulator Arms",
+          "year": 2023,
+          "authors": [
+            "Yichao Liang",
+            "Kevin Ellis",
+            "João Henriques"
+          ]
+        },
+        {
+          "title": "Rapid Motor Adaptation for Robotic Manipulator Arms",
+          "year": 2025,
+          "authors": [
+            "Yichao Liang",
+            "Kevin Ellis",
+            "João Henriques"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2312.04670",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Rapid Motor Adaptation for Robotic Manipulator Arms",
+          "arxiv_year": 2023,
+          "doi": "10.1109/cvpr52733.2024.01552",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Rapid Motor Adaptation for Robotic Manipulator Arms",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:400f1669ee88",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Symbolic metaprogram search improves learning efficiency and explains rule learning in humans",
+      "year": 2024,
+      "authors": [
+        "Joshua S. Rule",
+        "Steven T. Piantadosi",
+        "Andrew Cropper",
+        "Kevin Ellis",
+        "Maxwell Nye",
+        "Joshua B. Tenenbaum"
+      ],
+      "listed_venue": "Nature Communications 2024",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 11 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1038/s41467-024-50966-x"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Symbolic metaprogram search improves learning efficiency and explains rule learning in humans",
+          "year": 2023,
+          "authors": [
+            "Joshua S. Rule",
+            "Steven T. Piantadosi",
+            "Andrew Cropper",
+            "Kevin Ellis",
+            "Maxwell Nye",
+            "Joshua B. Tenenbaum"
+          ]
+        },
+        {
+          "title": "Symbolic metaprogram search improves learning efficiency and explains rule learning in humans",
+          "year": 2025,
+          "authors": [
+            "Joshua S. Rule",
+            "Steven T. Piantadosi",
+            "Andrew Cropper",
+            "Kevin Ellis",
+            "Maxwell Nye",
+            "Joshua B. Tenenbaum"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s41467-024-50966-x",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Symbolic metaprogram search improves learning efficiency and explains rule learning in humans",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:7b38e344f3d2",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "WorldCoder, a Model-Based LLM Agent: Building World Models by Writing Code and Interacting with the Environment",
+      "year": 2024,
+      "authors": [
+        "Hao Tang",
+        "Darren Key",
+        "Kevin Ellis"
+      ],
+      "listed_venue": "NeurIPS 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 7 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/079017-2243"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "WorldCoder, a Model-Based LLM Agent: Building World Models by Writing Code and Interacting with the Environment",
+          "year": 2023,
+          "authors": [
+            "Hao Tang",
+            "Darren Key",
+            "Kevin Ellis"
+          ]
+        },
+        {
+          "title": "WorldCoder, a Model-Based LLM Agent: Building World Models by Writing Code and Interacting with the Environment",
+          "year": 2025,
+          "authors": [
+            "Hao Tang",
+            "Darren Key",
+            "Kevin Ellis"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/079017-2243",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "WorldCoder, a Model-Based LLM Agent: Building World Models by Writing Code and Interacting with the Environment",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:e0017183a8af",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Cognitive Maps are Generative Programs",
+      "year": 2025,
+      "authors": [
+        "Marta Kryven",
+        "Cole Wyeth",
+        "Aidan Curtis",
+        "Kevin Ellis"
+      ],
+      "listed_venue": "CogSci 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 3 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2504.20628"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Cognitive Maps are Generative Programs",
+          "year": 2024,
+          "authors": [
+            "Marta Kryven",
+            "Cole Wyeth",
+            "Aidan Curtis",
+            "Kevin Ellis"
+          ]
+        },
+        {
+          "title": "Cognitive Maps are Generative Programs",
+          "year": 2026,
+          "authors": [
+            "Marta Kryven",
+            "Cole Wyeth",
+            "Aidan Curtis",
+            "Kevin Ellis"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2504.20628",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Cognitive maps are generative programs",
+          "arxiv_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:88fb5eb5f7bc",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Combining Induction and Transduction for Abstract Reasoning",
+      "year": 2025,
+      "authors": [
+        "Wen-Ding Li",
+        "Keya Hu",
+        "Carter Larsen",
+        "Yuqing Wu",
+        "Simon Alford",
+        "Caleb Woo",
+        "Spencer M. Dunn",
+        "Hao Tang",
+        "Michelangelo Naim",
+        "Dat Nguyen",
+        "Wei-Long Zheng",
+        "Zenna Tavares",
+        "Yewen Pu",
+        "Kevin Ellis"
+      ],
+      "listed_venue": "ICLR 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 5 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2411.02272"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Combining Induction and Transduction for Abstract Reasoning",
+          "year": 2024,
+          "authors": [
+            "Wen-Ding Li",
+            "Keya Hu",
+            "Carter Larsen",
+            "Yuqing Wu",
+            "Simon Alford",
+            "Caleb Woo",
+            "Spencer M. Dunn",
+            "Hao Tang",
+            "Michelangelo Naim",
+            "Dat Nguyen",
+            "Wei-Long Zheng",
+            "Zenna Tavares",
+            "Yewen Pu",
+            "Kevin Ellis"
+          ]
+        },
+        {
+          "title": "Combining Induction and Transduction for Abstract Reasoning",
+          "year": 2026,
+          "authors": [
+            "Wen-Ding Li",
+            "Keya Hu",
+            "Carter Larsen",
+            "Yuqing Wu",
+            "Simon Alford",
+            "Caleb Woo",
+            "Spencer M. Dunn",
+            "Hao Tang",
+            "Michelangelo Naim",
+            "Dat Nguyen",
+            "Wei-Long Zheng",
+            "Zenna Tavares",
+            "Yewen Pu",
+            "Kevin Ellis"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2411.02272",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Combining Induction and Transduction for Abstract Reasoning",
+          "arxiv_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:5a24c647a87d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "LLM-Guided Probabilistic Program Induction for POMDP Model Estimation",
+      "year": 2025,
+      "authors": [
+        "Aidan Curtis",
+        "Hao Tang",
+        "Thiago Veloso",
+        "Kevin Ellis",
+        "Joshua Tenenbaum",
+        "Tomás Lozano-Pérez",
+        "Leslie Pack Kaelbling"
+      ],
+      "listed_venue": "CoRL 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 4 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2505.02216"
+      },
+      "metadata_aliases": [
+        {
+          "title": "LLM-Guided Probabilistic Program Induction for POMDP Model Estimation",
+          "year": 2024,
+          "authors": [
+            "Aidan Curtis",
+            "Hao Tang",
+            "Thiago Veloso",
+            "Kevin Ellis",
+            "Joshua Tenenbaum",
+            "Tomás Lozano-Pérez",
+            "Leslie Pack Kaelbling"
+          ]
+        },
+        {
+          "title": "LLM-Guided Probabilistic Program Induction for POMDP Model Estimation",
+          "year": 2026,
+          "authors": [
+            "Aidan Curtis",
+            "Hao Tang",
+            "Thiago Veloso",
+            "Kevin Ellis",
+            "Joshua Tenenbaum",
+            "Tomás Lozano-Pérez",
+            "Leslie Pack Kaelbling"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2505.02216",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "LLM-Guided Probabilistic Program Induction for POMDP Model Estimation",
+          "arxiv_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:adefbca0616e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "PoE-World: Compositional World Modeling with Products of Programmatic Experts",
+      "year": 2025,
+      "authors": [
+        "Wasu Top Piriyakulkij",
+        "Yichao Liang",
+        "Hao Tang",
+        "Adrian Weller",
+        "Marta Kryven",
+        "Kevin Ellis"
+      ],
+      "listed_venue": "NeurIPS 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/085713-0896"
+      ],
+      "external_ids": {
+        "arxiv": "2505.10819"
+      },
+      "metadata_aliases": [
+        {
+          "title": "PoE-World: Compositional World Modeling with Products of Programmatic Experts",
+          "year": 2024,
+          "authors": [
+            "Wasu Top Piriyakulkij",
+            "Yichao Liang",
+            "Hao Tang",
+            "Adrian Weller",
+            "Marta Kryven",
+            "Kevin Ellis"
+          ]
+        },
+        {
+          "title": "PoE-World: Compositional World Modeling with Products of Programmatic Experts",
+          "year": 2026,
+          "authors": [
+            "Wasu Top Piriyakulkij",
+            "Yichao Liang",
+            "Hao Tang",
+            "Adrian Weller",
+            "Marta Kryven",
+            "Kevin Ellis"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2505.10819",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "PoE-World: Compositional World Modeling with Products of Programmatic Experts",
+          "arxiv_year": 2025,
+          "doi": "10.52202/085713-0896",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "PoE-World: Compositional World Modeling with Products of Programmatic Experts",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:4da1950c0354",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Position: Future Research and Challenges Remain Towards AI for Software Engineering",
+      "year": 2025,
+      "authors": [
+        "Alex Gu",
+        "Naman Jain",
+        "Wen-Ding Li",
+        "Manish Shetty",
+        "Yijia Shao",
+        "Ziyang Li",
+        "Diyi Yang",
+        "Kevin Ellis",
+        "Koushik Sen",
+        "Armando Solar-Lezama"
+      ],
+      "listed_venue": "ICML 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 2 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Position: Future Research and Challenges Remain Towards AI for Software Engineering",
+          "year": 2024,
+          "authors": [
+            "Alex Gu",
+            "Naman Jain",
+            "Wen-Ding Li",
+            "Manish Shetty",
+            "Yijia Shao",
+            "Ziyang Li",
+            "Diyi Yang",
+            "Kevin Ellis",
+            "Koushik Sen",
+            "Armando Solar-Lezama"
+          ]
+        },
+        {
+          "title": "Position: Future Research and Challenges Remain Towards AI for Software Engineering",
+          "year": 2026,
+          "authors": [
+            "Alex Gu",
+            "Naman Jain",
+            "Wen-Ding Li",
+            "Manish Shetty",
+            "Yijia Shao",
+            "Ziyang Li",
+            "Diyi Yang",
+            "Kevin Ellis",
+            "Koushik Sen",
+            "Armando Solar-Lezama"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_kevin_ellis:acf3a51ff63b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "VisualPredicator: Learning Abstract World Models with Neuro-Symbolic Predicates for Robot Planning",
+      "year": 2025,
+      "authors": [
+        "Yichao Liang",
+        "Nishanth Kumar",
+        "Hao Tang",
+        "Adrian Weller",
+        "Joshua B. Tenenbaum",
+        "Tom Silver",
+        "João F. Henriques",
+        "Kevin Ellis"
+      ],
+      "listed_venue": "ICLR 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.cornell.edu/~ellisk/ entry 6 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2410.23156"
+      },
+      "metadata_aliases": [
+        {
+          "title": "VisualPredicator: Learning Abstract World Models with Neuro-Symbolic Predicates for Robot Planning",
+          "year": 2024,
+          "authors": [
+            "Yichao Liang",
+            "Nishanth Kumar",
+            "Hao Tang",
+            "Adrian Weller",
+            "Joshua B. Tenenbaum",
+            "Tom Silver",
+            "João F. Henriques",
+            "Kevin Ellis"
+          ]
+        },
+        {
+          "title": "VisualPredicator: Learning Abstract World Models with Neuro-Symbolic Predicates for Robot Planning",
+          "year": 2026,
+          "authors": [
+            "Yichao Liang",
+            "Nishanth Kumar",
+            "Hao Tang",
+            "Adrian Weller",
+            "Joshua B. Tenenbaum",
+            "Tom Silver",
+            "João F. Henriques",
+            "Kevin Ellis"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2410.23156",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "VisualPredicator: Learning Abstract World Models with Neuro-Symbolic Predicates for Robot Planning",
+          "arxiv_year": 2024
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

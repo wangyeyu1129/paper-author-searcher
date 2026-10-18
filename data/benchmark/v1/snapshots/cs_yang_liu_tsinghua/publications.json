@@ -1,0 +1,1112 @@
+{
+ "snapshot_schema_version": 1,
+ "source_url": "https://nlp.csai.tsinghua.edu.cn/~ly/pub.html",
+ "captured_at": "2026-10-18",
+ "captured_by": "Script parsing of ACL-style citations on the public page; pending human review",
+ "scope_note": "2024-2025 entries of the full publication list",
+ "entries": [
+  {
+   "title": "ActiView: Evaluating Active Perception Ability for Multimodal Large Language Models",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ACL 2025",
+   "authors": [
+    "Ziyue Wang",
+    "Chi Chen",
+    "Fuwen Luo",
+    "Yurui Dong",
+    "Yuanchi Zhang",
+    "Yuzhuang Xu",
+    "Xiaolong Wang",
+    "Peng Li",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "StableToolBench-MirrorAPI: Modeling Tool Environments as Mirrors of 7,000+ Real-World APIs",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ACL 2025 Findings",
+   "authors": [
+    "Zhicheng Guo",
+    "Sijie Cheng",
+    "Yuchen Niu",
+    "Hao Wang",
+    "Sicheng Zhou",
+    "Wenbing Huang",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Perspective Transition of Large Language Models for Solving Subjective Tasks",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ACL 2025 Findings",
+   "authors": [
+    "Xiaolong Wang",
+    "Yuanchi Zhang",
+    "Ziyue Wang",
+    "Yuzhuang Xu",
+    "Fuwen Luo",
+    "Yile Wang",
+    "Peng Li",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "UniMoMo: Unified Generative Modeling of 3D Molecules for De Novo Binder Design",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICML 2025",
+   "authors": [
+    "Xiangzhe Kong",
+    "Zishen Zhang",
+    "Ziting Zhang",
+    "Rui Jiao",
+    "Jianzhu Ma",
+    "Kai Liu",
+    "Wenbing Huang",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "UniSim: A Unified Simulator for Time-Coarsened Dynamics of Biomolecules",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICML 2025",
+   "authors": [
+    "Ziyang Yu",
+    "Wenbing Huang",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Zero-Shot Cyclic Peptide Design via Composable Geometric Constraints",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICML 2025",
+   "authors": [
+    "Dapeng Jiang",
+    "Xiangzhe Kong",
+    "Jiaqi Han",
+    "Mingyu Li",
+    "Rui Jiao",
+    "Wenbing Huang",
+    "Stefano Ermon",
+    "Jianzhu Ma",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "AdaMMS: Model Merging for Heterogeneous Multimodal Large Language Models with Unsupervised Coefficient Optimization",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "CVPR 2025",
+   "authors": [
+    "Yiyang Du",
+    "Xiaochen Wang",
+    "Chi Chen",
+    "Jiabo Ye",
+    "Yiru Wang",
+    "Peng Li",
+    "Ming Yan",
+    "Ji Zhang",
+    "Fei Huang",
+    "Zhifang Sui",
+    "Maosong Sun",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "CoSpace: Benchmarking Continuous Space Perception Ability for Vision-Language Models",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "CVPR 2025",
+   "authors": [
+    "Yiqi Zhu",
+    "Ziyue Wang",
+    "Can Zhang",
+    "Peng Li",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Reflection on Rationale: An Iterative Self-Training Framework for Vision-Language Reasoning",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "NAACL 2025",
+   "authors": [
+    "Kanzhi Cheng",
+    "Yantao Li",
+    "Fangzhi Xu",
+    "Jianbing Zhang",
+    "Hao Zhou",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Scaffolding Coordinates to Promote Vision-Language Coordination in Large Multi-Modal Models",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "COLING 2025",
+   "authors": [
+    "Xuanyu Lei",
+    "Zonghan Yang",
+    "Xinrui Chen",
+    "Peng Li",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Leveraging Language-based Representations for Better Solving Symbol-related Problems with Large Language Models",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "COLING 2025",
+   "authors": [
+    "Yile Wang",
+    "Sijie Cheng",
+    "Zixin Sun",
+    "Peng Li",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Rethinking Long Context Generation from the Continual Learning Perspective",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "COLING 2025",
+   "authors": [
+    "Zeyuan Yang",
+    "Fangzhou Xiong",
+    "Peng Li",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Adversarial Robust Memory-Based Continual Learner",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICCV 2025",
+   "authors": [
+    "Xiaoyue Mi",
+    "Fan Tang",
+    "Zonghan Yang",
+    "Danding Wang",
+    "Juan Cao",
+    "Peng Li",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "LVAgent: Long Video Understanding by Multi-Round Dynamical Collaboration of MLLM Agents",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICCV 2025",
+   "authors": [
+    "Boyu Chen",
+    "Zhengrong Yue",
+    "Siran Chen",
+    "Zikang Wang",
+    "Yang Liu",
+    "Peng Li",
+    "Yali Wang"
+   ]
+  },
+  {
+   "title": "How Do Multimodal Large Language Models Handle Complex Multimodal Reasoning?",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Placing Them in An Extensible Escape Game. In Proceedings of ICCV 2025",
+   "authors": [
+    "Ziyue Wang",
+    "Yurui Dong",
+    "Fuwen Luo",
+    "Minyuan Ruan",
+    "Zhili Cheng",
+    "Chi Chen",
+    "Peng Li",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "FormaRL: Enhancing Autoformalization with no Labeled Data",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "COLM 2025",
+   "authors": [
+    "Yanxing Huang",
+    "Xinling Jin",
+    "Sijie Liang",
+    "Fuwen Luo",
+    "Peng Li",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Advancing Language Multi-Agent Learning with Credit Re-Assignment for Interactive Environment Generalization",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "COLM 2025",
+   "authors": [
+    "Zhitao He",
+    "Zijun Liu",
+    "Peng Li",
+    "Yi R. Fung",
+    "Ming Yan",
+    "Ji Zhang",
+    "Fei Huang",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "MUCAR: Benchmarking Multilingual Cross-Modal Ambiguity Resolution for Multimodal Large Language Models",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "EMNLP 2025",
+   "authors": [
+    "Xiaolong Wang",
+    "Zhaolu Kang",
+    "Wangyuxuan Zhai",
+    "Xinyue Lou",
+    "Yunghwei Lai",
+    "Ziyue Wang",
+    "Yawen Wang",
+    "Kaiyu Huang",
+    "Yile Wang",
+    "Peng Li",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "G2: Guided Generation for Enhanced Output Diversity in LLMs",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "EMNLP 2025",
+   "authors": [
+    "Zhiwen Ruan",
+    "Yixia Li",
+    "Yefeng Liu",
+    "Yun Chen",
+    "Weihua Luo",
+    "Peng Li",
+    "Yang Liu",
+    "Guanhua Chen"
+   ]
+  },
+  {
+   "title": "Efficient Dynamic Clustering-Based Document Compression for Retrieval-Augmented-Generation",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "EMNLP 2025 Findings",
+   "authors": [
+    "Weitao Li",
+    "Xiangyu Zhang",
+    "Kaiming Liu",
+    "Xuanyu Lei",
+    "Weizhi Ma",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "DongbaMIE: A Multimodal Information Extraction Dataset for Evaluating Semantic Understanding of Dongba Pictograms",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "EMNLP 2025 Findings",
+   "authors": [
+    "Xiaojun Bi",
+    "Shuo Li",
+    "Junyao Xing",
+    "Ziyue Wang",
+    "Fuwen Luo",
+    "Weizheng Qiao",
+    "Lu Han",
+    "Ziwei Sun",
+    "Peng Li",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Beyond the Surface: Enhancing LLM-as-a-Judge Alignment with Human via Internal Representations",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2025",
+   "authors": [
+    "Peng Lai",
+    "Jianjie Zheng",
+    "Sijie Cheng",
+    "Yun Chen",
+    "Peng Li",
+    "Yang Liu",
+    "Guanhua Chen"
+   ]
+  },
+  {
+   "title": "MOF-BFN: Metal-Organic Frameworks Structure Prediction via Bayesian Flow Networks",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2025",
+   "authors": [
+    "Rui Jiao",
+    "Hanlin Wu",
+    "Wenbing Huang",
+    "Yuxuan Song",
+    "Yawen Ouyang",
+    "Yu Rong",
+    "Tingyang Xu",
+    "Pengju Wang",
+    "Hao Zhou",
+    "Wei-Ying Ma",
+    "Jingjing Liu",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Learning 3D Anisotropic Noise Distributions Improves Molecular Force Fields",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2025",
+   "authors": [
+    "Xixian Liu",
+    "Rui Jiao",
+    "Zhiyuan Liu",
+    "Yurou Liu",
+    "Yang Liu",
+    "Ziheng Lu",
+    "Wenbing Huang",
+    "Yang Zhang",
+    "Yixin Cao"
+   ]
+  },
+  {
+   "title": "Latent Retrieval Augmented Generation of Cross-Domain Protein Binders",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2025",
+   "authors": [
+    "Zishen Zhang",
+    "Xiangzhe Kong",
+    "Wenbing Huang",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "CPSea: Large-scale Cyclic Peptide-protein Complex Dataset for Machine Learning in Cyclic Peptide Design",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2025 (Datasets and Benchmarks Track)",
+   "authors": [
+    "Ziyi Yang",
+    "Hanyuan Xie",
+    "Yinjun Jia",
+    "Xiangzhe Kong",
+    "Jiqing Zheng",
+    "Ziting Zhang",
+    "Yang Liu",
+    "Lei Liu",
+    "Yanyan Lan"
+   ]
+  },
+  {
+   "title": "Bridging Vision, Language, and Mathematics: Pictographic Character Reconstruction with Bézier Curves",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2025 Workshop MATH-AI",
+   "authors": [
+    "Zihao Wan",
+    "Pau Tong Lin Xu",
+    "Fuwen Luo",
+    "Ziyue Wang",
+    "Peng Li",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "FlowDesign: Improved Design of Antibody CDRs Through Flow Matching and Better Prior Distributions",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "Cell Systems",
+   "authors": [
+    "Jun Wu",
+    "Xiangzhe Kong",
+    "Ningguan Sun",
+    "Jing Wei",
+    "Sisi Shan",
+    "Fuli Feng",
+    "Feng Wu",
+    "Jian Peng",
+    "Linqi Zhang",
+    "Yang Liu",
+    "Jianzhu Ma"
+   ]
+  },
+  {
+   "title": "Large Language Model-based Biological Age Prediction in Large-scale Populations",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "Nature Medicine",
+   "authors": [
+    "Yanjun Li",
+    "Qi Huang",
+    "Jin Jiang",
+    "Xusheng Du1",
+    "Wenxin Xiang",
+    "Shiqi Zhang",
+    "Zean Pan",
+    "Liyuan Zhao",
+    "Yuyan Cui",
+    "Limei Ke",
+    "Bo Yin",
+    "Linfeng Liu",
+    "Guoqing Feng",
+    "Shouyi Yan",
+    "Liangcai Gao",
+    "Yang Liu",
+    "Yujuan Yuan",
+    "Yanying Guo",
+    "Yuqing Yang",
+    "Weizhi Ma",
+    "Yining Yang",
+    "Qian Di"
+   ]
+  },
+  {
+   "title": "Powder Diffraction Crystal Structure Determination Using Generative Models",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "Nature Communications",
+   "authors": [
+    "Shifeng Jin",
+    "Qi Li",
+    "Rui Jiao",
+    "Liming Wu",
+    "Tiannian Zhu",
+    "Wenbing Huang",
+    "Yang Liu",
+    "Hongming Weng",
+    "Xiaolong Chen"
+   ]
+  },
+  {
+   "title": "A Survey of Geometric Graph Neural Networks: Data Structures, Models and Applications",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "Frontiers of Computer Science",
+   "authors": [
+    "Jiaqi Han",
+    "Jiacheng Cen",
+    "Liming Wu",
+    "Zongzhao Li",
+    "Xiangzhe Kong",
+    "Rui Jiao",
+    "Ziyang Yu",
+    "Tingyang Xu",
+    "Fandi Wu",
+    "Zihe Wang",
+    "Hongteng Xu",
+    "Zhewei Wei",
+    "Yang Liu",
+    "Yu Rong",
+    "Wenbing Huang"
+   ]
+  },
+  {
+   "title": "Peptide Design through Binding Interface Mimicry",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "Nature Biomedical Engineering",
+   "authors": [
+    "Xiangzhe Kong",
+    "Rui Jiao",
+    "Haowei Lin",
+    "Ruihan Guo",
+    "Wenbing Huang",
+    "Wei-Ying Ma",
+    "Zihua Wang",
+    "Yang Liu",
+    "Jianzhu Ma"
+   ]
+  },
+  {
+   "title": "Privacy-preserving Prompt Tuning for Large Language Model Services",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "IEEE Transactions on Audio, Speech and Language Processing",
+   "authors": [
+    "Yansong Li",
+    "Zhixing Tan",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Multimodal Context-Aware Translation of the Endangered Dongba Script",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "npj Heritage Science",
+   "authors": [
+    "Xiaojun Bi",
+    "Shuo Li",
+    "Junyao Xing",
+    "Ziyue Wang",
+    "Fuwen Luo",
+    "Peng Li",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "OpenChat: Advancing Open-source Language Models with Mixed-Quality Data",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ICLR 2024",
+   "authors": [
+    "Guan Wang",
+    "Sijie Cheng",
+    "Xianyuan Zhan",
+    "Xiangang Li",
+    "Sen Song",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Space Group Constrained Crystal Generation",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ICLR 2024",
+   "authors": [
+    "Rui Jiao",
+    "Wenbing Huang",
+    "Yu Liu",
+    "Deli Zhao",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Rigid Protein-Protein Docking via Equivariant Elliptic-Paraboloid Interface Prediction",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ICLR 2024",
+   "authors": [
+    "Ziyang Yu",
+    "Wenbing Huang",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Jointly Modeling Spatio-Temporal Features of Tactile Signals for Action Classification",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "AAAI 2024",
+   "authors": [
+    "Jimmy Lin",
+    "Junkai Li",
+    "Jiasi Gao",
+    "Weizhi Ma",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Pluggable Neural Machine Translation Models via Memory-augmented Adapters",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "COLING 2024",
+   "authors": [
+    "Yuzhuang Xu",
+    "Shuo Wang",
+    "Peng Li",
+    "Xuebo Liu",
+    "Xiaolong Wang",
+    "Weidong Liu",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "DEEM: Dynamic Experienced Expert Modeling for Stance Detection",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "COLING 2024",
+   "authors": [
+    "Xiaolong Wang",
+    "Yile Wang",
+    "Sijie Cheng",
+    "Peng Li",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "ToolRerank: Adaptive and Hierarchy-Aware Reranking for Tool Retrieval",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "COLING 2024",
+   "authors": [
+    "Yuanhang Zheng",
+    "Peng Li",
+    "Wei Liu",
+    "Yang Liu",
+    "Jian Luan",
+    "Bin Wang"
+   ]
+  },
+  {
+   "title": "Can Vision-Language Models Think from a First-Person Perspective?",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "CVPR 2024",
+   "authors": [
+    "Sijie Cheng",
+    "Zhicheng Guo",
+    "Jingwen Wu",
+    "Kechen Fang",
+    "Peng Li",
+    "Huaping Liu",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Diffusion Glancing Transformer for Parallel Sequence-to-Sequence Learning",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "NAACL 2024",
+   "authors": [
+    "Lihua Qian",
+    "Mingxuan Wang",
+    "Yang Liu",
+    "Hao Zhou"
+   ]
+  },
+  {
+   "title": "Towards Unified Alignment Between Agents, Humans, and Environment",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ICML 2024",
+   "authors": [
+    "Zonghan Yang",
+    "An Liu",
+    "Zijun Liu",
+    "Kaiming Liu",
+    "Fangzhou Xiong",
+    "Yile Wang",
+    "Zeyuan Yang",
+    "Qingyuan Hu",
+    "Xinrui Chen",
+    "Zhenhe Zhang",
+    "Fuwen Luo",
+    "Zhicheng Guo",
+    "Peng Li",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Generalist Equivariant Transformer Towards 3D Molecular Interaction Learning",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ICML 2024",
+   "authors": [
+    "Xiangzhe Kong",
+    "Wenbing Huang",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Equivariant Diffusion for Crystal Structure Prediction",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ICML 2024",
+   "authors": [
+    "Peijia Lin",
+    "Pin Chen",
+    "Rui Jiao",
+    "Qing Mo",
+    "Cen Jianhuan",
+    "Wenbing Huang",
+    "Yang Liu",
+    "Dan Huang",
+    "Yutong Lu"
+   ]
+  },
+  {
+   "title": "Enhancing Multilingual Capabilities of Large Language Models through Self-Distillation from Resource-Rich Languages",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ACL 2024",
+   "authors": [
+    "Yuanchi Zhang",
+    "Yile Wang",
+    "Zijun Liu",
+    "Shuo Wang",
+    "Xiaolong Wang",
+    "Peng Li",
+    "Maosong Sun",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Browse and Concentrate: Comprehending Multimodal Content via Prior-LLM Context Fusion",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ACL 2024",
+   "authors": [
+    "Ziyue Wang",
+    "Chi Chen",
+    "Yiqi Zhu",
+    "Fuwen Luo",
+    "Peng Li",
+    "Ming Yan",
+    "Ji Zhang",
+    "Fei Huang",
+    "Maosong Sun",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Citation-Enhanced Generation for LLM-based Chatbots",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ACL 2024",
+   "authors": [
+    "Weitao Li",
+    "Junkai Li",
+    "Weizhi Ma",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "CODIS: Benchmarking Context-Dependent Visual Comprehension for Multimodal Large Language Models",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ACL 2024",
+   "authors": [
+    "Fuwen Luo",
+    "Chi Chen",
+    "Zihao Wan",
+    "Zhaolu Kang",
+    "Qidong Yan",
+    "Yingjie Li",
+    "Xiaolong Wang",
+    "Siyu Wang",
+    "Ziyue Wang",
+    "Xiaoyue Mi",
+    "Peng Li",
+    "Ning Ma",
+    "Maosong Sun",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Model Composition for Multimodal Large Language Models",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ACL 2024",
+   "authors": [
+    "Chi Chen",
+    "Yiyang Du",
+    "Zheng Fang",
+    "Ziyue Wang",
+    "Fuwen Luo",
+    "Peng Li",
+    "Ming Yan",
+    "Ji Zhang",
+    "Fei Huang",
+    "Maosong Sun",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Reasoning in Conversation: Solving Subjective Tasks through Dialogue Simulation for Large Language Models",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ACL 2024",
+   "authors": [
+    "Xiaolong Wang",
+    "Yile Wang",
+    "Yuanchi Zhang",
+    "Fuwen Luo",
+    "Peng Li",
+    "Maosong Sun",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "StableToolBench: Towards Stable Large-Scale Benchmarking on Tool Learning of Large Language Models",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Findings of the Association for Computational Linguistics: ACL 2024",
+   "authors": [
+    "Zhicheng Guo",
+    "Sijie Cheng",
+    "Hao Wang",
+    "Shihao Liang",
+    "Yujia Qin",
+    "Peng Li",
+    "Zhiyuan Liu",
+    "Maosong Sun",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "PANDA: Preference Adaptation for Enhancing Domain-Specific Abilities of LLMs",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Findings of the Association for Computational Linguistics: ACL 2024",
+   "authors": [
+    "An Liu",
+    "Zonghan Yang",
+    "Zhenhe Zhang",
+    "Qingyuan Hu",
+    "Peng Li",
+    "Ming Yan",
+    "Ji Zhang",
+    "Fei Huang",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Budget-Constrained Tool Learning with Planning",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Findings of the Association for Computational Linguistics: ACL 2024",
+   "authors": [
+    "Yuanhang Zheng",
+    "Peng Li",
+    "Ming Yan",
+    "Ji Zhang",
+    "Fei Huang",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "ReAct Meets ActRe: When Language Agents Enjoy Training Data Autonomy",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "COLM 2024",
+   "authors": [
+    "Zonghan Yang",
+    "Peng Li",
+    "Ming Yan",
+    "Ji Zhang",
+    "Fei Huang",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "A Dynamic LLM-Powered Agent Network for Task-Oriented Agent Collaboration",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "COLM 2024",
+   "authors": [
+    "Zijun Liu",
+    "Yanzhe Zhang",
+    "Peng Li",
+    "Yang Liu",
+    "Diyi Yang"
+   ]
+  },
+  {
+   "title": "Topology-preserving Adversarial Training for Alleviating Natural Accuracy Degradation",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "BMVC 2024",
+   "authors": [
+    "Xiaoyue Mi",
+    "Fan Tang",
+    "Yepeng Weng",
+    "Danding Wang",
+    "Juan Cao",
+    "Sheng Tang",
+    "Peng Li",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Full-Atom Peptide Design with Geometric Latent Diffusion",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2024",
+   "authors": [
+    "Xiangzhe Kong",
+    "Wenbing Huang",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "3D Structure Prediction of Atomic Systems with Flow-based Direct Preference Optimization",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2024",
+   "authors": [
+    "Rui Jiao",
+    "Xiangzhe Kong",
+    "Wenbing Huang",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Evolution of Future Medical AI Models: From Task-Specific, Disease Centric to Universal Health",
+   "year": 2024,
+   "type": "journal_article",
+   "venue": "NEJM AI",
+   "authors": [
+    "Weizhi Ma",
+    "Bin Sheng",
+    "Yang Liu",
+    "Jing Qian",
+    "Xiaoxuan Liu",
+    "Jingshan Li",
+    "David Ouyang",
+    "Haibo Wang",
+    "Atanasov Atanas",
+    "Pearse Keane",
+    "Wei-ying Ma",
+    "Yih Chung Tham",
+    "Tien Wong"
+   ]
+  },
+  {
+   "title": "Black-box Prompt Tuning with Subspace Learning",
+   "year": 2024,
+   "type": "journal_article",
+   "venue": "IEEE/ACM Transactions on Audio, Speech and Language Processing",
+   "authors": [
+    "Yuanhang Zheng",
+    "Zhixing Tan",
+    "Peng Li",
+    "Yang Liu"
+   ]
+  },
+  {
+   "title": "Enabling Weak LLMs to Judge Response Reliability via Meta Ranking",
+   "year": 2024,
+   "type": "preprint",
+   "venue": "arXiv:2402.12146",
+   "authors": [
+    "Zijun Liu",
+    "Boqun Kou",
+    "Peng Li",
+    "Ming Yan",
+    "Ji Zhang",
+    "Fei Huang",
+    "Yang Liu"
+   ],
+   "arxiv": "2402.12146"
+  },
+  {
+   "title": "OMGEval: An Open Multilingual Generative Evaluation Benchmark for Large Language Models",
+   "year": 2024,
+   "type": "preprint",
+   "venue": "arXiv:2402.13524",
+   "authors": [
+    "Yang Liu",
+    "Meng Xu",
+    "Shuo Wang",
+    "Liner Yang",
+    "Haoyu Wang",
+    "Zhenghao Liu",
+    "Cunliang Kong",
+    "Yun Chen",
+    "Yang Liu",
+    "Maosong Sun",
+    "Erhong Yang"
+   ],
+   "arxiv": "2402.13524"
+  },
+  {
+   "title": "Agent Hospital: A Simulacrum of Hospital with Evolvable Medical Agents",
+   "year": 2024,
+   "type": "preprint",
+   "venue": "arXiv:2405.02957",
+   "authors": [
+    "Junkai Li",
+    "Yunghwei Lai",
+    "Weitao Li",
+    "Jingyi Ren",
+    "Meng Zhang",
+    "Xinhui Kang",
+    "Siyu Wang",
+    "Peng Li",
+    "Ya-Qin Zhang",
+    "Weizhi Ma",
+    "Yang Liu"
+   ],
+   "arxiv": "2405.02957"
+  },
+  {
+   "title": "Personal LLM Agents: Insights and Survey about the Capability, Efficiency and Security",
+   "year": 2024,
+   "type": "preprint",
+   "venue": "arXiv:2401.05459",
+   "authors": [
+    "Yuanchun Li",
+    "Hao Wen",
+    "Weijun Wang",
+    "Xiangyu Li",
+    "Yizhen Yuan",
+    "Guohong Liu",
+    "Jiacheng Liu",
+    "Wenxing Xu",
+    "Xiang Wang",
+    "Yi Sun",
+    "Rui Kong",
+    "Yile Wang",
+    "Hanfei Geng",
+    "Jian Luan",
+    "Xuefeng Jin",
+    "Zilong Ye",
+    "Guanjing Xiong",
+    "Fan Zhang",
+    "Xiang Li",
+    "Mengwei Xu",
+    "Zhijun Li",
+    "Peng Li",
+    "Yang Liu",
+    "Ya-Qin Zhang",
+    "Yunxin Liu"
+   ],
+   "arxiv": "2401.05459"
+  },
+  {
+   "title": "VidEgoThink: Assessing Egocentric Video Understanding Capabilities for Embodied AI",
+   "year": 2024,
+   "type": "preprint",
+   "venue": "arXiv:2410.11623",
+   "authors": [
+    "Sijie Cheng",
+    "Kechen Fang",
+    "Yangyang Yu",
+    "Sicheng Zhou",
+    "Bohao Li",
+    "Ye Tian",
+    "Tingguang Li",
+    "Lei Han",
+    "Yang Liu"
+   ],
+   "arxiv": "2410.11623"
+  },
+  {
+   "title": "Force-Guided Bridge Matching for Full-Atom Time-Coarsened Dynamics of Peptides",
+   "year": 2024,
+   "type": "preprint",
+   "venue": "arXiv:2408.15126",
+   "authors": [
+    "Ziyang Yu",
+    "Wenbing Huang",
+    "Yang Liu"
+   ],
+   "arxiv": "2408.15126"
+  },
+  {
+   "title": "AIGS: Generating Science from AI-Powered Automated Falsification",
+   "year": 2024,
+   "type": "preprint",
+   "venue": "arXiv:2411.11910",
+   "authors": [
+    "Zijun Liu",
+    "Kaiming Liu",
+    "Yiqi Zhu",
+    "Xuanyu Lei",
+    "Zonghan Yang",
+    "Zhenhe Zhang",
+    "Peng Li",
+    "Yang Liu"
+   ],
+   "arxiv": "2411.11910"
+  }
+ ]
+}

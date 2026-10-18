@@ -289,3 +289,11 @@ PDF 内容验证、文档类型识别、来源冷却和相同范围复测见 [do
 Aarti Singh 的 37 条记录已整理为 [试点审核包](data/ground_truth/aarti_singh_pilot_v1/README.md)。逐论文审核、版本关联、完整性检查、转换 Ground Truth 和独立核查 Agent 未匹配记录的命令见 [试点评估指南](docs/ground_truth_pilot.md)；人工审核未完成时工具不输出正式 Precision/Recall。
 
 最新 [v2 分组审核页](data/ground_truth/aarti_singh_pilot_v2/review/grouped_review.md) 保留原 37 条并追加两条独立出版来源支持的期刊候选，以出版物为单位展示证据和疑点。按组填写人工决定、转换为现有 Ground Truth 格式的步骤见 [分组审核指南](docs/ground_truth_grouped_review.md)。
+
+## 分层评测集与上线门槛
+
+`paper-benchmark` 对 32 位按 资历 × 领域 × 姓名类型 分层的研究者运行完整检索，逐层报告召回率、精度和全文获取率，并按 [配置](data/benchmark/v1/benchmark.json) 中的门槛（当前每层 verified 召回 ≥ 80%、精度 ≥ 95%）判定能否上线。真值来自研究者本人或实验室维护的书目，人工审核前的分数只是 provisional。用法、指标口径与审核流程见 [docs/benchmark.md](docs/benchmark.md)，数据集见 [data/benchmark/v1](data/benchmark/v1/README.md)。
+
+## 身份解析增强
+
+针对同名与档案拆分：机构限定检索、同来源拆分档案合并、ORCID / 主页 / 已知论文锚点（`--orcid`、`--homepage`、`--known-paper`）、歧义时收集竞争档案供审核（`--ambiguity-policy collect_contenders`，不会产生 verified）、可选的 Claude 裁决（`--llm-adjudication`），以及评测用的诊断与离线校准（`paper-benchmark diagnose-identity`、`calibrate`）。说明见 [docs/identity_resolution.md](docs/identity_resolution.md)。

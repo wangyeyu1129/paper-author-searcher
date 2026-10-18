@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "soc_daniel_chen",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Daniel Chen",
+      "university": "Princeton University"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.922478+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://danieltchen.com",
+        "records": 2
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "soc_daniel_chen:4689b9c5ba79",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Market Fragmentation",
+      "year": 2021,
+      "authors": [
+        "Daniel Chen",
+        "Darrell Duffie"
+      ],
+      "listed_venue": "American Economic Review",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://danieltchen.com entry 2 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3386/w26828"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Market Fragmentation",
+          "year": 2020,
+          "authors": [
+            "Daniel Chen",
+            "Darrell Duffie"
+          ]
+        },
+        {
+          "title": "Market Fragmentation",
+          "year": 2022,
+          "authors": [
+            "Daniel Chen",
+            "Darrell Duffie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3386/w26828",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Market Fragmentation",
+          "crossref_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_daniel_chen:bc6ad688f8cc",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Information Acquisition and Time-Risk Preference",
+      "year": 2025,
+      "authors": [
+        "Daniel Chen",
+        "Weijie Zhong"
+      ],
+      "listed_venue": "American Economic Review: Insights",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://danieltchen.com entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1257/aeri.20240216"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Information Acquisition and Time-Risk Preference",
+          "year": 2024,
+          "authors": [
+            "Daniel Chen",
+            "Weijie Zhong"
+          ]
+        },
+        {
+          "title": "Information Acquisition and Time-Risk Preference",
+          "year": 2026,
+          "authors": [
+            "Daniel Chen",
+            "Weijie Zhong"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1257/aeri.20240216",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Information Acquisition and Time-Risk Preference",
+          "crossref_year": 2025
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

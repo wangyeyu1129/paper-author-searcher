@@ -1,0 +1,2211 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "assistant_reviewed",
+    "reviewer": "Claude (AI review requested by the user, 2026-10-18)",
+    "reviewed_at": "2026-10-18",
+    "person_id": "bio_le_cong",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Le Cong",
+      "university": "Stanford University"
+    },
+    "scope": {
+      "year_start": 2024,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.550638+00:00",
+    "sources": [
+      {
+        "kind": "orcid",
+        "locator": "0000-0003-4725-8714",
+        "url": "https://orcid.org/0000-0003-4725-8714",
+        "records": 62
+      }
+    ],
+    "excluded_counts": {
+      "outside_year_window": 44
+    },
+    "review_progress": {
+      "decided": 24,
+      "pending": 0
+    }
+  },
+  "papers": [
+    {
+      "evaluation_id": "bio_le_cong:2dddcf4b0885",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "A 5′ UTR language model for decoding untranslated regions of mRNA and function predictions",
+      "year": 2024,
+      "authors": [
+        "Yanyi Chu",
+        "Dan Yu",
+        "Yupeng Li",
+        "Kaixuan Huang",
+        "Yue Shen",
+        "Le Cong",
+        "Jason Zhang",
+        "Mengdi Wang"
+      ],
+      "listed_venue": "NATURE MACHINE INTELLIGENCE",
+      "work_types": [
+        "journal_article",
+        "preprint"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 144450806",
+        "ORCID 0000-0003-4725-8714 put-code 157639479"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1038/s42256-024-00823-9",
+        "10.1101/2023.10.11.561938"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A 5’ UTR Language Model for Decoding Untranslated Regions of mRNA and Function Predictions",
+          "year": 2023,
+          "authors": [
+            "Yanyi Chu",
+            "Dan Yu",
+            "Yupeng Li",
+            "Kaixuan Huang",
+            "Yue Shen",
+            "Le Cong",
+            "Jason Zhang",
+            "Mengdi Wang"
+          ]
+        },
+        {
+          "title": "A 5′ UTR language model for decoding untranslated regions of mRNA and function predictions",
+          "year": 2025,
+          "authors": [
+            "Yanyi Chu",
+            "Dan Yu",
+            "Yupeng Li",
+            "Kaixuan Huang",
+            "Yue Shen",
+            "Le Cong",
+            "Jason Zhang",
+            "Mengdi Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_le_cong:f23642d5a82b",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Computationally guided high-throughput engineering of an anti-CRISPR protein for precise genome editing in human cells.",
+      "year": 2024,
+      "authors": [
+        "Marsiglia, Julia",
+        "Vaalavirta, Kia",
+        "Knight, Estefany",
+        "Nakamura, Muneaki",
+        "Cong, Le",
+        "Hughes, Nicholas W."
+      ],
+      "listed_venue": "Cell reports methods",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 170405748"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.crmeth.2024.100882"
+      ],
+      "external_ids": {
+        "pubmed": "39437714",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/39437714"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Computationally guided high-throughput engineering of an anti-CRISPR protein for precise genome editing in human cells.",
+          "year": 2023,
+          "authors": [
+            "Marsiglia, Julia",
+            "Vaalavirta, Kia",
+            "Knight, Estefany",
+            "Nakamura, Muneaki",
+            "Cong, Le",
+            "Hughes, Nicholas W."
+          ]
+        },
+        {
+          "title": "Computationally guided high-throughput engineering of an anti-CRISPR protein for precise genome editing in human cells.",
+          "year": 2025,
+          "authors": [
+            "Marsiglia, Julia",
+            "Vaalavirta, Kia",
+            "Knight, Estefany",
+            "Nakamura, Muneaki",
+            "Cong, Le",
+            "Hughes, Nicholas W."
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_le_cong:be2b7e1d79ca",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "title": "CRISPR-GPT: An LLM Agent for Automated Design of Gene-Editing Experiments",
+      "year": 2024,
+      "authors": [
+        "Yuanhao Qu",
+        "Kaixuan Huang",
+        "Henry Cousins",
+        "William A. Johnson",
+        "Di Yin",
+        "Mihir Shah",
+        "Denny Zhou",
+        "Russ Altman",
+        "Mengdi Wang",
+        "Le Cong"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 158544293"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1101/2024.04.25.591003"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "CRISPR-GPT: An LLM Agent for Automated Design of Gene-Editing Experiments",
+          "year": 2023,
+          "authors": [
+            "Yuanhao Qu",
+            "Kaixuan Huang",
+            "Henry Cousins",
+            "William A. Johnson",
+            "Di Yin",
+            "Mihir Shah",
+            "Denny Zhou",
+            "Russ Altman",
+            "Mengdi Wang",
+            "Le Cong"
+          ]
+        },
+        {
+          "title": "CRISPR-GPT: An LLM Agent for Automated Design of Gene-Editing Experiments",
+          "year": 2025,
+          "authors": [
+            "Yuanhao Qu",
+            "Kaixuan Huang",
+            "Henry Cousins",
+            "William A. Johnson",
+            "Di Yin",
+            "Mihir Shah",
+            "Denny Zhou",
+            "Russ Altman",
+            "Mengdi Wang",
+            "Le Cong"
+          ]
+        }
+      ],
+      "reviewer_note": "Preprint version of row 8 (CRISPR-GPT)"
+    },
+    {
+      "evaluation_id": "bio_le_cong:ad5ba696a458",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "FoldMark: Protecting Protein Generative Models with Watermarking.",
+      "year": 2024,
+      "authors": [
+        "Zaixi Zhang",
+        "Ruofan Jin",
+        "Kaidi Fu",
+        "Le Cong",
+        "Marinka Zitnik",
+        "Mengdi Wang"
+      ],
+      "listed_venue": "bioRxiv : the preprint server for biology",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 172859608"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1101/2024.10.23.619960"
+      ],
+      "external_ids": {
+        "pubmed": "39554012",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/39554012"
+      },
+      "metadata_aliases": [
+        {
+          "title": "FoldMark: Protecting Protein Generative Models with Watermarking.",
+          "year": 2023,
+          "authors": [
+            "Zaixi Zhang",
+            "Ruofan Jin",
+            "Kaidi Fu",
+            "Le Cong",
+            "Marinka Zitnik",
+            "Mengdi Wang"
+          ]
+        },
+        {
+          "title": "FoldMark: Protecting Protein Generative Models with Watermarking.",
+          "year": 2025,
+          "authors": [
+            "Zaixi Zhang",
+            "Ruofan Jin",
+            "Kaidi Fu",
+            "Le Cong",
+            "Marinka Zitnik",
+            "Mengdi Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_le_cong:678637fcefe8",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Systematic Discovery, In Vivo Delivery, and DNA Repair Mechanism of Single-Strand Annealing Protein for Precision Integration of Large DNA Sequences",
+      "year": 2024,
+      "authors": [
+        "Cong, Le",
+        "Yin, Di",
+        "Xu, Guangxue",
+        "Qu, Yuanhao Jerry",
+        "Wang, Chengkun",
+        "Wang, Xiaotong",
+        "Johnson, William Arthur",
+        "Filsinger, Gabriel",
+        "Wannier, Tim",
+        "Church, George M.",
+        "Phoon, Lai Yee",
+        "Gao, Boya",
+        "Lan, Li"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 172344495"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Systematic Discovery, In Vivo Delivery, and DNA Repair Mechanism of Single-Strand Annealing Protein for Precision Integration of Large DNA Sequences",
+          "year": 2023,
+          "authors": [
+            "Cong, Le",
+            "Yin, Di",
+            "Xu, Guangxue",
+            "Qu, Yuanhao Jerry",
+            "Wang, Chengkun",
+            "Wang, Xiaotong",
+            "Johnson, William Arthur",
+            "Filsinger, Gabriel",
+            "Wannier, Tim",
+            "Church, George M.",
+            "Phoon, Lai Yee",
+            "Gao, Boya",
+            "Lan, Li"
+          ]
+        },
+        {
+          "title": "Systematic Discovery, In Vivo Delivery, and DNA Repair Mechanism of Single-Strand Annealing Protein for Precision Integration of Large DNA Sequences",
+          "year": 2025,
+          "authors": [
+            "Cong, Le",
+            "Yin, Di",
+            "Xu, Guangxue",
+            "Qu, Yuanhao Jerry",
+            "Wang, Chengkun",
+            "Wang, Xiaotong",
+            "Johnson, William Arthur",
+            "Filsinger, Gabriel",
+            "Wannier, Tim",
+            "Church, George M.",
+            "Phoon, Lai Yee",
+            "Gao, Boya",
+            "Lan, Li"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_le_cong:201c1d7759f5",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "A call for built-in biosecurity safeguards for generative AI tools.",
+      "year": 2025,
+      "authors": [
+        "Mengdi Wang",
+        "Zaixi Zhang",
+        "Amrit Singh Bedi",
+        "Alvaro Velasquez",
+        "Stephanie Guerra",
+        "Sheng Lin-Gibson",
+        "Le Cong",
+        "Yuanhao Qu",
+        "Souradip Chakraborty",
+        "Megan Blewett",
+        "Jian Ma",
+        "Eric Xing",
+        "George Church"
+      ],
+      "listed_venue": "Nature biotechnology",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 183261970"
+      ],
+      "review_flags": [
+        "version_identifiers_added_in_review"
+      ],
+      "dois": [
+        "10.1038/s41587-025-02650-8",
+        "10.2139/ssrn.5187173"
+      ],
+      "external_ids": {
+        "pubmed": "40295784",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/40295784"
+      },
+      "metadata_aliases": [
+        {
+          "title": "A call for built-in biosecurity safeguards for generative AI tools.",
+          "year": 2024,
+          "authors": [
+            "Mengdi Wang",
+            "Zaixi Zhang",
+            "Amrit Singh Bedi",
+            "Alvaro Velasquez",
+            "Stephanie Guerra",
+            "Sheng Lin-Gibson",
+            "Le Cong",
+            "Yuanhao Qu",
+            "Souradip Chakraborty",
+            "Megan Blewett",
+            "Jian Ma",
+            "Eric Xing",
+            "George Church"
+          ]
+        },
+        {
+          "title": "A call for built-in biosecurity safeguards for generative AI tools.",
+          "year": 2026,
+          "authors": [
+            "Mengdi Wang",
+            "Zaixi Zhang",
+            "Amrit Singh Bedi",
+            "Alvaro Velasquez",
+            "Stephanie Guerra",
+            "Sheng Lin-Gibson",
+            "Le Cong",
+            "Yuanhao Qu",
+            "Souradip Chakraborty",
+            "Megan Blewett",
+            "Jian Ma",
+            "Eric Xing",
+            "George Church"
+          ]
+        },
+        {
+          "title": "A Call for Built-in Biosecurity Safeguards for Generative AI Tools",
+          "year": 2025,
+          "authors": [
+            "Mengdi Wang",
+            "Zaixi Zhang",
+            "Amrit Singh Bedi",
+            "Stephanie Guerra",
+            "Sheng Lin-Gibson",
+            "Le Cong",
+            "Souradip Chakraborty",
+            "Yuanhao Qu",
+            "Jian Ma",
+            "Eric Xing",
+            "George Church"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_le_cong:cea6eb0cd73e",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Autonomous AI Agents Discover Aging Interventions from Millions of Molecular Profiles.",
+      "year": 2025,
+      "authors": [
+        "Kejun Ying",
+        "Alexander Tyshkovskiy",
+        "Alibek Moldakozhayev",
+        "Hanchen Wang",
+        "Cecília G De Magalhães",
+        "Sharif Iqbal",
+        "Amanda E Garza",
+        "Albina Tskhay",
+        "Jesse R Poganik",
+        "Kexin Huang",
+        "Yuanhao Qu",
+        "Dmitrii Glubokov",
+        "Cheng Jin",
+        "Donghyun Lee",
+        "Hanna Liu",
+        "Carolina Leote",
+        "Alexandre Trapp",
+        "Lucas Paulo de Lima Camillo",
+        "Csaba Kerepesi",
+        "Mahdi Moqri",
+        "Odin Zhang",
+        "Kaiyi Jiang",
+        "Fedor Galkin",
+        "Alex Zhavoronkov",
+        "Jeremy M Van Raamsdonk",
+        "Mengdi Wang",
+        "Le Cong",
+        "Aviv Regev",
+        "Jure Leskovec",
+        "Tony Wyss-Coray",
+        "Vadim N Gladyshev"
+      ],
+      "listed_venue": "bioRxiv : the preprint server for biology",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 200586315"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1101/2023.02.28.530532"
+      ],
+      "external_ids": {
+        "pubmed": "41332661",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/41332661"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Autonomous AI Agents Discover Aging Interventions from Millions of Molecular Profiles.",
+          "year": 2024,
+          "authors": [
+            "Kejun Ying",
+            "Alexander Tyshkovskiy",
+            "Alibek Moldakozhayev",
+            "Hanchen Wang",
+            "Cecília G De Magalhães",
+            "Sharif Iqbal",
+            "Amanda E Garza",
+            "Albina Tskhay",
+            "Jesse R Poganik",
+            "Kexin Huang",
+            "Yuanhao Qu",
+            "Dmitrii Glubokov",
+            "Cheng Jin",
+            "Donghyun Lee",
+            "Hanna Liu",
+            "Carolina Leote",
+            "Alexandre Trapp",
+            "Lucas Paulo de Lima Camillo",
+            "Csaba Kerepesi",
+            "Mahdi Moqri",
+            "Odin Zhang",
+            "Kaiyi Jiang",
+            "Fedor Galkin",
+            "Alex Zhavoronkov",
+            "Jeremy M Van Raamsdonk",
+            "Mengdi Wang",
+            "Le Cong",
+            "Aviv Regev",
+            "Jure Leskovec",
+            "Tony Wyss-Coray",
+            "Vadim N Gladyshev"
+          ]
+        },
+        {
+          "title": "Autonomous AI Agents Discover Aging Interventions from Millions of Molecular Profiles.",
+          "year": 2026,
+          "authors": [
+            "Kejun Ying",
+            "Alexander Tyshkovskiy",
+            "Alibek Moldakozhayev",
+            "Hanchen Wang",
+            "Cecília G De Magalhães",
+            "Sharif Iqbal",
+            "Amanda E Garza",
+            "Albina Tskhay",
+            "Jesse R Poganik",
+            "Kexin Huang",
+            "Yuanhao Qu",
+            "Dmitrii Glubokov",
+            "Cheng Jin",
+            "Donghyun Lee",
+            "Hanna Liu",
+            "Carolina Leote",
+            "Alexandre Trapp",
+            "Lucas Paulo de Lima Camillo",
+            "Csaba Kerepesi",
+            "Mahdi Moqri",
+            "Odin Zhang",
+            "Kaiyi Jiang",
+            "Fedor Galkin",
+            "Alex Zhavoronkov",
+            "Jeremy M Van Raamsdonk",
+            "Mengdi Wang",
+            "Le Cong",
+            "Aviv Regev",
+            "Jure Leskovec",
+            "Tony Wyss-Coray",
+            "Vadim N Gladyshev"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_le_cong:79eef7554400",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Biomni: A General-Purpose Biomedical AI Agent.",
+      "year": 2025,
+      "authors": [
+        "Kexin Huang",
+        "Serena Zhang",
+        "Hanchen Wang",
+        "Yuanhao Qu",
+        "Yingzhou Lu",
+        "Yusuf Roohani",
+        "Ryan Li",
+        "Lin Qiu",
+        "Gavin Li",
+        "Junze Zhang",
+        "Di Yin",
+        "Shruti Marwaha",
+        "Jennefer N Carter",
+        "Xin Zhou",
+        "Matthew Wheeler",
+        "Jonathan A Bernstein",
+        "Mengdi Wang",
+        "Peng He",
+        "Jingtian Zhou",
+        "Michael Snyder",
+        "Le Cong",
+        "Aviv Regev",
+        "Jure Leskovec"
+      ],
+      "listed_venue": "bioRxiv : the preprint server for biology",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 186800819"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1101/2025.05.30.656746"
+      ],
+      "external_ids": {
+        "pubmed": "40501924",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/40501924"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Biomni: A General-Purpose Biomedical AI Agent.",
+          "year": 2024,
+          "authors": [
+            "Kexin Huang",
+            "Serena Zhang",
+            "Hanchen Wang",
+            "Yuanhao Qu",
+            "Yingzhou Lu",
+            "Yusuf Roohani",
+            "Ryan Li",
+            "Lin Qiu",
+            "Gavin Li",
+            "Junze Zhang",
+            "Di Yin",
+            "Shruti Marwaha",
+            "Jennefer N Carter",
+            "Xin Zhou",
+            "Matthew Wheeler",
+            "Jonathan A Bernstein",
+            "Mengdi Wang",
+            "Peng He",
+            "Jingtian Zhou",
+            "Michael Snyder",
+            "Le Cong",
+            "Aviv Regev",
+            "Jure Leskovec"
+          ]
+        },
+        {
+          "title": "Biomni: A General-Purpose Biomedical AI Agent.",
+          "year": 2026,
+          "authors": [
+            "Kexin Huang",
+            "Serena Zhang",
+            "Hanchen Wang",
+            "Yuanhao Qu",
+            "Yingzhou Lu",
+            "Yusuf Roohani",
+            "Ryan Li",
+            "Lin Qiu",
+            "Gavin Li",
+            "Junze Zhang",
+            "Di Yin",
+            "Shruti Marwaha",
+            "Jennefer N Carter",
+            "Xin Zhou",
+            "Matthew Wheeler",
+            "Jonathan A Bernstein",
+            "Mengdi Wang",
+            "Peng He",
+            "Jingtian Zhou",
+            "Michael Snyder",
+            "Le Cong",
+            "Aviv Regev",
+            "Jure Leskovec"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_le_cong:a43e5d5bd6b9",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "CRISPR-GPT for agentic automation of gene-editing experiments.",
+      "year": 2025,
+      "authors": [
+        "Yuanhao Qu",
+        "Kaixuan Huang",
+        "Ming Yin",
+        "Kanghong Zhan",
+        "Dyllan Liu",
+        "Di Yin",
+        "Henry C Cousins",
+        "William A Johnson",
+        "Xiaotong Wang",
+        "Mihir Shah",
+        "Russ B Altman",
+        "Denny Zhou",
+        "Mengdi Wang",
+        "Le Cong"
+      ],
+      "listed_venue": "Nature biomedical engineering",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 189120088"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41551-025-01463-z"
+      ],
+      "external_ids": {
+        "pubmed": "40738974",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/40738974"
+      },
+      "metadata_aliases": [
+        {
+          "title": "CRISPR-GPT for agentic automation of gene-editing experiments.",
+          "year": 2024,
+          "authors": [
+            "Yuanhao Qu",
+            "Kaixuan Huang",
+            "Ming Yin",
+            "Kanghong Zhan",
+            "Dyllan Liu",
+            "Di Yin",
+            "Henry C Cousins",
+            "William A Johnson",
+            "Xiaotong Wang",
+            "Mihir Shah",
+            "Russ B Altman",
+            "Denny Zhou",
+            "Mengdi Wang",
+            "Le Cong"
+          ]
+        },
+        {
+          "title": "CRISPR-GPT for agentic automation of gene-editing experiments.",
+          "year": 2026,
+          "authors": [
+            "Yuanhao Qu",
+            "Kaixuan Huang",
+            "Ming Yin",
+            "Kanghong Zhan",
+            "Dyllan Liu",
+            "Di Yin",
+            "Henry C Cousins",
+            "William A Johnson",
+            "Xiaotong Wang",
+            "Mihir Shah",
+            "Russ B Altman",
+            "Denny Zhou",
+            "Mengdi Wang",
+            "Le Cong"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_le_cong:f826afc2dd62",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "title": "CRISPR-GPT: LLM Agents for Automated Design of Gene-Editing Experiments",
+      "year": 2025,
+      "authors": [
+        "Qu, Yuanhao",
+        "Huang, Kaixuan",
+        "Yin, Ming",
+        "Zhan, Kanghong",
+        "Liu, Dyllan",
+        "Yin, Di",
+        "Cousins, Henry",
+        "Johnson, William",
+        "Wang, Xiaotong",
+        "Altman, Russ",
+        "Zhou, Denny",
+        "Wang, Mengdi",
+        "Cong, Le"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 200023149"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "CRISPR-GPT: LLM Agents for Automated Design of Gene-Editing Experiments",
+          "year": 2024,
+          "authors": [
+            "Qu, Yuanhao",
+            "Huang, Kaixuan",
+            "Yin, Ming",
+            "Zhan, Kanghong",
+            "Liu, Dyllan",
+            "Yin, Di",
+            "Cousins, Henry",
+            "Johnson, William",
+            "Wang, Xiaotong",
+            "Altman, Russ",
+            "Zhou, Denny",
+            "Wang, Mengdi",
+            "Cong, Le"
+          ]
+        },
+        {
+          "title": "CRISPR-GPT: LLM Agents for Automated Design of Gene-Editing Experiments",
+          "year": 2026,
+          "authors": [
+            "Qu, Yuanhao",
+            "Huang, Kaixuan",
+            "Yin, Ming",
+            "Zhan, Kanghong",
+            "Liu, Dyllan",
+            "Yin, Di",
+            "Cousins, Henry",
+            "Johnson, William",
+            "Wang, Xiaotong",
+            "Altman, Russ",
+            "Zhou, Denny",
+            "Wang, Mengdi",
+            "Cong, Le"
+          ]
+        }
+      ],
+      "reviewer_note": "Version of row 8 (CRISPR-GPT)"
+    },
+    {
+      "evaluation_id": "bio_le_cong:decb9acc0422",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Efficient and multiplexed somatic genome editing with Cas12a mice.",
+      "year": 2025,
+      "authors": [
+        "Jess D Hebert",
+        "Haiqing Xu",
+        "Yuning J Tang",
+        "Paloma A Ruiz",
+        "Colin R Detrick",
+        "Jing Wang",
+        "Nicholas W Hughes",
+        "Oscar Donosa",
+        "Vicky P Siah",
+        "Laura Andrejka",
+        "Saswati Karmakar",
+        "Irenosen Aboiralor",
+        "Rui Tang",
+        "Rocio Sotillo",
+        "Julien Sage",
+        "Le Cong",
+        "Dmitri A Petrov",
+        "Monte M Winslow"
+      ],
+      "listed_venue": "Nature biomedical engineering",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 185423586"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41551-025-01407-7"
+      ],
+      "external_ids": {
+        "pubmed": "40447760",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/40447760"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Efficient and multiplexed somatic genome editing with Cas12a mice.",
+          "year": 2024,
+          "authors": [
+            "Jess D Hebert",
+            "Haiqing Xu",
+            "Yuning J Tang",
+            "Paloma A Ruiz",
+            "Colin R Detrick",
+            "Jing Wang",
+            "Nicholas W Hughes",
+            "Oscar Donosa",
+            "Vicky P Siah",
+            "Laura Andrejka",
+            "Saswati Karmakar",
+            "Irenosen Aboiralor",
+            "Rui Tang",
+            "Rocio Sotillo",
+            "Julien Sage",
+            "Le Cong",
+            "Dmitri A Petrov",
+            "Monte M Winslow"
+          ]
+        },
+        {
+          "title": "Efficient and multiplexed somatic genome editing with Cas12a mice.",
+          "year": 2026,
+          "authors": [
+            "Jess D Hebert",
+            "Haiqing Xu",
+            "Yuning J Tang",
+            "Paloma A Ruiz",
+            "Colin R Detrick",
+            "Jing Wang",
+            "Nicholas W Hughes",
+            "Oscar Donosa",
+            "Vicky P Siah",
+            "Laura Andrejka",
+            "Saswati Karmakar",
+            "Irenosen Aboiralor",
+            "Rui Tang",
+            "Rocio Sotillo",
+            "Julien Sage",
+            "Le Cong",
+            "Dmitri A Petrov",
+            "Monte M Winslow"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_le_cong:5d99780652a5",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "LabOS: The AI-XR Co-Scientist That Sees and Works With Humans",
+      "year": 2025,
+      "authors": [
+        "Le Cong",
+        "David Smerkous",
+        "Xiaotong Wang",
+        "Di Yin",
+        "Zaixi Zhang",
+        "Ruofan Jin",
+        "Yinkai Wang",
+        "Michal Gerasimiuk",
+        "Ravi Dinesh",
+        "Alex Smerkous",
+        "Lihan Shi",
+        "Zhaoyi Zheng",
+        "Ian Lam",
+        "Xuekun Wu",
+        "Shilong Liu",
+        "Peishan Li",
+        "Yi Zhu",
+        "Ning Zhao",
+        "Meenal Parakh",
+        "Simran Serrao",
+        "Imran Mohammad",
+        "Chao-Yeh Chen",
+        "Xiufeng Xie",
+        "Tiffany Chen",
+        "David Weinstein",
+        "Greg Barbone",
+        "Belgin Caglar",
+        "John Sunwoo",
+        "Fuxin Li",
+        "Jia Deng",
+        "Joseph Wu",
+        "Sanfeng Wu",
+        "Mengdi Wang"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 197991955"
+      ],
+      "review_flags": [
+        "version_identifiers_added_in_review"
+      ],
+      "dois": [
+        "10.1101/2025.10.16.679418",
+        "10.21203/rs.3.rs-8154250/v1"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "LabOS: The AI-XR Co-Scientist That Sees and Works With Humans",
+          "year": 2024,
+          "authors": [
+            "Le Cong",
+            "David Smerkous",
+            "Xiaotong Wang",
+            "Di Yin",
+            "Zaixi Zhang",
+            "Ruofan Jin",
+            "Yinkai Wang",
+            "Michal Gerasimiuk",
+            "Ravi Dinesh",
+            "Alex Smerkous",
+            "Lihan Shi",
+            "Zhaoyi Zheng",
+            "Ian Lam",
+            "Xuekun Wu",
+            "Shilong Liu",
+            "Peishan Li",
+            "Yi Zhu",
+            "Ning Zhao",
+            "Meenal Parakh",
+            "Simran Serrao",
+            "Imran Mohammad",
+            "Chao-Yeh Chen",
+            "Xiufeng Xie",
+            "Tiffany Chen",
+            "David Weinstein",
+            "Greg Barbone",
+            "Belgin Caglar",
+            "John Sunwoo",
+            "Fuxin Li",
+            "Jia Deng",
+            "Joseph Wu",
+            "Sanfeng Wu",
+            "Mengdi Wang"
+          ]
+        },
+        {
+          "title": "LabOS: The AI-XR Co-Scientist That Sees and Works With Humans",
+          "year": 2026,
+          "authors": [
+            "Le Cong",
+            "David Smerkous",
+            "Xiaotong Wang",
+            "Di Yin",
+            "Zaixi Zhang",
+            "Ruofan Jin",
+            "Yinkai Wang",
+            "Michal Gerasimiuk",
+            "Ravi Dinesh",
+            "Alex Smerkous",
+            "Lihan Shi",
+            "Zhaoyi Zheng",
+            "Ian Lam",
+            "Xuekun Wu",
+            "Shilong Liu",
+            "Peishan Li",
+            "Yi Zhu",
+            "Ning Zhao",
+            "Meenal Parakh",
+            "Simran Serrao",
+            "Imran Mohammad",
+            "Chao-Yeh Chen",
+            "Xiufeng Xie",
+            "Tiffany Chen",
+            "David Weinstein",
+            "Greg Barbone",
+            "Belgin Caglar",
+            "John Sunwoo",
+            "Fuxin Li",
+            "Jia Deng",
+            "Joseph Wu",
+            "Sanfeng Wu",
+            "Mengdi Wang"
+          ]
+        },
+        {
+          "title": "LabOS: The AI-XR Co-Scientist That Sees and Works With Humans",
+          "year": 2025,
+          "authors": [
+            "Le Cong",
+            "David Smerkous",
+            "Xiaotong Wang",
+            "Di Yin",
+            "Zaixi Zhang",
+            "Ruofan Jin",
+            "Yinkai Wang",
+            "Michal Gerasimiuk",
+            "Ravi K. Dinesh",
+            "Alex Smerkous",
+            "Lihan Shi",
+            "Joy Zheng",
+            "Ian Lam",
+            "Xuekun Wu",
+            "Shilong Liu",
+            "Peishan Li",
+            "Yi Zhu",
+            "Ning Zhao",
+            "Meenal Parakh",
+            "Simran Serrao",
+            "Imran A. Mohammad",
+            "Chao-Yeh Chen",
+            "Xiufeng Xie",
+            "Tiffany Chen",
+            "David Weinstein",
+            "Greg Barbone",
+            "Belgin Caglar",
+            "John B. Sunwoo",
+            "Fuxin Li",
+            "Jia Deng",
+            "Joseph C. Wu",
+            "Sanfeng Wu",
+            "Mengdi Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_le_cong:ea2a22a51d5f",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Membrane-wide screening identifies potential tissue-specific determinants of SARS-CoV-2 tropism.",
+      "year": 2025,
+      "authors": [
+        "Ravi K Dinesh",
+        "Chengkun Wang",
+        "Yuanhao Qu",
+        "Arjun Rustagi",
+        "Henry Cousins",
+        "James Zengel",
+        "Xiaotong Wang",
+        "Trisha R Barnard",
+        "William A Johnson",
+        "Guangxue Xu",
+        "Tianyi Zhang",
+        "Nicholas Magazine",
+        "Aimee Beck",
+        "Lucas Miecho Heilbroner",
+        "Grace Peters-Schulze",
+        "Aaron J Wilk",
+        "Mengdi Wang",
+        "Weishan Huang",
+        "Brooke Howitt",
+        "Jan Carette",
+        "Russ Altman",
+        "Catherine A Blish",
+        "Le Cong"
+      ],
+      "listed_venue": "PLoS pathogens",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 189120087"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1371/journal.ppat.1013157"
+      ],
+      "external_ids": {
+        "pubmed": "40674406",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/40674406"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Membrane-wide screening identifies potential tissue-specific determinants of SARS-CoV-2 tropism.",
+          "year": 2024,
+          "authors": [
+            "Ravi K Dinesh",
+            "Chengkun Wang",
+            "Yuanhao Qu",
+            "Arjun Rustagi",
+            "Henry Cousins",
+            "James Zengel",
+            "Xiaotong Wang",
+            "Trisha R Barnard",
+            "William A Johnson",
+            "Guangxue Xu",
+            "Tianyi Zhang",
+            "Nicholas Magazine",
+            "Aimee Beck",
+            "Lucas Miecho Heilbroner",
+            "Grace Peters-Schulze",
+            "Aaron J Wilk",
+            "Mengdi Wang",
+            "Weishan Huang",
+            "Brooke Howitt",
+            "Jan Carette",
+            "Russ Altman",
+            "Catherine A Blish",
+            "Le Cong"
+          ]
+        },
+        {
+          "title": "Membrane-wide screening identifies potential tissue-specific determinants of SARS-CoV-2 tropism.",
+          "year": 2026,
+          "authors": [
+            "Ravi K Dinesh",
+            "Chengkun Wang",
+            "Yuanhao Qu",
+            "Arjun Rustagi",
+            "Henry Cousins",
+            "James Zengel",
+            "Xiaotong Wang",
+            "Trisha R Barnard",
+            "William A Johnson",
+            "Guangxue Xu",
+            "Tianyi Zhang",
+            "Nicholas Magazine",
+            "Aimee Beck",
+            "Lucas Miecho Heilbroner",
+            "Grace Peters-Schulze",
+            "Aaron J Wilk",
+            "Mengdi Wang",
+            "Weishan Huang",
+            "Brooke Howitt",
+            "Jan Carette",
+            "Russ Altman",
+            "Catherine A Blish",
+            "Le Cong"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_le_cong:ad47a231ad39",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Surfaceome CRISPR Activation Screens to Delineate Determinants of Natural Killer Cell Killing towards Cancer Cells",
+      "year": 2025,
+      "authors": [
+        "Wang, Xiaotong",
+        "Dinesh, Ravi",
+        "Mohammad, Imran",
+        "Sunwoo, John",
+        "Cong, Le"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 190095057"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Surfaceome CRISPR Activation Screens to Delineate Determinants of Natural Killer Cell Killing towards Cancer Cells",
+          "year": 2024,
+          "authors": [
+            "Wang, Xiaotong",
+            "Dinesh, Ravi",
+            "Mohammad, Imran",
+            "Sunwoo, John",
+            "Cong, Le"
+          ]
+        },
+        {
+          "title": "Surfaceome CRISPR Activation Screens to Delineate Determinants of Natural Killer Cell Killing towards Cancer Cells",
+          "year": 2026,
+          "authors": [
+            "Wang, Xiaotong",
+            "Dinesh, Ravi",
+            "Mohammad, Imran",
+            "Sunwoo, John",
+            "Cong, Le"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "STELLA: Towards a Biomedical World Model with Self-Evolving Multimodal Agents",
+      "year": 2025,
+      "authors": [
+        "Ruofan Jin",
+        "Mingyang Xu",
+        "Fei Meng",
+        "Guancheng Wan",
+        "Qingran Cai",
+        "Yize Jiang",
+        "Jin Han",
+        "Yuanyuan Chen",
+        "Wanqing Lu",
+        "Mengyang Wang",
+        "Zhiqian Lan",
+        "Yuxuan Jiang",
+        "Junhong Liu",
+        "Dongyao Wang",
+        "Le Cong",
+        "Zaixi Zhang"
+      ],
+      "listed_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref author list names the researcher; affiliation Stanford University"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1101/2025.07.01.662467"
+      ],
+      "evaluation_id": "bio_le_cong:added-40b71b5781",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref author list names the researcher; affiliation Stanford University"
+    },
+    {
+      "title": "BioLab: End-to-End Autonomous Life Sciences Research with Multi-Agents System Integrating Biological Foundation Models",
+      "year": 2025,
+      "authors": [
+        "Ruofan Jin",
+        "Yucheng Guo",
+        "Yuanhao Qu",
+        "Ming Yang",
+        "Chun Shang",
+        "Qirong Yang",
+        "Linlin Chao",
+        "Yi Zhou",
+        "Ruilai Xu",
+        "Ziyao Xu",
+        "Ruhong Zhou",
+        "Zaixi Zhang",
+        "Mengdi Wang",
+        "Xiaoming Zhang",
+        "Le Cong"
+      ],
+      "listed_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref author list names the researcher with his group (Jin, Qu, Mengdi Wang)"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1101/2025.09.03.674085"
+      ],
+      "evaluation_id": "bio_le_cong:added-bd0c32fdf8",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref author list names the researcher with his group (Jin, Qu, Mengdi Wang)"
+    },
+    {
+      "title": "Publisher Correction: CRISPR-GPT for agentic automation of gene-editing experiments",
+      "year": 2025,
+      "authors": [
+        "Yuanhao Qu",
+        "Kaixuan Huang",
+        "Ming Yin",
+        "Kanghong Zhan",
+        "Dyllan Liu",
+        "Di Yin",
+        "Henry C. Cousins",
+        "William A. Johnson",
+        "Xiaotong Wang",
+        "Mihir Shah",
+        "Russ B. Altman",
+        "Denny Zhou",
+        "Mengdi Wang",
+        "Le Cong"
+      ],
+      "listed_venue": "Nature Biomedical Engineering",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Publisher correction notice"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1038/s41551-025-01589-0"
+      ],
+      "evaluation_id": "bio_le_cong:added-662b076540",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Publisher correction notice"
+    },
+    {
+      "title": "Genome-Bench: A Scientific Reasoning Benchmark from Real-World Expert Discussions",
+      "year": 2025,
+      "authors": [
+        "Ming Yin",
+        "Yuanhao Qu",
+        "Dyllan Liu",
+        "Ling Yang",
+        "Le Cong",
+        "Mengdi Wang"
+      ],
+      "listed_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref author list names the researcher with Yin, Qu, Mengdi Wang"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1101/2025.06.02.657538"
+      ],
+      "evaluation_id": "bio_le_cong:added-55dd5092d5",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref author list names the researcher with Yin, Qu, Mengdi Wang"
+    },
+    {
+      "title": "Toward Scientific Reasoning in LLMs: Training from Expert Discussions via Reinforcement Learning",
+      "year": 2025,
+      "authors": [
+        "Yin, Ming",
+        "Qu, Yuanhao",
+        "Yang, Ling",
+        "Cong, Le",
+        "Wang, Mengdi"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Likely the arXiv version of row 19 (same authors and topic)"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2505.19501"
+      ],
+      "evaluation_id": "bio_le_cong:added-cc4dcf72cb",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Likely the arXiv version of row 19 (same authors and topic)"
+    },
+    {
+      "title": "Securing the Language of Life: Inheritable Watermarks from DNA Language Models to Proteins",
+      "year": 2025,
+      "authors": [
+        "ZAIXI ZHANG",
+        "Ruofan Jin",
+        "Le Cong",
+        "Mengdi Wang"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref author list names the researcher; affiliation Stanford University; NeurIPS 2025"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-4575"
+      ],
+      "evaluation_id": "bio_le_cong:added-267cf56429",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref author list names the researcher; affiliation Stanford University; NeurIPS 2025"
+    },
+    {
+      "title": "APOE loss-of-function variants: Compatible with longevity and associated with resistance to Alzheimer’s disease pathology",
+      "year": 2024,
+      "authors": [
+        "Augustine Chemparathy",
+        "Yann Le Guen",
+        "Sunny Chen",
+        "Eun-Gyung Lee",
+        "Lesley Leong",
+        "John E. Gorzynski",
+        "Tanner D. Jensen",
+        "Alexis Ferrasse",
+        "Guangxue Xu",
+        "Hong Xiang",
+        "Michael E. Belloy",
+        "Nandita Kasireddy",
+        "Andrés Peña-Tauber",
+        "Kennedy Williams",
+        "Ilaria Stewart",
+        "Lia Talozzi",
+        "Thomas S. Wingo",
+        "James J. Lah",
+        "Suman Jayadev",
+        "Chadwick M. Hales",
+        "Elaine Peskind",
+        "Daniel D. Child",
+        "Sigrun Roeber",
+        "C. Dirk Keene",
+        "Le Cong",
+        "Euan A. Ashley",
+        "Chang-En Yu",
+        "Michael D. Greicius"
+      ],
+      "listed_venue": "Neuron",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref author list names the researcher; Stanford study (Le Guen et al.)"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.neuron.2024.01.008"
+      ],
+      "evaluation_id": "bio_le_cong:added-a8584a2716",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref author list names the researcher; Stanford study (Le Guen et al.)"
+    },
+    {
+      "title": "RNAGenesis: A Generalist Foundation Model for Functional RNA Therapeutics",
+      "year": 2024,
+      "authors": [
+        "Zaixi Zhang",
+        "Ruofan Jin",
+        "Linlin Chao",
+        "Guangxue Xu",
+        "Yikun Zhang",
+        "Guowei Zhou",
+        "Di Yin",
+        "Yingqing Guo",
+        "Yaqi Fu",
+        "Yukang Yang",
+        "Kaixuan Huang",
+        "Xiaotong Wang",
+        "Junze Zhang",
+        "Yujie Yang",
+        "Qirong Yang",
+        "Ziyao Xu",
+        "E Weinan",
+        "Ruhong Zhou",
+        "Xiaoming Zhang",
+        "Mengdi Wang",
+        "Le Cong"
+      ],
+      "listed_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref author list names the researcher with his group (Zhang, Jin)"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1101/2024.12.30.630826"
+      ],
+      "evaluation_id": "bio_le_cong:added-a794e19ff3",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref author list names the researcher with his group (Zhang, Jin)"
+    },
+    {
+      "title": "Author Correction: A 5′ UTR language model for decoding untranslated regions of mRNA and function predictions",
+      "year": 2024,
+      "authors": [
+        "Yanyi Chu",
+        "Dan Yu",
+        "Yupeng Li",
+        "Kaixuan Huang",
+        "Yue Shen",
+        "Le Cong",
+        "Jason Zhang",
+        "Mengdi Wang"
+      ],
+      "listed_venue": "Nature Machine Intelligence",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Author correction notice"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1038/s42256-024-00890-y"
+      ],
+      "evaluation_id": "bio_le_cong:added-e9b7a95d85",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Author correction notice"
+    },
+    {
+      "title": "Abstract C056: The initiation and progression of pancreatic ductal adenocarcinoma through a p53 lens",
+      "year": 2024,
+      "authors": [
+        "Kathryn J. Hanson",
+        "Allegra C. Minor",
+        "Brittany M. Flowers",
+        "Alyssa M. Kaiser",
+        "Nicholas Hughes",
+        "Hannes Vogel",
+        "Le Cong",
+        "Laura D. Attardi"
+      ],
+      "listed_venue": "Cancer Research",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Conference abstract (Cancer Research supplement)"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1158/1538-7445.panca2023-c056"
+      ],
+      "evaluation_id": "bio_le_cong:added-ee2492c664",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Conference abstract (Cancer Research supplement)"
+    }
+  ],
+  "excluded": [
+    {
+      "reason": "outside_year_window",
+      "title": "Efficient Generation of Transcriptomic Profiles by Random Composite Measurements.",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777380"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Distinct Gene Module for Dysfunction Uncoupled from Activation in Tumor-Infiltrating T Cells",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777381"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "RBPJ Controls Development of Pathogenic Th17 Cells by Regulating IL-23 Receptor Expression.",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777392"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Take Risks and Constantly Challenge the Status Quo",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777398"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "IL-33 Signaling Alters Regulatory T Cell Diversity in Support of Tumor Development.",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777399"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A CRISPR Landing for Genome Rewriting at Locus-Scale.",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777404"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Cleavage-Free dCas9 Knock-In Gene-Editing Tool Leveraging RNA-Guided Targeting of Recombineering Proteins",
+      "year": 2021,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777405"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Deciphering pathogenicity of variants of uncertain significance with CRISPR-edited iPSCs.",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777406"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Conventional type I dendric cells maintain a reservoir of proliferative tumor-antigen specific TCF-1+ CD8+ Tcells in tumor-draining lymph nodes.",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777408"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "The role of p53 in the development of pancreatic ductal adenocarcinoma.",
+      "year": 2021,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777409"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Bandit Theory and Thompson Sampling-Guided Directed Evolution for Sequence Optimization",
+      "year": 2022,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 127750266",
+        "ORCID 0000-0003-4725-8714 put-code 224612515"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Editorial: CRISPR and alternative approaches",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 114736580"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "dCas9-based gene editing for cleavage-free genomic knock-in of long sequences",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 107994457"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Neural Bandits for Protein Sequence Optimization",
+      "year": 2022,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 132038695"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Long sequence insertion via CRISPR/Cas gene-editing with transposase, recombinase, and integrase",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 139115801"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Adeno-associated viral vector-mediated immune responses: Understanding barriers to gene delivery.",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777400"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A functional taxonomy of tumor suppression in oncogenic KRAS-driven lung cancer.",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777401"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "CRISPR-Cas12a System With Synergistic Phage Recombination Proteins for Multiplex Precision Editing in Human Cells",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 115195597"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Machine-learning-optimized Cas12a barcoding enables the recovery of single-cell lineages and transcriptional profiles",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 115195736"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Integrative analysis of functional genomic screening and clinical data identifies a protective role for spironolactone in severe COVID-19",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 135889198"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Single-cell transcriptome analysis of regenerating RGCs reveals potent glaucoma neural repair genes.",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 117250598"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Gene set proximity analysis: expanding gene set enrichment analysis through learned geometric embeddings, with drug-repurposing applications in COVID-19",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 122959532"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "APOE loss-of-function variants: Compatible with longevity and associated with resistance to Alzheimer's disease pathology.",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 145264019",
+        "ORCID 0000-0003-4725-8714 put-code 152595228"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Combined Computational–Experimental Approach to Explore the Molecular Mechanism of SaCas9 with a Broadened DNA Targeting Range",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 60371824"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Microbial single-strand annealing proteins enable CRISPR gene-editing tools with improved knock-in efficiencies and reduced off-target effects",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 89283583"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Surfaceome CRISPR activation screening uncovers ligands regulating tumor sensitivity to NK cell killing",
+      "year": 2026,
+      "work_types": [
+        "journal_article",
+        "preprint"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 192247861",
+        "ORCID 0000-0003-4725-8714 put-code 222894578"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Compact bacterial recombination complexes drive efficient kilobase-scale knock-in in mammalian cells",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 201930653"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Minimizing far-extending chromatin perturbation in genome editing preserves stem cell identity.",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 207407373"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Optimizing microhomology-based genome editing by engineering DNA polymerase θ for improved efficiency and reduced on-target indels.",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 219576842"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "HDR-GPT: An agentic AI platform for optimized homology-directed repair in primary human cells using HiFi Cas9",
+      "year": 2026,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 219576843"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Programmable RNA translation through deep learning-driven IRES discovery and de novo generation",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 213977051"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Autonomous biomedical research with an artificial intelligence agent",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 218697601"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "In vivo gene editing in dystrophic mouse muscle and muscle stem cells",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777382"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Crystal Structure of Staphylococcus aureus Cas9",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777384"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "In vivo genome editing using Staphylococcus aureus Cas9",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777385"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Genome engineering using CRISPR-Cas9 system.",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777386"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Multiplex Genome Engineering Using CRISPR/Cas Systems",
+      "year": 2013,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777387"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Comprehensive interrogation of natural TALE DNA-binding modules and transcriptional repressor domains",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777388"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Efficient construction of sequence-specific TAL effectors for modulating mammalian transcription",
+      "year": 2011,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777390"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Optical control of mammalian endogenous transcription and epigenetic states.",
+      "year": 2013,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777391"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Definitive localization of intracellular proteins: Novel approach using CRISPR-Cas9 genome editing, with glucose 6-phosphate dehydrogenase as a model.",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777393"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Sequence determinants of improved CRISPR sgRNA design.",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777394"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Global microRNA depletion suppresses tumor angiogenesis.",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777395"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A transcription activator-like effector toolbox for genome engineering.",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-4725-8714 put-code 110777396"
+      ]
+    }
+  ],
+  "professor": {
+    "orcid": "0000-0003-4725-8714",
+    "author_ids": {},
+    "author_ids_complete": false
+  }
+}
