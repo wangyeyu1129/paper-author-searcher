@@ -7,7 +7,14 @@ import math
 from dataclasses import replace
 from pathlib import Path
 
-from .config import AMBIGUITY_POLICIES, DEFAULT_COLLECTION, DEFAULT_DOWNLOAD, DEFAULT_MATCHING, DEFAULT_PDF
+from .config import (
+    AMBIGUITY_POLICIES,
+    DEFAULT_COLLECTION,
+    DEFAULT_DOWNLOAD,
+    DEFAULT_MATCHING,
+    DEFAULT_PDF,
+    AmbiguityPolicy,
+)
 from .http import HttpClient
 from .http_budget import budgeted_client
 from .http_cache import cached_client
@@ -20,6 +27,7 @@ from .pdf_resolver import PDFResolver
 from .pdf_settings import contact_email
 from .providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
 from .resolver import ProfessorResolver
+from .status import RunStatus
 from .workflow import MODES, PaperSearchWorkflow, load_checkpoint
 
 logger = logging.getLogger(__name__)
@@ -91,7 +99,7 @@ def add_workflow_arguments(parser):
     parser.add_argument(
         '--ambiguity-policy',
         choices=AMBIGUITY_POLICIES,
-        default='collect_contenders',
+        default=AmbiguityPolicy.COLLECT_CONTENDERS,
         help='On an unconfirmed identity: stop, or collect competing profiles for review (default)',
     )
 
@@ -184,7 +192,8 @@ def build_workflow(args):
             collection_config, openalex_page_size=args.page_size, semantic_scholar_page_size=args.page_size
         )
     collection_config = replace(
-        collection_config, ambiguity_policy=getattr(args, 'ambiguity_policy', None) or 'collect_contenders'
+        collection_config,
+        ambiguity_policy=getattr(args, 'ambiguity_policy', None) or AmbiguityPolicy.COLLECT_CONTENDERS,
     )
     collector = PaperCollector(
         [
@@ -271,7 +280,7 @@ def run_arguments(parser, args):
         return 130
     except (OSError, ValueError, RuntimeError) as exc:
         parser.error(str(exc))
-    if report['run_status'] == 'identity_confirmation_required':
+    if report['run_status'] == RunStatus.IDENTITY_CONFIRMATION_REQUIRED:
         _show_candidates(report, args.verbose)
     collection = report.get('collection_statistics') or {}
     print(
@@ -315,7 +324,7 @@ def run_arguments(parser, args):
             report['run_status'], len(report['errors']), Path(report['output_directory']) / 'report.json'
         )
     )
-    return 0 if report['run_status'] == 'completed' else 2
+    return 0 if report['run_status'] == RunStatus.COMPLETED else 2
 
 
 def main(argv=None):

@@ -5,6 +5,7 @@ from urllib.parse import quote
 
 from .config import DEFAULT_PDF, DEFAULT_SOURCES
 from .http import SourceError
+from .status import RequestOutcome
 
 
 class SemanticScholarRequests:
@@ -45,7 +46,7 @@ class SemanticScholarRequests:
                 'Semantic Scholar unavailable after an authentication/access error (no new request)',
                 status_code=self.blocked_error.status_code,
                 error_type='source_deferred',
-                request_context={'outcome': 'source_unavailable_skip', 'request_attempted': False},
+                request_context={'outcome': RequestOutcome.SOURCE_UNAVAILABLE_SKIP, 'request_attempted': False},
             )
         if time.monotonic() < self.cooldown_until:
             self.statistics['cooldown_skips'] += 1
@@ -54,7 +55,7 @@ class SemanticScholarRequests:
                 status_code=self.deferred_error.status_code,
                 error_type='source_deferred',
                 retry_after=self.cooldown_until - time.monotonic(),
-                request_context={'outcome': 'cooldown_skip', 'request_attempted': False},
+                request_context={'outcome': RequestOutcome.COOLDOWN_SKIP, 'request_attempted': False},
             )
         if self.last_request is not None:
             remaining = self.config.semantic_scholar_request_interval - (time.monotonic() - self.last_request)
@@ -68,7 +69,7 @@ class SemanticScholarRequests:
             return result
         except SourceError as exc:
             self.statistics['request_failures'] += 1
-            exc.request_context = {'outcome': 'request_failure', 'request_attempted': True}
+            exc.request_context = {'outcome': RequestOutcome.REQUEST_FAILURE, 'request_attempted': True}
             self.events.append({'operation': operation, 'error_type': exc.error_type, 'status_code': exc.status_code})
             if exc.status_code in (401, 403):
                 self.blocked_error = exc

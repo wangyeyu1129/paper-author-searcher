@@ -11,13 +11,14 @@ from dataclasses import asdict, fields
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .config import CONTENDER_STATUS, DEFAULT_COLLECTION, DEFAULT_MATCHING
+from .config import DEFAULT_COLLECTION, DEFAULT_MATCHING, AmbiguityPolicy
 from .models import ProfessorProfile, ResolutionResult
 from .paper_collector import IdentityConfirmationRequired, PaperCollector
 from .paper_reanalysis import saved_collection_profile
 from .pdf_resolver import PDFResolver
 from .performance_diagnostics import workflow_outcomes
 from .resolver import ProfessorResolver
+from .status import ResolutionStatus, RunStatus, StageStatus, UniversityStatus
 
 logger = logging.getLogger(__name__)
 
@@ -107,10 +108,11 @@ def contender_profile(result, maximum_contenders, margin):
     contenders = [
         candidate
         for candidate in result.candidates
-        if candidate.university_status != 'mismatch' and candidate.match_score >= best.match_score - margin
+        if candidate.university_status != UniversityStatus.MISMATCH
+        and candidate.match_score >= best.match_score - margin
     ][:maximum_contenders]
     merged = deepcopy(best)
-    merged.status = CONTENDER_STATUS
+    merged.status = ResolutionStatus.AMBIGUOUS_CONTENDERS
     aliases = {}
     for candidate in contenders:
         for source, author_id in candidate.author_ids.items():
@@ -143,8 +145,11 @@ def _select_identity(result, selection, policy='stop', maximum_contenders=3, mar
         raise IdentityConfirmationRequired('Selected Author ID is absent from the candidates')
     if result.profile is None:
         raise IdentityConfirmationRequired('No identity candidate available')
-    if result.profile.status != 'resolved':
-        if policy == 'collect_contenders' and result.profile.university_status != 'mismatch':
+    if result.profile.status != ResolutionStatus.RESOLVED:
+        if (
+            policy == AmbiguityPolicy.COLLECT_CONTENDERS
+            and result.profile.university_status != UniversityStatus.MISMATCH
+        ):
             return contender_profile(result, maximum_contenders, margin), None
         raise IdentityConfirmationRequired('Explicit Author ID selection is required for this identity')
     return result.profile, None
@@ -261,7 +266,7 @@ class PaperSearchWorkflow:
             'schema_version': 1,
             'report_type': 'paper_search_workflow',
             'mode': mode,
-            'run_status': 'running',
+            'run_status': RunStatus.RUNNING,
             'output_directory': str(root),
             'stages': [],
             'errors': [],
@@ -279,7 +284,7 @@ class PaperSearchWorkflow:
         self.current_stage = stage
         try:
             archive, pdf = self._prepare_input(query, saved, selected_author, root, report)
-            if report['run_status'] == 'identity_confirmation_required':
+            if report['run_status'] == RunStatus.IDENTITY_CONFIRMATION_REQUIRED:
                 return report
             original = _paper_entries(archive)
             write_json(root / 'papers.json', archive)
@@ -297,7 +302,10 @@ class PaperSearchWorkflow:
                     # The full archive keeps raw authorship and identity provenance when resuming.
                     pdf['identity_archive'] = report.get('identity') or {}
                 report['stages'].append(
-                    {'stage': stage, 'status': 'reused' if _is_pdf_report(saved or {}) else 'completed'}
+                    {
+                        'stage': stage,
+                        'status': StageStatus.REUSED if _is_pdf_report(saved or {}) else StageStatus.COMPLETED,
+                    }
                 )
                 write_json(root / 'pdf_urls.json', pdf)
                 report['artifacts']['pdf_urls'] = 'pdf_urls.json'
@@ -343,7 +351,7 @@ class PaperSearchWorkflow:
                     'independent_of_search_completion': True,
                 }
                 report['download_run_complete'] = manifest['run_complete']
-                report['stages'].append({'stage': stage, 'status': 'completed'})
+                report['stages'].append({'stage': stage, 'status': StageStatus.COMPLETED})
                 for item in manifest['papers']:
                     for error in item.get('error_details') or []:
                         report['errors'].append({'stage': stage, 'title': item.get('title'), 'error': error})
@@ -356,20 +364,20 @@ class PaperSearchWorkflow:
                 or review_files
                 or incomplete_pdf_search
             )
-            report['run_status'] = 'partial' if partial else 'completed'
+            report['run_status'] = RunStatus.PARTIAL if partial else RunStatus.COMPLETED
             self._progress('Generating report')
         except IdentityConfirmationRequired as exc:
-            report['run_status'] = 'identity_confirmation_required'
+            report['run_status'] = RunStatus.IDENTITY_CONFIRMATION_REQUIRED
             report['errors'].append({'stage': self.current_stage, 'error': str(exc)})
         except KeyboardInterrupt:
-            report['run_status'] = 'interrupted'
+            report['run_status'] = RunStatus.INTERRUPTED
             report['errors'].append(
                 {'stage': self.current_stage, 'error': 'Interrupted; use the saved checkpoint to continue'}
             )
             raise
         except Exception as exc:
             logger.exception('Workflow failed during stage %s', self.current_stage)
-            report['run_status'] = 'failed'
+            report['run_status'] = RunStatus.FAILED
             report['errors'].append({'stage': self.current_stage, 'error': str(exc)})
         finally:
             report['outcomes'] = workflow_outcomes(report)
@@ -386,7 +394,7 @@ class PaperSearchWorkflow:
                 pdf.pop('collection_archive', None)
             self._progress('Reusing collected papers')
             report['stages'].extend(
-                {'stage': stage, 'status': 'reused'}
+                {'stage': stage, 'status': StageStatus.REUSED}
                 for stage in ('Collecting papers', 'Deduplicating papers', 'Validating ownership')
             )
             identity = saved.get('identity_archive')
@@ -413,7 +421,7 @@ class PaperSearchWorkflow:
                 raise ValueError('Cannot change identity for an existing collection')
             self._collection_errors(saved, report)
             self._progress('Reusing collected papers')
-            report['stages'].append({'stage': 'Collecting papers', 'status': 'reused'})
+            report['stages'].append({'stage': 'Collecting papers', 'status': StageStatus.REUSED})
             return deepcopy(saved), None
         self._progress('Resolving professor identity')
         result = self.resolver.resolve(query) if query else _resolution(saved)
@@ -421,7 +429,9 @@ class PaperSearchWorkflow:
         write_json(root / 'professor.json', identity)
         report['identity'] = identity
         report['artifacts']['professor'] = 'professor.json'
-        report['stages'].append({'stage': 'Resolving professor identity', 'status': 'completed' if query else 'reused'})
+        report['stages'].append(
+            {'stage': 'Resolving professor identity', 'status': StageStatus.COMPLETED if query else StageStatus.REUSED}
+        )
         for source, error in result.source_errors.items():
             report['errors'].append({'stage': 'Resolving professor identity', 'source': source, 'error': error})
         try:
@@ -432,7 +442,7 @@ class PaperSearchWorkflow:
                 self.collection_config.maximum_contenders,
                 self.matching_config.ambiguity_margin,
             )
-            if profile.status == CONTENDER_STATUS:
+            if profile.status == ResolutionStatus.AMBIGUOUS_CONTENDERS:
                 report['warnings'].append(
                     {
                         'stage': 'Resolving professor identity',
@@ -440,7 +450,7 @@ class PaperSearchWorkflow:
                     }
                 )
         except IdentityConfirmationRequired as exc:
-            report['run_status'] = 'identity_confirmation_required'
+            report['run_status'] = RunStatus.IDENTITY_CONFIRMATION_REQUIRED
             report['errors'].append({'stage': 'Resolving professor identity', 'error': str(exc)})
             return {}, None
         self._progress('Collecting papers')
@@ -458,7 +468,7 @@ class PaperSearchWorkflow:
             },
         )
         report['stages'].extend(
-            {'stage': stage, 'status': 'completed'}
+            {'stage': stage, 'status': StageStatus.COMPLETED}
             for stage in ('Collecting papers', 'Deduplicating papers', 'Validating ownership')
         )
         self._collection_errors(archive, report)

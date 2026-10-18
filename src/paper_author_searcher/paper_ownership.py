@@ -6,6 +6,7 @@ from .config import DEFAULT_OWNERSHIP
 from .matching import canonical_orcid, institution_similarity, name_similarity, normalize
 from .paper_authorship import byline_forms, canonical_author_id, signature_names
 from .paper_deduplication import author_signatures_match, duplicate_evidence
+from .status import OwnershipStatus
 
 
 class PaperOwnershipValidator:
@@ -121,20 +122,26 @@ class PaperOwnershipValidator:
         evidence.extend('Metadata warning: ' + message for message in record.metadata_errors)
         requested_id = canonical_author_id(record.source, record.source_author_id)
         if requested_id not in self._selected_ids(profile, record.source):
-            return 'needs_review', [*evidence, 'Source Author ID is not part of the selected identity']
+            return OwnershipStatus.NEEDS_REVIEW, [*evidence, 'Source Author ID is not part of the selected identity']
         if not record.title or not record.source_paper_id:
-            return 'needs_review', [*evidence, 'Insufficient publication metadata']
+            return OwnershipStatus.NEEDS_REVIEW, [*evidence, 'Insufficient publication metadata']
         details = self._target_details(record, profile)
         if record.target_author_present is False and not details:
-            return 'rejected', [*evidence, 'Source metadata explicitly contradicts target authorship']
+            return OwnershipStatus.REJECTED, [*evidence, 'Source metadata explicitly contradicts target authorship']
         if record.author_details and not details:
             all_ids = all(author.get('author_id') for author in record.author_details)
             if all_ids and record.authors_complete is not False:
-                return 'rejected', [*evidence, 'Target ID absent from explicit authorship metadata']
-            return 'needs_review', [*evidence, 'Author IDs missing or truncated; cannot verify target authorship']
+                return OwnershipStatus.REJECTED, [*evidence, 'Target ID absent from explicit authorship metadata']
+            return OwnershipStatus.NEEDS_REVIEW, [
+                *evidence,
+                'Author IDs missing or truncated; cannot verify target authorship',
+            ]
         for author in details:
             if author.get('role', 'author') != 'author':
-                return 'rejected', [*evidence, 'Target is explicitly a contributor, editor or reviewer, not an author']
+                return OwnershipStatus.REJECTED, [
+                    *evidence,
+                    'Target is explicitly a contributor, editor or reviewer, not an author',
+                ]
         if details:
             evidence.append('Confirmed source-scoped Author ID observed in the paper author list')
         else:
@@ -143,30 +150,39 @@ class PaperOwnershipValidator:
         best, signatures = self._signature_score(details, record, profile)
         evidence.append(f'Target signature similarity: {best:.3f}')
         if details and signatures and best < self.config.incompatible_name:
-            return 'rejected', [*evidence, 'Explicit target author signature is incompatible']
+            return OwnershipStatus.REJECTED, [*evidence, 'Explicit target author signature is incompatible']
         observed_orcids = self._observed_orcids(details)
         if len(observed_orcids) > 1:
-            return 'needs_review', [*evidence, 'Target authorship ORCID conflict: multiple identities reported']
+            return OwnershipStatus.NEEDS_REVIEW, [
+                *evidence,
+                'Target authorship ORCID conflict: multiple identities reported',
+            ]
         if profile.orcid and observed_orcids != {canonical_orcid(profile.orcid)}:
             # An author-profile ORCID is constant across a source author ID, so it says nothing about this paper;
             # merged split profiles legitimately carry different ones. Only paper-level or unscoped ORCIDs reject.
             if self._observed_orcids(details, paper_level=True) - {canonical_orcid(profile.orcid)}:
-                return 'rejected', [*evidence, 'Target authorship ORCID conflicts with confirmed professor ORCID']
+                return OwnershipStatus.REJECTED, [
+                    *evidence,
+                    'Target authorship ORCID conflicts with confirmed professor ORCID',
+                ]
             if observed_orcids:
                 evidence.append('Author-profile ORCID differs from the identity ORCID; not paper-level evidence')
         nonstandard = self._nonstandard_reasons(record)
         evidence.extend(self._coauthor_blockers(record))
         if nonstandard:
-            return 'needs_review', [*evidence, 'Authorship role requires manual confirmation; metadata was retained']
+            return OwnershipStatus.NEEDS_REVIEW, [
+                *evidence,
+                'Authorship role requires manual confirmation; metadata was retained',
+            ]
         if not signatures or best < self.config.name_similarity:
-            return 'needs_review', [*evidence, 'Insufficient compatible target byline evidence']
+            return OwnershipStatus.NEEDS_REVIEW, [*evidence, 'Insufficient compatible target byline evidence']
         if profile.orcid and observed_orcids == {canonical_orcid(profile.orcid)}:
             scopes = sorted({author.get('orcid_scope') or 'unspecified' for author in details})
             paper_details = [
                 author for author in details if author.get('orcid_scope') in self.config.paper_orcid_scopes
             ]
             if self._observed_orcids(paper_details) == {canonical_orcid(profile.orcid)}:
-                return 'verified', [
+                return OwnershipStatus.VERIFIED, [
                     *evidence,
                     'Target authorship ORCID agrees with confirmed professor ORCID (scope: {})'.format(
                         ', '.join(scopes)
@@ -178,11 +194,11 @@ class PaperOwnershipValidator:
             )
         institution = self._institution_agrees(details, profile)
         if details and institution:
-            return 'verified', [
+            return OwnershipStatus.VERIFIED, [
                 *evidence,
                 'Explicit target Author ID, compatible byline and paper-level institution agree: ' + institution,
             ]
-        return 'needs_review', evidence
+        return OwnershipStatus.NEEDS_REVIEW, evidence
 
     def _compatible_signature(self, record, profile):
         details = self._target_details(record, profile)
@@ -241,11 +257,13 @@ class PaperOwnershipValidator:
         # A fixed seed set prevents unverified records from reinforcing one another.
         for paper in papers:
             for record in paper.records:
-                if record.ownership_status != 'needs_review' or not self._coauthor_eligible(record, profile):
+                if record.ownership_status != OwnershipStatus.NEEDS_REVIEW or not self._coauthor_eligible(
+                    record, profile
+                ):
                     continue
                 overlap = self._coauthors(record, profile) & known_coauthors
                 if len(overlap) >= self.config.minimum_known_coauthors:
-                    record.ownership_status = 'verified'
+                    record.ownership_status = OwnershipStatus.VERIFIED
                     record.ownership_evidence.append(
                         'Compatible signature plus recurring independently verified coauthors: '
                         + ', '.join(sorted(overlap))
@@ -258,7 +276,7 @@ class PaperOwnershipValidator:
         seed_titles = set()
         for paper in papers:
             statuses = {record.ownership_status for record in paper.records}
-            if 'verified' not in statuses or 'rejected' in statuses:
+            if OwnershipStatus.VERIFIED not in statuses or OwnershipStatus.REJECTED in statuses:
                 continue
             title = normalize(paper.title)
             if title in seed_titles:
@@ -266,7 +284,7 @@ class PaperOwnershipValidator:
             seed_titles.add(title)
             coauthors = set()
             for record in paper.records:
-                if record.ownership_status == 'verified' and self._coauthor_eligible(record, profile):
+                if record.ownership_status == OwnershipStatus.VERIFIED and self._coauthor_eligible(record, profile):
                     coauthors.update(self._coauthors(record, profile))
             counts.update(coauthors)
         return {name for name, count in counts.items() if count >= self.config.seed_papers_per_coauthor}
@@ -286,7 +304,9 @@ class PaperOwnershipValidator:
             return None
         if left_details and right_details:
             large = max(len(left.authors), len(right.authors), len(left.author_details), len(right.author_details))
-            independent = left.ownership_status == 'verified' or right.ownership_status == 'verified'
+            independent = (
+                left.ownership_status == OwnershipStatus.VERIFIED or right.ownership_status == OwnershipStatus.VERIFIED
+            )
             if large > self.config.maximum_coauthor_authors and not independent:
                 return None
             # IDs from different databases are compared to their own verified namespace.
@@ -303,15 +323,15 @@ class PaperOwnershipValidator:
     def _cross_validate(self, paper, profile):
         if any(self._nonstandard_reasons(record) for record in paper.records):
             for record in paper.records:
-                if record.ownership_status != 'rejected':
-                    record.ownership_status = 'needs_review'
+                if record.ownership_status != OwnershipStatus.REJECTED:
+                    record.ownership_status = OwnershipStatus.NEEDS_REVIEW
                     record.ownership_evidence.append(
                         'Nonstandard source classification in merged publication; automatic verification blocked'
                     )
             return
         eligible = []
         for record in paper.records:
-            if record.ownership_status == 'rejected' or self._nonstandard_reasons(record):
+            if record.ownership_status == OwnershipStatus.REJECTED or self._nonstandard_reasons(record):
                 continue
             if not self._identity_eligible(record, profile):
                 continue
@@ -326,7 +346,7 @@ class PaperOwnershipValidator:
                 right_orcids = self._observed_orcids(self._target_details(right, profile), paper_level=True)
                 if left_orcids and right_orcids and left_orcids != right_orcids:
                     for record in (left, right):
-                        record.ownership_status = 'needs_review'
+                        record.ownership_status = OwnershipStatus.NEEDS_REVIEW
                         record.ownership_evidence.append(
                             'Cross-source target ORCID conflict; automatic verification blocked'
                         )
@@ -338,22 +358,22 @@ class PaperOwnershipValidator:
         for record in eligible:
             conflict = any('Cross-source target ORCID conflict' in message for message in record.ownership_evidence)
             if id(record) in upgrades and not conflict:
-                record.ownership_status = 'verified'
+                record.ownership_status = OwnershipStatus.VERIFIED
                 record.ownership_evidence.extend(sorted(upgrades[id(record)]))
 
     @staticmethod
     def _aggregate(paper):
         statuses = {record.ownership_status for record in paper.records}
-        if statuses == {'rejected'}:
-            paper.ownership_status = 'rejected'
-        elif 'verified' in statuses and 'rejected' not in statuses:
-            paper.ownership_status = 'verified'
+        if statuses == {OwnershipStatus.REJECTED}:
+            paper.ownership_status = OwnershipStatus.REJECTED
+        elif OwnershipStatus.VERIFIED in statuses and OwnershipStatus.REJECTED not in statuses:
+            paper.ownership_status = OwnershipStatus.VERIFIED
         else:
-            paper.ownership_status = 'needs_review'
+            paper.ownership_status = OwnershipStatus.NEEDS_REVIEW
         evidence = set()
         for record in paper.records:
             for message in record.ownership_evidence:
                 evidence.add(f'{record.source}:{record.source_paper_id}: {message}')
-        if 'verified' in statuses and 'rejected' in statuses:
+        if OwnershipStatus.VERIFIED in statuses and OwnershipStatus.REJECTED in statuses:
             evidence.add('Conflicting record-level ownership decisions; review required')
         paper.ownership_evidence = sorted(evidence)

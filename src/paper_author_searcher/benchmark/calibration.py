@@ -15,7 +15,8 @@ from dataclasses import dataclass, replace
 from statistics import mean
 from typing import Callable, Iterable, List, Mapping, Optional, Sequence, Set, Tuple
 
-from paper_author_searcher.config import CONTENDER_STATUS, MatchingConfig
+from paper_author_searcher.config import AmbiguityPolicy, MatchingConfig
+from paper_author_searcher.status import ResolutionStatus, UniversityStatus
 from paper_author_searcher.workflow import contender_profile
 
 from .identity_diagnosis import is_inconclusive
@@ -109,14 +110,16 @@ class IdentityCalibrator:
                 continue
             result = resolver.resolve(person.search_input.to_query())
             profile, status = result.profile, 'none'
-            if profile is not None and profile.status == 'resolved':
-                status = 'resolved'
+            if profile is not None and profile.status == ResolutionStatus.RESOLVED:
+                status = ResolutionStatus.RESOLVED
             elif (
-                profile is not None and self.policy == 'collect_contenders' and profile.university_status != 'mismatch'
+                profile is not None
+                and self.policy == AmbiguityPolicy.COLLECT_CONTENDERS
+                and profile.university_status != UniversityStatus.MISMATCH
             ):
                 profile, status = (
                     contender_profile(result, self.maximum_contenders, config.ambiguity_margin),
-                    CONTENDER_STATUS,
+                    ResolutionStatus.AMBIGUOUS_CONTENDERS,
                 )
             else:
                 profile = None
@@ -136,9 +139,9 @@ class IdentityCalibrator:
 
     @staticmethod
     def summary(outcomes: Sequence[IdentityOutcome]) -> dict:
-        resolved = [outcome for outcome in outcomes if outcome.status == 'resolved']
+        resolved = [outcome for outcome in outcomes if outcome.status == ResolutionStatus.RESOLVED]
         coverages = [
-            outcome.coverage if outcome.status == 'resolved' else 0.0
+            outcome.coverage if outcome.status == ResolutionStatus.RESOLVED else 0.0
             for outcome in outcomes
             if outcome.coverage is not None
         ]

@@ -7,6 +7,7 @@ from typing import Dict, List, Mapping, Optional, Tuple
 
 from paper_author_searcher.evaluation_matching import GroundTruth, GroundTruthMatcher
 from paper_author_searcher.performance_evaluation import PerformanceEvaluator
+from paper_author_searcher.status import AnnotationState, TruthState
 from paper_author_searcher.workflow import read_json
 
 from .roster import BenchmarkPerson
@@ -66,16 +67,19 @@ def scope_to_window(collection: dict, truth: dict, window: Tuple[int, int]) -> d
 def truth_state(truth: dict) -> str:
     metadata = truth.get('metadata') or {}
     if is_human_reviewed(truth):
-        return 'human_reviewed'
-    if metadata.get('annotation_state') == 'assistant_reviewed' and str(metadata.get('reviewer', '')).strip():
-        return 'assistant_reviewed'
-    return 'provisional'
+        return TruthState.HUMAN_REVIEWED
+    if (
+        metadata.get('annotation_state') == AnnotationState.ASSISTANT_REVIEWED
+        and str(metadata.get('reviewer', '')).strip()
+    ):
+        return TruthState.ASSISTANT_REVIEWED
+    return TruthState.PROVISIONAL
 
 
 def is_human_reviewed(truth: dict) -> bool:
     metadata = truth.get('metadata') or {}
     return bool(
-        metadata.get('annotation_state') == 'human_reviewed'
+        metadata.get('annotation_state') == AnnotationState.HUMAN_REVIEWED
         and str(metadata.get('reviewer', '')).strip()
         and str(metadata.get('reviewed_at', '')).strip()
     )
@@ -114,17 +118,17 @@ class PersonScorer:
             return PersonScore(
                 person.person_id,
                 person.strata,
-                'missing',
+                TruthState.MISSING,
                 _status(index_entry),
                 {name: _unavailable() for name in self.settings.reported_metrics},
                 notes=['No truth file; build it with build-truth'],
             )
         index_entry = index_entry or {}
         state = truth_state(truth)
-        formal = state == 'human_reviewed'
+        formal = state == AnnotationState.HUMAN_REVIEWED
         scoring = deepcopy(truth)
         notes = []
-        if state == 'assistant_reviewed':
+        if state == AnnotationState.ASSISTANT_REVIEWED:
             # Reviewed labels, but by an assistant: measured like reviewed truth, never certified by the gate.
             notes.append('Assistant-reviewed truth: labels reviewed by an AI assistant, not certified')
         elif not formal and self.settings.provisional_closed_world:
@@ -202,6 +206,6 @@ def aggregate(scores: List[PersonScore], settings: BenchmarkSettings) -> Dict[Tu
         result[key] = {
             'people': len(members),
             'metrics': metrics,
-            'provisional_people': sum(member.truth_state != 'human_reviewed' for member in members),
+            'provisional_people': sum(member.truth_state != TruthState.HUMAN_REVIEWED for member in members),
         }
     return result

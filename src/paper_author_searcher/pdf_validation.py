@@ -5,6 +5,7 @@ import re
 from .config import DEFAULT_PDF
 from .http import HttpClient, SourceError, has_pdf_signature
 from .pdf_identity import arxiv_id, arxiv_ids, same_arxiv_version
+from .status import AccessStatus, IdentityStatus, PDFValidationStatus
 
 
 class PDFURLValidator:
@@ -20,7 +21,7 @@ class PDFURLValidator:
                 maximum_redirects=self.config.maximum_redirects,
             )
         except (SourceError, ValueError) as exc:
-            candidate.access_status = 'unreachable'
+            candidate.access_status = AccessStatus.UNREACHABLE
             candidate.http_status = getattr(exc, 'status_code', None)
             candidate.query_error_type = getattr(exc, 'error_type', 'source_error')
             candidate.request_context = getattr(exc, 'request_context', {})
@@ -32,17 +33,17 @@ class PDFURLValidator:
         candidate.content_type = response.content_type
         candidate.bytes_read = len(response.prefix)
         if not 200 <= response.status < 300:
-            candidate.access_status = 'unreachable'
+            candidate.access_status = AccessStatus.UNREACHABLE
             candidate.error_details.append(f'HTTP {response.status}')
             return candidate
-        candidate.access_status = 'publicly_accessible'
+        candidate.access_status = AccessStatus.PUBLICLY_ACCESSIBLE
         if response.status == 206 and not self._starts_at_zero(response.headers):
             candidate.error_details.append('Partial response does not confirm byte offset zero')
             return candidate
         if response.status == 206:
             candidate.validation_evidence.append('Content-Range confirms a partial response beginning at byte zero')
         if response.content_type in ('text/html', 'application/xhtml+xml'):
-            candidate.validation_status = 'invalid'
+            candidate.validation_status = PDFValidationStatus.INVALID
             candidate.error_details.append('Resource is HTML, not a PDF (possibly an access interstitial)')
             return candidate
         if not has_pdf_signature(response.prefix):
@@ -51,13 +52,13 @@ class PDFURLValidator:
         candidate.pdf_signature_confirmed = True
         candidate.validation_evidence.append('Bounded GET returned a PDF file signature')
         if self._arxiv_redirect_conflicts(candidate, paper):
-            candidate.identity_status = 'conflicting'
+            candidate.identity_status = IdentityStatus.CONFLICTING
             candidate.identity_evidence.append('PDF URL or redirect conflicts with the known arXiv paper/version')
-        if candidate.identity_status == 'conflicting':
-            candidate.validation_status = 'invalid'
+        if candidate.identity_status == IdentityStatus.CONFLICTING:
+            candidate.validation_status = PDFValidationStatus.INVALID
             candidate.error_details.append('PDF is accessible but paper identity conflicts')
-        elif candidate.identity_status == 'verified' and candidate.access_basis:
-            candidate.validation_status = 'verified'
+        elif candidate.identity_status == IdentityStatus.VERIFIED and candidate.access_basis:
+            candidate.validation_status = PDFValidationStatus.VERIFIED
             candidate.validation_evidence.append(
                 'Correspondence established by public source metadata, not full-text analysis'
             )

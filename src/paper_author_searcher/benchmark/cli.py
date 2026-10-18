@@ -12,6 +12,7 @@ from typing import List, Optional
 from paper_author_searcher.config import DEFAULT_SOURCES
 from paper_author_searcher.http import HttpClient, SourceError
 from paper_author_searcher.logging_config import add_logging_arguments, configure_from_arguments, log_isolated_failure
+from paper_author_searcher.status import AnnotationState, OwnershipStatus, RunStatus, TruthState
 from paper_author_searcher.workflow import read_json, write_json
 
 from .gate import ReleaseGate
@@ -54,7 +55,11 @@ def command_validate(args) -> int:
     for person in roster.people:
         missing = missing_snapshots(person, settings.paths.snapshots / person.person_id)
         truth = load_truth(settings, person.person_id)
-        state = 'missing' if truth is None else ('human_reviewed' if is_human_reviewed(truth) else 'pending')
+        state = (
+            TruthState.MISSING
+            if truth is None
+            else (AnnotationState.HUMAN_REVIEWED if is_human_reviewed(truth) else 'pending')
+        )
         if missing or truth is None:
             problems += 1
             print(f'  {person.person_id}: snapshots missing={missing} truth={state}')
@@ -113,7 +118,7 @@ def command_review_export(args) -> int:
     if args.suggest_from_run:
         from .review import system_suggestions
 
-        args.suggest_status = args.suggest_status or ['verified']
+        args.suggest_status = args.suggest_status or [OwnershipStatus.VERIFIED]
         entry = load_index(settings, args.suggest_from_run)['people'].get(args.person) or {}
         if entry.get('report'):
             report_dir = settings.paths.runs / args.suggest_from_run / entry['report']
@@ -151,7 +156,8 @@ def command_review_import(args) -> int:
     )
     target = (
         reviewed_path
-        if result['metadata']['annotation_state'] in ('human_reviewed', 'assistant_reviewed')
+        if result['metadata']['annotation_state']
+        in (AnnotationState.HUMAN_REVIEWED, AnnotationState.ASSISTANT_REVIEWED)
         else pending_path
     )
     write_json(target, result)
@@ -175,7 +181,7 @@ def command_run(args) -> int:
     if index.get('api_budget'):
         print('API budget: {}'.format(index['api_budget']))
     statuses = [entry['status'] for entry in index['people'].values()]
-    return 0 if 'failed' not in statuses else 2
+    return 0 if RunStatus.FAILED not in statuses else 2
 
 
 def score_run(settings: BenchmarkSettings, roster: Roster, run_id: str, person_ids: List[str]) -> dict:
@@ -322,7 +328,7 @@ def build_parser() -> argparse.ArgumentParser:
     export.add_argument(
         '--suggest-status',
         action='append',
-        choices=('verified', 'needs_review', 'rejected'),
+        choices=OwnershipStatus.values(),
         default=None,
         help='System ownership statuses to include as leads (default: verified)',
     )
@@ -340,8 +346,8 @@ def build_parser() -> argparse.ArgumentParser:
     review.add_argument('--allow-pending', action='store_true', help='Save partial progress')
     review.add_argument(
         '--review-state',
-        default='human_reviewed',
-        choices=('human_reviewed', 'assistant_reviewed'),
+        default=AnnotationState.HUMAN_REVIEWED.value,
+        choices=(AnnotationState.HUMAN_REVIEWED.value, AnnotationState.ASSISTANT_REVIEWED.value),
         help='assistant_reviewed records an AI review; it is scored but never certifies the gate',
     )
     review.set_defaults(handler=command_review_import)

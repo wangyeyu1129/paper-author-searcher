@@ -13,6 +13,7 @@ from .matching import name_similarity
 from .paper_authorship import byline_forms
 from .paper_providers import parse_year
 from .pdf_providers import CitationMetadata
+from .status import AnnotationState
 from .workflow import read_json, write_json
 
 logger = logging.getLogger(__name__)
@@ -54,7 +55,7 @@ def prepare_reference(pages, professor_name, client=None):
                     'evaluation_id': 'reference-' + hashlib.sha256(url.encode('utf-8')).hexdigest()[:16],
                     'ownership': 'uncertain',
                     'proposed_ownership': 'belongs' if compatible else 'uncertain',
-                    'annotation_status': 'pending_human_review',
+                    'annotation_status': AnnotationState.PENDING_HUMAN_REVIEW,
                     'title': titles[0],
                     'authors': authors,
                     'year': year,
@@ -75,7 +76,7 @@ def prepare_reference(pages, professor_name, client=None):
         'schema_version': 1,
         'complete_positive_list': False,
         'metadata': {
-            'annotation_state': 'pending_human_review',
+            'annotation_state': AnnotationState.PENDING_HUMAN_REVIEW,
             'reviewer': '',
             'reviewed_at': '',
             'prepared_at': datetime.now(timezone.utc).isoformat(),

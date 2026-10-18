@@ -10,6 +10,7 @@ from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_downloader import paper_key
 from .pdf_file_validation import PDFFileValidator, validation_target
 from .performance_evaluation import _check_file
+from .status import FormatStatus, PDFValidationStatus
 from .workflow import read_json, write_json
 
 logger = logging.getLogger(__name__)
@@ -33,9 +34,9 @@ def revalidate(manifest_path, pdf_report_path, only_needs_review=False, validato
     validator = validator or PDFFileValidator()
     entries = []
     for saved in manifest['papers']:
-        if not saved.get('local_filename') or saved.get('format_status') != 'valid':
+        if not saved.get('local_filename') or saved.get('format_status') != FormatStatus.VALID:
             continue
-        if only_needs_review and saved.get('validation_status') != 'needs_review':
+        if only_needs_review and saved.get('validation_status') != PDFValidationStatus.NEEDS_REVIEW:
             continue
         key = paper_key(saved)
         entry = {
@@ -66,12 +67,12 @@ def revalidate(manifest_path, pdf_report_path, only_needs_review=False, validato
     full_text_confirmed = 0
     for entry in entries:
         after = entry.get('after') or {}
-        if after.get('validation_status') == 'verified':
-            if entry['before_status'] != 'verified':
+        if after.get('validation_status') == PDFValidationStatus.VERIFIED:
+            if entry['before_status'] != PDFValidationStatus.VERIFIED:
                 newly_verified.append(entry['paper_key'])
             if after.get('document_type') in ('full_text', 'preprint'):
                 full_text_confirmed += 1
-        elif entry['before_status'] == 'verified':
+        elif entry['before_status'] == PDFValidationStatus.VERIFIED:
             regressions.append(entry['paper_key'])
     return {
         'report_type': 'offline_pdf_content_revalidation',
@@ -116,8 +117,8 @@ def main(argv=None):
     print(
         'Checked files: {}; verified={}; needs_review={}; not_evaluated={}; confirmed full text={}'.format(
             statistics['selected_files'],
-            counts.get('verified', 0),
-            counts.get('needs_review', 0),
+            counts.get(PDFValidationStatus.VERIFIED, 0),
+            counts.get(PDFValidationStatus.NEEDS_REVIEW, 0),
             counts.get('not_evaluated', 0),
             statistics['full_text_confirmed_files'],
         )

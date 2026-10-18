@@ -2,6 +2,8 @@
 
 from typing import List, Optional
 
+from paper_author_searcher.status import TruthState
+
 from .settings import BenchmarkSettings
 
 
@@ -21,10 +23,7 @@ def markdown_report(scored: dict, settings: BenchmarkSettings) -> str:
         f'- Aggregation: {aggregation} over people; minimum {settings.minimum_people_per_stratum} people per stratum',
         '- Thresholds: ' + ', '.join(f'{metric} ≥ {minimum:.0%}' for metric, minimum in thresholds.items()),
         '- Truth: {} human-reviewed, {} assistant-reviewed, {} provisional, {} missing'.format(
-            *(
-                sum(person['truth_state'] == state for person in scored['people'])
-                for state in ('human_reviewed', 'assistant_reviewed', 'provisional', 'missing')
-            )
+            *(sum(person['truth_state'] == state for person in scored['people']) for state in TruthState)
         ),
     ]
     lines.extend('- ' + reason for reason in gate['reasons'])

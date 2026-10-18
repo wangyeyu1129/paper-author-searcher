@@ -6,11 +6,12 @@ from urllib.parse import urlsplit
 from .matching import canonical_doi, normalize
 from .paper_authorship import byline_forms
 from .paper_deduplication import author_signatures_match
+from .status import IdentityStatus, OwnershipStatus
 
 
 def source_records(paper):
     records = paper.get('records') or [paper]
-    return [record for record in records if record.get('ownership_status') != 'rejected']
+    return [record for record in records if record.get('ownership_status') != OwnershipStatus.REJECTED]
 
 
 def native_id(source, value):
@@ -47,24 +48,24 @@ def metadata_identity(paper, source, identifier=None, doi=None, title=None, year
     expected_dois = paper_dois(paper)
     doi_match = bool(doi and canonical_doi(doi) in expected_dois)
     if doi and expected_dois and not doi_match:
-        return 'conflicting', ['Source DOI conflicts with saved paper DOI identifiers']
+        return IdentityStatus.CONFLICTING, ['Source DOI conflicts with saved paper DOI identifiers']
     title_match = bool(title and normalize(title) == normalize(paper.get('title', '')))
     if title and paper.get('title') and not title_match:
-        return 'conflicting', ['Source title conflicts with saved paper title']
+        return IdentityStatus.CONFLICTING, ['Source title conflicts with saved paper title']
     if doi_match:
-        return 'verified', ['Exact DOI agreement with saved paper metadata']
+        return IdentityStatus.VERIFIED, ['Exact DOI agreement with saved paper metadata']
     if identifier and native_id(source, identifier) in paper_ids(paper, source):
         if title_match:
-            return 'verified', ['Exact source paper ID and normalized title agreement']
-        return 'unverified', ['Source paper ID agrees, but corroborating title/DOI is absent']
+            return IdentityStatus.VERIFIED, ['Exact source paper ID and normalized title agreement']
+        return IdentityStatus.UNVERIFIED, ['Source paper ID agrees, but corroborating title/DOI is absent']
     author_match = False
     for expected_authors in _author_lists(paper):
         if _authors_agree(expected_authors, authors or []):
             author_match = True
             break
     if title_match and year and str(year) == str(paper.get('year')) and author_match:
-        return 'verified', ['Exact normalized title, publication year and author signature agreement']
-    return 'unverified', ['Insufficient metadata to associate URL with this paper']
+        return IdentityStatus.VERIFIED, ['Exact normalized title, publication year and author signature agreement']
+    return IdentityStatus.UNVERIFIED, ['Insufficient metadata to associate URL with this paper']
 
 
 def _author_lists(paper):

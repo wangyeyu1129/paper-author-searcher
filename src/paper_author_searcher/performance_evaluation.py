@@ -10,6 +10,7 @@ from .evaluation import Evaluator
 from .evaluation_matching import MATCHING_RULES_VERSION, GroundTruth, GroundTruthMatcher
 from .pdf_downloader import file_digest, paper_key
 from .performance_diagnostics import ownership_diagnostics, pdf_failure_reasons
+from .status import AnnotationState, DownloadStatus, FormatStatus, IdentityStatus, OwnershipStatus, PDFValidationStatus
 
 
 def rate(numerator, denominator):
@@ -36,7 +37,10 @@ def _stage_scope(saved):
     for paper in saved['papers']:
         if not isinstance(paper, dict):
             raise ValueError('Stage papers must be objects')
-        if paper.get('validation_status') not in ('skipped_ownership', 'not_processed'):
+        if paper.get('validation_status') not in (
+            PDFValidationStatus.SKIPPED_OWNERSHIP,
+            PDFValidationStatus.NOT_PROCESSED,
+        ):
             identities.append(paper_key(paper))
     digest = hashlib.sha256(json.dumps(sorted(set(identities))).encode('utf-8')).hexdigest()
     return {'processed_publications': len(set(identities)), 'fingerprint': digest}
@@ -54,7 +58,8 @@ def _association(paper, matcher):
 
 def _confirmed_url(paper):
     return any(
-        candidate.get('validation_status') == 'verified' and candidate.get('identity_status') == 'verified'
+        candidate.get('validation_status') == PDFValidationStatus.VERIFIED
+        and candidate.get('identity_status') == IdentityStatus.VERIFIED
         for candidate in paper.get('pdf_candidates') or []
     )
 
@@ -105,7 +110,7 @@ class PerformanceEvaluator:
             and reviewer.strip()
             and isinstance(reviewed_at, str)
             and reviewed_at.strip()
-            and metadata.get('annotation_state') == 'human_reviewed'
+            and metadata.get('annotation_state') == AnnotationState.HUMAN_REVIEWED
         )
         scoring_data = deepcopy(truth_data)
         if reference_only:
@@ -121,7 +126,7 @@ class PerformanceEvaluator:
                 'use reference_only for an explicitly provisional public-source reference set'
             )
         elif any(
-            paper['ownership'] != 'uncertain' and paper.get('annotation_status') == 'pending_human_review'
+            paper['ownership'] != 'uncertain' and paper.get('annotation_status') == AnnotationState.PENDING_HUMAN_REVIEW
             for paper in scoring_data['papers']
         ):
             raise ValueError('Adjudicated entries cannot retain pending_human_review annotation status')
@@ -130,16 +135,16 @@ class PerformanceEvaluator:
         negatives = {paper['evaluation_id'] for paper in truth.papers if paper['ownership'] == 'not_belongs'}
         matcher = GroundTruthMatcher(truth)
         baseline = Evaluator().evaluate(collection, truth)
-        statuses = {'verified': set(), 'needs_review': set(), 'rejected': set()}
+        statuses = {status: set() for status in OwnershipStatus.values()}
         for paper in _papers(collection):
             for record in paper.get('records') or [paper]:
                 identity = matcher.match(record).evaluation_id
                 if identity:
-                    statuses[paper.get('ownership_status', 'needs_review')].add(identity)
+                    statuses[paper.get('ownership_status', OwnershipStatus.NEEDS_REVIEW)].add(identity)
         retrieved = set().union(*statuses.values())
-        conflicts = statuses['verified'] & statuses['rejected'] & (positives | negatives)
-        verified = baseline['by_status']['verified']
-        rejected = baseline['by_status']['rejected']
+        conflicts = statuses[OwnershipStatus.VERIFIED] & statuses[OwnershipStatus.REJECTED] & (positives | negatives)
+        verified = baseline['by_status'][OwnershipStatus.VERIFIED]
+        rejected = baseline['by_status'][OwnershipStatus.REJECTED]
         decided_count = (
             verified['true_positives']
             + verified['false_positives']
@@ -155,7 +160,10 @@ class PerformanceEvaluator:
         failure_entries = []
         for paper in _papers(pdf_report):
             identity = _association(paper, matcher)
-            processed = paper.get('validation_status') not in ('not_processed', 'skipped_ownership')
+            processed = paper.get('validation_status') not in (
+                PDFValidationStatus.NOT_PROCESSED,
+                PDFValidationStatus.SKIPPED_OWNERSHIP,
+            )
             if processed and identity in positives:
                 pdf_processed.add(identity)
             if _confirmed_url(paper):
@@ -197,18 +205,18 @@ class PerformanceEvaluator:
         for paper in _papers(manifest):
             identity = _association(paper, matcher)
             status = paper.get('download_status', '')
-            if status.startswith('skipped_') and status != 'skipped_existing':
+            if status.startswith('skipped_') and status != DownloadStatus.SKIPPED_EXISTING:
                 continue
-            if status in ('not_processed', ''):
+            if status in (DownloadStatus.NOT_PROCESSED, ''):
                 continue
             exists, evidence = _check_file(paper, manifest, manifest_path)
             if not exists:
                 unchecked_files.append({'evaluation_id': identity, 'title': paper.get('title'), 'reason': evidence})
-            format_confirmed = exists and paper.get('format_status') == 'valid'
+            format_confirmed = exists and paper.get('format_status') == FormatStatus.VALID
             content_confirmed = (
                 format_confirmed
-                and paper.get('identity_status') == 'verified'
-                and paper.get('validation_status') == 'verified'
+                and paper.get('identity_status') == IdentityStatus.VERIFIED
+                and paper.get('validation_status') == PDFValidationStatus.VERIFIED
             )
             if not content_confirmed:
                 reasons = pdf_failure_reasons(paper)
@@ -235,7 +243,7 @@ class PerformanceEvaluator:
                 successful.add(identity)
         metrics = {
             'paper_discovery_recall': rate(len(retrieved & positives), len(positives)),
-            'verified_paper_recall': rate(len(statuses['verified'] & positives), len(positives)),
+            'verified_paper_recall': rate(len(statuses[OwnershipStatus.VERIFIED] & positives), len(positives)),
             'author_match_precision': rate(
                 verified['true_positives'], verified['true_positives'] + verified['false_positives']
             ),

@@ -7,6 +7,7 @@ from .http import SourceError
 from .pdf_identity import metadata_identity, paper_dois
 from .pdf_providers import MetadataPDFProvider, make_candidate
 from .pdf_settings import contact_email, redact_contact
+from .status import ProviderStatus
 
 
 class CrossrefPDFProvider(MetadataPDFProvider):
@@ -37,15 +38,15 @@ class CrossrefPDFProvider(MetadataPDFProvider):
                 candidates, pages = self.lookup(paper, 'title:' + paper['title'])
                 result.candidates.extend(candidates)
                 result.landing_pages.extend(pages)
-                result.status = 'ok'
-                result.diagnostics.append({'lookup_method': 'title_search', 'status': 'ok'})
+                result.status = ProviderStatus.OK
+                result.diagnostics.append({'lookup_method': 'title_search', 'status': ProviderStatus.OK})
             except (SourceError, ValueError, TypeError) as exc:
-                result.status = 'error'
+                result.status = ProviderStatus.ERROR
                 result.errors.append('Title search: ' + str(exc))
                 result.diagnostics.append(
                     {
                         'lookup_method': 'title_search',
-                        'status': 'error',
+                        'status': ProviderStatus.ERROR,
                         'status_code': getattr(exc, 'status_code', None),
                         'error_type': getattr(exc, 'error_type', 'malformed_response'),
                     }
@@ -66,7 +67,7 @@ class CrossrefPDFProvider(MetadataPDFProvider):
         if identifier not in self.cache:
             self.cache[identifier] = self.client.get(url, params=params)
         response = self.cache[identifier]
-        if not isinstance(response, dict) or response.get('status') != 'ok':
+        if not isinstance(response, dict) or response.get('status') != ProviderStatus.OK:
             raise SourceError('Crossref did not return an ok metadata response', error_type='malformed_response')
         message = response.get('message')
         if not isinstance(message, dict):

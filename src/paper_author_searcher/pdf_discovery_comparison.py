@@ -12,6 +12,7 @@ from .pdf_downloader import paper_key
 from .pdf_search_status import SEARCH_COMPLETION_DEFINITION, provider_search_complete, search_satisfaction
 from .performance_diagnostics import pdf_failure_reasons
 from .performance_evaluation import _check_file, rate
+from .status import DownloadStatus, FormatStatus, IdentityStatus, PDFValidationStatus
 from .workflow import read_json, write_json
 
 logger = logging.getLogger(__name__)
@@ -23,9 +24,13 @@ def _cohort(report):
         raise ValueError('Each PDF report must contain a paper list')
     selected = {}
     for paper in papers:
-        if paper.get('validation_status') in ('not_processed', 'skipped_ownership'):
+        if paper.get('validation_status') in (PDFValidationStatus.NOT_PROCESSED, PDFValidationStatus.SKIPPED_OWNERSHIP):
             continue
-        if paper.get('validation_status') not in ('verified', 'unverified', 'not_found'):
+        if paper.get('validation_status') not in (
+            PDFValidationStatus.VERIFIED,
+            PDFValidationStatus.UNVERIFIED,
+            PDFValidationStatus.NOT_FOUND,
+        ):
             raise ValueError('Expected PDF URL validation status in the saved discovery report')
         key = paper_key(paper)
         if key in selected:
@@ -86,7 +91,10 @@ def summarize_runs(run_directories):
                 source_states.setdefault(provider.get('source'), []).append(complete)
             failures.update(pdf_failure_reasons(paper))
             for candidate in paper.get('pdf_candidates') or []:
-                if candidate.get('validation_status') != 'verified' or candidate.get('identity_status') != 'verified':
+                if (
+                    candidate.get('validation_status') != PDFValidationStatus.VERIFIED
+                    or candidate.get('identity_status') != IdentityStatus.VERIFIED
+                ):
                     continue
                 verified_papers.add(key)
                 urls.add(candidate.get('final_url') or candidate['url'])
@@ -103,10 +111,12 @@ def summarize_runs(run_directories):
             if key not in cohort:
                 continue
             status = paper.get('download_status') or ''
-            if status in ('', 'not_processed') or (status.startswith('skipped_') and status != 'skipped_existing'):
+            if status in ('', DownloadStatus.NOT_PROCESSED) or (
+                status.startswith('skipped_') and status != DownloadStatus.SKIPPED_EXISTING
+            ):
                 continue
             attempted.add(key)
-            if status == 'failed':
+            if status == DownloadStatus.FAILED:
                 failed.add(key)
             exists, evidence = _check_file(paper, manifest, manifest_path)
             file_checks.append(
@@ -123,17 +133,20 @@ def summarize_runs(run_directories):
                     'reason': reason,
                     'file_integrity_confirmed': exists,
                 }
-            if not exists or paper.get('format_status') != 'valid':
+            if not exists or paper.get('format_status') != FormatStatus.VALID:
                 continue
             files.add(key)
             document_type = paper.get('document_type') or (paper.get('validation') or {}).get('document_type')
             classified_documents = classified_documents or document_type is not None
             document_types[document_type or 'unknown'] += 1
-            if paper.get('identity_status') == 'verified' and paper.get('validation_status') == 'verified':
+            if (
+                paper.get('identity_status') == IdentityStatus.VERIFIED
+                and paper.get('validation_status') == PDFValidationStatus.VERIFIED
+            ):
                 content.add(key)
                 if document_type in ('full_text', 'preprint'):
                     full_text_content.add(key)
-            elif paper.get('validation_status') == 'needs_review':
+            elif paper.get('validation_status') == PDFValidationStatus.NEEDS_REVIEW:
                 review.add(key)
     if cohort is None:
         raise ValueError('At least one saved run is required')

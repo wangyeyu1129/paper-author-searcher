@@ -16,6 +16,7 @@ from .models import PDFFileValidation
 from .pdf_document_types import NON_FULL_DOCUMENTS, classify_document
 from .pdf_front_matter import authors_present, front_matter, metadata_title_kind, publication_years, title_in_region
 from .pdf_identity import metadata_identity
+from .status import FormatStatus, IdentityStatus, PDFValidationStatus
 
 logger = logging.getLogger(__name__)
 
@@ -28,8 +29,8 @@ def validation_target(paper, candidate=None):
     variants = []
     if (
         candidate
-        and candidate.get('identity_status') == 'verified'
-        and candidate.get('validation_status') == 'verified'
+        and candidate.get('identity_status') == IdentityStatus.VERIFIED
+        and candidate.get('validation_status') == PDFValidationStatus.VERIFIED
     ):
         for provenance in candidate.get('provenance') or []:
             authors = provenance.get('metadata_authors') or []
@@ -43,14 +44,18 @@ def validation_target(paper, candidate=None):
                 paper, 'landing_page', doi=provenance.get('doi'), title=title, year=year, authors=authors
             )
             signature_identity, _ = metadata_identity(paper, 'landing_page', title=title, year=year, authors=authors)
-            if identity == 'verified' and signature_identity == 'verified' and authors not in variants:
+            if (
+                identity == IdentityStatus.VERIFIED
+                and signature_identity == IdentityStatus.VERIFIED
+                and authors not in variants
+            ):
                 variants.append(authors)
     target['publisher_author_variants'] = variants
     target['publication_bindings'] = []
     if (
         candidate
-        and candidate.get('identity_status') == 'verified'
-        and candidate.get('validation_status') == 'verified'
+        and candidate.get('identity_status') == IdentityStatus.VERIFIED
+        and candidate.get('validation_status') == PDFValidationStatus.VERIFIED
     ):
         for provenance in candidate.get('provenance') or []:
             title = provenance.get('title') or provenance.get('metadata_title')
@@ -108,7 +113,7 @@ def content_identity(paper, titles, title_regions, text, author_metadata, config
             publisher_match = True
             break
     if title_match and doi_match and not title_conflict and (normal_title_match or authors_match):
-        return 'verified', sorted(observed_dois), evidence
+        return IdentityStatus.VERIFIED, sorted(observed_dois), evidence
     long_title = len(expected_title.split()) >= config.minimum_title_words_without_doi
     conflicting_doi = bool(expected_doi and observed_dois and not doi_match)
     if title_match and long_title and authors_match and not conflicting_doi and not title_conflict:
@@ -117,14 +122,14 @@ def content_identity(paper, titles, title_regions, text, author_metadata, config
             evidence.append(
                 'All bylines from the independently bound publisher citation metadata occur in PDF front matter'
             )
-        return 'verified', sorted(observed_dois), evidence
+        return IdentityStatus.VERIFIED, sorted(observed_dois), evidence
     if conflicting_doi:
         evidence.append('Front-matter DOI differs; this can also reflect a different version')
         if titles and not title_match:
             evidence.append('Explicit PDF title also differs from the target paper')
-            return 'rejected', sorted(observed_dois), evidence
+            return IdentityStatus.REJECTED, sorted(observed_dois), evidence
     evidence.append('File is parseable, but its correspondence to the target paper requires review')
-    return 'needs_review', sorted(observed_dois), evidence
+    return IdentityStatus.NEEDS_REVIEW, sorted(observed_dois), evidence
 
 
 def _clean_extracted_doi(value):
@@ -147,7 +152,7 @@ def _authors_present(expected_authors, title_regions, author_metadata):
 def inspect_pdf(path, paper, config=DEFAULT_DOWNLOAD):
     from pypdf import PdfReader
 
-    result = PDFFileValidation(identity_status='not_checked')
+    result = PDFFileValidation(identity_status=IdentityStatus.NOT_CHECKED)
     try:
         with open(path, 'rb') as handle:
             handle.seek(0, 2)
@@ -228,15 +233,19 @@ def inspect_pdf(path, paper, config=DEFAULT_DOWNLOAD):
                 evidence.append('Publication year in PDF agrees with the saved publication record')
             elif result.observations['publication_years']:
                 evidence.append('Observed publication year differs or represents another version; retained for review')
-                if identity == 'verified' and paper.get('year') and paper.get('pdf_version_type') != 'preprint':
-                    identity = 'needs_review'
+                if (
+                    identity == IdentityStatus.VERIFIED
+                    and paper.get('year')
+                    and paper.get('pdf_version_type') != 'preprint'
+                ):
+                    identity = IdentityStatus.NEEDS_REVIEW
             if result.observations['venue_present_in_first_page']:
                 evidence.append('Saved publication venue also occurs on the PDF first page; auxiliary evidence only')
-            result.format_status = 'valid'
+            result.format_status = FormatStatus.VALID
             result.identity_status = identity
             result.validation_status = identity
-            if document_type in NON_FULL_DOCUMENTS and identity != 'rejected':
-                result.validation_status = 'needs_review'
+            if document_type in NON_FULL_DOCUMENTS and identity != IdentityStatus.REJECTED:
+                result.validation_status = PDFValidationStatus.NEEDS_REVIEW
                 evidence.append('Non-full-text document is not counted as a confirmed complete paper')
             result.extracted_dois = dois
             result.evidence = [
@@ -245,8 +254,8 @@ def inspect_pdf(path, paper, config=DEFAULT_DOWNLOAD):
             ]
     except Exception as exc:
         logger.debug('PDF structure validation failed for %s', path, exc_info=True)
-        result.format_status = 'invalid'
-        result.validation_status = 'invalid'
+        result.format_status = FormatStatus.INVALID
+        result.validation_status = PDFValidationStatus.INVALID
         result.error_details.append(str(exc)[:1000])
     return result
 
@@ -287,7 +296,9 @@ class PDFFileValidator:
             return PDFFileValidation(**json.loads(completed.stdout))
         except (subprocess.TimeoutExpired, OSError, ValueError, TypeError) as exc:
             return PDFFileValidation(
-                identity_status='not_checked', validation_status='unverified', error_details=[str(exc)[:1000]]
+                identity_status=IdentityStatus.NOT_CHECKED,
+                validation_status=PDFValidationStatus.UNVERIFIED,
+                error_details=[str(exc)[:1000]],
             )
 
 

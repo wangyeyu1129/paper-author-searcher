@@ -5,10 +5,20 @@ from collections import Counter
 
 from .config import DEFAULT_OWNERSHIP
 from .paper_authorship import canonical_author_id
+from .status import (
+    AccessStatus,
+    DownloadStatus,
+    FormatStatus,
+    IdentityStatus,
+    OwnershipStatus,
+    PDFValidationStatus,
+    ProviderStatus,
+    StageStatus,
+)
 
 
 def workflow_outcomes(report):
-    reused = {item.get('stage') for item in report.get('stages') or [] if item.get('status') == 'reused'}
+    reused = {item.get('stage') for item in report.get('stages') or [] if item.get('status') == StageStatus.REUSED}
     counts = Counter()
     for error in report.get('errors') or []:
         text = str(error.get('error') or '').lower()
@@ -54,19 +64,20 @@ def pdf_failure_reasons(paper):
     reasons = set()
     status = paper.get('validation_status')
     download = paper.get('download_status', '')
-    if status == 'not_processed' or download == 'skipped_limit':
+    if status == PDFValidationStatus.NOT_PROCESSED or download == 'skipped_limit':
         reasons.add('not_processed_limit')
-    if status == 'skipped_ownership' or download == 'skipped_ownership':
+    if status == PDFValidationStatus.SKIPPED_OWNERSHIP or download == DownloadStatus.SKIPPED_OWNERSHIP:
         reasons.add('ownership_not_eligible')
     providers = paper.get('providers') or []
     if any(
-        provider.get('status') == 'error' or (provider.get('status') == 'partial' and provider.get('errors'))
+        provider.get('status') == ProviderStatus.ERROR
+        or (provider.get('status') == ProviderStatus.PARTIAL and provider.get('errors'))
         for provider in providers
     ):
         reasons.add('source_query_failed')
-    if any(provider.get('status') == 'partial' for provider in providers):
+    if any(provider.get('status') == ProviderStatus.PARTIAL for provider in providers):
         reasons.add('search_incomplete')
-    if any(provider.get('status') == 'disabled' for provider in providers):
+    if any(provider.get('status') == ProviderStatus.DISABLED for provider in providers):
         reasons.add('provider_not_configured')
     for provider in providers:
         for diagnostic in provider.get('diagnostics') or []:
@@ -107,13 +118,13 @@ def pdf_failure_reasons(paper):
             reasons.add('rate_limited')
         elif code is not None and 500 <= code <= 599:
             reasons.add('server_error')
-        if candidate.get('identity_status') in ('conflicting', 'rejected'):
+        if candidate.get('identity_status') in (IdentityStatus.CONFLICTING, IdentityStatus.REJECTED):
             reasons.add('source_identity_mismatch')
         if candidate.get('content_type') in ('text/html', 'application/xhtml+xml'):
             reasons.add('not_pdf_response')
-        if candidate.get('access_status') == 'unreachable' and code is None:
+        if candidate.get('access_status') == AccessStatus.UNREACHABLE and code is None:
             reasons.add('network_error')
-        if candidate.get('pdf_signature_confirmed') and candidate.get('identity_status') == 'unverified':
+        if candidate.get('pdf_signature_confirmed') and candidate.get('identity_status') == IdentityStatus.UNVERIFIED:
             reasons.add('insufficient_pdf_identity_evidence')
     text = ' '.join(messages).lower()
     for code, label in ((403, 'access_restricted'), (429, 'rate_limited')):
@@ -125,28 +136,30 @@ def pdf_failure_reasons(paper):
         reasons.add('network_error')
     if 'http 302' in text or 'redirect' in text:
         reasons.add('redirect_failure')
-    if paper.get('identity_status') == 'rejected':
+    if paper.get('identity_status') == IdentityStatus.REJECTED:
         reasons.add('downloaded_paper_identity_mismatch')
-    elif paper.get('format_status') == 'valid' and paper.get('identity_status') == 'needs_review':
+    elif (
+        paper.get('format_status') == FormatStatus.VALID and paper.get('identity_status') == IdentityStatus.NEEDS_REVIEW
+    ):
         reasons.add('downloaded_paper_identity_unconfirmed')
-    if paper.get('format_status') in ('invalid', 'unverified'):
+    if paper.get('format_status') in (FormatStatus.INVALID, FormatStatus.UNVERIFIED):
         reasons.add('downloaded_pdf_format_unconfirmed')
-    if download == 'failed':
+    if download == DownloadStatus.FAILED:
         reasons.add('download_failed')
     if paper.get('document_type') in ('poster', 'slides', 'supplementary_material'):
         reasons.add('non_full_text_document')
-    if status in ('not_found', 'unverified') and not candidates:
+    if status in (PDFValidationStatus.NOT_FOUND, PDFValidationStatus.UNVERIFIED) and not candidates:
         incomplete = reasons.intersection(
             {'source_query_failed', 'provider_not_configured', 'network_error', 'search_incomplete'}
         )
         reasons.add('search_incomplete' if incomplete else 'no_public_pdf_found_in_queried_sources')
-    if status == 'unverified' and candidates and not reasons:
+    if status == PDFValidationStatus.UNVERIFIED and candidates and not reasons:
         reasons.add('pdf_or_identity_unconfirmed')
     return sorted(reasons)
 
 
 def review_reasons(paper, config=DEFAULT_OWNERSHIP):
-    if paper.get('ownership_status') != 'needs_review':
+    if paper.get('ownership_status') != OwnershipStatus.NEEDS_REVIEW:
         return []
     reasons = set()
     records = [paper] + (paper.get('records') or [])
@@ -195,7 +208,7 @@ def ownership_diagnostics(papers):
     counts = Counter()
     entries = []
     for index, paper in enumerate(papers):
-        if paper.get('ownership_status') != 'needs_review':
+        if paper.get('ownership_status') != OwnershipStatus.NEEDS_REVIEW:
             continue
         reasons = review_reasons(paper)
         counts.update(reasons)

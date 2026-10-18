@@ -5,6 +5,7 @@ from dataclasses import fields
 from .models import PaperCollectionResult, PaperRecord, PaperSourceResult, ProfessorProfile
 from .paper_deduplication import deduplicate_papers
 from .paper_ownership import PaperOwnershipValidator
+from .status import OwnershipStatus, UniversityStatus
 
 
 def _contains_selected_ids(candidate, selected):
@@ -53,7 +54,7 @@ def saved_collection_profile(data):
         author_id_aliases=selected,
         name_aliases=collection_identity.get('name_aliases', identity.get('name_aliases')) or [],
         university=identity.get('university'),
-        university_status=identity.get('university_status', 'unknown'),
+        university_status=identity.get('university_status', UniversityStatus.UNKNOWN),
         requested_university=identity.get('requested_university'),
         matched_affiliations=identity.get('matched_affiliations') or [],
         match_score=identity.get('match_score', 0),
@@ -73,7 +74,7 @@ def reanalyze_saved_result(data):
         for entry in paper.get('records') or [paper]:
             values = {key: value for key, value in entry.items() if key in record_fields}
             # Recompute decisions from evidence; do not treat previous labels as proof.
-            values['ownership_status'] = 'needs_review'
+            values['ownership_status'] = OwnershipStatus.NEEDS_REVIEW
             values['ownership_evidence'] = []
             records.append(PaperRecord(**values))
     sources = []

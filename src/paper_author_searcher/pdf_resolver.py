@@ -23,6 +23,7 @@ from .pdf_resource_requests import PublicResourceRequests
 from .pdf_search_status import SEARCH_COMPLETION_DEFINITION, paper_search_complete
 from .pdf_validation import PDFURLValidator
 from .performance_diagnostics import pdf_failure_reasons
+from .status import AccessStatus, IdentityStatus, OwnershipStatus, PDFValidationStatus, ProviderStatus
 
 logger = logging.getLogger(__name__)
 
@@ -60,9 +61,9 @@ class PDFResolver:
             raise ValueError('Collection must contain a list of paper objects')
         results = []
         processed = 0
-        eligible_statuses = {'verified'}
+        eligible_statuses = {OwnershipStatus.VERIFIED}
         if include_needs_review:
-            eligible_statuses.add('needs_review')
+            eligible_statuses.add(OwnershipStatus.NEEDS_REVIEW)
         eligible_count = sum(paper.get('ownership_status') in eligible_statuses for paper in papers)
         progress_total = min(eligible_count, maximum_papers) if maximum_papers else eligible_count
         selected = [paper for paper in papers if paper.get('ownership_status') in eligible_statuses]
@@ -74,7 +75,7 @@ class PDFResolver:
                 index,
                 paper.get('title', ''),
                 paper.get('doi'),
-                paper.get('ownership_status', 'needs_review'),
+                paper.get('ownership_status', OwnershipStatus.NEEDS_REVIEW),
                 deepcopy(paper.get('ownership_evidence') or []),
                 authors=deepcopy(paper.get('authors') or []),
                 year=paper.get('year'),
@@ -86,7 +87,7 @@ class PDFResolver:
             )
             results.append(result)
             if result.ownership_status not in eligible_statuses:
-                result.validation_status = 'skipped_ownership'
+                result.validation_status = PDFValidationStatus.SKIPPED_OWNERSHIP
                 continue
             if maximum_papers is not None and processed >= maximum_papers:
                 continue
@@ -96,7 +97,7 @@ class PDFResolver:
                 log_isolated_failure(
                     logger, 'PDF resolution failed for %s: %s', paper.get('doi') or paper.get('title'), exc
                 )
-                result.validation_status = 'unverified'
+                result.validation_status = PDFValidationStatus.UNVERIFIED
                 result.error_details.append({'source': 'pdf_validation', 'error': str(exc)})
             processed += 1
             if progress:
@@ -124,10 +125,10 @@ class PDFResolver:
                 found = provider.find(lookup_paper)
             except Exception as exc:
                 log_isolated_failure(logger, 'PDF provider %s lookup failed: %s', provider.name, exc)
-                found = PDFProviderResult(provider.name, status='error', errors=[str(exc)])
+                found = PDFProviderResult(provider.name, status=ProviderStatus.ERROR, errors=[str(exc)])
             if provider.name in self.preparation_errors:
                 found.errors.append('Provider preparation: ' + self.preparation_errors[provider.name])
-                found.status = 'partial' if found.candidates else 'error'
+                found.status = ProviderStatus.PARTIAL if found.candidates else ProviderStatus.ERROR
             result.providers.append(
                 {
                     'source': found.source,
@@ -151,12 +152,14 @@ class PDFResolver:
                     result.warnings.append(
                         dict(entry, code='source_deferred', incomplete=True, request_context=candidate.request_context)
                     )
-                elif candidate.access_status == 'unreachable':
+                elif candidate.access_status == AccessStatus.UNREACHABLE:
                     entry.update(error_type=candidate.query_error_type, request_context=candidate.request_context)
                     result.error_details.append(entry)
                 else:
                     category = (
-                        'pdf_identity_conflict' if candidate.identity_status == 'conflicting' else 'candidate_filtered'
+                        'pdf_identity_conflict'
+                        if candidate.identity_status == IdentityStatus.CONFLICTING
+                        else 'candidate_filtered'
                     )
                     result.candidate_decisions.append(
                         dict(
@@ -166,20 +169,24 @@ class PDFResolver:
                             validation_status=candidate.validation_status,
                         )
                     )
-        valid = [candidate for candidate in result.pdf_candidates if candidate.validation_status == 'verified']
+        valid = [
+            candidate
+            for candidate in result.pdf_candidates
+            if candidate.validation_status == PDFValidationStatus.VERIFIED
+        ]
         if valid:
             best = min(valid, key=self._version_priority)
             result.best_pdf_url = best.final_url or best.url
             result.pdf_source = best.source
             result.version_type = best.version_type
             result.access_status = best.access_status
-            result.validation_status = 'verified'
-        elif any(candidate.validation_status == 'unverified' for candidate in result.pdf_candidates):
-            result.validation_status = 'unverified'
-            result.access_status = 'unknown'
+            result.validation_status = PDFValidationStatus.VERIFIED
+        elif any(candidate.validation_status == PDFValidationStatus.UNVERIFIED for candidate in result.pdf_candidates):
+            result.validation_status = PDFValidationStatus.UNVERIFIED
+            result.access_status = AccessStatus.UNKNOWN
         else:
-            result.validation_status = 'not_found'
-            result.access_status = 'unknown'
+            result.validation_status = PDFValidationStatus.NOT_FOUND
+            result.access_status = AccessStatus.UNKNOWN
 
     def _merge_urls(self, candidates):
         merged = {}
@@ -196,9 +203,9 @@ class PDFResolver:
             existing.provenance.extend(candidate.provenance)
             existing.identity_evidence = list(dict.fromkeys(existing.identity_evidence + candidate.identity_evidence))
             if 'conflicting' in (existing.identity_status, candidate.identity_status):
-                existing.identity_status = 'conflicting'
-            elif candidate.identity_status == 'verified':
-                existing.identity_status = 'verified'
+                existing.identity_status = IdentityStatus.CONFLICTING
+            elif candidate.identity_status == IdentityStatus.VERIFIED:
+                existing.identity_status = IdentityStatus.VERIFIED
         for key, candidate in merged.items():
             if len(versions[key]) == 1:
                 candidate.version_type = next(iter(versions[key]))
@@ -225,17 +232,17 @@ class PDFResolver:
             'incomplete_search_papers': 0,
         }
         status_metrics = {
-            'verified': 'valid_pdf_papers',
-            'unverified': 'unverified_only_papers',
-            'not_found': 'not_found_papers',
-            'skipped_ownership': 'skipped_ownership_papers',
-            'not_processed': 'not_processed_papers',
+            PDFValidationStatus.VERIFIED: 'valid_pdf_papers',
+            PDFValidationStatus.UNVERIFIED: 'unverified_only_papers',
+            PDFValidationStatus.NOT_FOUND: 'not_found_papers',
+            PDFValidationStatus.SKIPPED_OWNERSHIP: 'skipped_ownership_papers',
+            PDFValidationStatus.NOT_PROCESSED: 'not_processed_papers',
         }
         sources = {}
         verified_urls = set()
         for paper in papers:
             counts[status_metrics[paper.validation_status]] += 1
-            if paper.validation_status in ('not_processed', 'skipped_ownership'):
+            if paper.validation_status in (PDFValidationStatus.NOT_PROCESSED, PDFValidationStatus.SKIPPED_OWNERSHIP):
                 continue
             counts['processed_papers'] += 1
             incomplete = not paper_search_complete(paper.providers)
@@ -254,10 +261,10 @@ class PDFResolver:
                 for source in candidate_sources:
                     sources.setdefault(source, self._source_counts())
                     sources[source]['candidate_urls'] += 1
-                    if candidate.validation_status == 'verified':
+                    if candidate.validation_status == PDFValidationStatus.VERIFIED:
                         sources[source]['verified_urls'] += 1
                         valid_sources.add(source)
-                if candidate.validation_status == 'verified':
+                if candidate.validation_status == PDFValidationStatus.VERIFIED:
                     verified_urls.add(candidate.final_url or candidate.url)
             for source in valid_sources:
                 sources[source]['papers_with_valid_pdf'] += 1

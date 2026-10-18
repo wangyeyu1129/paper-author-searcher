@@ -20,6 +20,7 @@ from .pdf_identity import (
 )
 from .pdf_settings import contact_email, redact_contact
 from .pdf_source_requests import SemanticScholarRequests
+from .status import IdentityStatus, ProviderStatus
 
 VERSION_TYPES = {
     'publishedVersion': 'published_version',
@@ -186,7 +187,7 @@ class ExistingPDFProvider:
             except (SourceError, ValueError, TypeError) as exc:
                 result.errors.append(str(exc))
         if result.errors:
-            result.status = 'partial'
+            result.status = ProviderStatus.PARTIAL
         return result
 
 
@@ -201,14 +202,14 @@ class MetadataPDFProvider:
         result = PDFProviderResult(self.name)
         lookups = self.lookups(paper)
         if not lookups:
-            result.status = 'not_applicable'
+            result.status = ProviderStatus.NOT_APPLICABLE
             return result
         for identifier in lookups:
             try:
                 candidates, landing_pages = self.lookup(paper, identifier)
                 result.candidates.extend(candidates)
                 result.landing_pages.extend(landing_pages)
-                result.diagnostics.append({'identifier': identifier, 'status': 'ok'})
+                result.diagnostics.append({'identifier': identifier, 'status': ProviderStatus.OK})
             except (SourceError, ValueError, TypeError) as exc:
                 if getattr(exc, 'error_type', None) == 'source_deferred':
                     result.warnings.append({'code': 'source_deferred', 'incomplete': True, 'identifier': identifier})
@@ -217,7 +218,7 @@ class MetadataPDFProvider:
                 result.diagnostics.append(
                     {
                         'identifier': identifier,
-                        'status': 'error',
+                        'status': ProviderStatus.ERROR,
                         'status_code': getattr(exc, 'status_code', None),
                         'error_type': getattr(exc, 'error_type', 'malformed_response'),
                         'retry_after': getattr(exc, 'retry_after', None),
@@ -225,20 +226,22 @@ class MetadataPDFProvider:
                     }
                 )
         if result.diagnostics and all(item.get('status_code') == 404 for item in result.diagnostics):
-            result.status = 'not_found'
+            result.status = ProviderStatus.NOT_FOUND
         if result.warnings:
-            result.status = 'partial'
+            result.status = ProviderStatus.PARTIAL
         if result.errors:
             failures = [
                 item
                 for item in result.diagnostics
-                if item.get('status') == 'error' and item.get('error_type') != 'not_found'
+                if item.get('status') == ProviderStatus.ERROR and item.get('error_type') != 'not_found'
             ]
             if failures:
-                succeeded = any(item.get('status') == 'ok' for item in result.diagnostics)
-                result.status = 'partial' if succeeded else 'error'
+                succeeded = any(item.get('status') == ProviderStatus.OK for item in result.diagnostics)
+                result.status = ProviderStatus.PARTIAL if succeeded else ProviderStatus.ERROR
             else:
-                result.status = 'ok' if result.candidates or result.landing_pages else 'not_found'
+                result.status = (
+                    ProviderStatus.OK if result.candidates or result.landing_pages else ProviderStatus.NOT_FOUND
+                )
         return result
 
 
@@ -314,7 +317,7 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
         if not self.lookups(paper) or not_indexed:
             self._search_title(paper, result)
         if result.errors and result.diagnostics and all(item.get('status_code') == 404 for item in result.diagnostics):
-            result.status = 'not_found'
+            result.status = ProviderStatus.NOT_FOUND
         return result
 
     def _search_title(self, paper, result):
@@ -328,23 +331,24 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
                         semantic_candidates(paper, work, self.name, self.sources.semantic_scholar_url + '/paper/search')
                     )
             failed = any(
-                item.get('status') == 'error' and item.get('error_type') != 'not_found' for item in result.diagnostics
+                item.get('status') == ProviderStatus.ERROR and item.get('error_type') != 'not_found'
+                for item in result.diagnostics
             )
-            result.status = 'partial' if failed else 'ok'
-            result.diagnostics.append({'lookup_method': 'title_search', 'status': 'ok'})
+            result.status = ProviderStatus.PARTIAL if failed else ProviderStatus.OK
+            result.diagnostics.append({'lookup_method': 'title_search', 'status': ProviderStatus.OK})
         except (SourceError, ValueError, TypeError) as exc:
             if getattr(exc, 'error_type', None) == 'source_deferred':
-                result.status = 'partial'
+                result.status = ProviderStatus.PARTIAL
                 result.warnings.append({'code': 'source_deferred', 'incomplete': True, 'lookup_method': 'title_search'})
             elif getattr(exc, 'status_code', None) == 404:
-                result.status = 'not_found'
+                result.status = ProviderStatus.NOT_FOUND
             else:
-                result.status = 'error'
+                result.status = ProviderStatus.ERROR
                 result.errors.append('Title search: ' + str(exc))
             result.diagnostics.append(
                 {
                     'lookup_method': 'title_search',
-                    'status': 'error',
+                    'status': ProviderStatus.ERROR,
                     'status_code': getattr(exc, 'status_code', None),
                     'error_type': getattr(exc, 'error_type', 'malformed_response'),
                     'retry_after': getattr(exc, 'retry_after', None),
@@ -383,9 +387,11 @@ class UnpaywallPDFProvider(MetadataPDFProvider):
 
     def find(self, paper):
         if self.configuration_error:
-            return PDFProviderResult(self.name, status='disabled', errors=[self.configuration_error])
+            return PDFProviderResult(self.name, status=ProviderStatus.DISABLED, errors=[self.configuration_error])
         if not self.email:
-            return PDFProviderResult(self.name, status='disabled', errors=['Unpaywall requires a real contact email'])
+            return PDFProviderResult(
+                self.name, status=ProviderStatus.DISABLED, errors=['Unpaywall requires a real contact email']
+            )
         result = super().find(paper)
         result.errors = [redact_contact(message, self.email) for message in result.errors]
         return result
@@ -460,7 +466,7 @@ class ArxivPDFProvider:
         identifiers = arxiv_ids(paper)
         search = not identifiers and self.config.arxiv_title_search and bool(paper.get('title'))
         if not identifiers and not search:
-            return PDFProviderResult(self.name, status='not_applicable')
+            return PDFProviderResult(self.name, status=ProviderStatus.NOT_APPLICABLE)
         result = PDFProviderResult(self.name)
         try:
             self._wait_for_interval()
@@ -477,7 +483,7 @@ class ArxivPDFProvider:
                     continue
                 result.candidates.extend(self._entry_candidates(paper, identifiers, entry, search))
         except (SourceError, ValueError, TypeError) as exc:
-            result.status = 'error'
+            result.status = ProviderStatus.ERROR
             result.errors.append(str(exc))
         return result
 
@@ -568,7 +574,7 @@ class LandingPagePDFProvider:
         pages = self._pages(paper)
         urls = list(pages)
         if not urls:
-            result.status = 'not_applicable'
+            result.status = ProviderStatus.NOT_APPLICABLE
             return result
         for url in urls:
             try:
@@ -576,7 +582,7 @@ class LandingPagePDFProvider:
             except (SourceError, ValueError, TypeError) as exc:
                 result.errors.append(f'{url}: {exc}')
         if result.errors:
-            result.status = 'partial' if len(result.errors) < len(urls) else 'error'
+            result.status = ProviderStatus.PARTIAL if len(result.errors) < len(urls) else ProviderStatus.ERROR
         return result
 
     def _pages(self, paper):
@@ -621,7 +627,7 @@ class LandingPagePDFProvider:
         )
         for key in ('citation_title', 'citation_doi'):
             if len(set(values.get(key, []))) > 1:
-                identity = ('unverified', ['Landing page contains multiple paper identities'])
+                identity = (IdentityStatus.UNVERIFIED, ['Landing page contains multiple paper identities'])
         candidates = []
         for pdf_url in pdf_urls:
             candidates.append(

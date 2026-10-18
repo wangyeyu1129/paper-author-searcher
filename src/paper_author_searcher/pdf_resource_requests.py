@@ -7,6 +7,7 @@ from urllib.parse import urldefrag, urlsplit
 
 from .config import DEFAULT_PDF
 from .http import HttpClient, SourceError
+from .status import CacheStatus, RequestOutcome
 
 
 class PublicResourceRequests:
@@ -70,7 +71,11 @@ class PublicResourceRequests:
             self.route_failures.pop(hostname, None)
             return replace(
                 response,
-                request_context={'outcome': 'network_response', 'cache_status': 'miss', 'request_attempted': True},
+                request_context={
+                    'outcome': RequestOutcome.NETWORK_RESPONSE,
+                    'cache_status': CacheStatus.MISS,
+                    'request_attempted': True,
+                },
             )
         except SourceError as exc:
             affected = exc.endpoint_host or hostname
@@ -79,8 +84,8 @@ class PublicResourceRequests:
                 raise
             self.statistics['request_failures'] += 1
             exc.request_context = {
-                'outcome': 'request_failure',
-                'cache_status': 'miss',
+                'outcome': RequestOutcome.REQUEST_FAILURE,
+                'cache_status': CacheStatus.MISS,
                 'request_attempted': True,
                 'endpoint_host': affected,
             }
@@ -108,8 +113,8 @@ class PublicResourceRequests:
             self.statistics[phase] += 1
             error = host['error']
             context = {
-                'outcome': 'cooldown_skip',
-                'cache_status': 'not_queried',
+                'outcome': RequestOutcome.COOLDOWN_SKIP,
+                'cache_status': CacheStatus.NOT_QUERIED,
                 'request_attempted': request_started,
                 'destination_request_attempted': False,
                 'endpoint_host': hostname,
@@ -213,7 +218,11 @@ class PublicResourceRequests:
                 self.cache.move_to_end(key)
                 cached_response = replace(
                     response,
-                    request_context={'outcome': 'cached_response', 'cache_status': 'hit', 'request_attempted': False},
+                    request_context={
+                        'outcome': RequestOutcome.CACHED_RESPONSE,
+                        'cache_status': CacheStatus.HIT,
+                        'request_attempted': False,
+                    },
                 )
                 return self._view(cached_response, maximum_bytes, html_bytes)
             elif isinstance(response, Exception):
@@ -226,8 +235,8 @@ class PublicResourceRequests:
                     response.retry_after,
                     response.endpoint_host,
                     request_context={
-                        'outcome': 'cached_failure',
-                        'cache_status': 'hit',
+                        'outcome': RequestOutcome.CACHED_FAILURE,
+                        'cache_status': CacheStatus.HIT,
                         'request_attempted': False,
                         'endpoint_host': response.endpoint_host,
                     },

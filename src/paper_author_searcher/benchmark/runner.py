@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable, Dict, Iterable, Optional, Protocol, Tuple
 
+from paper_author_searcher.status import RunStatus
 from paper_author_searcher.workflow import read_json, write_json
 
 from .roster import BenchmarkPerson
@@ -17,7 +18,9 @@ logger = logging.getLogger(__name__)
 FULL_MODE = 'full'
 
 INDEX = 'index.json'
-TERMINAL_STATUSES = frozenset({'completed', 'partial', 'identity_confirmation_required', 'failed'})
+TERMINAL_STATUSES = frozenset(
+    {RunStatus.COMPLETED, RunStatus.PARTIAL, RunStatus.IDENTITY_CONFIRMATION_REQUIRED, RunStatus.FAILED}
+)
 
 
 def _now() -> str:
@@ -149,12 +152,12 @@ class BenchmarkRunner:
                 )
                 continue
             self.progress(f'[{position}/{len(people)}] {person.person_id} searching')
-            entry = {'started_at': _now(), 'status': 'running'}
+            entry = {'started_at': _now(), 'status': RunStatus.RUNNING}
             index['people'][person.person_id] = entry
             write_json(index_path, index)
             try:
                 report = self.system.search(person, root / person.person_id)
-                entry['status'] = report.get('run_status', 'failed')
+                entry['status'] = report.get('run_status', RunStatus.FAILED)
                 entry['report'] = str(Path(report['output_directory']).resolve().relative_to(root.resolve()))
                 if report.get('fulltext_report'):
                     entry['fulltext_report'] = str(
@@ -163,12 +166,12 @@ class BenchmarkRunner:
                     entry['fulltext_status'] = report.get('fulltext_status')
                 entry['error_count'] = len(report.get('errors') or [])
             except KeyboardInterrupt:
-                entry['status'] = 'interrupted'
+                entry['status'] = RunStatus.INTERRUPTED
                 write_json(index_path, index)
                 raise
             except Exception as exc:  # one person's failure must not stop the benchmark
                 logger.exception('Benchmark search failed for %s', person.person_id)
-                entry['status'] = 'failed'
+                entry['status'] = RunStatus.FAILED
                 entry['error'] = f'{type(exc).__name__}: {exc}'
             entry['finished_at'] = _now()
             write_json(index_path, index)

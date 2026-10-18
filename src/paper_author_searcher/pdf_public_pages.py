@@ -10,6 +10,7 @@ from .models import PDFProviderResult
 from .pdf_identity import metadata_identity
 from .pdf_providers import CitationMetadata, LandingPagePDFProvider, make_candidate
 from .pdf_resource_requests import PublicResourceRequests
+from .status import IdentityStatus, ProviderStatus, RequestOutcome
 
 
 class PublicLinks(HTMLParser):
@@ -84,7 +85,7 @@ class PublicPagePDFProvider(LandingPagePDFProvider):
         for url in self.config.bibliography_urls:
             pages.setdefault(url, [])
         if not pages:
-            return PDFProviderResult(self.name, status='not_applicable')
+            return PDFProviderResult(self.name, status=ProviderStatus.NOT_APPLICABLE)
         result = PDFProviderResult(self.name)
         visited = set()
         linked_budget = {'requests': 0}
@@ -102,9 +103,9 @@ class PublicPagePDFProvider(LandingPagePDFProvider):
             except (SourceError, ValueError, TypeError) as exc:
                 self._record_failure(result, url, exc)
         if any(item.get('incomplete') for item in result.warnings):
-            result.status = 'partial'
+            result.status = ProviderStatus.PARTIAL
         if result.errors:
-            result.status = 'partial' if result.candidates else 'error'
+            result.status = ProviderStatus.PARTIAL if result.candidates else ProviderStatus.ERROR
         return result
 
     def _probe(self, url):
@@ -118,7 +119,9 @@ class PublicPagePDFProvider(LandingPagePDFProvider):
 
     @staticmethod
     def _record_response(result, url, response):
-        result.diagnostics.append(dict(response.request_context, url=url, context='public_resource', status='ok'))
+        result.diagnostics.append(
+            dict(response.request_context, url=url, context='public_resource', status=ProviderStatus.OK)
+        )
 
     @staticmethod
     def _record_failure(result, url, error):
@@ -131,7 +134,7 @@ class PublicPagePDFProvider(LandingPagePDFProvider):
         result.diagnostics.append(
             {
                 'url': url,
-                'status': 'deferred' if kind == 'source_deferred' else 'error',
+                'status': ProviderStatus.DEFERRED if kind == 'source_deferred' else ProviderStatus.ERROR,
                 'context': 'public_resource',
                 'error_type': kind,
                 'status_code': getattr(error, 'status_code', None),
@@ -194,7 +197,7 @@ class PublicPagePDFProvider(LandingPagePDFProvider):
                         'code': 'linked_page_limit',
                         'url': response.url,
                         'incomplete': True,
-                        'outcome': 'query_budget_exhausted',
+                        'outcome': RequestOutcome.QUERY_BUDGET_EXHAUSTED,
                     }
                 )
                 break
@@ -219,7 +222,10 @@ class PublicPagePDFProvider(LandingPagePDFProvider):
                         make_candidate(
                             child.url,
                             self.name,
-                            ('unverified', ['Bibliography link title alone cannot establish PDF identity']),
+                            (
+                                IdentityStatus.UNVERIFIED,
+                                ['Bibliography link title alone cannot establish PDF identity'],
+                            ),
                             {'metadata_url': response.url, 'link_text': link['text']},
                             'Explicit public bibliography link returned a PDF; correspondence requires confirmation',
                         )

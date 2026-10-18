@@ -22,8 +22,14 @@ from .pdf_file_validation import PDFFileValidator, validation_target
 from .pdf_identity import native_id
 from .pdf_search_status import search_satisfaction
 from .performance_diagnostics import pdf_failure_reasons
+from .status import AttemptStatus, DownloadStatus, FormatStatus, IdentityStatus, OwnershipStatus, PDFValidationStatus
 
 logger = logging.getLogger(__name__)
+
+# Files whose content identity is unconfirmed or contradicted are kept apart from verified downloads.
+REVIEW_FOLDER = 'needs_review'
+QUARANTINE_FOLDER = 'quarantine'
+IDENTITY_FOLDERS = {IdentityStatus.NEEDS_REVIEW: REVIEW_FOLDER, IdentityStatus.REJECTED: QUARANTINE_FOLDER}
 
 
 def paper_key(paper):
@@ -120,10 +126,10 @@ class PDFDownloader:
                 if self._reuse_existing(root, paper, record, previous_by_key.get(record.paper_key, [])):
                     continue
                 if maximum_downloads is not None and attempted >= maximum_downloads:
-                    record.download_status = 'skipped_limit'
+                    record.download_status = DownloadStatus.SKIPPED_LIMIT
                     continue
                 attempted += 1
-                record.download_status = 'downloading'
+                record.download_status = DownloadStatus.DOWNLOADING
                 if progress:
                     progress('Downloading PDFs', attempted, maximum_downloads or len(papers))
                 self._save_manifest(root, results, retained, attempted, False, previous, manifest_path)
@@ -136,8 +142,8 @@ class PDFDownloader:
             complete = True
         except KeyboardInterrupt:
             for record in results:
-                if record.download_status == 'downloading':
-                    record.download_status = 'interrupted'
+                if record.download_status == DownloadStatus.DOWNLOADING:
+                    record.download_status = DownloadStatus.INTERRUPTED
                     record.error_details.append('Interrupted transfer; incomplete files restart from byte zero')
             raise
         finally:
@@ -149,7 +155,7 @@ class PDFDownloader:
         record = PaperDownloadResult(
             key,
             paper.get('title', ''),
-            paper.get('ownership_status', 'needs_review'),
+            paper.get('ownership_status', OwnershipStatus.NEEDS_REVIEW),
             authors=deepcopy(paper.get('authors') or []),
             year=paper.get('year'),
             doi=paper.get('doi'),
@@ -169,16 +175,19 @@ class PDFDownloader:
         return record
 
     def _eligible_candidates(self, paper, record, include_needs_review):
-        allowed = {'verified'}
+        allowed = {OwnershipStatus.VERIFIED}
         if include_needs_review:
-            allowed.add('needs_review')
+            allowed.add(OwnershipStatus.NEEDS_REVIEW)
         if record.ownership_status not in allowed:
-            record.download_status = 'skipped_ownership'
+            record.download_status = DownloadStatus.SKIPPED_OWNERSHIP
             return []
         candidates = []
         seen_urls = set()
         for candidate in paper.get('pdf_candidates') or []:
-            if candidate.get('validation_status') != 'verified' or candidate.get('identity_status') != 'verified':
+            if (
+                candidate.get('validation_status') != PDFValidationStatus.VERIFIED
+                or candidate.get('identity_status') != IdentityStatus.VERIFIED
+            ):
                 continue
             # A previously resolved CDN URL can expire while its original public locator still works.
             for url in (candidate.get('final_url'), candidate.get('url')):
@@ -188,13 +197,13 @@ class PDFDownloader:
         best = paper.get('best_pdf_url')
         candidates.sort(key=lambda candidate: (candidate.get('final_url') or candidate.get('url')) != best)
         if not candidates:
-            record.download_status = 'skipped_unverified_url'
+            record.download_status = DownloadStatus.SKIPPED_UNVERIFIED_URL
         return candidates
 
     def _reuse_existing(self, root, paper, record, entries):
         possible = list(entries)
         filename = paper_filename(paper, self.config)
-        for folder in ('', 'needs_review', 'quarantine'):
+        for folder in ('', REVIEW_FOLDER, QUARANTINE_FOLDER):
             relative = str(PurePosixPath(folder) / filename)
             possible.append({'local_filename': relative})
         seen_paths = set()
@@ -220,7 +229,10 @@ class PDFDownloader:
                     None,
                 )
                 validation = self.validator.validate(path, validation_target(paper, candidate))
-                if validation.format_status != 'valid' or validation.identity_status == 'rejected':
+                if (
+                    validation.format_status != FormatStatus.VALID
+                    or validation.identity_status == IdentityStatus.REJECTED
+                ):
                     continue
                 self._apply_validation(record, validation)
                 record.file_size, record.sha256 = size, digest
@@ -233,7 +245,7 @@ class PDFDownloader:
                 record.access_basis = entry.get('access_basis', '')
                 record.license = entry.get('license')
                 record.pdf_provenance = deepcopy(entry.get('pdf_provenance') or [])
-                record.download_status = 'skipped_existing'
+                record.download_status = DownloadStatus.SKIPPED_EXISTING
                 return True
             except Exception as exc:
                 log_isolated_failure(logger, 'Existing download could not be reused: %s', exc)
@@ -254,11 +266,11 @@ class PDFDownloader:
             record.file_size, record.sha256 = None, None
             record.validation = {}
             record.format_status, record.identity_status = 'not_checked', 'not_checked'
-            record.validation_status = 'not_checked'
+            record.validation_status = PDFValidationStatus.NOT_CHECKED
             attempt = {
                 'url': url,
                 'source': candidate.get('source'),
-                'status': 'started',
+                'status': AttemptStatus.STARTED,
                 'url_validation_status': candidate.get('validation_status'),
                 'provenance': deepcopy(candidate.get('provenance') or []),
             }
@@ -278,7 +290,7 @@ class PDFDownloader:
                 attempt['validation'] = asdict(validation)
                 attempt['file_size'] = receipt.file_size
                 attempt['sha256'] = receipt.sha256
-                if validation.format_status != 'valid':
+                if validation.format_status != FormatStatus.VALID:
                     self._apply_validation(record, validation)
                     record.file_size, record.sha256 = receipt.file_size, receipt.sha256
                     raise ValueError(
@@ -291,20 +303,20 @@ class PDFDownloader:
                     relative = self._store_file(root, temporary, paper, validation.validation_status)
                 known_files.setdefault(receipt.sha256, relative)
                 attempt['local_filename'] = relative
-                if validation.identity_status == 'rejected':
-                    attempt['status'] = 'identity_mismatch'
+                if validation.identity_status == IdentityStatus.REJECTED:
+                    attempt['status'] = AttemptStatus.IDENTITY_MISMATCH
                     rejected = (candidate, receipt, validation, relative, duplicate)
                     continue
                 if validation.document_type in NON_FULL_DOCUMENTS:
-                    attempt['status'] = 'non_full_document'
+                    attempt['status'] = AttemptStatus.NON_FULL_DOCUMENT
                     non_full = (candidate, receipt, validation, relative, duplicate)
                     continue
                 self._record_completed(record, paper, candidate, receipt, validation, relative, duplicate)
-                attempt['status'] = 'completed'
+                attempt['status'] = AttemptStatus.COMPLETED
                 return
             except Exception as exc:
                 log_isolated_failure(logger, 'PDF download attempt failed: %s', exc)
-                attempt['status'] = 'failed'
+                attempt['status'] = AttemptStatus.FAILED
                 attempt['error'] = str(exc)
                 attempt['http_status'] = getattr(exc, 'status_code', None)
                 record.error_details.append(str(exc))
@@ -313,16 +325,16 @@ class PDFDownloader:
                     temporary.unlink()
         if non_full is not None:
             self._record_completed(record, paper, *non_full)
-            record.download_status = 'non_full_document'
+            record.download_status = DownloadStatus.NON_FULL_DOCUMENT
         elif rejected is not None:
             self._record_completed(record, paper, *rejected)
-            record.download_status = 'rejected_content'
+            record.download_status = DownloadStatus.REJECTED_CONTENT
         else:
-            record.download_status = 'failed'
-            if record.format_status == 'invalid':
-                record.validation_status = 'invalid'
-            elif record.format_status == 'unverified':
-                record.validation_status = 'unverified'
+            record.download_status = DownloadStatus.FAILED
+            if record.format_status == FormatStatus.INVALID:
+                record.validation_status = PDFValidationStatus.INVALID
+            elif record.format_status == FormatStatus.UNVERIFIED:
+                record.validation_status = PDFValidationStatus.UNVERIFIED
 
     def _record_completed(self, record, paper, candidate, receipt, validation, relative, duplicate):
         self._apply_validation(record, validation)
@@ -337,7 +349,7 @@ class PDFDownloader:
         record.pdf_provenance = deepcopy(candidate.get('provenance') or [])
         record.local_filename = relative
         record.duplicate_of = duplicate
-        record.download_status = 'duplicate_content' if duplicate else 'downloaded'
+        record.download_status = DownloadStatus.DUPLICATE_CONTENT if duplicate else DownloadStatus.DOWNLOADED
 
     def _apply_validation(self, record, validation):
         record.validation = asdict(validation)
@@ -364,7 +376,7 @@ class PDFDownloader:
         parts = PurePosixPath(relative).parts
         if not parts or len(parts) > 2 or any(part in ('..', '.', '/') for part in parts):
             raise ValueError('Unsafe manifest filename')
-        if len(parts) == 2 and parts[0] not in ('needs_review', 'quarantine'):
+        if len(parts) == 2 and parts[0] not in (REVIEW_FOLDER, QUARANTINE_FOLDER):
             raise ValueError('Unexpected manifest subdirectory')
         path = root.joinpath(*parts)
         if path.is_symlink() or path.parent.is_symlink() or root not in path.resolve().parents:
@@ -372,7 +384,7 @@ class PDFDownloader:
         return path
 
     def _store_file(self, root, temporary, paper, identity_status, filename=None):
-        folder = {'needs_review': 'needs_review', 'rejected': 'quarantine'}.get(identity_status, '')
+        folder = IDENTITY_FOLDERS.get(identity_status, '')
         filename = filename or paper_filename(paper, self.config)
         relative = str(PurePosixPath(folder) / filename)
         destination = self._safe_path(root, relative)
@@ -419,7 +431,7 @@ class PDFDownloader:
                     status = entry.validation_status
                 else:
                     status = entry.get('validation_status')
-                if status != 'verified':
+                if status != PDFValidationStatus.VERIFIED:
                     confirmed = False
                     break
             if not confirmed:
@@ -428,7 +440,9 @@ class PDFDownloader:
             record = next((entry for entry in entries if isinstance(entry, PaperDownloadResult)), None)
             if record is None or not path.is_file():
                 continue
-            new_relative = self._store_file(root, path, {}, 'verified', filename=PurePosixPath(relative).name)
+            new_relative = self._store_file(
+                root, path, {}, IdentityStatus.VERIFIED, filename=PurePosixPath(relative).name
+            )
             for entry in entries:
                 if isinstance(entry, PaperDownloadResult):
                     entry.local_filename = new_relative
@@ -470,16 +484,21 @@ class PDFDownloader:
         statistics = {
             'total_input_papers': len(results),
             'attempted_papers': attempted,
-            'downloaded_files': sum(record.download_status == 'downloaded' for record in results),
-            'verified_papers': sum(record.validation_status == 'verified' for record in results),
+            'downloaded_files': sum(record.download_status == DownloadStatus.DOWNLOADED for record in results),
+            'verified_papers': sum(record.validation_status == PDFValidationStatus.VERIFIED for record in results),
             'needs_review_papers': sum(
-                record.format_status == 'valid' and record.validation_status == 'needs_review' for record in results
+                record.format_status == FormatStatus.VALID
+                and record.validation_status == PDFValidationStatus.NEEDS_REVIEW
+                for record in results
             ),
-            'failed_papers': sum(record.download_status == 'failed' for record in results),
-            'rejected_content_papers': sum(record.download_status == 'rejected_content' for record in results),
+            'failed_papers': sum(record.download_status == DownloadStatus.FAILED for record in results),
+            'rejected_content_papers': sum(
+                record.download_status == DownloadStatus.REJECTED_CONTENT for record in results
+            ),
             'non_full_document_papers': sum(record.document_type in NON_FULL_DOCUMENTS for record in results),
             'full_text_verified_papers': sum(
-                record.document_type in ('full_text', 'preprint') and record.validation_status == 'verified'
+                record.document_type in ('full_text', 'preprint')
+                and record.validation_status == PDFValidationStatus.VERIFIED
                 for record in results
             ),
             'search_sufficiently_satisfied_papers': sum(
@@ -488,10 +507,15 @@ class PDFDownloader:
             'search_satisfaction_unknown_papers': sum(
                 record.search_sufficiently_satisfied is None for record in results
             ),
-            'reused_existing_papers': sum(record.download_status == 'skipped_existing' for record in results),
-            'duplicate_content_papers': sum(record.download_status == 'duplicate_content' for record in results),
+            'reused_existing_papers': sum(
+                record.download_status == DownloadStatus.SKIPPED_EXISTING for record in results
+            ),
+            'duplicate_content_papers': sum(
+                record.download_status == DownloadStatus.DUPLICATE_CONTENT for record in results
+            ),
             'skipped_papers': sum(
-                record.download_status.startswith('skipped_') and record.download_status != 'skipped_existing'
+                record.download_status.startswith('skipped_')
+                and record.download_status != DownloadStatus.SKIPPED_EXISTING
                 for record in results
             ),
         }

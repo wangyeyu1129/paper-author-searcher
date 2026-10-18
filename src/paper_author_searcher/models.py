@@ -1,6 +1,19 @@
 from dataclasses import asdict, dataclass, field
 from typing import Dict, List, Optional
 
+from .status import (
+    AccessStatus,
+    DownloadStatus,
+    FetchStatus,
+    FormatStatus,
+    IdentityStatus,
+    OwnershipStatus,
+    PDFValidationStatus,
+    ProviderStatus,
+    ResolutionStatus,
+    UniversityStatus,
+)
+
 
 @dataclass
 class ProfessorQuery:
@@ -51,7 +64,7 @@ class ProfessorProfile:
     orcid: Optional[str] = None
     research_interests: List[str] = field(default_factory=list)
     university: Optional[str] = None
-    university_status: str = 'unknown'
+    university_status: str = UniversityStatus.UNKNOWN
     match_score: float = 0.0
     requested_university: Optional[str] = None
     matched_affiliations: List[str] = field(default_factory=list)
@@ -93,7 +106,7 @@ class PaperRecord:
     raw_metadata: dict = field(default_factory=dict)
     authors_complete: Optional[bool] = None
     metadata_errors: List[str] = field(default_factory=list)
-    ownership_status: str = 'needs_review'
+    ownership_status: str = OwnershipStatus.NEEDS_REVIEW
     ownership_evidence: List[str] = field(default_factory=list)
     paper_type: str = 'unknown'
     type_evidence: List[str] = field(default_factory=list)
@@ -128,7 +141,7 @@ class PaperCollectionResult:
     complete: bool
     selected_author_ids: Dict[str, List[str]]
     identity_confirmation: str
-    professor_identity_status: str = 'unknown'
+    professor_identity_status: str = ResolutionStatus.UNKNOWN
 
     def to_dict(self, academic_only=False, ownership_statuses=None):
         from .paper_types import ACADEMIC_TYPES
@@ -137,23 +150,23 @@ class PaperCollectionResult:
         # Source records already appear in the deduplicated papers.
         for source in data['sources']:
             records = source.pop('papers')
-            source['ownership_counts'] = {'verified': 0, 'needs_review': 0, 'rejected': 0}
+            source['ownership_counts'] = dict.fromkeys(OwnershipStatus.values(), 0)
             for record in records:
                 source['ownership_counts'][record['ownership_status']] += 1
             if source['pagination_complete']:
                 if source['complete']:
-                    source['fetch_status'] = 'complete'
+                    source['fetch_status'] = FetchStatus.COMPLETE
                 elif source['rejected_records']:
-                    source['fetch_status'] = 'complete_with_parse_issues'
+                    source['fetch_status'] = FetchStatus.COMPLETE_WITH_PARSE_ISSUES
                 else:
-                    source['fetch_status'] = 'complete_with_metadata_issues'
+                    source['fetch_status'] = FetchStatus.COMPLETE_WITH_METADATA_ISSUES
             elif source['records_received']:
-                source['fetch_status'] = 'partial'
+                source['fetch_status'] = FetchStatus.PARTIAL
             else:
-                source['fetch_status'] = 'unavailable'
+                source['fetch_status'] = FetchStatus.UNAVAILABLE
         data['paper_count'] = len(self.papers)
         data['count_scope'] = 'retrieved_metadata_not_total_publications'
-        counts = {'verified': 0, 'needs_review': 0, 'rejected': 0}
+        counts = dict.fromkeys(OwnershipStatus.values(), 0)
         record_counts = dict(counts)
         authorship_counts = {
             'with_author_details': 0,
@@ -184,7 +197,7 @@ class PaperCollectionResult:
             'metadata_enrichment_errors': sum(len(source.metadata_errors) for source in self.sources),
             'unparsed_records': sum(len(source.rejected_records) for source in self.sources),
         }
-        data['verified_paper_count'] = counts['verified']
+        data['verified_paper_count'] = counts[OwnershipStatus.VERIFIED]
         if academic_only or ownership_statuses:
             data['all_papers'] = data['papers']
             visible = []
@@ -206,11 +219,11 @@ class PDFCandidate:
     version_type: str = 'unknown'
     access_basis: str = ''
     license: Optional[str] = None
-    identity_status: str = 'unverified'
+    identity_status: str = IdentityStatus.UNVERIFIED
     identity_evidence: List[str] = field(default_factory=list)
     provenance: List[dict] = field(default_factory=list)
-    access_status: str = 'unknown'
-    validation_status: str = 'unverified'
+    access_status: str = AccessStatus.UNKNOWN
+    validation_status: str = PDFValidationStatus.UNVERIFIED
     final_url: Optional[str] = None
     http_status: Optional[int] = None
     content_type: Optional[str] = None
@@ -226,7 +239,7 @@ class PDFCandidate:
 class PDFProviderResult:
     source: str
     candidates: List[PDFCandidate] = field(default_factory=list)
-    status: str = 'ok'
+    status: str = ProviderStatus.OK
     errors: List[str] = field(default_factory=list)
     landing_pages: List[dict] = field(default_factory=list)
     diagnostics: List[dict] = field(default_factory=list)
@@ -243,8 +256,8 @@ class PaperPDFResult:
     pdf_candidates: List[PDFCandidate] = field(default_factory=list)
     best_pdf_url: Optional[str] = None
     pdf_source: Optional[str] = None
-    access_status: str = 'unknown'
-    validation_status: str = 'not_processed'
+    access_status: str = AccessStatus.UNKNOWN
+    validation_status: str = PDFValidationStatus.NOT_PROCESSED
     version_type: str = 'unknown'
     error_details: List[dict] = field(default_factory=list)
     providers: List[dict] = field(default_factory=list)
@@ -262,9 +275,9 @@ class PaperPDFResult:
 
 @dataclass
 class PDFFileValidation:
-    format_status: str = 'unverified'
-    identity_status: str = 'needs_review'
-    validation_status: str = 'needs_review'
+    format_status: str = FormatStatus.UNVERIFIED
+    identity_status: str = IdentityStatus.NEEDS_REVIEW
+    validation_status: str = PDFValidationStatus.NEEDS_REVIEW
     page_count: int = 0
     extracted_titles: List[str] = field(default_factory=list)
     extracted_dois: List[str] = field(default_factory=list)
@@ -289,10 +302,10 @@ class PaperDownloadResult:
     pdf_url: Optional[str] = None
     final_url: Optional[str] = None
     local_filename: Optional[str] = None
-    download_status: str = 'not_processed'
-    validation_status: str = 'not_checked'
-    format_status: str = 'not_checked'
-    identity_status: str = 'not_checked'
+    download_status: str = DownloadStatus.NOT_PROCESSED
+    validation_status: str = PDFValidationStatus.NOT_CHECKED
+    format_status: str = FormatStatus.NOT_CHECKED
+    identity_status: str = IdentityStatus.NOT_CHECKED
     file_size: Optional[int] = None
     sha256: Optional[str] = None
     version_type: str = 'unknown'

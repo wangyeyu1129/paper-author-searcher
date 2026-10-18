@@ -9,6 +9,7 @@ from . import ProfessorResolver
 from .logging_config import add_logging_arguments, configure_from_arguments
 from .paper_collector import IdentityConfirmationRequired, PaperCollector
 from .paper_reanalysis import reanalyze_saved_result, saved_collection_profile
+from .status import OwnershipStatus, ResolutionStatus
 
 logger = logging.getLogger(__name__)
 
@@ -25,7 +26,7 @@ def summary(result):
             'university': None,
             'author_ids': {},
             'confidence': 0,
-            'status': 'needs_review',
+            'status': ResolutionStatus.NEEDS_REVIEW,
             'evidence': ['No candidate returned'],
             'source_errors': result.source_errors,
         }
@@ -69,7 +70,7 @@ def build_parser():
     parser.add_argument('--select-author', metavar='SOURCE:AUTHOR_ID', help='Manually confirm one candidate ID')
     parser.add_argument('--output', type=Path, help='Save the result as UTF-8 JSON')
     parser.add_argument('--academic-only', action='store_true', help='Filter visible papers; retain full archive')
-    parser.add_argument('--ownership-status', action='append', choices=['verified', 'needs_review', 'rejected'])
+    parser.add_argument('--ownership-status', action='append', choices=OwnershipStatus.values())
     saved_input = parser.add_mutually_exclusive_group()
     saved_input.add_argument('--reanalyze-json', type=Path, help='Re-evaluate a saved result without network calls')
     saved_input.add_argument(
@@ -201,7 +202,7 @@ def main(argv=None):
     if args.verbose:
         output = result.to_dict()
     exit_code = REVIEW_EXIT_CODE
-    if result.profile and result.profile.status == 'resolved':
+    if result.profile and result.profile.status == ResolutionStatus.RESOLVED:
         exit_code = SUCCESS_EXIT_CODE
     if args.list_candidates:
         output['candidates'] = _candidate_summaries(result)

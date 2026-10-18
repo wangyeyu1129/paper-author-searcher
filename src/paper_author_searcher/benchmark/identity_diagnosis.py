@@ -11,6 +11,7 @@ from typing import Callable, Dict, Iterable, List, Optional, Set, Tuple
 from paper_author_searcher.config import DEFAULT_MATCHING
 from paper_author_searcher.http import SourceError
 from paper_author_searcher.matching import canonical_doi, normalize
+from paper_author_searcher.status import UniversityStatus
 
 from .roster import BenchmarkPerson
 
@@ -170,7 +171,7 @@ class IdentityDiagnoser:
         profiles, _groups, errors = self.rank(person.search_input.to_query())
         index = TruthIndex(truth or {})
         start, end = window
-        contenders = [profile for profile in profiles if profile.university_status != 'mismatch']
+        contenders = [profile for profile in profiles if profile.university_status != UniversityStatus.MISMATCH]
         contenders = contenders[: self.maximum_candidates]
         evidence = []
         for profile in contenders:

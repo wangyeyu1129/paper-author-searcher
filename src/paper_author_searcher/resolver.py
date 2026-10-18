@@ -20,6 +20,7 @@ from .matching import (
 )
 from .models import ProfessorProfile, ResolutionResult
 from .providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
+from .status import ResolutionStatus, UniversityStatus
 
 logger = logging.getLogger(__name__)
 
@@ -208,9 +209,9 @@ class ProfessorResolver:
             min(best.identity_confidence, self.config.review_cap),
             self.config.confidence_precision,
         )
-        best.status = 'needs_review'
-        if best.university_status == 'matched':
-            best.status = 'ambiguous'
+        best.status = ResolutionStatus.NEEDS_REVIEW
+        if best.university_status == UniversityStatus.MATCHED:
+            best.status = ResolutionStatus.AMBIGUOUS
         best.evidence.append('Competing identity has a similar score; manual review required')
         reasons = set()
         first_records = self._profile_records(best, groups)
@@ -337,10 +338,10 @@ class ProfessorResolver:
     def _match_score(self, signals):
         config = self.config
         score = config.name_weight * signals.name
-        if signals.university_status == 'matched':
+        if signals.university_status == UniversityStatus.MATCHED:
             score += config.school_weight * signals.school
             score += config.current_school_weight * signals.current_school
-        elif signals.university_status == 'mismatch':
+        elif signals.university_status == UniversityStatus.MISMATCH:
             score -= config.school_mismatch_penalty
         # Missing school information is neutral, not a mismatch.
         score += self._link_bonus(signals.links)
@@ -354,9 +355,9 @@ class ProfessorResolver:
 
     def _evidence(self, query, group, signals):
         evidence = [f'Name similarity: {signals.name:.3f}']
-        if signals.university_status == 'unknown':
+        if signals.university_status == UniversityStatus.UNKNOWN:
             evidence.append('University information missing (neutral); identity unverified')
-        elif signals.university_status == 'mismatch':
+        elif signals.university_status == UniversityStatus.MISMATCH:
             evidence.append('Observed universities do not match requested university')
         else:
             evidence.append(f'University matched: {signals.school:.3f}')
@@ -383,15 +384,15 @@ class ProfessorResolver:
         confidence = match_score
         anchored = bool(signals.anchors) and not signals.orcid_conflict
         # A caller-supplied anchor also covers people whose indexed affiliation is stale or missing.
-        school_ok = signals.university_status == 'matched' or anchored
+        school_ok = signals.university_status == UniversityStatus.MATCHED or anchored
         if signals.name < self.config.compatible_name or not school_ok:
             confidence = min(confidence, self.config.review_cap)
-        status = 'needs_review'
+        status = ResolutionStatus.NEEDS_REVIEW
         university = None
-        if signals.university_status == 'matched':
+        if signals.university_status == UniversityStatus.MATCHED:
             university = query.university
         if school_ok and confidence >= self.config.resolved_confidence:
-            status = 'resolved'
+            status = ResolutionStatus.RESOLVED
         author_ids = {}
         author_id_aliases = {}
         matched_affiliations = []

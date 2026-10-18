@@ -12,6 +12,7 @@ from .models import PaperCollectionResult, PaperSourceResult
 from .paper_deduplication import deduplicate_papers
 from .paper_providers import DBLPPaperProvider, OpenAlexPaperProvider, SemanticScholarPaperProvider
 from .providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
+from .status import OwnershipStatus, ResolutionStatus
 from .workflow import _resolution, read_json, write_json
 
 logger = logging.getLogger(__name__)
@@ -34,20 +35,20 @@ def collect_candidate(profile, providers):
     papers = deduplicate_papers(records)
     for paper in papers:
         evidence = 'Professor identity unconfirmed; candidate-specific diagnostic only'
-        paper.ownership_status = 'needs_review'
+        paper.ownership_status = OwnershipStatus.NEEDS_REVIEW
         paper.ownership_evidence.append(evidence)
         for record in paper.records:
-            record.ownership_status = 'needs_review'
+            record.ownership_status = OwnershipStatus.NEEDS_REVIEW
             record.ownership_evidence.append(evidence)
     identity = deepcopy(profile)
-    identity.status = 'ambiguous'
+    identity.status = ResolutionStatus.AMBIGUOUS
     collection = PaperCollectionResult(
         papers,
         sources,
         bool(sources) and all(source.complete for source in sources),
         {source: [author] for source, author in profile.author_ids.items()},
         'unconfirmed_candidate_diagnostic',
-        'ambiguous',
+        ResolutionStatus.AMBIGUOUS,
     )
     return {
         'schema_version': 1,

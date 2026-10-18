@@ -10,6 +10,7 @@ from paper_author_searcher.config import DEFAULT_MATCHING
 from paper_author_searcher.evaluation_matching import GroundTruth, bibliographic_name_agrees
 from paper_author_searcher.matching import canonical_doi, name_similarity, normalize
 from paper_author_searcher.paper_authorship import byline_forms
+from paper_author_searcher.status import AnnotationState
 
 from .roster import BenchmarkPerson
 from .settings import BenchmarkSettings
@@ -129,7 +130,7 @@ class TruthBuilder:
             'schema_version': 1,
             'complete_positive_list': False,
             'metadata': {
-                'annotation_state': 'pending_human_review',
+                'annotation_state': AnnotationState.PENDING_HUMAN_REVIEW,
                 'reviewer': '',
                 'reviewed_at': '',
                 'person_id': person.person_id,
@@ -250,7 +251,7 @@ class TruthBuilder:
             'evaluation_id': '{}:{}'.format(person.person_id, hashlib.sha256(seed.encode('utf-8')).hexdigest()[:12]),
             'ownership': 'uncertain',
             'proposed_ownership': 'belongs',
-            'annotation_status': 'pending_human_review',
+            'annotation_status': AnnotationState.PENDING_HUMAN_REVIEW,
             'title': main.title,
             'year': _publication_year(group),
             'authors': list(authors),

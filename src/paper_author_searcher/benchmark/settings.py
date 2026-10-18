@@ -6,6 +6,8 @@ from enum import Enum
 from pathlib import Path
 from typing import Dict, Mapping, Optional, Tuple
 
+from paper_author_searcher.config import AmbiguityPolicy
+
 
 class Aggregation(str, Enum):
     MACRO = 'macro'
@@ -57,7 +59,7 @@ class RunSettings:
     verbose: bool = False
     http_cache_dir: Optional[str] = None
     http_cache_mode: Optional[str] = None
-    ambiguity_policy: str = 'collect_contenders'
+    ambiguity_policy: str = AmbiguityPolicy.COLLECT_CONTENDERS
     llm_adjudication: bool = False
     # "minimal": name, university, department only. "with_hints": also the roster's ORCID/homepage/known papers.
     input_profile: str = 'minimal'

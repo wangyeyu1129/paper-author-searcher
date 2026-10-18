@@ -8,6 +8,7 @@ from pathlib import Path
 from .evaluation import Evaluator
 from .evaluation_matching import GroundTruth
 from .logging_config import add_logging_arguments, configure_from_arguments
+from .status import AnnotationState
 
 logger = logging.getLogger(__name__)
 
@@ -30,9 +31,9 @@ def main(argv=None):
                 'use python -m scripts.ground_truth.evaluate_pilot'
             )
         if metadata.get('annotation_state') in (
-            'candidate_collection',
-            'partially_human_reviewed',
-            'review_incomplete',
+            AnnotationState.CANDIDATE_COLLECTION,
+            AnnotationState.PARTIALLY_HUMAN_REVIEWED,
+            AnnotationState.REVIEW_INCOMPLETE,
         ):
             raise ValueError('Ground Truth human review is unfinished; formal Precision/Recall is unavailable')
         truth = GroundTruth.from_dict(truth_data)

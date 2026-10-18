@@ -3,12 +3,12 @@
 import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from .config import CONTENDER_STATUS
 from .logging_config import log_isolated_failure
 from .models import PaperCollectionResult, PaperSourceResult
 from .paper_deduplication import deduplicate_papers
 from .paper_ownership import PaperOwnershipValidator
 from .paper_providers import DBLPPaperProvider, OpenAlexPaperProvider, SemanticScholarPaperProvider
+from .status import OwnershipStatus, ResolutionStatus
 
 logger = logging.getLogger(__name__)
 
@@ -22,8 +22,8 @@ def hold_for_review(papers, contenders):
     note = f'Identity unconfirmed: collected from {contenders} competing profiles; verification withheld'
     for paper in papers:
         for record in [paper, *list(paper.records)]:
-            if record.ownership_status == 'verified':
-                record.ownership_status = 'needs_review'
+            if record.ownership_status == OwnershipStatus.VERIFIED:
+                record.ownership_status = OwnershipStatus.NEEDS_REVIEW
                 record.ownership_evidence = [*list(record.ownership_evidence), note]
 
 
@@ -47,7 +47,7 @@ class PaperCollector:
                 raise IdentityConfirmationRequired('Selected Author ID is not in this candidate')
             # Manual confirmation applies to this ID only, never competing candidates.
             return {source: [author_id]}, 'manual_author_id'
-        if profile.status not in ('resolved', CONTENDER_STATUS):
+        if profile.status not in (ResolutionStatus.RESOLVED, ResolutionStatus.AMBIGUOUS_CONTENDERS):
             raise IdentityConfirmationRequired('Select an Author ID before collecting an unconfirmed identity')
         selected = {}
         for source, author_id in profile.author_ids.items():
@@ -55,8 +55,8 @@ class PaperCollector:
             selected[source] = sorted({*aliases, author_id})
         if not selected:
             raise IdentityConfirmationRequired('No confirmed Author IDs available')
-        if profile.status == CONTENDER_STATUS:
-            return selected, CONTENDER_STATUS
+        if profile.status == ResolutionStatus.AMBIGUOUS_CONTENDERS:
+            return selected, ResolutionStatus.AMBIGUOUS_CONTENDERS
         return selected, 'resolver_resolved'
 
     def collect(self, profile, selected_author=None, progress=None):
@@ -109,7 +109,7 @@ class PaperCollector:
         if progress:
             progress('Validating ownership', len(papers), len(papers))
         self.ownership_validator.validate(papers, profile)
-        if confirmation == CONTENDER_STATUS:
+        if confirmation == ResolutionStatus.AMBIGUOUS_CONTENDERS:
             hold_for_review(papers, len(selected.get('openalex', [])) or sum(map(len, selected.values())))
         return PaperCollectionResult(
             papers=papers,

@@ -3,6 +3,8 @@
 from dataclasses import dataclass
 from typing import Optional, Tuple
 
+from .status import StrEnum
+
 
 @dataclass(frozen=True)
 class MatchingConfig:
@@ -97,8 +99,12 @@ DEFAULT_HTTP = HttpConfig()
 DEFAULT_SOURCES = SourceConfig()
 
 
-AMBIGUITY_POLICIES = ('stop', 'collect_contenders')
-CONTENDER_STATUS = 'ambiguous_contenders'
+class AmbiguityPolicy(StrEnum):
+    STOP = 'stop'
+    COLLECT_CONTENDERS = 'collect_contenders'
+
+
+AMBIGUITY_POLICIES = AmbiguityPolicy.values()
 
 
 @dataclass(frozen=True)

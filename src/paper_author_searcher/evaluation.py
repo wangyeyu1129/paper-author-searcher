@@ -3,8 +3,9 @@
 from dataclasses import asdict
 
 from .evaluation_matching import GroundTruth, GroundTruthMatcher, metadata_key, stable_identifiers
+from .status import OwnershipStatus, ResolutionStatus
 
-STATUSES = ('verified', 'needs_review', 'rejected')
+STATUSES = (OwnershipStatus.VERIFIED, OwnershipStatus.NEEDS_REVIEW, OwnershipStatus.REJECTED)
 
 
 def _ratio(numerator, denominator):
@@ -103,7 +104,7 @@ class Evaluator:
             )
         false_positives = self._false_positives(matches, negatives)
         missing_candidates = positives - all_ids
-        missing_verified = positives - sets['verified']
+        missing_verified = positives - sets[OwnershipStatus.VERIFIED]
         conflicts = []
         for evaluation_id in all_ids:
             statuses = [status for status in STATUSES if evaluation_id in sets[status]]
@@ -120,17 +121,20 @@ class Evaluator:
                 'uncertain_publications': len(ground_truth.papers) - len(positives) - explicit_negative_count,
                 'metadata': ground_truth.metadata,
             },
-            'ownership': status_metrics['verified'],
+            'ownership': status_metrics[OwnershipStatus.VERIFIED],
             'all_candidates': _metrics(all_ids & positives, all_ids & negatives, len(positives)),
             'by_status': status_metrics,
             'rejection_precision': _ratio(
-                len(sets['rejected'] & negatives), len(sets['rejected'] & (positives | negatives))
+                len(sets[OwnershipStatus.REJECTED] & negatives),
+                len(sets[OwnershipStatus.REJECTED] & (positives | negatives)),
             ),
             'deduplication': self._deduplication(matches),
             'false_positives': false_positives,
             'false_negatives': {
                 'all_candidates': self._false_negatives(missing_candidates, matches, matcher, 'all_candidates'),
-                'verified': self._false_negatives(missing_verified, matches, matcher, 'verified'),
+                OwnershipStatus.VERIFIED: self._false_negatives(
+                    missing_verified, matches, matcher, OwnershipStatus.VERIFIED
+                ),
             },
             'manual_confirmation': review,
             'judgment_coverage': {
@@ -183,7 +187,7 @@ class Evaluator:
             records = paper.get('records') or [paper]
             if not isinstance(records, list) or not all(isinstance(record, dict) for record in records):
                 raise ValueError('Paper records must be a list of objects')
-            status = paper.get('ownership_status', 'needs_review')
+            status = paper.get('ownership_status', OwnershipStatus.NEEDS_REVIEW)
             if status not in STATUSES:
                 raise ValueError('Unknown ownership_status: ' + str(status))
             summary = _paper_summary(paper, index)
@@ -224,12 +228,15 @@ class Evaluator:
                 'inferred_negative': inferred_negative,
             }
             entries.append(entry)
-            if status == 'needs_review' or concerns:
+            if status == OwnershipStatus.NEEDS_REVIEW or concerns:
                 review.append(
                     {
                         **summary,
                         'reasons': sorted(
-                            set(concerns + (['Ownership validator abstained'] if status == 'needs_review' else []))
+                            set(
+                                concerns
+                                + (['Ownership validator abstained'] if status == OwnershipStatus.NEEDS_REVIEW else [])
+                            )
                         ),
                         'ground_truth_matches': record_matches,
                     }
@@ -240,7 +247,7 @@ class Evaluator:
     def _false_positives(entries, negatives):
         output = []
         for entry in entries:
-            if entry['status'] != 'verified':
+            if entry['status'] != OwnershipStatus.VERIFIED:
                 continue
             wrong = entry['judged_ids'] & negatives
             if entry['inferred_negative']:
@@ -268,7 +275,7 @@ class Evaluator:
                     if evaluation_id in record['match']['candidates'] and record['match']['evaluation_id'] is None:
                         unresolved.append({'entry_index': entry['summary']['entry_index'], **record})
             reason = 'No confirmed retrieval match'
-            if retrieved and scope == 'verified':
+            if retrieved and scope == OwnershipStatus.VERIFIED:
                 reason = 'Retrieved but not classified verified'
             output.append(
                 {
@@ -380,6 +387,6 @@ class Evaluator:
             'top_identity_confirmed': confirmed,
             'orcid_agreement': orcid_agreement,
             'candidate_author_id_recall': _ratio(candidate_correct, total_expected),
-            'auto_accepted_correct': confirmed if profile.get('status') == 'resolved' else None,
+            'auto_accepted_correct': confirmed if profile.get('status') == ResolutionStatus.RESOLVED else None,
             'evidence': profile.get('evidence') or [],
         }

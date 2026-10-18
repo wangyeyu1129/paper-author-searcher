@@ -10,6 +10,7 @@ from .matching import normalize
 from .models import PDFProviderResult
 from .pdf_identity import source_records
 from .pdf_providers import LandingPagePDFProvider, openalex_locations
+from .status import ProviderStatus
 
 
 class CatalogLinks(HTMLParser):
@@ -65,7 +66,7 @@ class JournalCatalogPDFProvider(LandingPagePDFProvider):
         venues = self._venues(paper)
         catalogs = [url for venue, url in self.config.journal_catalogs if normalize(venue) in venues]
         if not catalogs or paper.get('year') is None:
-            return PDFProviderResult(self.name, status='not_applicable')
+            return PDFProviderResult(self.name, status=ProviderStatus.NOT_APPLICABLE)
         result = PDFProviderResult(self.name)
         for catalog in catalogs:
             try:
@@ -86,7 +87,7 @@ class JournalCatalogPDFProvider(LandingPagePDFProvider):
             except (SourceError, ValueError, TypeError) as exc:
                 result.errors.append(f'{catalog}: {exc}')
         if result.errors:
-            result.status = 'partial' if result.candidates else 'error'
+            result.status = ProviderStatus.PARTIAL if result.candidates else ProviderStatus.ERROR
         return result
 
     @staticmethod

@@ -9,14 +9,15 @@ from typing import Dict, List, Optional
 
 from paper_author_searcher.evaluation_matching import LABELS, GroundTruth, GroundTruthMatcher
 from paper_author_searcher.matching import canonical_doi, normalize
+from paper_author_searcher.status import AnnotationState, OwnershipStatus
 
 from .truth_sources import clean_arxiv, clean_doi, parse_year
 
 SUGGESTION_FLAG = 'suggested_by_system_not_in_truth'
 # Reviews by people certify truth; an assistant's review is recorded separately and never certifies a release.
-REVIEW_STATES = ('human_reviewed', 'assistant_reviewed')
+REVIEW_STATES = (AnnotationState.HUMAN_REVIEWED, AnnotationState.ASSISTANT_REVIEWED)
 SAME_AS = 'same_as:'
-STATUS_ORDER = {'verified': 0, 'needs_review': 1, 'rejected': 2}
+STATUS_ORDER = {OwnershipStatus.VERIFIED: 0, OwnershipStatus.NEEDS_REVIEW: 1, OwnershipStatus.REJECTED: 2}
 COLUMNS = (
     'row_kind',
     'evaluation_id',
@@ -38,7 +39,7 @@ LIST_SEPARATOR = '; '
 
 
 def system_suggestions(
-    collection: dict, truth: dict, window, run_id: str, limit: int, statuses=('verified',)
+    collection: dict, truth: dict, window, run_id: str, limit: int, statuses=(OwnershipStatus.VERIFIED,)
 ) -> List[dict]:
     """Papers the search system collected in the window that match no truth entry: leads for completing the list.
 
@@ -53,7 +54,7 @@ def system_suggestions(
         if paper.get('year') is None or not start <= paper['year'] <= end:
             continue
         # By default only verified output: it is what precision is scored on, so it is what needs a label.
-        if statuses and paper.get('ownership_status', 'needs_review') not in statuses:
+        if statuses and paper.get('ownership_status', OwnershipStatus.NEEDS_REVIEW) not in statuses:
             continue
         if any(matcher.match(record).decision != 'unmatched' for record in records):
             continue
@@ -66,7 +67,7 @@ def system_suggestions(
             for namespace, value in (record.get('external_ids') or {}).items():
                 if namespace.lower() == 'arxiv' and value:
                     external.setdefault('arxiv', str(value))
-        status = paper.get('ownership_status', 'needs_review')
+        status = paper.get('ownership_status', OwnershipStatus.NEEDS_REVIEW)
         rows.append(
             {
                 'row_kind': 'system_suggestion',
@@ -98,7 +99,7 @@ def export_review(truth: dict, path: Path, suggestions: Optional[List[dict]] = N
         writer = csv.DictWriter(handle, COLUMNS)
         writer.writeheader()
         for paper in truth['papers']:
-            decided = paper['ownership'] if paper.get('annotation_status') == 'human_reviewed' else ''
+            decided = paper['ownership'] if paper.get('annotation_status') == AnnotationState.HUMAN_REVIEWED else ''
             writer.writerow(
                 {
                     'row_kind': 'truth',
@@ -189,7 +190,7 @@ def import_review(
     complete_positive_list: bool,
     reviewed_at: Optional[str] = None,
     allow_pending: bool = False,
-    review_state: str = 'human_reviewed',
+    review_state: str = AnnotationState.HUMAN_REVIEWED,
 ) -> dict:
     if not reviewer.strip():
         raise ValueError('A reviewer name is required')
@@ -237,7 +238,7 @@ def import_review(
     complete = not pending
     reviewed['metadata'].update(
         {
-            'annotation_state': review_state if complete else 'pending_human_review',
+            'annotation_state': review_state if complete else AnnotationState.PENDING_HUMAN_REVIEW,
             'reviewer': reviewer.strip() if complete else '',
             'reviewed_at': (reviewed_at or date.today().isoformat()) if complete else '',
             'review_progress': {'decided': len(reviewed['papers']) - len(pending), 'pending': len(pending)},
