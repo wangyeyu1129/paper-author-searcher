@@ -52,6 +52,7 @@ def saved_collection_profile(data):
         requested_university=identity.get('requested_university'),
         matched_affiliations=identity.get('matched_affiliations') or [],
         match_score=identity.get('match_score', 0), research_interests=identity.get('research_interests') or [],
+        identity_anchors=identity.get('identity_anchors') or [],
     )
 
 

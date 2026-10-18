@@ -101,6 +101,91 @@ class OwnershipTests(unittest.TestCase):
         self.assertEqual({p.ownership_status for p in validate(records)}, {'needs_review'})
 
 
+def merged_profile(anchors=True):
+    """Split identity: two OpenAlex and two Semantic Scholar fragments, one per source merged without an anchor."""
+    value = replace(
+        profile(), orcid='fragment-a-orcid', matched_affiliations=['Example University'],
+        author_id_aliases={'openalex': ['author-a', 'author-a2'], 'semantic_scholar': ['author-b', 'author-b2']},
+    )
+    if anchors:
+        value.identity_anchors = ['openalex author-a2: author of arXiv 2501.00001',
+                                  'semantic_scholar author-b2: author of ARXIV:2501.00001']
+    return value
+
+
+def fragment_record(source, author_id, title='Fragment study', doi='10.example/fragment', orcid=None,
+                    scope='resolved_author', institutions=None, coauthors=('Jane Smith', 'John Green')):
+    return PaperRecord(
+        title=title, authors=['Alex Morgan'] + list(coauthors), year=2024, doi=doi, venue='Example Journal',
+        abstract=None, source=source, source_paper_id=source + ':' + title, source_author_id=author_id,
+        paper_url=None, publication_type='article',
+        author_details=[{'author_id': author_id, 'name': 'Alex Morgan', 'orcid': orcid, 'orcid_scope': scope,
+                         'institutions': [{'display_name': name} for name in institutions or []]}],
+    )
+
+
+class MergedIdentityOwnershipTests(unittest.TestCase):
+    def check(self, records, anchors=True):
+        return PaperOwnershipValidator().validate(deduplicate_papers(records), merged_profile(anchors))
+
+    def test_author_profile_orcid_of_another_fragment_is_not_paper_evidence(self):
+        record = fragment_record('openalex', 'author-a2', orcid='fragment-a2-orcid',
+                                 institutions=['Example University'])
+        paper = self.check([record])[0]
+        self.assertEqual(paper.ownership_status, 'verified')
+        self.assertIn('Author-profile ORCID differs from the identity ORCID; not paper-level evidence',
+                      record.ownership_evidence)
+
+    def test_author_profile_orcid_mismatch_alone_does_not_verify(self):
+        record = fragment_record('openalex', 'author-a2', orcid='fragment-a2-orcid')
+        self.assertEqual(self.check([record])[0].ownership_status, 'needs_review')
+
+    def test_paper_level_orcid_conflict_still_rejects_merged_fragment(self):
+        record = fragment_record('openalex', 'author-a2', orcid='someone-else', scope='paper_authorship',
+                                 institutions=['Example University'])
+        self.assertEqual(self.check([record])[0].ownership_status, 'rejected')
+
+    def test_unscoped_orcid_conflict_still_rejects(self):
+        record = fragment_record('openalex', 'author-a2', orcid='someone-else', scope=None,
+                                 institutions=['Example University'])
+        self.assertEqual(self.check([record])[0].ownership_status, 'rejected')
+
+    def test_anchored_fragments_corroborate_across_sources(self):
+        papers = self.check([fragment_record('openalex', 'author-a2', orcid='fragment-a2-orcid'),
+                             fragment_record('semantic_scholar', 'author-b2', scope='author_profile')])
+        self.assertEqual(len(papers), 1)
+        self.assertEqual(papers[0].ownership_status, 'verified')
+
+    def test_unanchored_merged_fragment_cannot_corroborate_when_anchors_exist(self):
+        # author-b is the representative Semantic Scholar ID but was merged without an anchor of its own.
+        papers = self.check([fragment_record('openalex', 'author-a2', orcid='fragment-a2-orcid'),
+                             fragment_record('semantic_scholar', 'author-b', scope='author_profile')])
+        self.assertEqual(papers[0].ownership_status, 'needs_review')
+
+    def test_without_anchors_every_selected_fragment_corroborates(self):
+        papers = self.check([fragment_record('openalex', 'author-a2', orcid='fragment-a2-orcid'),
+                             fragment_record('semantic_scholar', 'author-b', scope='author_profile')],
+                            anchors=False)
+        self.assertEqual(papers[0].ownership_status, 'verified')
+
+    def test_unanchored_fragment_still_verifies_with_paper_level_institution(self):
+        record = fragment_record('semantic_scholar', 'author-b', scope='paper_authorship',
+                                 institutions=['Example University'])
+        self.assertEqual(self.check([record])[0].ownership_status, 'verified')
+
+    def test_coauthor_seeds_from_one_fragment_verify_another(self):
+        seeds = [fragment_record('openalex', 'author-a', title='Seed ' + str(index), doi='10.example/seed' + str(index),
+                                 orcid='fragment-a-orcid', institutions=['Example University'])
+                 for index in range(2)]
+        target = fragment_record('openalex', 'author-a2', title='Older study', doi='10.example/older',
+                                 orcid='fragment-a2-orcid')
+        papers = self.check(seeds + [target])
+        older = next(paper for paper in papers if paper.title == 'Older study')
+        self.assertEqual(older.ownership_status, 'verified')
+        self.assertTrue(any('recurring independently verified coauthors' in message
+                            for message in target.ownership_evidence))
+
+
 class DeduplicationTests(unittest.TestCase):
     def test_one_doi_and_one_no_doi_can_merge(self):
         papers = deduplicate_papers([record(), record('semantic_scholar', doi=None, publication_type='JournalArticle')])
