@@ -1,10 +1,14 @@
 """Compare saved stages; this evaluation command never requests scholarly APIs."""
 
 import argparse
+import logging
 from pathlib import Path
 
+from .logging_config import add_logging_arguments, configure_from_arguments
 from .performance_evaluation import PerformanceEvaluator, compare_performance
 from .workflow import read_json, write_json
+
+logger = logging.getLogger(__name__)
 
 
 def main(argv=None):
@@ -18,7 +22,9 @@ def main(argv=None):
     )
     parser.add_argument('--before', type=Path, help='Previous performance report with the identical reference set')
     parser.add_argument('--output', type=Path, required=True)
+    add_logging_arguments(parser)
     args = parser.parse_args(argv)
+    configure_from_arguments(args)
     inputs = [
         path for path in (args.collection, args.ground_truth, args.pdf_report, args.manifest, args.before) if path
     ]

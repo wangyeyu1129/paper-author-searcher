@@ -1,14 +1,18 @@
 """Author-ID scoped metadata adapters; reuse resolver clients and configuration."""
 
+import logging
 import xml.etree.ElementTree as ET
 from typing import Protocol
 
 from .config import DEFAULT_COLLECTION
 from .http import SourceError
+from .logging_config import log_isolated_failure
 from .matching import canonical_doi
 from .models import PaperRecord, PaperSourceResult
 from .paper_authorship import canonical_author_id, target_membership
 from .providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
+
+logger = logging.getLogger(__name__)
 
 
 class PaperProvider(Protocol):
@@ -73,6 +77,7 @@ class PagedPaperProvider:
             result.pagination_complete = True
             result.complete = not result.rejected_records and not result.metadata_errors
         except Exception as exc:
+            log_isolated_failure(logger, '%s paper collection failed for author %s: %s', self.name, author_id, exc)
             result.error = str(exc)
         return result
 
@@ -208,6 +213,7 @@ class OpenAlexPaperProvider(PagedPaperProvider):
             values['_list_response'] = item
             return values, []
         except Exception as exc:
+            log_isolated_failure(logger, 'OpenAlex authorship expansion failed: %s', exc)
             return item, ['OpenAlex authorship expansion failed: ' + str(exc)]
 
 
@@ -235,6 +241,9 @@ class SemanticScholarPaperProvider(PagedPaperProvider):
                 raise SourceError('Author identity metadata ID mismatch')
             self._attach_identity(result.papers, author_id, metadata)
         except Exception as exc:
+            log_isolated_failure(
+                logger, 'Semantic Scholar identity enrichment failed for author %s: %s', author_id, exc
+            )
             error = 'Semantic Scholar author identity enrichment failed: ' + str(exc)
             result.metadata_errors.append({'author_id': author_id, 'error': error})
             for paper in result.papers:
@@ -360,6 +369,7 @@ class DBLPPaperProvider:
             result.pagination_complete = True
             result.complete = not result.rejected_records
         except Exception as exc:
+            log_isolated_failure(logger, '%s paper collection failed for author %s: %s', self.name, author_id, exc)
             result.error = str(exc)
         return result
 

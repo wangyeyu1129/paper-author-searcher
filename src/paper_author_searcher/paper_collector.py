@@ -1,12 +1,16 @@
 """Confirmed identity selection and conservative, traceable metadata deduplication."""
 
+import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from .config import CONTENDER_STATUS
+from .logging_config import log_isolated_failure
 from .models import PaperCollectionResult, PaperSourceResult
 from .paper_deduplication import deduplicate_papers
 from .paper_ownership import PaperOwnershipValidator
 from .paper_providers import DBLPPaperProvider, OpenAlexPaperProvider, SemanticScholarPaperProvider
+
+logger = logging.getLogger(__name__)
 
 
 class IdentityConfirmationRequired(ValueError):
@@ -92,6 +96,7 @@ class PaperCollector:
                 try:
                     sources.append(future.result())
                 except Exception as exc:
+                    log_isolated_failure(logger, 'Paper source %s failed for author %s: %s', source, author_id, exc)
                     sources.append(PaperSourceResult(source=source, author_id=author_id, error=str(exc)))
         sources.sort(key=lambda result: (result.source, result.author_id or ''))
         records = []

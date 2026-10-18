@@ -1,5 +1,6 @@
 """Collect candidates, group verified identities, and rank against the query."""
 
+import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from itertools import combinations
@@ -9,6 +10,7 @@ from .config import DEFAULT_MATCHING
 from .identity import IdentityLink, compare_identity
 from .identity_adjudication import accepted
 from .identity_anchors import IdentityAnchors, ScholarlyAnchorFinder
+from .logging_config import log_isolated_failure
 from .matching import (
     best_similarity,
     canonical_orcid,
@@ -18,6 +20,8 @@ from .matching import (
 )
 from .models import ProfessorProfile, ResolutionResult
 from .providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -105,6 +109,7 @@ class ProfessorResolver:
                 try:
                     added.append(lookup(author_id))
                 except Exception as exc:
+                    log_isolated_failure(logger, 'Anchor lookup %s:%s failed: %s', provider.name, author_id, exc)
                     errors.setdefault(provider.name, str(exc))
         return added
 
@@ -155,6 +160,7 @@ class ProfessorResolver:
                     if warnings:
                         errors[source] = '; '.join(sorted(warnings))
                 except Exception as exc:
+                    log_isolated_failure(logger, 'Identity source %s failed: %s', source, exc)
                     # Isolate source failures so available evidence is preserved.
                     errors[source] = str(exc)
         records.sort(key=lambda candidate: (candidate.source, candidate.author_id))

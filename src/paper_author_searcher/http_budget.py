@@ -3,12 +3,15 @@
 Place it inside the response cache (cache -> budget -> client) so cached replays cost nothing.
 """
 
+import logging
 import threading
 from dataclasses import dataclass, field
 from typing import Dict, Optional
 from urllib.parse import urlsplit
 
 from .http import SourceError
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True)
@@ -50,6 +53,12 @@ class CostLedger:
         with self.lock:
             if self.spent_usd + cost > self.maximum_cost_usd + 1e-12:
                 self.refused += 1
+                logger.warning(
+                    'API budget of $%.2f reached; refused a %s request (%d refused so far)',
+                    self.maximum_cost_usd,
+                    kind,
+                    self.refused,
+                )
                 raise BudgetExceeded(
                     f'Run budget of ${self.maximum_cost_usd:.2f} reached (spent '
                     f'${self.spent_usd:.4f}); request not sent'

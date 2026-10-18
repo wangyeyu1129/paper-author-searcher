@@ -1,14 +1,18 @@
 """Offline, checksum-checked content revalidation without altering saved files."""
 
 import argparse
+import logging
 from collections import Counter
 from dataclasses import asdict
 from pathlib import Path
 
+from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_downloader import paper_key
 from .pdf_file_validation import PDFFileValidator, validation_target
 from .performance_evaluation import _check_file
 from .workflow import read_json, write_json
+
+logger = logging.getLogger(__name__)
 
 
 def _selected_candidate(paper, saved):
@@ -97,7 +101,9 @@ def main(argv=None):
     parser.add_argument('--pdf-report', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--only-needs-review', action='store_true')
+    add_logging_arguments(parser)
     args = parser.parse_args(argv)
+    configure_from_arguments(args)
     if args.output.resolve() in {args.manifest.resolve(), args.pdf_report.resolve()}:
         parser.error('Output must differ from saved inputs')
     try:

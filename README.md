@@ -64,6 +64,15 @@ OpenAlex 默认搜索 25 个候选，并为最多 8 个姓名兼容候选查询�
 
 若 Python 缺少系统 CA 配置，且 `/etc/ssl/cert.pem` 包含可信 CA，可设置 `SSL_CERT_FILE=/etc/ssl/cert.pem`。
 
+## 日志
+
+命令结果写到 stdout，诊断信息（进度、重试、限流、预算拒绝、被隔离的来源失败）通过 `logging` 写到 stderr，管道输出不会被污染。所有命令都支持：
+
+- `--log-level {DEBUG,INFO,WARNING,ERROR}`，默认读 `$PAPER_SEARCH_LOG_LEVEL`，否则为 `INFO`；`DEBUG` 时被隔离的失败会附带 traceback。
+- `--log-format {text,json}`，默认读 `$PAPER_SEARCH_LOG_FORMAT`；`json` 每行一个对象，便于日志采集。
+
+作为库嵌入时，包只挂 `NullHandler`，由宿主应用决定日志配置。
+
 ## 测试
 
 ```bash

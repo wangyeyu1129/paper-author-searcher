@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import logging
 import os
 import re
 import tempfile
@@ -13,6 +14,7 @@ from pathlib import Path, PurePosixPath
 
 from .config import DEFAULT_DOWNLOAD
 from .http import HttpClient
+from .logging_config import log_isolated_failure
 from .matching import canonical_doi, normalize
 from .models import PaperDownloadResult
 from .pdf_document_types import NON_FULL_DOCUMENTS
@@ -20,6 +22,8 @@ from .pdf_file_validation import PDFFileValidator, validation_target
 from .pdf_identity import native_id
 from .pdf_search_status import search_satisfaction
 from .performance_diagnostics import pdf_failure_reasons
+
+logger = logging.getLogger(__name__)
 
 
 def paper_key(paper):
@@ -232,6 +236,7 @@ class PDFDownloader:
                 record.download_status = 'skipped_existing'
                 return True
             except Exception as exc:
+                log_isolated_failure(logger, 'Existing download could not be reused: %s', exc)
                 record.error_details.append(str(exc))
         return False
 
@@ -298,6 +303,7 @@ class PDFDownloader:
                 attempt['status'] = 'completed'
                 return
             except Exception as exc:
+                log_isolated_failure(logger, 'PDF download attempt failed: %s', exc)
                 attempt['status'] = 'failed'
                 attempt['error'] = str(exc)
                 attempt['http_status'] = getattr(exc, 'status_code', None)

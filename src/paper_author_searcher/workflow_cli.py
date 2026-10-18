@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import logging
 import math
 from dataclasses import replace
 from pathlib import Path
@@ -11,6 +12,7 @@ from .http import HttpClient
 from .http_budget import budgeted_client
 from .http_cache import cached_client
 from .identity_anchors import ScholarlyAnchorFinder
+from .logging_config import add_logging_arguments, configure_from_arguments
 from .models import ProfessorQuery
 from .paper_collector import PaperCollector
 from .paper_providers import DBLPPaperProvider, OpenAlexPaperProvider, SemanticScholarPaperProvider
@@ -19,6 +21,8 @@ from .pdf_settings import contact_email
 from .providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
 from .resolver import ProfessorResolver
 from .workflow import MODES, PaperSearchWorkflow, load_checkpoint
+
+logger = logging.getLogger(__name__)
 
 
 def add_hint_arguments(parser):
@@ -92,7 +96,9 @@ def add_workflow_arguments(parser):
     )
 
 
-class ProgressPrinter:
+class ProgressReporter:
+    """Logs stage changes and every 10% of progress (every step when verbose)."""
+
     def __init__(self, verbose=False):
         self.verbose = verbose
         self.stage = None
@@ -103,7 +109,7 @@ class ProgressPrinter:
         bucket = int(10 * completed / total) if completed is not None and total else -1
         if new_stage or self.verbose or bucket > self.bucket:
             suffix = f' [{completed}/{total}]' if completed is not None else ''
-            print(stage + suffix, flush=True)
+            logger.info('%s%s', stage, suffix)
         self.stage = stage
         self.bucket = bucket
 
@@ -204,7 +210,7 @@ def build_workflow(args):
             config=replace(DEFAULT_PDF, bibliography_urls=tuple(args.bibliography_url)),
         ),
         downloader=downloader,
-        progress=ProgressPrinter(args.verbose),
+        progress=ProgressReporter(args.verbose),
         collection_config=collection_config,
     )
 
@@ -261,7 +267,7 @@ def run_arguments(parser, args):
             resume_dir=args.resume_dir,
         )
     except KeyboardInterrupt:
-        print('Interrupted. Use the saved report and --resume-dir to continue.')
+        logger.warning('Interrupted. Use the saved report and --resume-dir to continue.')
         return 130
     except (OSError, ValueError, RuntimeError) as exc:
         parser.error(str(exc))
@@ -297,10 +303,10 @@ def run_arguments(parser, args):
         )
     missing = report.get('metadata_audit', {}).get('missing_input_fields', {})
     if missing.get('year') or missing.get('authors'):
-        print(
-            'Missing input metadata: year={}, authors={} (no values invented)'.format(
-                missing.get('year', 0), missing.get('authors', 0)
-            )
+        logger.warning(
+            'Missing input metadata: year=%s, authors=%s (no values invented)',
+            missing.get('year', 0),
+            missing.get('authors', 0),
         )
     if args.verbose:
         print(json.dumps(report, ensure_ascii=False, indent=2))
@@ -323,7 +329,10 @@ def main(argv=None):
     parser.add_argument('--verbose', action='store_true')
     add_hint_arguments(parser)
     add_workflow_arguments(parser)
-    return run_arguments(parser, parser.parse_args(argv))
+    add_logging_arguments(parser)
+    args = parser.parse_args(argv)
+    configure_from_arguments(args)
+    return run_arguments(parser, args)
 
 
 if __name__ == '__main__':

@@ -5,8 +5,13 @@ known DOIs). Its verdict can merge split profiles or break a tie between profile
 """
 
 import json
+import logging
 from dataclasses import dataclass, field
 from typing import List, Optional, Protocol, Sequence
+
+from .logging_config import log_isolated_failure
+
+logger = logging.getLogger(__name__)
 
 ADJUDICATION_SCHEMA = {
     'type': 'object',
@@ -115,6 +120,7 @@ class ClaudeIdentityAdjudicator:
                 fallbacks='default',
             )
         except Exception as exc:  # network, auth or API errors leave the contest unresolved
+            log_isolated_failure(logger, 'Identity adjudication request failed: %s', type(exc).__name__)
             return AdjudicationVerdict.unsure(f'adjudication request failed: {type(exc).__name__}')
         if response.stop_reason in ('refusal', 'max_tokens'):
             return AdjudicationVerdict.unsure(f'adjudication stopped: {response.stop_reason}')

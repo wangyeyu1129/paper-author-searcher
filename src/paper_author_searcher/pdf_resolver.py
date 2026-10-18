@@ -1,11 +1,13 @@
 """Resolve URLs from saved collections while preserving ownership judgments."""
 
+import logging
 from copy import deepcopy
 from dataclasses import asdict
 from urllib.parse import urldefrag
 
 from .config import DEFAULT_PDF
 from .http import HttpClient
+from .logging_config import log_isolated_failure
 from .models import PaperPDFResult, PDFProviderResult, PDFResolutionResult
 from .pdf_catalogs import JournalCatalogPDFProvider
 from .pdf_crossref import CrossrefPDFProvider
@@ -21,6 +23,8 @@ from .pdf_resource_requests import PublicResourceRequests
 from .pdf_search_status import SEARCH_COMPLETION_DEFINITION, paper_search_complete
 from .pdf_validation import PDFURLValidator
 from .performance_diagnostics import pdf_failure_reasons
+
+logger = logging.getLogger(__name__)
 
 
 class PDFResolver:
@@ -89,6 +93,9 @@ class PDFResolver:
             try:
                 self._resolve_paper(paper, result)
             except Exception as exc:
+                log_isolated_failure(
+                    logger, 'PDF resolution failed for %s: %s', paper.get('doi') or paper.get('title'), exc
+                )
                 result.validation_status = 'unverified'
                 result.error_details.append({'source': 'pdf_validation', 'error': str(exc)})
             processed += 1
@@ -106,6 +113,7 @@ class PDFResolver:
             try:
                 provider.prepare(papers)
             except Exception as exc:
+                log_isolated_failure(logger, 'PDF provider %s preparation failed: %s', provider.name, exc)
                 self.preparation_errors[provider.name] = str(exc)
 
     def _resolve_paper(self, paper, result):
@@ -115,6 +123,7 @@ class PDFResolver:
             try:
                 found = provider.find(lookup_paper)
             except Exception as exc:
+                log_isolated_failure(logger, 'PDF provider %s lookup failed: %s', provider.name, exc)
                 found = PDFProviderResult(provider.name, status='error', errors=[str(exc)])
             if provider.name in self.preparation_errors:
                 found.errors.append('Provider preparation: ' + self.preparation_errors[provider.name])

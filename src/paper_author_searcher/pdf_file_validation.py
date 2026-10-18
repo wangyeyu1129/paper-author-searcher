@@ -2,6 +2,7 @@
 
 import importlib.util
 import json
+import logging
 import re
 import subprocess
 import sys
@@ -15,6 +16,8 @@ from .models import PDFFileValidation
 from .pdf_document_types import NON_FULL_DOCUMENTS, classify_document
 from .pdf_front_matter import authors_present, front_matter, metadata_title_kind, publication_years, title_in_region
 from .pdf_identity import metadata_identity
+
+logger = logging.getLogger(__name__)
 
 
 def validation_target(paper, candidate=None):
@@ -185,6 +188,7 @@ def inspect_pdf(path, paper, config=DEFAULT_DOWNLOAD):
                     if index == 0:
                         title_regions.append(front_matter('\n'.join(text.splitlines()[: config.title_lines])))
                 except Exception as exc:
+                    logger.debug('PDF text extraction unavailable for %s', path, exc_info=True)
                     result.error_details.append('Text extraction unavailable: ' + str(exc)[:1000])
             root = reader.trailer['/Root']
             names = root.get('/Names')
@@ -240,6 +244,7 @@ def inspect_pdf(path, paper, config=DEFAULT_DOWNLOAD):
                 *evidence,
             ]
     except Exception as exc:
+        logger.debug('PDF structure validation failed for %s', path, exc_info=True)
         result.format_status = 'invalid'
         result.validation_status = 'invalid'
         result.error_details.append(str(exc)[:1000])

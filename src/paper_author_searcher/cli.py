@@ -2,11 +2,15 @@
 
 import argparse
 import json
+import logging
 from pathlib import Path
 
 from . import ProfessorResolver
+from .logging_config import add_logging_arguments, configure_from_arguments
 from .paper_collector import IdentityConfirmationRequired, PaperCollector
 from .paper_reanalysis import reanalyze_saved_result, saved_collection_profile
+
+logger = logging.getLogger(__name__)
 
 SUMMARY_EVIDENCE_LIMIT = 6
 SUCCESS_EXIT_CODE = 0
@@ -156,7 +160,9 @@ def _refresh_collection(saved):
 
 def main(argv=None):
     parser = build_parser()
+    add_logging_arguments(parser)
     args = parser.parse_args(argv)
+    configure_from_arguments(args)
     if args.mode or args.input:
         if args.collect_papers or args.refresh_json or args.reanalyze_json or args.output:
             parser.error('Workflow mode uses --output-dir and --input; do not combine with legacy collection options')

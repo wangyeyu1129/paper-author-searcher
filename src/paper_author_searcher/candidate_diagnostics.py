@@ -1,16 +1,20 @@
 """Inspect unconfirmed author bibliographies separately; never authorize downloads."""
 
 import argparse
+import logging
 from copy import deepcopy
 from dataclasses import asdict
 from pathlib import Path
 
 from .http import HttpClient
+from .logging_config import add_logging_arguments, configure_from_arguments, log_isolated_failure
 from .models import PaperCollectionResult, PaperSourceResult
 from .paper_deduplication import deduplicate_papers
 from .paper_providers import DBLPPaperProvider, OpenAlexPaperProvider, SemanticScholarPaperProvider
 from .providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
 from .workflow import _resolution, read_json, write_json
+
+logger = logging.getLogger(__name__)
 
 
 def collect_candidate(profile, providers):
@@ -23,6 +27,7 @@ def collect_candidate(profile, providers):
         try:
             fetched = provider.collect(author_id)
         except Exception as exc:
+            log_isolated_failure(logger, 'Paper source %s failed for author %s: %s', provider.name, author_id, exc)
             fetched = PaperSourceResult(provider.name, author_id, error=str(exc))
         sources.append(fetched)
         records.extend(fetched.papers)
@@ -61,7 +66,9 @@ def main(argv=None):
     parser.add_argument('--output-dir', type=Path, required=True)
     parser.add_argument('--timeout', type=float)
     parser.add_argument('--retries', type=int)
+    add_logging_arguments(parser)
     args = parser.parse_args(argv)
+    configure_from_arguments(args)
     try:
         result = _resolution(read_json(args.identity))
         client = HttpClient(timeout=args.timeout, retries=args.retries)

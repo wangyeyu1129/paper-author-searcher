@@ -1,6 +1,7 @@
 """Compose existing stages and checkpoint their results without changing decisions."""
 
 import json
+import logging
 import os
 import re
 import tempfile
@@ -17,6 +18,8 @@ from .paper_reanalysis import saved_collection_profile
 from .pdf_resolver import PDFResolver
 from .performance_diagnostics import workflow_outcomes
 from .resolver import ProfessorResolver
+
+logger = logging.getLogger(__name__)
 
 MODES = ('metadata', 'pdf-urls', 'full')
 
@@ -365,6 +368,7 @@ class PaperSearchWorkflow:
             )
             raise
         except Exception as exc:
+            logger.exception('Workflow failed during stage %s', self.current_stage)
             report['run_status'] = 'failed'
             report['errors'].append({'stage': self.current_stage, 'error': str(exc)})
         finally:

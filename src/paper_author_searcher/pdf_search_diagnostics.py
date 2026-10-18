@@ -1,12 +1,16 @@
 """Read saved traces to explain incomplete searches without making new requests."""
 
 import argparse
+import logging
 from collections import Counter
 from pathlib import Path
 
+from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_discovery_comparison import _cohort, compare_runs
 from .pdf_search_status import paper_search_complete, provider_search_complete
 from .workflow import read_json, write_json
+
+logger = logging.getLogger(__name__)
 
 
 def solely_deferred(paper):
@@ -134,7 +138,9 @@ def main(argv=None):
     parser.add_argument('--before', type=Path, required=True)
     parser.add_argument('--after', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    add_logging_arguments(parser)
     args = parser.parse_args(argv)
+    configure_from_arguments(args)
     inputs = [
         root / name
         for root in (args.before, args.after)

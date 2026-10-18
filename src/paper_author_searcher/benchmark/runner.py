@@ -1,5 +1,6 @@
 """Run the search system once per benchmark person and keep a resumable run index."""
 
+import logging
 from copy import deepcopy
 from dataclasses import asdict, replace
 from datetime import datetime, timezone
@@ -10,6 +11,8 @@ from paper_author_searcher.workflow import read_json, write_json
 
 from .roster import BenchmarkPerson
 from .settings import BenchmarkSettings, RunSettings
+
+logger = logging.getLogger(__name__)
 
 FULL_MODE = 'full'
 
@@ -164,6 +167,7 @@ class BenchmarkRunner:
                 write_json(index_path, index)
                 raise
             except Exception as exc:  # one person's failure must not stop the benchmark
+                logger.exception('Benchmark search failed for %s', person.person_id)
                 entry['status'] = 'failed'
                 entry['error'] = f'{type(exc).__name__}: {exc}'
             entry['finished_at'] = _now()

@@ -2,10 +2,14 @@
 
 import argparse
 import json
+import logging
 from pathlib import Path
 
 from .evaluation import Evaluator
 from .evaluation_matching import GroundTruth
+from .logging_config import add_logging_arguments, configure_from_arguments
+
+logger = logging.getLogger(__name__)
 
 
 def main(argv=None):
@@ -13,7 +17,9 @@ def main(argv=None):
     parser.add_argument('--result', type=Path, required=True, help='Saved resolver/collection JSON')
     parser.add_argument('--ground-truth', type=Path, required=True, help='Human-adjudicated ground truth JSON')
     parser.add_argument('--output', type=Path, help='Save detailed evaluation report as JSON')
+    add_logging_arguments(parser)
     args = parser.parse_args(argv)
+    configure_from_arguments(args)
     try:
         saved = json.loads(args.result.read_text(encoding='utf-8'))
         truth_data = json.loads(args.ground_truth.read_text(encoding='utf-8'))

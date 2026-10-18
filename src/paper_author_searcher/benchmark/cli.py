@@ -1,9 +1,9 @@
 """paper-benchmark: build truth, run the searcher on every person, score by stratum, enforce the gate."""
 
 import argparse
+import logging
 import os
 import subprocess
-import sys
 from dataclasses import replace
 from datetime import datetime, timezone
 from pathlib import Path
@@ -11,6 +11,7 @@ from typing import List, Optional
 
 from paper_author_searcher.config import DEFAULT_SOURCES
 from paper_author_searcher.http import HttpClient, SourceError
+from paper_author_searcher.logging_config import add_logging_arguments, configure_from_arguments, log_isolated_failure
 from paper_author_searcher.workflow import read_json, write_json
 
 from .gate import ReleaseGate
@@ -23,6 +24,8 @@ from .settings import BenchmarkSettings
 from .snapshots import ArxivLookup, CrossrefLookup, OrcidFetcher, SnapshotCollector, missing_snapshots
 from .truth_builder import TruthBuilder
 from .truth_sources import default_registry
+
+logger = logging.getLogger(__name__)
 
 DEFAULT_CONFIG = Path('data/benchmark/v1/benchmark.json')
 
@@ -56,7 +59,7 @@ def command_validate(args) -> int:
             problems += 1
             print(f'  {person.person_id}: snapshots missing={missing} truth={state}')
     for warning in warnings:
-        print('WARNING: ' + warning)
+        logger.warning(warning)
     return 0 if not problems and not warnings else 2
 
 
@@ -76,7 +79,7 @@ def command_fetch(args) -> int:
             print(collector.collect(person), flush=True)
         except (SourceError, OSError, ValueError) as exc:
             failures += 1
-            print(f'{person.person_id}: {exc}', file=sys.stderr)
+            log_isolated_failure(logger, 'Snapshot collection failed for %s: %s', person.person_id, exc)
     return 0 if not failures else 2
 
 
@@ -87,7 +90,7 @@ def command_build(args) -> int:
     for person in roster.select(args.person):
         missing = missing_snapshots(person, settings.paths.snapshots / person.person_id)
         if missing:
-            print(f'{person.person_id}: skipped, missing snapshots {missing}')
+            logger.warning('%s: skipped, missing snapshots %s', person.person_id, missing)
             continue
         truth = builder.build(person)
         _reviewed, pending = truth_paths(settings, person.person_id)
@@ -159,13 +162,11 @@ def command_review_import(args) -> int:
 def command_run(args) -> int:
     settings, roster, _registry, warnings = _context(args)
     for warning in warnings:
-        print('WARNING: ' + warning)
+        logger.warning(warning)
     run = settings.run if args.mode is None else replace(settings.run, mode=args.mode)
     if args.input_profile:
         run = replace(run, input_profile=args.input_profile)
-    runner = BenchmarkRunner(
-        settings, WorkflowSearchSystem(run, settings), progress=lambda line: print(line, flush=True)
-    )
+    runner = BenchmarkRunner(settings, WorkflowSearchSystem(run, settings), progress=logger.info)
     run_id = args.run_id or datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
     index = runner.run(
         roster.select(args.person), run_id, {'code_version': _code_version(), 'label': args.label}, rerun=args.rerun
@@ -391,7 +392,9 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv=None) -> int:
     parser = build_parser()
+    add_logging_arguments(parser)
     args = parser.parse_args(argv)
+    configure_from_arguments(args)
     try:
         return args.handler(args)
     except (OSError, ValueError, KeyError) as exc:

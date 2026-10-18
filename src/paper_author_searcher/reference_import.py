@@ -2,16 +2,20 @@
 
 import argparse
 import hashlib
+import logging
 from datetime import datetime, timezone
 from pathlib import Path
 
 from .config import DEFAULT_MATCHING, DEFAULT_PDF
 from .http import HttpClient, SourceError
+from .logging_config import add_logging_arguments, configure_from_arguments
 from .matching import name_similarity
 from .paper_authorship import byline_forms
 from .paper_providers import parse_year
 from .pdf_providers import CitationMetadata
 from .workflow import read_json, write_json
+
+logger = logging.getLogger(__name__)
 
 
 def prepare_reference(pages, professor_name, client=None):
@@ -91,7 +95,9 @@ def main(argv=None):
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--timeout', type=float)
     parser.add_argument('--retries', type=int)
+    add_logging_arguments(parser)
     args = parser.parse_args(argv)
+    configure_from_arguments(args)
     if args.pages.resolve() == args.output.resolve():
         parser.error('Output must differ from source input')
     try:

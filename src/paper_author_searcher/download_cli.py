@@ -2,13 +2,17 @@
 
 import argparse
 import json
+import logging
 import math
 from dataclasses import replace
 from pathlib import Path
 
 from .config import DEFAULT_DOWNLOAD
 from .http import HttpClient
+from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_downloader import PDFDownloader
+
+logger = logging.getLogger(__name__)
 
 
 def main(argv=None):
@@ -24,7 +28,9 @@ def main(argv=None):
     parser.add_argument(
         '--include-needs-review', action='store_true', help='Allow needs_review ownership; URL must still be verified'
     )
+    add_logging_arguments(parser)
     args = parser.parse_args(argv)
+    configure_from_arguments(args)
     if args.input.resolve() == (args.output_dir / 'manifest.json').resolve():
         parser.error('Input must differ from the output manifest')
     if args.timeout is not None and (not math.isfinite(args.timeout) or args.timeout <= 0):
@@ -44,7 +50,7 @@ def main(argv=None):
         downloader = PDFDownloader(HttpClient(timeout=args.timeout, retries=args.retries), config=config)
         manifest = downloader.download(saved, args.output_dir, args.include_needs_review, args.max_downloads)
     except KeyboardInterrupt:
-        print('Interrupted; rerun to reuse completed files. Manifest: {}'.format(args.output_dir / 'manifest.json'))
+        logger.warning('Interrupted; rerun to reuse completed files. Manifest: %s', args.output_dir / 'manifest.json')
         return 130
     except (OSError, ValueError, RuntimeError) as exc:
         parser.error(str(exc))

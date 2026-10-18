@@ -2,13 +2,17 @@
 
 import argparse
 import json
+import logging
 from dataclasses import replace
 from pathlib import Path
 
 from .config import DEFAULT_PDF
 from .http import HttpClient
+from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_resolver import PDFResolver
 from .pdf_settings import contact_email
+
+logger = logging.getLogger(__name__)
 
 
 def main(argv=None):
@@ -33,7 +37,9 @@ def main(argv=None):
     )
     parser.add_argument('--timeout', type=float, help='Override the configured HTTP timeout in seconds')
     parser.add_argument('--retries', type=int, help='Override the configured HTTP retry count')
+    add_logging_arguments(parser)
     args = parser.parse_args(argv)
+    configure_from_arguments(args)
     if args.input.resolve() == args.output.resolve():
         parser.error('Output must differ from the input archive')
     if args.timeout is not None and args.timeout <= 0:

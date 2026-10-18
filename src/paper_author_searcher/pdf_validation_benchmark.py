@@ -1,17 +1,21 @@
 """Repeat source discovery and downloads on a saved, unchanged paper cohort."""
 
 import argparse
+import logging
 import math
 from pathlib import Path
 
 from .config import DEFAULT_PDF
 from .http import HttpClient
+from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_discovery_comparison import _cohort, _metadata_fingerprint, compare_runs, summarize_runs
 from .pdf_downloader import PDFDownloader, paper_key
 from .pdf_resolver import PDFResolver
 from .pdf_settings import contact_email
 from .workflow import PaperSearchWorkflow, read_json, write_json
-from .workflow_cli import ProgressPrinter
+from .workflow_cli import ProgressReporter
+
+logger = logging.getLogger(__name__)
 
 
 def benchmark_inputs(baseline_directory):
@@ -70,13 +74,15 @@ def main(argv=None):
     parser.add_argument('--timeout', type=float, required=True, help='Use the baseline HTTP timeout')
     parser.add_argument('--retries', type=int, required=True, help='Use the baseline retry count')
     parser.add_argument('--verbose', action='store_true')
+    add_logging_arguments(parser)
     args = parser.parse_args(argv)
+    configure_from_arguments(args)
     try:
         root, comparison = run_benchmark(
-            args.baseline_run, args.output_dir, args.timeout, args.retries, ProgressPrinter(args.verbose)
+            args.baseline_run, args.output_dir, args.timeout, args.retries, ProgressReporter(args.verbose)
         )
     except KeyboardInterrupt:
-        print('Interrupted; stage checkpoints remain in the output directory.')
+        logger.warning('Interrupted; stage checkpoints remain in the output directory.')
         return 130
     except (OSError, ValueError, RuntimeError) as exc:
         parser.error(str(exc))

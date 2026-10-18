@@ -3,14 +3,18 @@
 import argparse
 import hashlib
 import json
+import logging
 from collections import Counter
 from pathlib import Path
 
+from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_downloader import paper_key
 from .pdf_search_status import SEARCH_COMPLETION_DEFINITION, provider_search_complete, search_satisfaction
 from .performance_diagnostics import pdf_failure_reasons
 from .performance_evaluation import _check_file, rate
 from .workflow import read_json, write_json
+
+logger = logging.getLogger(__name__)
 
 
 def _cohort(report):
@@ -216,7 +220,9 @@ def main(argv=None):
     )
     parser.add_argument('--after', action='append', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    add_logging_arguments(parser)
     args = parser.parse_args(argv)
+    configure_from_arguments(args)
     inputs = [directory / name for directory in args.before + args.after for name in ('pdf_urls.json', 'manifest.json')]
     if args.output.resolve() in {path.resolve() for path in inputs}:
         parser.error('Output must not overwrite source reports')

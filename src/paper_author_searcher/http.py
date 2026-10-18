@@ -3,6 +3,7 @@
 import hashlib
 import ipaddress
 import json
+import logging
 import os
 import re
 import time
@@ -17,6 +18,8 @@ from urllib.request import HTTPRedirectHandler, Request, urlopen
 
 from .config import DEFAULT_DOWNLOAD, DEFAULT_HTTP
 from .network_safety import secure_download_opener
+
+logger = logging.getLogger(__name__)
 
 
 class SourceError(RuntimeError):
@@ -155,7 +158,11 @@ class HttpClient:
                     raise SourceError(
                         message, status_code=exc.code, retry_after=retry_after, endpoint_host=endpoint_host
                     ) from exc
-                time.sleep(self._retry_delay(exc, attempt))
+                delay = self._retry_delay(exc, attempt)
+                logger.info(
+                    'HTTP %s from %s; retry %d/%d in %.1fs', exc.code, request.host, attempt + 1, self.retries, delay
+                )
+                time.sleep(delay)
             except (OSError, HTTPException) as exc:
                 statistics['network_errors'] += 1
                 if attempt == self.retries:
@@ -164,6 +171,7 @@ class HttpClient:
                         kind = 'timeout'
                     raise SourceError(f'{request.host}: {exc}', error_type=kind) from exc
                 delay = min(self.config.retry_backoff_base**attempt, self.config.maximum_retry_delay)
+                logger.info('%s: %s; retry %d/%d in %.1fs', request.host, exc, attempt + 1, self.retries, delay)
                 time.sleep(delay)
             except (ValueError, ET.ParseError) as exc:
                 statistics['response_errors'] += 1
