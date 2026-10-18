@@ -9,10 +9,18 @@ class ProfessorQuery:
     department: Optional[str] = None
     research_interests: List[str] = field(default_factory=list)
     university_aliases: List[str] = field(default_factory=list)
+    # Optional identity hints; any of them sharply reduces namesake ambiguity.
+    orcid: Optional[str] = None
+    homepage: Optional[str] = None
+    email: Optional[str] = None
+    known_papers: List[str] = field(default_factory=list)
 
     def __post_init__(self):
         if not self.name.strip() or not self.university.strip():
             raise ValueError("name and university are required")
+
+    def has_hints(self):
+        return bool(self.orcid or self.homepage or self.known_papers)
 
 
 @dataclass
@@ -49,6 +57,8 @@ class ProfessorProfile:
     matched_affiliations: List[str] = field(default_factory=list)
     author_id_aliases: Dict[str, List[str]] = field(default_factory=dict)
     name_aliases: List[str] = field(default_factory=list)
+    identity_anchors: List[str] = field(default_factory=list)
+    adjudication: Optional[str] = None
 
 
 @dataclass

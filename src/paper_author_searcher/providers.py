@@ -4,7 +4,7 @@ from typing import List, Protocol
 
 from .config import DEFAULT_MATCHING, DEFAULT_SOURCES
 from .http import HttpClient, SourceError
-from .matching import best_similarity, canonical_doi, name_similarity
+from .matching import best_similarity, canonical_doi, institution_similarity, name_similarity
 from .models import AuthorCandidate, ProfessorQuery
 
 
@@ -40,16 +40,27 @@ class OpenAlexProvider:
         self.enrich_limit = source_config.enrichment_limit if enrich_limit is None else enrich_limit
         self.works_limit = source_config.works_limit if works_limit is None else works_limit
         self.matching_config = matching_config
+        self.source_config = source_config
 
     def search(self, query):
         data = self.client.get(
             self.base_url + "/authors",
             {"search": query.name, "per-page": self.limit, "api_key": self.api_key},
         )
-        candidates = []
+        candidates = {}
+        scoped = set()
         for item in data.get("results", []):
-            candidates.append(self._parse_author(item))
-        for candidate in self._enrichment_candidates(query, candidates):
+            candidate = self._parse_author(item)
+            candidates[candidate.author_id] = candidate
+        try:
+            for item in self._institution_scoped_authors(query):
+                candidate = candidates.setdefault(item["id"].rsplit("/", 1)[-1], self._parse_author(item))
+                scoped.add(candidate.author_id)
+        except SourceError as exc:
+            for candidate in candidates.values():
+                candidate.metadata_errors.append("institution-scoped search failed: " + str(exc))
+        candidates = list(candidates.values())
+        for candidate in self._enrichment_candidates(query, candidates, scoped):
             try:
                 self._enrich(candidate)
             except SourceError as exc:
@@ -83,7 +94,46 @@ class OpenAlexProvider:
             url=item["id"],
         )
 
-    def _enrichment_candidates(self, query, candidates):
+    def lookup(self, author_id):
+        """Fetch one author by ID (used when an identity anchor names a profile the search missed)."""
+        item = self.client.get(self.base_url + "/authors/" + author_id, {"api_key": self.api_key})
+        candidate = self._parse_author(item)
+        try:
+            self._enrich(candidate)
+        except SourceError as exc:
+            candidate.metadata_errors.append(str(exc))
+        return candidate
+
+    def _institution_ids(self, query):
+        universities = [query.university] + list(query.university_aliases)
+        data = self.client.get(self.base_url + "/institutions", {
+            "search": query.university, "per-page": self.source_config.institution_limit,
+            "select": "id,display_name", "api_key": self.api_key,
+        })
+        ids = []
+        for item in data.get("results", []):
+            similarity = best_similarity(
+                universities, [item.get("display_name") or ""],
+                lambda a, b: institution_similarity(a, b, self.matching_config),
+            )
+            if similarity >= self.matching_config.matched_school:
+                ids.append(item["id"].rsplit("/", 1)[-1])
+        return ids
+
+    def _institution_scoped_authors(self, query):
+        """Authors with the name who were ever affiliated with the requested institution."""
+        if not self.source_config.institution_scoped_search:
+            return []
+        institution_ids = self._institution_ids(query)
+        if not institution_ids:
+            return []
+        data = self.client.get(self.base_url + "/authors", {
+            "search": query.name, "per-page": self.limit, "api_key": self.api_key,
+            "filter": "affiliations.institution.id:" + "|".join(institution_ids),
+        })
+        return data.get("results", [])
+
+    def _enrichment_candidates(self, query, candidates, scoped=frozenset()):
         scored = []
         for candidate in candidates:
             similarity = best_similarity(
@@ -92,7 +142,8 @@ class OpenAlexProvider:
             )
             if similarity >= self.matching_config.compatible_name:
                 scored.append((similarity, candidate))
-        scored.sort(key=lambda item: -item[0])
+        # Institution-scoped matches are enriched first: they are the plausible targets.
+        scored.sort(key=lambda item: (item[1].author_id not in scoped, -item[0]))
         selected = []
         for similarity, candidate in scored[:self.enrich_limit]:
             selected.append(candidate)
@@ -153,6 +204,11 @@ class SemanticScholarProvider:
         for item in data.get("data", []):
             candidates.append(self._parse_author(item))
         return candidates
+
+    def lookup(self, author_id):
+        headers = {"x-api-key": self.api_key} if self.api_key else {}
+        item = self.client.get(self.base_url + "/author/" + str(author_id), {"fields": self.AUTHOR_FIELDS}, headers)
+        return self._parse_author(item)
 
     def _parse_author(self, item):
         dois = []

@@ -18,10 +18,32 @@ class PaperOwnershipValidator:
             values.append(profile.author_ids[source])
         return {canonical_author_id(source, value) for value in values}
 
-    def _target_details(self, record, profile=None):
-        expected = {canonical_author_id(record.source, record.source_author_id)}
-        if profile is not None:
-            expected = self._selected_ids(profile, record.source)
+    @staticmethod
+    def _anchored_ids(profile, source):
+        # Anchor evidence reads "<source> <author id>: <reason>" (IdentityAnchors.add).
+        values = set()
+        for line in profile.identity_anchors:
+            head = line.split(':', 1)[0].split(' ', 1)
+            if len(head) == 2 and head[0] == source:
+                values.add(canonical_author_id(source, head[1]))
+        return values
+
+    def _corroborating_ids(self, profile, source):
+        """IDs whose source attribution may corroborate another database's attribution.
+
+        With caller anchors, a split profile merged in without an anchor of its own (even the representative)
+        rests on resolver similarity alone, so two databases agreeing on it is not independent evidence.
+        """
+        selected = self._selected_ids(profile, source)
+        if not profile.identity_anchors:
+            return selected
+        return selected & self._anchored_ids(profile, source)
+
+    def _target_details(self, record, profile=None, expected=None):
+        if expected is None:
+            expected = {canonical_author_id(record.source, record.source_author_id)}
+            if profile is not None:
+                expected = self._selected_ids(profile, record.source)
         details = []
         for author in record.author_details:
             actual = canonical_author_id(record.source, author.get('author_id'))
@@ -42,10 +64,11 @@ class PaperOwnershipValidator:
                 best = max(best, name_similarity(name, signature))
         return best, signatures
 
-    @staticmethod
-    def _observed_orcids(details):
+    def _observed_orcids(self, details, paper_level=False):
         values = set()
         for author in details:
+            if paper_level and author.get('orcid_scope') in self.config.author_level_orcid_scopes:
+                continue
             orcids = list(author.get('orcids') or [])
             if author.get('orcid'):
                 orcids.append(author['orcid'])
@@ -123,16 +146,20 @@ class PaperOwnershipValidator:
         observed_orcids = self._observed_orcids(details)
         if len(observed_orcids) > 1:
             return 'needs_review', evidence + ['Target authorship ORCID conflict: multiple identities reported']
-        if profile.orcid and observed_orcids:
-            if observed_orcids != {canonical_orcid(profile.orcid)}:
+        if profile.orcid and observed_orcids != {canonical_orcid(profile.orcid)}:
+            # An author-profile ORCID is constant across a source author ID, so it says nothing about this paper;
+            # merged split profiles legitimately carry different ones. Only paper-level or unscoped ORCIDs reject.
+            if self._observed_orcids(details, paper_level=True) - {canonical_orcid(profile.orcid)}:
                 return 'rejected', evidence + ['Target authorship ORCID conflicts with confirmed professor ORCID']
+            if observed_orcids:
+                evidence.append('Author-profile ORCID differs from the identity ORCID; not paper-level evidence')
         nonstandard = self._nonstandard_reasons(record)
         evidence.extend(self._coauthor_blockers(record))
         if nonstandard:
             return 'needs_review', evidence + ['Authorship role requires manual confirmation; metadata was retained']
         if not signatures or best < self.config.name_similarity:
             return 'needs_review', evidence + ['Insufficient compatible target byline evidence']
-        if profile.orcid and observed_orcids:
+        if profile.orcid and observed_orcids == {canonical_orcid(profile.orcid)}:
             scopes = sorted({author.get('orcid_scope') or 'unspecified' for author in details})
             paper_details = [author for author in details
                              if author.get('orcid_scope') in self.config.paper_orcid_scopes]
@@ -237,8 +264,12 @@ class PaperOwnershipValidator:
         links = duplicate_evidence(left, right)
         if not any(message.startswith('Shared stable identifier:') for message in links):
             return None
-        left_details = self._target_details(left, profile)
-        right_details = self._target_details(right, profile)
+        left_details = self._target_details(left, profile, self._corroborating_ids(profile, left.source))
+        right_details = self._target_details(right, profile, self._corroborating_ids(profile, right.source))
+        uncorroborated = [record for record, details in ((left, left_details), (right, right_details))
+                          if not details and self._target_details(record, profile)]
+        if uncorroborated:
+            return None
         if left_details and right_details:
             large = max(len(left.authors), len(right.authors), len(left.author_details), len(right.author_details))
             independent = left.ownership_status == 'verified' or right.ownership_status == 'verified'
@@ -274,8 +305,8 @@ class PaperOwnershipValidator:
             for right in eligible[index + 1:]:
                 if left.source == right.source:
                     continue
-                left_orcids = self._observed_orcids(self._target_details(left, profile))
-                right_orcids = self._observed_orcids(self._target_details(right, profile))
+                left_orcids = self._observed_orcids(self._target_details(left, profile), paper_level=True)
+                right_orcids = self._observed_orcids(self._target_details(right, profile), paper_level=True)
                 if left_orcids and right_orcids and left_orcids != right_orcids:
                     for record in (left, right):
                         record.ownership_status = 'needs_review'

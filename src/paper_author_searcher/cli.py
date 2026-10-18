@@ -6,7 +6,7 @@ from pathlib import Path
 from .paper_collector import PaperCollector, IdentityConfirmationRequired
 from .paper_reanalysis import reanalyze_saved_result, saved_collection_profile
 
-from . import ProfessorQuery, ProfessorResolver
+from . import ProfessorResolver
 
 SUMMARY_EVIDENCE_LIMIT = 6
 SUCCESS_EXIT_CODE = 0
@@ -68,7 +68,8 @@ def build_parser():
     saved_input = parser.add_mutually_exclusive_group()
     saved_input.add_argument('--reanalyze-json', type=Path, help='Re-evaluate a saved result without network calls')
     saved_input.add_argument('--refresh-json', type=Path, help='Fetch fresh metadata using previously confirmed Author IDs')
-    from .workflow_cli import add_workflow_arguments
+    from .workflow_cli import add_hint_arguments, add_workflow_arguments
+    add_hint_arguments(parser)
     add_workflow_arguments(parser)
     return parser
 
@@ -176,14 +177,8 @@ def main(argv=None):
         parser.error('Paper filters require --collect-papers or --reanalyze-json')
     if args.select_author and not args.collect_papers:
         parser.error('--select-author requires --collect-papers')
-    query = ProfessorQuery(
-        name=args.name,
-        university=args.university,
-        department=args.department,
-        research_interests=args.research,
-        university_aliases=args.university_alias,
-    )
-    result = ProfessorResolver().resolve(query)
+    from .workflow_cli import query_from_args
+    result = ProfessorResolver().resolve(query_from_args(args))
     output = summary(result)
     if args.verbose:
         output = result.to_dict()

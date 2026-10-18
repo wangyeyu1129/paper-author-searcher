@@ -2,6 +2,7 @@
 import re
 import unicodedata
 from difflib import SequenceMatcher
+from functools import lru_cache
 from typing import Callable, Iterable
 
 from .config import DEFAULT_MATCHING
@@ -40,6 +41,7 @@ def _compatible_middle_names(left, right):
     return True
 
 
+@lru_cache(maxsize=200_000)
 def name_similarity(left: str, right: str, config=DEFAULT_MATCHING) -> float:
     left_words = normalize(left).split()
     right_words = normalize(re.sub(r"\s+\d{4}$", "", right)).split()
@@ -65,6 +67,7 @@ def name_similarity(left: str, right: str, config=DEFAULT_MATCHING) -> float:
     return SequenceMatcher(None, " ".join(left_words), " ".join(right_words)).ratio()
 
 
+@lru_cache(maxsize=200_000)
 def institution_similarity(left: str, right: str, config=DEFAULT_MATCHING) -> float:
     left_name = normalize(left)
     right_name = normalize(right)

@@ -5,8 +5,11 @@ import math
 from dataclasses import replace
 from pathlib import Path
 
-from .config import DEFAULT_COLLECTION, DEFAULT_DOWNLOAD, DEFAULT_PDF
+from .config import AMBIGUITY_POLICIES, DEFAULT_COLLECTION, DEFAULT_DOWNLOAD, DEFAULT_MATCHING, DEFAULT_PDF
 from .http import HttpClient
+from .http_budget import budgeted_client
+from .http_cache import cached_client
+from .identity_anchors import ScholarlyAnchorFinder
 from .models import ProfessorQuery
 from .paper_collector import PaperCollector
 from .paper_providers import OpenAlexPaperProvider, SemanticScholarPaperProvider, DBLPPaperProvider
@@ -15,6 +18,21 @@ from .pdf_settings import contact_email
 from .providers import OpenAlexProvider, SemanticScholarProvider, DBLPProvider
 from .resolver import ProfessorResolver
 from .workflow import MODES, PaperSearchWorkflow, load_checkpoint
+
+
+def add_hint_arguments(parser):
+    """Optional identity hints; each one makes namesake disambiguation far more reliable."""
+    parser.add_argument('--orcid', help='ORCID iD of the researcher')
+    parser.add_argument('--homepage', help='Public homepage or CV URL; DOIs/arXiv links on it become anchors')
+    parser.add_argument('--email', help='Institutional email (recorded with the query)')
+    parser.add_argument('--known-paper', action='append', default=[],
+                        help='DOI, arXiv ID or exact title of a paper by this researcher (repeatable)')
+
+
+def query_from_args(args):
+    return ProfessorQuery(args.name, args.university, args.department, args.research, args.university_alias,
+                          orcid=getattr(args, 'orcid', None), homepage=getattr(args, 'homepage', None),
+                          email=getattr(args, 'email', None), known_papers=list(getattr(args, 'known_paper', [])))
 
 
 def add_workflow_arguments(parser):
@@ -33,6 +51,12 @@ def add_workflow_arguments(parser):
     parser.add_argument('--require-unpaywall', action='store_true', help='Fail before requests if a valid contact is not configured')
     parser.add_argument('--bibliography-url', action='append', default=[], help='Public author, repository or conference bibliography to inspect')
     parser.add_argument('--include-needs-review', action='store_true', help='Explicit ownership opt-in; verified PDF URL still required')
+    parser.add_argument('--max-cost-usd', type=float, default=0.5,
+                        help='Hard cap on estimated metered API spend (OpenAlex) for this run; 0 = only free requests')
+    parser.add_argument('--llm-adjudication', action='store_true',
+                        help='Ask Claude to judge close identity contests (needs the "llm" extra and credentials)')
+    parser.add_argument('--ambiguity-policy', choices=AMBIGUITY_POLICIES, default='collect_contenders',
+                        help='On an unconfirmed identity: stop, or collect competing profiles for review (default)')
 
 
 class ProgressPrinter:
@@ -79,15 +103,39 @@ def _validate(parser, args):
         parser.error('--retries must be nonnegative')
 
 
+def build_client(args):
+    # cache -> budget -> network: cached replays are free, only real requests are priced.
+    metered = budgeted_client(HttpClient(timeout=args.timeout, retries=args.retries),
+                              getattr(args, 'max_cost_usd', None), getattr(args, 'cost_ledger', 'default'))
+    return cached_client(metered, getattr(args, 'http_cache_dir', None), getattr(args, 'http_cache_mode', None))
+
+
+def build_identity_providers(client, matching_config=DEFAULT_MATCHING):
+    return [OpenAlexProvider(client=client, matching_config=matching_config),
+            SemanticScholarProvider(client=client), DBLPProvider(client=client)]
+
+
+def build_resolver(client, providers, matching_config=DEFAULT_MATCHING, llm_adjudication=False):
+    adjudicator = None
+    if llm_adjudication:
+        from .identity_adjudication import ClaudeIdentityAdjudicator
+        adjudicator = ClaudeIdentityAdjudicator()
+    return ProfessorResolver(providers, config=matching_config,
+                             anchor_finder=ScholarlyAnchorFinder(client, matching_config=matching_config),
+                             adjudicator=adjudicator)
+
+
 def build_workflow(args):
-    client = HttpClient(timeout=args.timeout, retries=args.retries)
-    providers = [OpenAlexProvider(client=client), SemanticScholarProvider(client=client), DBLPProvider(client=client)]
+    client = build_client(args)
+    providers = build_identity_providers(client)
     collection_config = DEFAULT_COLLECTION
     if args.max_pages is not None:
         collection_config = replace(collection_config, maximum_pages=args.max_pages)
     if args.page_size is not None:
         collection_config = replace(collection_config, openalex_page_size=args.page_size,
                                     semantic_scholar_page_size=args.page_size)
+    collection_config = replace(collection_config,
+                                ambiguity_policy=getattr(args, 'ambiguity_policy', None) or 'collect_contenders')
     collector = PaperCollector([
         OpenAlexPaperProvider(providers[0], collection_config),
         SemanticScholarPaperProvider(providers[1], collection_config), DBLPPaperProvider(providers[2]),
@@ -100,10 +148,11 @@ def build_workflow(args):
             config = replace(config, maximum_file_bytes=int(args.max_file_mb * 1024 * 1024))
         downloader = PDFDownloader(client=client, config=config)
     return PaperSearchWorkflow(
-        resolver=ProfessorResolver(providers), collector=collector,
+        resolver=build_resolver(client, providers, llm_adjudication=getattr(args, 'llm_adjudication', False)),
+        collector=collector,
         pdf_resolver=PDFResolver(client=client, unpaywall_email=args.unpaywall_email,
                                  config=replace(DEFAULT_PDF, bibliography_urls=tuple(args.bibliography_url))),
-        downloader=downloader, progress=ProgressPrinter(args.verbose))
+        downloader=downloader, progress=ProgressPrinter(args.verbose), collection_config=collection_config)
 
 
 def _show_candidates(report, verbose=False):
@@ -130,8 +179,7 @@ def run_arguments(parser, args):
     _validate(parser, args)
     try:
         saved = load_checkpoint(args.input) if args.input else None
-        query = None if saved is not None else ProfessorQuery(
-            args.name, args.university, args.department, args.research, args.university_alias)
+        query = None if saved is not None else query_from_args(args)
         workflow = build_workflow(args)
         report = workflow.run(
             query=query, saved=saved, output_dir=args.output_dir, mode=args.mode or 'full',
@@ -179,6 +227,7 @@ def main(argv=None):
     parser.add_argument('--university-alias', action='append', default=[])
     parser.add_argument('--select-author', metavar='SOURCE:AUTHOR_ID')
     parser.add_argument('--verbose', action='store_true')
+    add_hint_arguments(parser)
     add_workflow_arguments(parser)
     return run_arguments(parser, parser.parse_args(argv))
 

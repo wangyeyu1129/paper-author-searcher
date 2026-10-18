@@ -9,7 +9,7 @@ class MatchingConfig:
     shared_school: float = 0.95
     matched_school: float = 0.8
     resolved_confidence: float = 0.8
-    ambiguity_margin: float = 0.10
+    ambiguity_margin: float = 0.03  # calibrated 2026-10-18: holdout coverage 33% -> 45%, purity 100%
     review_cap: float = 0.69
     confidence_cap: float = 0.99
     confidence_precision: int = 3
@@ -31,6 +31,15 @@ class MatchingConfig:
     doi_coverage_bonus: float = 0.04
     doi_coverage_target: int = 10
     contextual_link_bonus: float = 0.01
+    # Independent identity anchors (caller-supplied ORCID or papers the person is known to have written).
+    anchor_bonus: float = 0.15
+    orcid_conflict_penalty: float = 0.30
+    # Optional LLM adjudication of close contests is accepted only at or above this stated confidence.
+    adjudication_minimum_confidence: float = 0.8
+    # Same-source split profiles (one person indexed under several IDs) merge only on strong shared context.
+    merge_split_profiles: bool = True
+    split_profile_coauthors: int = 5
+    split_profile_topics: int = 2
     school_stop_words: Tuple[str, ...] = (
         "university", "of", "the", "at", "universite", "universität",
     )
@@ -61,11 +70,28 @@ class SourceConfig:
     dblp_author_limit: int = 10
     enrichment_limit: int = 8
     works_limit: int = 50
+    # Name-only search returns the 25 most prominent namesakes; for common names the target is often absent.
+    institution_scoped_search: bool = True
+    institution_limit: int = 2
+
+
+@dataclass(frozen=True)
+class AnchorConfig:
+    """Limits for turning caller hints (ORCID, homepage, known papers) into author-ID anchors."""
+    maximum_anchor_papers: int = 15
+    homepage_bytes: int = 2_000_000
+    maximum_redirects: int = 5
+    title_search_results: int = 3
 
 
 DEFAULT_MATCHING = MatchingConfig()
+DEFAULT_ANCHORS = AnchorConfig()
 DEFAULT_HTTP = HttpConfig()
 DEFAULT_SOURCES = SourceConfig()
+
+
+AMBIGUITY_POLICIES = ("stop", "collect_contenders")
+CONTENDER_STATUS = "ambiguous_contenders"
 
 
 @dataclass(frozen=True)
@@ -75,8 +101,16 @@ class CollectionConfig:
     maximum_pages: Optional[int] = None
     semantic_scholar_author_identity: bool = True
     expand_truncated_openalex_authors: bool = True
+    # "stop": an unconfirmed identity halts collection. "collect_contenders": collect the close, school-compatible
+    # contenders instead; nothing they yield can be verified, it is all routed to review.
+    ambiguity_policy: str = "stop"
+    maximum_contenders: int = 3
 
     def __post_init__(self):
+        if self.ambiguity_policy not in AMBIGUITY_POLICIES:
+            raise ValueError("ambiguity_policy must be one of {}".format(AMBIGUITY_POLICIES))
+        if self.maximum_contenders < 1:
+            raise ValueError("maximum_contenders must be positive")
         if not 1 <= self.openalex_page_size <= 200:
             raise ValueError("openalex_page_size must be between 1 and 200")
         if not 1 <= self.semantic_scholar_page_size <= 1000:
@@ -98,6 +132,8 @@ class OwnershipConfig:
     institution_similarity: float = 0.95
     maximum_coauthor_authors: int = 50
     paper_orcid_scopes: Tuple[str, ...] = ('paper_authorship',)
+    # Copied from the source's author profile onto every paper of that author ID: no per-paper evidence.
+    author_level_orcid_scopes: Tuple[str, ...] = ('resolved_author', 'author_profile')
     nonstandard_types: Tuple[str, ...] = (
         'proceedings', 'peer_review', 'paratext', 'supplementary_materials',
         'reference_entry', 'editorial',

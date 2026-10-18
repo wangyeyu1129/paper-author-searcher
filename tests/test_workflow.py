@@ -158,6 +158,21 @@ class WorkflowTests(unittest.TestCase):
         selected = self.output(report, 'papers')['collection']['selected_author_ids']
         self.assertEqual(selected, {'openalex': ['A2']})
 
+    def test_contender_policy_collects_competing_profiles_without_verifying(self):
+        from dataclasses import replace
+        from paper_author_searcher.config import DEFAULT_COLLECTION
+        candidates = [AuthorCandidate('openalex', item, QUERY.name, [QUERY.university]) for item in ('A1', 'A2')]
+        self.workflow.resolver = ProfessorResolver([author_provider(candidates=candidates)])
+        self.workflow.collection_config = replace(DEFAULT_COLLECTION, ambiguity_policy='collect_contenders')
+        report = self.run_workflow(mode='metadata')
+        self.assertNotEqual(report['run_status'], 'identity_confirmation_required')
+        self.assertEqual(sorted(call.args[0] for call in self.papers.collect.call_args_list), ['A1', 'A2'])
+        collection = self.output(report, 'papers')['collection']
+        self.assertEqual(collection['identity_confirmation'], 'ambiguous_contenders')
+        statuses = {item['ownership_status'] for paper in collection['papers'] for item in [paper] + paper['records']}
+        self.assertNotIn('verified', statuses)
+        self.assertTrue(any('competing profiles' in warning.get('warning', '') for warning in report['warnings']))
+
     def test_invalid_selection_stops_before_collection(self):
         report = self.run_workflow(selected_author='openalex:unknown')
         self.assertEqual(report['run_status'], 'identity_confirmation_required')

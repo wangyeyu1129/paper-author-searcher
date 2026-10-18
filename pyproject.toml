@@ -11,6 +11,8 @@ dependencies = []
 
 [project.optional-dependencies]
 download = ["pypdf>=5.9,<6"]
+# Optional identity adjudication with Claude; the Anthropic SDK 1.x requires Python >= 3.10.
+llm = ["anthropic>=1; python_version >= '3.10'"]
 
 [project.scripts]
 professor-resolve = "paper_author_searcher.cli:main"
@@ -19,6 +21,7 @@ pdf-resolve = "paper_author_searcher.pdf_cli:main"
 pdf-download = "paper_author_searcher.download_cli:main"
 paper-search = "paper_author_searcher.workflow_cli:main"
 paper-performance = "paper_author_searcher.performance_cli:main"
+paper-benchmark = "paper_author_searcher.benchmark.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -219,7 +219,8 @@ class GroundTruthMatcher:
         return TruthMatch(evaluation_id, [evaluation_id], evidence, method)
 
 
-def _bibliographic_name_agrees(left, right):
+def bibliographic_name_agrees(left, right):
+    """Same family name and compatible given names/initials, e.g. 'M. Zhu' and 'Min Zhu'."""
     first = normalize(byline_forms(left)[-1]).split()
     second = normalize(byline_forms(right)[-1]).split()
     if first == second:
@@ -247,7 +248,7 @@ def _bibliographic_authors_agree(left, right):
         return False
     choices = []
     for name in left:
-        choices.append([index for index, other in enumerate(right) if _bibliographic_name_agrees(name, other)])
+        choices.append([index for index, other in enumerate(right) if bibliographic_name_agrees(name, other)])
     # A complete matching avoids greedily assigning an abbreviated name to the wrong author.
     assigned = {}
     def assign(position, visited):

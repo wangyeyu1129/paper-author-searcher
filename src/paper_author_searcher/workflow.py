@@ -9,6 +9,7 @@ from dataclasses import asdict, fields
 from datetime import datetime, timezone
 from pathlib import Path
 
+from .config import CONTENDER_STATUS, DEFAULT_COLLECTION, DEFAULT_MATCHING
 from .models import ProfessorProfile, ResolutionResult
 from .paper_collector import PaperCollector, IdentityConfirmationRequired
 from .paper_reanalysis import saved_collection_profile
@@ -93,7 +94,29 @@ def _resolution(saved):
                             saved.get('source_errors') or {}, saved.get('ambiguity'))
 
 
-def _select_identity(result, selection):
+def contender_profile(result, maximum_contenders, margin):
+    """Merge the leading, school-compatible candidates into one unconfirmed profile for collection."""
+    best = result.profile
+    contenders = [candidate for candidate in result.candidates
+                  if candidate.university_status != 'mismatch'
+                  and candidate.match_score >= best.match_score - margin][:maximum_contenders]
+    merged = deepcopy(best)
+    merged.status = CONTENDER_STATUS
+    aliases = {}
+    for candidate in contenders:
+        for source, author_id in candidate.author_ids.items():
+            aliases.setdefault(source, [])
+            for value in (candidate.author_id_aliases.get(source) or []) + [author_id]:
+                if value not in aliases[source]:
+                    aliases[source].append(value)
+    merged.author_id_aliases = aliases
+    merged.author_ids = {source: values[0] for source, values in aliases.items()}
+    merged.evidence = list(best.evidence) + [
+        'Collected {} competing profiles without confirming identity'.format(len(contenders))]
+    return merged
+
+
+def _select_identity(result, selection, policy='stop', maximum_contenders=3, margin=0.1):
     if selection:
         if ':' not in selection:
             raise IdentityConfirmationRequired('Selection must use SOURCE:AUTHOR_ID')
@@ -107,7 +130,11 @@ def _select_identity(result, selection):
             confirmed.author_id_aliases = {source: [author_id]}
             return confirmed, (source, author_id)
         raise IdentityConfirmationRequired('Selected Author ID is absent from the candidates')
-    if result.profile is None or result.profile.status != 'resolved':
+    if result.profile is None:
+        raise IdentityConfirmationRequired('No identity candidate available')
+    if result.profile.status != 'resolved':
+        if policy == 'collect_contenders' and result.profile.university_status != 'mismatch':
+            return contender_profile(result, maximum_contenders, margin), None
         raise IdentityConfirmationRequired('Explicit Author ID selection is required for this identity')
     return result.profile, None
 
@@ -146,9 +173,12 @@ def metadata_audit(original, pdf=None, manifest=None):
 
 
 class PaperSearchWorkflow:
-    def __init__(self, resolver=None, collector=None, pdf_resolver=None, downloader=None, progress=None):
+    def __init__(self, resolver=None, collector=None, pdf_resolver=None, downloader=None, progress=None,
+                 collection_config=DEFAULT_COLLECTION, matching_config=DEFAULT_MATCHING):
         self.resolver = resolver or ProfessorResolver()
         self.collector = collector or PaperCollector()
+        self.collection_config = collection_config
+        self.matching_config = matching_config
         self.pdf_resolver = pdf_resolver
         self.downloader = downloader
         self.progress = progress
@@ -321,7 +351,12 @@ class PaperSearchWorkflow:
         for source, error in result.source_errors.items():
             report['errors'].append({'stage': 'Resolving professor identity', 'source': source, 'error': error})
         try:
-            profile, selected = _select_identity(result, selection)
+            profile, selected = _select_identity(result, selection, self.collection_config.ambiguity_policy,
+                                                 self.collection_config.maximum_contenders,
+                                                 self.matching_config.ambiguity_margin)
+            if profile.status == CONTENDER_STATUS:
+                report['warnings'].append({'stage': 'Resolving professor identity',
+                                           'warning': 'Identity unconfirmed; competing profiles collected for review'})
         except IdentityConfirmationRequired as exc:
             report['run_status'] = 'identity_confirmation_required'
             report['errors'].append({'stage': 'Resolving professor identity', 'error': str(exc)})

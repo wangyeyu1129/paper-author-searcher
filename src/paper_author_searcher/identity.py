@@ -16,15 +16,17 @@ class IdentityLink:
     shared_dois: int = 0
     evidence: List[str] = field(default_factory=list)
     reason: str = "Insufficient shared identity evidence"
+    split_profile: bool = False
+    conflict: bool = False
 
 
 def compare_identity(left, right, config=DEFAULT_MATCHING):
     if left.source == right.source:
         if left.author_id == right.author_id:
             return IdentityLink(matched=True, evidence=["same source ID"])
-        # Distinct IDs from one source stay separate unless ORCID agrees.
+        # Distinct IDs from one source stay separate unless ORCID agrees or the split-profile rule holds.
         if not left.orcid or not right.orcid:
-            return IdentityLink(reason="Distinct source IDs without shared ORCID")
+            return split_profile_link(left, right, config)
 
     names = best_similarity(
         [left.name] + left.aliases,
@@ -32,11 +34,11 @@ def compare_identity(left, right, config=DEFAULT_MATCHING):
         lambda a, b: name_similarity(a, b, config),
     )
     if names < config.compatible_name:
-        return IdentityLink(reason="Names are incompatible")
+        return IdentityLink(reason="Names are incompatible", conflict=True)
 
     if left.orcid and right.orcid:
         if canonical_orcid(left.orcid) != canonical_orcid(right.orcid):
-            return IdentityLink(reason="Conflicting ORCID identifiers")
+            return IdentityLink(reason="Conflicting ORCID identifiers", conflict=True)
         return IdentityLink(
             matched=True, shared_orcid=True, evidence=["shared ORCID"],
         )
@@ -78,6 +80,44 @@ def compare_identity(left, right, config=DEFAULT_MATCHING):
             evidence=["shared school, coauthors and research topics"],
         )
     return IdentityLink()
+
+
+def _shared_context(left, right, config):
+    shared_coauthors = set(map(normalize, left.coauthors)) & set(map(normalize, right.coauthors))
+    shared_coauthors.difference_update(map(normalize, [left.name, right.name] + left.aliases + right.aliases))
+    shared_topics = set(map(normalize, left.topics)) & set(map(normalize, right.topics))
+    school_similarity = best_similarity(
+        left.affiliations + left.current_affiliations,
+        right.affiliations + right.current_affiliations,
+        lambda a, b: institution_similarity(a, b, config),
+    )
+    return shared_coauthors, shared_topics, school_similarity
+
+
+def split_profile_link(left, right, config=DEFAULT_MATCHING):
+    """One person indexed twice by the same source: compatible names, a shared school, and both
+    collaborators and topics in common. Different namesakes at one school rarely share several coauthors."""
+    refusal = IdentityLink(reason="Distinct source IDs without shared ORCID")
+    if not config.merge_split_profiles:
+        return refusal
+    names = best_similarity(
+        [left.name] + left.aliases, [right.name] + right.aliases,
+        lambda a, b: name_similarity(a, b, config),
+    )
+    if names < config.compatible_name:
+        return IdentityLink(reason="Names are incompatible", conflict=True)
+    # Cheap set overlaps first; the fuzzy school comparison runs only when they already pass.
+    coauthors = set(map(normalize, left.coauthors)) & set(map(normalize, right.coauthors))
+    coauthors.difference_update(map(normalize, [left.name, right.name] + left.aliases + right.aliases))
+    topics = set(map(normalize, left.topics)) & set(map(normalize, right.topics))
+    if len(coauthors) < config.split_profile_coauthors or len(topics) < config.split_profile_topics:
+        return refusal
+    _, _, school = _shared_context(left, right, config)
+    if school >= config.shared_school:
+        return IdentityLink(matched=True, split_profile=True, evidence=[
+            "same-source split profile: shared school, {} shared coauthors, {} shared topics".format(
+                len(coauthors), len(topics))])
+    return refusal
 
 
 def link_evidence(left, right, config=DEFAULT_MATCHING):
