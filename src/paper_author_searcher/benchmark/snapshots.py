@@ -1,13 +1,15 @@
 """Live capture of truth inputs into dated local snapshots; building truth afterwards is offline."""
+
 import os
 import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
 
-from ..http import HttpClient, SourceError
-from ..matching import normalize
-from ..workflow import read_json, write_json
+from paper_author_searcher.http import HttpClient, SourceError
+from paper_author_searcher.matching import normalize
+from paper_author_searcher.workflow import read_json, write_json
+
 from .roster import BenchmarkPerson
 from .settings import BenchmarkSettings
 from .truth_sources import TruthSourceRegistry, orcid_snapshot_name
@@ -47,15 +49,21 @@ class OrcidFetcher:
         works, errors = [], []
         size = self.settings.orcid_bulk_size
         for start in range(0, len(codes), size):
-            batch = codes[start:start + size]
+            batch = codes[start : start + size]
             response = self.client.get(base + '/works/' + ','.join(batch))
             for item in response.get('bulk') or []:
                 if item.get('work'):
                     works.append(item['work'])
                 else:
                     errors.append(item.get('error') or item)
-        snapshot = {'orcid': orcid, 'fetched_at': _now(), 'api_url': base, 'work_groups': len(codes),
-                    'works': works, 'errors': errors}
+        snapshot = {
+            'orcid': orcid,
+            'fetched_at': _now(),
+            'api_url': base,
+            'work_groups': len(codes),
+            'works': works,
+            'errors': errors,
+        }
         write_json(destination / orcid_snapshot_name(orcid), snapshot)
         return {'orcid': orcid, 'works': len(works), 'errors': len(errors)}
 
@@ -70,8 +78,7 @@ class CrossrefLookup:
     def lookup(self, titles: Dict[str, Optional[int]], destination: Path) -> Dict[str, object]:
         path = destination / CROSSREF_SNAPSHOT
         snapshot = read_json(path) if path.exists() else {'lookups': {}}
-        params_base = {'rows': self.settings.crossref_rows,
-                       'select': 'DOI,title,author,issued,type,container-title'}
+        params_base = {'rows': self.settings.crossref_rows, 'select': 'DOI,title,author,issued,type,container-title'}
         contact = os.getenv(self.settings.crossref_contact_environment)
         if contact:
             params_base['mailto'] = contact
@@ -81,8 +88,10 @@ class CrossrefLookup:
             if not key or _cached(snapshot, key):
                 continue
             try:
-                response = self.client.get(self.settings.crossref_api_url.rstrip('/') + '/works',
-                                           params=dict(params_base, **{'query.bibliographic': title}))
+                response = self.client.get(
+                    self.settings.crossref_api_url.rstrip('/') + '/works',
+                    params=dict(params_base, **{'query.bibliographic': title}),
+                )
             except SourceError as exc:
                 failed += 1
                 snapshot['lookups'][key] = {'title': title, 'year': year, 'error': str(exc), 'fetched_at': _now()}
@@ -90,12 +99,18 @@ class CrossrefLookup:
             candidates = []
             for item in (response.get('message') or {}).get('items') or []:
                 issued = ((item.get('issued') or {}).get('date-parts') or [[None]])[0][0]
-                candidates.append({
-                    'doi': (item.get('DOI') or '').lower(), 'title': (item.get('title') or [''])[0],
-                    'year': issued, 'type': item.get('type'),
-                    'container': (item.get('container-title') or [''])[0],
-                    'family_names': [author.get('family') for author in item.get('author') or [] if author.get('family')],
-                })
+                candidates.append(
+                    {
+                        'doi': (item.get('DOI') or '').lower(),
+                        'title': (item.get('title') or [''])[0],
+                        'year': issued,
+                        'type': item.get('type'),
+                        'container': (item.get('container-title') or [''])[0],
+                        'family_names': [
+                            author.get('family') for author in item.get('author') or [] if author.get('family')
+                        ],
+                    }
+                )
             snapshot['lookups'][key] = {'title': title, 'year': year, 'candidates': candidates, 'fetched_at': _now()}
             fetched += 1
             write_json(path, snapshot)
@@ -106,8 +121,7 @@ class CrossrefLookup:
 class ArxivLookup:
     """Record arXiv candidates for titles without an arXiv ID; most CS conference papers have no DOI."""
 
-    def __init__(self, settings: BenchmarkSettings, client: Optional[HttpClient] = None,
-                 sleep=time.sleep) -> None:
+    def __init__(self, settings: BenchmarkSettings, client: Optional[HttpClient] = None, sleep=time.sleep) -> None:
         self.settings = settings.sources
         self.client = client or HttpClient()
         self.sleep = sleep
@@ -124,8 +138,11 @@ class ArxivLookup:
                 self.sleep(self.settings.arxiv_delay_seconds)
             phrase = ' '.join(word for word in key.split() if len(word) > 1)
             try:
-                feed = self.client.get(self.settings.arxiv_api_url, params={
-                    'search_query': 'ti:"{}"'.format(phrase), 'max_results': self.settings.arxiv_rows}, xml=True)
+                feed = self.client.get(
+                    self.settings.arxiv_api_url,
+                    params={'search_query': f'ti:"{phrase}"', 'max_results': self.settings.arxiv_rows},
+                    xml=True,
+                )
             except SourceError as exc:
                 failed += 1
                 snapshot['lookups'][key] = {'title': title, 'year': year, 'error': str(exc), 'fetched_at': _now()}
@@ -133,12 +150,14 @@ class ArxivLookup:
             candidates = []
             for entry in feed.findall(ATOM + 'entry'):
                 identifier = (entry.findtext(ATOM + 'id') or '').rsplit('/abs/', 1)[-1]
-                candidates.append({
-                    'arxiv': identifier.split('v')[0] if identifier[:1].isdigit() else identifier,
-                    'title': ' '.join((entry.findtext(ATOM + 'title') or '').split()),
-                    'year': int((entry.findtext(ATOM + 'published') or '0')[:4] or 0) or None,
-                    'authors': [author.findtext(ATOM + 'name') for author in entry.findall(ATOM + 'author')],
-                })
+                candidates.append(
+                    {
+                        'arxiv': identifier.split('v')[0] if identifier[:1].isdigit() else identifier,
+                        'title': ' '.join((entry.findtext(ATOM + 'title') or '').split()),
+                        'year': int((entry.findtext(ATOM + 'published') or '0')[:4] or 0) or None,
+                        'authors': [author.findtext(ATOM + 'name') for author in entry.findall(ATOM + 'author')],
+                    }
+                )
             snapshot['lookups'][key] = {'title': title, 'year': year, 'candidates': candidates, 'fetched_at': _now()}
             fetched += 1
             write_json(path, snapshot)
@@ -147,8 +166,14 @@ class ArxivLookup:
 
 
 class SnapshotCollector:
-    def __init__(self, settings: BenchmarkSettings, registry: TruthSourceRegistry,
-                 orcid: OrcidFetcher, crossref: Optional[CrossrefLookup], arxiv: Optional[ArxivLookup] = None) -> None:
+    def __init__(
+        self,
+        settings: BenchmarkSettings,
+        registry: TruthSourceRegistry,
+        orcid: OrcidFetcher,
+        crossref: Optional[CrossrefLookup],
+        arxiv: Optional[ArxivLookup] = None,
+    ) -> None:
         self.settings = settings
         self.registry = registry
         self.orcid = orcid
@@ -181,6 +206,7 @@ class SnapshotCollector:
 
 
 def missing_snapshots(person: BenchmarkPerson, snapshot_dir: Path) -> List[str]:
-    expected = [orcid_snapshot_name(spec.locator) if spec.kind == 'orcid' else spec.locator
-                for spec in person.truth_sources]
+    expected = [
+        orcid_snapshot_name(spec.locator) if spec.kind == 'orcid' else spec.locator for spec in person.truth_sources
+    ]
     return [name for name in expected if not (snapshot_dir / name).exists()]

@@ -1,12 +1,12 @@
 """Command-line presentation; identity decisions belong to the resolver."""
+
 import argparse
 import json
 from pathlib import Path
 
-from .paper_collector import PaperCollector, IdentityConfirmationRequired
-from .paper_reanalysis import reanalyze_saved_result, saved_collection_profile
-
 from . import ProfessorResolver
+from .paper_collector import IdentityConfirmationRequired, PaperCollector
+from .paper_reanalysis import reanalyze_saved_result, saved_collection_profile
 
 SUMMARY_EVIDENCE_LIMIT = 6
 SUCCESS_EXIT_CODE = 0
@@ -17,32 +17,32 @@ def summary(result):
     profile = result.profile
     if profile is None:
         return {
-            "name": None,
-            "university": None,
-            "author_ids": {},
-            "confidence": 0,
-            "status": "needs_review",
-            "evidence": ["No candidate returned"],
-            "source_errors": result.source_errors,
+            'name': None,
+            'university': None,
+            'author_ids': {},
+            'confidence': 0,
+            'status': 'needs_review',
+            'evidence': ['No candidate returned'],
+            'source_errors': result.source_errors,
         }
     output = {
-        "name": profile.name,
-        "university": profile.university,
-        "author_ids": profile.author_ids,
-        "confidence": profile.identity_confidence,
-        "match_score": profile.match_score,
-        "requested_university": profile.requested_university,
-        "matched_affiliations": profile.matched_affiliations,
-        "author_id_aliases": profile.author_id_aliases,
-        "orcid": profile.orcid,
-        "name_aliases": profile.name_aliases,
-        "status": profile.status,
-        "evidence": profile.evidence[:SUMMARY_EVIDENCE_LIMIT],
+        'name': profile.name,
+        'university': profile.university,
+        'author_ids': profile.author_ids,
+        'confidence': profile.identity_confidence,
+        'match_score': profile.match_score,
+        'requested_university': profile.requested_university,
+        'matched_affiliations': profile.matched_affiliations,
+        'author_id_aliases': profile.author_id_aliases,
+        'orcid': profile.orcid,
+        'name_aliases': profile.name_aliases,
+        'status': profile.status,
+        'evidence': profile.evidence[:SUMMARY_EVIDENCE_LIMIT],
     }
     if result.ambiguity:
-        output["ambiguity"] = result.ambiguity
+        output['ambiguity'] = result.ambiguity
     if result.source_errors:
-        output["source_errors"] = result.source_errors
+        output['source_errors'] = result.source_errors
     return output
 
 
@@ -50,14 +50,15 @@ def build_parser():
     parser = argparse.ArgumentParser(
         description="Resolve a professor's scholarly author identities",
     )
-    parser.add_argument("--name")
-    parser.add_argument("--university")
-    parser.add_argument("--department")
-    parser.add_argument("--research", action="append", default=[])
-    parser.add_argument("--university-alias", action="append", default=[])
+    parser.add_argument('--name')
+    parser.add_argument('--university')
+    parser.add_argument('--department')
+    parser.add_argument('--research', action='append', default=[])
+    parser.add_argument('--university-alias', action='append', default=[])
     parser.add_argument(
-        "--verbose", action="store_true",
-        help="Include all candidates and source diagnostics",
+        '--verbose',
+        action='store_true',
+        help='Include all candidates and source diagnostics',
     )
     parser.add_argument('--collect-papers', action='store_true', help='Collect confirmed author metadata')
     parser.add_argument('--list-candidates', action='store_true', help='Show identity candidates with all IDs')
@@ -67,8 +68,11 @@ def build_parser():
     parser.add_argument('--ownership-status', action='append', choices=['verified', 'needs_review', 'rejected'])
     saved_input = parser.add_mutually_exclusive_group()
     saved_input.add_argument('--reanalyze-json', type=Path, help='Re-evaluate a saved result without network calls')
-    saved_input.add_argument('--refresh-json', type=Path, help='Fetch fresh metadata using previously confirmed Author IDs')
+    saved_input.add_argument(
+        '--refresh-json', type=Path, help='Fetch fresh metadata using previously confirmed Author IDs'
+    )
     from .workflow_cli import add_hint_arguments, add_workflow_arguments
+
     add_hint_arguments(parser)
     add_workflow_arguments(parser)
     return parser
@@ -88,12 +92,16 @@ def _selected_profile(result, selection):
 def _candidate_summaries(result):
     candidates = []
     for profile in result.candidates:
-        candidates.append({
-            'name': profile.name, 'author_ids': profile.author_ids,
-            'author_id_aliases': profile.author_id_aliases,
-            'match_score': profile.match_score, 'status': profile.status,
-            'matched_affiliations': profile.matched_affiliations,
-        })
+        candidates.append(
+            {
+                'name': profile.name,
+                'author_ids': profile.author_ids,
+                'author_id_aliases': profile.author_id_aliases,
+                'match_score': profile.match_score,
+                'status': profile.status,
+                'matched_affiliations': profile.matched_affiliations,
+            }
+        )
     return candidates
 
 
@@ -115,7 +123,9 @@ def _collect_output(result, selected_author, output, academic_only=False, owners
         'name': profile.name,
         'author_ids': collection.selected_author_ids,
         'confirmation': collection.identity_confirmation,
-        'status': profile.status, 'orcid': profile.orcid, 'name_aliases': profile.name_aliases,
+        'status': profile.status,
+        'orcid': profile.orcid,
+        'name_aliases': profile.name_aliases,
     }
     if collection.complete:
         return SUCCESS_EXIT_CODE
@@ -151,6 +161,7 @@ def main(argv=None):
         if args.collect_papers or args.refresh_json or args.reanalyze_json or args.output:
             parser.error('Workflow mode uses --output-dir and --input; do not combine with legacy collection options')
         from .workflow_cli import run_arguments
+
         return run_arguments(parser, args)
     if args.refresh_json:
         if args.collect_papers or args.select_author:
@@ -178,6 +189,7 @@ def main(argv=None):
     if args.select_author and not args.collect_papers:
         parser.error('--select-author requires --collect-papers')
     from .workflow_cli import query_from_args
+
     result = ProfessorResolver().resolve(query_from_args(args))
     output = summary(result)
     if args.verbose:
@@ -189,7 +201,11 @@ def main(argv=None):
         output['candidates'] = _candidate_summaries(result)
     if args.collect_papers:
         exit_code = _collect_output(
-            result, args.select_author, output, args.academic_only, args.ownership_status,
+            result,
+            args.select_author,
+            output,
+            args.academic_only,
+            args.ownership_status,
         )
     _write_output(output, args.output)
     return exit_code

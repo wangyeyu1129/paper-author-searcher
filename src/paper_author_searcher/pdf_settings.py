@@ -1,4 +1,5 @@
 """Read contact configuration without exposing contact values in diagnostics."""
+
 import os
 import re
 from urllib.parse import quote, quote_plus

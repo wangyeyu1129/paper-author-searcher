@@ -1,16 +1,30 @@
 """Interpret explicit source type labels; never infer types from titles/topics."""
+
 from .matching import normalize
 
 TYPE_LABELS = {
-    'article': 'research_paper', 'journalarticle': 'research_paper',
-    'conference': 'research_paper', 'conference paper': 'research_paper',
-    'inproceedings': 'research_paper', 'review': 'review',
-    'preprint': 'preprint', 'book chapter': 'book_chapter', 'incollection': 'book_chapter',
-    'dataset': 'dataset', 'editorial': 'editorial', 'book': 'book',
-    'book review': 'book_review', 'dissertation': 'dissertation', 'phdthesis': 'dissertation',
-    'mastersthesis': 'dissertation', 'report': 'report', 'proceedings': 'proceedings',
-    'reference entry': 'reference_entry', 'conference abstract': 'conference_abstract',
-    'supplementary materials': 'supplementary_materials', 'paratext': 'paratext',
+    'article': 'research_paper',
+    'journalarticle': 'research_paper',
+    'conference': 'research_paper',
+    'conference paper': 'research_paper',
+    'inproceedings': 'research_paper',
+    'review': 'review',
+    'preprint': 'preprint',
+    'book chapter': 'book_chapter',
+    'incollection': 'book_chapter',
+    'dataset': 'dataset',
+    'editorial': 'editorial',
+    'book': 'book',
+    'book review': 'book_review',
+    'dissertation': 'dissertation',
+    'phdthesis': 'dissertation',
+    'mastersthesis': 'dissertation',
+    'report': 'report',
+    'proceedings': 'proceedings',
+    'reference entry': 'reference_entry',
+    'conference abstract': 'conference_abstract',
+    'supplementary materials': 'supplementary_materials',
+    'paratext': 'paratext',
     'peer review': 'peer_review',
 }
 ACADEMIC_TYPES = frozenset({'research_paper', 'review', 'preprint', 'book_chapter'})

@@ -1,28 +1,27 @@
 """End-to-end contracts using synthetic providers and the existing stage algorithms."""
+
 import io
-import json
 import tempfile
 import unittest
+from contextlib import redirect_stdout
 from copy import deepcopy
 from pathlib import Path
-from contextlib import redirect_stdout
 from unittest.mock import Mock, patch
 
-from paper_author_searcher.models import AuthorCandidate, ProfessorQuery, PDFCandidate, PDFProviderResult
+from paper_author_searcher.cli import main as legacy_main
+from paper_author_searcher.http import SourceError
+from paper_author_searcher.models import AuthorCandidate, PDFCandidate, PDFProviderResult, ProfessorQuery
 from paper_author_searcher.paper_collector import PaperCollector
 from paper_author_searcher.pdf_downloader import PDFDownloader
 from paper_author_searcher.pdf_file_validation import PDFFileValidator
 from paper_author_searcher.pdf_resolver import PDFResolver
 from paper_author_searcher.resolver import ProfessorResolver
-from paper_author_searcher.http import SourceError
 from paper_author_searcher.workflow import PaperSearchWorkflow, load_checkpoint, metadata_audit, read_json, write_json
 from paper_author_searcher.workflow_cli import main
-from paper_author_searcher.cli import main as legacy_main
+from pdf_fixtures import HAS_PYPDF, make_pdf
 from test_paper_collector import paper
 from test_pdf_downloader import fake_client, fake_validator
 from test_pdf_resolver import validator
-from pdf_fixtures import HAS_PYPDF, make_pdf
-
 
 QUERY = ProfessorQuery('Alex Example', 'Example University')
 
@@ -30,20 +29,32 @@ QUERY = ProfessorQuery('Alex Example', 'Example University')
 def author_provider(source='openalex', author_id='A1', candidates=None):
     provider = Mock(name=source)
     provider.name = source
-    provider.search.return_value = candidates or [AuthorCandidate(
-        source, author_id, QUERY.name, [QUERY.university], orcid='0000-0000-0000-0001')]
+    provider.search.return_value = candidates or [
+        AuthorCandidate(source, author_id, QUERY.name, [QUERY.university], orcid='0000-0000-0000-0001')
+    ]
     return provider
 
 
-def record(source='openalex', author_id='A1', paper_id='W1', title='Reusable methods for synthetic research',
-           doi='10.1234/example'):
+def record(
+    source='openalex',
+    author_id='A1',
+    paper_id='W1',
+    title='Reusable methods for synthetic research',
+    doi='10.1234/example',
+):
     item = paper(source, paper_id, doi, title, 2020)
     item.source_author_id = author_id
     item.authors = [QUERY.name, 'Taylor Researcher']
     item.publication_type = 'journal-article'
-    item.author_details = [{'author_id': author_id, 'name': QUERY.name, 'role': 'author',
-                            'orcid': '0000-0000-0000-0001',
-                            'institutions': [{'display_name': QUERY.university}]}]
+    item.author_details = [
+        {
+            'author_id': author_id,
+            'name': QUERY.name,
+            'role': 'author',
+            'orcid': '0000-0000-0000-0001',
+            'institutions': [{'display_name': QUERY.university}],
+        }
+    ]
     item.target_author_present = True
     item.authors_complete = True
     item.external_ids = {'DOI': doi} if doi else {}
@@ -53,6 +64,7 @@ def record(source='openalex', author_id='A1', paper_id='W1', title='Reusable met
 
 def paper_provider(source='openalex', records=None, error=None, complete=True):
     from paper_author_searcher.models import PaperSourceResult
+
     provider = Mock()
     provider.name = source
     if isinstance(error, Exception):
@@ -60,18 +72,33 @@ def paper_provider(source='openalex', records=None, error=None, complete=True):
     else:
         items = records if records is not None else [record()]
         provider.collect.side_effect = lambda author_id: PaperSourceResult(
-            source, author_id, deepcopy(items), complete=complete, pagination_complete=complete,
-            records_received=len(items), pages_fetched=1, error=error)
+            source,
+            author_id,
+            deepcopy(items),
+            complete=complete,
+            pagination_complete=complete,
+            records_received=len(items),
+            pages_fetched=1,
+            error=error,
+        )
     return provider
 
 
 def pdf_provider():
     provider = Mock()
     provider.name = 'public_repository'
-    provider.find.side_effect = lambda item: PDFProviderResult(provider.name, [PDFCandidate(
-        'https://repo.example.edu/' + item['source_paper_id'] + '.pdf', provider.name,
-        identity_status='verified', access_basis='Explicit public API metadata',
-        provenance=[{'provider': provider.name, 'source_paper_id': item['source_paper_id']}])])
+    provider.find.side_effect = lambda item: PDFProviderResult(
+        provider.name,
+        [
+            PDFCandidate(
+                'https://repo.example.edu/' + item['source_paper_id'] + '.pdf',
+                provider.name,
+                identity_status='verified',
+                access_basis='Explicit public API metadata',
+                provenance=[{'provider': provider.name, 'source_paper_id': item['source_paper_id']}],
+            )
+        ],
+    )
     return provider
 
 
@@ -86,8 +113,12 @@ class WorkflowTests(unittest.TestCase):
         self.client = fake_client()
         self.progress = Mock()
         self.workflow = PaperSearchWorkflow(
-            ProfessorResolver([self.author]), PaperCollector([self.papers]),
-            PDFResolver([self.urls], validator()), PDFDownloader(self.client, fake_validator()), self.progress)
+            ProfessorResolver([self.author]),
+            PaperCollector([self.papers]),
+            PDFResolver([self.urls], validator()),
+            PDFDownloader(self.client, fake_validator()),
+            self.progress,
+        )
 
     def run_workflow(self, **kwargs):
         kwargs.setdefault('query', QUERY)
@@ -104,8 +135,18 @@ class WorkflowTests(unittest.TestCase):
         resolved = self.output(report, 'pdf_urls')['papers'][0]
         manifest = self.output(report, 'manifest')
         downloaded = manifest['papers'][0]
-        for field in ('title', 'authors', 'year', 'doi', 'source', 'source_paper_id', 'source_author_id',
-                      'ownership_status', 'ownership_evidence', 'external_ids'):
+        for field in (
+            'title',
+            'authors',
+            'year',
+            'doi',
+            'source',
+            'source_paper_id',
+            'source_author_id',
+            'ownership_status',
+            'ownership_evidence',
+            'external_ids',
+        ):
             self.assertEqual(archive[field], resolved[field])
             self.assertEqual(archive[field], downloaded[field])
         for field in ('author_details', 'records', 'source_identifiers', 'deduplication_evidence', 'raw_metadata'):
@@ -116,8 +157,15 @@ class WorkflowTests(unittest.TestCase):
         self.assertTrue((Path(report['output_directory']) / 'papers' / downloaded['local_filename']).exists())
         self.assertFalse(report['metadata_audit']['transmission_losses'])
         stages = [call.args[0] for call in self.progress.call_args_list]
-        for stage in ('Resolving professor identity', 'Collecting papers', 'Deduplicating papers',
-                      'Validating ownership', 'Finding PDF URLs', 'Downloading PDFs', 'Generating report'):
+        for stage in (
+            'Resolving professor identity',
+            'Collecting papers',
+            'Deduplicating papers',
+            'Validating ownership',
+            'Finding PDF URLs',
+            'Downloading PDFs',
+            'Generating report',
+        ):
             self.assertIn(stage, stages)
 
     def test_modes_do_not_call_later_stages(self):
@@ -133,8 +181,9 @@ class WorkflowTests(unittest.TestCase):
     def test_cross_source_deduplication_retains_both_author_ids(self):
         second_author = author_provider('semantic_scholar', 'S1')
         self.workflow.resolver = ProfessorResolver([self.author, second_author])
-        self.workflow.collector = PaperCollector([
-            self.papers, paper_provider('semantic_scholar', [record('semantic_scholar', 'S1', 'P1')])])
+        self.workflow.collector = PaperCollector(
+            [self.papers, paper_provider('semantic_scholar', [record('semantic_scholar', 'S1', 'P1')])]
+        )
         report = self.run_workflow()
         papers = self.output(report, 'papers')['collection']['papers']
         self.assertEqual(len(papers), 1)
@@ -152,7 +201,9 @@ class WorkflowTests(unittest.TestCase):
         self.papers.collect.assert_not_called()
         self.urls.find.assert_not_called()
         checkpoint = load_checkpoint(Path(report['output_directory']) / 'report.json')
-        report = self.workflow.run(saved=checkpoint, selected_author='openalex:A2', output_dir=self.root, mode='metadata')
+        report = self.workflow.run(
+            saved=checkpoint, selected_author='openalex:A2', output_dir=self.root, mode='metadata'
+        )
         self.assertNotEqual(report['run_status'], 'identity_confirmation_required')
         self.papers.collect.assert_called_once_with('A2')
         selected = self.output(report, 'papers')['collection']['selected_author_ids']
@@ -160,7 +211,9 @@ class WorkflowTests(unittest.TestCase):
 
     def test_contender_policy_collects_competing_profiles_without_verifying(self):
         from dataclasses import replace
+
         from paper_author_searcher.config import DEFAULT_COLLECTION
+
         candidates = [AuthorCandidate('openalex', item, QUERY.name, [QUERY.university]) for item in ('A1', 'A2')]
         self.workflow.resolver = ProfessorResolver([author_provider(candidates=candidates)])
         self.workflow.collection_config = replace(DEFAULT_COLLECTION, ambiguity_policy='collect_contenders')
@@ -188,9 +241,12 @@ class WorkflowTests(unittest.TestCase):
         self.assertTrue(any(item.get('source') == 'unavailable' for item in report['errors']))
 
     def test_collection_failure_and_partial_pagination_do_not_stop_available_papers(self):
-        self.workflow.collector = PaperCollector([
-            paper_provider(error='Configured page limit', complete=False),
-            paper_provider('unavailable', error=SourceError('HTTP 503'))])
+        self.workflow.collector = PaperCollector(
+            [
+                paper_provider(error='Configured page limit', complete=False),
+                paper_provider('unavailable', error=SourceError('HTTP 503')),
+            ]
+        )
         report = self.run_workflow()
         self.assertEqual(report['download_statistics']['verified_papers'], 1)
         self.assertFalse(report['collection_complete'])
@@ -206,8 +262,16 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(report['run_status'], 'partial')
 
     def test_one_download_failure_does_not_stop_next_paper(self):
-        self.workflow.collector = PaperCollector([paper_provider(records=[
-            record(), record(paper_id='W2', title='Independent synthetic research study', doi='10.1234/other')])])
+        self.workflow.collector = PaperCollector(
+            [
+                paper_provider(
+                    records=[
+                        record(),
+                        record(paper_id='W2', title='Independent synthetic research study', doi='10.1234/other'),
+                    ]
+                )
+            ]
+        )
         success = self.client.stream_pdf.side_effect
         calls = iter([False, True])
         self.client.stream_pdf.side_effect = lambda *args: success(*args) if next(calls) else self.fail_transfer()
@@ -284,8 +348,16 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(entries[1]['download_status'], 'skipped_ownership')
 
     def test_limits_mark_unprocessed_entries_and_skipped_downloads(self):
-        self.workflow.collector = PaperCollector([paper_provider(records=[record(), record(
-            paper_id='W2', title='Independent synthetic research study', doi='10.1234/other')])])
+        self.workflow.collector = PaperCollector(
+            [
+                paper_provider(
+                    records=[
+                        record(),
+                        record(paper_id='W2', title='Independent synthetic research study', doi='10.1234/other'),
+                    ]
+                )
+            ]
+        )
         report = self.run_workflow(maximum_pdf_papers=1, maximum_downloads=1)
         self.assertEqual(report['pdf_statistics']['not_processed_papers'], 1)
         self.assertEqual(report['download_statistics']['attempted_papers'], 1)
@@ -339,8 +411,18 @@ class WorkflowTests(unittest.TestCase):
             with patch('paper_author_searcher.workflow_cli.build_workflow', return_value=self.workflow):
                 buffer = io.StringIO()
                 with redirect_stdout(buffer):
-                    code = entrypoint(['--name', QUERY.name, '--university', QUERY.university,
-                                       '--mode', 'full', '--output-dir', str(self.root)])
+                    code = entrypoint(
+                        [
+                            '--name',
+                            QUERY.name,
+                            '--university',
+                            QUERY.university,
+                            '--mode',
+                            'full',
+                            '--output-dir',
+                            str(self.root),
+                        ]
+                    )
                 self.assertEqual(code, 0)
                 self.assertIn('Downloads: new=1', buffer.getvalue())
                 self.assertNotIn('"papers"', buffer.getvalue())
@@ -379,10 +461,12 @@ class WorkflowTests(unittest.TestCase):
         check = validator()
         actual = check.validate
         outcomes = iter([False, True])
+
         def validate_candidate(candidate, paper):
             if next(outcomes):
                 return actual(candidate, paper)
             raise RuntimeError('Validation service error')
+
         check.validate = validate_candidate
         self.workflow.pdf_resolver = PDFResolver([self.urls], check)
         report = self.run_workflow()
@@ -394,8 +478,11 @@ class WorkflowTests(unittest.TestCase):
         first = self.run_workflow(mode='pdf-urls')
         saved = self.output(first, 'pdf_urls')
         saved['collection_archive'] = self.output(first, 'papers')
-        saved['identity_archive'] = {'name': QUERY.name, 'author_ids': {'openalex': ['A1']},
-                                     'confirmation': 'resolver_resolved'}
+        saved['identity_archive'] = {
+            'name': QUERY.name,
+            'author_ids': {'openalex': ['A1']},
+            'confirmation': 'resolver_resolved',
+        }
         report = self.workflow.run(saved=saved, output_dir=self.root)
         restored = self.output(report, 'professor')
         self.assertEqual(restored['profile']['status'], 'resolved')
@@ -418,10 +505,12 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(resumed['download_statistics']['verified_papers'], 1)
 
     def test_cli_rejects_conflicting_input_and_invalid_limits(self):
-        for args in (['--input', 'saved.json', '--name', QUERY.name],
-                     ['--name', QUERY.name, '--university', QUERY.university, '--max-downloads', '0'],
-                     ['--input', 'saved.json', '--resume-dir', 'other'],
-                     ['--name', QUERY.name, '--university', QUERY.university, '--timeout', 'nan']):
+        for args in (
+            ['--input', 'saved.json', '--name', QUERY.name],
+            ['--name', QUERY.name, '--university', QUERY.university, '--max-downloads', '0'],
+            ['--input', 'saved.json', '--resume-dir', 'other'],
+            ['--name', QUERY.name, '--university', QUERY.university, '--timeout', 'nan'],
+        ):
             with redirect_stdout(io.StringIO()), patch('sys.stderr', new=io.StringIO()):
                 with self.assertRaises(SystemExit):
                     main(args)

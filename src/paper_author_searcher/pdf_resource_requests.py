@@ -1,4 +1,5 @@
 """Shared bounded page probes, per-host scheduling and negative-cache policy."""
+
 import time
 from collections import OrderedDict
 from dataclasses import replace
@@ -19,11 +20,20 @@ class PublicResourceRequests:
         self.route_failures = {}
         self.events = []
         self.deferrals = []
-        self.statistics = {'requests': 0, 'cache_hits': 0, 'cooldown_skips': 0,
-                           'rate_limit_responses': 0, 'expanded_page_reads': 0,
-                           'request_failures': 0, 'cache_response_hits': 0, 'cache_error_hits': 0,
-                           'deferred_before_request': 0, 'deferred_after_redirect': 0,
-                           'redirect_route_cache_hits': 0, 'source_backpressure_skips': 0}
+        self.statistics = {
+            'requests': 0,
+            'cache_hits': 0,
+            'cooldown_skips': 0,
+            'rate_limit_responses': 0,
+            'expanded_page_reads': 0,
+            'request_failures': 0,
+            'cache_response_hits': 0,
+            'cache_error_hits': 0,
+            'deferred_before_request': 0,
+            'deferred_after_redirect': 0,
+            'redirect_route_cache_hits': 0,
+            'source_backpressure_skips': 0,
+        }
 
     def __getattr__(self, name):
         return getattr(self.client, name)
@@ -48,8 +58,9 @@ class PublicResourceRequests:
 
         try:
             if isinstance(self.client, HttpClient):
-                response = self.client.probe(url, maximum_bytes, html_bytes, maximum_redirects,
-                                             redirect_guard=guard_redirect)
+                response = self.client.probe(
+                    url, maximum_bytes, html_bytes, maximum_redirects, redirect_guard=guard_redirect
+                )
             else:
                 response = self.client.probe(url, maximum_bytes, html_bytes, maximum_redirects)
             host['failures'] = 0
@@ -57,16 +68,22 @@ class PublicResourceRequests:
             if final_host:
                 final_host['failures'] = 0
             self.route_failures.pop(hostname, None)
-            return replace(response, request_context={'outcome': 'network_response', 'cache_status': 'miss',
-                                                      'request_attempted': True})
+            return replace(
+                response,
+                request_context={'outcome': 'network_response', 'cache_status': 'miss', 'request_attempted': True},
+            )
         except SourceError as exc:
             affected = exc.endpoint_host or hostname
             if exc.error_type == 'source_deferred':
                 self._record_route_failure(url, affected)
                 raise
             self.statistics['request_failures'] += 1
-            exc.request_context = {'outcome': 'request_failure', 'cache_status': 'miss',
-                                   'request_attempted': True, 'endpoint_host': affected}
+            exc.request_context = {
+                'outcome': 'request_failure',
+                'cache_status': 'miss',
+                'request_attempted': True,
+                'endpoint_host': affected,
+            }
             self.events.append({'host': affected, 'error_type': exc.error_type, 'status_code': exc.status_code})
             if exc.status_code == 429 or exc.error_type in ('timeout', 'network_error', 'server_error'):
                 failed_host = self.hosts.setdefault(affected, {'last': None, 'until': 0, 'failures': 0, 'error': None})
@@ -90,14 +107,23 @@ class PublicResourceRequests:
             phase = 'deferred_after_redirect' if request_started else 'deferred_before_request'
             self.statistics[phase] += 1
             error = host['error']
-            context = {'outcome': 'cooldown_skip', 'cache_status': 'not_queried',
-                       'request_attempted': request_started, 'destination_request_attempted': False,
-                       'endpoint_host': hostname, 'route_kind': route_kind}
+            context = {
+                'outcome': 'cooldown_skip',
+                'cache_status': 'not_queried',
+                'request_attempted': request_started,
+                'destination_request_attempted': False,
+                'endpoint_host': hostname,
+                'route_kind': route_kind,
+            }
             self.deferrals.append(dict(context, cause=error.error_type))
-            raise SourceError('Host temporarily deferred after {} (no new request to this host)'.format(error.error_type),
-                              status_code=error.status_code, error_type='source_deferred',
-                              retry_after=host['until'] - time.monotonic(), endpoint_host=hostname,
-                              request_context=context)
+            raise SourceError(
+                f'Host temporarily deferred after {error.error_type} (no new request to this host)',
+                status_code=error.status_code,
+                error_type='source_deferred',
+                retry_after=host['until'] - time.monotonic(),
+                endpoint_host=hostname,
+                request_context=context,
+            )
 
     def _guard_before_request(self, url, allow_source_backpressure):
         self._guard_redirect(url)
@@ -176,21 +202,36 @@ class PublicResourceRequests:
             expires, response = cached
             if expires <= time.monotonic():
                 del self.cache[key]
-            elif not isinstance(response, Exception) and (html_bytes == 0 or cached[1].content_type not in (
-                    'text/html', 'application/xhtml+xml') or len(response.prefix) >= html_bytes or response.body_complete):
+            elif not isinstance(response, Exception) and (
+                html_bytes == 0
+                or cached[1].content_type not in ('text/html', 'application/xhtml+xml')
+                or len(response.prefix) >= html_bytes
+                or response.body_complete
+            ):
                 self.statistics['cache_hits'] += 1
                 self.statistics['cache_response_hits'] += 1
                 self.cache.move_to_end(key)
-                cached_response = replace(response, request_context={
-                    'outcome': 'cached_response', 'cache_status': 'hit', 'request_attempted': False})
+                cached_response = replace(
+                    response,
+                    request_context={'outcome': 'cached_response', 'cache_status': 'hit', 'request_attempted': False},
+                )
                 return self._view(cached_response, maximum_bytes, html_bytes)
             elif isinstance(response, Exception):
                 self.statistics['cache_hits'] += 1
                 self.statistics['cache_error_hits'] += 1
-                raise SourceError(str(response), response.status_code, response.error_type,
-                                  response.retry_after, response.endpoint_host, request_context={
-                                      'outcome': 'cached_failure', 'cache_status': 'hit',
-                                      'request_attempted': False, 'endpoint_host': response.endpoint_host})
+                raise SourceError(
+                    str(response),
+                    response.status_code,
+                    response.error_type,
+                    response.retry_after,
+                    response.endpoint_host,
+                    request_context={
+                        'outcome': 'cached_failure',
+                        'cache_status': 'hit',
+                        'request_attempted': False,
+                        'endpoint_host': response.endpoint_host,
+                    },
+                )
         try:
             response = self._request(url, maximum_bytes, html_bytes, maximum_redirects, allow_source_backpressure)
             html = response.content_type in ('text/html', 'application/xhtml+xml')
@@ -199,8 +240,13 @@ class PublicResourceRequests:
             can_expand = 0 < html_bytes < self.config.public_page_maximum_bytes
             if can_expand and html and not response.body_complete and len(response.prefix) >= html_bytes:
                 self.statistics['expanded_page_reads'] += 1
-                response = self._request(url, maximum_bytes, self.config.public_page_maximum_bytes,
-                                         maximum_redirects, allow_source_backpressure)
+                response = self._request(
+                    url,
+                    maximum_bytes,
+                    self.config.public_page_maximum_bytes,
+                    maximum_redirects,
+                    allow_source_backpressure,
+                )
                 if len(response.prefix) < self.config.public_page_maximum_bytes:
                     response = replace(response, body_complete=True)
         except SourceError as exc:
@@ -220,7 +266,10 @@ class PublicResourceRequests:
         self.cache.move_to_end(key)
         while len(self.cache) > self.config.public_page_cache_entries:
             self.cache.popitem(last=False)
-        while sum(len(value.prefix) for _, value in self.cache.values() if not isinstance(value, Exception)) > self.config.public_page_cache_bytes:
+        while (
+            sum(len(value.prefix) for _, value in self.cache.values() if not isinstance(value, Exception))
+            > self.config.public_page_cache_bytes
+        ):
             self.cache.popitem(last=False)
 
     @staticmethod

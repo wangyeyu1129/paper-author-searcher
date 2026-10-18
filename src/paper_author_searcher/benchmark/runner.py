@@ -1,11 +1,13 @@
 """Run the search system once per benchmark person and keep a resumable run index."""
+
 from copy import deepcopy
 from dataclasses import asdict, replace
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable, Dict, Iterable, Optional, Protocol, Tuple
 
-from ..workflow import read_json, write_json
+from paper_author_searcher.workflow import read_json, write_json
+
 from .roster import BenchmarkPerson
 from .settings import BenchmarkSettings, RunSettings
 
@@ -21,10 +23,10 @@ def _now() -> str:
 
 class SearchSystem(Protocol):
     """Anything that turns a production-style input into a workflow report directory."""
+
     name: str
 
-    def search(self, person: BenchmarkPerson, output_dir: Path) -> dict:
-        ...
+    def search(self, person: BenchmarkPerson, output_dir: Path) -> dict: ...
 
 
 def window_archive(archive: dict, window: Tuple[int, int]) -> dict:
@@ -36,8 +38,12 @@ def window_archive(archive: dict, window: Tuple[int, int]) -> dict:
     kept = [paper for paper in papers if paper.get('year') is None or start <= paper['year'] <= end]
     collection['all_papers'] = kept
     collection['papers'] = kept
-    collection['benchmark_pdf_scope'] = {'year_start': start, 'year_end': end, 'kept': len(kept),
-                                         'collected': len(papers)}
+    collection['benchmark_pdf_scope'] = {
+        'year_start': start,
+        'year_end': end,
+        'kept': len(kept),
+        'collected': len(papers),
+    }
     return restricted
 
 
@@ -48,12 +54,18 @@ class WorkflowSearchSystem:
     tolerance), chosen from the system's own collection without looking at truth, so a senior researcher's whole
     career is not downloaded to measure two years of full-text coverage.
     """
+
     name = 'paper_search_workflow'
 
-    def __init__(self, run: RunSettings, settings: Optional[BenchmarkSettings] = None,
-                 workflow_factory: Optional[Callable] = None) -> None:
+    def __init__(
+        self,
+        run: RunSettings,
+        settings: Optional[BenchmarkSettings] = None,
+        workflow_factory: Optional[Callable] = None,
+    ) -> None:
         if workflow_factory is None:
-            from ..workflow_cli import build_workflow
+            from paper_author_searcher.workflow_cli import build_workflow
+
             workflow_factory = build_workflow
         self.run_settings = run
         self.settings = settings
@@ -63,8 +75,9 @@ class WorkflowSearchSystem:
         windowed = self.run_settings.mode == FULL_MODE and self.settings is not None
         first_mode = 'metadata' if windowed else self.run_settings.mode
         with_hints = self.run_settings.input_profile == 'with_hints'
-        report = self._run(replace(self.run_settings, mode=first_mode), output_dir,
-                           query=person.search_input.to_query(with_hints))
+        report = self._run(
+            replace(self.run_settings, mode=first_mode), output_dir, query=person.search_input.to_query(with_hints)
+        )
         if not windowed or not report.get('artifacts', {}).get('papers'):
             return report
         start, end = person.window(self.settings)
@@ -72,43 +85,67 @@ class WorkflowSearchSystem:
         archive = read_json(Path(report['output_directory']) / report['artifacts']['papers'])
         if report.get('identity'):
             archive.setdefault('identity_archive', report['identity'])
-        fulltext = self._run(self.run_settings, Path(output_dir) / 'fulltext',
-                             saved=window_archive(archive, (start - tolerance, end + tolerance)))
+        fulltext = self._run(
+            self.run_settings,
+            Path(output_dir) / 'fulltext',
+            saved=window_archive(archive, (start - tolerance, end + tolerance)),
+        )
         report['fulltext_report'] = fulltext['output_directory']
         report['fulltext_status'] = fulltext.get('run_status')
         return report
 
     def _run(self, run: RunSettings, output_dir: Path, **source) -> dict:
         workflow = self.workflow_factory(run)
-        return workflow.run(output_dir=output_dir, mode=run.mode, include_needs_review=run.include_needs_review,
-                            maximum_pdf_papers=run.max_pdf_papers, maximum_downloads=run.max_downloads, **source)
+        return workflow.run(
+            output_dir=output_dir,
+            mode=run.mode,
+            include_needs_review=run.include_needs_review,
+            maximum_pdf_papers=run.max_pdf_papers,
+            maximum_downloads=run.max_downloads,
+            **source,
+        )
 
 
 class BenchmarkRunner:
-    def __init__(self, settings: BenchmarkSettings, system: SearchSystem,
-                 progress: Optional[Callable[[str], None]] = None) -> None:
+    def __init__(
+        self, settings: BenchmarkSettings, system: SearchSystem, progress: Optional[Callable[[str], None]] = None
+    ) -> None:
         self.settings = settings
         self.system = system
         self.progress = progress or (lambda message: None)
 
-    def run(self, people: Iterable[BenchmarkPerson], run_id: str, metadata: Optional[Dict[str, object]] = None,
-            rerun: bool = False) -> dict:
+    def run(
+        self,
+        people: Iterable[BenchmarkPerson],
+        run_id: str,
+        metadata: Optional[Dict[str, object]] = None,
+        rerun: bool = False,
+    ) -> dict:
         root = self.settings.paths.runs / run_id
         root.mkdir(parents=True, exist_ok=True)
         index_path = root / INDEX
-        index = read_json(index_path) if index_path.exists() else {
-            'run_id': run_id, 'dataset_id': self.settings.dataset_id, 'system': self.system.name,
-            'created_at': _now(), 'run_settings': _public_settings(self.settings.run),
-            'metadata': metadata or {}, 'people': {},
-        }
+        index = (
+            read_json(index_path)
+            if index_path.exists()
+            else {
+                'run_id': run_id,
+                'dataset_id': self.settings.dataset_id,
+                'system': self.system.name,
+                'created_at': _now(),
+                'run_settings': _public_settings(self.settings.run),
+                'metadata': metadata or {},
+                'people': {},
+            }
+        )
         people = list(people)
         for position, person in enumerate(people, 1):
             previous = index['people'].get(person.person_id) or {}
             if previous.get('status') in TERMINAL_STATUSES and not rerun:
-                self.progress('[{}/{}] {} reused ({})'.format(position, len(people), person.person_id,
-                                                              previous['status']))
+                self.progress(
+                    '[{}/{}] {} reused ({})'.format(position, len(people), person.person_id, previous['status'])
+                )
                 continue
-            self.progress('[{}/{}] {} searching'.format(position, len(people), person.person_id))
+            self.progress(f'[{position}/{len(people)}] {person.person_id} searching')
             entry = {'started_at': _now(), 'status': 'running'}
             index['people'][person.person_id] = entry
             write_json(index_path, index)
@@ -117,7 +154,9 @@ class BenchmarkRunner:
                 entry['status'] = report.get('run_status', 'failed')
                 entry['report'] = str(Path(report['output_directory']).resolve().relative_to(root.resolve()))
                 if report.get('fulltext_report'):
-                    entry['fulltext_report'] = str(Path(report['fulltext_report']).resolve().relative_to(root.resolve()))
+                    entry['fulltext_report'] = str(
+                        Path(report['fulltext_report']).resolve().relative_to(root.resolve())
+                    )
                     entry['fulltext_status'] = report.get('fulltext_status')
                 entry['error_count'] = len(report.get('errors') or [])
             except KeyboardInterrupt:
@@ -126,7 +165,7 @@ class BenchmarkRunner:
                 raise
             except Exception as exc:  # one person's failure must not stop the benchmark
                 entry['status'] = 'failed'
-                entry['error'] = '{}: {}'.format(type(exc).__name__, exc)
+                entry['error'] = f'{type(exc).__name__}: {exc}'
             entry['finished_at'] = _now()
             write_json(index_path, index)
             self.progress('[{}/{}] {} {}'.format(position, len(people), person.person_id, entry['status']))
@@ -136,7 +175,8 @@ class BenchmarkRunner:
         return index
 
     def budget_summary(self) -> Optional[dict]:
-        from ..http_budget import ledger_summary
+        from paper_author_searcher.http_budget import ledger_summary
+
         return ledger_summary(self.settings.run.cost_ledger)
 
 

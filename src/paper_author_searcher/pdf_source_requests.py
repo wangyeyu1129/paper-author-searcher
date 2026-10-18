@@ -1,4 +1,5 @@
 """Bounded Semantic Scholar requests, caching and source-local cooldowns."""
+
 import time
 from urllib.parse import quote
 
@@ -23,9 +24,16 @@ class SemanticScholarRequests:
         self.blocked_error = None
         self.failure_streak = 0
         self.events = []
-        self.statistics = {'batch_requests': 0, 'individual_requests': 0, 'title_search_requests': 0,
-                           'cooldown_skips': 0, 'authentication_skips': 0, 'work_cache_hits': 0,
-                           'title_cache_hits': 0, 'request_failures': 0}
+        self.statistics = {
+            'batch_requests': 0,
+            'individual_requests': 0,
+            'title_search_requests': 0,
+            'cooldown_skips': 0,
+            'authentication_skips': 0,
+            'work_cache_hits': 0,
+            'title_cache_hits': 0,
+            'request_failures': 0,
+        }
 
     def url(self, identifier):
         return self.sources.semantic_scholar_url + '/paper/' + quote(identifier, safe=':')
@@ -33,15 +41,21 @@ class SemanticScholarRequests:
     def _call(self, request, operation):
         if self.blocked_error is not None:
             self.statistics['authentication_skips'] += 1
-            raise SourceError('Semantic Scholar unavailable after an authentication/access error (no new request)',
-                              status_code=self.blocked_error.status_code, error_type='source_deferred',
-                              request_context={'outcome': 'source_unavailable_skip', 'request_attempted': False})
+            raise SourceError(
+                'Semantic Scholar unavailable after an authentication/access error (no new request)',
+                status_code=self.blocked_error.status_code,
+                error_type='source_deferred',
+                request_context={'outcome': 'source_unavailable_skip', 'request_attempted': False},
+            )
         if time.monotonic() < self.cooldown_until:
             self.statistics['cooldown_skips'] += 1
-            raise SourceError('Semantic Scholar temporarily deferred (no new request)',
-                              status_code=self.deferred_error.status_code, error_type='source_deferred',
-                              retry_after=self.cooldown_until - time.monotonic(),
-                              request_context={'outcome': 'cooldown_skip', 'request_attempted': False})
+            raise SourceError(
+                'Semantic Scholar temporarily deferred (no new request)',
+                status_code=self.deferred_error.status_code,
+                error_type='source_deferred',
+                retry_after=self.cooldown_until - time.monotonic(),
+                request_context={'outcome': 'cooldown_skip', 'request_attempted': False},
+            )
         if self.last_request is not None:
             remaining = self.config.semantic_scholar_request_interval - (time.monotonic() - self.last_request)
             if remaining > 0:
@@ -59,7 +73,12 @@ class SemanticScholarRequests:
             if exc.status_code in (401, 403):
                 self.blocked_error = exc
             elif exc.status_code == 429 or exc.error_type in (
-                    'timeout', 'network_error', 'server_error', 'invalid_content_type', 'empty_response'):
+                'timeout',
+                'network_error',
+                'server_error',
+                'invalid_content_type',
+                'empty_response',
+            ):
                 self.failure_streak += 1
                 delay = self.config.semantic_scholar_cooldown * (2 ** min(self.failure_streak - 1, 10))
                 wait = max(min(delay, self.config.source_maximum_cooldown), exc.retry_after or 0)
@@ -75,17 +94,22 @@ class SemanticScholarRequests:
         size = self.config.semantic_scholar_batch_size
         url = self.sources.semantic_scholar_url + '/paper/batch'
         for start in range(0, len(pending), size):
-            batch = pending[start:start + size]
+            batch = pending[start : start + size]
             try:
-                response = self._call(lambda: self.client.post_json(
-                    url, {'ids': batch}, params={'fields': self.fields},
-                    headers=self._headers(), expected_type=list), 'batch_requests')
+                response = self._call(
+                    lambda batch=batch: self.client.post_json(
+                        url, {'ids': batch}, params={'fields': self.fields}, headers=self._headers(), expected_type=list
+                    ),
+                    'batch_requests',
+                )
                 if not isinstance(response, list) or len(response) != len(batch):
-                    raise SourceError('Semantic Scholar batch response has an unexpected length',
-                                      error_type='malformed_response')
+                    raise SourceError(
+                        'Semantic Scholar batch response has an unexpected length', error_type='malformed_response'
+                    )
                 if any(item is not None and (not isinstance(item, dict) or item.get('error')) for item in response):
-                    raise SourceError('Semantic Scholar batch response contains an invalid item',
-                                      error_type='malformed_response')
+                    raise SourceError(
+                        'Semantic Scholar batch response contains an invalid item', error_type='malformed_response'
+                    )
                 for identifier, work in zip(batch, response):
                     self.cache[identifier] = work
                     self.origins[identifier] = 'batch'
@@ -99,8 +123,12 @@ class SemanticScholarRequests:
     def work(self, identifier):
         if identifier not in self.cache:
             try:
-                response = self._call(lambda: self.client.get(
-                    self.url(identifier), params={'fields': self.fields}, headers=self._headers()), 'individual_requests')
+                response = self._call(
+                    lambda: self.client.get(
+                        self.url(identifier), params={'fields': self.fields}, headers=self._headers()
+                    ),
+                    'individual_requests',
+                )
             except SourceError as exc:
                 if exc.status_code == 404:
                     self.cache[identifier] = None
@@ -121,13 +149,23 @@ class SemanticScholarRequests:
         key = 'title:' + title
         if key not in self.cache:
             url = self.sources.semantic_scholar_url + '/paper/search'
-            response = self._call(lambda: self.client.get(
-                url, params={'query': title, 'limit': self.config.semantic_scholar_search_results,
-                             'fields': self.fields}, headers=self._headers()), 'title_search_requests')
+            response = self._call(
+                lambda: self.client.get(
+                    url,
+                    params={
+                        'query': title,
+                        'limit': self.config.semantic_scholar_search_results,
+                        'fields': self.fields,
+                    },
+                    headers=self._headers(),
+                ),
+                'title_search_requests',
+            )
             items = response.get('data') if isinstance(response, dict) else None
             if not isinstance(items, list) or any(not isinstance(item, dict) for item in items):
-                raise SourceError('Semantic Scholar search response must contain a paper list',
-                                  error_type='malformed_response')
+                raise SourceError(
+                    'Semantic Scholar search response must contain a paper list', error_type='malformed_response'
+                )
             self.cache[key] = items
         else:
             self.statistics['title_cache_hits'] += 1

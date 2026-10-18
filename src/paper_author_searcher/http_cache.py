@@ -1,4 +1,5 @@
 """Record/replay decorator for metadata GET requests, so identity runs can be repeated offline."""
+
 import hashlib
 import json
 import xml.etree.ElementTree as ET
@@ -13,8 +14,8 @@ SECRET_PARAMETERS = frozenset({'api_key', 'apikey', 'key', 'token', 'mailto', 'e
 
 
 class CacheMode(str, Enum):
-    RECORD = 'record'    # read hits, fetch and store misses
-    REPLAY = 'replay'    # read hits only; a miss is a SourceError
+    RECORD = 'record'  # read hits, fetch and store misses
+    REPLAY = 'replay'  # read hits only; a miss is a SourceError
     REFRESH = 'refresh'  # always fetch and overwrite
 
 
@@ -24,8 +25,13 @@ class CachingHttpClient:
     Secrets never reach the cache key or the stored file; failed requests are not cached.
     """
 
-    def __init__(self, client, directory: Path, mode: CacheMode = CacheMode.RECORD,
-                 ignored_parameters: Iterable[str] = SECRET_PARAMETERS) -> None:
+    def __init__(
+        self,
+        client,
+        directory: Path,
+        mode: CacheMode = CacheMode.RECORD,
+        ignored_parameters: Iterable[str] = SECRET_PARAMETERS,
+    ) -> None:
         self.client = client
         self.directory = Path(directory)
         self.mode = CacheMode(mode)
@@ -36,8 +42,11 @@ class CachingHttpClient:
         return getattr(self.client, name)
 
     def key(self, url: str, params: Optional[dict], xml: bool) -> str:
-        public = sorted((name, str(value)) for name, value in (params or {}).items()
-                        if value is not None and name.lower() not in self.ignored_parameters)
+        public = sorted(
+            (name, str(value))
+            for name, value in (params or {}).items()
+            if value is not None and name.lower() not in self.ignored_parameters
+        )
         material = url + '?' + urlencode(public) + ('#xml' if xml else '')
         return hashlib.sha256(material.encode('utf-8')).hexdigest()
 
@@ -56,8 +65,11 @@ class CachingHttpClient:
         path.parent.mkdir(parents=True, exist_ok=True)
         temporary = path.with_suffix('.tmp')
         with temporary.open('w', encoding='utf-8') as handle:
-            json.dump({'url': url, 'xml': xml, 'body': ET.tostring(body, encoding='unicode') if xml else body},
-                      handle, ensure_ascii=False)
+            json.dump(
+                {'url': url, 'xml': xml, 'body': ET.tostring(body, encoding='unicode') if xml else body},
+                handle,
+                ensure_ascii=False,
+            )
         temporary.replace(path)
         self.statistics['stored'] += 1
         return body

@@ -1,9 +1,10 @@
 """Exact work grouping plus explicit links between probable related versions."""
+
 from dataclasses import asdict
 from itertools import combinations
 
 from .config import DEFAULT_DEDUPLICATION
-from .matching import canonical_doi, normalize, name_similarity
+from .matching import canonical_doi, name_similarity, normalize
 from .models import Paper
 from .paper_types import classify_record, publication_form
 
@@ -87,9 +88,8 @@ def duplicate_evidence(left, right, config=DEFAULT_DEDUPLICATION):
     left_form, right_form = publication_form(left), publication_form(right)
     if left_form != 'unknown' and right_form != 'unknown' and left_form != right_form:
         return []
-    if left.venue and right.venue:
-        if normalize(left.venue) != normalize(right.venue):
-            return []
+    if left.venue and right.venue and normalize(left.venue) != normalize(right.venue):
+        return []
     if not left.venue and not right.venue:
         return []
     return ['Matching normalized title, year, compatible authors and publication metadata']
@@ -128,13 +128,16 @@ def deduplicate_papers(records, config=DEFAULT_DEDUPLICATION):
                 if not values[key]:
                     values[key] = getattr(record, key)
         if values['doi']:
-            values['doi'] = canonical_doi(values['doi'])[len('doi:'):]
+            values['doi'] = canonical_doi(values['doi'])[len('doi:') :]
         values.update(_combine_authorship_metadata(group))
         categories = {record.paper_type for record in group} - {'unknown'}
-        values['type_evidence'] = sorted({
-            '{}:{}: {}'.format(record.source, record.source_paper_id, message)
-            for record in group for message in record.type_evidence
-        })
+        values['type_evidence'] = sorted(
+            {
+                f'{record.source}:{record.source_paper_id}: {message}'
+                for record in group
+                for message in record.type_evidence
+            }
+        )
         if categories == {'research_paper', 'review'}:
             values['paper_type'] = 'review'
         elif len(categories) == 1:
@@ -153,12 +156,16 @@ def _combine_authorship_metadata(group):
     external_values = {}
     errors = set()
     for record in group:
-        source_ids.append({
-            'source': record.source, 'paper_id': record.source_paper_id,
-            'author_id': record.source_author_id, 'external_ids': dict(record.external_ids),
-            'target_author_present': record.target_author_present,
-            'authors_complete': record.authors_complete,
-        })
+        source_ids.append(
+            {
+                'source': record.source,
+                'paper_id': record.source_paper_id,
+                'author_id': record.source_author_id,
+                'external_ids': dict(record.external_ids),
+                'target_author_present': record.target_author_present,
+                'authors_complete': record.authors_complete,
+            }
+        )
         for author in record.author_details:
             values = dict(author)
             values['source'] = record.source
@@ -183,8 +190,10 @@ def _combine_authorship_metadata(group):
     elif any(record.authors_complete is False for record in group):
         completeness = False
     return {
-        'author_details': details, 'external_ids': external_ids,
-        'target_author_present': present, 'source_identifiers': source_ids,
+        'author_details': details,
+        'external_ids': external_ids,
+        'target_author_present': present,
+        'source_identifiers': source_ids,
         'authors_complete': completeness,
         'metadata_errors': sorted(errors),
     }
@@ -203,11 +212,18 @@ def _link_related_versions(papers, config):
             if count / total < config.author_overlap:
                 continue
             # Related research is not proof that these are the same publication/version.
-            reason = 'Possible related version: same normalized title and compatible authors; identity of the research is unconfirmed'
+            reason = (
+                'Possible related version: same normalized title and compatible authors; '
+                'identity of the research is unconfirmed'
+            )
             for paper, related in ((left, right), (right, left)):
                 identifiers = []
                 for record in related.records:
-                    identifiers.append({
-                        'source': record.source, 'paper_id': record.source_paper_id, 'doi': record.doi,
-                    })
+                    identifiers.append(
+                        {
+                            'source': record.source,
+                            'paper_id': record.source_paper_id,
+                            'doi': record.doi,
+                        }
+                    )
                 paper.related_versions.append({'identifiers': identifiers, 'evidence': reason})

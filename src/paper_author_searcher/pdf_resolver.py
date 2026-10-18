@@ -1,4 +1,5 @@
 """Resolve URLs from saved collections while preserving ownership judgments."""
+
 from copy import deepcopy
 from dataclasses import asdict
 from urllib.parse import urldefrag
@@ -6,32 +7,37 @@ from urllib.parse import urldefrag
 from .config import DEFAULT_PDF
 from .http import HttpClient
 from .models import PaperPDFResult, PDFProviderResult, PDFResolutionResult
-from .pdf_providers import (
-    ArxivPDFProvider, ExistingPDFProvider, OpenAlexPDFProvider,
-    SemanticScholarPDFProvider, UnpaywallPDFProvider,
-)
-from .pdf_validation import PDFURLValidator
 from .pdf_catalogs import JournalCatalogPDFProvider
 from .pdf_crossref import CrossrefPDFProvider
+from .pdf_providers import (
+    ArxivPDFProvider,
+    ExistingPDFProvider,
+    OpenAlexPDFProvider,
+    SemanticScholarPDFProvider,
+    UnpaywallPDFProvider,
+)
 from .pdf_public_pages import PublicPagePDFProvider
-from .performance_diagnostics import pdf_failure_reasons
 from .pdf_resource_requests import PublicResourceRequests
 from .pdf_search_status import SEARCH_COMPLETION_DEFINITION, paper_search_complete
+from .pdf_validation import PDFURLValidator
+from .performance_diagnostics import pdf_failure_reasons
 
 
 class PDFResolver:
-    def __init__(self, providers=None, validator=None, client=None, config=DEFAULT_PDF,
-                 unpaywall_email=None):
+    def __init__(self, providers=None, validator=None, client=None, config=DEFAULT_PDF, unpaywall_email=None):
         client = client or HttpClient()
         if not isinstance(client, PublicResourceRequests):
             client = PublicResourceRequests(client, config)
         self.resource_requests = client
         if providers is None:
             providers = [
-                ExistingPDFProvider(), OpenAlexPDFProvider(client), SemanticScholarPDFProvider(client, config=config),
+                ExistingPDFProvider(),
+                OpenAlexPDFProvider(client),
+                SemanticScholarPDFProvider(client, config=config),
                 CrossrefPDFProvider(client, config),
                 UnpaywallPDFProvider(client, unpaywall_email, config),
-                ArxivPDFProvider(client, config), JournalCatalogPDFProvider(client, config),
+                ArxivPDFProvider(client, config),
+                JournalCatalogPDFProvider(client, config),
                 PublicPagePDFProvider(client, config),
             ]
         self.providers = providers
@@ -61,13 +67,18 @@ class PDFResolver:
         self._prepare_providers(selected)
         for index, paper in enumerate(papers):
             result = PaperPDFResult(
-                index, paper.get('title', ''), paper.get('doi'),
+                index,
+                paper.get('title', ''),
+                paper.get('doi'),
                 paper.get('ownership_status', 'needs_review'),
                 deepcopy(paper.get('ownership_evidence') or []),
-                authors=deepcopy(paper.get('authors') or []), year=paper.get('year'),
-                source=paper.get('source'), source_paper_id=paper.get('source_paper_id'),
+                authors=deepcopy(paper.get('authors') or []),
+                year=paper.get('year'),
+                source=paper.get('source'),
+                source_paper_id=paper.get('source_paper_id'),
                 external_ids=deepcopy(paper.get('external_ids') or {}),
-                source_author_id=paper.get('source_author_id'), paper_metadata=deepcopy(paper),
+                source_author_id=paper.get('source_author_id'),
+                paper_metadata=deepcopy(paper),
             )
             results.append(result)
             if result.ownership_status not in eligible_statuses:
@@ -108,8 +119,15 @@ class PDFResolver:
             if provider.name in self.preparation_errors:
                 found.errors.append('Provider preparation: ' + self.preparation_errors[provider.name])
                 found.status = 'partial' if found.candidates else 'error'
-            result.providers.append({'source': found.source, 'status': found.status, 'errors': found.errors,
-                                     'diagnostics': found.diagnostics, 'warnings': found.warnings})
+            result.providers.append(
+                {
+                    'source': found.source,
+                    'status': found.status,
+                    'errors': found.errors,
+                    'diagnostics': found.diagnostics,
+                    'warnings': found.warnings,
+                }
+            )
             for error in found.errors:
                 result.error_details.append({'source': found.source, 'error': error})
             result.warnings.extend(dict(warning, source=found.source) for warning in found.warnings)
@@ -121,16 +139,24 @@ class PDFResolver:
             for error in candidate.error_details:
                 entry = {'source': candidate.source, 'url': candidate.url, 'error': error}
                 if candidate.query_error_type == 'source_deferred':
-                    result.warnings.append(dict(entry, code='source_deferred', incomplete=True,
-                                                request_context=candidate.request_context))
+                    result.warnings.append(
+                        dict(entry, code='source_deferred', incomplete=True, request_context=candidate.request_context)
+                    )
                 elif candidate.access_status == 'unreachable':
                     entry.update(error_type=candidate.query_error_type, request_context=candidate.request_context)
                     result.error_details.append(entry)
                 else:
-                    category = 'pdf_identity_conflict' if candidate.identity_status == 'conflicting' else 'candidate_filtered'
-                    result.candidate_decisions.append(dict(entry, category=category,
-                                                          identity_status=candidate.identity_status,
-                                                          validation_status=candidate.validation_status))
+                    category = (
+                        'pdf_identity_conflict' if candidate.identity_status == 'conflicting' else 'candidate_filtered'
+                    )
+                    result.candidate_decisions.append(
+                        dict(
+                            entry,
+                            category=category,
+                            identity_status=candidate.identity_status,
+                            validation_status=candidate.validation_status,
+                        )
+                    )
         valid = [candidate for candidate in result.pdf_candidates if candidate.validation_status == 'verified']
         if valid:
             best = min(valid, key=self._version_priority)
@@ -179,12 +205,23 @@ class PDFResolver:
             return len(self.config.version_preference)
 
     def _statistics(self, papers):
-        counts = {'total_papers': len(papers), 'processed_papers': 0, 'valid_pdf_papers': 0,
-                  'unverified_only_papers': 0, 'not_found_papers': 0, 'skipped_ownership_papers': 0,
-                  'not_processed_papers': 0, 'incomplete_search_papers': 0}
-        status_metrics = {'verified': 'valid_pdf_papers', 'unverified': 'unverified_only_papers',
-                          'not_found': 'not_found_papers', 'skipped_ownership': 'skipped_ownership_papers',
-                          'not_processed': 'not_processed_papers'}
+        counts = {
+            'total_papers': len(papers),
+            'processed_papers': 0,
+            'valid_pdf_papers': 0,
+            'unverified_only_papers': 0,
+            'not_found_papers': 0,
+            'skipped_ownership_papers': 0,
+            'not_processed_papers': 0,
+            'incomplete_search_papers': 0,
+        }
+        status_metrics = {
+            'verified': 'valid_pdf_papers',
+            'unverified': 'unverified_only_papers',
+            'not_found': 'not_found_papers',
+            'skipped_ownership': 'skipped_ownership_papers',
+            'not_processed': 'not_processed_papers',
+        }
         sources = {}
         verified_urls = set()
         for paper in papers:
@@ -202,7 +239,9 @@ class PDFResolver:
             valid_sources = set()
             for candidate in paper.pdf_candidates:
                 candidate_sources = {candidate.source}
-                candidate_sources.update(record['provider'] for record in candidate.provenance if record.get('provider'))
+                candidate_sources.update(
+                    record['provider'] for record in candidate.provenance if record.get('provider')
+                )
                 for source in candidate_sources:
                     sources.setdefault(source, self._source_counts())
                     sources[source]['candidate_urls'] += 1
@@ -216,14 +255,20 @@ class PDFResolver:
         counts['distinct_verified_pdf_urls'] = len(verified_urls)
         counts['source_contributions'] = sources
         counts['search_complete_for_processed_papers'] = counts['incomplete_search_papers'] == 0
-        counts['coverage_note'] = 'Counts describe processed saved entries and public-source observations, not all available PDFs.'
+        counts['coverage_note'] = (
+            'Counts describe processed saved entries and public-source observations, not all available PDFs.'
+        )
         counts['provider_request_statistics'] = {}
         counts['provider_request_statistics']['public_resources'] = dict(
-            self.resource_requests.statistics, events=list(self.resource_requests.events),
+            self.resource_requests.statistics,
+            events=list(self.resource_requests.events),
             deferrals=list(self.resource_requests.deferrals),
-            scope='Logical probe calls and terminal request failures; HTTP retries and redirects are separate')
+            scope='Logical probe calls and terminal request failures; HTTP retries and redirects are separate',
+        )
         counts['complete_search_papers'] = counts['processed_papers'] - counts['incomplete_search_papers']
-        counts['search_completion_scope'] = 'Configured bounded source queries; not all legal PDFs or versions on the Internet'
+        counts['search_completion_scope'] = (
+            'Configured bounded source queries; not all legal PDFs or versions on the Internet'
+        )
         counts['search_completion_definition'] = SEARCH_COMPLETION_DEFINITION
         http_client = self.resource_requests.client
         if isinstance(http_client, HttpClient):
@@ -235,5 +280,10 @@ class PDFResolver:
         return counts
 
     def _source_counts(self):
-        return {'candidate_urls': 0, 'verified_urls': 0, 'papers_with_valid_pdf': 0,
-                'errors': 0, 'query_status_counts': {}}
+        return {
+            'candidate_urls': 0,
+            'verified_urls': 0,
+            'papers_with_valid_pdf': 0,
+            'errors': 0,
+            'query_status_counts': {},
+        }

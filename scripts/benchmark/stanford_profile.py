@@ -3,6 +3,7 @@
 Stanford maintains these lists (from PubMed/Web of Science claims); each entry has a year line ("2025; 15 (1): 21-33")
 and usually a DOI/PubMed ID. Usage: stanford_profile.py PROFILE_URL START_YEAR END_YEAR OUT_JSON
 """
+
 import html
 import json
 import re
@@ -25,7 +26,7 @@ def page_lines(url):
     start = next((index for index, line in enumerate(lines) if line == 'All Publications'), None)
     if start is None:
         raise SystemExit('No "All Publications" section found')
-    return lines[start + 1:]
+    return lines[start + 1 :]
 
 
 def authors(line):
@@ -52,9 +53,14 @@ def main(argv):
         has_venue = (index - 4) in boundaries or index - 3 <= 0
         title_index = index - 3 if has_venue else index - 2
         year = int(match.group(1))
-        item = {'title': lines[title_index].rstrip('.'), 'year': year, 'type': None,
-                'venue': lines[index - 2] if has_venue else None, 'authors': authors(lines[index - 1])}
-        for follow in lines[index + 1:index + 40]:
+        item = {
+            'title': lines[title_index].rstrip('.'),
+            'year': year,
+            'type': None,
+            'venue': lines[index - 2] if has_venue else None,
+            'authors': authors(lines[index - 1]),
+        }
+        for follow in lines[index + 1 : index + 40]:
             if YEAR_LINE.match(follow):
                 break
             detail = DETAIL.match(follow)
@@ -64,9 +70,14 @@ def main(argv):
                 item.setdefault('pmid', detail.group(2))
         if start <= year <= end:
             entries.append(item)
-    snapshot = {'snapshot_schema_version': 1, 'source_url': url, 'captured_at': date.today().isoformat(),
-                'captured_by': 'Script parsing of the Stanford Profiles publication tab; pending human review',
-                'scope_note': 'Stanford Profiles "All Publications", {}-{}'.format(start, end), 'entries': entries}
+    snapshot = {
+        'snapshot_schema_version': 1,
+        'source_url': url,
+        'captured_at': date.today().isoformat(),
+        'captured_by': 'Script parsing of the Stanford Profiles publication tab; pending human review',
+        'scope_note': f'Stanford Profiles "All Publications", {start}-{end}',
+        'entries': entries,
+    }
     with open(out, 'w', encoding='utf-8') as handle:
         json.dump(snapshot, handle, ensure_ascii=False, indent=1)
         handle.write('\n')

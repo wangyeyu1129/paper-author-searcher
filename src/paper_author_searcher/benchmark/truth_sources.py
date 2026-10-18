@@ -3,6 +3,7 @@
 Every source reads a local snapshot so truth can be rebuilt offline and audited; live fetching
 lives in ``snapshots.py``. None of these sources reads output of the search pipeline.
 """
+
 import json
 import re
 from dataclasses import dataclass, field
@@ -11,8 +12,9 @@ from typing import Dict, List, Optional, Protocol
 
 from .roster import BenchmarkPerson, TruthSourceSpec
 
-ARXIV_ID = re.compile(r'(?:arxiv\.org/(?:abs|pdf)/|arxiv:\s*)?(\d{4}\.\d{4,5}|[a-z\-]+(?:\.[A-Z]{2})?/\d{7})(?:v\d+)?',
-                      re.IGNORECASE)
+ARXIV_ID = re.compile(
+    r'(?:arxiv\.org/(?:abs|pdf)/|arxiv:\s*)?(\d{4}\.\d{4,5}|[a-z\-]+(?:\.[A-Z]{2})?/\d{7})(?:v\d+)?', re.IGNORECASE
+)
 DOI_PATTERN = re.compile(r'10\.\d{4,9}/\S+', re.IGNORECASE)
 YEAR = re.compile(r'(19|20)\d{2}')
 
@@ -34,8 +36,7 @@ class TruthRecord:
 class TruthSource(Protocol):
     kind: str
 
-    def load(self, person: BenchmarkPerson, spec: TruthSourceSpec, snapshot_dir: Path) -> List[TruthRecord]:
-        ...
+    def load(self, person: BenchmarkPerson, spec: TruthSourceSpec, snapshot_dir: Path) -> List[TruthRecord]: ...
 
 
 class TruthSourceRegistry:
@@ -100,16 +101,28 @@ def snapshot_path(snapshot_dir: Path, locator: str) -> Path:
 
 
 def orcid_snapshot_name(orcid: str) -> str:
-    return 'orcid-{}.json'.format(orcid)
+    return f'orcid-{orcid}.json'
 
 
 ORCID_TYPES = {
-    'journal-article': 'journal_article', 'conference-paper': 'conference_paper', 'preprint': 'preprint',
-    'working-paper': 'working_paper', 'book-chapter': 'book_chapter', 'review': 'review',
-    'book': 'book', 'edited-book': 'book', 'dissertation-thesis': 'thesis', 'dissertation': 'thesis',
-    'data-set': 'dataset', 'software': 'software', 'conference-poster': 'poster',
-    'conference-abstract': 'abstract', 'lecture-speech': 'slides', 'report': 'report',
-    'supervised-student-publication': 'other', 'other': 'other',
+    'journal-article': 'journal_article',
+    'conference-paper': 'conference_paper',
+    'preprint': 'preprint',
+    'working-paper': 'working_paper',
+    'book-chapter': 'book_chapter',
+    'review': 'review',
+    'book': 'book',
+    'edited-book': 'book',
+    'dissertation-thesis': 'thesis',
+    'dissertation': 'thesis',
+    'data-set': 'dataset',
+    'software': 'software',
+    'conference-poster': 'poster',
+    'conference-abstract': 'abstract',
+    'lecture-speech': 'slides',
+    'report': 'report',
+    'supervised-student-publication': 'other',
+    'other': 'other',
 }
 ORCID_IDENTIFIER_RELATIONSHIPS = ('self', 'version-of')
 
@@ -124,6 +137,7 @@ def _value(node, *keys):
 
 class OrcidSource:
     """ORCID works curated by (or with permission of) the researcher."""
+
     kind = 'orcid'
 
     def load(self, person, spec, snapshot_dir):
@@ -152,13 +166,20 @@ class OrcidSource:
                     external.update(pubmed_identifiers(value.strip()))
             contributors = _value(work, 'contributors', 'contributor') or []
             authors = [_value(contributor, 'credit-name', 'value') for contributor in contributors]
-            records.append(TruthRecord(
-                title=title.strip(), year=parse_year(_value(work, 'publication-date', 'year', 'value')),
-                authors=[name.strip() for name in authors if name and name.strip()],
-                source_kind=self.kind, doi=doi, external_ids=external, related_dois=related,
-                venue=_value(work, 'journal-title', 'value'), work_type=ORCID_TYPES.get(work.get('type')),
-                evidence='ORCID {} put-code {}'.format(spec.locator, work.get('put-code')),
-            ))
+            records.append(
+                TruthRecord(
+                    title=title.strip(),
+                    year=parse_year(_value(work, 'publication-date', 'year', 'value')),
+                    authors=[name.strip() for name in authors if name and name.strip()],
+                    source_kind=self.kind,
+                    doi=doi,
+                    external_ids=external,
+                    related_dois=related,
+                    venue=_value(work, 'journal-title', 'value'),
+                    work_type=ORCID_TYPES.get(work.get('type')),
+                    evidence='ORCID {} put-code {}'.format(spec.locator, work.get('put-code')),
+                )
+            )
         return records
 
 
@@ -168,9 +189,15 @@ def pubmed_identifiers(pmid: str) -> Dict[str, str]:
 
 
 BIBTEX_TYPES = {
-    'article': 'journal_article', 'inproceedings': 'conference_paper', 'conference': 'conference_paper',
-    'incollection': 'book_chapter', 'inbook': 'book_chapter', 'book': 'book', 'phdthesis': 'thesis',
-    'mastersthesis': 'thesis', 'techreport': 'report',
+    'article': 'journal_article',
+    'inproceedings': 'conference_paper',
+    'conference': 'conference_paper',
+    'incollection': 'book_chapter',
+    'inbook': 'book_chapter',
+    'book': 'book',
+    'phdthesis': 'thesis',
+    'mastersthesis': 'thesis',
+    'techreport': 'report',
 }
 PREPRINT_VENUE = re.compile(r'arxiv|biorxiv|medrxiv|ssrn|preprint|working paper', re.IGNORECASE)
 LATEX_ACCENT = re.compile(r'\\[\'"`^~=.uvHckb]\s*\{?([A-Za-z])\}?')
@@ -194,7 +221,7 @@ def bibtex_entries(text: str) -> List[Dict[str, str]]:
         brace = text.find('{', start)
         if brace < 0:
             return entries
-        entry_type = text[start + 1:brace].strip().lower()
+        entry_type = text[start + 1 : brace].strip().lower()
         depth, index = 0, brace
         while index < len(text):
             if text[index] == '{':
@@ -204,7 +231,7 @@ def bibtex_entries(text: str) -> List[Dict[str, str]]:
                 if depth == 0:
                     break
             index += 1
-        body = text[brace + 1:index]
+        body = text[brace + 1 : index]
         position = index + 1
         if entry_type in ('comment', 'preamble', 'string'):
             continue
@@ -232,12 +259,12 @@ def _bibtex_value(text: str, cursor: int):
         for end in range(cursor, len(text)):
             depth += {'{': 1, '}': -1}.get(text[end], 0)
             if depth == 0:
-                return text[cursor + 1:end], end + 1
-        return text[cursor + 1:], len(text)
+                return text[cursor + 1 : end], end + 1
+        return text[cursor + 1 :], len(text)
     if text[cursor] == '"':
         end = text.find('"', cursor + 1)
         end = len(text) if end < 0 else end
-        return text[cursor + 1:end], end + 1
+        return text[cursor + 1 : end], end + 1
     end = text.find(',', cursor)
     end = len(text) if end < 0 else end
     return text[cursor:end].strip(), end
@@ -245,6 +272,7 @@ def _bibtex_value(text: str, cursor: int):
 
 class BibtexSource:
     """BibTeX exported by the researcher from a homepage, CV or lab site."""
+
     kind = 'bibtex'
 
     def load(self, person, spec, snapshot_dir):
@@ -256,28 +284,36 @@ class BibtexSource:
                 continue
             venue = latex_text(entry.get('journal') or entry.get('booktitle') or entry.get('publisher') or '') or None
             arxiv = None
-            if (entry.get('archiveprefix') or entry.get('eprinttype') or '').lower() == 'arxiv' or \
-                    'arxiv' in (venue or '').lower():
+            if (entry.get('archiveprefix') or entry.get('eprinttype') or '').lower() == 'arxiv' or 'arxiv' in (
+                venue or ''
+            ).lower():
                 arxiv = clean_arxiv(entry.get('eprint') or entry.get('journal') or entry.get('url') or '')
             url = entry.get('url', '')
             if arxiv is None and 'arxiv' in url.lower():
                 arxiv = clean_arxiv(url)
             work_type = BIBTEX_TYPES.get(entry['ENTRYTYPE'])
-            if venue and PREPRINT_VENUE.search(venue):
-                work_type = 'preprint'
-            elif work_type is None and arxiv:
+            if (venue and PREPRINT_VENUE.search(venue)) or (work_type is None and arxiv):
                 work_type = 'preprint'
             authors = [latex_text(name) for name in re.split(r'\s+and\s+', entry.get('author', '')) if name.strip()]
-            records.append(TruthRecord(
-                title=title, year=parse_year(entry.get('year')), authors=authors, source_kind=self.kind,
-                doi=clean_doi(entry.get('doi')), external_ids={'arxiv': arxiv} if arxiv else {},
-                venue=venue, work_type=work_type, evidence='BibTeX {} ({})'.format(spec.locator, spec.url),
-            ))
+            records.append(
+                TruthRecord(
+                    title=title,
+                    year=parse_year(entry.get('year')),
+                    authors=authors,
+                    source_kind=self.kind,
+                    doi=clean_doi(entry.get('doi')),
+                    external_ids={'arxiv': arxiv} if arxiv else {},
+                    venue=venue,
+                    work_type=work_type,
+                    evidence=f'BibTeX {spec.locator} ({spec.url})',
+                )
+            )
         return records
 
 
 class ManualListSource:
     """Entries transcribed from a public publication page, with page URL and capture date."""
+
     kind = 'manual'
 
     def load(self, person, spec, snapshot_dir):
@@ -290,18 +326,27 @@ class ManualListSource:
                 continue
             external = {}
             arxiv = clean_arxiv(entry.get('arxiv') or '') or (
-                clean_arxiv(entry.get('url', '')) if 'arxiv' in entry.get('url', '').lower() else None)
+                clean_arxiv(entry.get('url', '')) if 'arxiv' in entry.get('url', '').lower() else None
+            )
             if arxiv:
                 external['arxiv'] = arxiv
             if entry.get('pmid'):
                 external.update(pubmed_identifiers(str(entry['pmid'])))
-            records.append(TruthRecord(
-                title=entry['title'].strip(), year=parse_year(entry.get('year')),
-                authors=[vancouver_name(name) for name in entry.get('authors') or [] if name.strip()],
-                source_kind=self.kind, doi=clean_doi(entry.get('doi')), external_ids=external,
-                venue=entry.get('venue'), work_type=entry.get('type'),
-                evidence='Public list {} entry {} captured {}'.format(origin, index + 1, snapshot.get('captured_at')),
-            ))
+            records.append(
+                TruthRecord(
+                    title=entry['title'].strip(),
+                    year=parse_year(entry.get('year')),
+                    authors=[vancouver_name(name) for name in entry.get('authors') or [] if name.strip()],
+                    source_kind=self.kind,
+                    doi=clean_doi(entry.get('doi')),
+                    external_ids=external,
+                    venue=entry.get('venue'),
+                    work_type=entry.get('type'),
+                    evidence='Public list {} entry {} captured {}'.format(
+                        origin, index + 1, snapshot.get('captured_at')
+                    ),
+                )
+            )
         return records
 
 

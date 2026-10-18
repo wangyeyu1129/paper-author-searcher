@@ -16,12 +16,16 @@ class IdentityTests(unittest.TestCase):
         return resolver.resolve(ProfessorQuery(name, university))
 
     def test_missing_school_is_neutral(self):
-        missing = self.resolve_records([
-            AuthorCandidate('semantic_scholar', 'missing', 'Alex Morgan'),
-        ]).profile
-        mismatch = self.resolve_records([
-            AuthorCandidate('semantic_scholar', 'mismatch', 'Alex Morgan', ['Other University']),
-        ]).profile
+        missing = self.resolve_records(
+            [
+                AuthorCandidate('semantic_scholar', 'missing', 'Alex Morgan'),
+            ]
+        ).profile
+        mismatch = self.resolve_records(
+            [
+                AuthorCandidate('semantic_scholar', 'mismatch', 'Alex Morgan', ['Other University']),
+            ]
+        ).profile
         self.assertEqual(missing.university_status, 'unknown')
         self.assertEqual(missing.status, 'needs_review')
         self.assertGreater(missing.identity_confidence, mismatch.identity_confidence)
@@ -37,11 +41,17 @@ class IdentityTests(unittest.TestCase):
             with self.subTest(name=name, topic=topic):
                 records = [
                     AuthorCandidate(
-                        'openalex', 'target', name, [university],
-                        topics=[topic], paper_ids=['doi:10.example/a', 'doi:10.example/b'],
+                        'openalex',
+                        'target',
+                        name,
+                        [university],
+                        topics=[topic],
+                        paper_ids=['doi:10.example/a', 'doi:10.example/b'],
                     ),
                     AuthorCandidate(
-                        'semantic_scholar', 'verified', name,
+                        'semantic_scholar',
+                        'verified',
+                        name,
                         paper_ids=['https://doi.org/10.example/A', 'doi:10.example/b'],
                     ),
                     AuthorCandidate('dblp', 'namesake', name, [university]),
@@ -73,11 +83,17 @@ class IdentityTests(unittest.TestCase):
 
     def test_orcid_conflict_overrides_dois(self):
         left = AuthorCandidate(
-            'openalex', 'left', 'Alex Morgan', orcid='orcid-left',
+            'openalex',
+            'left',
+            'Alex Morgan',
+            orcid='orcid-left',
             paper_ids=['doi:example/a', 'doi:example/b'],
         )
         right = AuthorCandidate(
-            'dblp', 'right', 'Alex Morgan', orcid='orcid-right',
+            'dblp',
+            'right',
+            'Alex Morgan',
+            orcid='orcid-right',
             paper_ids=['doi:example/a', 'doi:example/b'],
         )
         self.assertFalse(linked(left, right))
@@ -98,9 +114,11 @@ class IdentityTests(unittest.TestCase):
         self.assertFalse(linked(left, right))
 
     def test_cli_verbose(self):
-        result = self.resolve_records([
-            AuthorCandidate('openalex', 'target', 'Alex Morgan', ['Example University']),
-        ])
+        result = self.resolve_records(
+            [
+                AuthorCandidate('openalex', 'target', 'Alex Morgan', ['Example University']),
+            ]
+        )
         for verbose in (False, True):
             arguments = ['--name', 'Alex Morgan', '--university', 'Example University']
             if verbose:
@@ -119,17 +137,28 @@ class IdentityTests(unittest.TestCase):
     def test_single_paper_fragment_does_not_outrank_current_anchor(self):
         records = [
             AuthorCandidate(
-                'openalex', 'anchor', 'Alex Morgan',
-                ['Example University'], ['Example University'],
+                'openalex',
+                'anchor',
+                'Alex Morgan',
+                ['Example University'],
+                ['Example University'],
             ),
             AuthorCandidate(
-                'openalex', 'fragment', 'Alex Y. Morgan',
-                ['Example University'], ['Example University'], aliases=['Alex Morgan'],
-                paper_ids=['doi:example/a'], coauthors=['Jane Smith', 'John Doe'],
+                'openalex',
+                'fragment',
+                'Alex Y. Morgan',
+                ['Example University'],
+                ['Example University'],
+                aliases=['Alex Morgan'],
+                paper_ids=['doi:example/a'],
+                coauthors=['Jane Smith', 'John Doe'],
             ),
             AuthorCandidate(
-                'semantic_scholar', 'fragment', 'Alex Y. Morgan',
-                paper_ids=['doi:example/a'], coauthors=['Jane Smith', 'John Doe'],
+                'semantic_scholar',
+                'fragment',
+                'Alex Y. Morgan',
+                paper_ids=['doi:example/a'],
+                coauthors=['Jane Smith', 'John Doe'],
             ),
         ]
         result = self.resolve_records(records)
@@ -140,11 +169,17 @@ class IdentityTests(unittest.TestCase):
         records = [
             AuthorCandidate('first', 'a', 'Alex Morgan', orcid='orcid-left'),
             AuthorCandidate(
-                'second', 'b', 'Alex Morgan', orcid='orcid-left',
+                'second',
+                'b',
+                'Alex Morgan',
+                orcid='orcid-left',
                 paper_ids=['doi:example/a', 'doi:example/b'],
             ),
             AuthorCandidate(
-                'third', 'c', 'Alex Morgan', orcid='orcid-right',
+                'third',
+                'c',
+                'Alex Morgan',
+                orcid='orcid-right',
                 paper_ids=['doi:example/a', 'doi:example/b'],
             ),
         ]

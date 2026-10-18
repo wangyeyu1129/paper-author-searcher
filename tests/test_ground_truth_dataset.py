@@ -5,26 +5,47 @@ from pathlib import Path
 
 from scripts.ground_truth.build_candidates import build_candidates, export_candidates
 from scripts.ground_truth.review_candidates import validate_reviews
+
 from paper_author_searcher.evaluation_matching import GroundTruth
 from paper_author_searcher.performance_evaluation import PerformanceEvaluator
 
 
 def scope():
-    return {'dataset_id': 'synthetic_review_dataset', 'year_start': 2020, 'year_end': 2022,
-            'professors': [{'professor_id': 'pat_reference', 'name': 'Pat Reference',
-                            'university': 'Example University', 'identity_risks': []}],
-            'core_publication_types': ['conference_paper', 'journal_article', 'review'],
-            'extended_publication_types': ['preprint', 'workshop_paper', 'book_chapter'],
-            'excluded_publication_types': ['slides', 'poster', 'other']}
+    return {
+        'dataset_id': 'synthetic_review_dataset',
+        'year_start': 2020,
+        'year_end': 2022,
+        'professors': [
+            {
+                'professor_id': 'pat_reference',
+                'name': 'Pat Reference',
+                'university': 'Example University',
+                'identity_risks': [],
+            }
+        ],
+        'core_publication_types': ['conference_paper', 'journal_article', 'review'],
+        'extended_publication_types': ['preprint', 'workshop_paper', 'book_chapter'],
+        'excluded_publication_types': ['slides', 'poster', 'other'],
+    }
 
 
 def reference(reference_id='one', uri='https://publisher.example.edu/record/one', publication_type='conference_paper'):
-    return {'reference_id': reference_id, 'professor_id': 'pat_reference', 'source_id': 'independent_index',
-            'source_url': 'https://university.example.edu/publications',
-            'collection_method': 'independent_public_bibliography',
-            'metadata': {'title': 'Independent reference methods for evaluation', 'authors': ['Pat Reference'],
-                         'year': 2021, 'doi': None, 'venue': 'Example Conference', 'publication_type': publication_type},
-            'extra': {'publication_identity_url': uri}}
+    return {
+        'reference_id': reference_id,
+        'professor_id': 'pat_reference',
+        'source_id': 'independent_index',
+        'source_url': 'https://university.example.edu/publications',
+        'collection_method': 'independent_public_bibliography',
+        'metadata': {
+            'title': 'Independent reference methods for evaluation',
+            'authors': ['Pat Reference'],
+            'year': 2021,
+            'doi': None,
+            'venue': 'Example Conference',
+            'publication_type': publication_type,
+        },
+        'extra': {'publication_identity_url': uri},
+    }
 
 
 def dataset():
@@ -32,19 +53,35 @@ def dataset():
 
 
 def row(paper):
-    return {'candidate_id': paper['candidate_id'], 'professor_id': paper['professor_id'], 'title': paper['title'],
-            'authors_json': json.dumps(paper['authors']), 'review_status': 'candidate', 'ownership': 'uncertain',
-            'inclusion_decision': 'pending'}
+    return {
+        'candidate_id': paper['candidate_id'],
+        'professor_id': paper['professor_id'],
+        'title': paper['title'],
+        'authors_json': json.dumps(paper['authors']),
+        'review_status': 'candidate',
+        'ownership': 'uncertain',
+        'inclusion_decision': 'pending',
+    }
 
 
 def confirmed_row(paper):
     value = row(paper)
-    value.update(review_status='confirmed', ownership='belongs', inclusion_decision='include',
-                 reviewer='Synthetic reviewer', reviewed_at='2026-10-11T12:00:00-04:00',
-                 canonical_group_id='synthetic_publication', reviewed_publication_type='conference_paper',
-                 evidence_urls_json=json.dumps(['https://university.example.edu/publications',
-                                                'https://publisher.example.edu/record/one']),
-                 identity_checked='true', metadata_checked='true', type_checked='true', version_checked='true')
+    value.update(
+        review_status='confirmed',
+        ownership='belongs',
+        inclusion_decision='include',
+        reviewer='Synthetic reviewer',
+        reviewed_at='2026-10-11T12:00:00-04:00',
+        canonical_group_id='synthetic_publication',
+        reviewed_publication_type='conference_paper',
+        evidence_urls_json=json.dumps(
+            ['https://university.example.edu/publications', 'https://publisher.example.edu/record/one']
+        ),
+        identity_checked='true',
+        metadata_checked='true',
+        type_checked='true',
+        version_checked='true',
+    )
     return value
 
 

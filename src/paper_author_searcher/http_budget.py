@@ -2,6 +2,7 @@
 
 Place it inside the response cache (cache -> budget -> client) so cached replays cost nothing.
 """
+
 import threading
 from dataclasses import dataclass, field
 from typing import Dict, Optional
@@ -13,10 +14,11 @@ from .http import SourceError
 @dataclass(frozen=True)
 class MeteredHost:
     """Per-request prices in USD; defaults follow OpenAlex's published list (verify on its pricing page)."""
+
     host: str = 'api.openalex.org'
-    search: float = 0.001     # any full-text search parameter
-    listing: float = 0.0001   # filtered or paged list endpoints
-    single: float = 0.0       # one record by ID
+    search: float = 0.001  # any full-text search parameter
+    listing: float = 0.0001  # filtered or paged list endpoints
+    single: float = 0.0  # one record by ID
 
 
 @dataclass(frozen=True)
@@ -37,6 +39,7 @@ class BudgetExceeded(SourceError):
 @dataclass
 class CostLedger:
     """Shared by every client in one run so the cap covers the whole run, not each request path."""
+
     maximum_cost_usd: float
     spent_usd: float = 0.0
     requests: Dict[str, int] = field(default_factory=dict)
@@ -47,14 +50,20 @@ class CostLedger:
         with self.lock:
             if self.spent_usd + cost > self.maximum_cost_usd + 1e-12:
                 self.refused += 1
-                raise BudgetExceeded('Run budget of ${:.2f} reached (spent ${:.4f}); request not sent'.format(
-                    self.maximum_cost_usd, self.spent_usd))
+                raise BudgetExceeded(
+                    f'Run budget of ${self.maximum_cost_usd:.2f} reached (spent '
+                    f'${self.spent_usd:.4f}); request not sent'
+                )
             self.spent_usd += cost
             self.requests[kind] = self.requests.get(kind, 0) + 1
 
     def summary(self) -> dict:
-        return {'maximum_cost_usd': self.maximum_cost_usd, 'estimated_cost_usd': round(self.spent_usd, 6),
-                'metered_requests': dict(self.requests), 'refused_requests': self.refused}
+        return {
+            'maximum_cost_usd': self.maximum_cost_usd,
+            'estimated_cost_usd': round(self.spent_usd, 6),
+            'metered_requests': dict(self.requests),
+            'refused_requests': self.refused,
+        }
 
 
 _LEDGERS: Dict[str, CostLedger] = {}
@@ -86,7 +95,8 @@ def classify(url: str, params: Optional[dict]) -> str:
 
 
 class BudgetedHttpClient:
-    def __init__(self, client, ledger: CostLedger, config: BudgetConfig = BudgetConfig()) -> None:
+    def __init__(self, client, ledger: CostLedger, config: Optional[BudgetConfig] = None) -> None:
+        config = config or BudgetConfig()
         self.client = client
         self.ledger = ledger
         self.hosts = {host.host: host for host in config.hosts}
@@ -98,12 +108,13 @@ class BudgetedHttpClient:
         host = self.hosts.get(urlsplit(url).hostname or '')
         if host is not None:
             kind = classify(url, params)
-            self.ledger.charge('{}:{}'.format(host.host, kind), getattr(host, kind))
+            self.ledger.charge(f'{host.host}:{kind}', getattr(host, kind))
         return self.client.get(url, params, headers, xml)
 
 
 def budgeted_client(client, maximum_cost_usd: Optional[float], ledger_name: str = 'default'):
     if maximum_cost_usd is None:
         return client
-    return BudgetedHttpClient(client, shared_ledger(ledger_name, maximum_cost_usd),
-                              BudgetConfig(maximum_cost_usd=maximum_cost_usd))
+    return BudgetedHttpClient(
+        client, shared_ledger(ledger_name, maximum_cost_usd), BudgetConfig(maximum_cost_usd=maximum_cost_usd)
+    )

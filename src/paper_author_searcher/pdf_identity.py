@@ -1,10 +1,11 @@
 """Bind public PDF metadata to a saved paper without guessing resource paths."""
+
 import re
 from urllib.parse import urlsplit
 
 from .matching import canonical_doi, normalize
-from .paper_deduplication import author_signatures_match
 from .paper_authorship import byline_forms
+from .paper_deduplication import author_signatures_match
 
 
 def source_records(paper):
@@ -32,7 +33,7 @@ def paper_ids(paper, source):
 
 def paper_dois(paper):
     identifiers = set()
-    for record in [paper] + source_records(paper):
+    for record in [paper, *source_records(paper)]:
         if record.get('doi'):
             identifiers.add(canonical_doi(record['doi']))
         for key, value in (record.get('external_ids') or {}).items():
@@ -41,8 +42,7 @@ def paper_dois(paper):
     return identifiers
 
 
-def metadata_identity(paper, source, identifier=None, doi=None, title=None,
-                      year=None, authors=None):
+def metadata_identity(paper, source, identifier=None, doi=None, title=None, year=None, authors=None):
     """Stable identifiers bind a location; conflicting metadata blocks it."""
     expected_dois = paper_dois(paper)
     doi_match = bool(doi and canonical_doi(doi) in expected_dois)
@@ -138,7 +138,7 @@ def arxiv_ids(paper):
     for doi in sorted(paper_dois(paper)):
         prefix = 'doi:10.48550/arxiv.'
         if doi.startswith(prefix):
-            identifier = arxiv_id(doi[len(prefix):])
+            identifier = arxiv_id(doi[len(prefix) :])
             if identifier:
                 identifiers.append(identifier)
     return list(dict.fromkeys(identifiers))

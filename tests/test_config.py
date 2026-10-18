@@ -1,23 +1,26 @@
 """Configuration injection must change policy without source-code edits."""
+
 import unittest
 from dataclasses import replace
 from unittest.mock import patch
 
 from paper_author_searcher import AuthorCandidate, ProfessorQuery, ProfessorResolver
-from paper_author_searcher.config import MatchingConfig, SourceConfig, HttpConfig
-from paper_author_searcher.identity import linked
+from paper_author_searcher.config import HttpConfig, MatchingConfig, SourceConfig
 from paper_author_searcher.http import HttpClient, SourceError
-from paper_author_searcher.providers import OpenAlexProvider, SemanticScholarProvider, DBLPProvider
-from test_resolver import Provider
-from test_providers import Client
+from paper_author_searcher.identity import linked
+from paper_author_searcher.providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
 from test_http import Response
+from test_providers import Client
+from test_resolver import Provider
 
 
 class ConfigurationTests(unittest.TestCase):
     def test_resolver_uses_injected_threshold(self):
-        provider = Provider([
-            AuthorCandidate('custom', '1', 'Jane Smith', ['Example University']),
-        ])
+        provider = Provider(
+            [
+                AuthorCandidate('custom', '1', 'Jane Smith', ['Example University']),
+            ]
+        )
         query = ProfessorQuery('Jane Smith', 'Example University')
         strict = replace(MatchingConfig(), resolved_confidence=0.95)
         default_result = ProfessorResolver([provider]).resolve(query)

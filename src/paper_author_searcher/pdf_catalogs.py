@@ -1,4 +1,5 @@
 """Discover explicit article pages in configurable scholarly journal catalogs."""
+
 import re
 from html.parser import HTMLParser
 from urllib.parse import urljoin, urlsplit
@@ -53,6 +54,7 @@ class CatalogLinks(HTMLParser):
 
 class JournalCatalogPDFProvider(LandingPagePDFProvider):
     """Catalog title selects a landing page; its citation metadata binds the PDF."""
+
     name = 'journal_catalog'
 
     def __init__(self, client=None, config=DEFAULT_PDF):
@@ -82,7 +84,7 @@ class JournalCatalogPDFProvider(LandingPagePDFProvider):
                             candidate.provenance[0]['volume_url'] = volume
                         result.candidates.extend(candidates)
             except (SourceError, ValueError, TypeError) as exc:
-                result.errors.append('{}: {}'.format(catalog, exc))
+                result.errors.append(f'{catalog}: {exc}')
         if result.errors:
             result.status = 'partial' if result.candidates else 'error'
         return result
@@ -117,8 +119,9 @@ class JournalCatalogPDFProvider(LandingPagePDFProvider):
                 raise saved
             return saved
         try:
-            response = self.client.probe(url, self.config.preview_bytes,
-                                         self.config.catalog_preview_bytes, self.config.maximum_redirects)
+            response = self.client.probe(
+                url, self.config.preview_bytes, self.config.catalog_preview_bytes, self.config.maximum_redirects
+            )
             if response.content_type not in ('text/html', 'application/xhtml+xml'):
                 raise SourceError('Catalog did not return HTML')
             if len(response.prefix) >= self.config.catalog_preview_bytes:

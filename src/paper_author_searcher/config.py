@@ -1,4 +1,5 @@
 """Injectable defaults; matching policy is independent of source adapters."""
+
 from dataclasses import dataclass
 from typing import Optional, Tuple
 
@@ -41,12 +42,17 @@ class MatchingConfig:
     split_profile_coauthors: int = 5
     split_profile_topics: int = 2
     school_stop_words: Tuple[str, ...] = (
-        "university", "of", "the", "at", "universite", "universität",
+        'university',
+        'of',
+        'the',
+        'at',
+        'universite',
+        'universität',
     )
 
     def __post_init__(self):
         if self.doi_coverage_target <= 0:
-            raise ValueError("doi_coverage_target must be positive")
+            raise ValueError('doi_coverage_target must be positive')
 
 
 @dataclass(frozen=True)
@@ -58,14 +64,14 @@ class HttpConfig:
     maximum_retry_delay: float = 5
     retry_backoff_base: float = 2
     retry_statuses: Tuple[int, ...] = (429, 500, 502, 503, 504)
-    user_agent: str = "paper-author-searcher/0.1"
+    user_agent: str = 'paper-author-searcher/0.1'
 
 
 @dataclass(frozen=True)
 class SourceConfig:
-    openalex_url: str = "https://api.openalex.org"
-    semantic_scholar_url: str = "https://api.semanticscholar.org/graph/v1"
-    dblp_url: str = "https://dblp.org"
+    openalex_url: str = 'https://api.openalex.org'
+    semantic_scholar_url: str = 'https://api.semanticscholar.org/graph/v1'
+    dblp_url: str = 'https://dblp.org'
     author_limit: int = 25
     dblp_author_limit: int = 10
     enrichment_limit: int = 8
@@ -78,6 +84,7 @@ class SourceConfig:
 @dataclass(frozen=True)
 class AnchorConfig:
     """Limits for turning caller hints (ORCID, homepage, known papers) into author-ID anchors."""
+
     maximum_anchor_papers: int = 15
     homepage_bytes: int = 2_000_000
     maximum_redirects: int = 5
@@ -90,8 +97,8 @@ DEFAULT_HTTP = HttpConfig()
 DEFAULT_SOURCES = SourceConfig()
 
 
-AMBIGUITY_POLICIES = ("stop", "collect_contenders")
-CONTENDER_STATUS = "ambiguous_contenders"
+AMBIGUITY_POLICIES = ('stop', 'collect_contenders')
+CONTENDER_STATUS = 'ambiguous_contenders'
 
 
 @dataclass(frozen=True)
@@ -103,20 +110,20 @@ class CollectionConfig:
     expand_truncated_openalex_authors: bool = True
     # "stop": an unconfirmed identity halts collection. "collect_contenders": collect the close, school-compatible
     # contenders instead; nothing they yield can be verified, it is all routed to review.
-    ambiguity_policy: str = "stop"
+    ambiguity_policy: str = 'stop'
     maximum_contenders: int = 3
 
     def __post_init__(self):
         if self.ambiguity_policy not in AMBIGUITY_POLICIES:
-            raise ValueError("ambiguity_policy must be one of {}".format(AMBIGUITY_POLICIES))
+            raise ValueError(f'ambiguity_policy must be one of {AMBIGUITY_POLICIES}')
         if self.maximum_contenders < 1:
-            raise ValueError("maximum_contenders must be positive")
+            raise ValueError('maximum_contenders must be positive')
         if not 1 <= self.openalex_page_size <= 200:
-            raise ValueError("openalex_page_size must be between 1 and 200")
+            raise ValueError('openalex_page_size must be between 1 and 200')
         if not 1 <= self.semantic_scholar_page_size <= 1000:
-            raise ValueError("semantic_scholar_page_size must be between 1 and 1000")
+            raise ValueError('semantic_scholar_page_size must be between 1 and 1000')
         if self.maximum_pages is not None and self.maximum_pages < 1:
-            raise ValueError("maximum_pages must be positive or None")
+            raise ValueError('maximum_pages must be positive or None')
 
 
 DEFAULT_COLLECTION = CollectionConfig()
@@ -135,11 +142,18 @@ class OwnershipConfig:
     # Copied from the source's author profile onto every paper of that author ID: no per-paper evidence.
     author_level_orcid_scopes: Tuple[str, ...] = ('resolved_author', 'author_profile')
     nonstandard_types: Tuple[str, ...] = (
-        'proceedings', 'peer_review', 'paratext', 'supplementary_materials',
-        'reference_entry', 'editorial',
+        'proceedings',
+        'peer_review',
+        'paratext',
+        'supplementary_materials',
+        'reference_entry',
+        'editorial',
     )
     nonstandard_title_prefixes: Tuple[str, ...] = (
-        'peer review', 'reviewer report', 'decision letter', 'author response',
+        'peer review',
+        'reviewer report',
+        'decision letter',
+        'author response',
         'proceedings of',
     )
 
@@ -190,7 +204,11 @@ class PDFConfig:
         ('Journal of Machine Learning Research', 'https://jmlr.org/papers/'),
     )
     version_preference: Tuple[str, ...] = (
-        'published_version', 'accepted_manuscript', 'preprint', 'submitted_manuscript', 'unknown',
+        'published_version',
+        'accepted_manuscript',
+        'preprint',
+        'submitted_manuscript',
+        'unknown',
     )
 
     def __post_init__(self):
@@ -204,15 +222,30 @@ class PDFConfig:
             raise ValueError('Semantic Scholar batch size must be between 1 and 500')
         if self.semantic_scholar_request_interval < 0 or self.semantic_scholar_cooldown < 0:
             raise ValueError('Semantic Scholar request intervals must be nonnegative')
-        if min(self.crossref_search_results, self.semantic_scholar_search_results,
-               self.linked_page_limit, self.public_page_cache_entries, self.redirect_failure_budget) < 1:
+        if (
+            min(
+                self.crossref_search_results,
+                self.semantic_scholar_search_results,
+                self.linked_page_limit,
+                self.public_page_cache_entries,
+                self.redirect_failure_budget,
+            )
+            < 1
+        ):
             raise ValueError('Discovery and cache limits must be positive')
         if self.public_page_maximum_bytes < self.html_metadata_bytes:
             raise ValueError('Public page maximum must cover the initial metadata preview')
         if self.public_page_cache_bytes < self.public_page_maximum_bytes:
             raise ValueError('Page cache must accommodate at least one maximum-size response')
-        if min(self.public_page_request_interval, self.public_page_cooldown,
-               self.public_page_cache_seconds, self.source_maximum_cooldown) < 0:
+        if (
+            min(
+                self.public_page_request_interval,
+                self.public_page_cooldown,
+                self.public_page_cache_seconds,
+                self.source_maximum_cooldown,
+            )
+            < 0
+        ):
             raise ValueError('Scheduling and cache intervals must be nonnegative')
 
 
@@ -249,10 +282,20 @@ class DownloadConfig:
             raise ValueError('Redirect and port policy is invalid')
         if any(not 1 <= port <= 65535 for port in self.allowed_ports):
             raise ValueError('Invalid allowed port')
-        limits = (self.maximum_transfer_seconds, self.parser_timeout, self.parser_memory_bytes, self.maximum_pages,
-                  self.maximum_page_content_bytes, self.identity_pages, self.title_lines,
-                  self.maximum_extracted_characters, self.minimum_title_words_without_doi,
-                  self.footer_scan_bytes, self.poster_minimum_edge_points, self.slide_minimum_aspect_ratio)
+        limits = (
+            self.maximum_transfer_seconds,
+            self.parser_timeout,
+            self.parser_memory_bytes,
+            self.maximum_pages,
+            self.maximum_page_content_bytes,
+            self.identity_pages,
+            self.title_lines,
+            self.maximum_extracted_characters,
+            self.minimum_title_words_without_doi,
+            self.footer_scan_bytes,
+            self.poster_minimum_edge_points,
+            self.slide_minimum_aspect_ratio,
+        )
         if any(limit <= 0 for limit in limits):
             raise ValueError('Parsing limits must be positive')
 

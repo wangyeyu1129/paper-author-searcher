@@ -1,4 +1,5 @@
 """DNS-checked, pinned public connections with normal TLS hostname verification."""
+
 import ipaddress
 import socket
 from http.client import HTTPConnection, HTTPSConnection
@@ -17,9 +18,7 @@ def is_public_address(value):
     if translated is not None and not is_public_address(str(translated)):
         return False
     teredo = getattr(address, 'teredo', None)
-    if teredo is not None and not all(is_public_address(str(endpoint)) for endpoint in teredo):
-        return False
-    return True
+    return not (teredo is not None and not all(is_public_address(str(endpoint)) for endpoint in teredo))
 
 
 def public_addresses(url, allowed_ports):
@@ -52,6 +51,7 @@ def pinned_connection(connection_type, addresses):
         # HTTPConnection still sends the original Host; HTTPSConnection retains its SNI/TLS checks.
         connection._create_connection = connect_address
         return connection
+
     return create_connection
 
 
@@ -72,11 +72,16 @@ class PublicHTTPSHandler(HTTPSHandler):
 
     def https_open(self, request):
         addresses = public_addresses(request.full_url, self.allowed_ports)
-        return self.do_open(pinned_connection(HTTPSConnection, addresses), request,
-                            context=self._context, check_hostname=self._check_hostname)
+        return self.do_open(
+            pinned_connection(HTTPSConnection, addresses),
+            request,
+            context=self._context,
+            check_hostname=self._check_hostname,
+        )
 
 
 def secure_download_opener(redirect_handler, allowed_ports):
     # Environmental proxies would resolve/tunnel destinations outside the checked connection path.
-    return build_opener(ProxyHandler({}), PublicHTTPHandler(allowed_ports),
-                        PublicHTTPSHandler(allowed_ports), redirect_handler)
+    return build_opener(
+        ProxyHandler({}), PublicHTTPHandler(allowed_ports), PublicHTTPSHandler(allowed_ports), redirect_handler
+    )

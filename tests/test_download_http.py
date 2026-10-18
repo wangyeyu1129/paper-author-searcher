@@ -12,9 +12,12 @@ from urllib.error import HTTPError, URLError
 from paper_author_searcher.config import DEFAULT_DOWNLOAD
 from paper_author_searcher.http import HttpClient, SourceError
 from paper_author_searcher.network_safety import (
-    PublicHTTPSHandler, is_public_address, pinned_connection, public_addresses, secure_download_opener,
+    PublicHTTPSHandler,
+    is_public_address,
+    pinned_connection,
+    public_addresses,
+    secure_download_opener,
 )
-
 
 URL = 'https://repository.example.edu/document'
 
@@ -56,6 +59,7 @@ class StreamTests(unittest.TestCase):
 
     def test_streaming_hash_size_and_request(self):
         import hashlib
+
         body = b'%PDF-1.7\n' + b'x' * 300000
         response = Response(body)
         receipt, opener = self.transfer(response)
@@ -87,8 +91,10 @@ class StreamTests(unittest.TestCase):
             self.transfer(response)
 
     def test_html_and_fake_pdf_body_not_accepted(self):
-        for response in (Response(b'<html>login</html>', {'Content-Type': 'text/html'}),
-                         Response(b'<html>error</html>', {'Content-Type': 'application/pdf'})):
+        for response in (
+            Response(b'<html>login</html>', {'Content-Type': 'text/html'}),
+            Response(b'<html>error</html>', {'Content-Type': 'application/pdf'}),
+        ):
             with self.assertRaises(SourceError):
                 self.transfer(response)
 
@@ -106,8 +112,9 @@ class StreamTests(unittest.TestCase):
     def test_rate_limit_retries_then_downloads(self):
         opener = Mock()
         opener.open.side_effect = [HTTPError(URL, 429, 'limited', {'Retry-After': '3'}, None), Response(b'%PDF-1.7')]
-        with patch('paper_author_searcher.http.secure_download_opener', return_value=opener), \
-                patch('paper_author_searcher.http.time.sleep') as sleep:
+        with patch('paper_author_searcher.http.secure_download_opener', return_value=opener), patch(
+            'paper_author_searcher.http.time.sleep'
+        ) as sleep:
             receipt = HttpClient(retries=1).stream_pdf(URL, self.destination, DEFAULT_DOWNLOAD)
         self.assertEqual(receipt.file_size, 8)
         self.assertEqual(sleep.call_args[0][0], 3)
@@ -115,8 +122,9 @@ class StreamTests(unittest.TestCase):
     def test_long_server_cooldown_is_not_truncated_into_an_early_retry(self):
         opener = Mock()
         opener.open.side_effect = HTTPError(URL, 429, 'limited', {'Retry-After': '999'}, None)
-        with patch('paper_author_searcher.http.secure_download_opener', return_value=opener), \
-                patch('paper_author_searcher.http.time.sleep') as sleep:
+        with patch('paper_author_searcher.http.secure_download_opener', return_value=opener), patch(
+            'paper_author_searcher.http.time.sleep'
+        ) as sleep:
             with self.assertRaises(SourceError) as caught:
                 HttpClient(retries=1).stream_pdf(URL, self.destination, DEFAULT_DOWNLOAD)
         self.assertEqual(caught.exception.retry_after, 999)
@@ -128,8 +136,9 @@ class StreamTests(unittest.TestCase):
         interrupted = Response(b'%PDF-1.7' + b'x' * 1000)
         interrupted.read = Mock(side_effect=[b'%PDF-incomplete', URLError('interrupted')])
         opener.open.side_effect = [interrupted, Response(b'%PDF-1.7')]
-        with patch('paper_author_searcher.http.secure_download_opener', return_value=opener), \
-                patch('paper_author_searcher.http.time.sleep'):
+        with patch('paper_author_searcher.http.secure_download_opener', return_value=opener), patch(
+            'paper_author_searcher.http.time.sleep'
+        ):
             receipt = HttpClient(retries=1).stream_pdf(URL, self.destination, DEFAULT_DOWNLOAD)
         self.assertEqual(receipt.file_size, 8)
         self.assertEqual(self.destination.read_bytes(), b'%PDF-1.7')
@@ -156,9 +165,21 @@ class StreamTests(unittest.TestCase):
 
 class URLSafetyTests(unittest.TestCase):
     def test_private_loopback_link_local_and_multicast_addresses_blocked(self):
-        addresses = ('127.0.0.1', '10.0.0.1', '172.16.0.1', '192.168.1.1', '169.254.169.254',
-                     '100.64.0.1', '0.0.0.0', '224.0.0.1', '::1', 'fc00::1', 'fe80::1',
-                     '::ffff:127.0.0.1', '2002:0a00:0001::1')
+        addresses = (
+            '127.0.0.1',
+            '10.0.0.1',
+            '172.16.0.1',
+            '192.168.1.1',
+            '169.254.169.254',
+            '100.64.0.1',
+            '0.0.0.0',
+            '224.0.0.1',
+            '::1',
+            'fc00::1',
+            'fe80::1',
+            '::ffff:127.0.0.1',
+            '2002:0a00:0001::1',
+        )
         for address in addresses:
             self.assertFalse(is_public_address(address), address)
         self.assertTrue(is_public_address('1.1.1.1'))
@@ -170,8 +191,7 @@ class URLSafetyTests(unittest.TestCase):
                 public_addresses(URL, (80, 443))
 
     def test_mixed_public_and_private_dns_answers_refused(self):
-        answers = [(socket.AF_INET, socket.SOCK_STREAM, 6, '', (address, 443))
-                   for address in ('1.1.1.1', '127.0.0.1')]
+        answers = [(socket.AF_INET, socket.SOCK_STREAM, 6, '', (address, 443)) for address in ('1.1.1.1', '127.0.0.1')]
         with patch('paper_author_searcher.network_safety.socket.getaddrinfo', return_value=answers):
             with self.assertRaises(ValueError):
                 public_addresses(URL, (80, 443))
@@ -189,13 +209,16 @@ class URLSafetyTests(unittest.TestCase):
     def test_each_https_redirect_target_is_resolved_again(self):
         handler = PublicHTTPSHandler((80, 443))
         request = Mock(full_url='https://redirect.example.edu/document')
-        with patch('paper_author_searcher.network_safety.public_addresses', side_effect=ValueError('private')) as resolve:
+        with patch(
+            'paper_author_searcher.network_safety.public_addresses', side_effect=ValueError('private')
+        ) as resolve:
             with self.assertRaises(ValueError):
                 handler.https_open(request)
         resolve.assert_called_once_with(request.full_url, (80, 443))
 
     def test_environment_proxies_disabled(self):
         from paper_author_searcher.http import PublicRedirectHandler
+
         opener = secure_download_opener(PublicRedirectHandler(5), (80, 443))
         for handler in opener.handlers:
             if hasattr(handler, 'proxies'):

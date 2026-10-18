@@ -1,26 +1,28 @@
 """Bounded HTTP requests with verified TLS and explicit format diagnostics."""
-import json
+
 import hashlib
 import ipaddress
+import json
 import os
 import re
 import time
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field, replace
-from email.utils import parsedate_to_datetime
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from http.client import HTTPException
 from urllib.error import HTTPError
 from urllib.parse import urlencode, urlsplit
 from urllib.request import HTTPRedirectHandler, Request, urlopen
 
-from .config import DEFAULT_HTTP, DEFAULT_DOWNLOAD
+from .config import DEFAULT_DOWNLOAD, DEFAULT_HTTP
 from .network_safety import secure_download_opener
 
 
 class SourceError(RuntimeError):
-    def __init__(self, message, status_code=None, error_type=None, retry_after=None, endpoint_host=None,
-                 request_context=None):
+    def __init__(
+        self, message, status_code=None, error_type=None, retry_after=None, endpoint_host=None, request_context=None
+    ):
         super().__init__(message)
         self.status_code = status_code
         self.retry_after = retry_after
@@ -30,8 +32,13 @@ class SourceError(RuntimeError):
 
     @staticmethod
     def _error_type(status):
-        categories = {400: 'invalid_request', 401: 'authentication_required',
-                      403: 'access_restricted', 404: 'not_found', 429: 'rate_limited'}
+        categories = {
+            400: 'invalid_request',
+            401: 'authentication_required',
+            403: 'access_restricted',
+            404: 'not_found',
+            429: 'rate_limited',
+        }
         if status in categories:
             return categories[status]
         if status is not None and 500 <= status <= 599:
@@ -97,9 +104,9 @@ class HttpClient:
     def __init__(self, timeout=None, retries=None, config=DEFAULT_HTTP):
         overrides = {}
         if timeout is not None:
-            overrides["timeout"] = timeout
+            overrides['timeout'] = timeout
         if retries is not None:
-            overrides["retries"] = retries
+            overrides['retries'] = retries
         self.config = replace(config, **overrides)
         self.timeout = self.config.timeout
         self.retries = self.config.retries
@@ -116,11 +123,18 @@ class HttpClient:
         return self._with_retries(request, lambda: self._read_response(request, False, expected_type), 'metadata_post')
 
     def _with_retries(self, request, read_response, operation='request'):
-        statistics = self.transport_statistics.setdefault(operation, {
-            'operation_attempts': 0, 'completed_operations': 0, 'http_error_responses': {},
-            'network_errors': 0, 'response_errors': 0, 'deferred_operations': 0,
-            'scope': 'Read/transfer attempts include retries; redirect hops are not individual attempts',
-        })
+        statistics = self.transport_statistics.setdefault(
+            operation,
+            {
+                'operation_attempts': 0,
+                'completed_operations': 0,
+                'http_error_responses': {},
+                'network_errors': 0,
+                'response_errors': 0,
+                'deferred_operations': 0,
+                'scope': 'Read/transfer attempts include retries; redirect hops are not individual attempts',
+            },
+        )
         for attempt in range(self.retries + 1):
             statistics['operation_attempts'] += 1
             try:
@@ -136,10 +150,11 @@ class HttpClient:
                 wait_exceeds_budget = retry_after is not None and retry_after > self.config.maximum_retry_delay
                 if not retryable or attempt == self.retries or wait_exceeds_budget:
                     endpoint_host = urlsplit(exc.filename or request.full_url).hostname or request.host
-                    message = "HTTP {} from {}".format(exc.code, endpoint_host)
+                    message = f'HTTP {exc.code} from {endpoint_host}'
                     # Do not retry sooner than the server permits; let callers defer this source.
-                    raise SourceError(message, status_code=exc.code, retry_after=retry_after,
-                                      endpoint_host=endpoint_host) from exc
+                    raise SourceError(
+                        message, status_code=exc.code, retry_after=retry_after, endpoint_host=endpoint_host
+                    ) from exc
                 time.sleep(self._retry_delay(exc, attempt))
             except (OSError, HTTPException) as exc:
                 statistics['network_errors'] += 1
@@ -147,30 +162,38 @@ class HttpClient:
                     kind = 'network_error'
                     if isinstance(exc, TimeoutError) or 'timed out' in str(exc).lower():
                         kind = 'timeout'
-                    raise SourceError("{}: {}".format(request.host, exc), error_type=kind) from exc
-                delay = min(self.config.retry_backoff_base ** attempt, self.config.maximum_retry_delay)
+                    raise SourceError(f'{request.host}: {exc}', error_type=kind) from exc
+                delay = min(self.config.retry_backoff_base**attempt, self.config.maximum_retry_delay)
                 time.sleep(delay)
             except (ValueError, ET.ParseError) as exc:
                 statistics['response_errors'] += 1
-                raise SourceError("{}: {}".format(request.host, exc)) from exc
+                raise SourceError(f'{request.host}: {exc}') from exc
             except SourceError as exc:
                 if exc.error_type == 'source_deferred':
                     statistics['deferred_operations'] += 1
                 else:
                     statistics['response_errors'] += 1
                 raise
+        return None
 
     def probe(self, url, maximum_bytes=1024, html_bytes=0, maximum_redirects=5, redirect_guard=None):
         """Read a bounded prefix, even when a server ignores Range; never save a body."""
         require_public_http_url(url)
         if maximum_bytes < 1 or html_bytes < 0:
             raise ValueError('Probe limits must be positive')
-        request = self._request(url, headers={
-            'Range': 'bytes=0-{}'.format(max(maximum_bytes, html_bytes) - 1),
-            'Accept': 'application/pdf,text/html;q=0.8,*/*;q=0.1',
-            'Accept-Encoding': 'identity',
-        }, params=None, xml=False)
-        opener = secure_download_opener(PublicRedirectHandler(maximum_redirects, redirect_guard), DEFAULT_DOWNLOAD.allowed_ports)
+        request = self._request(
+            url,
+            headers={
+                'Range': f'bytes=0-{max(maximum_bytes, html_bytes) - 1}',
+                'Accept': 'application/pdf,text/html;q=0.8,*/*;q=0.1',
+                'Accept-Encoding': 'identity',
+            },
+            params=None,
+            xml=False,
+        )
+        opener = secure_download_opener(
+            PublicRedirectHandler(maximum_redirects, redirect_guard), DEFAULT_DOWNLOAD.allowed_ports
+        )
 
         def read_prefix():
             with opener.open(request, timeout=self.timeout) as response:
@@ -190,18 +213,24 @@ class HttpClient:
                     match = re.fullmatch(r'bytes 0-(\d+)/(\d+)', value)
                     if match and int(match.group(1)) + 1 == int(match.group(2)) == len(prefix):
                         complete = True
-                return URLProbe(final_url, response.status, content_type,
-                                dict(response.headers.items()), prefix, complete)
+                return URLProbe(
+                    final_url, response.status, content_type, dict(response.headers.items()), prefix, complete
+                )
 
         return self._with_retries(request, read_prefix, 'pdf_probe')
 
     def stream_pdf(self, url, destination, config):
         """Restart failed transfers from byte zero; validate public DNS on every connection."""
         require_public_http_url(url)
-        request = self._request(url, params=None, headers={
-            'Accept': 'application/pdf,application/octet-stream;q=0.8',
-            'Accept-Encoding': 'identity',
-        }, xml=False)
+        request = self._request(
+            url,
+            params=None,
+            headers={
+                'Accept': 'application/pdf,application/octet-stream;q=0.8',
+                'Accept-Encoding': 'identity',
+            },
+            xml=False,
+        )
         opener = secure_download_opener(PublicRedirectHandler(config.maximum_redirects), config.allowed_ports)
 
         def transfer():
@@ -224,7 +253,7 @@ class HttpClient:
                         if not block:
                             break
                         if not signature_confirmed:
-                            prefix.extend(block[:max(0, 1024 - len(prefix))])
+                            prefix.extend(block[: max(0, 1024 - len(prefix))])
                             signature_confirmed = has_pdf_signature(prefix)
                             if len(prefix) >= 1024 and not signature_confirmed:
                                 raise SourceError('Download does not begin with a PDF file signature')
@@ -245,7 +274,7 @@ class HttpClient:
 
     def _download_size(self, response, content_type, config):
         if response.status not in (200, 206):
-            raise SourceError('Unexpected download HTTP {}'.format(response.status), response.status)
+            raise SourceError(f'Unexpected download HTTP {response.status}', response.status)
         if content_type in ('text/html', 'application/xhtml+xml'):
             raise SourceError('Download is an HTML page, not a PDF')
         encoding = response.headers.get('Content-Encoding', 'identity').lower()
@@ -275,11 +304,11 @@ class HttpClient:
             for key, value in params.items():
                 if value is not None:
                     supplied_params[key] = value
-            url += "?" + urlencode(supplied_params)
-        accept = "application/json"
+            url += '?' + urlencode(supplied_params)
+        accept = 'application/json'
         if xml:
-            accept = "application/xml,text/xml"
-        request_headers = {"User-Agent": self.config.user_agent, "Accept": accept}
+            accept = 'application/xml,text/xml'
+        request_headers = {'User-Agent': self.config.user_agent, 'Accept': accept}
         request_headers.update(headers or {})
         return Request(url, headers=request_headers)
 
@@ -287,44 +316,46 @@ class HttpClient:
         with urlopen(request, timeout=self.timeout) as response:
             data = response.read(self.config.response_limit + 1)
             status = response.status
-            content_type = response.headers.get("Content-Type", "").lower()
-            endpoint = response.geturl().split("?", 1)[0]
+            content_type = response.headers.get('Content-Type', '').lower()
+            endpoint = response.geturl().split('?', 1)[0]
         if len(data) > self.config.response_limit:
-            raise SourceError("response exceeds size limit")
-        diagnostic = "{} HTTP {} Content-Type {}".format(
-            endpoint, status, content_type or "missing",
+            raise SourceError('response exceeds size limit')
+        diagnostic = '{} HTTP {} Content-Type {}'.format(
+            endpoint,
+            status,
+            content_type or 'missing',
         )
         if not 200 <= status < 300:
             raise SourceError(diagnostic, status_code=status)
         return self._parse_response(data, content_type, diagnostic, xml, expected_type)
 
     def _parse_response(self, data, content_type, diagnostic, xml, expected_type=dict):
-        expected = "json"
+        expected = 'json'
         if xml:
-            expected = "xml"
+            expected = 'xml'
         if expected not in content_type:
-            hint = ""
-            beginning = data[:self.config.html_preview_bytes].lower()
-            if b"<html" in beginning or b"<!doctype html" in beginning:
-                hint = " (HTML anti-bot/interstitial response)"
-            raise SourceError(diagnostic + ": expected " + expected.upper() + hint, error_type='invalid_content_type')
+            hint = ''
+            beginning = data[: self.config.html_preview_bytes].lower()
+            if b'<html' in beginning or b'<!doctype html' in beginning:
+                hint = ' (HTML anti-bot/interstitial response)'
+            raise SourceError(diagnostic + ': expected ' + expected.upper() + hint, error_type='invalid_content_type')
         if not data.strip():
-            raise SourceError(diagnostic + ": empty response", error_type='empty_response')
+            raise SourceError(diagnostic + ': empty response', error_type='empty_response')
         try:
             if xml:
                 return ET.fromstring(data)
             parsed = json.loads(data)
         except (ValueError, ET.ParseError) as exc:
-            raise SourceError(diagnostic + ": malformed " + expected.upper(), error_type='malformed_response') from exc
+            raise SourceError(diagnostic + ': malformed ' + expected.upper(), error_type='malformed_response') from exc
         if not isinstance(parsed, expected_type):
             label = 'array' if expected_type is list else 'object'
-            raise SourceError(diagnostic + ": expected JSON " + label, error_type='malformed_response')
+            raise SourceError(diagnostic + ': expected JSON ' + label, error_type='malformed_response')
         return parsed
 
     def _retry_delay(self, error, attempt):
         seconds = self._retry_after(error)
         if seconds is None:
-            seconds = self.config.retry_backoff_base ** attempt
+            seconds = self.config.retry_backoff_base**attempt
         return min(seconds, self.config.maximum_retry_delay)
 
     @staticmethod

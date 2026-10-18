@@ -1,4 +1,5 @@
 """Discover deposited full-text and landing links from Crossref metadata."""
+
 from urllib.parse import quote
 
 from .config import DEFAULT_PDF
@@ -23,7 +24,7 @@ class CrossrefPDFProvider(MetadataPDFProvider):
             self.configuration_error = str(exc)
 
     def lookups(self, paper):
-        identifiers = [doi[len('doi:'):] for doi in sorted(paper_dois(paper))]
+        identifiers = [doi[len('doi:') :] for doi in sorted(paper_dois(paper))]
         if not identifiers and paper.get('title'):
             identifiers.append('title:' + paper['title'])
         return identifiers
@@ -41,9 +42,14 @@ class CrossrefPDFProvider(MetadataPDFProvider):
             except (SourceError, ValueError, TypeError) as exc:
                 result.status = 'error'
                 result.errors.append('Title search: ' + str(exc))
-                result.diagnostics.append({'lookup_method': 'title_search', 'status': 'error',
-                                           'status_code': getattr(exc, 'status_code', None),
-                                           'error_type': getattr(exc, 'error_type', 'malformed_response')})
+                result.diagnostics.append(
+                    {
+                        'lookup_method': 'title_search',
+                        'status': 'error',
+                        'status_code': getattr(exc, 'status_code', None),
+                        'error_type': getattr(exc, 'error_type', 'malformed_response'),
+                    }
+                )
         if self.configuration_error:
             result.errors.append('Crossref optional contact configuration: ' + self.configuration_error)
         result.errors = [redact_contact(message, self.email) for message in result.errors]
@@ -93,9 +99,15 @@ class CrossrefPDFProvider(MetadataPDFProvider):
         if not isinstance(venues, list) or any(not isinstance(venue, str) for venue in venues):
             raise SourceError('Crossref container titles must be a list of strings', error_type='malformed_response')
         identity = metadata_identity(paper, self.name, doi=work.get('DOI'), title=title, year=year, authors=authors)
-        metadata = {'database': self.name, 'metadata_url': metadata_url, 'doi': work.get('DOI'),
-                    'title': title, 'metadata_year': year, 'metadata_authors': authors,
-                    'metadata_venue': venues[0] if venues else None}
+        metadata = {
+            'database': self.name,
+            'metadata_url': metadata_url,
+            'doi': work.get('DOI'),
+            'title': title,
+            'metadata_year': year,
+            'metadata_authors': authors,
+            'metadata_venue': venues[0] if venues else None,
+        }
         candidates = []
         for link in work.get('link') or []:
             if not isinstance(link, dict) or str(link.get('content-type') or '').lower() != 'application/pdf':
@@ -103,9 +115,16 @@ class CrossrefPDFProvider(MetadataPDFProvider):
             if not link.get('URL'):
                 continue
             version = {'vor': 'publishedVersion', 'am': 'acceptedVersion'}.get(link.get('content-version'))
-            candidates.append(make_candidate(
-                link['URL'], self.name, identity, dict(metadata, intended_application=link.get('intended-application')),
-                'Crossref deposited full-text PDF link; anonymous public access still requires verification', version))
+            candidates.append(
+                make_candidate(
+                    link['URL'],
+                    self.name,
+                    identity,
+                    dict(metadata, intended_application=link.get('intended-application')),
+                    'Crossref deposited full-text PDF link; anonymous public access still requires verification',
+                    version,
+                )
+            )
         pages = []
         resource = work.get('resource') or {}
         if not isinstance(resource, dict) or not isinstance(resource.get('primary') or {}, dict):

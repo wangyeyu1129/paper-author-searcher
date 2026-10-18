@@ -1,4 +1,5 @@
 """Recover typographic text without fuzzy title or weaker author thresholds."""
+
 import re
 import unicodedata
 
@@ -10,7 +11,7 @@ from .paper_deduplication import author_signatures_match
 def front_matter(text):
     # Keep bylines out of the abstract, main text and reference list.
     boundary = re.search(r'(?im)^\s*(?:abstract\b|(?:\d+\.?\s+)?introduction\b|references\b)', text)
-    return text[:boundary.start()] if boundary else text
+    return text[: boundary.start()] if boundary else text
 
 
 def clean_byline(text):
@@ -81,8 +82,10 @@ def metadata_title_kind(title, expected):
 
 
 def publication_years(text):
-    patterns = (r'(?i)\b(?:published|copyright|©)\s*[:\s]*(\d{4})\b',
-                r'(?i)\bproceedings\b[^\n]{0,180}\b((?:19|20)\d{2})\b')
+    patterns = (
+        r'(?i)\b(?:published|copyright|©)\s*[:\s]*(\d{4})\b',
+        r'(?i)\bproceedings\b[^\n]{0,180}\b((?:19|20)\d{2})\b',
+    )
     years = set()
     for pattern in patterns:
         years.update(re.findall(pattern, text))

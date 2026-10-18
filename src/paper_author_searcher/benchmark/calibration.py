@@ -8,14 +8,16 @@ with the diagnosis labels (which candidate profiles hold the person's truth pape
 
 Only resolved identities feed verification, so the objective is resolved coverage subject to a purity floor.
 """
+
 import itertools
 from copy import deepcopy
 from dataclasses import dataclass, replace
 from statistics import mean
 from typing import Callable, Iterable, List, Mapping, Optional, Sequence, Set, Tuple
 
-from ..config import CONTENDER_STATUS, MatchingConfig
-from ..workflow import contender_profile
+from paper_author_searcher.config import CONTENDER_STATUS, MatchingConfig
+from paper_author_searcher.workflow import contender_profile
+
 from .identity_diagnosis import is_inconclusive
 
 AuthorKey = Tuple[str, str]
@@ -30,8 +32,13 @@ class IdentityOutcome:
     selected: List[str]
 
     def to_dict(self) -> dict:
-        return {'person_id': self.person_id, 'status': self.status, 'coverage': self.coverage,
-                'purity': self.purity, 'selected': self.selected}
+        return {
+            'person_id': self.person_id,
+            'status': self.status,
+            'coverage': self.coverage,
+            'purity': self.purity,
+            'selected': self.selected,
+        }
 
 
 def labelled_profiles(diagnosis: dict) -> List[Tuple[Set[AuthorKey], int, int]]:
@@ -83,14 +90,17 @@ def memoized(resolver, memory: dict):
 
 
 class IdentityCalibrator:
-    def __init__(self, resolver_factory: Callable[[MatchingConfig], object], policy: str = 'stop',
-                 maximum_contenders: int = 3) -> None:
+    def __init__(
+        self, resolver_factory: Callable[[MatchingConfig], object], policy: str = 'stop', maximum_contenders: int = 3
+    ) -> None:
         self.resolver_factory = resolver_factory
         self.memory: dict = {}
         self.policy = policy
         self.maximum_contenders = maximum_contenders
 
-    def evaluate(self, config: MatchingConfig, people: Iterable, diagnoses: Mapping[str, dict]) -> List[IdentityOutcome]:
+    def evaluate(
+        self, config: MatchingConfig, people: Iterable, diagnoses: Mapping[str, dict]
+    ) -> List[IdentityOutcome]:
         resolver = memoized(self.resolver_factory(config), self.memory)
         outcomes = []
         for person in people:
@@ -101,33 +111,54 @@ class IdentityCalibrator:
             profile, status = result.profile, 'none'
             if profile is not None and profile.status == 'resolved':
                 status = 'resolved'
-            elif profile is not None and self.policy == 'collect_contenders' and profile.university_status != 'mismatch':
-                profile, status = contender_profile(result, self.maximum_contenders, config.ambiguity_margin), \
-                    CONTENDER_STATUS
+            elif (
+                profile is not None and self.policy == 'collect_contenders' and profile.university_status != 'mismatch'
+            ):
+                profile, status = (
+                    contender_profile(result, self.maximum_contenders, config.ambiguity_margin),
+                    CONTENDER_STATUS,
+                )
             else:
                 profile = None
             selected = set()
             if profile is not None:
-                selected = {(source, str(value)) for source, values in profile.author_id_aliases.items()
-                            for value in values}
+                selected = {
+                    (source, str(value)) for source, values in profile.author_id_aliases.items() for value in values
+                }
                 selected |= {(source, str(value)) for source, value in profile.author_ids.items()}
             coverage, purity = score_selection(selected, diagnosis)
-            outcomes.append(IdentityOutcome(person.person_id, status, coverage, purity,
-                                            sorted('{}:{}'.format(*key) for key in selected)))
+            outcomes.append(
+                IdentityOutcome(
+                    person.person_id, status, coverage, purity, sorted('{}:{}'.format(*key) for key in selected)
+                )
+            )
         return outcomes
 
     @staticmethod
     def summary(outcomes: Sequence[IdentityOutcome]) -> dict:
         resolved = [outcome for outcome in outcomes if outcome.status == 'resolved']
-        coverages = [outcome.coverage if outcome.status == 'resolved' else 0.0
-                     for outcome in outcomes if outcome.coverage is not None]
+        coverages = [
+            outcome.coverage if outcome.status == 'resolved' else 0.0
+            for outcome in outcomes
+            if outcome.coverage is not None
+        ]
         purities = [outcome.purity for outcome in resolved if outcome.purity is not None]
-        return {'people': len(outcomes), 'resolved': len(resolved),
-                'resolved_coverage': mean(coverages) if coverages else None,
-                'resolved_purity': mean(purities) if purities else None}
+        return {
+            'people': len(outcomes),
+            'resolved': len(resolved),
+            'resolved_coverage': mean(coverages) if coverages else None,
+            'resolved_purity': mean(purities) if purities else None,
+        }
 
-    def search(self, base: MatchingConfig, grid: Mapping[str, Sequence[object]], tune: List, holdout: List,
-               diagnoses: Mapping[str, dict], minimum_purity: float) -> dict:
+    def search(
+        self,
+        base: MatchingConfig,
+        grid: Mapping[str, Sequence[object]],
+        tune: List,
+        holdout: List,
+        diagnoses: Mapping[str, dict],
+        minimum_purity: float,
+    ) -> dict:
         names = sorted(grid)
         trials = []
         for values in itertools.product(*(grid[name] for name in names)) if names else [()]:
@@ -135,8 +166,11 @@ class IdentityCalibrator:
             config = replace(base, **overrides)
             summary = self.summary(self.evaluate(config, tune, diagnoses))
             trials.append({'parameters': overrides, 'tune': summary})
-        eligible = [trial for trial in trials if trial['tune']['resolved_purity'] is None
-                    or trial['tune']['resolved_purity'] >= minimum_purity]
+        eligible = [
+            trial
+            for trial in trials
+            if trial['tune']['resolved_purity'] is None or trial['tune']['resolved_purity'] >= minimum_purity
+        ]
         pool = eligible or trials
 
         def rank(trial):
@@ -147,13 +181,19 @@ class IdentityCalibrator:
         baseline_outcomes = self.evaluate(base, holdout, diagnoses)
         best_outcomes = self.evaluate(replace(base, **best['parameters']), holdout, diagnoses)
         return {
-            'grid': {name: list(grid[name]) for name in names}, 'minimum_purity': minimum_purity,
+            'grid': {name: list(grid[name]) for name in names},
+            'minimum_purity': minimum_purity,
             'purity_floor_met': bool(eligible),
-            'baseline': {'parameters': {name: getattr(base, name) for name in names},
-                         'tune': self.summary(self.evaluate(base, tune, diagnoses)),
-                         'holdout': self.summary(baseline_outcomes)},
-            'recommended': {'parameters': best['parameters'], 'tune': best['tune'],
-                            'holdout': self.summary(best_outcomes)},
+            'baseline': {
+                'parameters': {name: getattr(base, name) for name in names},
+                'tune': self.summary(self.evaluate(base, tune, diagnoses)),
+                'holdout': self.summary(baseline_outcomes),
+            },
+            'recommended': {
+                'parameters': best['parameters'],
+                'tune': best['tune'],
+                'holdout': self.summary(best_outcomes),
+            },
             'holdout_people': [outcome.to_dict() for outcome in best_outcomes],
             'trials': trials,
         }
@@ -167,19 +207,30 @@ def _distance(trial: dict, base: MatchingConfig) -> int:
 def markdown(report: dict) -> str:
     def row(label, summary):
         return '| {} | {} | {} | {} | {} |'.format(
-            label, summary['people'], summary['resolved'],
-            _rate(summary['resolved_coverage']), _rate(summary['resolved_purity']))
+            label,
+            summary['people'],
+            summary['resolved'],
+            _rate(summary['resolved_coverage']),
+            _rate(summary['resolved_purity']),
+        )
 
-    lines = ['# Identity calibration', '',
-             '- Recommended parameters: `{}`'.format(report['recommended']['parameters']),
-             '- Baseline parameters: `{}`'.format(report['baseline']['parameters']),
-             '- Purity floor {:.0%} met by some trial: {}'.format(report['minimum_purity'], report['purity_floor_met']),
-             '', '| Set | People | Resolved | Resolved coverage | Resolved purity |', '|---|---:|---:|---:|---:|',
-             row('baseline / tune', report['baseline']['tune']), row('baseline / holdout', report['baseline']['holdout']),
-             row('recommended / tune', report['recommended']['tune']),
-             row('recommended / holdout', report['recommended']['holdout']), '']
+    lines = [
+        '# Identity calibration',
+        '',
+        '- Recommended parameters: `{}`'.format(report['recommended']['parameters']),
+        '- Baseline parameters: `{}`'.format(report['baseline']['parameters']),
+        '- Purity floor {:.0%} met by some trial: {}'.format(report['minimum_purity'], report['purity_floor_met']),
+        '',
+        '| Set | People | Resolved | Resolved coverage | Resolved purity |',
+        '|---|---:|---:|---:|---:|',
+        row('baseline / tune', report['baseline']['tune']),
+        row('baseline / holdout', report['baseline']['holdout']),
+        row('recommended / tune', report['recommended']['tune']),
+        row('recommended / holdout', report['recommended']['holdout']),
+        '',
+    ]
     return '\n'.join(lines)
 
 
 def _rate(value: Optional[float]) -> str:
-    return '–' if value is None else '{:.1%}'.format(value)
+    return '–' if value is None else f'{value:.1%}'

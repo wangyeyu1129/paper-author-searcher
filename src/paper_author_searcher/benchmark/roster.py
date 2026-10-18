@@ -1,11 +1,13 @@
 """Benchmark people: the search input, stratum labels and where independent truth comes from."""
+
 import json
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, Iterable, List, Mapping, Optional, Tuple
 
-from ..models import ProfessorQuery
+from paper_author_searcher.models import ProfessorQuery
+
 from .settings import BenchmarkSettings
 
 PERSON_ID = re.compile(r'^[a-z0-9][a-z0-9_]{1,63}$')
@@ -14,6 +16,7 @@ PERSON_ID = re.compile(r'^[a-z0-9][a-z0-9_]{1,63}$')
 @dataclass(frozen=True)
 class SearchInput:
     """Only what a production caller supplies; truth URLs are never passed to the searcher."""
+
     name: str
     university: str
     department: Optional[str] = None
@@ -28,13 +31,15 @@ class SearchInput:
         hints = {}
         if with_hints:
             hints = {'orcid': self.orcid, 'homepage': self.homepage, 'known_papers': list(self.known_papers)}
-        return ProfessorQuery(self.name, self.university, self.department,
-                              list(self.research), list(self.university_aliases), **hints)
+        return ProfessorQuery(
+            self.name, self.university, self.department, list(self.research), list(self.university_aliases), **hints
+        )
 
 
 @dataclass(frozen=True)
 class TruthSourceSpec:
     """``locator`` is an ORCID iD for live sources or a snapshot file name; ``url`` is the public origin."""
+
     kind: str
     locator: str
     url: str = ''
@@ -62,18 +67,24 @@ class BenchmarkPerson:
         query = data['search_input']
         return cls(
             person_id=data['person_id'],
-            search_input=SearchInput(query['name'], query['university'], query.get('department'),
-                                     tuple(query.get('research') or ()),
-                                     tuple(query.get('university_aliases') or ()),
-                                     orcid=(query.get('hints') or {}).get('orcid'),
-                                     homepage=(query.get('hints') or {}).get('homepage'),
-                                     known_papers=tuple((query.get('hints') or {}).get('known_papers') or ())),
+            search_input=SearchInput(
+                query['name'],
+                query['university'],
+                query.get('department'),
+                tuple(query.get('research') or ()),
+                tuple(query.get('university_aliases') or ()),
+                orcid=(query.get('hints') or {}).get('orcid'),
+                homepage=(query.get('hints') or {}).get('homepage'),
+                known_papers=tuple((query.get('hints') or {}).get('known_papers') or ()),
+            ),
             strata=dict(data['strata']),
             truth_sources=tuple(TruthSourceSpec(**source) for source in data.get('truth_sources') or ()),
             identity_evidence=tuple(data.get('identity_evidence') or ()),
             orcid=data.get('orcid'),
-            year_start=data.get('year_start'), year_end=data.get('year_end'),
-            notes=data.get('notes', ''), split=data.get('split'),
+            year_start=data.get('year_start'),
+            year_end=data.get('year_end'),
+            notes=data.get('notes', ''),
+            split=data.get('split'),
         )
 
 
@@ -89,7 +100,7 @@ class Roster:
             return list(self.people)
         unknown = wanted - {person.person_id for person in self.people}
         if unknown:
-            raise ValueError('Unknown benchmark people: {}'.format(sorted(unknown)))
+            raise ValueError(f'Unknown benchmark people: {sorted(unknown)}')
         return [person for person in self.people if person.person_id in wanted]
 
     def validate(self, settings: BenchmarkSettings, known_source_kinds: Iterable[str]) -> List[str]:
@@ -100,28 +111,27 @@ class Roster:
         seen = set()
         for person in self.people:
             if not PERSON_ID.match(person.person_id) or person.person_id in seen:
-                raise ValueError('Invalid or duplicate person_id: {}'.format(person.person_id))
+                raise ValueError(f'Invalid or duplicate person_id: {person.person_id}')
             seen.add(person.person_id)
             if not person.search_input.name.strip() or not person.search_input.university.strip():
-                raise ValueError('{} needs a name and university'.format(person.person_id))
+                raise ValueError(f'{person.person_id} needs a name and university')
             if set(person.strata) != set(settings.dimensions):
-                raise ValueError('{} must be labelled on every dimension'.format(person.person_id))
+                raise ValueError(f'{person.person_id} must be labelled on every dimension')
             for dimension, value in person.strata.items():
                 if value not in settings.dimensions[dimension]:
-                    raise ValueError('{}: {} is not a {} value'.format(person.person_id, value, dimension))
+                    raise ValueError(f'{person.person_id}: {value} is not a {dimension} value')
             if not person.truth_sources:
-                raise ValueError('{} needs at least one truth source'.format(person.person_id))
+                raise ValueError(f'{person.person_id} needs at least one truth source')
             for source in person.truth_sources:
                 if source.kind not in kinds:
-                    raise ValueError('{}: unknown truth source kind {}'.format(person.person_id, source.kind))
+                    raise ValueError(f'{person.person_id}: unknown truth source kind {source.kind}')
             if person.split is not None and person.split not in settings.calibration.splits:
-                raise ValueError('{}: split must be one of {}'.format(person.person_id, settings.calibration.splits))
+                raise ValueError(f'{person.person_id}: split must be one of {settings.calibration.splits}')
             start, end = person.window(settings)
             if start > end:
-                raise ValueError('{} has an empty year window'.format(person.person_id))
+                raise ValueError(f'{person.person_id} has an empty year window')
         return [
-            'Stratum {}={} has {} people; the gate needs {}'.format(dimension, value, count,
-                                                                    settings.minimum_people_per_stratum)
+            f'Stratum {dimension}={value} has {count} people; the gate needs {settings.minimum_people_per_stratum}'
             for (dimension, value), count in sorted(self.stratum_sizes(settings).items())
             if count < settings.minimum_people_per_stratum
         ]
@@ -139,5 +149,8 @@ class Roster:
             data = json.load(handle)
         if not isinstance(data, dict) or data.get('roster_schema_version') != 1:
             raise ValueError('Roster requires roster_schema_version=1')
-        return cls(data['dataset_id'], tuple(BenchmarkPerson.from_dict(person) for person in data['people']),
-                   data.get('metadata') or {})
+        return cls(
+            data['dataset_id'],
+            tuple(BenchmarkPerson.from_dict(person) for person in data['people']),
+            data.get('metadata') or {},
+        )

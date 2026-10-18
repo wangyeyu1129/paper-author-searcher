@@ -4,6 +4,7 @@ Only lines carrying a DOI or PMID are kept, so every entry has a stable identifi
 are handled when each line carries "(YEAR)"; ACS-style "Family, I.; Family, I. Title." bylines are split too.
 Usage: citation_lines.py URL START_YEAR END_YEAR OUT_JSON SCOPE_NOTE
 """
+
 import html
 import json
 import re
@@ -31,7 +32,7 @@ INITIALS_THEN_TITLE = re.compile(r'^(?P<family>[^,]+),\s*(?P<given>(?:[A-Z][a-z]
 
 
 def acs_entry(line, year):
-    """"Family, I.; Family, I. J. Title. Journal, (YEAR) DOI" -> authors and title."""
+    """ "Family, I.; Family, I. J. Title. Journal, (YEAR) DOI" -> authors and title."""
     chunks = line.split('; ')
     if len(chunks) < 2:
         return None
@@ -80,9 +81,14 @@ def main(argv):
             item = entry(line, line_year)
             if item:
                 entries.append(item)
-    snapshot = {'snapshot_schema_version': 1, 'source_url': url, 'captured_at': date.today().isoformat(),
-                'captured_by': 'Script segmentation of the public page (one citation per line); pending human review',
-                'scope_note': note, 'entries': entries}
+    snapshot = {
+        'snapshot_schema_version': 1,
+        'source_url': url,
+        'captured_at': date.today().isoformat(),
+        'captured_by': 'Script segmentation of the public page (one citation per line); pending human review',
+        'scope_note': note,
+        'entries': entries,
+    }
     with open(out, 'w', encoding='utf-8') as handle:
         json.dump(snapshot, handle, ensure_ascii=False, indent=1)
         handle.write('\n')

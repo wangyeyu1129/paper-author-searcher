@@ -1,9 +1,14 @@
 """The metered-API budget refuses requests before they are sent once the run's cap is reached."""
+
 import tempfile
 import unittest
 
 from paper_author_searcher.http_budget import (
-    BudgetConfig, BudgetExceeded, BudgetedHttpClient, CostLedger, classify,
+    BudgetConfig,
+    BudgetedHttpClient,
+    BudgetExceeded,
+    CostLedger,
+    classify,
 )
 from paper_author_searcher.http_cache import CachingHttpClient
 
@@ -33,7 +38,7 @@ class BudgetTests(unittest.TestCase):
         client.get(OPENALEX + '/authors', {'search': 'b'})
         with self.assertRaises(BudgetExceeded):
             client.get(OPENALEX + '/authors', {'search': 'c'})
-        client.get(OPENALEX + '/authors/A1')              # single lookups are free
+        client.get(OPENALEX + '/authors/A1')  # single lookups are free
         client.get('https://pub.orcid.org/v3.0/x/works')  # unmetered host
         self.assertEqual(len(network.calls), 4)
         summary = client.ledger.summary()
@@ -44,8 +49,9 @@ class BudgetTests(unittest.TestCase):
         network = Network()
         ledger = CostLedger(0.001)
         with tempfile.TemporaryDirectory() as directory:
-            client = CachingHttpClient(BudgetedHttpClient(network, ledger, BudgetConfig(maximum_cost_usd=0.001)),
-                                       directory)
+            client = CachingHttpClient(
+                BudgetedHttpClient(network, ledger, BudgetConfig(maximum_cost_usd=0.001)), directory
+            )
             for _ in range(3):
                 client.get(OPENALEX + '/authors', {'search': 'same', 'api_key': 'secret'})
         self.assertEqual(len(network.calls), 1)
@@ -53,6 +59,7 @@ class BudgetTests(unittest.TestCase):
 
     def test_budget_error_is_a_source_error_so_providers_degrade_gracefully(self):
         from paper_author_searcher.http import SourceError
+
         self.assertTrue(issubclass(BudgetExceeded, SourceError))
 
 

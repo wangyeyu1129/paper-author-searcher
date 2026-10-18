@@ -1,4 +1,5 @@
 """Explain abstention and access failures without changing validation decisions."""
+
 import re
 from collections import Counter
 
@@ -14,7 +15,9 @@ def workflow_outcomes(report):
         stage = error.get('stage')
         if stage in reused:
             category = 'historical_source_issue'
-        elif any(value in text for value in ('timed out', 'timeout', 'certificate verify', 'name resolution', 'nodename')):
+        elif any(
+            value in text for value in ('timed out', 'timeout', 'certificate verify', 'name resolution', 'nodename')
+        ):
             category = 'network_failure'
         elif re.search(r'http\s+(?:401|403|429|5\d\d)\b', text) or 'expected json' in text:
             category = 'source_unavailable'
@@ -34,14 +37,17 @@ def workflow_outcomes(report):
             request_outcomes[context['outcome']] += 1
     decisions = Counter(item.get('category', 'candidate_filtered') for item in report.get('candidate_decisions') or [])
     download = report.get('download_statistics') or {}
-    return {'error_observation_counts': dict(counts), 'warning_observation_counts': dict(warnings),
-            'request_outcome_observation_counts': dict(request_outcomes),
-            'candidate_decision_counts': dict(decisions),
-            'failed_download_papers': download.get('failed_papers', 0),
-            'rejected_content_papers': download.get('rejected_content_papers', 0),
-            'non_full_document_papers': download.get('non_full_document_papers', 0),
-            'count_note': 'Per-paper observations can repeat cached/deferred causes. '
-                          'Actual logical request failures are in provider_request_statistics.events.'}
+    return {
+        'error_observation_counts': dict(counts),
+        'warning_observation_counts': dict(warnings),
+        'request_outcome_observation_counts': dict(request_outcomes),
+        'candidate_decision_counts': dict(decisions),
+        'failed_download_papers': download.get('failed_papers', 0),
+        'rejected_content_papers': download.get('rejected_content_papers', 0),
+        'non_full_document_papers': download.get('non_full_document_papers', 0),
+        'count_note': 'Per-paper observations can repeat cached/deferred causes. '
+        'Actual logical request failures are in provider_request_statistics.events.',
+    }
 
 
 def pdf_failure_reasons(paper):
@@ -53,8 +59,10 @@ def pdf_failure_reasons(paper):
     if status == 'skipped_ownership' or download == 'skipped_ownership':
         reasons.add('ownership_not_eligible')
     providers = paper.get('providers') or []
-    if any(provider.get('status') == 'error' or provider.get('status') == 'partial' and provider.get('errors')
-           for provider in providers):
+    if any(
+        provider.get('status') == 'error' or (provider.get('status') == 'partial' and provider.get('errors'))
+        for provider in providers
+    ):
         reasons.add('source_query_failed')
     if any(provider.get('status') == 'partial' for provider in providers):
         reasons.add('search_incomplete')
@@ -64,11 +72,19 @@ def pdf_failure_reasons(paper):
         for diagnostic in provider.get('diagnostics') or []:
             kind = diagnostic.get('error_type')
             if kind == 'not_found':
-                reasons.add('url_not_found' if diagnostic.get('context') == 'public_resource' else 'metadata_record_not_found')
+                reasons.add(
+                    'url_not_found' if diagnostic.get('context') == 'public_resource' else 'metadata_record_not_found'
+                )
             elif kind == 'source_deferred':
                 reasons.add('source_temporarily_deferred')
-            elif kind in ('rate_limited', 'timeout', 'network_error', 'server_error', 'access_restricted',
-                          'authentication_required'):
+            elif kind in (
+                'rate_limited',
+                'timeout',
+                'network_error',
+                'server_error',
+                'access_restricted',
+                'authentication_required',
+            ):
                 reasons.add(kind)
             elif kind in ('malformed_response', 'invalid_content_type', 'empty_response'):
                 reasons.add('invalid_metadata_response')
@@ -120,7 +136,9 @@ def pdf_failure_reasons(paper):
     if paper.get('document_type') in ('poster', 'slides', 'supplementary_material'):
         reasons.add('non_full_text_document')
     if status in ('not_found', 'unverified') and not candidates:
-        incomplete = reasons.intersection({'source_query_failed', 'provider_not_configured', 'network_error', 'search_incomplete'})
+        incomplete = reasons.intersection(
+            {'source_query_failed', 'provider_not_configured', 'network_error', 'search_incomplete'}
+        )
         reasons.add('search_incomplete' if incomplete else 'no_public_pdf_found_in_queried_sources')
     if status == 'unverified' and candidates and not reasons:
         reasons.add('pdf_or_identity_unconfirmed')
@@ -135,15 +153,20 @@ def review_reasons(paper, config=DEFAULT_OWNERSHIP):
     for record in records:
         details = record.get('author_details') or []
         expected = canonical_author_id(record.get('source'), record.get('source_author_id'))
-        target = [author for author in details
-                  if expected and canonical_author_id(record.get('source'), author.get('author_id')) == expected]
+        target = [
+            author
+            for author in details
+            if expected and canonical_author_id(record.get('source'), author.get('author_id')) == expected
+        ]
         evidence = ' '.join(record.get('ownership_evidence') or [])
         if not details:
             reasons.add('missing_paper_author_details')
         elif not target:
             reasons.add('missing_or_conflicting_target_author_id')
         if target:
-            if not any(author.get('institutions') and author.get('affiliation_scope') != 'author_profile' for author in target):
+            if not any(
+                author.get('institutions') and author.get('affiliation_scope') != 'author_profile' for author in target
+            ):
                 reasons.add('missing_paper_level_affiliation')
             if not any(author.get('orcid') or author.get('orcids') for author in target):
                 reasons.add('missing_target_orcid')
@@ -176,7 +199,18 @@ def ownership_diagnostics(papers):
             continue
         reasons = review_reasons(paper)
         counts.update(reasons)
-        entries.append({'entry_index': index, 'title': paper.get('title'), 'doi': paper.get('doi'),
-                        'reason_codes': reasons, 'ownership_evidence': paper.get('ownership_evidence') or []})
-    return {'needs_review_entries': len(entries), 'reason_counts': dict(counts), 'papers': entries,
-            'count_note': 'Reason categories overlap; these are observed evidence gaps, not new ownership decisions.'}
+        entries.append(
+            {
+                'entry_index': index,
+                'title': paper.get('title'),
+                'doi': paper.get('doi'),
+                'reason_codes': reasons,
+                'ownership_evidence': paper.get('ownership_evidence') or [],
+            }
+        )
+    return {
+        'needs_review_entries': len(entries),
+        'reason_counts': dict(counts),
+        'papers': entries,
+        'count_note': 'Reason categories overlap; these are observed evidence gaps, not new ownership decisions.',
+    }

@@ -2,6 +2,7 @@
 
 An anchor is independent of the name search, so it separates namesakes and ties split profiles together.
 """
+
 import os
 import re
 from dataclasses import dataclass, field
@@ -29,7 +30,7 @@ class IdentityAnchors:
 
     def add(self, source: str, author_id: str, reason: str) -> None:
         self.author_ids.setdefault(source, set()).add(str(author_id))
-        self.evidence.append('{} {}: {}'.format(source, author_id, reason))
+        self.evidence.append(f'{source} {author_id}: {reason}')
 
     def contains(self, source: str, author_id: str) -> bool:
         return str(author_id) in self.author_ids.get(source, set())
@@ -39,8 +40,7 @@ class IdentityAnchors:
 
 
 class AnchorFinder(Protocol):
-    def find(self, query) -> IdentityAnchors:
-        ...
+    def find(self, query) -> IdentityAnchors: ...
 
 
 def paper_hints(values: List[str]) -> Dict[str, List[str]]:
@@ -70,8 +70,13 @@ def homepage_papers(html: str) -> List[str]:
 class ScholarlyAnchorFinder:
     """Resolve hints through OpenAlex and Semantic Scholar paper/author lookups."""
 
-    def __init__(self, client: Optional[HttpClient] = None, source_config=DEFAULT_SOURCES,
-                 matching_config=DEFAULT_MATCHING, anchor_config=DEFAULT_ANCHORS) -> None:
+    def __init__(
+        self,
+        client: Optional[HttpClient] = None,
+        source_config=DEFAULT_SOURCES,
+        matching_config=DEFAULT_MATCHING,
+        anchor_config=DEFAULT_ANCHORS,
+    ) -> None:
         self.client = client or HttpClient()
         self.openalex_url = source_config.openalex_url.rstrip('/')
         self.semantic_scholar_url = source_config.semantic_scholar_url.rstrip('/')
@@ -89,7 +94,7 @@ class ScholarlyAnchorFinder:
             try:
                 values += homepage_papers(self._read_page(query.homepage))
             except (SourceError, ValueError) as exc:
-                anchors.errors.append('homepage: {}'.format(exc))
+                anchors.errors.append(f'homepage: {exc}')
         hints = paper_hints(values)
         budget = self.config.maximum_anchor_papers
         for doi in hints['doi'][:budget]:
@@ -105,7 +110,7 @@ class ScholarlyAnchorFinder:
         try:
             lookup(anchors, query, value)
         except SourceError as exc:
-            anchors.errors.append('{}: {}'.format(value, exc))
+            anchors.errors.append(f'{value}: {exc}')
 
     def _read_page(self, url: str) -> str:
         response = self.client.probe(url, 1024, self.config.homepage_bytes, self.config.maximum_redirects)
@@ -115,12 +120,15 @@ class ScholarlyAnchorFinder:
         if not name:
             return False
         # Paper bylines often abbreviate given names ("M. Lin"), which plain similarity rejects.
-        return (name_similarity(query.name, name, self.matching) >= self.matching.compatible_name
-                or bibliographic_name_agrees(query.name, name))
+        return name_similarity(
+            query.name, name, self.matching
+        ) >= self.matching.compatible_name or bibliographic_name_agrees(query.name, name)
 
     def _by_orcid(self, anchors, query, orcid) -> None:
-        data = self.client.get(self.openalex_url + '/authors', {
-            'filter': 'orcid:' + orcid, 'select': 'id,display_name', 'api_key': self.openalex_key})
+        data = self.client.get(
+            self.openalex_url + '/authors',
+            {'filter': 'orcid:' + orcid, 'select': 'id,display_name', 'api_key': self.openalex_key},
+        )
         for item in data.get('results') or []:
             anchors.add('openalex', item['id'].rsplit('/', 1)[-1], 'ORCID ' + orcid)
 
@@ -135,34 +143,47 @@ class ScholarlyAnchorFinder:
                 anchors.add('openalex', author['id'].rsplit('/', 1)[-1], reason)
 
     def _by_doi(self, anchors, query, doi) -> None:
-        work = self.client.get(self.openalex_url + '/works/doi:' + quote(doi, safe='/'),
-                               {'select': 'id,doi,authorships', 'api_key': self.openalex_key})
+        work = self.client.get(
+            self.openalex_url + '/works/doi:' + quote(doi, safe='/'),
+            {'select': 'id,doi,authorships', 'api_key': self.openalex_key},
+        )
         self._openalex_authorships(anchors, query, work, 'author of DOI ' + doi)
         self._guard(anchors, self._by_semantic_scholar_paper, query, 'DOI:' + doi)
 
     def _by_arxiv(self, anchors, query, arxiv) -> None:
         # OpenAlex indexes arXiv preprints under their DataCite DOI; Semantic Scholar takes the arXiv ID.
         doi = ARXIV_DOI_PREFIX + arxiv.lower()
-        work = self.client.get(self.openalex_url + '/works/doi:' + quote(doi, safe='/'),
-                               {'select': 'id,doi,authorships', 'api_key': self.openalex_key})
+        work = self.client.get(
+            self.openalex_url + '/works/doi:' + quote(doi, safe='/'),
+            {'select': 'id,doi,authorships', 'api_key': self.openalex_key},
+        )
         self._openalex_authorships(anchors, query, work, 'author of arXiv ' + arxiv)
         self._guard(anchors, self._by_semantic_scholar_paper, query, 'ARXIV:' + arxiv)
 
     def _by_semantic_scholar_paper(self, anchors, query, paper_id) -> None:
         headers = {'x-api-key': self.semantic_scholar_key} if self.semantic_scholar_key else None
-        data = self.client.get('{}/paper/{}'.format(self.semantic_scholar_url, quote(paper_id, safe=':/')),
-                               {'fields': 'title,authors'}, headers)
+        data = self.client.get(
+            '{}/paper/{}'.format(self.semantic_scholar_url, quote(paper_id, safe=':/')),
+            {'fields': 'title,authors'},
+            headers,
+        )
         for author in data.get('authors') or []:
             if author.get('authorId') and self._compatible(query, author.get('name')):
                 anchors.add('semantic_scholar', author['authorId'], 'author of ' + paper_id)
 
     def _by_title(self, anchors, query, title) -> None:
-        data = self.client.get(self.openalex_url + '/works', {
-            'filter': 'title.search:' + title.replace(',', ' '), 'per-page': self.config.title_search_results,
-            'select': 'id,title,authorships', 'api_key': self.openalex_key})
+        data = self.client.get(
+            self.openalex_url + '/works',
+            {
+                'filter': 'title.search:' + title.replace(',', ' '),
+                'per-page': self.config.title_search_results,
+                'select': 'id,title,authorships',
+                'api_key': self.openalex_key,
+            },
+        )
         for work in data.get('results') or []:
             if normalize(work.get('title') or '') == normalize(title):
-                self._openalex_authorships(anchors, query, work, 'author of title "{}"'.format(title[:80]))
+                self._openalex_authorships(anchors, query, work, f'author of title "{title[:80]}"')
 
 
 class NoAnchors:

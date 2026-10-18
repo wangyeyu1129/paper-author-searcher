@@ -1,11 +1,16 @@
 """Cross-source identity evidence, separate from query ranking."""
+
 from dataclasses import dataclass, field
 from typing import List
 
 from .config import DEFAULT_MATCHING
 from .matching import (
-    best_similarity, canonical_doi, canonical_orcid,
-    institution_similarity, name_similarity, normalize,
+    best_similarity,
+    canonical_doi,
+    canonical_orcid,
+    institution_similarity,
+    name_similarity,
+    normalize,
 )
 
 
@@ -15,7 +20,7 @@ class IdentityLink:
     shared_orcid: bool = False
     shared_dois: int = 0
     evidence: List[str] = field(default_factory=list)
-    reason: str = "Insufficient shared identity evidence"
+    reason: str = 'Insufficient shared identity evidence'
     split_profile: bool = False
     conflict: bool = False
 
@@ -23,31 +28,33 @@ class IdentityLink:
 def compare_identity(left, right, config=DEFAULT_MATCHING):
     if left.source == right.source:
         if left.author_id == right.author_id:
-            return IdentityLink(matched=True, evidence=["same source ID"])
+            return IdentityLink(matched=True, evidence=['same source ID'])
         # Distinct IDs from one source stay separate unless ORCID agrees or the split-profile rule holds.
         if not left.orcid or not right.orcid:
             return split_profile_link(left, right, config)
 
     names = best_similarity(
-        [left.name] + left.aliases,
-        [right.name] + right.aliases,
+        [left.name, *left.aliases],
+        [right.name, *right.aliases],
         lambda a, b: name_similarity(a, b, config),
     )
     if names < config.compatible_name:
-        return IdentityLink(reason="Names are incompatible", conflict=True)
+        return IdentityLink(reason='Names are incompatible', conflict=True)
 
     if left.orcid and right.orcid:
         if canonical_orcid(left.orcid) != canonical_orcid(right.orcid):
-            return IdentityLink(reason="Conflicting ORCID identifiers", conflict=True)
+            return IdentityLink(reason='Conflicting ORCID identifiers', conflict=True)
         return IdentityLink(
-            matched=True, shared_orcid=True, evidence=["shared ORCID"],
+            matched=True,
+            shared_orcid=True,
+            evidence=['shared ORCID'],
         )
 
     left_dois = set(map(canonical_doi, left.paper_ids))
     right_dois = set(map(canonical_doi, right.paper_ids))
     shared_dois = len(left_dois & right_dois)
     shared_coauthors = set(map(normalize, left.coauthors)) & set(map(normalize, right.coauthors))
-    author_names = [left.name, right.name] + left.aliases + right.aliases
+    author_names = [left.name, right.name, *left.aliases, *right.aliases]
     shared_coauthors.difference_update(map(normalize, author_names))
 
     sufficient_dois = shared_dois >= config.minimum_shared_dois
@@ -57,8 +64,8 @@ def compare_identity(left, right, config=DEFAULT_MATCHING):
             matched=True,
             shared_dois=shared_dois,
             evidence=[
-                "shared DOI count: {}".format(shared_dois),
-                "shared coauthor count: {}".format(len(shared_coauthors)),
+                f'shared DOI count: {shared_dois}',
+                f'shared coauthor count: {len(shared_coauthors)}',
             ],
         )
 
@@ -77,14 +84,14 @@ def compare_identity(left, right, config=DEFAULT_MATCHING):
         return IdentityLink(
             matched=True,
             shared_dois=shared_dois,
-            evidence=["shared school, coauthors and research topics"],
+            evidence=['shared school, coauthors and research topics'],
         )
     return IdentityLink()
 
 
 def _shared_context(left, right, config):
     shared_coauthors = set(map(normalize, left.coauthors)) & set(map(normalize, right.coauthors))
-    shared_coauthors.difference_update(map(normalize, [left.name, right.name] + left.aliases + right.aliases))
+    shared_coauthors.difference_update(map(normalize, [left.name, right.name, *left.aliases, *right.aliases]))
     shared_topics = set(map(normalize, left.topics)) & set(map(normalize, right.topics))
     school_similarity = best_similarity(
         left.affiliations + left.current_affiliations,
@@ -97,26 +104,32 @@ def _shared_context(left, right, config):
 def split_profile_link(left, right, config=DEFAULT_MATCHING):
     """One person indexed twice by the same source: compatible names, a shared school, and both
     collaborators and topics in common. Different namesakes at one school rarely share several coauthors."""
-    refusal = IdentityLink(reason="Distinct source IDs without shared ORCID")
+    refusal = IdentityLink(reason='Distinct source IDs without shared ORCID')
     if not config.merge_split_profiles:
         return refusal
     names = best_similarity(
-        [left.name] + left.aliases, [right.name] + right.aliases,
+        [left.name, *left.aliases],
+        [right.name, *right.aliases],
         lambda a, b: name_similarity(a, b, config),
     )
     if names < config.compatible_name:
-        return IdentityLink(reason="Names are incompatible", conflict=True)
+        return IdentityLink(reason='Names are incompatible', conflict=True)
     # Cheap set overlaps first; the fuzzy school comparison runs only when they already pass.
     coauthors = set(map(normalize, left.coauthors)) & set(map(normalize, right.coauthors))
-    coauthors.difference_update(map(normalize, [left.name, right.name] + left.aliases + right.aliases))
+    coauthors.difference_update(map(normalize, [left.name, right.name, *left.aliases, *right.aliases]))
     topics = set(map(normalize, left.topics)) & set(map(normalize, right.topics))
     if len(coauthors) < config.split_profile_coauthors or len(topics) < config.split_profile_topics:
         return refusal
     _, _, school = _shared_context(left, right, config)
     if school >= config.shared_school:
-        return IdentityLink(matched=True, split_profile=True, evidence=[
-            "same-source split profile: shared school, {} shared coauthors, {} shared topics".format(
-                len(coauthors), len(topics))])
+        return IdentityLink(
+            matched=True,
+            split_profile=True,
+            evidence=[
+                f'same-source split profile: shared school, {len(coauthors)} shared coauthors, '
+                f'{len(topics)} shared topics'
+            ],
+        )
     return refusal
 
 

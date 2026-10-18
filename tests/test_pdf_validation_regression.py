@@ -11,8 +11,8 @@ from paper_author_searcher.http import DownloadReceipt, SourceError, URLProbe
 from paper_author_searcher.models import PDFFileValidation
 from paper_author_searcher.pdf_downloader import PDFDownloader
 from paper_author_searcher.pdf_file_validation import inspect_pdf
-from paper_author_searcher.pdf_revalidation import revalidate
 from paper_author_searcher.pdf_resource_requests import PublicResourceRequests
+from paper_author_searcher.pdf_revalidation import revalidate
 from paper_author_searcher.pdf_validation_benchmark import benchmark_inputs, run_benchmark
 from paper_author_searcher.performance_diagnostics import workflow_outcomes
 from pdf_fixtures import HAS_PYPDF, make_pdf
@@ -41,16 +41,25 @@ class ContentRegressionTests(unittest.TestCase):
 
     def test_explicit_publication_year_conflict_retains_review(self):
         paper = target()
-        lines = [paper['title'], '; '.join(paper['authors']), 'DOI: ' + paper['doi'],
-                 'Published 2018', 'Abstract', 'Research content']
+        lines = [
+            paper['title'],
+            '; '.join(paper['authors']),
+            'DOI: ' + paper['doi'],
+            'Published 2018',
+            'Abstract',
+            'Research content',
+        ]
         result = self.inspect(text_lines=lines)
         self.assertEqual(result.identity_status, 'needs_review')
         self.assertEqual(result.observations['publication_years'], ['2018'])
 
     def test_body_doi_cannot_verify_missing_front_matter_authors(self):
         paper = target()
-        result = self.inspect(doi=None, authors='Other Author', text_lines=[
-            paper['title'], 'Other Author', 'Abstract', 'A body citation: ' + paper['doi']])
+        result = self.inspect(
+            doi=None,
+            authors='Other Author',
+            text_lines=[paper['title'], 'Other Author', 'Abstract', 'A body citation: ' + paper['doi']],
+        )
         self.assertEqual(result.identity_status, 'needs_review')
         self.assertEqual(result.extracted_dois, [])
 
@@ -64,17 +73,28 @@ class TransportRegressionTests(unittest.TestCase):
         paper = target()
         paper['pdf_candidates'].append(dict(paper['pdf_candidates'][0], url='https://repo.example.edu/full'))
         client = fake_client()
+
         def transfer(url, path, config):
             body = ('%PDF-synthetic-fixture-' + url).encode('ascii')
             path.write_bytes(body)
             return DownloadReceipt(url, 200, 'application/pdf', len(body), hashlib.sha256(body).hexdigest())
+
         client.stream_pdf.side_effect = transfer
         validator = Mock()
         validator.validate.side_effect = [
-            PDFFileValidation(format_status='valid', identity_status='verified',
-                              validation_status='needs_review', document_type='poster'),
-            PDFFileValidation(format_status='valid', identity_status='verified',
-                              validation_status='verified', document_type='full_text')]
+            PDFFileValidation(
+                format_status='valid',
+                identity_status='verified',
+                validation_status='needs_review',
+                document_type='poster',
+            ),
+            PDFFileValidation(
+                format_status='valid',
+                identity_status='verified',
+                validation_status='verified',
+                document_type='full_text',
+            ),
+        ]
         with tempfile.TemporaryDirectory() as directory:
             result = PDFDownloader(client, validator).download({'papers': [paper]}, Path(directory))
             entry = result['papers'][0]
@@ -86,7 +106,8 @@ class TransportRegressionTests(unittest.TestCase):
     def test_poster_only_is_review_without_runtime_failure(self):
         validator = Mock()
         validator.validate.return_value = PDFFileValidation(
-            format_status='valid', identity_status='verified', validation_status='needs_review', document_type='poster')
+            format_status='valid', identity_status='verified', validation_status='needs_review', document_type='poster'
+        )
         with tempfile.TemporaryDirectory() as directory:
             result = PDFDownloader(fake_client(), validator).download({'papers': [target()]}, Path(directory))
             self.assertEqual(result['papers'][0]['download_status'], 'non_full_document')
@@ -97,8 +118,10 @@ class TransportRegressionTests(unittest.TestCase):
 
     def test_redirect_limit_cools_actual_host_not_doi_gateway(self):
         client = Mock()
-        client.probe.side_effect = [SourceError('HTTP 429', 429, endpoint_host='publisher.example.edu'),
-                                    URLProbe('https://other.example.edu/article', 200, 'text/html', {}, b'short')]
+        client.probe.side_effect = [
+            SourceError('HTTP 429', 429, endpoint_host='publisher.example.edu'),
+            URLProbe('https://other.example.edu/article', 200, 'text/html', {}, b'short'),
+        ]
         config = replace(DEFAULT_PDF, public_page_request_interval=0)
         requests = PublicResourceRequests(client, config)
         with self.assertRaises(SourceError):
@@ -112,8 +135,14 @@ class TransportRegressionTests(unittest.TestCase):
 
     def test_offline_revalidation_checks_hash_and_does_not_invent_evidence(self):
         body = b'%PDF-synthetic-fixture'
-        entry = dict(target(), local_filename='paper.pdf', file_size=len(body),
-                     sha256=hashlib.sha256(body).hexdigest(), format_status='valid', validation_status='needs_review')
+        entry = dict(
+            target(),
+            local_filename='paper.pdf',
+            file_size=len(body),
+            sha256=hashlib.sha256(body).hexdigest(),
+            format_status='valid',
+            validation_status='needs_review',
+        )
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             (root / 'paper.pdf').write_bytes(body)
@@ -130,13 +159,16 @@ class TransportRegressionTests(unittest.TestCase):
             self.assertEqual(validator.validate.call_count, 1)
 
     def test_outcome_categories_keep_filter_decisions_separate(self):
-        report = {'errors': [{'error': 'HTTP 429'}, {'error': 'timed out'}, {'error': 'Query incomplete'}],
-                  'warnings': [{'code': 'metadata_preview_limit', 'incomplete': True}],
-                  'candidate_decisions': [{'category': 'candidate_filtered'}, {'category': 'pdf_identity_conflict'}],
-                  'download_statistics': {'failed_papers': 1, 'rejected_content_papers': 1}}
+        report = {
+            'errors': [{'error': 'HTTP 429'}, {'error': 'timed out'}, {'error': 'Query incomplete'}],
+            'warnings': [{'code': 'metadata_preview_limit', 'incomplete': True}],
+            'candidate_decisions': [{'category': 'candidate_filtered'}, {'category': 'pdf_identity_conflict'}],
+            'download_statistics': {'failed_papers': 1, 'rejected_content_papers': 1},
+        }
         result = workflow_outcomes(report)
-        self.assertEqual(result['error_observation_counts'], {
-            'source_unavailable': 1, 'network_failure': 1, 'query_incomplete': 1})
+        self.assertEqual(
+            result['error_observation_counts'], {'source_unavailable': 1, 'network_failure': 1, 'query_incomplete': 1}
+        )
         self.assertEqual(result['candidate_decision_counts'], {'candidate_filtered': 1, 'pdf_identity_conflict': 1})
 
 
@@ -164,7 +196,8 @@ class BenchmarkTests(unittest.TestCase):
 
     def test_missing_contact_stops_benchmark_without_requests(self):
         with patch('paper_author_searcher.pdf_validation_benchmark.contact_email', return_value=None), patch(
-                'paper_author_searcher.pdf_validation_benchmark.HttpClient') as client:
+            'paper_author_searcher.pdf_validation_benchmark.HttpClient'
+        ) as client:
             with self.assertRaisesRegex(ValueError, 'UNPAYWALL_EMAIL'):
                 run_benchmark(Path('baseline'), Path('output'), 6, 0)
             client.assert_not_called()
@@ -181,13 +214,18 @@ class BenchmarkTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             archive = {'papers': [target()]}
-            with patch('paper_author_searcher.pdf_validation_benchmark.contact_email', return_value='private@example.test'), patch(
-                    'paper_author_searcher.pdf_validation_benchmark.benchmark_inputs', return_value=(archive, 1)), patch(
-                    'paper_author_searcher.pdf_validation_benchmark.summarize_runs', return_value={'runs': [{'statistics': {}}]}), patch(
-                    'paper_author_searcher.pdf_validation_benchmark.PaperSearchWorkflow') as workflow, patch(
-                    'paper_author_searcher.pdf_validation_benchmark.PDFResolver'), patch(
-                    'paper_author_searcher.pdf_validation_benchmark.PDFDownloader'), patch(
-                    'paper_author_searcher.pdf_validation_benchmark.compare_runs', return_value={'before': {}, 'after': {}}):
+            with patch(
+                'paper_author_searcher.pdf_validation_benchmark.contact_email', return_value='private@example.test'
+            ), patch(
+                'paper_author_searcher.pdf_validation_benchmark.benchmark_inputs', return_value=(archive, 1)
+            ), patch(
+                'paper_author_searcher.pdf_validation_benchmark.summarize_runs',
+                return_value={'runs': [{'statistics': {}}]},
+            ), patch('paper_author_searcher.pdf_validation_benchmark.PaperSearchWorkflow') as workflow, patch(
+                'paper_author_searcher.pdf_validation_benchmark.PDFResolver'
+            ), patch('paper_author_searcher.pdf_validation_benchmark.PDFDownloader'), patch(
+                'paper_author_searcher.pdf_validation_benchmark.compare_runs', return_value={'before': {}, 'after': {}}
+            ):
                 workflow.return_value.run.return_value = {'run_status': 'partial', 'output_directory': str(root)}
                 _, result = run_benchmark(Path('baseline'), root, 6, 0)
             self.assertNotIn('private@example.test', json.dumps(result))

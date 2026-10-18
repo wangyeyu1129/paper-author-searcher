@@ -1,14 +1,16 @@
 """Turn source snapshots into a pending, publication-level ground truth for human review."""
+
 import hashlib
 import json
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
-from ..config import DEFAULT_MATCHING
-from ..evaluation_matching import GroundTruth, bibliographic_name_agrees
-from ..matching import canonical_doi, name_similarity, normalize
-from ..paper_authorship import byline_forms
+from paper_author_searcher.config import DEFAULT_MATCHING
+from paper_author_searcher.evaluation_matching import GroundTruth, bibliographic_name_agrees
+from paper_author_searcher.matching import canonical_doi, name_similarity, normalize
+from paper_author_searcher.paper_authorship import byline_forms
+
 from .roster import BenchmarkPerson
 from .settings import BenchmarkSettings
 from .snapshots import ARXIV_SNAPSHOT, CROSSREF_SNAPSHOT, title_key
@@ -34,14 +36,15 @@ class _UnionFind:
 
 
 def _identifier_keys(record: TruthRecord) -> List[Tuple[str, str]]:
-    keys = [('doi', canonical_doi(doi)) for doi in [record.doi] + record.related_dois if doi]
+    keys = [('doi', canonical_doi(doi)) for doi in [record.doi, *record.related_dois] if doi]
     keys.extend((namespace, value) for namespace, value in record.external_ids.items())
     return keys
 
 
 def _formal_first(records: Sequence[TruthRecord]) -> List[TruthRecord]:
-    return sorted(records, key=lambda record: (record.work_type in PREPRINT_TYPES, -len(record.authors),
-                                               record.year or 9999))
+    return sorted(
+        records, key=lambda record: (record.work_type in PREPRINT_TYPES, -len(record.authors), record.year or 9999)
+    )
 
 
 class CrossrefAcceptance:
@@ -97,8 +100,9 @@ class TruthBuilder:
         for spec in person.truth_sources:
             loaded = self.registry.get(spec.kind).load(person, spec, snapshot_dir)
             records.extend(loaded)
-            source_summaries.append({'kind': spec.kind, 'locator': spec.locator, 'url': spec.url,
-                                     'records': len(loaded)})
+            source_summaries.append(
+                {'kind': spec.kind, 'locator': spec.locator, 'url': spec.url, 'records': len(loaded)}
+            )
         identifier_provenance = self._enrich(person, records, snapshot_dir)
         groups = self._group(records)
         start, end = person.window(self.settings)
@@ -109,31 +113,46 @@ class TruthBuilder:
             if reason is None and not entry.get('dois') and not entry.get('external_ids') and not entry.get('authors'):
                 reason = 'no_identifier_or_authors'
             if reason:
-                excluded.append({'reason': reason, 'title': entry['title'], 'year': entry['year'],
-                                 'work_types': entry['work_types'], 'evidence': entry['annotation_evidence']})
+                excluded.append(
+                    {
+                        'reason': reason,
+                        'title': entry['title'],
+                        'year': entry['year'],
+                        'work_types': entry['work_types'],
+                        'evidence': entry['annotation_evidence'],
+                    }
+                )
             else:
                 papers.append(entry)
         papers.sort(key=lambda paper: (paper['year'] or 0, normalize(paper['title'])))
         truth = {
-            'schema_version': 1, 'complete_positive_list': False,
+            'schema_version': 1,
+            'complete_positive_list': False,
             'metadata': {
-                'annotation_state': 'pending_human_review', 'reviewer': '', 'reviewed_at': '',
-                'person_id': person.person_id, 'dataset_id': self.settings.dataset_id,
+                'annotation_state': 'pending_human_review',
+                'reviewer': '',
+                'reviewed_at': '',
+                'person_id': person.person_id,
+                'dataset_id': self.settings.dataset_id,
                 'search_input': {'name': person.search_input.name, 'university': person.search_input.university},
-                'scope': {'year_start': start, 'year_end': end,
-                          'included_types': list(self.settings.type_policy.included),
-                          'excluded_types': list(self.settings.type_policy.excluded),
-                          'unknown_types_included': self.settings.type_policy.unknown_included,
-                          'version_policy': 'One entry per publication; preprints and published versions with the '
-                                            'same identifier or normalized title (within the configured year '
-                                            'tolerance) are grouped so finding any version counts.'},
+                'scope': {
+                    'year_start': start,
+                    'year_end': end,
+                    'included_types': list(self.settings.type_policy.included),
+                    'excluded_types': list(self.settings.type_policy.excluded),
+                    'unknown_types_included': self.settings.type_policy.unknown_included,
+                    'version_policy': 'One entry per publication; preprints and published versions with the '
+                    'same identifier or normalized title (within the configured year '
+                    'tolerance) are grouped so finding any version counts.',
+                },
                 'provenance': 'Researcher-maintained bibliographies only; no search pipeline output is read.',
                 'builder_version': BUILDER_VERSION,
                 'built_at': datetime.now(timezone.utc).isoformat(),
                 'sources': source_summaries,
                 'excluded_counts': _count(item['reason'] for item in excluded),
             },
-            'papers': papers, 'excluded': excluded,
+            'papers': papers,
+            'excluded': excluded,
         }
         if person.orcid:
             truth['professor'] = {'orcid': person.orcid, 'author_ids': {}, 'author_ids_complete': False}
@@ -153,8 +172,12 @@ class TruthBuilder:
                 candidate = arxiv.accept(record)
                 if candidate:
                     record.external_ids['arxiv'] = candidate['arxiv']
-                    provenance[id(record)] = {'arxiv': candidate['arxiv'], 'method': 'arxiv_title_lookup',
-                                              'arxiv_title': candidate['title'], 'arxiv_year': candidate.get('year')}
+                    provenance[id(record)] = {
+                        'arxiv': candidate['arxiv'],
+                        'method': 'arxiv_title_lookup',
+                        'arxiv_title': candidate['title'],
+                        'arxiv_year': candidate.get('year'),
+                    }
         path = snapshot_dir / CROSSREF_SNAPSHOT
         if not path.exists():
             return provenance
@@ -166,9 +189,14 @@ class TruthBuilder:
             candidate = acceptance.accept(record)
             if candidate:
                 record.doi = candidate['doi']
-                provenance.setdefault(id(record), {}).update({
-                    'doi': candidate['doi'], 'doi_method': 'crossref_title_lookup',
-                    'crossref_title': candidate['title'], 'crossref_year': candidate.get('year')})
+                provenance.setdefault(id(record), {}).update(
+                    {
+                        'doi': candidate['doi'],
+                        'doi_method': 'crossref_title_lookup',
+                        'crossref_title': candidate['title'],
+                        'crossref_year': candidate.get('year'),
+                    }
+                )
         return provenance
 
     def _group(self, records: List[TruthRecord]) -> List[List[TruthRecord]]:
@@ -209,8 +237,9 @@ class TruthBuilder:
         ordered = _formal_first(group)
         main = ordered[0]
         authors = max((record.authors for record in group), key=len)
-        dois = sorted({canonical_doi(doi)[len('doi:'):] for record in group
-                       for doi in [record.doi] + record.related_dois if doi})
+        dois = sorted(
+            {canonical_doi(doi)[len('doi:') :] for record in group for doi in [record.doi, *record.related_dois] if doi}
+        )
         external: Dict[str, str] = {}
         for record in ordered:
             for namespace, value in record.external_ids.items():
@@ -219,12 +248,16 @@ class TruthBuilder:
         seed = '|'.join(keys) or normalize(main.title) + '|' + str(_publication_year(group))
         entry = {
             'evaluation_id': '{}:{}'.format(person.person_id, hashlib.sha256(seed.encode('utf-8')).hexdigest()[:12]),
-            'ownership': 'uncertain', 'proposed_ownership': 'belongs',
+            'ownership': 'uncertain',
+            'proposed_ownership': 'belongs',
             'annotation_status': 'pending_human_review',
-            'title': main.title, 'year': _publication_year(group), 'authors': list(authors),
+            'title': main.title,
+            'year': _publication_year(group),
+            'authors': list(authors),
             # Kept out of ``venue``: the evaluator refuses a match when two non-empty venue strings differ,
             # and a CV's "NeurIPS 2025" never equals an index's "Advances in Neural Information ...".
-            'listed_venue': main.venue, 'work_types': sorted({record.work_type or 'unknown' for record in group}),
+            'listed_venue': main.venue,
+            'work_types': sorted({record.work_type or 'unknown' for record in group}),
             'truth_sources': sorted({record.source_kind for record in group}),
             'annotation_evidence': sorted({record.evidence for record in group}),
             'review_flags': [],
@@ -259,7 +292,7 @@ class TruthBuilder:
         if not authors:
             entry['review_flags'].append('byline_unavailable_in_sources')
         if len(group) > 1:
-            entry['review_flags'].append('grouped_{}_source_records'.format(len(group)))
+            entry['review_flags'].append(f'grouped_{len(group)}_source_records')
         return entry
 
 
@@ -272,8 +305,11 @@ def _publication_year(group: Iterable[TruthRecord]) -> Optional[int]:
 
 def _target_in_byline(name: str, authors: Sequence[str]) -> bool:
     threshold = DEFAULT_MATCHING.compatible_name
-    return any(name_similarity(name, form) >= threshold or bibliographic_name_agrees(name, form)
-               for author in authors for form in byline_forms(author))
+    return any(
+        name_similarity(name, form) >= threshold or bibliographic_name_agrees(name, form)
+        for author in authors
+        for form in byline_forms(author)
+    )
 
 
 def _count(values: Iterable[str]) -> Dict[str, int]:

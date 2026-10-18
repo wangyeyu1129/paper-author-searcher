@@ -1,4 +1,5 @@
 """Prepare a bounded, independent reference review without assigning human labels."""
+
 import argparse
 import csv
 import json
@@ -7,8 +8,9 @@ from copy import deepcopy
 from itertools import combinations
 from pathlib import Path
 
-from paper_author_searcher.matching import normalize
 from scripts.ground_truth.build_candidates import export_candidates, read_json, write_json
+
+from paper_author_searcher.matching import normalize
 
 
 def select_pilot(dataset, professor_id):
@@ -71,12 +73,22 @@ def relationship_suggestions(papers):
             suggested = 'distinct_publication_versions_check'
         else:
             suggested = 'possible_same_publication'
-        output.append({'candidate_ids': list(pair), 'titles': [left['title'], right['title']],
-                       'years': [left['year'], right['year']],
-                       'publication_types': [left['publication_type'], right['publication_type']],
-                       'suggested_relation': suggested, 'evidence': sorted(reasons),
-                       'review_status': 'candidate', 'human_relation': '', 'reviewer': '',
-                       'reviewed_at': '', 'evidence_urls': [], 'notes': ''})
+        output.append(
+            {
+                'candidate_ids': list(pair),
+                'titles': [left['title'], right['title']],
+                'years': [left['year'], right['year']],
+                'publication_types': [left['publication_type'], right['publication_type']],
+                'suggested_relation': suggested,
+                'evidence': sorted(reasons),
+                'review_status': 'candidate',
+                'human_relation': '',
+                'reviewer': '',
+                'reviewed_at': '',
+                'evidence_urls': [],
+                'notes': '',
+            }
+        )
     return output
 
 
@@ -110,14 +122,26 @@ def make_checklist(pilot, supplemental):
             suggested = 'related_or_extended_only'
         elif paper['publication_type'] not in pilot['scope']['core_publication_types']:
             suggested = 'check_type_before_inclusion'
-        output.append({'candidate_id': candidate_id, 'title': paper['title'], 'authors': paper['authors'],
-                       'year': paper['year'], 'doi': paper['doi'], 'venue': paper['venue'],
-                       'publication_type': paper['publication_type'], 'source_urls': paper['source_urls'],
-                       'original_paper_links': links_by_id[candidate_id],
-                       'verification_urls': sorted(verification), 'suggested_label': suggested,
-                       'review_flags': sorted(set(flags)), 'related_records': related,
-                       'additional_source_observations': supplement,
-                       'review_status': 'candidate', 'ownership': 'uncertain'})
+        output.append(
+            {
+                'candidate_id': candidate_id,
+                'title': paper['title'],
+                'authors': paper['authors'],
+                'year': paper['year'],
+                'doi': paper['doi'],
+                'venue': paper['venue'],
+                'publication_type': paper['publication_type'],
+                'source_urls': paper['source_urls'],
+                'original_paper_links': links_by_id[candidate_id],
+                'verification_urls': sorted(verification),
+                'suggested_label': suggested,
+                'review_flags': sorted(set(flags)),
+                'related_records': related,
+                'additional_source_observations': supplement,
+                'review_status': 'candidate',
+                'ownership': 'uncertain',
+            }
+        )
     return output, relations
 
 
@@ -141,12 +165,17 @@ def prepare_review(dataset, professor_id, inventory, supplemental, output_dir):
         raise ValueError('Use an empty output directory; never overwrite annotations')
     professor = pilot['scope']['professors'][0]
     source_ids = {reference['source_id'] for paper in pilot['papers'] for reference in paper['reference_evidence']}
-    sources = [source for source in inventory['bibliography_sources']
-               if source['source_id'] in source_ids or source['source_id'].startswith(('pmlr_', 'neurips_'))
-               or source['url'] in (professor['bibliography_url'], professor['dblp_reference_url'] + '.xml')]
+    sources = [
+        source
+        for source in inventory['bibliography_sources']
+        if source['source_id'] in source_ids
+        or source['source_id'].startswith(('pmlr_', 'neurips_'))
+        or source['url'] in (professor['bibliography_url'], professor['dblp_reference_url'] + '.xml')
+    ]
     pilot['review_requirements'] = {
         'source_ids': [source['source_id'] for source in sources],
-        'omission_ids': [item['omission_id'] for item in supplemental.get('possible_omissions', [])]}
+        'omission_ids': [item['omission_id'] for item in supplemental.get('possible_omissions', [])],
+    }
     export_candidates(pilot, root)
     checklist, relations = make_checklist(pilot, supplemental)
     write_json(root / 'checklist.json', {'papers': checklist, 'human_confirmed_count': 0})
@@ -154,34 +183,88 @@ def prepare_review(dataset, professor_id, inventory, supplemental, output_dir):
     write_json(root / 'relationships.json', {'suggestions': relations, 'automatically_merged': 0})
     write_csv(root / 'relationships.csv', relations)
     write_json(root / 'completeness_findings.json', supplemental)
-    write_json(root / 'coverage_review.template.json', {
-        'approved': False, 'reviewer': '', 'reviewed_at': '', 'evidence_urls': [],
-        'sources': [{'source_id': source['source_id'], 'url': source['url'],
-                     'observed_fetch_status': source['fetch_status'], 'human_checked': False, 'notes': ''}
-                    for source in sources],
-        'additional_venue_audit_complete': False, 'identity_conflicts_resolved': False,
-        'omissions': [dict(item, decision='pending', covered_candidate_id='', human_notes='')
-                      for item in supplemental.get('possible_omissions', [])],
-        'note': 'Approval requires independent human source/venue/version completeness review. '
-                'Real missing publications require a later dataset revision, not automatic insertion.'})
+    write_json(
+        root / 'coverage_review.template.json',
+        {
+            'approved': False,
+            'reviewer': '',
+            'reviewed_at': '',
+            'evidence_urls': [],
+            'sources': [
+                {
+                    'source_id': source['source_id'],
+                    'url': source['url'],
+                    'observed_fetch_status': source['fetch_status'],
+                    'human_checked': False,
+                    'notes': '',
+                }
+                for source in sources
+            ],
+            'additional_venue_audit_complete': False,
+            'identity_conflicts_resolved': False,
+            'omissions': [
+                dict(item, decision='pending', covered_candidate_id='', human_notes='')
+                for item in supplemental.get('possible_omissions', [])
+            ],
+            'note': 'Approval requires independent human source/venue/version completeness review. '
+            'Real missing publications require a later dataset revision, not automatic insertion.',
+        },
+    )
     write_json(root / 'matching_annotations.template.json', {'metadata_aliases': [], 'preprint_relations': []})
-    lines = ['# {} {}–{} 审核清单'.format(professor['name'], pilot['scope']['year_start'], pilot['scope']['year_end']),
-             '', '{} 条原始候选；全部 candidate。关系提示不构成合并或人工确认。'.format(len(checklist)),
-             '', '填写 candidates.csv 的人工字段。checklist.csv 提供辅助证据，原始事实保持不变。',
-             '核查顺序：身份、论文级出版记录、类型、年份、版本关系、纳入范围。', '']
+    lines = [
+        '# {} {}–{} 审核清单'.format(professor['name'], pilot['scope']['year_start'], pilot['scope']['year_end']),
+        '',
+        f'{len(checklist)} 条原始候选；全部 candidate。关系提示不构成合并或人工确认。',
+        '',
+        '填写 candidates.csv 的人工字段。checklist.csv 提供辅助证据，原始事实保持不变。',
+        '核查顺序：身份、论文级出版记录、类型、年份、版本关系、纳入范围。',
+        '',
+    ]
     for number, item in enumerate(checklist, 1):
-        lines.extend(['## {}. {}'.format(number, item['title']), '',
-                      '`{}` · {} · {} · {}'.format(item['candidate_id'], item['year'], item['publication_type'], item['venue']),
-                      '', '作者：' + '; '.join(item['authors']), '', 'DOI：' + (item['doi'] or '未报告'), '',
-                      '原始来源：' + ' '.join('<{}>'.format(url) for url in dict.fromkeys(item['source_urls'])), '',
-                      '论文级核查及关联来源：' + (' '.join('<{}>'.format(url) for url in item['verification_urls']) or '缺失，须独立查证'),
-                      '', '审核提示：' + '; '.join(item['review_flags']), '',
-                      '关联候选：' + ', '.join(sorted({other for relation in item['related_records']
-                                                        for other in relation['candidate_ids'] if other != item['candidate_id']})), '',
-                      '- [ ] 身份与署名核查', '- [ ] 论文级元数据核查', '- [ ] 类型及版本核查', '- [ ] 人工决定及证据已填写', ''])
+        lines.extend(
+            [
+                '## {}. {}'.format(number, item['title']),
+                '',
+                '`{}` · {} · {} · {}'.format(
+                    item['candidate_id'], item['year'], item['publication_type'], item['venue']
+                ),
+                '',
+                '作者：' + '; '.join(item['authors']),
+                '',
+                'DOI：' + (item['doi'] or '未报告'),
+                '',
+                '原始来源：' + ' '.join(f'<{url}>' for url in dict.fromkeys(item['source_urls'])),
+                '',
+                '论文级核查及关联来源：'
+                + (' '.join(f'<{url}>' for url in item['verification_urls']) or '缺失，须独立查证'),
+                '',
+                '审核提示：' + '; '.join(item['review_flags']),
+                '',
+                '关联候选：'
+                + ', '.join(
+                    sorted(
+                        {
+                            other
+                            for relation in item['related_records']
+                            for other in relation['candidate_ids']
+                            if other != item['candidate_id']
+                        }
+                    )
+                ),
+                '',
+                '- [ ] 身份与署名核查',
+                '- [ ] 论文级元数据核查',
+                '- [ ] 类型及版本核查',
+                '- [ ] 人工决定及证据已填写',
+                '',
+            ]
+        )
     (root / 'checklist.md').write_text('\n'.join(lines), encoding='utf-8')
-    return {'candidates': len(checklist), 'relationship_pairs': len(relations),
-            'types': dict(Counter(item['publication_type'] for item in checklist))}
+    return {
+        'candidates': len(checklist),
+        'relationship_pairs': len(relations),
+        'types': dict(Counter(item['publication_type'] for item in checklist)),
+    }
 
 
 def main(argv=None):
@@ -193,12 +276,20 @@ def main(argv=None):
     parser.add_argument('--output-dir', type=Path, required=True)
     args = parser.parse_args(argv)
     try:
-        summary = prepare_review(read_json(args.dataset), args.professor_id,
-                                 read_json(args.source_inventory), read_json(args.findings), args.output_dir)
+        summary = prepare_review(
+            read_json(args.dataset),
+            args.professor_id,
+            read_json(args.source_inventory),
+            read_json(args.findings),
+            args.output_dir,
+        )
     except (OSError, KeyError, TypeError, ValueError) as exc:
         parser.error(str(exc))
-    print('Prepared {} candidates and {} relationship pairs; no human labels or metrics'.format(
-        summary['candidates'], summary['relationship_pairs']))
+    print(
+        'Prepared {} candidates and {} relationship pairs; no human labels or metrics'.format(
+            summary['candidates'], summary['relationship_pairs']
+        )
+    )
     return 0
 
 

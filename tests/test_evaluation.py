@@ -1,4 +1,5 @@
 """Synthetic annotations only; no real professor ground truth is invented."""
+
 import io
 import json
 import tempfile
@@ -14,9 +15,11 @@ from paper_author_searcher.evaluation_matching import GroundTruth, GroundTruthMa
 
 def truth_paper(evaluation_id, label='belongs', doi=None):
     return {
-        'evaluation_id': evaluation_id, 'ownership': label,
+        'evaluation_id': evaluation_id,
+        'ownership': label,
         'doi': doi or '10.example/' + evaluation_id,
-        'title': 'Synthetic study ' + evaluation_id, 'year': 2024,
+        'title': 'Synthetic study ' + evaluation_id,
+        'year': 2024,
         'authors': ['Alex Morgan', 'Jane Smith'],
         'annotation_evidence': ['Synthetic fixture; not real human annotation'],
     }
@@ -32,10 +35,13 @@ def truth(papers, complete=False, professor=None):
 def record(evaluation_id, source='openalex'):
     return {
         'doi': '10.example/' + evaluation_id,
-        'title': 'Synthetic study ' + evaluation_id, 'year': 2024,
+        'title': 'Synthetic study ' + evaluation_id,
+        'year': 2024,
         'authors': ['Alex Morgan', 'Jane Smith'],
-        'source': source, 'source_paper_id': source + ':' + evaluation_id,
-        'source_author_id': 'synthetic-author', 'ownership_evidence': ['Synthetic source evidence'],
+        'source': source,
+        'source_paper_id': source + ':' + evaluation_id,
+        'source_author_id': 'synthetic-author',
+        'ownership_evidence': ['Synthetic source evidence'],
     }
 
 
@@ -70,7 +76,9 @@ class OwnershipMetricTests(unittest.TestCase):
 
     def test_status_statistics_and_correct_rejection(self):
         annotations = truth([truth_paper('a'), truth_paper('b'), truth_paper('n', 'not_belongs')])
-        report = Evaluator().evaluate(saved([entry('a', 'needs_review'), entry('b', 'rejected'), entry('n', 'rejected')]), annotations)
+        report = Evaluator().evaluate(
+            saved([entry('a', 'needs_review'), entry('b', 'rejected'), entry('n', 'rejected')]), annotations
+        )
         self.assertEqual(report['by_status']['rejected']['entry_count'], 2)
         self.assertEqual(report['rejection_precision'], 0.5)
         self.assertEqual(report['ownership']['recall'], 0)
@@ -137,7 +145,9 @@ class EvaluationMatchingTests(unittest.TestCase):
 
     def test_human_supplied_name_alias_is_supported_without_fuzzy_rules(self):
         annotation = truth_paper('a')
-        annotation['metadata_aliases'] = [{'title': annotation['title'], 'year': 2024, 'authors': ['A. Morgan', 'Jane Smith']}]
+        annotation['metadata_aliases'] = [
+            {'title': annotation['title'], 'year': 2024, 'authors': ['A. Morgan', 'Jane Smith']}
+        ]
         candidate = record('a')
         candidate['doi'] = None
         candidate['authors'] = ['A. Morgan', 'Jane Smith']
@@ -169,10 +179,14 @@ class EvaluationMatchingTests(unittest.TestCase):
         candidate = record('a')
         candidate.update({'doi': None, 'venue': 'Journal Two'})
         self.assertIsNone(self.matcher([annotation]).match(candidate).evaluation_id)
-        annotation['metadata_aliases'] = [{
-            'title': annotation['title'], 'year': 2024,
-            'authors': annotation['authors'], 'venue': 'Journal Two',
-        }]
+        annotation['metadata_aliases'] = [
+            {
+                'title': annotation['title'],
+                'year': 2024,
+                'authors': annotation['authors'],
+                'venue': 'Journal Two',
+            }
+        ]
         self.assertEqual(self.matcher([annotation]).match(candidate).evaluation_id, 'a')
 
     def test_conflicting_doi_is_not_resolved_by_title(self):
@@ -190,13 +204,15 @@ class EvaluationMatchingTests(unittest.TestCase):
         self.assertEqual(self.matcher([truth_paper('a'), annotation]).match(candidate).decision, 'ambiguous')
 
     def test_invalid_annotations_rejected(self):
-        cases = [truth([truth_paper('a'), truth_paper('a')]),
-                 truth([dict(truth_paper('a'), ownership='automatic')]),
-                 truth([dict(truth_paper('a'), dois='not-a-list')]),
-                 truth([dict(truth_paper('a'), authors='not-a-list')]),
-                 truth([], professor={'author_ids': ['invalid']}),
-                 dict(truth([]), metadata=[]),
-                 []]
+        cases = [
+            truth([truth_paper('a'), truth_paper('a')]),
+            truth([dict(truth_paper('a'), ownership='automatic')]),
+            truth([dict(truth_paper('a'), dois='not-a-list')]),
+            truth([dict(truth_paper('a'), authors='not-a-list')]),
+            truth([], professor={'author_ids': ['invalid']}),
+            dict(truth([]), metadata=[]),
+            [],
+        ]
         for annotation in cases:
             with self.subTest(annotation=annotation):
                 with self.assertRaises(ValueError):
@@ -217,8 +233,10 @@ class EvaluationMatchingTests(unittest.TestCase):
 
 class DeduplicationMetricTests(unittest.TestCase):
     def test_pairwise_counts_for_wrong_merge_and_missed_duplicate(self):
-        predictions = [entry('a', records=[record('a'), record('a', 'semantic_scholar')]),
-                       entry('a', records=[record('a', 'dblp'), record('b')])]
+        predictions = [
+            entry('a', records=[record('a'), record('a', 'semantic_scholar')]),
+            entry('a', records=[record('a', 'dblp'), record('b')]),
+        ]
         report = Evaluator().evaluate(saved(predictions), truth([truth_paper('a'), truth_paper('b')]))
         dedup = report['deduplication']
         self.assertEqual(dedup['true_duplicate_pairs_merged'], 1)
@@ -231,19 +249,27 @@ class DeduplicationMetricTests(unittest.TestCase):
         self.assertEqual(len(dedup['missed_duplicates']), 1)
 
     def test_unknown_records_not_assumed_correctly_merged(self):
-        report = Evaluator().evaluate(saved([entry('a', records=[record('a'), record('unknown')])]), truth([truth_paper('a')]))
+        report = Evaluator().evaluate(
+            saved([entry('a', records=[record('a'), record('unknown')])]), truth([truth_paper('a')])
+        )
         self.assertEqual(report['deduplication']['annotation_coverage'], 0.5)
         self.assertEqual(report['deduplication']['true_duplicate_pairs_merged'], 0)
 
 
 class ResolverAndCLITests(unittest.TestCase):
     def test_resolver_only_does_not_claim_publication_false_negatives(self):
-        result = {'status': 'resolved', 'author_ids': {'openalex': 'a'},
-                  'candidates': [{'author_ids': {'openalex': 'a'}},
-                                 {'author_ids': {'openalex': 'b'}}]}
-        annotation = truth([truth_paper('a')], professor={
-            'author_ids': {'openalex': ['a']}, 'author_ids_complete': True,
-        })
+        result = {
+            'status': 'resolved',
+            'author_ids': {'openalex': 'a'},
+            'candidates': [{'author_ids': {'openalex': 'a'}}, {'author_ids': {'openalex': 'b'}}],
+        }
+        annotation = truth(
+            [truth_paper('a')],
+            professor={
+                'author_ids': {'openalex': ['a']},
+                'author_ids_complete': True,
+            },
+        )
         report = Evaluator().evaluate(result, annotation)
         self.assertEqual(report['professor_resolver']['author_id_precision'], 1)
         self.assertEqual(report['professor_resolver']['candidate_author_id_recall'], 1)
@@ -262,11 +288,20 @@ class ResolverAndCLITests(unittest.TestCase):
 
     def test_source_failure_and_unparsed_records_are_retained(self):
         result = saved([entry('a')])
-        result['collection'].update({'complete': False, 'sources': [{
-            'source': 'new_provider', 'complete': False, 'pages_fetched': 1,
-            'error': 'Synthetic pagination failure',
-            'rejected_records': [{'raw_metadata': {'id': 'unparsed-work'}}],
-        }]})
+        result['collection'].update(
+            {
+                'complete': False,
+                'sources': [
+                    {
+                        'source': 'new_provider',
+                        'complete': False,
+                        'pages_fetched': 1,
+                        'error': 'Synthetic pagination failure',
+                        'rejected_records': [{'raw_metadata': {'id': 'unparsed-work'}}],
+                    }
+                ],
+            }
+        )
         report = Evaluator().evaluate(result, truth([truth_paper('a'), truth_paper('b')]))
         self.assertEqual(report['all_candidates']['recall'], 0.5)
         self.assertFalse(report['retrieval']['complete'])
@@ -276,7 +311,9 @@ class ResolverAndCLITests(unittest.TestCase):
     def test_professor_id_and_orcid_conflict(self):
         result = saved([])
         result.update({'status': 'resolved', 'author_ids': {'openalex': 'a'}, 'orcid': 'wrong'})
-        annotation = truth([], professor={'author_ids': {'openalex': ['a']}, 'author_ids_complete': True, 'orcid': 'expected'})
+        annotation = truth(
+            [], professor={'author_ids': {'openalex': ['a']}, 'author_ids_complete': True, 'orcid': 'expected'}
+        )
         report = Evaluator().evaluate(result, annotation)['professor_resolver']
         self.assertEqual(report['author_id_precision'], 1)
         self.assertFalse(report['top_identity_confirmed'])
@@ -292,7 +329,9 @@ class ResolverAndCLITests(unittest.TestCase):
             gold.write_text(json.dumps(truth([truth_paper('a')])), encoding='utf-8')
             with patch('paper_author_searcher.http.urlopen', side_effect=AssertionError('Must remain offline')):
                 with redirect_stdout(io.StringIO()):
-                    self.assertEqual(main(['--result', str(result), '--ground-truth', str(gold), '--output', str(output)]), 0)
+                    self.assertEqual(
+                        main(['--result', str(result), '--ground-truth', str(gold), '--output', str(output)]), 0
+                    )
             report = json.loads(output.read_text(encoding='utf-8'))
             self.assertEqual(report['ownership']['precision'], 1)
             self.assertEqual(report['ownership']['recall'], 1)

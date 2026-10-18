@@ -1,4 +1,5 @@
 """Pure comparison helpers shared by the resolver and source adapters."""
+
 import re
 import unicodedata
 from difflib import SequenceMatcher
@@ -9,12 +10,12 @@ from .config import DEFAULT_MATCHING
 
 
 def normalize(value: str) -> str:
-    decomposed = unicodedata.normalize("NFKD", value).casefold()
+    decomposed = unicodedata.normalize('NFKD', value).casefold()
     characters = []
     for character in decomposed:
         if not unicodedata.combining(character):
             characters.append(character)
-    return " ".join(re.findall(r"[^\W_]+", "".join(characters)))
+    return ' '.join(re.findall(r'[^\W_]+', ''.join(characters)))
 
 
 def best_similarity(left: Iterable[str], right: Iterable[str], compare: Callable) -> float:
@@ -44,7 +45,7 @@ def _compatible_middle_names(left, right):
 @lru_cache(maxsize=200_000)
 def name_similarity(left: str, right: str, config=DEFAULT_MATCHING) -> float:
     left_words = normalize(left).split()
-    right_words = normalize(re.sub(r"\s+\d{4}$", "", right)).split()
+    right_words = normalize(re.sub(r'\s+\d{4}$', '', right)).split()
     if not left_words or not right_words:
         return 0.0
     if sorted(left_words) == sorted(right_words):
@@ -64,7 +65,7 @@ def name_similarity(left: str, right: str, config=DEFAULT_MATCHING) -> float:
         if same_initial and contains_initial:
             return config.initial_similarity
 
-    return SequenceMatcher(None, " ".join(left_words), " ".join(right_words)).ratio()
+    return SequenceMatcher(None, ' '.join(left_words), ' '.join(right_words)).ratio()
 
 
 @lru_cache(maxsize=200_000)
@@ -88,18 +89,21 @@ def research_similarity(left: str, right: str) -> float:
 
 def canonical_orcid(value):
     if value:
-        return value.rstrip("/").rsplit("/", 1)[-1]
+        return value.rstrip('/').rsplit('/', 1)[-1]
     return None
 
 
 def canonical_doi(value: str) -> str:
     value = value.strip().lower()
     prefixes = (
-        "https://doi.org/", "http://doi.org/", "http://dx.doi.org/",
-        "https://dx.doi.org/", "doi:",
+        'https://doi.org/',
+        'http://doi.org/',
+        'http://dx.doi.org/',
+        'https://dx.doi.org/',
+        'doi:',
     )
     for prefix in prefixes:
         if value.startswith(prefix):
-            value = value[len(prefix):]
+            value = value[len(prefix) :]
             break
-    return "doi:" + value
+    return 'doi:' + value

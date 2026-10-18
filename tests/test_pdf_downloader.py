@@ -17,19 +17,35 @@ from pdf_fixtures import HAS_PYPDF, make_pdf
 
 
 def target():
-    return {'title': 'Reusable methods for synthetic research', 'authors': ['Alex Example', 'Taylor Researcher'],
-            'year': 2020, 'doi': '10.1234/example', 'ownership_status': 'verified', 'source': 'openalex',
-            'best_pdf_url': 'https://repo.example.edu/document', 'pdf_candidates': [{
-                'url': 'https://repo.example.edu/document', 'source': 'public_api',
-                'validation_status': 'verified', 'identity_status': 'verified', 'version_type': 'published_version',
-            }]}
+    return {
+        'title': 'Reusable methods for synthetic research',
+        'authors': ['Alex Example', 'Taylor Researcher'],
+        'year': 2020,
+        'doi': '10.1234/example',
+        'ownership_status': 'verified',
+        'source': 'openalex',
+        'best_pdf_url': 'https://repo.example.edu/document',
+        'pdf_candidates': [
+            {
+                'url': 'https://repo.example.edu/document',
+                'source': 'public_api',
+                'validation_status': 'verified',
+                'identity_status': 'verified',
+                'version_type': 'published_version',
+            }
+        ],
+    }
 
 
 def fake_validator(status='verified', format_status='valid'):
     validator = Mock()
     validator.validate.side_effect = lambda path, paper: PDFFileValidation(
-        format_status=format_status, identity_status=status, validation_status=status,
-        page_count=1, evidence=['Synthetic validation result for storage/transport tests'])
+        format_status=format_status,
+        identity_status=status,
+        validation_status=status,
+        page_count=1,
+        evidence=['Synthetic validation result for storage/transport tests'],
+    )
     return validator
 
 
@@ -73,8 +89,13 @@ class FilenameTests(unittest.TestCase):
         self.assertEqual(paper_key(first), paper_key(second))
 
     def test_configuration_invalid_limits_rejected(self):
-        for overrides in ({'maximum_file_bytes': 0}, {'chunk_bytes': 0}, {'parser_timeout': 0},
-                          {'allowed_ports': ()}, {'filename_bytes': 10}):
+        for overrides in (
+            {'maximum_file_bytes': 0},
+            {'chunk_bytes': 0},
+            {'parser_timeout': 0},
+            {'allowed_ports': ()},
+            {'filename_bytes': 10},
+        ):
             with self.assertRaises(ValueError):
                 replace(DEFAULT_DOWNLOAD, **overrides)
 
@@ -103,8 +124,21 @@ class DownloaderTests(unittest.TestCase):
         self.assertTrue(manifest['run_complete'])
         self.assertEqual(json.loads((self.root / 'manifest.json').read_text()), manifest)
         self.assertEqual(saved, before)
-        for name in ('title', 'authors', 'year', 'doi', 'source', 'pdf_url', 'local_filename',
-                     'download_status', 'validation_status', 'ownership_status', 'file_size', 'sha256', 'error_details'):
+        for name in (
+            'title',
+            'authors',
+            'year',
+            'doi',
+            'source',
+            'pdf_url',
+            'local_filename',
+            'download_status',
+            'validation_status',
+            'ownership_status',
+            'file_size',
+            'sha256',
+            'error_details',
+        ):
             self.assertIn(name, entry)
         self.assertEqual(list(self.root.glob('*.part')), [])
 
@@ -161,8 +195,10 @@ class DownloaderTests(unittest.TestCase):
     def test_same_hash_does_not_inherit_other_paper_identity_verification(self):
         first, second = target(), dict(target(), doi='10.1234/other')
         self.validator.validate.side_effect = lambda path, paper: PDFFileValidation(
-            format_status='valid', identity_status='verified' if paper['doi'] == first['doi'] else 'rejected',
-            validation_status='verified' if paper['doi'] == first['doi'] else 'rejected')
+            format_status='valid',
+            identity_status='verified' if paper['doi'] == first['doi'] else 'rejected',
+            validation_status='verified' if paper['doi'] == first['doi'] else 'rejected',
+        )
         manifest = self.run_download([first, second])
         self.assertEqual(manifest['papers'][1]['download_status'], 'rejected_content')
         self.assertEqual(manifest['papers'][1]['identity_status'], 'rejected')
@@ -186,7 +222,9 @@ class DownloaderTests(unittest.TestCase):
         existing.write_bytes(b'user file')
         self.validator.validate.side_effect = lambda path, metadata: PDFFileValidation(
             format_status='invalid' if path.name == existing.name else 'valid',
-            identity_status='verified', validation_status='verified')
+            identity_status='verified',
+            validation_status='verified',
+        )
         manifest = downloader.download({'papers': [paper]}, self.root)
         self.assertEqual(existing.read_bytes(), b'user file')
         self.assertLessEqual(len(manifest['papers'][0]['local_filename'].encode('utf-8')), 64)
@@ -392,15 +430,22 @@ class DownloadCLITests(unittest.TestCase):
             output = Path(directory) / 'downloads'
             source.write_text(json.dumps({'papers': [target()]}))
             downloader = PDFDownloader(fake_client(), fake_validator())
-            with patch('paper_author_searcher.download_cli.PDFDownloader', return_value=downloader), patch('builtins.print'):
+            with patch('paper_author_searcher.download_cli.PDFDownloader', return_value=downloader), patch(
+                'builtins.print'
+            ):
                 self.assertEqual(main(['--input', str(source), '--output-dir', str(output), '--max-downloads', '1']), 0)
             self.assertTrue((output / 'manifest.json').is_file())
 
     def test_cli_invalid_options_and_input_manifest_collision(self):
-        for extra in (['--timeout', '0'], ['--timeout', 'nan'], ['--retries', '-1'],
-                      ['--max-file-mb', '0'], ['--max-file-mb', 'inf']):
+        for extra in (
+            ['--timeout', '0'],
+            ['--timeout', 'nan'],
+            ['--retries', '-1'],
+            ['--max-file-mb', '0'],
+            ['--max-file-mb', 'inf'],
+        ):
             with patch('sys.stderr'), self.assertRaises(SystemExit) as raised:
-                main(['--input', 'urls.json', '--output-dir', 'downloaded'] + extra)
+                main(['--input', 'urls.json', '--output-dir', 'downloaded', *extra])
             self.assertEqual(raised.exception.code, 2)
         with patch('sys.stderr'), self.assertRaises(SystemExit):
             main(['--input', 'downloaded/manifest.json', '--output-dir', 'downloaded'])
@@ -410,6 +455,8 @@ class DownloadCLITests(unittest.TestCase):
             source = Path(directory) / 'urls.json'
             source.write_text(json.dumps({'papers': [target()]}))
             downloader = PDFDownloader(fake_client(), fake_validator('needs_review'))
-            with patch('paper_author_searcher.download_cli.PDFDownloader', return_value=downloader), patch('builtins.print'):
+            with patch('paper_author_searcher.download_cli.PDFDownloader', return_value=downloader), patch(
+                'builtins.print'
+            ):
                 code = main(['--input', str(source), '--output-dir', str(Path(directory) / 'downloads')])
             self.assertEqual(code, 2)

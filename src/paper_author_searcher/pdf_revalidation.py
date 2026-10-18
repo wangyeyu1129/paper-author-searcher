@@ -1,4 +1,5 @@
 """Offline, checksum-checked content revalidation without altering saved files."""
+
 import argparse
 from collections import Counter
 from dataclasses import asdict
@@ -33,9 +34,15 @@ def revalidate(manifest_path, pdf_report_path, only_needs_review=False, validato
         if only_needs_review and saved.get('validation_status') != 'needs_review':
             continue
         key = paper_key(saved)
-        entry = {'paper_key': key, 'title': saved.get('title'), 'local_filename': saved['local_filename'],
-                 'ownership_status': saved.get('ownership_status'), 'sha256': saved.get('sha256'),
-                 'before': saved.get('validation') or {}, 'before_status': saved.get('validation_status')}
+        entry = {
+            'paper_key': key,
+            'title': saved.get('title'),
+            'local_filename': saved['local_filename'],
+            'ownership_status': saved.get('ownership_status'),
+            'sha256': saved.get('sha256'),
+            'before': saved.get('validation') or {},
+            'before_status': saved.get('validation_status'),
+        }
         entries.append(entry)
         exists, evidence = _check_file(saved, manifest, manifest_path)
         entry['file_integrity_confirmed'] = exists
@@ -62,18 +69,30 @@ def revalidate(manifest_path, pdf_report_path, only_needs_review=False, validato
                 full_text_confirmed += 1
         elif entry['before_status'] == 'verified':
             regressions.append(entry['paper_key'])
-    return {'report_type': 'offline_pdf_content_revalidation', 'manifest_path': str(manifest_path.resolve()),
-            'pdf_report_path': str(Path(pdf_report_path).resolve()), 'only_needs_review': only_needs_review,
-            'statistics': {'selected_files': len(entries), 'validation_status_counts': dict(counts),
-                           'before_validation_status_counts': dict(before_counts),
-                           'document_type_counts': dict(types), 'full_text_confirmed_files': full_text_confirmed,
-                           'newly_verified_paper_keys': newly_verified, 'regressed_paper_keys': regressions}, 'papers': entries,
-            'scope_note': 'Current local content parsing with original metadata and verified URL bindings; '
-                          'no new API queries, downloads, ownership changes or manual ground-truth labels.'}
+    return {
+        'report_type': 'offline_pdf_content_revalidation',
+        'manifest_path': str(manifest_path.resolve()),
+        'pdf_report_path': str(Path(pdf_report_path).resolve()),
+        'only_needs_review': only_needs_review,
+        'statistics': {
+            'selected_files': len(entries),
+            'validation_status_counts': dict(counts),
+            'before_validation_status_counts': dict(before_counts),
+            'document_type_counts': dict(types),
+            'full_text_confirmed_files': full_text_confirmed,
+            'newly_verified_paper_keys': newly_verified,
+            'regressed_paper_keys': regressions,
+        },
+        'papers': entries,
+        'scope_note': 'Current local content parsing with original metadata and verified URL bindings; '
+        'no new API queries, downloads, ownership changes or manual ground-truth labels.',
+    }
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description='Revalidate existing PDF contents without network calls or file changes')
+    parser = argparse.ArgumentParser(
+        description='Revalidate existing PDF contents without network calls or file changes'
+    )
     parser.add_argument('--manifest', type=Path, required=True)
     parser.add_argument('--pdf-report', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
@@ -88,9 +107,15 @@ def main(argv=None):
         parser.error(str(exc))
     statistics = result['statistics']
     counts = statistics['validation_status_counts']
-    print('Checked files: {}; verified={}; needs_review={}; not_evaluated={}; confirmed full text={}'.format(
-        statistics['selected_files'], counts.get('verified', 0), counts.get('needs_review', 0),
-        counts.get('not_evaluated', 0), statistics['full_text_confirmed_files']))
+    print(
+        'Checked files: {}; verified={}; needs_review={}; not_evaluated={}; confirmed full text={}'.format(
+            statistics['selected_files'],
+            counts.get('verified', 0),
+            counts.get('needs_review', 0),
+            counts.get('not_evaluated', 0),
+            statistics['full_text_confirmed_files'],
+        )
+    )
     return 0
 
 

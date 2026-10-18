@@ -3,26 +3,27 @@
 The adjudicator only sees evidence the resolver already gathered (names, affiliations, topics, coauthors, ORCIDs,
 known DOIs). Its verdict can merge split profiles or break a tie between profiles; it never verifies a paper.
 """
+
 import json
 from dataclasses import dataclass, field
 from typing import List, Optional, Protocol, Sequence
 
 ADJUDICATION_SCHEMA = {
-    "type": "object",
-    "properties": {
-        "same_person": {"type": "string", "enum": ["yes", "no", "unsure"]},
-        "target": {"type": "string", "enum": ["first", "second", "both", "neither", "unsure"]},
-        "confidence": {"type": "number"},
-        "rationale": {"type": "string"},
+    'type': 'object',
+    'properties': {
+        'same_person': {'type': 'string', 'enum': ['yes', 'no', 'unsure']},
+        'target': {'type': 'string', 'enum': ['first', 'second', 'both', 'neither', 'unsure']},
+        'confidence': {'type': 'number'},
+        'rationale': {'type': 'string'},
     },
-    "required": ["same_person", "target", "confidence", "rationale"],
-    "additionalProperties": False,
+    'required': ['same_person', 'target', 'confidence', 'rationale'],
+    'additionalProperties': False,
 }
 
 SYSTEM_PROMPT = (
-    "You compare scholarly author profiles from bibliographic databases. Databases often split one researcher "
-    "into several profiles, and different researchers often share a name. Decide from the evidence given whether "
-    "two profiles are the same person, and which of them is the requested researcher. Weigh shared coauthors, "
+    'You compare scholarly author profiles from bibliographic databases. Databases often split one researcher '
+    'into several profiles, and different researchers often share a name. Decide from the evidence given whether '
+    'two profiles are the same person, and which of them is the requested researcher. Weigh shared coauthors, '
     "institutions, research topics and identifiers; a shared name alone is not evidence. Answer 'unsure' when the "
     "evidence does not settle it - a wrong merge attributes someone else's papers to the researcher. Confidence is "
     "your probability (0-1) that your 'target' answer is correct."
@@ -44,18 +45,18 @@ class AdjudicationVerdict:
 
 
 class IdentityAdjudicator(Protocol):
-    def judge(self, query, first: Sequence, second: Sequence) -> AdjudicationVerdict:
-        ...
+    def judge(self, query, first: Sequence, second: Sequence) -> AdjudicationVerdict: ...
 
 
 def describe(records: Sequence, limit: int) -> dict:
     """Compact, deterministic evidence summary of one candidate group (a list of AuthorCandidate)."""
+
     def take(values):
         return sorted({value for value in values if value})[:limit]
 
     return {
-        'ids': sorted('{}:{}'.format(record.source, record.author_id) for record in records),
-        'names': take(name for record in records for name in [record.name] + list(record.aliases)),
+        'ids': sorted(f'{record.source}:{record.author_id}' for record in records),
+        'names': take(name for record in records for name in [record.name, *list(record.aliases)]),
         'affiliations': take(item for record in records for item in record.affiliations + record.current_affiliations),
         'orcids': take(record.orcid for record in records),
         'topics': take(item for record in records for item in record.topics),
@@ -65,21 +66,35 @@ def describe(records: Sequence, limit: int) -> dict:
 
 
 def prompt(query, first: Sequence, second: Sequence, limit: int) -> str:
-    request = {'name': query.name, 'university': query.university, 'department': query.department,
-               'research_interests': list(query.research_interests), 'orcid': query.orcid}
-    return ('Requested researcher:\n{}\n\nProfile "first":\n{}\n\nProfile "second":\n{}'.format(
-        json.dumps(request, ensure_ascii=False, sort_keys=True),
-        json.dumps(describe(first, limit), ensure_ascii=False, sort_keys=True),
-        json.dumps(describe(second, limit), ensure_ascii=False, sort_keys=True)))
+    request = {
+        'name': query.name,
+        'university': query.university,
+        'department': query.department,
+        'research_interests': list(query.research_interests),
+        'orcid': query.orcid,
+    }
+    sections = (
+        ('Requested researcher', request),
+        ('Profile "first"', describe(first, limit)),
+        ('Profile "second"', describe(second, limit)),
+    )
+    return '\n\n'.join(f'{title}:\n{json.dumps(body, ensure_ascii=False, sort_keys=True)}' for title, body in sections)
 
 
 class ClaudeIdentityAdjudicator:
     """Claude via the Anthropic SDK (optional extra ``llm``; needs Python >= 3.10 and Anthropic credentials)."""
 
-    def __init__(self, client=None, model: str = 'claude-opus-5-5', effort: str = 'medium',
-                 evidence_limit: int = 40, max_tokens: int = 16000) -> None:
+    def __init__(
+        self,
+        client=None,
+        model: str = 'claude-opus-5-5',
+        effort: str = 'medium',
+        evidence_limit: int = 40,
+        max_tokens: int = 16000,
+    ) -> None:
         if client is None:
             import anthropic  # deferred: the core package has no third-party dependencies
+
             client = anthropic.Anthropic()
         self.client = client
         self.model = model
@@ -90,24 +105,31 @@ class ClaudeIdentityAdjudicator:
     def judge(self, query, first, second) -> AdjudicationVerdict:
         try:
             response = self.client.beta.messages.create(
-                model=self.model, max_tokens=self.max_tokens, system=SYSTEM_PROMPT,
+                model=self.model,
+                max_tokens=self.max_tokens,
+                system=SYSTEM_PROMPT,
                 messages=[{'role': 'user', 'content': prompt(query, first, second, self.evidence_limit)}],
-                output_config={'effort': self.effort,
-                               'format': {'type': 'json_schema', 'schema': ADJUDICATION_SCHEMA}},
+                output_config={'effort': self.effort, 'format': {'type': 'json_schema', 'schema': ADJUDICATION_SCHEMA}},
                 # Route policy declines to a fallback model instead of failing the call.
-                betas=['server-side-fallback-2026-07-01'], fallbacks='default',
+                betas=['server-side-fallback-2026-07-01'],
+                fallbacks='default',
             )
         except Exception as exc:  # network, auth or API errors leave the contest unresolved
-            return AdjudicationVerdict.unsure('adjudication request failed: {}'.format(type(exc).__name__))
+            return AdjudicationVerdict.unsure(f'adjudication request failed: {type(exc).__name__}')
         if response.stop_reason in ('refusal', 'max_tokens'):
-            return AdjudicationVerdict.unsure('adjudication stopped: {}'.format(response.stop_reason))
+            return AdjudicationVerdict.unsure(f'adjudication stopped: {response.stop_reason}')
         text = next((block.text for block in response.content if block.type == 'text'), '')
         try:
             data = json.loads(text)
         except ValueError:
             return AdjudicationVerdict.unsure('adjudication returned invalid JSON')
-        return AdjudicationVerdict(data['same_person'], data['target'], float(data['confidence']),
-                                   data['rationale'], model=getattr(response, 'model', self.model))
+        return AdjudicationVerdict(
+            data['same_person'],
+            data['target'],
+            float(data['confidence']),
+            data['rationale'],
+            model=getattr(response, 'model', self.model),
+        )
 
 
 def accepted(verdict: Optional[AdjudicationVerdict], minimum_confidence: float) -> bool:

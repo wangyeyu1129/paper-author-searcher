@@ -1,5 +1,5 @@
-from dataclasses import dataclass, field, asdict
-from typing import List, Dict, Optional
+from dataclasses import asdict, dataclass, field
+from typing import Dict, List, Optional
 
 
 @dataclass
@@ -17,7 +17,7 @@ class ProfessorQuery:
 
     def __post_init__(self):
         if not self.name.strip() or not self.university.strip():
-            raise ValueError("name and university are required")
+            raise ValueError('name and university are required')
 
     def has_hints(self):
         return bool(self.orcid or self.homepage or self.known_papers)
@@ -51,7 +51,7 @@ class ProfessorProfile:
     orcid: Optional[str] = None
     research_interests: List[str] = field(default_factory=list)
     university: Optional[str] = None
-    university_status: str = "unknown"
+    university_status: str = 'unknown'
     match_score: float = 0.0
     requested_university: Optional[str] = None
     matched_affiliations: List[str] = field(default_factory=list)
@@ -93,9 +93,9 @@ class PaperRecord:
     raw_metadata: dict = field(default_factory=dict)
     authors_complete: Optional[bool] = None
     metadata_errors: List[str] = field(default_factory=list)
-    ownership_status: str = "needs_review"
+    ownership_status: str = 'needs_review'
     ownership_evidence: List[str] = field(default_factory=list)
-    paper_type: str = "unknown"
+    paper_type: str = 'unknown'
     type_evidence: List[str] = field(default_factory=list)
 
 
@@ -128,7 +128,7 @@ class PaperCollectionResult:
     complete: bool
     selected_author_ids: Dict[str, List[str]]
     identity_confirmation: str
-    professor_identity_status: str = "unknown"
+    professor_identity_status: str = 'unknown'
 
     def to_dict(self, academic_only=False, ownership_statuses=None):
         from .paper_types import ACADEMIC_TYPES
@@ -156,8 +156,11 @@ class PaperCollectionResult:
         counts = {'verified': 0, 'needs_review': 0, 'rejected': 0}
         record_counts = dict(counts)
         authorship_counts = {
-            'with_author_details': 0, 'with_external_ids': 0,
-            'target_present': 0, 'target_absent': 0, 'target_unknown': 0,
+            'with_author_details': 0,
+            'with_external_ids': 0,
+            'target_present': 0,
+            'target_absent': 0,
+            'target_unknown': 0,
         }
         for paper in self.papers:
             counts[paper.ownership_status] += 1

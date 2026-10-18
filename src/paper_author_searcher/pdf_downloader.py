@@ -1,4 +1,5 @@
 """Resumable paper downloads with atomic manifests and independent content checks."""
+
 import hashlib
 import json
 import os
@@ -14,11 +15,11 @@ from .config import DEFAULT_DOWNLOAD
 from .http import HttpClient
 from .matching import canonical_doi, normalize
 from .models import PaperDownloadResult
-from .pdf_file_validation import PDFFileValidator, validation_target
 from .pdf_document_types import NON_FULL_DOCUMENTS
+from .pdf_file_validation import PDFFileValidator, validation_target
 from .pdf_identity import native_id
-from .performance_diagnostics import pdf_failure_reasons
 from .pdf_search_status import search_satisfaction
+from .performance_diagnostics import pdf_failure_reasons
 
 
 def paper_key(paper):
@@ -27,21 +28,23 @@ def paper_key(paper):
     elif paper.get('source') and paper.get('source_paper_id'):
         identity = [paper['source'], native_id(paper['source'], paper['source_paper_id'])]
     else:
-        identity = [normalize(paper.get('title') or ''), paper.get('year'),
-                    sorted(normalize(author) for author in paper.get('authors') or [])]
+        identity = [
+            normalize(paper.get('title') or ''),
+            paper.get('year'),
+            sorted(normalize(author) for author in paper.get('authors') or []),
+        ]
     encoded = json.dumps(identity, ensure_ascii=False, sort_keys=True).encode('utf-8')
     return hashlib.sha256(encoded).hexdigest()
 
 
 def paper_filename(paper, config=DEFAULT_DOWNLOAD):
     title = unicodedata.normalize('NFKC', paper.get('title') or 'untitled')
-    title = ''.join('_' if unicodedata.category(character) in ('Cc', 'Cf', 'Cs') else character
-                    for character in title)
+    title = ''.join('_' if unicodedata.category(character) in ('Cc', 'Cf', 'Cs') else character for character in title)
     title = re.sub(r'[<>:"/\\|?*\x00-\x1f\x7f]', '_', title)
     title = re.sub(r'\s+', '_', title).strip(' ._') or 'untitled'
     year = str(paper.get('year') or 'unknown_year')
     year = re.sub(r'[^a-zA-Z0-9_]', '_', year)
-    suffix = '_' + paper_key(paper)[:config.filename_hash_characters] + '.pdf'
+    suffix = '_' + paper_key(paper)[: config.filename_hash_characters] + '.pdf'
     prefix = year + '_' + title
     return _bounded_filename(prefix, suffix, config.filename_bytes)
 
@@ -73,8 +76,15 @@ class PDFDownloader:
         self.validator = validator or PDFFileValidator(config)
         self.config = config
 
-    def download(self, saved_result, output_dir, include_needs_review=False, maximum_downloads=None,
-                 manifest_path=None, progress=None):
+    def download(
+        self,
+        saved_result,
+        output_dir,
+        include_needs_review=False,
+        maximum_downloads=None,
+        manifest_path=None,
+        progress=None,
+    ):
         if maximum_downloads is not None and maximum_downloads < 1:
             raise ValueError('maximum_downloads must be positive')
         papers = saved_result.get('papers')
@@ -133,11 +143,17 @@ class PDFDownloader:
     def _new_record(self, paper, previous_by_key):
         key = paper_key(paper)
         record = PaperDownloadResult(
-            key, paper.get('title', ''), paper.get('ownership_status', 'needs_review'),
-            authors=deepcopy(paper.get('authors') or []), year=paper.get('year'), doi=paper.get('doi'),
-            source=paper.get('source'), resolver_error_details=deepcopy(paper.get('error_details') or []),
+            key,
+            paper.get('title', ''),
+            paper.get('ownership_status', 'needs_review'),
+            authors=deepcopy(paper.get('authors') or []),
+            year=paper.get('year'),
+            doi=paper.get('doi'),
+            source=paper.get('source'),
+            resolver_error_details=deepcopy(paper.get('error_details') or []),
             ownership_evidence=deepcopy(paper.get('ownership_evidence') or []),
-            source_paper_id=paper.get('source_paper_id'), source_author_id=paper.get('source_author_id'),
+            source_paper_id=paper.get('source_paper_id'),
+            source_author_id=paper.get('source_author_id'),
             external_ids=deepcopy(paper.get('external_ids') or {}),
             paper_metadata=deepcopy(paper.get('paper_metadata') or {}),
         )
@@ -191,8 +207,14 @@ class PDFDownloader:
                 if entry.get('sha256') and digest != entry['sha256']:
                     record.error_details.append('Previously recorded file checksum changed: ' + relative)
                     continue
-                candidate = next((item for item in paper.get('pdf_candidates') or []
-                                  if entry.get('pdf_url') in (item.get('url'), item.get('final_url'))), None)
+                candidate = next(
+                    (
+                        item
+                        for item in paper.get('pdf_candidates') or []
+                        if entry.get('pdf_url') in (item.get('url'), item.get('final_url'))
+                    ),
+                    None,
+                )
                 validation = self.validator.validate(path, validation_target(paper, candidate))
                 if validation.format_status != 'valid' or validation.identity_status == 'rejected':
                     continue
@@ -228,15 +250,25 @@ class PDFDownloader:
             record.validation = {}
             record.format_status, record.identity_status = 'not_checked', 'not_checked'
             record.validation_status = 'not_checked'
-            attempt = {'url': url, 'source': candidate.get('source'), 'status': 'started',
-                       'url_validation_status': candidate.get('validation_status'),
-                       'provenance': deepcopy(candidate.get('provenance') or [])}
+            attempt = {
+                'url': url,
+                'source': candidate.get('source'),
+                'status': 'started',
+                'url_validation_status': candidate.get('validation_status'),
+                'provenance': deepcopy(candidate.get('provenance') or []),
+            }
             record.attempts.append(attempt)
             try:
                 receipt = self.client.stream_pdf(url, temporary, self.config)
-                attempt.update({'final_url': receipt.final_url, 'http_status': receipt.status,
-                                'content_type': receipt.content_type, 'file_size': receipt.file_size,
-                                'sha256': receipt.sha256})
+                attempt.update(
+                    {
+                        'final_url': receipt.final_url,
+                        'http_status': receipt.status,
+                        'content_type': receipt.content_type,
+                        'file_size': receipt.file_size,
+                        'sha256': receipt.sha256,
+                    }
+                )
                 validation = self.validator.validate(temporary, validation_target(paper, candidate))
                 attempt['validation'] = asdict(validation)
                 attempt['file_size'] = receipt.file_size
@@ -244,7 +276,9 @@ class PDFDownloader:
                 if validation.format_status != 'valid':
                     self._apply_validation(record, validation)
                     record.file_size, record.sha256 = receipt.file_size, receipt.sha256
-                    raise ValueError('Downloaded file could not pass PDF structure parsing: ' + '; '.join(validation.error_details))
+                    raise ValueError(
+                        'Downloaded file could not pass PDF structure parsing: ' + '; '.join(validation.error_details)
+                    )
                 duplicate = self._duplicate_file(root, receipt.sha256, known_files)
                 if duplicate:
                     relative = duplicate
@@ -350,8 +384,8 @@ class PDFDownloader:
                 prefix = stem_parts[0]
                 identifier = stem_parts[-1]
                 if len(stem_parts) == 1:
-                    identifier = paper_key({'title': filename})[:self.config.filename_hash_characters]
-                suffix = '_{}_{}.pdf'.format(identifier, counter)
+                    identifier = paper_key({'title': filename})[: self.config.filename_hash_characters]
+                suffix = f'_{identifier}_{counter}.pdf'
                 alternate = _bounded_filename(prefix, suffix, self.config.filename_bytes)
                 relative = str(PurePosixPath(folder) / alternate)
                 destination = self._safe_path(root, relative)
@@ -428,27 +462,44 @@ class PDFDownloader:
             record.search_sufficiently_satisfied = satisfied
             record.search_satisfaction_reason = reason
         statistics = {
-            'total_input_papers': len(results), 'attempted_papers': attempted,
+            'total_input_papers': len(results),
+            'attempted_papers': attempted,
             'downloaded_files': sum(record.download_status == 'downloaded' for record in results),
             'verified_papers': sum(record.validation_status == 'verified' for record in results),
-            'needs_review_papers': sum(record.format_status == 'valid' and record.validation_status == 'needs_review' for record in results),
+            'needs_review_papers': sum(
+                record.format_status == 'valid' and record.validation_status == 'needs_review' for record in results
+            ),
             'failed_papers': sum(record.download_status == 'failed' for record in results),
             'rejected_content_papers': sum(record.download_status == 'rejected_content' for record in results),
             'non_full_document_papers': sum(record.document_type in NON_FULL_DOCUMENTS for record in results),
-            'full_text_verified_papers': sum(record.document_type in ('full_text', 'preprint') and
-                                            record.validation_status == 'verified' for record in results),
-            'search_sufficiently_satisfied_papers': sum(record.search_sufficiently_satisfied is True for record in results),
-            'search_satisfaction_unknown_papers': sum(record.search_sufficiently_satisfied is None for record in results),
+            'full_text_verified_papers': sum(
+                record.document_type in ('full_text', 'preprint') and record.validation_status == 'verified'
+                for record in results
+            ),
+            'search_sufficiently_satisfied_papers': sum(
+                record.search_sufficiently_satisfied is True for record in results
+            ),
+            'search_satisfaction_unknown_papers': sum(
+                record.search_sufficiently_satisfied is None for record in results
+            ),
             'reused_existing_papers': sum(record.download_status == 'skipped_existing' for record in results),
             'duplicate_content_papers': sum(record.download_status == 'duplicate_content' for record in results),
-            'skipped_papers': sum(record.download_status.startswith('skipped_') and record.download_status != 'skipped_existing' for record in results),
+            'skipped_papers': sum(
+                record.download_status.startswith('skipped_') and record.download_status != 'skipped_existing'
+                for record in results
+            ),
         }
         if isinstance(getattr(self.client, 'transport_statistics', None), dict):
             statistics['http_transport_statistics'] = deepcopy(self.client.transport_statistics)
-        manifest = {'schema_version': 1, 'created_at': previous.get('created_at', now), 'updated_at': now,
-                    'run_complete': complete, 'statistics': statistics,
-                    'papers': [asdict(record) for record in results] + retained,
-                    'file_root': os.path.relpath(str(root), str(manifest_path.parent))}
+        manifest = {
+            'schema_version': 1,
+            'created_at': previous.get('created_at', now),
+            'updated_at': now,
+            'run_complete': complete,
+            'statistics': statistics,
+            'papers': [asdict(record) for record in results] + retained,
+            'file_root': os.path.relpath(str(root), str(manifest_path.parent)),
+        }
         descriptor, filename = tempfile.mkstemp(prefix='.manifest-', suffix='.tmp', dir=str(manifest_path.parent))
         try:
             with os.fdopen(descriptor, 'w', encoding='utf-8') as handle:

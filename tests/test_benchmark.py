@@ -1,4 +1,5 @@
 """Benchmark harness tests with synthetic people and bibliographies only; nothing touches the network."""
+
 import csv
 import io
 import json
@@ -7,7 +8,8 @@ import unittest
 from contextlib import redirect_stdout
 from pathlib import Path
 
-from paper_author_searcher.benchmark.cli import main as benchmark_main, score_run
+from paper_author_searcher.benchmark.cli import main as benchmark_main
+from paper_author_searcher.benchmark.cli import score_run
 from paper_author_searcher.benchmark.gate import GateStatus, ReleaseGate
 from paper_author_searcher.benchmark.review import export_review, import_review
 from paper_author_searcher.benchmark.roster import Roster
@@ -17,7 +19,10 @@ from paper_author_searcher.benchmark.settings import BenchmarkSettings, RunSetti
 from paper_author_searcher.benchmark.snapshots import ARXIV_SNAPSHOT, CROSSREF_SNAPSHOT
 from paper_author_searcher.benchmark.truth_builder import TruthBuilder
 from paper_author_searcher.benchmark.truth_sources import (
-    bibtex_entries, default_registry, latex_text, vancouver_name,
+    bibtex_entries,
+    default_registry,
+    latex_text,
+    vancouver_name,
 )
 from paper_author_searcher.workflow import write_json
 
@@ -26,35 +31,61 @@ DIMENSIONS = {'seniority': ['senior', 'junior'], 'name_profile': ['common', 'oth
 
 def config(minimum_people=1, require_review=True, rules=None):
     return {
-        'benchmark_schema_version': 1, 'dataset_id': 'synthetic_v1',
+        'benchmark_schema_version': 1,
+        'dataset_id': 'synthetic_v1',
         'year_window': {'start': 2020, 'end': 2025},
-        'paths': {'roster': 'roster.json', 'snapshots': 'snapshots', 'truth': 'truth', 'runs': 'runs',
-                  'reports': 'reports'},
+        'paths': {
+            'roster': 'roster.json',
+            'snapshots': 'snapshots',
+            'truth': 'truth',
+            'runs': 'runs',
+            'reports': 'reports',
+        },
         'dimensions': DIMENSIONS,
-        'publication_types': {'included': ['journal_article', 'conference_paper', 'preprint'],
-                              'excluded': ['poster', 'thesis'], 'unknown_included': True},
-        'reported_metrics': ['identity_resolution_rate', 'verified_paper_recall', 'paper_discovery_recall',
-                             'author_match_precision', 'actual_download_coverage'],
-        'gate': {'aggregation': 'macro', 'minimum_people_per_stratum': minimum_people,
-                 'require_human_review': require_review,
-                 'rules': rules or [{'metric': 'verified_paper_recall', 'minimum': 0.8},
-                                    {'metric': 'author_match_precision', 'minimum': 0.95}]},
+        'publication_types': {
+            'included': ['journal_article', 'conference_paper', 'preprint'],
+            'excluded': ['poster', 'thesis'],
+            'unknown_included': True,
+        },
+        'reported_metrics': [
+            'identity_resolution_rate',
+            'verified_paper_recall',
+            'paper_discovery_recall',
+            'author_match_precision',
+            'actual_download_coverage',
+        ],
+        'gate': {
+            'aggregation': 'macro',
+            'minimum_people_per_stratum': minimum_people,
+            'require_human_review': require_review,
+            'rules': rules
+            or [
+                {'metric': 'verified_paper_recall', 'minimum': 0.8},
+                {'metric': 'author_match_precision', 'minimum': 0.95},
+            ],
+        },
         'run': {'mode': 'metadata'},
     }
 
 
 def person(person_id, name='Alex Morgan', seniority='senior', profile='other', sources=None, **extra):
-    data = {'person_id': person_id,
-            'search_input': {'name': name, 'university': 'Synthetic University'},
-            'strata': {'seniority': seniority, 'name_profile': profile},
-            'truth_sources': sources or [{'kind': 'manual', 'locator': 'list.json', 'url': 'https://example.org/'}]}
+    data = {
+        'person_id': person_id,
+        'search_input': {'name': name, 'university': 'Synthetic University'},
+        'strata': {'seniority': seniority, 'name_profile': profile},
+        'truth_sources': sources or [{'kind': 'manual', 'locator': 'list.json', 'url': 'https://example.org/'}],
+    }
     data.update(extra)
     return data
 
 
 def manual(entries):
-    return {'snapshot_schema_version': 1, 'source_url': 'https://example.org/', 'captured_at': '2026-01-01',
-            'entries': entries}
+    return {
+        'snapshot_schema_version': 1,
+        'source_url': 'https://example.org/',
+        'captured_at': '2026-01-01',
+        'entries': entries,
+    }
 
 
 def paper(title, year=2024, authors=('Alex Morgan', 'Jane Smith'), **extra):
@@ -70,8 +101,9 @@ class Workspace:
         self.directory = tempfile.TemporaryDirectory()
         self.root = Path(self.directory.name)
         (self.root / 'benchmark.json').write_text(json.dumps(config(**config_options)))
-        (self.root / 'roster.json').write_text(json.dumps(
-            {'roster_schema_version': 1, 'dataset_id': 'synthetic_v1', 'people': people}))
+        (self.root / 'roster.json').write_text(
+            json.dumps({'roster_schema_version': 1, 'dataset_id': 'synthetic_v1', 'people': people})
+        )
         for person_id, files in snapshots.items():
             folder = self.root / 'snapshots' / person_id
             folder.mkdir(parents=True)
@@ -93,8 +125,10 @@ class SettingsAndRosterTests(unittest.TestCase):
     def test_thresholds_and_paths_come_from_config(self):
         with tempfile.TemporaryDirectory() as directory:
             settings = BenchmarkSettings.from_dict(config(), Path(directory))
-        self.assertEqual([(rule.metric, rule.minimum) for rule in settings.gate_rules],
-                         [('verified_paper_recall', 0.8), ('author_match_precision', 0.95)])
+        self.assertEqual(
+            [(rule.metric, rule.minimum) for rule in settings.gate_rules],
+            [('verified_paper_recall', 0.8), ('author_match_precision', 0.95)],
+        )
         self.assertEqual(settings.paths.truth, (Path(directory) / 'truth').resolve())
 
     def test_gate_metric_must_be_reported(self):
@@ -132,7 +166,7 @@ class SettingsAndRosterTests(unittest.TestCase):
 
 class SourceParsingTests(unittest.TestCase):
     def test_bibtex_fields_latex_and_arxiv(self):
-        text = r'''
+        text = r"""
         @comment{ignored}
         @inproceedings{a,
           title = {Mission: {I}mpossible M\"odels},
@@ -142,7 +176,7 @@ class SourceParsingTests(unittest.TestCase):
           doi = {https://doi.org/10.1001/ABC},
         }
         @misc{b, title={Preprint Study}, author={Alex Morgan}, year={2025}, eprint={2501.01234}, archivePrefix={arXiv}}
-        '''
+        """
         entries = bibtex_entries(text)
         self.assertEqual(len(entries), 2)
         self.assertEqual(latex_text(entries[0]['title']), 'Mission: Impossible Models')
@@ -150,11 +184,14 @@ class SourceParsingTests(unittest.TestCase):
         self.assertEqual(entries[1]['eprint'], '2501.01234')
 
     def test_bibtex_source_types_and_identifiers(self):
-        bib = ('@article{a, title={Journal Study}, author={Alex Morgan and Jane Smith}, journal={Nature}, year={2023},'
-               ' doi={10.1001/J}}\n@article{b, title={Arxiv Study}, author={Alex Morgan}, journal={arXiv preprint '
-               'arXiv:2301.00001}, year={2023}}')
-        workspace = Workspace([person('a_one', sources=[{'kind': 'bibtex', 'locator': 'p.bib'}])],
-                              {'a_one': {'p.bib': bib}})
+        bib = (
+            '@article{a, title={Journal Study}, author={Alex Morgan and Jane Smith}, journal={Nature}, year={2023},'
+            ' doi={10.1001/J}}\n@article{b, title={Arxiv Study}, author={Alex Morgan}, journal={arXiv preprint '
+            'arXiv:2301.00001}, year={2023}}'
+        )
+        workspace = Workspace(
+            [person('a_one', sources=[{'kind': 'bibtex', 'locator': 'p.bib'}])], {'a_one': {'p.bib': bib}}
+        )
         try:
             truth = workspace.build('a_one')
         finally:
@@ -170,15 +207,32 @@ class SourceParsingTests(unittest.TestCase):
         self.assertEqual(vancouver_name('Huan Zhang'), 'Huan Zhang')
 
     def test_orcid_snapshot_uses_self_identifiers_only(self):
-        work = {'put-code': 7, 'title': {'title': {'value': 'Orcid Study'}}, 'type': 'journal-article',
-                'publication-date': {'year': {'value': '2022'}},
-                'external-ids': {'external-id': [
-                    {'external-id-type': 'doi', 'external-id-value': '10.1002/SELF', 'external-id-relationship': 'self'},
-                    {'external-id-type': 'issn', 'external-id-value': '1234-5678', 'external-id-relationship': 'part-of'},
-                    {'external-id-type': 'pmid', 'external-id-value': '123', 'external-id-relationship': 'self'}]},
-                'contributors': {'contributor': [{'credit-name': {'value': 'Alex Morgan'}}]}}
-        workspace = Workspace([person('a_one', sources=[{'kind': 'orcid', 'locator': '0000-0000-0000-0001'}])],
-                              {'a_one': {'orcid-0000-0000-0000-0001.json': {'works': [work]}}})
+        work = {
+            'put-code': 7,
+            'title': {'title': {'value': 'Orcid Study'}},
+            'type': 'journal-article',
+            'publication-date': {'year': {'value': '2022'}},
+            'external-ids': {
+                'external-id': [
+                    {
+                        'external-id-type': 'doi',
+                        'external-id-value': '10.1002/SELF',
+                        'external-id-relationship': 'self',
+                    },
+                    {
+                        'external-id-type': 'issn',
+                        'external-id-value': '1234-5678',
+                        'external-id-relationship': 'part-of',
+                    },
+                    {'external-id-type': 'pmid', 'external-id-value': '123', 'external-id-relationship': 'self'},
+                ]
+            },
+            'contributors': {'contributor': [{'credit-name': {'value': 'Alex Morgan'}}]},
+        }
+        workspace = Workspace(
+            [person('a_one', sources=[{'kind': 'orcid', 'locator': '0000-0000-0000-0001'}])],
+            {'a_one': {'orcid-0000-0000-0000-0001.json': {'works': [work]}}},
+        )
         try:
             truth = workspace.build('a_one')
         finally:
@@ -199,23 +253,36 @@ class TruthBuilderTests(unittest.TestCase):
             workspace.close()
 
     def test_window_type_and_identifier_filters(self):
-        truth = self.build([
-            paper('Inside Window Study'), paper('Too Old Study', year=2015), paper('Poster Study', type='poster'),
-            paper('Missing Year Study', year=None), {'title': 'Anonymous Team Report', 'year': 2024, 'authors': []},
-        ])
+        truth = self.build(
+            [
+                paper('Inside Window Study'),
+                paper('Too Old Study', year=2015),
+                paper('Poster Study', type='poster'),
+                paper('Missing Year Study', year=None),
+                {'title': 'Anonymous Team Report', 'year': 2024, 'authors': []},
+            ]
+        )
         self.assertEqual([entry['title'] for entry in truth['papers']], ['Inside Window Study'])
-        self.assertEqual(truth['metadata']['excluded_counts'], {
-            'outside_year_window': 1, 'excluded_publication_type': 1, 'missing_year': 1,
-            'no_identifier_or_authors': 1})
+        self.assertEqual(
+            truth['metadata']['excluded_counts'],
+            {
+                'outside_year_window': 1,
+                'excluded_publication_type': 1,
+                'missing_year': 1,
+                'no_identifier_or_authors': 1,
+            },
+        )
         self.assertEqual(truth['metadata']['annotation_state'], 'pending_human_review')
         self.assertTrue(all(entry['ownership'] == 'uncertain' for entry in truth['papers']))
 
     def test_preprint_and_published_versions_group_into_one_publication(self):
-        truth = self.build([
-            paper('A Grouped Study of Things', year=2023, type='preprint', arxiv='2301.00001'),
-            paper('A grouped study of things', year=2024, doi='10.1003/pub'),
-            paper('A Different Study of Things', year=2024),
-        ])
+        truth = self.build(
+            [
+                paper('A Grouped Study of Things', year=2023, type='preprint', arxiv='2301.00001'),
+                paper('A grouped study of things', year=2024, doi='10.1003/pub'),
+                paper('A Different Study of Things', year=2024),
+            ]
+        )
         self.assertEqual(len(truth['papers']), 2)
         grouped = next(entry for entry in truth['papers'] if 'dois' in entry)
         self.assertEqual(grouped['year'], 2024)
@@ -240,16 +307,43 @@ class TruthBuilderTests(unittest.TestCase):
         self.assertEqual(truth['papers'][0]['proposed_ownership'], 'belongs')
 
     def test_title_lookups_are_accepted_only_on_exact_title_and_family_name(self):
-        crossref = {'lookups': {
-            'lookup study': {'candidates': [
-                {'doi': '10.1009/wrong', 'title': 'Lookup Study Revisited', 'year': 2024, 'family_names': ['Morgan']},
-                {'doi': '10.1009/right', 'title': 'Lookup Study', 'year': 2024, 'family_names': ['Morgan', 'Smith']}]},
-            'other study': {'candidates': [
-                {'doi': '10.1009/stranger', 'title': 'Other Study', 'year': 2024, 'family_names': ['Nobody']}]}}}
-        arxiv = {'lookups': {'lookup study': {'candidates': [
-            {'arxiv': '2401.00002', 'title': 'Lookup Study', 'year': 2023, 'authors': ['Alex Morgan']}]}}}
-        truth = self.build([paper('Lookup Study'), paper('Other Study')],
-                           {CROSSREF_SNAPSHOT: crossref, ARXIV_SNAPSHOT: arxiv})
+        crossref = {
+            'lookups': {
+                'lookup study': {
+                    'candidates': [
+                        {
+                            'doi': '10.1009/wrong',
+                            'title': 'Lookup Study Revisited',
+                            'year': 2024,
+                            'family_names': ['Morgan'],
+                        },
+                        {
+                            'doi': '10.1009/right',
+                            'title': 'Lookup Study',
+                            'year': 2024,
+                            'family_names': ['Morgan', 'Smith'],
+                        },
+                    ]
+                },
+                'other study': {
+                    'candidates': [
+                        {'doi': '10.1009/stranger', 'title': 'Other Study', 'year': 2024, 'family_names': ['Nobody']}
+                    ]
+                },
+            }
+        }
+        arxiv = {
+            'lookups': {
+                'lookup study': {
+                    'candidates': [
+                        {'arxiv': '2401.00002', 'title': 'Lookup Study', 'year': 2023, 'authors': ['Alex Morgan']}
+                    ]
+                }
+            }
+        }
+        truth = self.build(
+            [paper('Lookup Study'), paper('Other Study')], {CROSSREF_SNAPSHOT: crossref, ARXIV_SNAPSHOT: arxiv}
+        )
         by_title = {entry['title']: entry for entry in truth['papers']}
         self.assertEqual(by_title['Lookup Study']['dois'], ['10.1009/right'])
         self.assertEqual(by_title['Lookup Study']['external_ids'], {'arxiv': '2401.00002'})
@@ -257,15 +351,24 @@ class TruthBuilderTests(unittest.TestCase):
         self.assertNotIn('dois', by_title['Other Study'])
 
     def test_person_window_overrides_default(self):
-        truth = self.build([paper('Recent Study', year=2025), paper('Earlier Study', year=2021)],
-                           year_start=2024, year_end=2025)
+        truth = self.build(
+            [paper('Recent Study', year=2025), paper('Earlier Study', year=2021)], year_start=2024, year_end=2025
+        )
         self.assertEqual([entry['title'] for entry in truth['papers']], ['Recent Study'])
 
 
 class ReviewTests(unittest.TestCase):
     def setUp(self):
-        workspace = Workspace([person('a_one')], {'a_one': {'list.json': manual([
-            paper('Kept Study', doi='10.1004/kept'), paper('Rejected Study', doi='10.1004/rejected')])}})
+        workspace = Workspace(
+            [person('a_one')],
+            {
+                'a_one': {
+                    'list.json': manual(
+                        [paper('Kept Study', doi='10.1004/kept'), paper('Rejected Study', doi='10.1004/rejected')]
+                    )
+                }
+            },
+        )
         self.truth = workspace.build('a_one')
         workspace.close()
         self.directory = tempfile.TemporaryDirectory()
@@ -287,11 +390,19 @@ class ReviewTests(unittest.TestCase):
             writer.writerows(rows)
 
     def test_complete_review_becomes_formal_truth_with_added_paper(self):
-        added = {'evaluation_id': '', 'decision': 'belongs', 'title': 'Missed Study', 'year': '2023',
-                 'authors': 'Alex Morgan; Jane Smith', 'dois': '10.1004/missed', 'reviewer_note': 'Found on CV'}
+        added = {
+            'evaluation_id': '',
+            'decision': 'belongs',
+            'title': 'Missed Study',
+            'year': '2023',
+            'authors': 'Alex Morgan; Jane Smith',
+            'dois': '10.1004/missed',
+            'reviewer_note': 'Found on CV',
+        }
         self.decide({'Kept Study': 'belongs', 'Rejected Study': 'not_belongs'}, [added])
-        reviewed = import_review(self.truth, self.sheet, 'Reviewer A', complete_positive_list=True,
-                                 reviewed_at='2026-02-01')
+        reviewed = import_review(
+            self.truth, self.sheet, 'Reviewer A', complete_positive_list=True, reviewed_at='2026-02-01'
+        )
         labels = {entry['title']: entry['ownership'] for entry in reviewed['papers']}
         self.assertEqual(labels, {'Kept Study': 'belongs', 'Rejected Study': 'not_belongs', 'Missed Study': 'belongs'})
         self.assertEqual(reviewed['metadata']['annotation_state'], 'human_reviewed')
@@ -307,13 +418,36 @@ class ReviewTests(unittest.TestCase):
 
     def test_system_suggestions_are_leads_that_need_independent_evidence(self):
         from paper_author_searcher.benchmark.review import system_suggestions
-        collection = {'collection': {'all_papers': [
-            {'title': 'Kept Study', 'year': 2024, 'doi': '10.1004/kept', 'authors': ['Alex Morgan'],
-             'ownership_status': 'verified'},
-            {'title': 'Unlisted Study', 'year': 2023, 'doi': '10.1004/unlisted', 'authors': ['Alex Morgan'],
-             'ownership_status': 'verified', 'source': 'openalex', 'source_paper_id': 'W9'},
-            {'title': 'Old Study', 'year': 2001, 'doi': '10.1004/old', 'authors': ['Alex Morgan'],
-             'ownership_status': 'verified'}]}}
+
+        collection = {
+            'collection': {
+                'all_papers': [
+                    {
+                        'title': 'Kept Study',
+                        'year': 2024,
+                        'doi': '10.1004/kept',
+                        'authors': ['Alex Morgan'],
+                        'ownership_status': 'verified',
+                    },
+                    {
+                        'title': 'Unlisted Study',
+                        'year': 2023,
+                        'doi': '10.1004/unlisted',
+                        'authors': ['Alex Morgan'],
+                        'ownership_status': 'verified',
+                        'source': 'openalex',
+                        'source_paper_id': 'W9',
+                    },
+                    {
+                        'title': 'Old Study',
+                        'year': 2001,
+                        'doi': '10.1004/old',
+                        'authors': ['Alex Morgan'],
+                        'ownership_status': 'verified',
+                    },
+                ]
+            }
+        }
         leads = system_suggestions(collection, self.truth, (2020, 2025), 'run1', 10)
         self.assertEqual([lead['title'] for lead in leads], ['Unlisted Study'])
         export_review(self.truth, self.sheet, leads)
@@ -340,8 +474,20 @@ class ReviewTests(unittest.TestCase):
 
     def test_rejected_system_suggestion_becomes_an_explicit_negative(self):
         from paper_author_searcher.benchmark.review import system_suggestions
-        collection = {'collection': {'all_papers': [{'title': 'Namesake Study', 'year': 2024, 'ownership_status': 'verified',
-                                                     'doi': '10.1004/namesake', 'authors': ['Alex Morgan']}]}}
+
+        collection = {
+            'collection': {
+                'all_papers': [
+                    {
+                        'title': 'Namesake Study',
+                        'year': 2024,
+                        'ownership_status': 'verified',
+                        'doi': '10.1004/namesake',
+                        'authors': ['Alex Morgan'],
+                    }
+                ]
+            }
+        }
         self.decide({'Kept Study': 'belongs', 'Rejected Study': 'belongs'})
         with self.sheet.open(encoding='utf-8-sig', newline='') as handle:
             rows = list(csv.DictReader(handle))
@@ -358,11 +504,27 @@ class ReviewTests(unittest.TestCase):
 
     def test_same_as_leads_merge_and_uncertain_leads_stay_unscored(self):
         from paper_author_searcher.benchmark.review import system_suggestions
-        collection = {'collection': {'all_papers': [
-            {'title': 'Kept Study preprint', 'year': 2023, 'doi': '10.1004/kept-preprint', 'ownership_status': 'verified',
-             'authors': ['Alex Morgan', 'Jane Smith']},
-            {'title': 'Trial registration', 'year': 2024, 'doi': '10.1004/registry', 'ownership_status': 'verified',
-             'authors': ['Alex Morgan']}]}}
+
+        collection = {
+            'collection': {
+                'all_papers': [
+                    {
+                        'title': 'Kept Study preprint',
+                        'year': 2023,
+                        'doi': '10.1004/kept-preprint',
+                        'ownership_status': 'verified',
+                        'authors': ['Alex Morgan', 'Jane Smith'],
+                    },
+                    {
+                        'title': 'Trial registration',
+                        'year': 2024,
+                        'doi': '10.1004/registry',
+                        'ownership_status': 'verified',
+                        'authors': ['Alex Morgan'],
+                    },
+                ]
+            }
+        }
         self.decide({'Kept Study': 'belongs', 'Rejected Study': 'belongs'})
         with self.sheet.open(encoding='utf-8-sig', newline='') as handle:
             rows = list(csv.DictReader(handle))
@@ -376,14 +538,16 @@ class ReviewTests(unittest.TestCase):
             writer = csv.DictWriter(handle, rows[0].keys())
             writer.writeheader()
             writer.writerows(rows)
-        reviewed = import_review(self.truth, self.sheet, 'Assistant', complete_positive_list=True,
-                                 review_state='assistant_reviewed')
+        reviewed = import_review(
+            self.truth, self.sheet, 'Assistant', complete_positive_list=True, review_state='assistant_reviewed'
+        )
         kept = next(entry for entry in reviewed['papers'] if entry['evaluation_id'] == kept_id)
         self.assertIn('10.1004/kept-preprint', kept['dois'])
         registry = next(entry for entry in reviewed['papers'] if entry['title'] == 'Trial registration')
         self.assertEqual(registry['ownership'], 'uncertain')
         self.assertEqual(reviewed['metadata']['annotation_state'], 'assistant_reviewed')
         from paper_author_searcher.benchmark.scoring import truth_state
+
         self.assertEqual(truth_state(reviewed), 'assistant_reviewed')
 
     def test_invalid_decision_is_rejected(self):
@@ -394,6 +558,7 @@ class ReviewTests(unittest.TestCase):
 
 class FakeSystem:
     """Writes a minimal workflow directory with the papers it is told to 'find'."""
+
     name = 'fake'
 
     def __init__(self, found, confirmations=None):
@@ -408,35 +573,74 @@ class FakeSystem:
         root = Path(output_dir) / 'search_fake'
         root.mkdir(parents=True)
         papers = [dict(record, records=[dict(record)]) for record in self.found[person.person_id]]
-        write_json(root / 'papers.json', {'collection': {
-            'all_papers': papers, 'sources': [], 'complete': True,
-            'identity_confirmation': self.confirmations.get(person.person_id, 'resolver_resolved')}})
-        report = {'run_status': 'completed', 'output_directory': str(root), 'errors': [],
-                  'artifacts': {'papers': 'papers.json'}}
+        write_json(
+            root / 'papers.json',
+            {
+                'collection': {
+                    'all_papers': papers,
+                    'sources': [],
+                    'complete': True,
+                    'identity_confirmation': self.confirmations.get(person.person_id, 'resolver_resolved'),
+                }
+            },
+        )
+        report = {
+            'run_status': 'completed',
+            'output_directory': str(root),
+            'errors': [],
+            'artifacts': {'papers': 'papers.json'},
+        }
         write_json(root / 'report.json', report)
         return report
 
 
 def found(title, doi, status='verified'):
-    return {'title': title, 'year': 2024, 'authors': ['Alex Morgan', 'Jane Smith'], 'doi': doi,
-            'source': 'synthetic', 'source_paper_id': doi, 'ownership_status': status}
+    return {
+        'title': title,
+        'year': 2024,
+        'authors': ['Alex Morgan', 'Jane Smith'],
+        'doi': doi,
+        'source': 'synthetic',
+        'source_paper_id': doi,
+        'ownership_status': status,
+    }
 
 
 class RunScoreGateTests(unittest.TestCase):
     def setUp(self):
-        people = [person('senior_good', seniority='senior'), person('junior_poor', seniority='junior', profile='common')]
-        listing = manual([paper('Study One', doi='10.1005/one'), paper('Study Two', doi='10.1005/two'),
-                          paper('Study Three', doi='10.1005/three'), paper('Study Four', doi='10.1005/four')])
-        self.workspace = Workspace(people, {'senior_good': {'list.json': listing}, 'junior_poor': {'list.json': listing}})
+        people = [
+            person('senior_good', seniority='senior'),
+            person('junior_poor', seniority='junior', profile='common'),
+        ]
+        listing = manual(
+            [
+                paper('Study One', doi='10.1005/one'),
+                paper('Study Two', doi='10.1005/two'),
+                paper('Study Three', doi='10.1005/three'),
+                paper('Study Four', doi='10.1005/four'),
+            ]
+        )
+        self.workspace = Workspace(
+            people, {'senior_good': {'list.json': listing}, 'junior_poor': {'list.json': listing}}
+        )
         self.workspace.settings.paths.truth.mkdir(parents=True)
         for person_id in ('senior_good', 'junior_poor'):
             write_json(truth_paths(self.workspace.settings, person_id)[1], self.workspace.build(person_id))
-        self.system = FakeSystem({
-            'senior_good': [found('Study One', '10.1005/one'), found('Study Two', '10.1005/two'),
-                            found('Study Three', '10.1005/three'), found('Study Four', '10.1005/four')],
-            'junior_poor': [found('Study One', '10.1005/one'), found('Study Two', '10.1005/two', 'needs_review'),
-                            found('Unrelated Study', '10.1005/unrelated')],
-        })
+        self.system = FakeSystem(
+            {
+                'senior_good': [
+                    found('Study One', '10.1005/one'),
+                    found('Study Two', '10.1005/two'),
+                    found('Study Three', '10.1005/three'),
+                    found('Study Four', '10.1005/four'),
+                ],
+                'junior_poor': [
+                    found('Study One', '10.1005/one'),
+                    found('Study Two', '10.1005/two', 'needs_review'),
+                    found('Unrelated Study', '10.1005/unrelated'),
+                ],
+            }
+        )
 
     def tearDown(self):
         self.workspace.close()
@@ -510,9 +714,12 @@ class RunScoreGateTests(unittest.TestCase):
     def test_too_few_people_fails_the_stratum(self):
         settings = self.workspace.settings
         from dataclasses import replace
+
         strict = replace(settings, minimum_people_per_stratum=2)
-        scores = [PersonScorer(strict).score(person, settings.paths.runs / 'none', None)
-                  for person in self.workspace.roster.people]
+        scores = [
+            PersonScorer(strict).score(person, settings.paths.runs / 'none', None)
+            for person in self.workspace.roster.people
+        ]
         result = ReleaseGate(strict).evaluate(aggregate(scores, strict))
         reasons = {check['reason'] for check in result.checks if not check['passed']}
         self.assertTrue(any(reason.startswith('only 1 people') for reason in reasons))
@@ -552,8 +759,15 @@ class FakeWorkflow:
         folder = Path(output_dir) / ('pass' + str(len(self.calls)))
         folder.mkdir(parents=True)
         self.calls.append({'mode': mode, 'saved': saved, 'query': query})
-        archive = saved or {'collection': {'all_papers': [
-            {'title': 'Recent', 'year': 2024}, {'title': 'Ancient', 'year': 2001}, {'title': 'Undated', 'year': None}]}}
+        archive = saved or {
+            'collection': {
+                'all_papers': [
+                    {'title': 'Recent', 'year': 2024},
+                    {'title': 'Ancient', 'year': 2001},
+                    {'title': 'Undated', 'year': None},
+                ]
+            }
+        }
         write_json(folder / 'papers.json', archive)
         return {'run_status': 'completed', 'output_directory': str(folder), 'artifacts': {'papers': 'papers.json'}}
 
@@ -569,8 +783,11 @@ class WindowedFullTextTests(unittest.TestCase):
         workspace = Workspace([person('a_one', year_start=2024, year_end=2025)], {})
         calls = []
         try:
-            system = WorkflowSearchSystem(RunSettings(mode='full'), workspace.settings,
-                                          workflow_factory=lambda run: FakeWorkflow(calls, workspace.root))
+            system = WorkflowSearchSystem(
+                RunSettings(mode='full'),
+                workspace.settings,
+                workflow_factory=lambda run: FakeWorkflow(calls, workspace.root),
+            )
             report = system.search(workspace.roster.people[0], workspace.root / 'out')
         finally:
             workspace.close()
@@ -589,22 +806,46 @@ class IdentityDiagnosisTests(unittest.TestCase):
     def setUp(self):
         from paper_author_searcher.benchmark.identity_diagnosis import Diagnosis, IdentityDiagnoser
         from paper_author_searcher.models import ProfessorProfile
+
         self.Diagnosis, self.Diagnoser, self.Profile = Diagnosis, IdentityDiagnoser, ProfessorProfile
-        self.truth = {'papers': [
-            {'evaluation_id': 'p1', 'ownership': 'uncertain', 'proposed_ownership': 'belongs', 'dois': ['10.1000/a']},
-            {'evaluation_id': 'p2', 'ownership': 'uncertain', 'proposed_ownership': 'belongs', 'title': 'Second Study'}]}
+        self.truth = {
+            'papers': [
+                {
+                    'evaluation_id': 'p1',
+                    'ownership': 'uncertain',
+                    'proposed_ownership': 'belongs',
+                    'dois': ['10.1000/a'],
+                },
+                {
+                    'evaluation_id': 'p2',
+                    'ownership': 'uncertain',
+                    'proposed_ownership': 'belongs',
+                    'title': 'Second Study',
+                },
+            ]
+        }
         workspace = Workspace([person('a_one')], {})
         self.person = workspace.roster.people[0]
         workspace.close()
 
     def profile(self, author_id, score, status='ambiguous'):
-        return self.Profile('Alex Morgan', [], {'openalex': author_id}, score, status, [],
-                            match_score=score, university_status='matched', author_id_aliases={'openalex': [author_id]})
+        return self.Profile(
+            'Alex Morgan',
+            [],
+            {'openalex': author_id},
+            score,
+            status,
+            [],
+            match_score=score,
+            university_status='matched',
+            author_id_aliases={'openalex': [author_id]},
+        )
 
     def diagnose(self, works, errors=None, selected=None):
         class Lister:
             def works(self, source, author_id, start, end):
                 return works.get(author_id, [])
+
         profiles = [self.profile('A1', 0.9), self.profile('A2', 0.88), self.profile('B1', 0.87)]
         diagnoser = self.Diagnoser(lambda query: (profiles, [], errors or {}), Lister())
         return diagnoser.diagnose(self.person, self.truth, (2020, 2025), selected, 'identity_confirmation_required')
@@ -619,6 +860,7 @@ class IdentityDiagnosisTests(unittest.TestCase):
         self.assertEqual(result['diagnosis'], self.Diagnosis.RESOLVED_WRONG_PERSON.value)
 
     def test_nothing_found_after_source_errors_is_inconclusive(self):
-        self.assertEqual(self.diagnose({}, errors={'openalex': 'HTTP 429'})['diagnosis'],
-                         self.Diagnosis.INCONCLUSIVE.value)
+        self.assertEqual(
+            self.diagnose({}, errors={'openalex': 'HTTP 429'})['diagnosis'], self.Diagnosis.INCONCLUSIVE.value
+        )
         self.assertEqual(self.diagnose({})['diagnosis'], self.Diagnosis.TARGET_NOT_RETRIEVED.value)

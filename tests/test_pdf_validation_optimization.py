@@ -12,8 +12,12 @@ from paper_author_searcher.pdf_source_requests import SemanticScholarRequests
 
 
 def target():
-    return {'title': 'Reusable methods for synthetic research', 'doi': None,
-            'authors': ['Alex Example', 'Taylor Researcher'], 'year': 2020}
+    return {
+        'title': 'Reusable methods for synthetic research',
+        'doi': None,
+        'authors': ['Alex Example', 'Taylor Researcher'],
+        'year': 2020,
+    }
 
 
 class FrontMatterTests(unittest.TestCase):
@@ -27,7 +31,9 @@ class FrontMatterTests(unittest.TestCase):
     def test_substantive_title_conflict_is_still_not_verified(self):
         paper = target()
         front = paper['title'] + '\nAlex Example\nTaylor Researcher'
-        self.assertEqual(content_identity(paper, ['Unrelated scientific findings'], [front], front, '')[0], 'needs_review')
+        self.assertEqual(
+            content_identity(paper, ['Unrelated scientific findings'], [front], front, '')[0], 'needs_review'
+        )
 
     def test_short_title_threshold_unchanged_despite_cleaner_metadata(self):
         paper = dict(target(), title='Synthetic research')
@@ -39,8 +45,11 @@ class FrontMatterTests(unittest.TestCase):
         self.assertFalse(authors_present(target()['authors'], [front], ''))
 
     def test_family_name_first_byline_is_supported(self):
-        self.assertTrue(authors_present(['Example, Alex', 'Researcher, Taylor'],
-                                       ['Alex Example1, Taylor Researcher2\nAbstract'], ''))
+        self.assertTrue(
+            authors_present(
+                ['Example, Alex', 'Researcher, Taylor'], ['Alex Example1, Taylor Researcher2\nAbstract'], ''
+            )
+        )
 
     def test_all_authors_required_not_a_single_overlap(self):
         self.assertFalse(authors_present(target()['authors'], ['Alex Example and Other Author'], ''))
@@ -78,7 +87,9 @@ class DocumentTypeTests(unittest.TestCase):
         self.assertEqual(self.classify({}, text='Supplementary Material\nSome research'), 'supplementary_material')
 
     def test_body_reference_to_supplement_does_not_reclassify_article(self):
-        self.assertEqual(self.classify({}, text='A research title\nAbstract\nSee supplementary material for details'), 'full_text')
+        self.assertEqual(
+            self.classify({}, text='A research title\nAbstract\nSee supplementary material for details'), 'full_text'
+        )
 
     def test_preprint_version_separate_from_document_form(self):
         self.assertEqual(self.classify({}, version='preprint'), 'preprint')
@@ -94,15 +105,23 @@ class DocumentTypeTests(unittest.TestCase):
 
 class PublicRequestTests(unittest.TestCase):
     def requests(self, client, **kwargs):
-        config = replace(DEFAULT_PDF, public_page_request_interval=0, html_metadata_bytes=64,
-                         preview_bytes=16, public_page_maximum_bytes=512, **kwargs)
+        config = replace(
+            DEFAULT_PDF,
+            public_page_request_interval=0,
+            html_metadata_bytes=64,
+            preview_bytes=16,
+            public_page_maximum_bytes=512,
+            **kwargs,
+        )
         return PublicResourceRequests(client, config)
 
     def test_truncated_page_expands_once_and_caches_complete_response(self):
         client = Mock()
         url = 'https://repo.example.edu/article'
-        client.probe.side_effect = [URLProbe(url, 200, 'text/html', {}, b'x' * 64),
-                                    URLProbe(url, 200, 'text/html', {}, b'x' * 90)]
+        client.probe.side_effect = [
+            URLProbe(url, 200, 'text/html', {}, b'x' * 64),
+            URLProbe(url, 200, 'text/html', {}, b'x' * 90),
+        ]
         requests = self.requests(client)
         first = requests.probe(url, 16, 64)
         self.assertTrue(first.body_complete)
@@ -146,8 +165,10 @@ class PublicRequestTests(unittest.TestCase):
 
     def test_host_429_blocks_other_urls_on_same_host_not_other_hosts(self):
         client = Mock()
-        client.probe.side_effect = [SourceError('HTTP 429', 429, retry_after=600),
-                                    URLProbe('https://other.example.edu/article', 200, 'text/html', {}, b'short')]
+        client.probe.side_effect = [
+            SourceError('HTTP 429', 429, retry_after=600),
+            URLProbe('https://other.example.edu/article', 200, 'text/html', {}, b'short'),
+        ]
         requests = self.requests(client)
         with patch('paper_author_searcher.pdf_resource_requests.time.monotonic', return_value=10):
             with self.assertRaises(SourceError):
@@ -163,8 +184,10 @@ class PublicRequestTests(unittest.TestCase):
     def test_transient_errors_expire_without_becoming_permanent_absence(self):
         client = Mock()
         url = 'https://repo.example.edu/article'
-        client.probe.side_effect = [SourceError('timeout', error_type='timeout'),
-                                    URLProbe(url, 200, 'text/html', {}, b'short')]
+        client.probe.side_effect = [
+            SourceError('timeout', error_type='timeout'),
+            URLProbe(url, 200, 'text/html', {}, b'short'),
+        ]
         requests = self.requests(client)
         with patch('paper_author_searcher.pdf_resource_requests.time.monotonic', return_value=0):
             with self.assertRaises(SourceError):
@@ -175,8 +198,10 @@ class PublicRequestTests(unittest.TestCase):
     def test_404_cached_per_url_not_entire_host(self):
         client = Mock()
         url = 'https://repo.example.edu/absent'
-        client.probe.side_effect = [SourceError('HTTP 404', 404),
-                                    URLProbe('https://repo.example.edu/found', 200, 'text/html', {}, b'short')]
+        client.probe.side_effect = [
+            SourceError('HTTP 404', 404),
+            URLProbe('https://repo.example.edu/found', 200, 'text/html', {}, b'short'),
+        ]
         requests = self.requests(client)
         for _ in range(2):
             with self.assertRaises(SourceError):

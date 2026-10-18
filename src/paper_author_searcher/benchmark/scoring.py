@@ -1,12 +1,14 @@
 """Score each person with the existing evaluator, then aggregate by stratum."""
+
 from copy import deepcopy
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List, Mapping, Optional, Tuple
 
-from ..evaluation_matching import GroundTruth, GroundTruthMatcher
-from ..performance_evaluation import PerformanceEvaluator
-from ..workflow import read_json
+from paper_author_searcher.evaluation_matching import GroundTruth, GroundTruthMatcher
+from paper_author_searcher.performance_evaluation import PerformanceEvaluator
+from paper_author_searcher.workflow import read_json
+
 from .roster import BenchmarkPerson
 from .settings import Aggregation, BenchmarkSettings
 
@@ -72,8 +74,11 @@ def truth_state(truth: dict) -> str:
 
 def is_human_reviewed(truth: dict) -> bool:
     metadata = truth.get('metadata') or {}
-    return bool(metadata.get('annotation_state') == 'human_reviewed' and str(metadata.get('reviewer', '')).strip()
-                and str(metadata.get('reviewed_at', '')).strip())
+    return bool(
+        metadata.get('annotation_state') == 'human_reviewed'
+        and str(metadata.get('reviewer', '')).strip()
+        and str(metadata.get('reviewed_at', '')).strip()
+    )
 
 
 @dataclass
@@ -87,9 +92,15 @@ class PersonScore:
     notes: List[str] = field(default_factory=list)
 
     def to_dict(self) -> dict:
-        return {'person_id': self.person_id, 'strata': dict(self.strata), 'truth_state': self.truth_state,
-                'run_status': self.run_status, 'truth_positives': self.positives, 'metrics': self.metrics,
-                'notes': self.notes}
+        return {
+            'person_id': self.person_id,
+            'strata': dict(self.strata),
+            'truth_state': self.truth_state,
+            'run_status': self.run_status,
+            'truth_positives': self.positives,
+            'metrics': self.metrics,
+            'notes': self.notes,
+        }
 
 
 class PersonScorer:
@@ -100,9 +111,14 @@ class PersonScorer:
     def score(self, person: BenchmarkPerson, run_root: Path, index_entry: Optional[dict]) -> PersonScore:
         truth = load_truth(self.settings, person.person_id)
         if truth is None:
-            return PersonScore(person.person_id, person.strata, 'missing', _status(index_entry),
-                               {name: _unavailable() for name in self.settings.reported_metrics},
-                               notes=['No truth file; build it with build-truth'])
+            return PersonScore(
+                person.person_id,
+                person.strata,
+                'missing',
+                _status(index_entry),
+                {name: _unavailable() for name in self.settings.reported_metrics},
+                notes=['No truth file; build it with build-truth'],
+            )
         index_entry = index_entry or {}
         state = truth_state(truth)
         formal = state == 'human_reviewed'
@@ -133,8 +149,9 @@ class PersonScorer:
             notes.append('Run produced no paper collection; every truth publication counts as missed')
         else:
             collection = scope_to_window(collection, scoring, person.window(self.settings))
-        result = self.evaluator.evaluate(collection, scoring, pdf_report, manifest, manifest_path,
-                                         reference_only=not formal)
+        result = self.evaluator.evaluate(
+            collection, scoring, pdf_report, manifest, manifest_path, reference_only=not formal
+        )
         metrics = {}
         for name in self.settings.reported_metrics:
             if name in BENCHMARK_METRICS:
@@ -143,11 +160,14 @@ class PersonScorer:
             if name not in result['metrics']:
                 raise ValueError('Unknown reported metric: ' + name)
             metric = result['metrics'][name]
-            metrics[name] = {'numerator': metric['numerator'], 'denominator': metric['denominator'],
-                             'rate': metric['rate'], 'available': metric['available']}
+            metrics[name] = {
+                'numerator': metric['numerator'],
+                'denominator': metric['denominator'],
+                'rate': metric['rate'],
+                'available': metric['available'],
+            }
         positives = result['ownership_evaluation']['ground_truth']['positive_publications']
-        return PersonScore(person.person_id, person.strata, state,
-                           _status(index_entry), metrics, positives, notes)
+        return PersonScore(person.person_id, person.strata, state, _status(index_entry), metrics, positives, notes)
 
 
 def _status(entry: Optional[dict]) -> str:
@@ -176,8 +196,12 @@ def aggregate(scores: List[PersonScore], settings: BenchmarkSettings) -> Dict[Tu
                 Aggregation.MICRO.value: numerator / denominator if denominator else None,
                 'people_with_rate': len(rates),
                 'minimum': min(rates) if rates else None,
-                'numerator': numerator, 'denominator': denominator,
+                'numerator': numerator,
+                'denominator': denominator,
             }
-        result[key] = {'people': len(members), 'metrics': metrics,
-                       'provisional_people': sum(member.truth_state != 'human_reviewed' for member in members)}
+        result[key] = {
+            'people': len(members),
+            'metrics': metrics,
+            'provisional_people': sum(member.truth_state != 'human_reviewed' for member in members),
+        }
     return result

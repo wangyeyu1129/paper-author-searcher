@@ -1,4 +1,5 @@
 """Benchmark configuration loaded from the dataset's own JSON file; no thresholds live in code."""
+
 import json
 from dataclasses import dataclass, field
 from enum import Enum
@@ -14,6 +15,7 @@ class Aggregation(str, Enum):
 @dataclass(frozen=True)
 class GateRule:
     """A release condition: every stratum's aggregated metric must reach ``minimum``."""
+
     metric: str
     minimum: float
     label: str = ''
@@ -40,6 +42,7 @@ class TypePolicy:
 @dataclass(frozen=True)
 class RunSettings:
     """Attribute names match the workflow CLI so the existing composition root can be reused."""
+
     mode: str = 'full'
     timeout: Optional[float] = None
     retries: Optional[int] = None
@@ -79,6 +82,7 @@ class SourceSettings:
 @dataclass(frozen=True)
 class CalibrationSettings:
     """Identity calibration: choose matching parameters on dev people, report them on held-out test people."""
+
     splits: Tuple[str, ...] = ('dev', 'test')
     tune_split: str = 'dev'
     holdout_split: str = 'test'
@@ -124,7 +128,7 @@ class BenchmarkSettings:
             raise ValueError('minimum_people_per_stratum must be positive')
         unknown = {rule.metric for rule in self.gate_rules} - set(self.reported_metrics)
         if unknown:
-            raise ValueError('Gate metrics must also be reported: {}'.format(sorted(unknown)))
+            raise ValueError(f'Gate metrics must also be reported: {sorted(unknown)}')
 
     @classmethod
     def load(cls, path: Path) -> 'BenchmarkSettings':
@@ -142,13 +146,15 @@ class BenchmarkSettings:
         policy = data['publication_types']
         return cls(
             dataset_id=data['dataset_id'],
-            year_start=int(window['start']), year_end=int(window['end']),
+            year_start=int(window['start']),
+            year_end=int(window['end']),
             dimensions={key: tuple(values) for key, values in data['dimensions'].items()},
             gate_rules=tuple(GateRule(**rule) for rule in data['gate']['rules']),
             reported_metrics=tuple(data['reported_metrics']),
             paths=BenchmarkPaths(**paths),
-            type_policy=TypePolicy(tuple(policy['included']), tuple(policy['excluded']),
-                                   bool(policy.get('unknown_included', True))),
+            type_policy=TypePolicy(
+                tuple(policy['included']), tuple(policy['excluded']), bool(policy.get('unknown_included', True))
+            ),
             aggregation=Aggregation(data['gate'].get('aggregation', Aggregation.MACRO.value)),
             minimum_people_per_stratum=int(data['gate'].get('minimum_people_per_stratum', 2)),
             require_human_review=bool(data['gate'].get('require_human_review', True)),

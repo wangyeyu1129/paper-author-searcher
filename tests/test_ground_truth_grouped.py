@@ -1,16 +1,17 @@
 """Publication-first review and candidate revisions use synthetic references only."""
-import json
+
 import tempfile
 import unittest
 from copy import deepcopy
 from pathlib import Path
 
-from test_ground_truth_pilot import dataset, review_rows, coverage
 from scripts.ground_truth.export_truth import completeness_reasons
-from scripts.ground_truth.review_candidates import validate_reviews
+from scripts.ground_truth.grouped_review import annotation_rows, build_grouped_review, review_template, write_review
 from scripts.ground_truth.pilot_review import relationship_suggestions
-from scripts.ground_truth.grouped_review import build_grouped_review, review_template, annotation_rows, write_review
 from scripts.ground_truth.prepare_revision import prepare_revision, revision_coverage
+from scripts.ground_truth.review_candidates import validate_reviews
+
+from test_ground_truth_pilot import coverage, dataset, review_rows
 
 
 def grouped(value, sources=None):
@@ -18,20 +19,41 @@ def grouped(value, sources=None):
 
 
 def source_pack():
-    return {'source_scope': 'independent_official_references', 'next_dataset_id': 'synthetic_pilot_v2',
-            'additions': [{'omission_id': 'missing_journal', 'primary_reference': {
-                'reference_id': 'new_official_record', 'professor_id': 'test_professor', 'source_id': 'publisher_journal',
-                'source_url': 'https://publisher.example.edu/new-journal',
-                'collection_method': 'independent_official_publisher_metadata',
-                'metadata': {'title': 'New independently supported journal publication',
-                             'authors': ['Pat Researcher', 'Sam Scientist'], 'year': 2021, 'doi': '10.1234/new-journal',
-                             'venue': 'Test Journal', 'publication_type': 'journal_article'},
-                'extra': {'publication_identity_url': 'https://publisher.example.edu/new-journal'}},
-                'supporting_references': [{'reference_id': 'bibliography_secondary_claim',
-                    'source_url': 'https://university.example.edu/publications',
-                    'collection_method': 'independent_bibliography', 'metadata': {},
-                    'extra': {'secondary_journal_claim': {'year': 2021, 'venue': 'Test Journal'}}}],
-                'review_questions': ['Online and issue dates need separate human checking.']}]}
+    return {
+        'source_scope': 'independent_official_references',
+        'next_dataset_id': 'synthetic_pilot_v2',
+        'additions': [
+            {
+                'omission_id': 'missing_journal',
+                'primary_reference': {
+                    'reference_id': 'new_official_record',
+                    'professor_id': 'test_professor',
+                    'source_id': 'publisher_journal',
+                    'source_url': 'https://publisher.example.edu/new-journal',
+                    'collection_method': 'independent_official_publisher_metadata',
+                    'metadata': {
+                        'title': 'New independently supported journal publication',
+                        'authors': ['Pat Researcher', 'Sam Scientist'],
+                        'year': 2021,
+                        'doi': '10.1234/new-journal',
+                        'venue': 'Test Journal',
+                        'publication_type': 'journal_article',
+                    },
+                    'extra': {'publication_identity_url': 'https://publisher.example.edu/new-journal'},
+                },
+                'supporting_references': [
+                    {
+                        'reference_id': 'bibliography_secondary_claim',
+                        'source_url': 'https://university.example.edu/publications',
+                        'collection_method': 'independent_bibliography',
+                        'metadata': {},
+                        'extra': {'secondary_journal_claim': {'year': 2021, 'venue': 'Test Journal'}},
+                    }
+                ],
+                'review_questions': ['Online and issue dates need separate human checking.'],
+            }
+        ],
+    }
 
 
 class GroupedReviewTests(unittest.TestCase):
@@ -64,7 +86,9 @@ class GroupedReviewTests(unittest.TestCase):
 
     def test_conflicting_authors_block_display_union_even_with_same_doi(self):
         value = dataset(2)
-        value['papers'][1].update(title=value['papers'][0]['title'], doi=value['papers'][0]['doi'], authors=['Different Person'])
+        value['papers'][1].update(
+            title=value['papers'][0]['title'], doi=value['papers'][0]['doi'], authors=['Different Person']
+        )
         self.assertEqual(len(grouped(value)['groups']), 2)
 
     def test_orphan_preprint_retained_and_reviewed_separately(self):
@@ -76,17 +100,35 @@ class GroupedReviewTests(unittest.TestCase):
 
     def test_program_metadata_not_recommended_as_verified_formal_publication(self):
         value = dataset()
-        pack = {'observations': [{'candidate_ids': [value['papers'][0]['candidate_id']],
-                                'source_role': 'official_program', 'access_status': 'metadata_observed',
-                                'url': 'https://conference.example.edu/program',
-                                'metadata': {key: value['papers'][0][key] for key in ('title', 'authors', 'year', 'doi', 'venue', 'publication_type')}}]}
+        pack = {
+            'observations': [
+                {
+                    'candidate_ids': [value['papers'][0]['candidate_id']],
+                    'source_role': 'official_program',
+                    'access_status': 'metadata_observed',
+                    'url': 'https://conference.example.edu/program',
+                    'metadata': {
+                        key: value['papers'][0][key]
+                        for key in ('title', 'authors', 'year', 'doi', 'venue', 'publication_type')
+                    },
+                }
+            ]
+        }
         group = grouped(value, pack)['groups'][0]
         self.assertIn('补充', group['suggested_judgment'])
         self.assertEqual(group['review_status'], 'candidate')
 
     def test_human_fields_remain_blank_in_template(self):
         review = review_template(grouped(dataset()))['groups'][0]['human_review']
-        for field in ('reviewer', 'reviewed_at', 'canonical_group_id', 'identity_checked', 'metadata_checked', 'type_checked', 'version_checked'):
+        for field in (
+            'reviewer',
+            'reviewed_at',
+            'canonical_group_id',
+            'identity_checked',
+            'metadata_checked',
+            'type_checked',
+            'version_checked',
+        ):
             self.assertEqual(review[field], '')
         self.assertEqual(review['review_status'], 'candidate')
         self.assertFalse(review['use_suggested_metadata'])
@@ -111,13 +153,25 @@ class GroupedReviewTests(unittest.TestCase):
         paper = value['papers'][0]
         corrected = {key: paper[key] for key in ('title', 'authors', 'year', 'doi', 'venue', 'publication_type')}
         corrected['venue'] = 'Checked formal venue'
-        view = grouped(value, {'observations': [{'candidate_ids': [paper['candidate_id']], 'source_role': 'formal_publication',
-                                               'access_status': 'metadata_observed', 'url': 'https://publisher.example.edu/checked',
-                                               'metadata': corrected}]})
+        view = grouped(
+            value,
+            {
+                'observations': [
+                    {
+                        'candidate_ids': [paper['candidate_id']],
+                        'source_role': 'formal_publication',
+                        'access_status': 'metadata_observed',
+                        'url': 'https://publisher.example.edu/checked',
+                        'metadata': corrected,
+                    }
+                ]
+            },
+        )
         annotations = review_template(view)
         review = review_rows(value)[0]
-        annotations['groups'][0]['human_review'].update({key: val for key, val in review.items()
-                                                        if key in annotations['groups'][0]['human_review']})
+        annotations['groups'][0]['human_review'].update(
+            {key: val for key, val in review.items() if key in annotations['groups'][0]['human_review']}
+        )
         annotations['groups'][0]['human_review'].update(use_suggested_metadata=True, identity_checked=True)
         rows = annotation_rows(value, view, annotations)
         self.assertEqual(rows[0]['identity_checked'], 'true')
@@ -210,11 +264,16 @@ class CandidateRevisionTests(unittest.TestCase):
         revised = prepare_revision(dataset(), source_pack())
         adjudicated = validate_reviews(revised, review_rows(revised))
         checks = coverage()
-        checks['omissions'] = [{'omission_id': 'missing_journal', 'decision': 'out_of_scope', 'human_notes': 'Excluded'}]
+        checks['omissions'] = [
+            {'omission_id': 'missing_journal', 'decision': 'out_of_scope', 'human_notes': 'Excluded'}
+        ]
         reasons = completeness_reasons(adjudicated, checks, revised['review_requirements'])
         self.assertTrue(any('cannot be hidden' in reason for reason in reasons))
-        checks['omissions'][0].update(decision='already_covered', covered_candidate_id=revised['papers'][-1]['candidate_id'],
-                                     human_notes='Reviewed actual journal identity; included independently')
+        checks['omissions'][0].update(
+            decision='already_covered',
+            covered_candidate_id=revised['papers'][-1]['candidate_id'],
+            human_notes='Reviewed actual journal identity; included independently',
+        )
         reasons = completeness_reasons(adjudicated, checks, revised['review_requirements'])
         self.assertFalse(any('omission' in reason.lower() for reason in reasons))
 
@@ -222,8 +281,14 @@ class CandidateRevisionTests(unittest.TestCase):
         revised = prepare_revision(dataset(), source_pack())
         adjudicated = validate_reviews(revised, review_rows(revised))
         checks = coverage()
-        checks['omissions'] = [{'omission_id': 'missing_journal', 'decision': 'already_covered',
-                               'covered_candidate_id': revised['papers'][0]['candidate_id'], 'human_notes': 'Covered'}]
+        checks['omissions'] = [
+            {
+                'omission_id': 'missing_journal',
+                'decision': 'already_covered',
+                'covered_candidate_id': revised['papers'][0]['candidate_id'],
+                'human_notes': 'Covered',
+            }
+        ]
         reasons = completeness_reasons(adjudicated, checks, revised['review_requirements'])
         self.assertTrue(any('actual new reference identity' in reason for reason in reasons))
 

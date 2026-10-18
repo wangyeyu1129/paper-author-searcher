@@ -1,31 +1,35 @@
 """Confirmed identity selection and conservative, traceable metadata deduplication."""
+
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from .config import CONTENDER_STATUS
+from .models import PaperCollectionResult, PaperSourceResult
 from .paper_deduplication import deduplicate_papers
 from .paper_ownership import PaperOwnershipValidator
-from .models import PaperSourceResult, PaperCollectionResult
-from .paper_providers import OpenAlexPaperProvider, SemanticScholarPaperProvider, DBLPPaperProvider
+from .paper_providers import DBLPPaperProvider, OpenAlexPaperProvider, SemanticScholarPaperProvider
 
 
 class IdentityConfirmationRequired(ValueError):
     pass
 
+
 def hold_for_review(papers, contenders):
     """Papers gathered from competing namesake profiles are leads, never verified authorship."""
-    note = 'Identity unconfirmed: collected from {} competing profiles; verification withheld'.format(contenders)
+    note = f'Identity unconfirmed: collected from {contenders} competing profiles; verification withheld'
     for paper in papers:
-        for record in [paper] + list(paper.records):
+        for record in [paper, *list(paper.records)]:
             if record.ownership_status == 'verified':
                 record.ownership_status = 'needs_review'
-                record.ownership_evidence = list(record.ownership_evidence) + [note]
+                record.ownership_evidence = [*list(record.ownership_evidence), note]
 
 
 class PaperCollector:
     def __init__(self, providers=None, ownership_validator=None):
         if providers is None:
             providers = [
-                OpenAlexPaperProvider(), SemanticScholarPaperProvider(), DBLPPaperProvider(),
+                OpenAlexPaperProvider(),
+                SemanticScholarPaperProvider(),
+                DBLPPaperProvider(),
             ]
         self.providers = providers
         self.ownership_validator = ownership_validator or PaperOwnershipValidator()
@@ -44,7 +48,7 @@ class PaperCollector:
         selected = {}
         for source, author_id in profile.author_ids.items():
             aliases = profile.author_id_aliases.get(source) or [author_id]
-            selected[source] = sorted(set(aliases + [author_id]))
+            selected[source] = sorted({*aliases, author_id})
         if not selected:
             raise IdentityConfirmationRequired('No confirmed Author IDs available')
         if profile.status == CONTENDER_STATUS:
@@ -59,15 +63,23 @@ class PaperCollector:
         # Missing identity in a configured source is a coverage gap, not an empty bibliography.
         for source in sorted(set(available) | set(selected)):
             if source not in selected:
-                sources.append(PaperSourceResult(
-                    source=source, author_id=None, error='No confirmed Author ID for this source',
-                ))
+                sources.append(
+                    PaperSourceResult(
+                        source=source,
+                        author_id=None,
+                        error='No confirmed Author ID for this source',
+                    )
+                )
                 continue
             for author_id in selected[source]:
                 if source not in available:
-                    sources.append(PaperSourceResult(
-                        source=source, author_id=author_id, error='Paper Provider unavailable',
-                    ))
+                    sources.append(
+                        PaperSourceResult(
+                            source=source,
+                            author_id=author_id,
+                            error='Paper Provider unavailable',
+                        )
+                    )
                 else:
                     tasks.append((available[source], author_id))
         with ThreadPoolExecutor(max_workers=max(1, len(available))) as pool:
@@ -95,7 +107,10 @@ class PaperCollector:
         if confirmation == CONTENDER_STATUS:
             hold_for_review(papers, len(selected.get('openalex', [])) or sum(map(len, selected.values())))
         return PaperCollectionResult(
-            papers=papers, sources=sources, complete=complete,
-            selected_author_ids=selected, identity_confirmation=confirmation,
+            papers=papers,
+            sources=sources,
+            complete=complete,
+            selected_author_ids=selected,
+            identity_confirmation=confirmation,
             professor_identity_status=profile.status,
         )

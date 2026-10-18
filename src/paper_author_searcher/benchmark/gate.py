@@ -1,4 +1,5 @@
 """Release gate: every configured stratum must reach every configured metric threshold."""
+
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import Dict, List, Tuple
@@ -26,8 +27,13 @@ class GateResult:
         return EXIT_CODES[self.status]
 
     def to_dict(self) -> dict:
-        return {'status': self.status.value, 'exit_code': self.exit_code, 'reasons': self.reasons,
-                'failed_checks': [check for check in self.checks if not check['passed']], 'checks': self.checks}
+        return {
+            'status': self.status.value,
+            'exit_code': self.exit_code,
+            'reasons': self.reasons,
+            'failed_checks': [check for check in self.checks if not check['passed']],
+            'checks': self.checks,
+        }
 
 
 class ReleaseGate:
@@ -47,24 +53,36 @@ class ReleaseGate:
                 if observed is None:
                     reason = 'metric unavailable'
                 elif not enough_people:
-                    reason = 'only {} people with a rate; need {}'.format(metric['people_with_rate'],
-                                                                         self.settings.minimum_people_per_stratum)
+                    reason = 'only {} people with a rate; need {}'.format(
+                        metric['people_with_rate'], self.settings.minimum_people_per_stratum
+                    )
                 elif observed < rule.minimum:
                     reason = 'below threshold'
-                checks.append({'stratum': '{}={}'.format(dimension, value), 'metric': rule.metric,
-                               'label': rule.label or rule.metric, 'aggregation': aggregation,
-                               'observed': observed, 'minimum': rule.minimum, 'worst_person_rate': metric['minimum'],
-                               'people_with_rate': metric['people_with_rate'], 'passed': passed, 'reason': reason})
+                checks.append(
+                    {
+                        'stratum': f'{dimension}={value}',
+                        'metric': rule.metric,
+                        'label': rule.label or rule.metric,
+                        'aggregation': aggregation,
+                        'observed': observed,
+                        'minimum': rule.minimum,
+                        'worst_person_rate': metric['minimum'],
+                        'people_with_rate': metric['people_with_rate'],
+                        'passed': passed,
+                        'reason': reason,
+                    }
+                )
         reasons = []
         if any(not check['passed'] for check in checks):
             status = GateStatus.FAILED
-            reasons.append('{} of {} stratum checks failed'.format(sum(not check['passed'] for check in checks),
-                                                                   len(checks)))
+            reasons.append(
+                '{} of {} stratum checks failed'.format(sum(not check['passed'] for check in checks), len(checks))
+            )
         else:
             status = GateStatus.PASSED
         provisional = sum(stratum['provisional_people'] for key, stratum in aggregates.items() if key[0] == 'overall')
         if provisional and self.settings.require_human_review:
-            reasons.append('{} people are scored against provisional (not human-reviewed) truth'.format(provisional))
+            reasons.append(f'{provisional} people are scored against provisional (not human-reviewed) truth')
             if status is GateStatus.PASSED:
                 status = GateStatus.NOT_CERTIFIABLE
         return GateResult(status, checks, reasons)

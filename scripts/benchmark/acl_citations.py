@@ -2,6 +2,7 @@
 
 Usage: acl_citations.py URL START_YEAR END_YEAR OUT_JSON SCOPE_NOTE
 """
+
 import html
 import json
 import re
@@ -41,15 +42,25 @@ def main(argv):
         venue = re.sub(r'\[[^\]]*\]', '', match.group('venue')).strip(' .')
         work_type = kind(venue)
         venue = re.sub(r'^In (Proceedings of )?', '', venue)
-        item = {'title': match.group('title').rstrip('.'), 'year': int(match.group('year')), 'type': work_type,
-                'venue': venue, 'authors': split_authors(match.group('authors'))}
+        item = {
+            'title': match.group('title').rstrip('.'),
+            'year': int(match.group('year')),
+            'type': work_type,
+            'venue': venue,
+            'authors': split_authors(match.group('authors')),
+        }
         arxiv = ARXIV.search(match.group('venue'))
         if arxiv:
             item['arxiv'] = arxiv.group(1)
         entries.append(item)
-    snapshot = {'snapshot_schema_version': 1, 'source_url': url, 'captured_at': date.today().isoformat(),
-                'captured_by': 'Script parsing of ACL-style citations on the public page; pending human review',
-                'scope_note': note, 'entries': entries}
+    snapshot = {
+        'snapshot_schema_version': 1,
+        'source_url': url,
+        'captured_at': date.today().isoformat(),
+        'captured_by': 'Script parsing of ACL-style citations on the public page; pending human review',
+        'scope_note': note,
+        'entries': entries,
+    }
     with open(out, 'w', encoding='utf-8') as handle:
         json.dump(snapshot, handle, ensure_ascii=False, indent=1)
         handle.write('\n')

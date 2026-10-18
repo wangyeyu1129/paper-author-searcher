@@ -1,4 +1,5 @@
 """Offline evaluation CLI; importing this module does not contact any API."""
+
 import argparse
 import json
 from pathlib import Path
@@ -18,9 +19,15 @@ def main(argv=None):
         truth_data = json.loads(args.ground_truth.read_text(encoding='utf-8'))
         metadata = truth_data.get('metadata') or {}
         if 'formal_evaluation_ready' in metadata:
-            raise ValueError('Pilot reference sets require the independent result audit; '
-                             'use python -m scripts.ground_truth.evaluate_pilot')
-        if metadata.get('annotation_state') in ('candidate_collection', 'partially_human_reviewed', 'review_incomplete'):
+            raise ValueError(
+                'Pilot reference sets require the independent result audit; '
+                'use python -m scripts.ground_truth.evaluate_pilot'
+            )
+        if metadata.get('annotation_state') in (
+            'candidate_collection',
+            'partially_human_reviewed',
+            'review_incomplete',
+        ):
             raise ValueError('Ground Truth human review is unfinished; formal Precision/Recall is unavailable')
         truth = GroundTruth.from_dict(truth_data)
         report = Evaluator().evaluate(saved, truth)
@@ -30,8 +37,9 @@ def main(argv=None):
         parser.error(str(exc))
     deduplication = report['deduplication']
     if deduplication is not None:
-        deduplication = {key: value for key, value in deduplication.items()
-                         if key not in ('incorrect_merges', 'missed_duplicates')}
+        deduplication = {
+            key: value for key, value in deduplication.items() if key not in ('incorrect_merges', 'missed_duplicates')
+        }
     retrieval = dict(report['retrieval'])
     retrieval['sources'] = [
         {key: value for key, value in source.items() if key != 'rejected_records'}

@@ -1,14 +1,15 @@
 """Prepare public-source bibliography references for human review, never invent labels."""
+
 import argparse
 import hashlib
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .config import DEFAULT_PDF, DEFAULT_MATCHING
+from .config import DEFAULT_MATCHING, DEFAULT_PDF
 from .http import HttpClient, SourceError
 from .matching import name_similarity
-from .paper_providers import parse_year
 from .paper_authorship import byline_forms
+from .paper_providers import parse_year
 from .pdf_providers import CitationMetadata
 from .workflow import read_json, write_json
 
@@ -20,8 +21,9 @@ def prepare_reference(pages, professor_name, client=None):
     for page in pages:
         url = page['url']
         try:
-            response = client.probe(url, DEFAULT_PDF.preview_bytes, DEFAULT_PDF.catalog_preview_bytes,
-                                    DEFAULT_PDF.maximum_redirects)
+            response = client.probe(
+                url, DEFAULT_PDF.preview_bytes, DEFAULT_PDF.catalog_preview_bytes, DEFAULT_PDF.maximum_redirects
+            )
             if response.content_type not in ('text/html', 'application/xhtml+xml'):
                 raise SourceError('Reference page did not return HTML metadata')
             if len(response.prefix) >= DEFAULT_PDF.catalog_preview_bytes:
@@ -40,28 +42,46 @@ def prepare_reference(pages, professor_name, client=None):
             arxiv = (values.get('citation_arxiv_id') or [None])[0]
             if not doi and (not authors or year is None):
                 raise SourceError('Reference page lacks a DOI or complete title/year/authors metadata')
-            compatible = any(name_similarity(professor_name, name) >= DEFAULT_MATCHING.compatible_name for name in authors)
-            entries.append({
-                'evaluation_id': 'reference-' + hashlib.sha256(url.encode('utf-8')).hexdigest()[:16],
-                'ownership': 'uncertain', 'proposed_ownership': 'belongs' if compatible else 'uncertain',
-                'annotation_status': 'pending_human_review',
-                'title': titles[0], 'authors': authors, 'year': year,
-                'original_authors': original_authors,
-                **({'doi': doi} if doi else {}),
-                **({'external_ids': {'arxiv': arxiv}} if arxiv else {}),
-                'annotation_evidence': ['Public publisher/preprint citation metadata: ' + response.url,
-                                        'Bibliography/source context: ' + page.get('context', '')],
-                'reference_url': response.url,
-                'observed_pdf_links': values.get('citation_pdf_url') or [],
-            })
+            compatible = any(
+                name_similarity(professor_name, name) >= DEFAULT_MATCHING.compatible_name for name in authors
+            )
+            entries.append(
+                {
+                    'evaluation_id': 'reference-' + hashlib.sha256(url.encode('utf-8')).hexdigest()[:16],
+                    'ownership': 'uncertain',
+                    'proposed_ownership': 'belongs' if compatible else 'uncertain',
+                    'annotation_status': 'pending_human_review',
+                    'title': titles[0],
+                    'authors': authors,
+                    'year': year,
+                    'original_authors': original_authors,
+                    **({'doi': doi} if doi else {}),
+                    **({'external_ids': {'arxiv': arxiv}} if arxiv else {}),
+                    'annotation_evidence': [
+                        'Public publisher/preprint citation metadata: ' + response.url,
+                        'Bibliography/source context: ' + page.get('context', ''),
+                    ],
+                    'reference_url': response.url,
+                    'observed_pdf_links': values.get('citation_pdf_url') or [],
+                }
+            )
         except (SourceError, ValueError, TypeError) as exc:
             errors.append({'url': url, 'error': str(exc)})
-    return {'schema_version': 1, 'complete_positive_list': False,
-            'metadata': {'annotation_state': 'pending_human_review', 'reviewer': '', 'reviewed_at': '',
-                         'prepared_at': datetime.now(timezone.utc).isoformat(), 'professor_name': professor_name,
-                         'scope': 'Explicit input bibliography pages; not a complete professor bibliography',
-                         'provenance': 'Citation metadata extracted from public source pages; not human adjudication'},
-            'papers': entries, 'import_errors': errors}
+    return {
+        'schema_version': 1,
+        'complete_positive_list': False,
+        'metadata': {
+            'annotation_state': 'pending_human_review',
+            'reviewer': '',
+            'reviewed_at': '',
+            'prepared_at': datetime.now(timezone.utc).isoformat(),
+            'professor_name': professor_name,
+            'scope': 'Explicit input bibliography pages; not a complete professor bibliography',
+            'provenance': 'Citation metadata extracted from public source pages; not human adjudication',
+        },
+        'papers': entries,
+        'import_errors': errors,
+    }
 
 
 def main(argv=None):
@@ -81,8 +101,11 @@ def main(argv=None):
         write_json(args.output, report)
     except (OSError, ValueError, KeyError) as exc:
         parser.error(str(exc))
-    print('Prepared {} pending references; {} import errors. No human labels were supplied.'.format(
-        len(report['papers']), len(report['import_errors'])))
+    print(
+        'Prepared {} pending references; {} import errors. No human labels were supplied.'.format(
+            len(report['papers']), len(report['import_errors'])
+        )
+    )
     return 2 if report['import_errors'] else 0
 
 

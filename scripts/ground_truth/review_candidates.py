@@ -1,4 +1,5 @@
 """Validate explicit human CSV annotations; never infer labels or compute metrics."""
+
 import argparse
 import csv
 import json
@@ -10,7 +11,6 @@ from urllib.parse import urlsplit
 
 from scripts.ground_truth.build_candidates import REVIEW_COLUMNS, read_json, write_json
 
-
 CHECKS = ('identity_checked', 'metadata_checked', 'type_checked', 'version_checked')
 TRUE_VALUES = {'true', 'yes', '1'}
 
@@ -18,8 +18,8 @@ TRUE_VALUES = {'true', 'yes', '1'}
 def _date(value):
     try:
         parsed = datetime.fromisoformat(value.replace('Z', '+00:00'))
-    except (TypeError, ValueError):
-        raise ValueError('reviewed_at must be an ISO-8601 timestamp')
+    except (TypeError, ValueError) as exc:
+        raise ValueError('reviewed_at must be an ISO-8601 timestamp') from exc
     if parsed.tzinfo is None:
         raise ValueError('reviewed_at must include a timezone')
 
@@ -36,7 +36,9 @@ def _evidence(value):
 
 
 def _review_metadata(paper, row):
-    metadata = {name: deepcopy(paper.get(name)) for name in ('title', 'authors', 'year', 'doi', 'publication_type', 'venue')}
+    metadata = {
+        name: deepcopy(paper.get(name)) for name in ('title', 'authors', 'year', 'doi', 'publication_type', 'venue')
+    }
     for name in ('title', 'doi', 'publication_type', 'venue'):
         value = row.get('reviewed_' + name, '').strip()
         if value:
@@ -54,14 +56,16 @@ def _review_metadata(paper, row):
 def validate_reviews(dataset, rows):
     candidates = {paper['candidate_id']: paper for paper in dataset['papers']}
     scope = dataset['scope']
-    types = set(scope['core_publication_types'] + scope['extended_publication_types'] + scope['excluded_publication_types'])
+    types = set(
+        scope['core_publication_types'] + scope['extended_publication_types'] + scope['excluded_publication_types']
+    )
     reviewed = deepcopy(candidates)
     seen = set()
     groups = {}
     for row in rows:
         candidate_id = row.get('candidate_id')
         if candidate_id not in candidates or candidate_id in seen:
-            raise ValueError('Unknown or repeated candidate_id: {}'.format(candidate_id))
+            raise ValueError(f'Unknown or repeated candidate_id: {candidate_id}')
         seen.add(candidate_id)
         paper = reviewed[candidate_id]
         if row.get('professor_id') != paper['professor_id']:
@@ -71,7 +75,7 @@ def validate_reviews(dataset, rows):
         for field in ('year', 'doi', 'publication_type', 'venue'):
             expected = '' if paper.get(field) is None else str(paper[field])
             if row.get(field, expected) != expected:
-                raise ValueError('Original {} is immutable; use reviewed metadata columns'.format(field))
+                raise ValueError(f'Original {field} is immutable; use reviewed metadata columns')
         status = (row.get('review_status') or 'candidate').strip().lower()
         ownership = (row.get('ownership') or 'uncertain').strip().lower()
         inclusion = (row.get('inclusion_decision') or 'pending').strip().lower()
@@ -113,23 +117,36 @@ def validate_reviews(dataset, rows):
                 year = metadata['year']
                 if ownership != 'belongs' or metadata['publication_type'] not in scope['core_publication_types']:
                     raise ValueError('Core inclusion requires target ownership and a core publication type')
-                if not isinstance(year, int) or not scope['year_start'] <= year <= scope['year_end'] or not metadata['authors']:
+                if (
+                    not isinstance(year, int)
+                    or not scope['year_start'] <= year <= scope['year_end']
+                    or not metadata['authors']
+                ):
                     raise ValueError('Core inclusion requires an in-scope year and a checked author list')
         paper.update(metadata, review_status=status, ownership=ownership, inclusion_decision=inclusion)
         year = paper['year']
         paper['in_scope'] = isinstance(year, int) and scope['year_start'] <= year <= scope['year_end']
         paper['annotation_status'] = 'human_reviewed' if status == 'confirmed' else 'human_reviewed_uncertain'
         paper['annotation_evidence'] = evidence
-        paper['human_review'] = {name: row.get(name, '') for name in REVIEW_COLUMNS
-                                 if name not in ('review_status', 'ownership', 'inclusion_decision')}
+        paper['human_review'] = {
+            name: row.get(name, '')
+            for name in REVIEW_COLUMNS
+            if name not in ('review_status', 'ownership', 'inclusion_decision')
+        }
     values = list(reviewed.values())
     counts = Counter(paper['review_status'] for paper in values)
-    return {'dataset_schema_version': 1, 'dataset_id': dataset['dataset_id'], 'scope': scope,
-            'annotation_state': 'partially_human_reviewed' if counts.get('confirmed') else 'candidate_collection',
-            'complete_positive_list': False, 'papers': values, 'review_status_counts': dict(counts),
-            'note': 'Mechanical annotation validation only; it cannot prove reviewers actually checked sources. '
-                    'Canonical groups, excluded types and unresolved entries still need scope-aware final curation. '
-                    'No Precision/Recall is computed.'}
+    return {
+        'dataset_schema_version': 1,
+        'dataset_id': dataset['dataset_id'],
+        'scope': scope,
+        'annotation_state': 'partially_human_reviewed' if counts.get('confirmed') else 'candidate_collection',
+        'complete_positive_list': False,
+        'papers': values,
+        'review_status_counts': dict(counts),
+        'note': 'Mechanical annotation validation only; it cannot prove reviewers actually checked sources. '
+        'Canonical groups, excluded types and unresolved entries still need scope-aware final curation. '
+        'No Precision/Recall is computed.',
+    }
 
 
 def main(argv=None):

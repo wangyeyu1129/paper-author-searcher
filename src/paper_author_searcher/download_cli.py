@@ -1,4 +1,5 @@
 """Download from saved PDF Resolver JSON without author or paper API searches."""
+
 import argparse
 import json
 import math
@@ -14,11 +15,15 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description='Safely download and parse PDFs from a saved URL report')
     parser.add_argument('--input', type=Path, required=True)
     parser.add_argument('--output-dir', type=Path, required=True)
-    parser.add_argument('--max-downloads', type=int, help='Maximum eligible paper attempts in this run; completed files do not count')
+    parser.add_argument(
+        '--max-downloads', type=int, help='Maximum eligible paper attempts in this run; completed files do not count'
+    )
     parser.add_argument('--timeout', type=float, help='HTTP timeout in seconds')
     parser.add_argument('--retries', type=int, help='HTTP retry count; interrupted transfers restart safely')
     parser.add_argument('--max-file-mb', type=float, help='Single-file size limit in MiB')
-    parser.add_argument('--include-needs-review', action='store_true', help='Allow needs_review ownership; URL must still be verified')
+    parser.add_argument(
+        '--include-needs-review', action='store_true', help='Allow needs_review ownership; URL must still be verified'
+    )
     args = parser.parse_args(argv)
     if args.input.resolve() == (args.output_dir / 'manifest.json').resolve():
         parser.error('Input must differ from the output manifest')
@@ -44,10 +49,14 @@ def main(argv=None):
     except (OSError, ValueError, RuntimeError) as exc:
         parser.error(str(exc))
     statistics = manifest['statistics']
-    print('Input: {total_input_papers}; attempted: {attempted_papers}; new files: {downloaded_files}; '
-          'verified: {verified_papers}; needs review: {needs_review_papers}; failed: {failed_papers}'.format(**statistics))
-    print('Reused: {reused_existing_papers}; content duplicates: {duplicate_content_papers}; '
-          'skipped: {skipped_papers}'.format(**statistics))
+    print(
+        'Input: {total_input_papers}; attempted: {attempted_papers}; new files: {downloaded_files}; '
+        'verified: {verified_papers}; needs review: {needs_review_papers}; failed: {failed_papers}'.format(**statistics)
+    )
+    print(
+        'Reused: {reused_existing_papers}; content duplicates: {duplicate_content_papers}; '
+        'skipped: {skipped_papers}'.format(**statistics)
+    )
     print('Manifest: {}'.format(args.output_dir / 'manifest.json'))
     if statistics['failed_papers'] or statistics['needs_review_papers']:
         return 2

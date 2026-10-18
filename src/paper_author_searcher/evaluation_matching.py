@@ -1,4 +1,5 @@
 """Ground-truth matching independent of retrieval/ownership heuristics."""
+
 from dataclasses import dataclass, field
 from typing import List, Optional
 
@@ -51,7 +52,7 @@ class GroundTruth:
                 raise ValueError('Ground truth needs stable identifiers or title, year and authors')
             for key in keys:
                 if key in identifiers:
-                    raise ValueError('Stable identifier assigned to multiple evaluation IDs: {}'.format(key))
+                    raise ValueError(f'Stable identifier assigned to multiple evaluation IDs: {key}')
                 identifiers[key] = evaluation_id
         complete = data.get('complete_positive_list', False)
         if not isinstance(complete, bool):
@@ -63,7 +64,7 @@ class GroundTruth:
             author_id_map = professor.get('author_ids', {})
             if not isinstance(author_id_map, dict):
                 raise ValueError('professor author_ids must be an object')
-            for source, author_ids in author_id_map.items():
+            for author_ids in author_id_map.values():
                 if not isinstance(author_ids, list) or not all(isinstance(value, str) for value in author_ids):
                     raise ValueError('professor author_ids must map sources to string lists')
             if not isinstance(professor.get('author_ids_complete', False), bool):
@@ -80,12 +81,11 @@ def _validate_metadata(paper):
     for key in ('title', 'venue'):
         if paper.get(key) is not None and not isinstance(paper[key], str):
             raise ValueError(key + ' must be a string')
-    if paper.get('year') is not None:
-        if not isinstance(paper['year'], int) or isinstance(paper['year'], bool):
-            raise ValueError('year must be an integer')
-    if 'authors' in paper:
-        if not isinstance(paper['authors'], list) or not all(isinstance(name, str) for name in paper['authors']):
-            raise ValueError('authors must be a list of strings')
+    if paper.get('year') is not None and (not isinstance(paper['year'], int) or isinstance(paper['year'], bool)):
+        raise ValueError('year must be an integer')
+    authors = paper.get('authors', [])
+    if not isinstance(authors, list) or not all(isinstance(name, str) for name in authors):
+        raise ValueError('authors must be a list of strings')
 
 
 def stable_identifiers(paper):
@@ -116,7 +116,7 @@ def stable_identifiers(paper):
     if not isinstance(records, list):
         raise ValueError('source_records must be a list')
     if paper.get('source') and paper.get('source_paper_id'):
-        records = records + [{'source': paper['source'], 'paper_id': paper['source_paper_id']}]
+        records = [*records, {'source': paper['source'], 'paper_id': paper['source_paper_id']}]
     for record in records:
         if not isinstance(record, dict):
             raise ValueError('source_records entries must be objects')
@@ -136,7 +136,7 @@ def metadata_key(paper):
     authors = paper.get('authors') or []
     if not title or year is None or not authors:
         return None
-    normalized_authors = tuple(sorted(set(normalize(byline_forms(name)[-1]) for name in authors)))
+    normalized_authors = tuple(sorted({normalize(byline_forms(name)[-1]) for name in authors}))
     if not all(normalized_authors):
         return None
     normalized_title = normalize(title)
@@ -191,7 +191,10 @@ class GroundTruthMatcher:
             compatible.add(evaluation_id)
         if compatible:
             return self._resolve(
-                paper, compatible, ['Exact normalized title, year and full author set match'], 'metadata',
+                paper,
+                compatible,
+                ['Exact normalized title, year and full author set match'],
+                'metadata',
             )
         title_year = (normalize(paper.get('title') or ''), paper.get('year'))
         signatures = set()
@@ -201,21 +204,31 @@ class GroundTruthMatcher:
             if _bibliographic_authors_agree(paper.get('authors') or [], description.get('authors') or []):
                 signatures.add(evaluation_id)
         if signatures:
-            return self._resolve(paper, signatures,
-                                 ['Exact title/year and complete author signatures agree; bibliographic initials/middle-name omissions normalized'],
-                                 'metadata_signatures')
+            return self._resolve(
+                paper,
+                signatures,
+                [
+                    'Exact title/year and complete author signatures agree; bibliographic '
+                    'initials/middle-name omissions normalized'
+                ],
+                'metadata_signatures',
+            )
         return TruthMatch(evidence=['No adjudicated ground-truth match'])
 
     def _resolve(self, paper, ids, evidence, method):
         if len(ids) != 1:
-            return TruthMatch(candidates=sorted(ids), evidence=evidence + ['Multiple truth identities match'],
-                              decision='ambiguous')
+            return TruthMatch(
+                candidates=sorted(ids), evidence=[*evidence, 'Multiple truth identities match'], decision='ambiguous'
+            )
         evaluation_id = next(iter(ids))
         observed_dois = {key for key in stable_identifiers(paper) if key[0] == 'doi'}
         expected_dois = {key for key in stable_identifiers(self.by_id[evaluation_id]) if key[0] == 'doi'}
         if observed_dois and expected_dois and not observed_dois.intersection(expected_dois):
-            return TruthMatch(candidates=[evaluation_id], evidence=evidence + ['Conflicting DOI/version evidence'],
-                              decision='identifier_conflict')
+            return TruthMatch(
+                candidates=[evaluation_id],
+                evidence=[*evidence, 'Conflicting DOI/version evidence'],
+                decision='identifier_conflict',
+            )
         return TruthMatch(evaluation_id, [evaluation_id], evidence, method)
 
 
@@ -251,6 +264,7 @@ def _bibliographic_authors_agree(left, right):
         choices.append([index for index, other in enumerate(right) if bibliographic_name_agrees(name, other)])
     # A complete matching avoids greedily assigning an abbreviated name to the wrong author.
     assigned = {}
+
     def assign(position, visited):
         for index in choices[position]:
             if index in visited:
@@ -260,4 +274,5 @@ def _bibliographic_authors_agree(left, right):
                 assigned[index] = position
                 return True
         return False
+
     return all(assign(position, set()) for position in range(len(left)))

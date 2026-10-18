@@ -1,4 +1,5 @@
 """Bounded resource probes plus metadata identity, never complete PDF retrieval."""
+
 import re
 
 from .config import DEFAULT_PDF
@@ -14,7 +15,8 @@ class PDFURLValidator:
     def validate(self, candidate, paper=None):
         try:
             response = self.client.probe(
-                candidate.url, self.config.preview_bytes,
+                candidate.url,
+                self.config.preview_bytes,
                 maximum_redirects=self.config.maximum_redirects,
             )
         except (SourceError, ValueError) as exc:
@@ -31,7 +33,7 @@ class PDFURLValidator:
         candidate.bytes_read = len(response.prefix)
         if not 200 <= response.status < 300:
             candidate.access_status = 'unreachable'
-            candidate.error_details.append('HTTP {}'.format(response.status))
+            candidate.error_details.append(f'HTTP {response.status}')
             return candidate
         candidate.access_status = 'publicly_accessible'
         if response.status == 206 and not self._starts_at_zero(response.headers):
@@ -56,7 +58,9 @@ class PDFURLValidator:
             candidate.error_details.append('PDF is accessible but paper identity conflicts')
         elif candidate.identity_status == 'verified' and candidate.access_basis:
             candidate.validation_status = 'verified'
-            candidate.validation_evidence.append('Correspondence established by public source metadata, not full-text analysis')
+            candidate.validation_evidence.append(
+                'Correspondence established by public source metadata, not full-text analysis'
+            )
         else:
             candidate.error_details.append('PDF signature confirmed, but paper correspondence remains unverified')
         return candidate
@@ -77,7 +81,7 @@ class PDFURLValidator:
             if re.sub(r'v\d+$', '', linked_id) not in known_papers:
                 return True
         for record in candidate.provenance:
-            if record.get('provider') == 'arxiv' and returned:
-                if not same_arxiv_version(record['source_paper_id'], returned):
-                    return True
+            arxiv = record.get('provider') == 'arxiv'
+            if arxiv and returned and not same_arxiv_version(record['source_paper_id'], returned):
+                return True
         return False

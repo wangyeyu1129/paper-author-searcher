@@ -8,10 +8,23 @@ from paper_author_searcher.pdf_discovery_comparison import compare_runs, summari
 
 
 def paper(title='A general method', verified=True):
-    return {'title': title, 'year': 2020, 'authors': ['Example Author'], 'ownership_status': 'verified',
-            'validation_status': 'verified' if verified else 'not_found', 'pdf_candidates': [
-                {'url': 'https://repo.example.edu/' + title + '.pdf', 'source': 'public_api',
-                 'validation_status': 'verified', 'identity_status': 'verified'}] if verified else []}
+    return {
+        'title': title,
+        'year': 2020,
+        'authors': ['Example Author'],
+        'ownership_status': 'verified',
+        'validation_status': 'verified' if verified else 'not_found',
+        'pdf_candidates': [
+            {
+                'url': 'https://repo.example.edu/' + title + '.pdf',
+                'source': 'public_api',
+                'validation_status': 'verified',
+                'identity_status': 'verified',
+            }
+        ]
+        if verified
+        else [],
+    }
 
 
 class ComparisonTests(unittest.TestCase):
@@ -51,8 +64,15 @@ class ComparisonTests(unittest.TestCase):
                 compare_runs([first], [second])
 
     def test_missing_file_is_not_counted_as_content_confirmation(self):
-        entry = dict(paper(), download_status='downloaded', format_status='valid', identity_status='verified',
-                     local_filename='nonexistent.pdf', sha256='bad', file_size=1)
+        entry = dict(
+            paper(),
+            download_status='downloaded',
+            format_status='valid',
+            identity_status='verified',
+            local_filename='nonexistent.pdf',
+            sha256='bad',
+            file_size=1,
+        )
         with tempfile.TemporaryDirectory() as directory:
             root = self.write_run(Path(directory), 'run', [paper()], [entry])
             value = summarize_runs([root])
@@ -71,10 +91,16 @@ class ComparisonTests(unittest.TestCase):
                 compare_runs([first], [second])
 
     def test_format_valid_does_not_imply_content_verified(self):
-        entry = dict(paper(), download_status='downloaded', format_status='valid', identity_status='needs_review',
-                     validation_status='needs_review')
+        entry = dict(
+            paper(),
+            download_status='downloaded',
+            format_status='valid',
+            identity_status='needs_review',
+            validation_status='needs_review',
+        )
         with tempfile.TemporaryDirectory() as directory, patch(
-                'paper_author_searcher.pdf_discovery_comparison._check_file', return_value=(True, 'verified checksum')):
+            'paper_author_searcher.pdf_discovery_comparison._check_file', return_value=(True, 'verified checksum')
+        ):
             root = self.write_run(Path(directory), 'run', [paper()], [entry])
             value = summarize_runs([root])
             self.assertEqual(value['valid_downloaded_file_coverage']['numerator'], 1)
@@ -92,17 +118,26 @@ class ComparisonTests(unittest.TestCase):
             self.assertEqual(len(value['lost_verified_pdf_paper_keys']), 1)
 
     def test_cooldown_partial_and_disabled_sources_remain_incomplete(self):
-        entries = [dict(paper(str(index)), providers=[{'source': 'public_pages', 'status': status}])
-                   for index, status in enumerate(('partial', 'disabled', 'not_found', 'ok'))]
+        entries = [
+            dict(paper(str(index)), providers=[{'source': 'public_pages', 'status': status}])
+            for index, status in enumerate(('partial', 'disabled', 'not_found', 'ok'))
+        ]
         with tempfile.TemporaryDirectory() as directory:
             root = self.write_run(Path(directory), 'run', entries)
             self.assertEqual(summarize_runs([root])['search_completion_rate']['numerator'], 2)
 
     def test_poster_is_valid_file_but_not_confirmed_complete_paper(self):
-        entry = dict(paper(), download_status='non_full_document', format_status='valid',
-                     identity_status='verified', validation_status='needs_review', document_type='poster')
+        entry = dict(
+            paper(),
+            download_status='non_full_document',
+            format_status='valid',
+            identity_status='verified',
+            validation_status='needs_review',
+            document_type='poster',
+        )
         with tempfile.TemporaryDirectory() as directory, patch(
-                'paper_author_searcher.pdf_discovery_comparison._check_file', return_value=(True, 'verified checksum')):
+            'paper_author_searcher.pdf_discovery_comparison._check_file', return_value=(True, 'verified checksum')
+        ):
             root = self.write_run(Path(directory), 'run', [paper()], [entry])
             value = summarize_runs([root])
             self.assertEqual(value['valid_downloaded_file_coverage']['numerator'], 1)
