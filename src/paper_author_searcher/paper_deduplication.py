@@ -2,7 +2,7 @@
 
 from dataclasses import asdict
 from itertools import combinations
-from typing import Any, Dict, List, Sequence, Set, Tuple
+from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
 
 from .config import DEFAULT_DEDUPLICATION, DeduplicationConfig
 from .matching import canonical_doi, name_similarity, normalize
@@ -102,6 +102,8 @@ def deduplicate_papers(
     records: Sequence[PaperRecord], config: DeduplicationConfig = DEFAULT_DEDUPLICATION
 ) -> List[Paper]:
     groups: List[List[PaperRecord]] = []
+    # Evidence of every pair in a group, gathered while deciding joins (each pair is compared exactly once).
+    group_evidence: List[Set[str]] = []
     index: Dict[Tuple[Any, ...], Set[int]] = {}
     for record in records:
         classify_record(record)
@@ -113,21 +115,21 @@ def deduplicate_papers(
             candidates.update(index.get(key, set()))
         selected = None
         for group_index in sorted(candidates):
-            if all(duplicate_evidence(record, other, config) for other in groups[group_index]):
+            found = _evidence_with_every_member(record, groups[group_index], config)
+            if found is not None:
                 selected = group_index
+                group_evidence[group_index].update(found)
                 break
         if selected is None:
             selected = len(groups)
             groups.append([])
+            group_evidence.append(set())
         groups[selected].append(record)
         for key in keys:
             index.setdefault(key, set()).add(selected)
     papers = []
-    for group in groups:
+    for group, evidence in zip(groups, group_evidence):
         values = asdict(group[0])
-        evidence = set()
-        for left, right in combinations(group, 2):
-            evidence.update(duplicate_evidence(left, right, config))
         for record in group[1:]:
             for name in ('doi', 'abstract', 'venue', 'paper_url', 'year'):
                 if not values[name]:
@@ -153,6 +155,19 @@ def deduplicate_papers(
         papers.append(Paper(**values, records=list(group), deduplication_evidence=sorted(evidence)))
     _link_related_versions(papers, config)
     return papers
+
+
+def _evidence_with_every_member(
+    record: PaperRecord, group: Sequence[PaperRecord], config: DeduplicationConfig
+) -> Optional[Set[str]]:
+    """Complete link: the union of duplicate evidence with each member, or ``None`` if any member is not one."""
+    found: Set[str] = set()
+    for other in group:
+        evidence = duplicate_evidence(record, other, config)
+        if not evidence:
+            return None
+        found.update(evidence)
+    return found
 
 
 def _combine_authorship_metadata(group: Sequence[PaperRecord]) -> Dict[str, Any]:
