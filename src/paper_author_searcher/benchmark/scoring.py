@@ -49,8 +49,11 @@ def scope_to_window(collection: dict, truth: dict, window: Tuple[int, int]) -> d
     """
     start, end = window
     matcher = GroundTruthMatcher(GroundTruth.from_dict(truth))
-    scoped = deepcopy(collection)
-    inner = scoped.get('collection', scoped)
+    # Copy only the two containers that are reassigned; paper dicts are shared (scoring never mutates them).
+    scoped = dict(collection)
+    inner = scoped
+    if isinstance(scoped.get('collection'), dict):
+        inner = scoped['collection'] = dict(scoped['collection'])
     papers = inner.get('all_papers', inner.get('papers')) or []
 
     def keep(paper: dict) -> bool:
