@@ -1,6 +1,7 @@
 """End-to-end contracts using synthetic providers and the existing stage algorithms."""
 
 import io
+import json
 import tempfile
 import unittest
 from contextlib import redirect_stdout
@@ -13,6 +14,7 @@ from paper_author_searcher.http import SourceError
 from paper_author_searcher.jsonio import read_json, write_json
 from paper_author_searcher.models import AuthorCandidate, PDFCandidate, PDFProviderResult, ProfessorQuery
 from paper_author_searcher.paper_collector import PaperCollector
+from paper_author_searcher.paper_views import full_paper_metadata
 from paper_author_searcher.pdf_downloader import PDFDownloader
 from paper_author_searcher.pdf_file_validation import PDFFileValidator
 from paper_author_searcher.pdf_resolver import PDFResolver
@@ -150,9 +152,15 @@ class WorkflowTests(unittest.TestCase):
         ):
             self.assertEqual(archive[field], resolved[field])
             self.assertEqual(archive[field], downloaded[field])
-        for field in ('author_details', 'records', 'source_identifiers', 'deduplication_evidence', 'raw_metadata'):
-            self.assertEqual(archive[field], resolved['paper_metadata'][field])
-            self.assertEqual(archive[field], downloaded['paper_metadata'][field])
+        # papers.json is the one full store; downstream artifacts keep identity fields and a reference to it.
+        for entry in (resolved, downloaded):
+            view = entry['paper_metadata']
+            self.assertEqual(view['source_identifiers'], archive['source_identifiers'])
+            self.assertEqual([record['source_paper_id'] for record in view['records']],
+                             [record['source_paper_id'] for record in archive['records']])  # fmt: skip
+            self.assertNotIn('raw_metadata', json.dumps(view))
+            self.assertNotIn('author_details', view)
+            self.assertEqual(full_paper_metadata(entry, [archive]), archive)
         self.assertEqual(manifest['file_root'], 'papers')
         self.assertTrue(downloaded['local_filename'].startswith('2020_'))
         self.assertTrue((Path(report['output_directory']) / 'papers' / downloaded['local_filename']).exists())

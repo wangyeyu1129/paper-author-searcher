@@ -11,6 +11,7 @@ from .config import DEFAULT_PDF
 from .http import HttpClient
 from .logging_config import log_isolated_failure
 from .models import PaperPDFResult, PDFProviderResult, PDFResolutionResult
+from .paper_views import bibliographic_view
 from .pdf_resource_requests import PublicResourceRequests
 from .pdf_search_status import SEARCH_COMPLETION_DEFINITION, paper_search_complete
 from .performance_diagnostics import pdf_failure_reasons
@@ -66,7 +67,7 @@ class PDFResolver:
                 source_paper_id=paper.get('source_paper_id'),
                 external_ids=deepcopy(paper.get('external_ids') or {}),
                 source_author_id=paper.get('source_author_id'),
-                paper_metadata=deepcopy(paper),
+                paper_metadata=deepcopy(paper) if self.config.embed_full_metadata else bibliographic_view(paper),
             )
             results.append(result)
             if result.ownership_status not in eligible_statuses:

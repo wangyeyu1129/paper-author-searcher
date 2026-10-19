@@ -18,6 +18,7 @@ from .logging_config import log_isolated_failure
 from .manifest_journal import ManifestJournal, journal_path, replay
 from .matching import canonical_doi, normalize
 from .models import PaperDownloadResult
+from .paper_views import extend_history
 from .pdf_document_types import NON_FULL_DOCUMENTS
 from .pdf_file_validation import PDFFileValidator, validation_target
 from .pdf_identity import native_id
@@ -175,12 +176,12 @@ class PDFDownloader:
             source_author_id=paper.get('source_author_id'),
             external_ids=deepcopy(paper.get('external_ids') or {}),
             paper_metadata=deepcopy(paper.get('paper_metadata') or {}),
+            entry_index=paper.get('entry_index'),
         )
         previous = previous_by_key.get(key, [])
         if previous:
             last = previous[-1]
-            record.history = deepcopy(last.get('history') or [])
-            record.history.append({name: deepcopy(value) for name, value in last.items() if name != 'history'})
+            record.history = extend_history(last)
         return record
 
     def _eligible_candidates(self, paper, record, include_needs_review):

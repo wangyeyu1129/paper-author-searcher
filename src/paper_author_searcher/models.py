@@ -355,6 +355,8 @@ class PaperDownloadResult:
     paper_metadata: dict = field(default_factory=dict)
     failure_reasons: List[str] = field(default_factory=list)
     document_type: str = 'unknown'
+    # Position of the paper in the collection (papers.json); joins back to the full record.
+    entry_index: Optional[int] = None
     search_sufficiently_satisfied: Optional[bool] = False
     search_satisfaction_reason: str = 'no_integrity_checked_local_file'
 

@@ -205,6 +205,9 @@ class PDFConfig:
     redirect_failure_budget: int = 3
     # Papers resolved concurrently; each source still paces its own hosts.
     lookup_workers: int = 4
+    # Full collected records live in papers.json; reports keep a bibliographic view plus entry_index.
+    # True embeds the full record (self-contained but duplicated) in the PDF report and manifest.
+    embed_full_metadata: bool = False
     bibliography_urls: Tuple[str, ...] = ()
     journal_catalogs: Tuple[Tuple[str, str], ...] = (
         ('Journal of Machine Learning Research', 'https://jmlr.org/papers/'),
