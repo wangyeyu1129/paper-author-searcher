@@ -103,16 +103,30 @@ class PaperOwnershipValidator:
             reasons.append('Incomplete author list; coauthor evidence disabled')
         return reasons
 
-    def _institution_agrees(self, details, profile):
+    def _history_ids(self, profile, source):
+        """Author IDs tied to the person by an anchor strong enough to vouch for their past institutions."""
+        anchors = (AnchorEvidence.coerce(item) for item in profile.identity_anchors)
+        return {
+            canonical_author_id(source, anchor.author_id)
+            for anchor in anchors
+            if anchor.source == source and anchor.kind in self.config.history_anchor_kinds
+        }
+
+    def _institution_agrees(self, record, details, profile):
         confirmed = profile.matched_affiliations
         if not confirmed and profile.university:
             confirmed = [profile.university]
         if not confirmed and not profile.requested_university:
             # Library callers may explicitly supply confirmed institutions without a query.
             confirmed = profile.affiliations
+        credible_history = len(profile.affiliations) <= self.config.maximum_history_institutions
+        history_ids = self._history_ids(profile, record.source) if credible_history else set()
         for author in details:
             if author.get('affiliation_scope') == 'author_profile':
                 continue
+            # An ORCID-anchored author ID is the person throughout, so its earlier institutions count too; for any
+            # other ID the affiliation union of merged fragments would admit namesakes' institutions.
+            past = canonical_author_id(record.source, author.get('author_id')) in history_ids
             for institution in author.get('institutions') or []:
                 observed = institution.get('display_name')
                 if not observed:
@@ -120,6 +134,11 @@ class PaperOwnershipValidator:
                 for expected in confirmed:
                     if institution_similarity(observed, expected) >= self.config.institution_similarity:
                         return observed
+                if past and any(
+                    institution_similarity(observed, expected) >= self.config.institution_similarity
+                    for expected in profile.affiliations
+                ):
+                    return observed + ' (past affiliation of an ORCID-anchored author ID)'
         return None
 
     def _evaluate_record(self, record, profile):
@@ -204,7 +223,7 @@ class PaperOwnershipValidator:
                 'Matching author-profile or unscoped ORCID is not independent paper authorship evidence '
                 '(scope: {})'.format(', '.join(scopes))
             )
-        institution = self._institution_agrees(details, profile)
+        institution = self._institution_agrees(record, details, profile)
         if details and institution:
             return OwnershipStatus.VERIFIED, [
                 *evidence,

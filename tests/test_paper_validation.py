@@ -2,11 +2,19 @@ import json
 import unittest
 from dataclasses import replace
 
-from paper_author_searcher.models import PaperCollectionResult, PaperRecord, PaperSourceResult, ProfessorProfile
+from paper_author_searcher.config import OwnershipConfig
+from paper_author_searcher.models import (
+    AnchorEvidence,
+    PaperCollectionResult,
+    PaperRecord,
+    PaperSourceResult,
+    ProfessorProfile,
+)
 from paper_author_searcher.paper_deduplication import deduplicate_papers
 from paper_author_searcher.paper_ownership import PaperOwnershipValidator
 from paper_author_searcher.paper_reanalysis import reanalyze_saved_result
 from paper_author_searcher.paper_types import classify_record
+from paper_author_searcher.status import AnchorKind
 
 
 def profile():
@@ -81,6 +89,31 @@ class OwnershipTests(unittest.TestCase):
             papers[0].records[0].author_details[0]['institutions'] = [{'display_name': 'Example University'}]
             PaperOwnershipValidator().validate(papers, target)
             self.assertEqual(papers[0].ownership_status, expected)
+
+    def test_past_institution_counts_only_for_an_orcid_anchored_author(self):
+        def run(kind, config=None):
+            target = replace(
+                profile(),
+                orcid=None,
+                affiliations=['Example University', 'Old University'],
+                matched_affiliations=['Example University'],
+                identity_anchors=[AnchorEvidence('openalex', 'author-a', 'anchor', kind)],
+            )
+            papers = deduplicate_papers([record()])
+            papers[0].records[0].author_details[0]['institutions'] = [{'display_name': 'Old University'}]
+            PaperOwnershipValidator(config or OwnershipConfig()).validate(papers, target)
+            return papers[0]
+
+        verified = run(AnchorKind.ORCID)
+        self.assertEqual(verified.ownership_status, 'verified')
+        self.assertTrue(any('past affiliation' in line for line in verified.ownership_evidence))
+        self.assertEqual(run(AnchorKind.PAPER).ownership_status, 'needs_review')
+        self.assertEqual(
+            run(AnchorKind.ORCID, OwnershipConfig(history_anchor_kinds=())).ownership_status, 'needs_review'
+        )
+        # Two institutions exceed a cap of one: a merged profile's history vouches for nobody.
+        merged_profile = OwnershipConfig(maximum_history_institutions=1)
+        self.assertEqual(run(AnchorKind.ORCID, merged_profile).ownership_status, 'needs_review')
 
     def test_target_names_are_unique_and_include_the_request(self):
         target = replace(profile(), name_aliases=['Alex Morgan', 'A. Morgan'], requested_name='Alex Morgan')

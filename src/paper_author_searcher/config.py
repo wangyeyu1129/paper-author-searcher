@@ -176,6 +176,12 @@ class OwnershipConfig:
     paper_orcid_scopes: tuple[str, ...] = ('paper_authorship',)
     # Copied from the source's author profile onto every paper of that author ID: no per-paper evidence.
     author_level_orcid_scopes: tuple[str, ...] = ('resolved_author', 'author_profile')
+    # Anchor kinds that make an author ID's past institutions (the identity's affiliation history) acceptable as
+    # paper-level evidence. Paper anchors are excluded: they can attach a namesake's fragment.
+    history_anchor_kinds: tuple[str, ...] = ('orcid',)
+    # An identity listing more institutions than this is a merge of several people (OpenAlex filed many Wei Lus,
+    # 89 institutions, under one ORCID-bearing author ID), so its history vouches for nobody.
+    maximum_history_institutions: int = 12
     nonstandard_types: tuple[str, ...] = (
         'proceedings',
         'peer_review',
