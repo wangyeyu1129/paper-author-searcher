@@ -7,6 +7,7 @@ from copy import deepcopy
 from dataclasses import asdict, fields
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any, Dict
 
 from .config import DEFAULT_COLLECTION, DEFAULT_MATCHING, AmbiguityPolicy
 from .jsonio import read_json, write_json
@@ -85,7 +86,7 @@ def contender_profile(result, maximum_contenders, margin):
     ][:maximum_contenders]
     merged = deepcopy(best)
     merged.status = ResolutionStatus.AMBIGUOUS_CONTENDERS
-    aliases = {}
+    aliases: Dict[str, Any] = {}
     for candidate in contenders:
         for source, author_id in candidate.author_ids.items():
             aliases.setdefault(source, [])
@@ -377,10 +378,10 @@ class PaperSearchWorkflow:
             )
             identity = saved.get('identity_archive')
             if 'collection' in archive and (identity is None or 'profile' not in identity):
-                profile = asdict(saved_collection_profile(archive))
+                saved_profile = asdict(saved_collection_profile(archive))
                 identity = {
-                    'profile': profile,
-                    'candidates': [profile],
+                    'profile': saved_profile,
+                    'candidates': [saved_profile],
                     'source_errors': archive.get('source_errors') or {},
                     'ambiguity': archive.get('ambiguity'),
                 }

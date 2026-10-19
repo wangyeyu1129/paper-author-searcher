@@ -2,8 +2,10 @@
 
 import argparse
 import logging
+import typing
 from collections import Counter
 from pathlib import Path
+from typing import Any, Dict
 
 from .jsonio import read_json, write_json
 from .logging_config import add_logging_arguments, configure_from_arguments
@@ -59,9 +61,9 @@ def _resource_statistics(statistics):
 
 
 def _trace_summary(pdf_report, papers):
-    statuses = {}
-    warning_counts = Counter()
-    warning_papers = Counter()
+    statuses: Dict[str, Any] = {}
+    warning_counts: typing.Counter[str] = Counter()
+    warning_papers: typing.Counter[str] = Counter()
     for paper in papers.values():
         codes = set()
         for provider in paper.get('providers') or []:

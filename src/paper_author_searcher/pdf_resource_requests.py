@@ -225,7 +225,7 @@ class PublicResourceRequests:
                     },
                 )
                 return self._view(cached_response, maximum_bytes, html_bytes)
-            elif isinstance(response, Exception):
+            elif isinstance(response, SourceError):  # only definitive per-URL failures are cached
                 self.statistics['cache_hits'] += 1
                 self.statistics['cache_error_hits'] += 1
                 raise SourceError(

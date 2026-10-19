@@ -4,8 +4,10 @@ import argparse
 import hashlib
 import json
 import logging
+import typing
 from collections import Counter
 from pathlib import Path
+from typing import Any, Dict
 
 from .jsonio import read_json, write_json
 from .logging_config import add_logging_arguments, configure_from_arguments
@@ -63,15 +65,16 @@ def summarize_runs(run_directories):
     metadata_fingerprint = None
     verified_papers, urls, files, content = set(), set(), set(), set()
     attempted, failed, review = set(), set(), set()
-    failures, source_contributions = Counter(), {}
+    failures: typing.Counter[str] = Counter()
+    source_contributions: Dict[str, Any] = {}
     file_checks = []
     query_statistics = []
-    search_observations = {}
-    document_types = Counter()
+    search_observations: Dict[str, Any] = {}
+    document_types: typing.Counter[str] = Counter()
     full_text_content = set()
     classified_documents = False
     satisfied_papers = set()
-    satisfaction_observations = {}
+    satisfaction_observations: Dict[str, Any] = {}
     for directory in run_directories:
         root = Path(directory)
         report = read_json(root / 'pdf_urls.json')

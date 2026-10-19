@@ -7,7 +7,7 @@ Library classes receive their collaborators; only this module decides which impl
 
 from dataclasses import dataclass, fields, replace
 from functools import cached_property
-from typing import Any, Callable, ClassVar, List, Mapping, Optional, Tuple
+from typing import Any, Callable, ClassVar, Dict, List, Mapping, Optional, Tuple
 
 from .config import CollectionConfig, DownloadConfig, PDFConfig
 from .http import HttpClient
@@ -67,7 +67,7 @@ class RunOptions:
     @classmethod
     def from_namespace(cls, namespace: Any) -> 'RunOptions':
         """Build from any object with matching attributes (argparse namespace, benchmark RunSettings)."""
-        values = {}
+        values: Dict[str, Any] = {}
         for item in fields(cls):
             for name in (item.name, cls.ALIASES.get(item.name)):
                 if name and hasattr(namespace, name):
@@ -152,7 +152,7 @@ class ServiceContainer:
     @cached_property
     def collection_config(self) -> CollectionConfig:
         options, config = self.options, self.settings.collection
-        changes = {}
+        changes: Dict[str, Any] = {}
         if options.max_pages is not None:
             changes['maximum_pages'] = options.max_pages
         if options.page_size is not None:

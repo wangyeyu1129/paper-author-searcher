@@ -4,7 +4,7 @@ import json
 from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
-from typing import Dict, Mapping, Optional, Tuple
+from typing import Any, Dict, Mapping, Optional, Tuple
 
 from paper_author_searcher.config import AmbiguityPolicy
 
@@ -170,7 +170,7 @@ class BenchmarkSettings:
         )
 
 
-def _calibration(values: Dict[str, object]) -> CalibrationSettings:
+def _calibration(values: Dict[str, Any]) -> CalibrationSettings:
     values = dict(values)
     if 'splits' in values:
         values['splits'] = tuple(values['splits'])
@@ -178,7 +178,7 @@ def _calibration(values: Dict[str, object]) -> CalibrationSettings:
     return CalibrationSettings(**values)
 
 
-def _run_settings(values: Dict[str, object], base: Path) -> RunSettings:
+def _run_settings(values: Dict[str, Any], base: Path) -> RunSettings:
     values = dict(values)
     values['bibliography_url'] = tuple(values.get('bibliography_url') or ())
     if values.get('http_cache_dir'):

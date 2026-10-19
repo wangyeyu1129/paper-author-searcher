@@ -11,6 +11,7 @@ from copy import deepcopy
 from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
+from typing import Any, Dict, List, Optional, Union
 
 from .config import DEFAULT_DOWNLOAD
 from .logging_config import log_isolated_failure
@@ -32,6 +33,7 @@ IDENTITY_FOLDERS = {IdentityStatus.NEEDS_REVIEW: REVIEW_FOLDER, IdentityStatus.R
 
 
 def paper_key(paper):
+    identity: Union[Optional[str], List[Any]]
     if paper.get('doi'):
         identity = canonical_doi(paper['doi'])
     elif paper.get('source') and paper.get('source_paper_id'):
@@ -105,8 +107,8 @@ class PDFDownloader:
         if manifest_path.parent.resolve() not in (root, root.parent):
             raise ValueError('Manifest must be in the PDF directory or its parent')
         previous = self._load_manifest(root, manifest_path)
-        previous_by_key = {}
-        known_files = {}
+        previous_by_key: Dict[str, Any] = {}
+        known_files: Dict[str, Any] = {}
         for entry in previous.get('papers', []):
             previous_by_key.setdefault(entry['paper_key'], []).append(entry)
             if entry.get('sha256') and entry.get('local_filename'):
@@ -414,7 +416,7 @@ class PDFDownloader:
         return destination.relative_to(root).as_posix()
 
     def _organize_confirmed_files(self, root, results, retained):
-        references = {}
+        references: Dict[str, Any] = {}
         for record in results:
             if record.local_filename:
                 references.setdefault(record.local_filename, []).append(record)

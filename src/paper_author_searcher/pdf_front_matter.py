@@ -2,6 +2,7 @@
 
 import re
 import unicodedata
+from typing import Set
 
 from .matching import normalize
 from .paper_authorship import byline_forms
@@ -25,7 +26,7 @@ def authors_present(authors, regions, author_metadata):
     if not authors:
         return False
     words = clean_byline(' '.join(front_matter(region) for region in regions) + ' ' + author_metadata).split()
-    used = set()
+    used: Set[int] = set()
     for author in authors:
         match = _author_span(author, words, used)
         if match is None:

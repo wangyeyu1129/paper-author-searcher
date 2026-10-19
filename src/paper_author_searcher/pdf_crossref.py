@@ -116,7 +116,7 @@ class CrossrefPDFProvider(MetadataPDFProvider):
                 continue
             if not link.get('URL'):
                 continue
-            version = {'vor': 'publishedVersion', 'am': 'acceptedVersion'}.get(link.get('content-version'))
+            version = {'vor': 'publishedVersion', 'am': 'acceptedVersion'}.get(str(link.get('content-version') or ''))
             candidates.append(
                 make_candidate(
                     link['URL'],

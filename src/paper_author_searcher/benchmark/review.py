@@ -5,7 +5,7 @@ import hashlib
 from copy import deepcopy
 from datetime import date
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 from paper_author_searcher.evaluation_matching import LABELS, GroundTruth, GroundTruthMatcher
 from paper_author_searcher.matching import canonical_doi, normalize
@@ -62,7 +62,7 @@ def system_suggestions(
         if not key or key in seen:
             continue
         seen.add(key)
-        external = {}
+        external: Dict[str, Any] = {}
         for record in records:
             for namespace, value in (record.get('external_ids') or {}).items():
                 if namespace.lower() == 'arxiv' and value:
@@ -140,7 +140,7 @@ def _added_entry(person_id: str, row: Dict[str, str], decision: str = 'belongs')
     if suggested and decision == 'belongs' and not note:
         # Keeps truth independent of the system: a lead counts only with the reviewer's own evidence.
         raise ValueError(f'System suggestion "{title}" needs a reviewer_note naming the independent evidence')
-    entry = {
+    entry: Dict[str, Any] = {
         'title': title,
         'year': parse_year(row.get('year')),
         'authors': _split(row.get('authors', '')),

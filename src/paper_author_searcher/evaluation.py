@@ -1,6 +1,7 @@
 """Offline evaluation of identity, retrieval, ownership and deduplication."""
 
 from dataclasses import asdict
+from typing import Any, Dict, List, Set
 
 from .evaluation_matching import GroundTruth, GroundTruthMatcher, metadata_key, stable_identifiers
 from .status import OwnershipStatus, ResolutionStatus
@@ -90,7 +91,7 @@ class Evaluator:
         explicit_negative_count = len(negatives)
         inferred_negatives = {entry['inferred_negative'] for entry in matches if entry['inferred_negative']}
         negatives.update(inferred_negatives)
-        sets = {status: set() for status in STATUSES}
+        sets: Dict[str, Set[str]] = {status: set() for status in STATUSES}
         for entry in matches:
             sets[entry['status']].update(entry['judged_ids'])
         all_ids = set().union(*sets.values())
@@ -105,7 +106,7 @@ class Evaluator:
         false_positives = self._false_positives(matches, negatives)
         missing_candidates = positives - all_ids
         missing_verified = positives - sets[OwnershipStatus.VERIFIED]
-        conflicts = []
+        conflicts: List[Dict[str, Any]] = []
         for evaluation_id in all_ids:
             statuses = [status for status in STATUSES if evaluation_id in sets[status]]
             if len(statuses) > 1:
@@ -290,14 +291,14 @@ class Evaluator:
 
     @staticmethod
     def _deduplication(entries):
-        locations = {}
+        locations: Dict[str, Any] = {}
         true_pairs = 0
         false_pairs = 0
         wrong_merges = []
         assessed = 0
         total_records = 0
         for entry_index, entry in enumerate(entries):
-            counts = {}
+            counts: Dict[str, Any] = {}
             for record in entry['records']:
                 total_records += 1
                 evaluation_id = record['match']['evaluation_id']
@@ -368,7 +369,7 @@ class Evaluator:
         elif orcid_agreement is True and not total_observed:
             confirmed = True
         candidates = saved.get('candidates') or [profile]
-        candidate_ids = {}
+        candidate_ids: Dict[str, Any] = {}
         for candidate in candidates:
             for source, ids in (candidate.get('author_id_aliases') or {}).items():
                 candidate_ids.setdefault(source, set()).update(ids)

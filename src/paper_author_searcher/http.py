@@ -68,8 +68,9 @@ def require_public_http_url(url):
 
 class PublicRedirectHandler(HTTPRedirectHandler):
     def __init__(self, maximum_redirects, redirect_guard=None):
-        self.max_redirections = maximum_redirects
-        self.max_repeats = maximum_redirects
+        # Per-instance limits shadow urllib's class-level defaults on purpose.
+        self.max_redirections = maximum_redirects  # type: ignore[misc]
+        self.max_repeats = maximum_redirects  # type: ignore[misc]
         self.redirect_guard = redirect_guard
 
     def redirect_request(self, request, response, code, message, headers, new_url):

@@ -4,7 +4,7 @@ import json
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Dict, Iterable, List, Mapping, Optional, Tuple
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Tuple
 
 from paper_author_searcher.models import ProfessorQuery
 
@@ -28,7 +28,7 @@ class SearchInput:
     known_papers: Tuple[str, ...] = ()
 
     def to_query(self, with_hints: bool = False) -> ProfessorQuery:
-        hints = {}
+        hints: Dict[str, Any] = {}
         if with_hints:
             hints = {'orcid': self.orcid, 'homepage': self.homepage, 'known_papers': list(self.known_papers)}
         return ProfessorQuery(

@@ -8,6 +8,7 @@ import subprocess
 import sys
 import unicodedata
 from dataclasses import asdict
+from typing import Any, Dict
 
 from .config import DEFAULT_DOWNLOAD, DownloadConfig
 from .http import has_pdf_signature
@@ -174,7 +175,7 @@ def inspect_pdf(path, paper, config=DEFAULT_DOWNLOAD):
             result.page_count = len(reader.pages)
             if not 0 < result.page_count <= config.maximum_pages:
                 raise ValueError('PDF page count is outside the configured limit')
-            metadata = reader.metadata or {}
+            metadata: Dict[str, Any] = reader.metadata or {}
             title = str(metadata.get('/Title') or '')[: config.maximum_extracted_characters]
             author = str(metadata.get('/Author') or '')[: config.maximum_extracted_characters]
             if title:
@@ -195,7 +196,7 @@ def inspect_pdf(path, paper, config=DEFAULT_DOWNLOAD):
                 except Exception as exc:
                     logger.debug('PDF text extraction unavailable for %s', path, exc_info=True)
                     result.error_details.append('Text extraction unavailable: ' + str(exc)[:1000])
-            root = reader.trailer['/Root']
+            root: Any = reader.trailer['/Root']  # pypdf types this as a bare PdfObject
             names = root.get('/Names')
             result.active_content_present = bool(root.get('/OpenAction') or root.get('/AA'))
             if names is not None and '/JavaScript' in names.get_object():

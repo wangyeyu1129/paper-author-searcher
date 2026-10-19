@@ -2,6 +2,7 @@
 
 from dataclasses import asdict
 from itertools import combinations
+from typing import Any, Dict, List
 
 from .config import DEFAULT_DEDUPLICATION
 from .matching import canonical_doi, name_similarity, normalize
@@ -96,8 +97,8 @@ def duplicate_evidence(left, right, config=DEFAULT_DEDUPLICATION):
 
 
 def deduplicate_papers(records, config=DEFAULT_DEDUPLICATION):
-    groups = []
-    index = {}
+    groups: List[Any] = []
+    index: Dict[str, Any] = {}
     for record in records:
         classify_record(record)
         keys = list(_stable_ids(record))
@@ -153,7 +154,7 @@ def deduplicate_papers(records, config=DEFAULT_DEDUPLICATION):
 def _combine_authorship_metadata(group):
     details = []
     source_ids = []
-    external_values = {}
+    external_values: Dict[str, Any] = {}
     errors = set()
     for record in group:
         source_ids.append(
@@ -200,7 +201,7 @@ def _combine_authorship_metadata(group):
 
 
 def _link_related_versions(papers, config):
-    titles = {}
+    titles: Dict[str, Any] = {}
     for paper in papers:
         titles.setdefault(normalize(paper.title), []).append(paper)
     for candidates in titles.values():

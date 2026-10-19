@@ -13,7 +13,7 @@ import itertools
 from copy import deepcopy
 from dataclasses import dataclass, replace
 from statistics import mean
-from typing import Callable, Iterable, List, Mapping, Optional, Sequence, Set, Tuple
+from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Sequence, Set, Tuple
 
 from paper_author_searcher.config import AmbiguityPolicy, MatchingConfig
 from paper_author_searcher.status import ResolutionStatus, UniversityStatus
@@ -165,7 +165,7 @@ class IdentityCalibrator:
         names = sorted(grid)
         trials = []
         for values in itertools.product(*(grid[name] for name in names)) if names else [()]:
-            overrides = dict(zip(names, values))
+            overrides: Dict[str, Any] = dict(zip(names, values))
             config = replace(base, **overrides)
             summary = self.summary(self.evaluate(config, tune, diagnoses))
             trials.append({'parameters': overrides, 'tune': summary})

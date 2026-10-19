@@ -13,11 +13,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.8"
-      - run: python -m pip install 'ruff==0.8.6'
+      - run: python -m pip install 'ruff==0.8.6' 'mypy==1.14.1'
       - name: Lint
         run: ruff check --output-format=github .
       - name: Format
         run: ruff format --check .
+      - name: Type check
+        run: mypy
 
   tests:
     runs-on: ubuntu-22.04

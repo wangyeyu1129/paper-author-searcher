@@ -2,9 +2,11 @@
 
 import hashlib
 import json
+import typing
 from collections import Counter
 from copy import deepcopy
 from pathlib import Path
+from typing import Dict, Set
 
 from .evaluation import Evaluator
 from .evaluation_matching import MATCHING_RULES_VERSION, GroundTruth, GroundTruthMatcher
@@ -135,7 +137,7 @@ class PerformanceEvaluator:
         negatives = {paper['evaluation_id'] for paper in truth.papers if paper['ownership'] == 'not_belongs'}
         matcher = GroundTruthMatcher(truth)
         baseline = Evaluator().evaluate(collection, truth)
-        statuses = {status: set() for status in OwnershipStatus.values()}
+        statuses: Dict[str, Set[str]] = {status: set() for status in OwnershipStatus.values()}
         for paper in _papers(collection):
             for record in paper.get('records') or [paper]:
                 identity = matcher.match(record).evaluation_id
@@ -156,7 +158,7 @@ class PerformanceEvaluator:
         judged_count = baseline['all_candidates']['true_positives'] + baseline['all_candidates']['false_positives']
         pdf_found = set()
         pdf_processed = set()
-        pdf_reasons = Counter()
+        pdf_reasons: typing.Counter[str] = Counter()
         failure_entries = []
         for paper in _papers(pdf_report):
             identity = _association(paper, matcher)

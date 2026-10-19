@@ -4,7 +4,7 @@ import hashlib
 import json
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Sequence, Tuple
+from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
 from paper_author_searcher.config import DEFAULT_MATCHING
 from paper_author_searcher.evaluation_matching import GroundTruth, bibliographic_name_agrees
@@ -206,19 +206,19 @@ class TruthBuilder:
         titles: Dict[str, List[int]] = {}
         tolerance = self.settings.version_grouping_year_tolerance
         for index, record in enumerate(records):
-            for key in _identifier_keys(record):
-                if key in owners:
-                    union.union(index, owners[key])
+            for identifier in _identifier_keys(record):
+                if identifier in owners:
+                    union.union(index, owners[identifier])
                 else:
-                    owners[key] = index
-            key = normalize(record.title)
-            if len(key.split()) < MINIMUM_GROUPING_TITLE_TOKENS:
+                    owners[identifier] = index
+            title_key = normalize(record.title)
+            if len(title_key.split()) < MINIMUM_GROUPING_TITLE_TOKENS:
                 continue
-            for other in titles.get(key, []):
+            for other in titles.get(title_key, []):
                 other_year = records[other].year
                 if record.year is None or other_year is None or abs(record.year - other_year) <= tolerance:
                     union.union(index, other)
-            titles.setdefault(key, []).append(index)
+            titles.setdefault(title_key, []).append(index)
         grouped: Dict[int, List[TruthRecord]] = {}
         for index, record in enumerate(records):
             grouped.setdefault(union.find(index), []).append(record)
@@ -247,7 +247,7 @@ class TruthBuilder:
                 external.setdefault(namespace, value)
         keys = sorted('{}:{}'.format(*key) for record in group for key in _identifier_keys(record))
         seed = '|'.join(keys) or normalize(main.title) + '|' + str(_publication_year(group))
-        entry = {
+        entry: Dict[str, Any] = {
             'evaluation_id': '{}:{}'.format(person.person_id, hashlib.sha256(seed.encode('utf-8')).hexdigest()[:12]),
             'ownership': 'uncertain',
             'proposed_ownership': 'belongs',

@@ -48,7 +48,7 @@ class AnchorFinder(Protocol):
 
 def paper_hints(values: List[str]) -> Dict[str, List[str]]:
     """Split free-form known papers into DOIs, arXiv IDs and titles."""
-    hints = {'doi': [], 'arxiv': [], 'title': []}
+    hints: Dict[str, List[str]] = {'doi': [], 'arxiv': [], 'title': []}
     for value in values:
         value = value.strip()
         doi = DOI_IN_TEXT.search(value)

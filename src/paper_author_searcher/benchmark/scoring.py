@@ -3,7 +3,7 @@
 from copy import deepcopy
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Dict, List, Mapping, Optional, Tuple
+from typing import Any, Dict, List, Mapping, Optional, Tuple
 
 from paper_author_searcher.evaluation_matching import GroundTruth, GroundTruthMatcher
 from paper_author_searcher.jsonio import read_json
@@ -27,7 +27,7 @@ def identity_resolution(collection: Optional[dict]) -> dict:
 
 # Metrics the benchmark computes itself rather than reading from PerformanceEvaluator.
 BENCHMARK_METRICS = {'identity_resolution_rate': identity_resolution}
-EMPTY_COLLECTION = {'collection': {'all_papers': [], 'sources': []}}
+EMPTY_COLLECTION: Dict[str, Any] = {'collection': {'all_papers': [], 'sources': []}}
 
 
 def truth_paths(settings: BenchmarkSettings, person_id: str) -> Tuple[Path, Path]:
@@ -191,10 +191,10 @@ def aggregate(scores: List[PersonScore], settings: BenchmarkSettings) -> Dict[Tu
     for key, members in strata.items():
         metrics = {}
         for name in settings.reported_metrics:
-            values = [member.metrics[name] for member in members if member.metrics[name]['available']]
-            rates = [value['rate'] for value in values if value['rate'] is not None]
-            numerator = sum(value['numerator'] for value in values)
-            denominator = sum(value['denominator'] for value in values)
+            available = [member.metrics[name] for member in members if member.metrics[name]['available']]
+            rates = [value['rate'] for value in available if value['rate'] is not None]
+            numerator = sum(value['numerator'] for value in available)
+            denominator = sum(value['denominator'] for value in available)
             metrics[name] = {
                 Aggregation.MACRO.value: sum(rates) / len(rates) if rates else None,
                 Aggregation.MICRO.value: numerator / denominator if denominator else None,

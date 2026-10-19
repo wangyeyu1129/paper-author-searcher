@@ -52,7 +52,7 @@ class SemanticScholarRequests:
             self.statistics['cooldown_skips'] += 1
             raise SourceError(
                 'Semantic Scholar temporarily deferred (no new request)',
-                status_code=self.deferred_error.status_code,
+                status_code=getattr(self.deferred_error, 'status_code', None),
                 error_type='source_deferred',
                 retry_after=self.cooldown_until - time.monotonic(),
                 request_context={'outcome': RequestOutcome.COOLDOWN_SKIP, 'request_attempted': False},

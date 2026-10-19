@@ -1,6 +1,7 @@
 """Explain abstention and access failures without changing validation decisions."""
 
 import re
+import typing
 from collections import Counter
 
 from .config import DEFAULT_OWNERSHIP
@@ -19,7 +20,7 @@ from .status import (
 
 def workflow_outcomes(report):
     reused = {item.get('stage') for item in report.get('stages') or [] if item.get('status') == StageStatus.REUSED}
-    counts = Counter()
+    counts: typing.Counter[str] = Counter()
     for error in report.get('errors') or []:
         text = str(error.get('error') or '').lower()
         stage = error.get('stage')
@@ -40,7 +41,7 @@ def workflow_outcomes(report):
         error['category'] = category
         counts[category] += 1
     warnings = Counter(item.get('code', 'warning') for item in report.get('warnings') or [])
-    request_outcomes = Counter()
+    request_outcomes: typing.Counter[str] = Counter()
     for observation in (report.get('errors') or []) + (report.get('warnings') or []):
         context = observation.get('request_context') or {}
         if context.get('outcome'):
@@ -205,7 +206,7 @@ def review_reasons(paper, config=DEFAULT_OWNERSHIP):
 
 
 def ownership_diagnostics(papers):
-    counts = Counter()
+    counts: typing.Counter[str] = Counter()
     entries = []
     for index, paper in enumerate(papers):
         if paper.get('ownership_status') != OwnershipStatus.NEEDS_REVIEW:

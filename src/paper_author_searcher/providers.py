@@ -63,13 +63,13 @@ class OpenAlexProvider:
         except SourceError as exc:
             for candidate in candidates.values():
                 candidate.metadata_errors.append('institution-scoped search failed: ' + str(exc))
-        candidates = list(candidates.values())
-        for candidate in self._enrichment_candidates(query, candidates, scoped):
+        ranked = list(candidates.values())
+        for candidate in self._enrichment_candidates(query, ranked, scoped):
             try:
                 self._enrich(candidate)
             except SourceError as exc:
                 candidate.metadata_errors.append(str(exc))
-        return candidates
+        return ranked
 
     def _parse_author(self, item):
         current = _display_names(item.get('last_known_institutions'))

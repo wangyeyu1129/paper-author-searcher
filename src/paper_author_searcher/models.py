@@ -229,12 +229,12 @@ class PaperCollectionResult:
         if academic_only or ownership_statuses:
             data['all_papers'] = data['papers']
             visible = []
-            for paper in data['all_papers']:
-                if academic_only and paper['paper_type'] not in ACADEMIC_TYPES:
+            for entry in data['all_papers']:
+                if academic_only and entry['paper_type'] not in ACADEMIC_TYPES:
                     continue
-                if ownership_statuses and paper['ownership_status'] not in ownership_statuses:
+                if ownership_statuses and entry['ownership_status'] not in ownership_statuses:
                     continue
-                visible.append(paper)
+                visible.append(entry)
             data['papers'] = visible
         data['visible_paper_count'] = len(data['papers'])
         return data

@@ -1,7 +1,7 @@
 """Ground-truth matching independent of retrieval/ownership heuristics."""
 
 from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import Any, Dict, List, Optional, Set, Tuple
 
 from .matching import canonical_doi, normalize
 from .paper_authorship import byline_forms
@@ -158,8 +158,8 @@ class GroundTruthMatcher:
         self.truth = truth
         self.by_id = {paper['evaluation_id']: paper for paper in truth.papers}
         self.identifiers = {}
-        self.metadata = {}
-        self.title_year = {}
+        self.metadata: Dict[Any, Dict[str, Set[str]]] = {}
+        self.title_year: Dict[Tuple[str, Any], List[Any]] = {}
         for paper in truth.papers:
             evaluation_id = paper['evaluation_id']
             for key in stable_identifiers(paper):
@@ -263,7 +263,7 @@ def _bibliographic_authors_agree(left, right):
     for name in left:
         choices.append([index for index, other in enumerate(right) if bibliographic_name_agrees(name, other)])
     # A complete matching avoids greedily assigning an abbreviated name to the wrong author.
-    assigned = {}
+    assigned: Dict[str, Any] = {}
 
     def assign(position, visited):
         for index in choices[position]:

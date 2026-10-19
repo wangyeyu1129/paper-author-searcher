@@ -5,7 +5,7 @@ from copy import deepcopy
 from dataclasses import asdict, replace
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Callable, Dict, Iterable, Optional, Protocol, Tuple
+from typing import Any, Callable, Dict, Iterable, Optional, Protocol, Tuple
 
 from paper_author_searcher.composition import RunOptions, ServiceContainer
 from paper_author_searcher.jsonio import read_json, write_json
@@ -83,16 +83,17 @@ class WorkflowSearchSystem:
         self.workflow_factory = workflow_factory
 
     def search(self, person: BenchmarkPerson, output_dir: Path) -> dict:
-        windowed = self.run_settings.mode == FULL_MODE and self.settings is not None
+        settings = self.settings
+        windowed = self.run_settings.mode == FULL_MODE and settings is not None
         first_mode = 'metadata' if windowed else self.run_settings.mode
         with_hints = self.run_settings.input_profile == 'with_hints'
         report = self._run(
             replace(self.run_settings, mode=first_mode), output_dir, query=person.search_input.to_query(with_hints)
         )
-        if not windowed or not report.get('artifacts', {}).get('papers'):
+        if settings is None or not windowed or not report.get('artifacts', {}).get('papers'):
             return report
-        start, end = person.window(self.settings)
-        tolerance = self.settings.version_grouping_year_tolerance
+        start, end = person.window(settings)
+        tolerance = settings.version_grouping_year_tolerance
         archive = read_json(Path(report['output_directory']) / report['artifacts']['papers'])
         if report.get('identity'):
             archive.setdefault('identity_archive', report['identity'])
@@ -157,7 +158,7 @@ class BenchmarkRunner:
                 )
                 continue
             self.progress(f'[{position}/{len(people)}] {person.person_id} searching')
-            entry = {'started_at': _now(), 'status': RunStatus.RUNNING}
+            entry: Dict[str, Any] = {'started_at': _now(), 'status': RunStatus.RUNNING}
             index['people'][person.person_id] = entry
             write_json(index_path, index)
             try:

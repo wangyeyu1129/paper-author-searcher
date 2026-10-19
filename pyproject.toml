@@ -54,3 +54,20 @@ quote-style = "single"
 [tool.ruff.lint.per-file-ignores]
 # Python 3.8 has no parenthesized multi-item `with`; nested mock.patch blocks read better than one long line.
 "tests/**" = ["SIM117"]
+
+[tool.mypy]
+python_version = "3.8"
+files = ["src"]
+check_untyped_defs = true
+no_implicit_optional = true
+strict_equality = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_unused_configs = true
+show_error_codes = true
+pretty = false
+
+[[tool.mypy.overrides]]
+# Optional extras ("download", "llm") are imported lazily and have no stubs here.
+module = ["pypdf", "pypdf.*", "anthropic", "anthropic.*"]
+ignore_missing_imports = true

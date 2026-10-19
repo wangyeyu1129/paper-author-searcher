@@ -105,7 +105,8 @@ class WorkLister:
         return []
 
     def _openalex(self, author_id: str, start: int, end: int) -> List[dict]:
-        works, cursor = [], '*'
+        works: List[dict] = []
+        cursor: Optional[str] = '*'
         while cursor:
             data = self.client.get(
                 self.openalex_url + '/works',

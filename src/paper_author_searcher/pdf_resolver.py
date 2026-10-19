@@ -3,7 +3,7 @@
 import logging
 from copy import deepcopy
 from dataclasses import asdict
-from typing import Optional
+from typing import Any, Dict, Optional
 from urllib.parse import urldefrag
 
 from .config import DEFAULT_PDF
@@ -30,7 +30,7 @@ class PDFResolver:
         self.validator = validator
         self.resource_requests = requests
         self.config = config
-        self.preparation_errors = {}
+        self.preparation_errors: Dict[str, Any] = {}
 
     def resolve(self, saved_result, include_needs_review=False, maximum_papers=None, progress=None):
         if maximum_papers is not None and maximum_papers < 1:
@@ -172,7 +172,7 @@ class PDFResolver:
 
     def _merge_urls(self, candidates):
         merged = {}
-        versions = {}
+        versions: Dict[str, Any] = {}
         for candidate in candidates:
             key = urldefrag(candidate.url)[0]
             versions.setdefault(key, set())
@@ -203,7 +203,7 @@ class PDFResolver:
             return len(self.config.version_preference)
 
     def _statistics(self, papers):
-        counts = {
+        counts: Dict[str, Any] = {
             'total_papers': len(papers),
             'processed_papers': 0,
             'valid_pdf_papers': 0,
@@ -220,7 +220,7 @@ class PDFResolver:
             PDFValidationStatus.SKIPPED_OWNERSHIP: 'skipped_ownership_papers',
             PDFValidationStatus.NOT_PROCESSED: 'not_processed_papers',
         }
-        sources = {}
+        sources: Dict[str, Any] = {}
         verified_urls = set()
         for paper in papers:
             counts[status_metrics[paper.validation_status]] += 1

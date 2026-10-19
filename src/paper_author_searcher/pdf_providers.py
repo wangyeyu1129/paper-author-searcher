@@ -1,7 +1,9 @@
 """Independent public metadata providers; no paywall or login workarounds."""
 
 import time
+from abc import ABC, abstractmethod
 from html.parser import HTMLParser
+from typing import Any, ClassVar, Dict, List, Tuple
 from urllib.parse import quote, urljoin
 
 from .config import DEFAULT_PDF, DEFAULT_SOURCES
@@ -191,8 +193,18 @@ class ExistingPDFProvider:
         return result
 
 
-class MetadataPDFProvider:
-    """Small shared loop: each metadata lookup fails independently."""
+class MetadataPDFProvider(ABC):
+    """Template method for metadata APIs: each identifier lookup fails independently of the others."""
+
+    name: ClassVar[str]
+
+    @abstractmethod
+    def lookups(self, paper: dict) -> List[str]:
+        """Identifiers this source can be queried with for ``paper`` (empty: not applicable)."""
+
+    @abstractmethod
+    def lookup(self, paper: dict, identifier: str) -> Tuple[List[Any], List[Any]]:
+        """Return ``(pdf_candidates, landing_pages)`` for one identifier."""
 
     def __init__(self, client, sources=DEFAULT_SOURCES):
         self.client = client
@@ -413,7 +425,7 @@ class UnpaywallPDFProvider(MetadataPDFProvider):
             locations.append(work['best_oa_location'])
         if any(not isinstance(location, dict) for location in locations):
             raise SourceError('Unpaywall OA locations must contain objects', error_type='malformed_response')
-        candidates = []
+        candidates: List[Any] = []
         landing_pages = []
         if work.get('is_oa') is not True:
             return candidates, []
@@ -586,7 +598,7 @@ class LandingPagePDFProvider:
         return result
 
     def _pages(self, paper):
-        pages = {}
+        pages: Dict[str, Any] = {}
         for record in source_records(paper):
             if record.get('paper_url'):
                 pages.setdefault(record['paper_url'], [])

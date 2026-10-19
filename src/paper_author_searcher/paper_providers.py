@@ -2,9 +2,10 @@
 
 import logging
 import xml.etree.ElementTree as ET
-from typing import Protocol
+from abc import ABC, abstractmethod
+from typing import Any, ClassVar, List, Protocol, Tuple
 
-from .config import DEFAULT_COLLECTION
+from .config import DEFAULT_COLLECTION, CollectionConfig
 from .http import SourceError
 from .logging_config import log_isolated_failure
 from .matching import canonical_doi
@@ -53,8 +54,23 @@ def reconstruct_abstract(index):
     return ' '.join(words[position] for position in sorted(words))
 
 
-class PagedPaperProvider:
-    """Keep prior pages when a later page fails, and detect stalled pagination."""
+class PagedPaperProvider(ABC):
+    """Template method for paginated sources: keep prior pages when a later page fails, detect stalled paging.
+
+    Subclasses supply the source ``name``, the ``initial_token`` and the two hooks below.
+    """
+
+    name: ClassVar[str]
+    initial_token: ClassVar[Any]
+    config: CollectionConfig
+
+    @abstractmethod
+    def _fetch_page(self, author_id: str, token: Any) -> Tuple[List[Any], Any]:
+        """Return one page of raw records and the next token (``None`` when there are no more pages)."""
+
+    @abstractmethod
+    def _parse_paper(self, item: Any, author_id: str) -> PaperRecord:
+        """Convert one raw record into a ``PaperRecord``; raise to reject it."""
 
     def collect(self, author_id):
         result = PaperSourceResult(source=self.name, author_id=author_id)

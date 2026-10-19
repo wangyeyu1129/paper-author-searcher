@@ -5,7 +5,7 @@ import json
 import xml.etree.ElementTree as ET
 from enum import Enum
 from pathlib import Path
-from typing import Iterable, Optional
+from typing import Iterable, Optional, Union
 from urllib.parse import urlencode
 
 from .http import SourceError
@@ -75,7 +75,7 @@ class CachingHttpClient:
         return body
 
 
-def cached_client(client, directory: Optional[Path], mode: Optional[str]):
+def cached_client(client, directory: Optional[Union[str, Path]], mode: Optional[str]):
     """Return the client unchanged when no cache directory is configured."""
     if not directory:
         return client

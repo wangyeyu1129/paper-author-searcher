@@ -8,7 +8,7 @@ import json
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Dict, List, Optional, Protocol
+from typing import Any, Dict, List, Optional, Protocol
 
 from .roster import BenchmarkPerson, TruthSourceSpec
 
@@ -149,19 +149,23 @@ class OrcidSource:
             title = _value(work, 'title', 'title', 'value')
             if not title:
                 continue
-            doi, related, external = None, [], {}
+            doi: Optional[str] = None
+            related: List[str] = []
+            external: Dict[str, str] = {}
             for identifier in _value(work, 'external-ids', 'external-id') or []:
                 if identifier.get('external-id-relationship') not in ORCID_IDENTIFIER_RELATIONSHIPS:
                     continue
                 kind = (identifier.get('external-id-type') or '').lower()
                 value = identifier.get('external-id-value') or ''
-                if kind == 'doi' and clean_doi(value):
+                cleaned_doi = clean_doi(value) if kind == 'doi' else None
+                cleaned_arxiv = clean_arxiv(value) if kind == 'arxiv' else None
+                if cleaned_doi:
                     if identifier.get('external-id-relationship') == 'self' and doi is None:
-                        doi = clean_doi(value)
+                        doi = cleaned_doi
                     else:
-                        related.append(clean_doi(value))
-                elif kind == 'arxiv' and clean_arxiv(value):
-                    external['arxiv'] = clean_arxiv(value)
+                        related.append(cleaned_doi)
+                elif cleaned_arxiv:
+                    external['arxiv'] = cleaned_arxiv
                 elif kind == 'pmid' and value.strip().isdigit():
                     external.update(pubmed_identifiers(value.strip()))
             contributors = _value(work, 'contributors', 'contributor') or []
@@ -212,7 +216,7 @@ def latex_text(value: str) -> str:
 
 def bibtex_entries(text: str) -> List[Dict[str, str]]:
     """Small brace-aware parser; enough for author-published .bib files, no third-party dependency."""
-    entries = []
+    entries: List[Any] = []
     position = 0
     while True:
         start = text.find('@', position)
