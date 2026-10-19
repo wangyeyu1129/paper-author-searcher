@@ -244,7 +244,7 @@ def inspect_pdf(path, paper, config=DEFAULT_DOWNLOAD):
                 evidence.append('Saved publication venue also occurs on the PDF first page; auxiliary evidence only')
             result.format_status = FormatStatus.VALID
             result.identity_status = identity
-            result.validation_status = identity
+            result.validation_status = PDFValidationStatus(identity)
             if document_type in NON_FULL_DOCUMENTS and identity != IdentityStatus.REJECTED:
                 result.validation_status = PDFValidationStatus.NEEDS_REVIEW
                 evidence.append('Non-full-text document is not counted as a confirmed complete paper')

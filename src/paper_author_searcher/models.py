@@ -1,5 +1,6 @@
-from dataclasses import asdict, dataclass, field
-from typing import Any, Dict, List, Mapping, Optional, Sequence, Union
+import typing
+from dataclasses import asdict, dataclass, field, fields
+from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple, Type, Union
 
 from .status import (
     AccessStatus,
@@ -11,8 +12,40 @@ from .status import (
     PDFValidationStatus,
     ProviderStatus,
     ResolutionStatus,
+    StrEnum,
     UniversityStatus,
 )
+
+_STATUS_FIELDS: Dict[type, Tuple[Tuple[str, Type[StrEnum]], ...]] = {}
+
+
+def _status_fields(cls: type) -> Tuple[Tuple[str, Type[StrEnum]], ...]:
+    """(field, enum) pairs of a dataclass, resolved once per class."""
+    found = _STATUS_FIELDS.get(cls)
+    if found is None:
+        hints = typing.get_type_hints(cls)
+        found = _STATUS_FIELDS[cls] = tuple(
+            (item.name, hints[item.name])
+            for item in fields(cls)
+            if isinstance(hints[item.name], type) and issubclass(hints[item.name], StrEnum)
+        )
+    return found
+
+
+class ValidatedStatuses:
+    """Mixin: status fields hold their enum member; an unknown value is an error, not a silent new state."""
+
+    def __post_init__(self) -> None:
+        for name, enum in _status_fields(type(self)):
+            value = getattr(self, name)
+            if isinstance(value, enum):
+                continue
+            try:
+                setattr(self, name, enum(value))
+            except ValueError:
+                raise ValueError(
+                    f'{type(self).__name__}.{name}: {value!r} is not one of {", ".join(enum.values())}'
+                ) from None
 
 
 @dataclass
@@ -79,17 +112,17 @@ class AnchorEvidence:
 
 
 @dataclass
-class ProfessorProfile:
+class ProfessorProfile(ValidatedStatuses):
     name: str
     affiliations: List[str]
     author_ids: Dict[str, str]
     identity_confidence: float
-    status: str
+    status: ResolutionStatus
     evidence: List[str]
     orcid: Optional[str] = None
     research_interests: List[str] = field(default_factory=list)
     university: Optional[str] = None
-    university_status: str = UniversityStatus.UNKNOWN
+    university_status: UniversityStatus = UniversityStatus.UNKNOWN
     match_score: float = 0.0
     requested_university: Optional[str] = None
     matched_affiliations: List[str] = field(default_factory=list)
@@ -99,6 +132,7 @@ class ProfessorProfile:
     adjudication: Optional[str] = None
 
     def __post_init__(self) -> None:
+        super().__post_init__()
         self.identity_anchors = [AnchorEvidence.coerce(item) for item in self.identity_anchors]
 
 
@@ -115,7 +149,7 @@ class ResolutionResult:
 
 
 @dataclass
-class PaperRecord:
+class PaperRecord(ValidatedStatuses):
     title: str
     authors: List[str]
     year: Optional[int]
@@ -134,7 +168,7 @@ class PaperRecord:
     raw_metadata: dict = field(default_factory=dict)
     authors_complete: Optional[bool] = None
     metadata_errors: List[str] = field(default_factory=list)
-    ownership_status: str = OwnershipStatus.NEEDS_REVIEW
+    ownership_status: OwnershipStatus = OwnershipStatus.NEEDS_REVIEW
     ownership_evidence: List[str] = field(default_factory=list)
     paper_type: str = 'unknown'
     type_evidence: List[str] = field(default_factory=list)
@@ -163,13 +197,13 @@ class PaperSourceResult:
 
 
 @dataclass
-class PaperCollectionResult:
+class PaperCollectionResult(ValidatedStatuses):
     papers: List[Paper]
     sources: List[PaperSourceResult]
     complete: bool
     selected_author_ids: Dict[str, List[str]]
     identity_confirmation: str
-    professor_identity_status: str = ResolutionStatus.UNKNOWN
+    professor_identity_status: ResolutionStatus = ResolutionStatus.UNKNOWN
 
     def to_dict(
         self, academic_only: bool = False, ownership_statuses: Optional[Sequence[str]] = None
@@ -243,17 +277,17 @@ class PaperCollectionResult:
 
 
 @dataclass
-class PDFCandidate:
+class PDFCandidate(ValidatedStatuses):
     url: str
     source: str
     version_type: str = 'unknown'
     access_basis: str = ''
     license: Optional[str] = None
-    identity_status: str = IdentityStatus.UNVERIFIED
+    identity_status: IdentityStatus = IdentityStatus.UNVERIFIED
     identity_evidence: List[str] = field(default_factory=list)
     provenance: List[dict] = field(default_factory=list)
-    access_status: str = AccessStatus.UNKNOWN
-    validation_status: str = PDFValidationStatus.UNVERIFIED
+    access_status: AccessStatus = AccessStatus.UNKNOWN
+    validation_status: PDFValidationStatus = PDFValidationStatus.UNVERIFIED
     final_url: Optional[str] = None
     http_status: Optional[int] = None
     content_type: Optional[str] = None
@@ -266,10 +300,10 @@ class PDFCandidate:
 
 
 @dataclass
-class PDFProviderResult:
+class PDFProviderResult(ValidatedStatuses):
     source: str
     candidates: List[PDFCandidate] = field(default_factory=list)
-    status: str = ProviderStatus.OK
+    status: ProviderStatus = ProviderStatus.OK
     errors: List[str] = field(default_factory=list)
     landing_pages: List[dict] = field(default_factory=list)
     diagnostics: List[dict] = field(default_factory=list)
@@ -277,17 +311,17 @@ class PDFProviderResult:
 
 
 @dataclass
-class PaperPDFResult:
+class PaperPDFResult(ValidatedStatuses):
     entry_index: int
     title: str
     doi: Optional[str]
-    ownership_status: str
+    ownership_status: OwnershipStatus
     ownership_evidence: List[str] = field(default_factory=list)
     pdf_candidates: List[PDFCandidate] = field(default_factory=list)
     best_pdf_url: Optional[str] = None
     pdf_source: Optional[str] = None
-    access_status: str = AccessStatus.UNKNOWN
-    validation_status: str = PDFValidationStatus.NOT_PROCESSED
+    access_status: AccessStatus = AccessStatus.UNKNOWN
+    validation_status: PDFValidationStatus = PDFValidationStatus.NOT_PROCESSED
     version_type: str = 'unknown'
     error_details: List[dict] = field(default_factory=list)
     providers: List[dict] = field(default_factory=list)
@@ -304,10 +338,10 @@ class PaperPDFResult:
 
 
 @dataclass
-class PDFFileValidation:
-    format_status: str = FormatStatus.UNVERIFIED
-    identity_status: str = IdentityStatus.NEEDS_REVIEW
-    validation_status: str = PDFValidationStatus.NEEDS_REVIEW
+class PDFFileValidation(ValidatedStatuses):
+    format_status: FormatStatus = FormatStatus.UNVERIFIED
+    identity_status: IdentityStatus = IdentityStatus.NEEDS_REVIEW
+    validation_status: PDFValidationStatus = PDFValidationStatus.NEEDS_REVIEW
     page_count: int = 0
     extracted_titles: List[str] = field(default_factory=list)
     extracted_dois: List[str] = field(default_factory=list)
@@ -320,10 +354,10 @@ class PDFFileValidation:
 
 
 @dataclass
-class PaperDownloadResult:
+class PaperDownloadResult(ValidatedStatuses):
     paper_key: str
     title: str
-    ownership_status: str
+    ownership_status: OwnershipStatus
     authors: List[str] = field(default_factory=list)
     year: Optional[int] = None
     doi: Optional[str] = None
@@ -332,10 +366,10 @@ class PaperDownloadResult:
     pdf_url: Optional[str] = None
     final_url: Optional[str] = None
     local_filename: Optional[str] = None
-    download_status: str = DownloadStatus.NOT_PROCESSED
-    validation_status: str = PDFValidationStatus.NOT_CHECKED
-    format_status: str = FormatStatus.NOT_CHECKED
-    identity_status: str = IdentityStatus.NOT_CHECKED
+    download_status: DownloadStatus = DownloadStatus.NOT_PROCESSED
+    validation_status: PDFValidationStatus = PDFValidationStatus.NOT_CHECKED
+    format_status: FormatStatus = FormatStatus.NOT_CHECKED
+    identity_status: IdentityStatus = IdentityStatus.NOT_CHECKED
     file_size: Optional[int] = None
     sha256: Optional[str] = None
     version_type: str = 'unknown'

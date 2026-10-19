@@ -87,6 +87,7 @@ class PDFValidationStatus(StrEnum):
     UNVERIFIED = 'unverified'
     NEEDS_REVIEW = 'needs_review'
     INVALID = 'invalid'
+    REJECTED = 'rejected'  # a downloaded file whose content is another paper
     NOT_FOUND = 'not_found'
     NOT_PROCESSED = 'not_processed'
     NOT_CHECKED = 'not_checked'

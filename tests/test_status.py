@@ -47,3 +47,18 @@ class StatusCompatibilityTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class ModelValidationTests(unittest.TestCase):
+    def test_status_fields_are_coerced_to_their_enum(self):
+        from paper_author_searcher.models import PaperDownloadResult
+
+        record = PaperDownloadResult('key', 'Title', 'verified', download_status='failed')
+        self.assertIs(record.ownership_status, OwnershipStatus.VERIFIED)
+        self.assertEqual(json.dumps(record.download_status), '"failed"')
+
+    def test_unknown_status_is_rejected_with_the_allowed_values(self):
+        from paper_author_searcher.models import PDFProviderResult
+
+        with self.assertRaisesRegex(ValueError, "PDFProviderResult.status: 'done' is not one of ok, partial"):
+            PDFProviderResult('arxiv', status='done')
