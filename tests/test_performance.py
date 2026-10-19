@@ -309,11 +309,13 @@ class DiagnosticsTests(unittest.TestCase):
         rows = [
             dict(entry('a', 'needs_review'), author_details=[], authors_complete=False),
             dict(entry('b', 'needs_review'), paper_type='peer_review', author_details=[]),
+            dict(entry('c', 'needs_review'), paper_type='dataset', author_details=[]),
         ]
         report = ownership_diagnostics(rows)
-        self.assertEqual(report['reason_counts']['missing_paper_author_details'], 2)
+        self.assertEqual(report['reason_counts']['missing_paper_author_details'], 3)
         self.assertEqual(report['reason_counts']['incomplete_author_list'], 1)
         self.assertEqual(report['reason_counts']['nonstandard_or_conflicting_publication_type'], 1)
+        self.assertEqual(report['reason_counts']['not_a_research_publication'], 1)
 
     def test_no_link_does_not_claim_no_public_source_when_source_failed(self):
         paper = {'validation_status': 'not_found', 'providers': [{'status': 'error'}], 'pdf_candidates': []}

@@ -174,6 +174,14 @@ class OwnershipConfig:
         'reference_entry',
         'editorial',
     )
+    # Records that are not research publications: kept for review, never verified, so they stay out of the output
+    # and the PDF stage. Values are paper_types.TYPE_LABELS categories.
+    non_publication_types: tuple[str, ...] = (
+        'dataset',
+        'book_review',
+        'dissertation',
+        'conference_abstract',
+    )
     nonstandard_title_prefixes: tuple[str, ...] = (
         'peer review',
         'reviewer report',
