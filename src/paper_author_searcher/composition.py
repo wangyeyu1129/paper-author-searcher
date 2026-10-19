@@ -153,7 +153,12 @@ class ServiceContainer:
 
     @cached_property
     def collector(self) -> PaperCollector:
-        return PaperCollector(self.paper_providers, self.ownership_validator, self.settings.deduplication)
+        return PaperCollector(
+            self.paper_providers,
+            self.ownership_validator,
+            self.settings.deduplication,
+            concurrency=dict(self.collection_config.source_concurrency),
+        )
 
     # Full text ---------------------------------------------------------------------------------------------------
 

@@ -120,12 +120,17 @@ class CollectionConfig:
     # contenders instead; nothing they yield can be verified, it is all routed to review.
     ambiguity_policy: str = 'stop'
     maximum_contenders: int = 3
+    # Author IDs of one source paged at once (a merged profile can hold many IDs per source). Semantic Scholar
+    # and DBLP keep to one: their unpaced listing APIs answer bursts with 429s. Unlisted sources get one.
+    source_concurrency: Tuple[Tuple[str, int], ...] = (('openalex', 4), ('semantic_scholar', 1), ('dblp', 1))
 
     def __post_init__(self) -> None:
         if self.ambiguity_policy not in AMBIGUITY_POLICIES:
             raise ValueError(f'ambiguity_policy must be one of {AMBIGUITY_POLICIES}')
         if self.maximum_contenders < 1:
             raise ValueError('maximum_contenders must be positive')
+        if any(limit < 1 for _, limit in self.source_concurrency):
+            raise ValueError('source_concurrency limits must be positive')
         if not 1 <= self.openalex_page_size <= 200:
             raise ValueError('openalex_page_size must be between 1 and 200')
         if not 1 <= self.semantic_scholar_page_size <= 1000:

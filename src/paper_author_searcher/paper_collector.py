@@ -1,10 +1,11 @@
 """Confirmed identity selection and conservative, traceable metadata deduplication."""
 
 import logging
+import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from typing import Callable, Dict, Iterable, List, Optional, Sequence, Tuple
+from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Sequence, Tuple
 
-from .config import DEFAULT_DEDUPLICATION, DeduplicationConfig
+from .config import DEFAULT_COLLECTION, DEFAULT_DEDUPLICATION, DeduplicationConfig
 from .logging_config import log_isolated_failure
 from .models import Paper, PaperCollectionResult, PaperSourceResult, ProfessorProfile
 from .paper_deduplication import deduplicate_papers
@@ -35,10 +36,18 @@ class PaperCollector:
         providers: Iterable[PaperProvider],
         ownership_validator: Optional[PaperOwnershipValidator] = None,
         deduplication: DeduplicationConfig = DEFAULT_DEDUPLICATION,
+        concurrency: Optional[Mapping[str, int]] = None,
     ) -> None:
         self.providers = list(providers)
         self.ownership_validator = ownership_validator or PaperOwnershipValidator()
         self.deduplication = deduplication
+        # Author IDs paged at once per source; sources run side by side.
+        self.concurrency = dict(DEFAULT_COLLECTION.source_concurrency if concurrency is None else concurrency)
+
+    @staticmethod
+    def _collect_one(provider: PaperProvider, author_id: str, gate: Any) -> PaperSourceResult:
+        with gate:
+            return provider.collect(author_id)
 
     def _select_ids(
         self, profile: ProfessorProfile, selected_author: Optional[Tuple[str, str]]
@@ -95,10 +104,13 @@ class PaperCollector:
                     )
                 else:
                     tasks.append((available[source], author_id))
-        with ThreadPoolExecutor(max_workers=max(1, len(available))) as pool:
+        limits = {name: self.concurrency.get(name, 1) for name in available}
+        gates = {name: threading.BoundedSemaphore(limit) for name, limit in limits.items()}
+        workers = max(1, min(len(tasks), sum(limits.values())))
+        with ThreadPoolExecutor(max_workers=workers, thread_name_prefix='paper-collection') as pool:
             futures = {}
             for provider, author_id in tasks:
-                future = pool.submit(provider.collect, author_id)
+                future = pool.submit(self._collect_one, provider, author_id, gates[provider.name])
                 futures[future] = (provider.name, author_id)
             for future in as_completed(futures):
                 source, author_id = futures[future]

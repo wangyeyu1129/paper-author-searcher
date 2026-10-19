@@ -1,6 +1,8 @@
 import io
 import json
 import tempfile
+import threading
+import time
 import unittest
 import xml.etree.ElementTree as ET
 from contextlib import redirect_stdout
@@ -446,3 +448,42 @@ class ConservativeMetadataTests(unittest.TestCase):
         self.assertFalse(result.complete)
         self.assertEqual(len(result.papers), 1)
         self.assertIn('No confirmed Author ID', result.sources[0].error)
+
+
+class SlowSource:
+    def __init__(self, name):
+        self.name = name
+        self.active = 0
+        self.peak = 0
+        self.lock = threading.Lock()
+
+    def collect(self, author_id):
+        with self.lock:
+            self.active += 1
+            self.peak = max(self.peak, self.active)
+        time.sleep(0.05)
+        with self.lock:
+            self.active -= 1
+        return PaperSourceResult(source=self.name, author_id=author_id, complete=True, papers=[])
+
+
+class CollectionConcurrencyTests(unittest.TestCase):
+    def test_author_ids_page_concurrently_within_each_source_limit(self):
+        openalex, semantic = SlowSource('openalex'), SlowSource('semantic_scholar')
+        aliases = {'openalex': [f'A{i}' for i in range(6)], 'semantic_scholar': ['S1', 'S2', 'S3']}
+        target = profile(aliases=aliases).profile
+        target.author_ids = {source: ids[0] for source, ids in aliases.items()}
+        collector = PaperCollector([openalex, semantic], concurrency={'openalex': 3, 'semantic_scholar': 1})
+        result = collector.collect(target)
+        self.assertEqual(openalex.peak, 3)
+        self.assertEqual(semantic.peak, 1)
+        self.assertEqual(
+            [(source.source, source.author_id) for source in result.sources],
+            sorted((source, author) for source, ids in aliases.items() for author in ids),
+        )
+
+    def test_invalid_limit_is_rejected(self):
+        from paper_author_searcher.config import CollectionConfig
+
+        with self.assertRaises(ValueError):
+            CollectionConfig(source_concurrency=(('openalex', 0),))
