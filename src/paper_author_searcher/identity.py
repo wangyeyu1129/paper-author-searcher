@@ -123,10 +123,15 @@ def split_profile_link(
     if names < config.compatible_name:
         return IdentityLink(reason='Names are incompatible', conflict=True)
     # Cheap set overlaps first; the fuzzy school comparison runs only when they already pass.
-    coauthors = set(map(normalize, left.coauthors)) & set(map(normalize, right.coauthors))
-    coauthors.difference_update(map(normalize, [left.name, right.name, *left.aliases, *right.aliases]))
+    own_names = set(map(normalize, [left.name, right.name, *left.aliases, *right.aliases]))
+    left_coauthors = set(map(normalize, left.coauthors)) - own_names
+    right_coauthors = set(map(normalize, right.coauthors)) - own_names
+    coauthors = left_coauthors & right_coauthors
     topics = set(map(normalize, left.topics)) & set(map(normalize, right.topics))
     if len(coauthors) < config.split_profile_coauthors or len(topics) < config.split_profile_topics:
+        return refusal
+    overlap = len(coauthors) / min(len(left_coauthors), len(right_coauthors))
+    if overlap < config.split_profile_coauthor_overlap:
         return refusal
     _, _, school = _shared_context(left, right, config)
     if school >= config.shared_school:
@@ -134,7 +139,8 @@ def split_profile_link(
             matched=True,
             split_profile=True,
             evidence=[
-                f'same-source split profile: shared school, {len(coauthors)} shared coauthors, '
+                f'same-source split profile: shared school, {len(coauthors)} shared coauthors '
+                f'(overlap {overlap:.2f}), '
                 f'{len(topics)} shared topics'
             ],
         )

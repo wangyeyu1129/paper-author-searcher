@@ -43,6 +43,9 @@ class MatchingConfig:
     merge_split_profiles: bool = True
     split_profile_coauthors: int = 5
     split_profile_topics: int = 2
+    # Size-aware guard: shared coauthors / the smaller coauthor list. Five shared names mean little between two
+    # profiles with hundreds of collaborators each (large consortia); 0 disables the guard.
+    split_profile_coauthor_overlap: float = 0.1
     school_stop_words: Tuple[str, ...] = (
         'university',
         'of',

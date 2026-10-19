@@ -75,3 +75,20 @@ class SplitProfileTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class CoauthorOverlapTests(unittest.TestCase):
+    """Five shared names mean little between two profiles with thousands of collaborators each."""
+
+    def test_large_consortium_profiles_do_not_merge_on_a_few_shared_names(self):
+        consortium = [f'Member {index}' for index in range(1000)]
+        left = fragment('A1', coauthors=LAB + consortium[:500])
+        right = fragment('A2', coauthors=LAB + consortium[500:])
+        link = compare_identity(left, right)
+        self.assertFalse(link.split_profile)
+        self.assertTrue(compare_identity(left, right, MatchingConfig(split_profile_coauthor_overlap=0)).split_profile)
+
+    def test_lab_sized_profiles_still_merge_and_report_overlap(self):
+        link = compare_identity(fragment('A1'), fragment('A2'))
+        self.assertTrue(link.split_profile)
+        self.assertIn('overlap', link.evidence[0])
