@@ -1,7 +1,8 @@
 import unittest
+from dataclasses import asdict
 
 from paper_author_searcher.config import CollectionConfig, RawMetadataPolicy
-from paper_author_searcher.models import PaperRecord
+from paper_author_searcher.models import Paper, PaperRecord
 from paper_author_searcher.raw_metadata import apply_policy, retained
 
 OPENALEX = {
@@ -39,8 +40,8 @@ class RawMetadataTests(unittest.TestCase):
         self.assertEqual(retained('openalex', OPENALEX, RawMetadataPolicy.NONE), {})
 
     def test_policy_applies_to_papers_and_their_records(self):
-        paper = record()
-        paper.records = [record(), record('semantic_scholar', {'paperId': 'S', 'openAccessPdf': None, 'tldr': 'x'})]
+        source_records = [record(), record('semantic_scholar', {'paperId': 'S', 'openAccessPdf': None, 'tldr': 'x'})]
+        paper = Paper(**asdict(record()), records=source_records)
         apply_policy([paper], RawMetadataPolicy.MINIMAL)
         self.assertEqual(sorted(paper.raw_metadata), ['id', 'locations'])
         self.assertEqual(sorted(paper.records[1].raw_metadata), ['openAccessPdf', 'paperId'])

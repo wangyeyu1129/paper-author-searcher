@@ -36,6 +36,8 @@ def _status_fields(cls: type) -> tuple[tuple[str, type[StrEnum]], ...]:
 class ValidatedStatuses:
     """Mixin: status fields hold their enum member; an unknown value is an error, not a silent new state."""
 
+    __slots__ = ()  # keeps slotted subclasses free of a per-instance __dict__
+
     def __post_init__(self) -> None:
         for name, enum in _status_fields(type(self)):
             value = getattr(self, name)
@@ -70,7 +72,7 @@ class ProfessorQuery:
         return bool(self.orcid or self.homepage or self.known_papers)
 
 
-@dataclass
+@dataclass(slots=True)
 class AuthorCandidate:
     source: str
     author_id: str
@@ -87,7 +89,7 @@ class AuthorCandidate:
     metadata_errors: list[str] = field(default_factory=list)
 
 
-@dataclass(frozen=True, order=True)
+@dataclass(frozen=True, order=True, slots=True)
 class AnchorEvidence:
     """Why one source author ID is tied to the requested researcher, independently of name similarity."""
 
@@ -149,7 +151,7 @@ class ResolutionResult:
         return asdict(self)
 
 
-@dataclass
+@dataclass(slots=True)
 class PaperRecord(ValidatedStatuses):
     title: str
     authors: list[str]
@@ -175,7 +177,7 @@ class PaperRecord(ValidatedStatuses):
     type_evidence: list[str] = field(default_factory=list)
 
 
-@dataclass
+@dataclass(slots=True)
 class Paper(PaperRecord):
     records: list[PaperRecord] = field(default_factory=list)
     deduplication_evidence: list[str] = field(default_factory=list)
@@ -275,7 +277,7 @@ class PaperCollectionResult(ValidatedStatuses):
         return data
 
 
-@dataclass
+@dataclass(slots=True)
 class PDFCandidate(ValidatedStatuses):
     url: str
     source: str
@@ -309,7 +311,7 @@ class PDFProviderResult(ValidatedStatuses):
     warnings: list[dict] = field(default_factory=list)
 
 
-@dataclass
+@dataclass(slots=True)
 class PaperPDFResult(ValidatedStatuses):
     entry_index: int
     title: str
@@ -352,7 +354,7 @@ class PDFFileValidation(ValidatedStatuses):
     observations: dict = field(default_factory=dict)
 
 
-@dataclass
+@dataclass(slots=True)
 class PaperDownloadResult(ValidatedStatuses):
     paper_key: str
     title: str
