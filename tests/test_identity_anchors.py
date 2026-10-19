@@ -1,5 +1,7 @@
 """Identity anchors from caller hints (ORCID, homepage, known papers), with synthetic fixtures only."""
 
+import dataclasses
+import json
 import unittest
 
 from paper_author_searcher import AuthorCandidate as C
@@ -11,6 +13,7 @@ from paper_author_searcher.identity_anchors import (
     homepage_papers,
     paper_hints,
 )
+from paper_author_searcher.models import AnchorEvidence, ProfessorProfile
 
 
 class Provider:
@@ -111,6 +114,18 @@ class ResolverAnchorTests(unittest.TestCase):
         self.assertEqual(result.profile.status, 'resolved')
         self.assertIsNone(result.ambiguity)
         self.assertTrue(any('Identity anchor' in line for line in result.profile.evidence))
+
+    def test_anchor_evidence_is_structured_and_round_trips_through_json(self):
+        result, _ = self.resolve(
+            [C('openalex', 'A1', 'Mei Lin', SCHOOL), C('openalex', 'B1', 'Mei Lin', SCHOOL)], anchors('B1')
+        )
+        anchor = result.profile.identity_anchors[0]
+        self.assertIsInstance(anchor, AnchorEvidence)
+        self.assertEqual((anchor.source, anchor.author_id), ('openalex', 'B1'))
+        saved = json.loads(json.dumps(result.to_dict()))
+        self.assertEqual(saved['profile']['identity_anchors'][0]['author_id'], 'B1')
+        restored = ProfessorProfile(**saved['profile'])
+        self.assertEqual(restored.identity_anchors, result.profile.identity_anchors)
 
     def test_anchored_fragments_merge_into_one_identity(self):
         result, _ = self.resolve(
@@ -220,3 +235,28 @@ class AdjudicationTests(unittest.TestCase):
         self.assertIn('"openalex:A2"', messages.kwargs['messages'][0]['content'])
         messages.response = SimpleNamespace(stop_reason='refusal', content=[])
         self.assertTrue(ClaudeIdentityAdjudicator(client).judge(query(), first, second).errors)
+
+
+class AnchorEvidenceTests(unittest.TestCase):
+    def test_legacy_text_dicts_and_instances_are_accepted(self):
+        expected = AnchorEvidence('semantic_scholar', 'B2', 'author of ARXIV:2501.00001')
+        self.assertEqual(AnchorEvidence.coerce('semantic_scholar B2: author of ARXIV:2501.00001'), expected)
+        self.assertEqual(AnchorEvidence.coerce(dataclasses.asdict(expected)), expected)
+        self.assertIs(AnchorEvidence.coerce(expected), expected)
+        self.assertEqual(str(expected), 'semantic_scholar B2: author of ARXIV:2501.00001')
+
+    def test_malformed_legacy_text_is_rejected(self):
+        with self.assertRaises(ValueError):
+            AnchorEvidence.coerce('no separator here')
+
+    def test_profiles_from_old_checkpoints_load_structured_anchors(self):
+        profile = ProfessorProfile(
+            'Mei Lin', [], {'openalex': 'A1'}, 0.9, 'resolved', [], identity_anchors=['openalex A1: ok']
+        )
+        self.assertEqual(profile.identity_anchors, [AnchorEvidence('openalex', 'A1', 'ok')])
+
+    def test_evidence_lookup_matches_fields_not_prefixes(self):
+        found = IdentityAnchors()
+        found.add('openalex', 'A1', 'first')
+        found.add('openalex', 'A10', 'second')
+        self.assertEqual([item.reason for item in found.evidence_for('openalex', 'A1')], ['first'])

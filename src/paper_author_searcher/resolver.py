@@ -18,7 +18,7 @@ from .matching import (
     name_similarity,
     research_similarity,
 )
-from .models import ProfessorProfile, ResolutionResult
+from .models import AnchorEvidence, ProfessorProfile, ResolutionResult
 from .status import ResolutionStatus, UniversityStatus
 
 logger = logging.getLogger(__name__)
@@ -35,7 +35,7 @@ class ProfileSignals:
     affiliations: List[str]
     topics: List[str]
     links: List[IdentityLink]
-    anchors: List[str]
+    anchors: List[AnchorEvidence]
     orcid_conflict: bool
 
 
@@ -273,11 +273,11 @@ class ProfessorResolver:
         anchor_evidence = []
         for record in group:
             if self._is_anchored(record, anchors):
-                anchor_evidence.extend(
-                    line for line in anchors.evidence if line.startswith(f'{record.source} {record.author_id}:')
-                )
+                anchor_evidence.extend(anchors.evidence_for(record.source, record.author_id))
                 if anchors.orcid and record.orcid and canonical_orcid(record.orcid) == anchors.orcid:
-                    anchor_evidence.append(f'{record.source} {record.author_id}: ORCID matches the supplied ORCID')
+                    anchor_evidence.append(
+                        AnchorEvidence(record.source, str(record.author_id), 'ORCID matches the supplied ORCID')
+                    )
         orcid_conflict = bool(
             anchors.orcid and any(record.orcid and canonical_orcid(record.orcid) != anchors.orcid for record in group)
         )
@@ -360,7 +360,7 @@ class ProfessorResolver:
         for link in signals.links:
             link_messages.update(link.evidence)
         evidence.extend(sorted(link_messages))
-        evidence.extend('Identity anchor: ' + line for line in signals.anchors)
+        evidence.extend(f'Identity anchor: {anchor}' for anchor in signals.anchors)
         if signals.orcid_conflict:
             evidence.append('ORCID conflicts with the supplied ORCID')
         if query.department:

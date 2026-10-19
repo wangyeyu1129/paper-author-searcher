@@ -1,5 +1,5 @@
 from dataclasses import asdict, dataclass, field
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Mapping, Optional, Union
 
 from .status import (
     AccessStatus,
@@ -53,6 +53,31 @@ class AuthorCandidate:
     metadata_errors: List[str] = field(default_factory=list)
 
 
+@dataclass(frozen=True, order=True)
+class AnchorEvidence:
+    """Why one source author ID is tied to the requested researcher, independently of name similarity."""
+
+    source: str
+    author_id: str
+    reason: str
+
+    def __str__(self) -> str:
+        return f'{self.source} {self.author_id}: {self.reason}'
+
+    @classmethod
+    def coerce(cls, value: Union['AnchorEvidence', Mapping[str, Any], str]) -> 'AnchorEvidence':
+        """Accept the structured form, its JSON dict, or the "<source> <id>: <reason>" text of older checkpoints."""
+        if isinstance(value, cls):
+            return value
+        if isinstance(value, Mapping):
+            return cls(str(value['source']), str(value['author_id']), str(value.get('reason', '')))
+        head, separator, reason = str(value).partition(':')
+        source, _, author_id = head.strip().partition(' ')
+        if not separator or not source or not author_id.strip():
+            raise ValueError(f'Unrecognised identity anchor: {value!r}')
+        return cls(source, author_id.strip(), reason.strip())
+
+
 @dataclass
 class ProfessorProfile:
     name: str
@@ -70,8 +95,11 @@ class ProfessorProfile:
     matched_affiliations: List[str] = field(default_factory=list)
     author_id_aliases: Dict[str, List[str]] = field(default_factory=dict)
     name_aliases: List[str] = field(default_factory=list)
-    identity_anchors: List[str] = field(default_factory=list)
+    identity_anchors: List[AnchorEvidence] = field(default_factory=list)
     adjudication: Optional[str] = None
+
+    def __post_init__(self) -> None:
+        self.identity_anchors = [AnchorEvidence.coerce(item) for item in self.identity_anchors]
 
 
 @dataclass

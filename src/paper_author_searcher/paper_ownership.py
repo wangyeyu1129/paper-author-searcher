@@ -4,6 +4,7 @@ from collections import Counter
 
 from .config import DEFAULT_OWNERSHIP
 from .matching import canonical_orcid, institution_similarity, name_similarity, normalize
+from .models import AnchorEvidence
 from .paper_authorship import byline_forms, canonical_author_id, signature_names
 from .paper_deduplication import author_signatures_match, duplicate_evidence
 from .status import OwnershipStatus
@@ -22,13 +23,8 @@ class PaperOwnershipValidator:
 
     @staticmethod
     def _anchored_ids(profile, source):
-        # Anchor evidence reads "<source> <author id>: <reason>" (IdentityAnchors.add).
-        values = set()
-        for line in profile.identity_anchors:
-            head = line.split(':', 1)[0].split(' ', 1)
-            if len(head) == 2 and head[0] == source:
-                values.add(canonical_author_id(source, head[1]))
-        return values
+        anchors = (AnchorEvidence.coerce(item) for item in profile.identity_anchors)
+        return {canonical_author_id(source, anchor.author_id) for anchor in anchors if anchor.source == source}
 
     def _corroborating_ids(self, profile, source):
         """IDs whose source attribution may corroborate another database's attribution.

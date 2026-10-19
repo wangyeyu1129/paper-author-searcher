@@ -13,6 +13,7 @@ from .config import DEFAULT_ANCHORS, DEFAULT_MATCHING, DEFAULT_SOURCES
 from .evaluation_matching import bibliographic_name_agrees
 from .http import HttpClient, SourceError
 from .matching import canonical_orcid, name_similarity, normalize
+from .models import AnchorEvidence
 
 DOI_IN_TEXT = re.compile(r'\b10\.\d{4,9}/[^\s"\'<>)\]]+', re.IGNORECASE)
 ARXIV_IN_TEXT = re.compile(r'arxiv\.org/(?:abs|pdf)/(\d{4}\.\d{4,5})', re.IGNORECASE)
@@ -24,12 +25,15 @@ ARXIV_HINT = re.compile(r'^(?:arxiv:)?(\d{4}\.\d{4,5})(?:v\d+)?$', re.IGNORECASE
 class IdentityAnchors:
     author_ids: Dict[str, Set[str]] = field(default_factory=dict)
     orcid: Optional[str] = None
-    evidence: List[str] = field(default_factory=list)
+    evidence: List[AnchorEvidence] = field(default_factory=list)
     errors: List[str] = field(default_factory=list)
 
     def add(self, source: str, author_id: str, reason: str) -> None:
         self.author_ids.setdefault(source, set()).add(str(author_id))
-        self.evidence.append(f'{source} {author_id}: {reason}')
+        self.evidence.append(AnchorEvidence(source, str(author_id), reason))
+
+    def evidence_for(self, source: str, author_id: str) -> List[AnchorEvidence]:
+        return [item for item in self.evidence if item.source == source and item.author_id == str(author_id)]
 
     def contains(self, source: str, author_id: str) -> bool:
         return str(author_id) in self.author_ids.get(source, set())
