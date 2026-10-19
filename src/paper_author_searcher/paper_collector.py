@@ -3,11 +3,11 @@
 import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
+from .config import DEFAULT_DEDUPLICATION
 from .logging_config import log_isolated_failure
 from .models import PaperCollectionResult, PaperSourceResult
 from .paper_deduplication import deduplicate_papers
 from .paper_ownership import PaperOwnershipValidator
-from .paper_providers import DBLPPaperProvider, OpenAlexPaperProvider, SemanticScholarPaperProvider
 from .status import OwnershipStatus, ResolutionStatus
 
 logger = logging.getLogger(__name__)
@@ -28,15 +28,10 @@ def hold_for_review(papers, contenders):
 
 
 class PaperCollector:
-    def __init__(self, providers=None, ownership_validator=None):
-        if providers is None:
-            providers = [
-                OpenAlexPaperProvider(),
-                SemanticScholarPaperProvider(),
-                DBLPPaperProvider(),
-            ]
-        self.providers = providers
+    def __init__(self, providers, ownership_validator=None, deduplication=DEFAULT_DEDUPLICATION):
+        self.providers = list(providers)
         self.ownership_validator = ownership_validator or PaperOwnershipValidator()
+        self.deduplication = deduplication
 
     def _select_ids(self, profile, selected_author):
         if selected_author is not None:
@@ -105,7 +100,7 @@ class PaperCollector:
         complete = bool(sources) and all(source.complete for source in sources)
         if progress:
             progress('Deduplicating papers', len(records), len(records))
-        papers = deduplicate_papers(records)
+        papers = deduplicate_papers(records, self.deduplication)
         if progress:
             progress('Validating ownership', len(papers), len(papers))
         self.ownership_validator.validate(papers, profile)

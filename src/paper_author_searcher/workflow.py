@@ -11,11 +11,9 @@ from pathlib import Path
 from .config import DEFAULT_COLLECTION, DEFAULT_MATCHING, AmbiguityPolicy
 from .jsonio import read_json, write_json
 from .models import ProfessorProfile, ResolutionResult
-from .paper_collector import IdentityConfirmationRequired, PaperCollector
+from .paper_collector import IdentityConfirmationRequired
 from .paper_reanalysis import saved_collection_profile
-from .pdf_resolver import PDFResolver
 from .performance_diagnostics import workflow_outcomes
-from .resolver import ProfessorResolver
 from .status import ResolutionStatus, RunStatus, StageStatus, UniversityStatus
 
 logger = logging.getLogger(__name__)
@@ -171,6 +169,16 @@ def metadata_audit(original, pdf=None, manifest=None):
     return {'missing_input_fields': missing, 'transmission_losses': losses}
 
 
+class MissingStageService(RuntimeError):
+    """A requested stage needs a service the workflow was built without."""
+
+
+def _required(service, name):
+    if service is None:
+        raise MissingStageService(f'This workflow has no {name}; build it with composition.ServiceContainer')
+    return service
+
+
 class PaperSearchWorkflow:
     def __init__(
         self,
@@ -182,8 +190,8 @@ class PaperSearchWorkflow:
         collection_config=DEFAULT_COLLECTION,
         matching_config=DEFAULT_MATCHING,
     ):
-        self.resolver = resolver or ProfessorResolver()
-        self.collector = collector or PaperCollector()
+        self.resolver = resolver
+        self.collector = collector
         self.collection_config = collection_config
         self.matching_config = matching_config
         self.pdf_resolver = pdf_resolver
@@ -269,7 +277,7 @@ class PaperSearchWorkflow:
                 stage = 'Finding PDF URLs'
                 self._progress(stage)
                 if pdf is None:
-                    resolver = self.pdf_resolver or PDFResolver()
+                    resolver = _required(self.pdf_resolver, 'pdf_resolver')
                     pdf = resolver.resolve(
                         archive, include_needs_review, maximum_pdf_papers, progress=self._progress
                     ).to_dict()
@@ -299,11 +307,7 @@ class PaperSearchWorkflow:
             if mode == 'full':
                 stage = 'Downloading PDFs'
                 self._progress(stage)
-                if self.downloader is None:
-                    from .pdf_downloader import PDFDownloader
-
-                    self.downloader = PDFDownloader()
-                manifest = self.downloader.download(
+                manifest = _required(self.downloader, 'downloader').download(
                     pdf,
                     root / 'papers',
                     include_needs_review,
@@ -398,7 +402,7 @@ class PaperSearchWorkflow:
             report['stages'].append({'stage': 'Collecting papers', 'status': StageStatus.REUSED})
             return deepcopy(saved), None
         self._progress('Resolving professor identity')
-        result = self.resolver.resolve(query) if query else _resolution(saved)
+        result = _required(self.resolver, 'resolver').resolve(query) if query else _resolution(saved)
         identity = result.to_dict()
         write_json(root / 'professor.json', identity)
         report['identity'] = identity
@@ -428,7 +432,9 @@ class PaperSearchWorkflow:
             report['errors'].append({'stage': 'Resolving professor identity', 'error': str(exc)})
             return {}, None
         self._progress('Collecting papers')
-        collection = self.collector.collect(profile, selected_author=selected, progress=self._progress)
+        collection = _required(self.collector, 'collector').collect(
+            profile, selected_author=selected, progress=self._progress
+        )
         archive = dict(
             identity,
             collection=collection.to_dict(),

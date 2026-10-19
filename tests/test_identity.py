@@ -124,7 +124,7 @@ class IdentityTests(unittest.TestCase):
             if verbose:
                 arguments.append('--verbose')
             output = io.StringIO()
-            with patch('paper_author_searcher.cli.ProfessorResolver') as factory:
+            with patch('paper_author_searcher.composition.ProfessorResolver') as factory:
                 factory.return_value.resolve.return_value = result
                 with redirect_stdout(output):
                     self.assertEqual(main(arguments), 0)

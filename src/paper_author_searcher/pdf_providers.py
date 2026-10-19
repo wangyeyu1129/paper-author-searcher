@@ -5,7 +5,7 @@ from html.parser import HTMLParser
 from urllib.parse import quote, urljoin
 
 from .config import DEFAULT_PDF, DEFAULT_SOURCES
-from .http import HttpClient, SourceError
+from .http import SourceError
 from .matching import normalize
 from .models import PDFCandidate, PDFProviderResult
 from .pdf_identity import (
@@ -194,8 +194,8 @@ class ExistingPDFProvider:
 class MetadataPDFProvider:
     """Small shared loop: each metadata lookup fails independently."""
 
-    def __init__(self, client=None, sources=DEFAULT_SOURCES):
-        self.client = client or HttpClient()
+    def __init__(self, client, sources=DEFAULT_SOURCES):
+        self.client = client
         self.sources = sources
 
     def find(self, paper):
@@ -249,7 +249,7 @@ class OpenAlexPDFProvider(MetadataPDFProvider):
     name = 'openalex'
     fields = 'id,doi,title,publication_year,primary_location,best_oa_location,locations'
 
-    def __init__(self, client=None, sources=DEFAULT_SOURCES, api_key=None):
+    def __init__(self, client, sources=DEFAULT_SOURCES, api_key=None):
         super().__init__(client, sources)
         self.api_key = api_key
 
@@ -278,7 +278,7 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
     name = 'semantic_scholar'
     fields = SemanticScholarRequests.fields
 
-    def __init__(self, client=None, sources=DEFAULT_SOURCES, api_key=None, config=DEFAULT_PDF):
+    def __init__(self, client, sources=DEFAULT_SOURCES, api_key=None, config=DEFAULT_PDF):
         super().__init__(client, sources)
         self.api_key = api_key
         self.config = config
@@ -375,7 +375,7 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
 class UnpaywallPDFProvider(MetadataPDFProvider):
     name = 'unpaywall'
 
-    def __init__(self, client=None, email=None, config=DEFAULT_PDF):
+    def __init__(self, client, email=None, config=DEFAULT_PDF):
         super().__init__(client)
         self.config = config
         self.configuration_error = None
@@ -457,8 +457,8 @@ class ArxivPDFProvider:
     atom = '{http://www.w3.org/2005/Atom}'
     arxiv = '{http://arxiv.org/schemas/atom}'
 
-    def __init__(self, client=None, config=DEFAULT_PDF):
-        self.client = client or HttpClient()
+    def __init__(self, client, config=DEFAULT_PDF):
+        self.client = client
         self.config = config
         self.last_request = None
 
@@ -565,8 +565,8 @@ class LandingPagePDFProvider:
 
     name = 'landing_page'
 
-    def __init__(self, client=None, config=DEFAULT_PDF):
-        self.client = client or HttpClient()
+    def __init__(self, client, config=DEFAULT_PDF):
+        self.client = client
         self.config = config
 
     def find(self, paper):

@@ -5,10 +5,12 @@ from dataclasses import replace
 from unittest.mock import patch
 
 from paper_author_searcher import AuthorCandidate, ProfessorQuery, ProfessorResolver
+from paper_author_searcher.composition import ServiceContainer
 from paper_author_searcher.config import HttpConfig, MatchingConfig, SourceConfig
 from paper_author_searcher.http import HttpClient, SourceError
 from paper_author_searcher.identity import linked
 from paper_author_searcher.providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
+from paper_author_searcher.settings import Settings
 from test_http import Response
 from test_providers import Client
 from test_resolver import Provider
@@ -64,7 +66,9 @@ class ConfigurationTests(unittest.TestCase):
             with self.assertRaisesRegex(SourceError, 'size limit'):
                 HttpClient(config=config).get('https://example.test')
 
-    def test_default_providers_share_resolver_matching_policy(self):
+    def test_composed_providers_share_resolver_matching_policy(self):
         config = replace(MatchingConfig(), compatible_name=0.95)
-        resolver = ProfessorResolver(config=config)
+        resolver = ServiceContainer(replace(Settings(), matching=config)).resolver
+        self.assertIs(resolver.config, config)
         self.assertIs(resolver.providers[0].matching_config, config)
+        self.assertIs(resolver.anchor_finder.matching, config)

@@ -15,8 +15,21 @@ from .http_budget import budgeted_client
 from .http_cache import cached_client
 from .identity_anchors import ScholarlyAnchorFinder
 from .paper_collector import PaperCollector
+from .paper_ownership import PaperOwnershipValidator
 from .paper_providers import DBLPPaperProvider, OpenAlexPaperProvider, SemanticScholarPaperProvider
+from .pdf_catalogs import JournalCatalogPDFProvider
+from .pdf_crossref import CrossrefPDFProvider
+from .pdf_providers import (
+    ArxivPDFProvider,
+    ExistingPDFProvider,
+    OpenAlexPDFProvider,
+    SemanticScholarPDFProvider,
+    UnpaywallPDFProvider,
+)
+from .pdf_public_pages import PublicPagePDFProvider
 from .pdf_resolver import PDFResolver
+from .pdf_resource_requests import PublicResourceRequests
+from .pdf_validation import PDFURLValidator
 from .progress import ProgressReporter
 from .providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
 from .resolver import ProfessorResolver
@@ -158,8 +171,12 @@ class ServiceContainer:
         ]
 
     @cached_property
+    def ownership_validator(self) -> PaperOwnershipValidator:
+        return PaperOwnershipValidator(self.settings.ownership)
+
+    @cached_property
     def collector(self) -> PaperCollector:
-        return PaperCollector(self.paper_providers)
+        return PaperCollector(self.paper_providers, self.ownership_validator, self.settings.deduplication)
 
     # Full text ---------------------------------------------------------------------------------------------------
 
@@ -170,13 +187,32 @@ class ServiceContainer:
         return replace(self.settings.pdf, bibliography_urls=configured + extra)
 
     @cached_property
+    def resource_requests(self) -> PublicResourceRequests:
+        """Shared scheduler (rate limits, cooldowns, page cache) for every public-resource request."""
+        return PublicResourceRequests(self.http_client, self.pdf_config)
+
+    @cached_property
+    def pdf_providers(self) -> List[Any]:
+        requests, config, credentials = self.resource_requests, self.pdf_config, self.settings.credentials
+        sources = self.settings.sources
+        return [
+            ExistingPDFProvider(),
+            OpenAlexPDFProvider(requests, sources, api_key=credentials.openalex_api_key),
+            SemanticScholarPDFProvider(requests, sources, api_key=credentials.semantic_scholar_api_key, config=config),
+            CrossrefPDFProvider(requests, config, email=credentials.crossref_email),
+            UnpaywallPDFProvider(requests, self.options.unpaywall_email or credentials.unpaywall_email, config),
+            ArxivPDFProvider(requests, config),
+            JournalCatalogPDFProvider(requests, config),
+            PublicPagePDFProvider(requests, config),
+        ]
+
+    @cached_property
+    def pdf_validator(self) -> PDFURLValidator:
+        return PDFURLValidator(self.resource_requests, self.pdf_config)
+
+    @cached_property
     def pdf_resolver(self) -> PDFResolver:
-        return PDFResolver(
-            client=self.http_client,
-            unpaywall_email=self.options.unpaywall_email,
-            config=self.pdf_config,
-            credentials=self.settings.credentials,
-        )
+        return PDFResolver(self.pdf_providers, self.pdf_validator, self.resource_requests, self.pdf_config)
 
     @cached_property
     def download_config(self) -> DownloadConfig:
@@ -186,8 +222,9 @@ class ServiceContainer:
 
     @cached_property
     def downloader(self) -> Any:
-        from .pdf_downloader import PDFDownloader  # deferred: needs the optional "download" extra
+        from .pdf_downloader import PDFDownloader  # deferred: needs the optional "download" extra (pypdf)
 
+        # The file validator is a local, configuration-driven parser the downloader derives from its config.
         return PDFDownloader(client=self.http_client, config=self.download_config)
 
     # Pipeline ----------------------------------------------------------------------------------------------------

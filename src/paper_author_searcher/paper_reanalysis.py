@@ -2,6 +2,7 @@
 
 from dataclasses import fields
 
+from .config import DEFAULT_DEDUPLICATION, DEFAULT_OWNERSHIP
 from .models import PaperCollectionResult, PaperRecord, PaperSourceResult, ProfessorProfile
 from .paper_deduplication import deduplicate_papers
 from .paper_ownership import PaperOwnershipValidator
@@ -63,7 +64,7 @@ def saved_collection_profile(data):
     )
 
 
-def reanalyze_saved_result(data):
+def reanalyze_saved_result(data, ownership=DEFAULT_OWNERSHIP, deduplication=DEFAULT_DEDUPLICATION):
     profile = saved_collection_profile(data)
     collection = data['collection']
     selected = collection['selected_author_ids']
@@ -96,8 +97,8 @@ def reanalyze_saved_result(data):
             if record.source == source.source and record.source_author_id == source.author_id
         ]
         sources.append(source)
-    papers = deduplicate_papers(records)
-    PaperOwnershipValidator().validate(papers, profile)
+    papers = deduplicate_papers(records, deduplication)
+    PaperOwnershipValidator(ownership).validate(papers, profile)
     return PaperCollectionResult(
         papers=papers,
         sources=sources,

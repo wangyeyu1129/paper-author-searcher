@@ -9,7 +9,7 @@ from typing import List
 from .config import DEFAULT_MATCHING
 from .identity import IdentityLink, compare_identity
 from .identity_adjudication import accepted
-from .identity_anchors import IdentityAnchors, ScholarlyAnchorFinder
+from .identity_anchors import IdentityAnchors
 from .logging_config import log_isolated_failure
 from .matching import (
     best_similarity,
@@ -19,7 +19,6 @@ from .matching import (
     research_similarity,
 )
 from .models import ProfessorProfile, ResolutionResult
-from .providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
 from .status import ResolutionStatus, UniversityStatus
 
 logger = logging.getLogger(__name__)
@@ -41,24 +40,18 @@ class ProfileSignals:
 
 
 class ProfessorResolver:
-    def __init__(self, providers=None, config=DEFAULT_MATCHING, anchor_finder=None, adjudicator=None):
+    def __init__(self, providers, config=DEFAULT_MATCHING, anchor_finder=None, adjudicator=None):
         self.config = config
-        if providers is None:
-            providers = [
-                OpenAlexProvider(matching_config=config),
-                SemanticScholarProvider(),
-                DBLPProvider(),
-            ]
-        self.providers = providers
-        # Anchors only cost requests when the query carries hints (ORCID, homepage, known papers).
-        self.anchor_finder = anchor_finder or ScholarlyAnchorFinder(matching_config=config)
+        self.providers = list(providers)
+        # Turns query hints (ORCID, homepage, known papers) into author-ID anchors; without one, hints are unused.
+        self.anchor_finder = anchor_finder
         # Off unless injected; see identity_adjudication.ClaudeIdentityAdjudicator.
         self.adjudicator = adjudicator
 
     def rank(self, query):
         """Scored identity profiles, the candidate groups behind them, and per-source errors."""
         records, errors = self._collect_candidates(query)
-        anchors = self.anchor_finder.find(query) if query.has_hints() else IdentityAnchors()
+        anchors = self.anchor_finder.find(query) if self.anchor_finder and query.has_hints() else IdentityAnchors()
         if anchors.errors:
             errors['anchors'] = '; '.join(anchors.errors)
         records.extend(self._anchored_records(anchors, records, errors))

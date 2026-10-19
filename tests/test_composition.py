@@ -1,5 +1,6 @@
 import ast
 import importlib.util
+import tempfile
 import unittest
 from argparse import Namespace
 from dataclasses import replace
@@ -9,10 +10,14 @@ from unittest.mock import Mock
 from paper_author_searcher.composition import RunOptions, ServiceContainer
 from paper_author_searcher.http_budget import BudgetedHttpClient
 from paper_author_searcher.http_cache import CachingHttpClient
+from paper_author_searcher.models import ProfessorQuery
 from paper_author_searcher.settings import Settings
+from paper_author_searcher.workflow import PaperSearchWorkflow
 
 PACKAGE = Path(__file__).resolve().parents[1] / 'src' / 'paper_author_searcher'
 CLI_MODULES = {'cli', 'workflow_cli', 'pdf_cli', 'download_cli', 'evaluation_cli', 'performance_cli'}
+# Modules allowed to construct the network transport: the composition root and command entry points.
+TRANSPORT_OWNERS = {'composition.py', 'reference_import.py', 'benchmark/cli.py'}
 
 
 class RunOptionsTests(unittest.TestCase):
@@ -77,6 +82,14 @@ class ServiceContainerTests(unittest.TestCase):
         enabled = ServiceContainer(Settings(), RunOptions(llm_adjudication=True), factory)
         self.assertEqual(enabled.resolver.adjudicator, 'judge')
 
+    def test_ownership_and_deduplication_settings_reach_the_collector(self):
+        settings = Settings.from_mapping(
+            {'ownership': {'minimum_known_coauthors': 4}, 'deduplication': {'minimum_shared_authors': 3}}
+        )
+        collector = self.container(settings).collector
+        self.assertEqual(collector.ownership_validator.config.minimum_known_coauthors, 4)
+        self.assertEqual(collector.deduplication.minimum_shared_authors, 3)
+
     def test_variants_get_fresh_services(self):
         base = self.container()
         variant = base.with_settings(replace(base.settings, matching=replace(base.settings.matching, review_cap=0.5)))
@@ -85,7 +98,28 @@ class ServiceContainerTests(unittest.TestCase):
         self.assertEqual(variant.options, base.options)
 
 
+class WorkflowDependencyTests(unittest.TestCase):
+    def test_missing_stage_service_is_reported_not_silently_built(self):
+        with tempfile.TemporaryDirectory() as directory:
+            report = PaperSearchWorkflow().run(
+                query=ProfessorQuery('Alex Morgan', 'Example University'), output_dir=Path(directory), mode='metadata'
+            )
+        self.assertEqual(report['run_status'], 'failed')
+        self.assertIn('no resolver', report['errors'][-1]['error'])
+
+
 class LayeringTests(unittest.TestCase):
+    def test_transport_is_constructed_only_by_the_composition_root(self):
+        offenders = []
+        for path in PACKAGE.rglob('*.py'):
+            relative = str(path.relative_to(PACKAGE))
+            if relative in TRANSPORT_OWNERS or path.stem in CLI_MODULES:
+                continue
+            for node in ast.walk(ast.parse(path.read_text(encoding='utf-8'))):
+                if isinstance(node, ast.Call) and getattr(node.func, 'id', None) == 'HttpClient':
+                    offenders.append(f'{relative}:{node.lineno}')
+        self.assertEqual(offenders, [], 'inject the client; construct it in composition.ServiceContainer')
+
     def test_library_modules_never_import_entry_points(self):
         offenders = []
         for path in PACKAGE.rglob('*.py'):

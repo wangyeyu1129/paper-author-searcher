@@ -3,7 +3,7 @@
 from typing import List, Protocol
 
 from .config import DEFAULT_MATCHING, DEFAULT_SOURCES
-from .http import HttpClient, SourceError
+from .http import SourceError
 from .matching import best_similarity, canonical_doi, institution_similarity, name_similarity
 from .models import AuthorCandidate, ProfessorQuery
 
@@ -29,7 +29,7 @@ class OpenAlexProvider:
 
     def __init__(
         self,
-        client=None,
+        client,
         api_key=None,
         limit=None,
         enrich_limit=None,
@@ -37,7 +37,7 @@ class OpenAlexProvider:
         source_config=DEFAULT_SOURCES,
         matching_config=DEFAULT_MATCHING,
     ):
-        self.client = client or HttpClient()
+        self.client = client
         self.api_key = api_key
         self.base_url = source_config.openalex_url.rstrip('/')
         self.limit = source_config.author_limit if limit is None else limit
@@ -195,8 +195,8 @@ class SemanticScholarProvider:
     name = 'semantic_scholar'
     AUTHOR_FIELDS = 'name,affiliations,externalIds,url,' 'papers.title,papers.externalIds,papers.authors'
 
-    def __init__(self, client=None, api_key=None, limit=None, source_config=DEFAULT_SOURCES):
-        self.client = client or HttpClient()
+    def __init__(self, client, api_key=None, limit=None, source_config=DEFAULT_SOURCES):
+        self.client = client
         self.api_key = api_key
         self.base_url = source_config.semantic_scholar_url.rstrip('/')
         self.limit = source_config.author_limit if limit is None else limit
@@ -250,8 +250,8 @@ class SemanticScholarProvider:
 class DBLPProvider:
     name = 'dblp'
 
-    def __init__(self, client=None, limit=None, source_config=DEFAULT_SOURCES):
-        self.client = client or HttpClient()
+    def __init__(self, client, limit=None, source_config=DEFAULT_SOURCES):
+        self.client = client
         self.base_url = source_config.dblp_url.rstrip('/')
         self.limit = source_config.dblp_author_limit if limit is None else limit
 

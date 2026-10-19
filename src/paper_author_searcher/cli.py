@@ -5,11 +5,17 @@ import json
 import logging
 from pathlib import Path
 
-from . import ProfessorResolver
 from .logging_config import add_logging_arguments, configure_from_arguments
-from .paper_collector import IdentityConfirmationRequired, PaperCollector
+from .paper_collector import IdentityConfirmationRequired
 from .paper_reanalysis import reanalyze_saved_result, saved_collection_profile
 from .status import OwnershipStatus, ResolutionStatus
+from .workflow_cli import (
+    add_hint_arguments,
+    add_workflow_arguments,
+    build_container,
+    query_from_args,
+    run_arguments,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -76,7 +82,6 @@ def build_parser():
     saved_input.add_argument(
         '--refresh-json', type=Path, help='Fetch fresh metadata using previously confirmed Author IDs'
     )
-    from .workflow_cli import add_hint_arguments, add_workflow_arguments
 
     add_hint_arguments(parser)
     add_workflow_arguments(parser)
@@ -110,7 +115,7 @@ def _candidate_summaries(result):
     return candidates
 
 
-def _collect_output(result, selected_author, output, academic_only=False, ownership_statuses=None):
+def _collect_output(result, selected_author, output, collector, academic_only=False, ownership_statuses=None):
     try:
         profile = result.profile
         selection = None
@@ -118,7 +123,7 @@ def _collect_output(result, selected_author, output, academic_only=False, owners
             profile, selection = _selected_profile(result, selected_author)
         if profile is None:
             raise IdentityConfirmationRequired('No identity candidate available')
-        collection = PaperCollector().collect(profile, selected_author=selection)
+        collection = collector.collect(profile, selected_author=selection)
     except IdentityConfirmationRequired as exc:
         output['collection_error'] = str(exc)
         output['candidates'] = _candidate_summaries(result)
@@ -144,7 +149,7 @@ def _write_output(output, path):
     print(serialized)
 
 
-def _refresh_collection(saved):
+def _refresh_collection(saved, collector):
     profile = saved_collection_profile(saved)
     stored = saved['collection']
     selection = None
@@ -156,7 +161,7 @@ def _refresh_collection(saved):
         if len(author_ids) != 1:
             raise IdentityConfirmationRequired('Saved manual selection must contain exactly one Author ID')
         selection = (source, author_ids[0])
-    return PaperCollector().collect(profile, selected_author=selection)
+    return collector.collect(profile, selected_author=selection)
 
 
 def main(argv=None):
@@ -167,15 +172,13 @@ def main(argv=None):
     if args.mode or args.input:
         if args.collect_papers or args.refresh_json or args.reanalyze_json or args.output:
             parser.error('Workflow mode uses --output-dir and --input; do not combine with legacy collection options')
-        from .workflow_cli import run_arguments
-
         return run_arguments(parser, args)
     if args.refresh_json:
         if args.collect_papers or args.select_author:
             parser.error('--refresh-json uses the saved confirmed identity; do not combine with live selection')
         try:
             saved = json.loads(args.refresh_json.read_text(encoding='utf-8'))
-            collection = _refresh_collection(saved)
+            collection = _refresh_collection(saved, build_container(args).collector)
         except (OSError, ValueError) as exc:
             parser.error(str(exc))
         saved['collection'] = collection.to_dict(args.academic_only, args.ownership_status)
@@ -185,7 +188,8 @@ def main(argv=None):
         if args.collect_papers or args.select_author:
             parser.error('--reanalyze-json cannot be combined with live collection')
         saved = json.loads(args.reanalyze_json.read_text(encoding='utf-8'))
-        collection = reanalyze_saved_result(saved)
+        settings = build_container(args).settings
+        collection = reanalyze_saved_result(saved, settings.ownership, settings.deduplication)
         saved['collection'] = collection.to_dict(args.academic_only, args.ownership_status)
         _write_output(saved, args.output)
         return SUCCESS_EXIT_CODE if collection.complete else REVIEW_EXIT_CODE
@@ -195,9 +199,8 @@ def main(argv=None):
         parser.error('Paper filters require --collect-papers or --reanalyze-json')
     if args.select_author and not args.collect_papers:
         parser.error('--select-author requires --collect-papers')
-    from .workflow_cli import query_from_args
-
-    result = ProfessorResolver().resolve(query_from_args(args))
+    container = build_container(args)
+    result = container.resolver.resolve(query_from_args(args))
     output = summary(result)
     if args.verbose:
         output = result.to_dict()
@@ -211,6 +214,7 @@ def main(argv=None):
             result,
             args.select_author,
             output,
+            container.collector,
             args.academic_only,
             args.ownership_status,
         )

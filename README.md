@@ -18,12 +18,18 @@ PYTHONPATH=src python3 -m paper_author_searcher.cli \
 可选参数：`--department`、可重复的 `--research` 和 `--university-alias`。也可 `python3 -m pip install -e .` 后使用 `professor-resolve`。
 
 ```python
-from paper_author_searcher import ProfessorQuery, ProfessorResolver
-result = ProfessorResolver().resolve(ProfessorQuery(
+from paper_author_searcher import ProfessorQuery
+from paper_author_searcher.composition import RunOptions, ServiceContainer
+from paper_author_searcher.settings import Settings
+
+container = ServiceContainer(Settings.load(), RunOptions(mode='metadata'))
+result = container.resolver.resolve(ProfessorQuery(
     name='Andrew Ng', university='Stanford University',
     research_interests=['machine learning']))
 print(result.to_dict())
 ```
+
+服务之间的依赖全部由 `composition.ServiceContainer`（组合根）注入：库中的类不自行构造 HTTP 客户端、数据源或子服务，缺失某阶段所需服务时会明确报错（`MissingStageService`），不会悄悄回退到默认实现。测试中可直接向构造函数传入替身。
 
 ## 结构与迁移配置
 

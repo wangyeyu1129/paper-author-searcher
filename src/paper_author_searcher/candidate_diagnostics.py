@@ -7,6 +7,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 from .composition import RunOptions, ServiceContainer
+from .config import DEFAULT_DEDUPLICATION
 from .jsonio import read_json, write_json
 from .logging_config import add_logging_arguments, configure_from_arguments, log_isolated_failure
 from .models import PaperCollectionResult, PaperSourceResult
@@ -18,7 +19,7 @@ from .workflow import _resolution
 logger = logging.getLogger(__name__)
 
 
-def collect_candidate(profile, providers):
+def collect_candidate(profile, providers, deduplication=DEFAULT_DEDUPLICATION):
     sources = []
     records = []
     for provider in providers:
@@ -32,7 +33,7 @@ def collect_candidate(profile, providers):
             fetched = PaperSourceResult(provider.name, author_id, error=str(exc))
         sources.append(fetched)
         records.extend(fetched.papers)
-    papers = deduplicate_papers(records)
+    papers = deduplicate_papers(records, deduplication)
     for paper in papers:
         evidence = 'Professor identity unconfirmed; candidate-specific diagnostic only'
         paper.ownership_status = OwnershipStatus.NEEDS_REVIEW
@@ -77,7 +78,7 @@ def main(argv=None):
         providers = container.paper_providers
         args.output_dir.mkdir(parents=True, exist_ok=True)
         for index, profile in enumerate(result.candidates[:2], 1):
-            data = collect_candidate(profile, providers)
+            data = collect_candidate(profile, providers, container.settings.deduplication)
             path = args.output_dir / (f'candidate_{index}.json')
             if path.resolve() == args.identity.resolve():
                 raise ValueError('Output must differ from identity checkpoint')

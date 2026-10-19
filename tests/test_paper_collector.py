@@ -332,9 +332,9 @@ class PaperCollectionTests(unittest.TestCase):
         collection = PaperCollector([FakeProvider()]).collect(resolver_result.profile)
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / 'result.json'
-            with patch('paper_author_searcher.cli.ProfessorResolver') as resolver:
+            with patch('paper_author_searcher.composition.ProfessorResolver') as resolver:
                 resolver.return_value.resolve.return_value = resolver_result
-                with patch('paper_author_searcher.cli.PaperCollector') as collector:
+                with patch('paper_author_searcher.composition.PaperCollector') as collector:
                     collector.return_value.collect.return_value = collection
                     with redirect_stdout(io.StringIO()):
                         code = main(
@@ -354,9 +354,9 @@ class PaperCollectionTests(unittest.TestCase):
             self.assertTrue(data['collection']['complete'])
 
     def test_cli_ambiguous_returns_candidates_without_collecting(self):
-        with patch('paper_author_searcher.cli.ProfessorResolver') as resolver:
+        with patch('paper_author_searcher.composition.ProfessorResolver') as resolver:
             resolver.return_value.resolve.return_value = profile('ambiguous')
-            with patch('paper_author_searcher.cli.PaperCollector') as collector:
+            with patch('paper_author_searcher.composition.PaperCollector') as collector:
                 collector.return_value.collect.side_effect = IdentityConfirmationRequired('Select identity')
                 output = io.StringIO()
                 with redirect_stdout(output):
@@ -370,9 +370,9 @@ class PaperCollectionTests(unittest.TestCase):
             resolver_result.profile,
             ('openalex', 'author'),
         )
-        with patch('paper_author_searcher.cli.ProfessorResolver') as resolver:
+        with patch('paper_author_searcher.composition.ProfessorResolver') as resolver:
             resolver.return_value.resolve.return_value = resolver_result
-            with patch('paper_author_searcher.cli.PaperCollector') as collector:
+            with patch('paper_author_searcher.composition.PaperCollector') as collector:
                 collector.return_value.collect.return_value = collection
                 with redirect_stdout(io.StringIO()):
                     code = main(
@@ -396,9 +396,9 @@ class PaperCollectionTests(unittest.TestCase):
         resolver_result = profile()
         collection = PaperCollector([FakeProvider()]).collect(resolver_result.profile)
         collection.complete = False
-        with patch('paper_author_searcher.cli.ProfessorResolver') as resolver:
+        with patch('paper_author_searcher.composition.ProfessorResolver') as resolver:
             resolver.return_value.resolve.return_value = resolver_result
-            with patch('paper_author_searcher.cli.PaperCollector') as collector:
+            with patch('paper_author_searcher.composition.PaperCollector') as collector:
                 collector.return_value.collect.return_value = collection
                 with redirect_stdout(io.StringIO()):
                     code = main(

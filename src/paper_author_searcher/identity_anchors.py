@@ -71,14 +71,14 @@ class ScholarlyAnchorFinder:
 
     def __init__(
         self,
-        client: Optional[HttpClient] = None,
+        client: HttpClient,
         source_config=DEFAULT_SOURCES,
         matching_config=DEFAULT_MATCHING,
         anchor_config=DEFAULT_ANCHORS,
         openalex_api_key: Optional[str] = None,
         semantic_scholar_api_key: Optional[str] = None,
     ) -> None:
-        self.client = client or HttpClient()
+        self.client = client
         self.openalex_url = source_config.openalex_url.rstrip('/')
         self.semantic_scholar_url = source_config.semantic_scholar_url.rstrip('/')
         self.matching = matching_config

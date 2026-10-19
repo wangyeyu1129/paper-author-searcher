@@ -32,9 +32,9 @@ def _cached(snapshot: dict, key: str) -> bool:
 
 
 class OrcidFetcher:
-    def __init__(self, settings: BenchmarkSettings, client: Optional[HttpClient] = None) -> None:
+    def __init__(self, settings: BenchmarkSettings, client: HttpClient) -> None:
         self.settings = settings.sources
-        self.client = client or HttpClient()
+        self.client = client
 
     def fetch(self, orcid: str, destination: Path) -> Dict[str, object]:
         base = '{}/{}'.format(self.settings.orcid_api_url.rstrip('/'), orcid)
@@ -70,11 +70,9 @@ class OrcidFetcher:
 class CrossrefLookup:
     """Record Crossref candidates for DOI-less titles; acceptance is decided later, offline."""
 
-    def __init__(
-        self, settings: BenchmarkSettings, client: Optional[HttpClient] = None, contact: Optional[str] = None
-    ) -> None:
+    def __init__(self, settings: BenchmarkSettings, client: HttpClient, contact: Optional[str] = None) -> None:
         self.settings = settings.sources
-        self.client = client or HttpClient()
+        self.client = client
         self.contact = contact
 
     def lookup(self, titles: Dict[str, Optional[int]], destination: Path) -> Dict[str, object]:
@@ -122,9 +120,9 @@ class CrossrefLookup:
 class ArxivLookup:
     """Record arXiv candidates for titles without an arXiv ID; most CS conference papers have no DOI."""
 
-    def __init__(self, settings: BenchmarkSettings, client: Optional[HttpClient] = None, sleep=time.sleep) -> None:
+    def __init__(self, settings: BenchmarkSettings, client: HttpClient, sleep=time.sleep) -> None:
         self.settings = settings.sources
-        self.client = client or HttpClient()
+        self.client = client
         self.sleep = sleep
 
     def lookup(self, titles: Dict[str, Optional[int]], destination: Path) -> Dict[str, object]:

@@ -3,14 +3,14 @@
 import re
 
 from .config import DEFAULT_PDF
-from .http import HttpClient, SourceError, has_pdf_signature
+from .http import SourceError, has_pdf_signature
 from .pdf_identity import arxiv_id, arxiv_ids, same_arxiv_version
 from .status import AccessStatus, IdentityStatus, PDFValidationStatus
 
 
 class PDFURLValidator:
-    def __init__(self, client=None, config=DEFAULT_PDF):
-        self.client = client or HttpClient()
+    def __init__(self, client, config=DEFAULT_PDF):
+        self.client = client
         self.config = config
 
     def validate(self, candidate, paper=None):

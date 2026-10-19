@@ -83,7 +83,7 @@ class ResolverTests(unittest.TestCase):
         self.assertEqual(result.statistics['not_processed_papers'], 1)
         self.assertEqual(result.statistics['not_found_papers'], 0)
         with self.assertRaises(ValueError):
-            PDFResolver([]).resolve(saved_collection(), maximum_papers=0)
+            PDFResolver([], Mock()).resolve(saved_collection(), maximum_papers=0)
 
     def test_provider_failure_does_not_prevent_other_source_success(self):
         failed = provider('unavailable')
@@ -169,12 +169,12 @@ class ResolverTests(unittest.TestCase):
         result = PDFResolver([], validator()).resolve(saved_collection())
         self.assertEqual(result.statistics['not_found_papers'], 1)
         self.assertEqual(result.papers[0].pdf_candidates, [])
-        self.assertEqual(PDFResolver([]).resolve({'papers': []}).statistics['total_papers'], 0)
+        self.assertEqual(PDFResolver([], Mock()).resolve({'papers': []}).statistics['total_papers'], 0)
 
     def test_invalid_collection_rejected(self):
         for saved in ({'collection': []}, {}, {'papers': ['not an object']}):
             with self.assertRaises(ValueError):
-                PDFResolver([]).resolve(saved)
+                PDFResolver([], Mock()).resolve(saved)
 
     def test_new_api_oa_landing_metadata_available_to_page_provider(self):
         saved = {

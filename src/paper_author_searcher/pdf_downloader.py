@@ -13,7 +13,6 @@ from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
 
 from .config import DEFAULT_DOWNLOAD
-from .http import HttpClient
 from .logging_config import log_isolated_failure
 from .matching import canonical_doi, normalize
 from .models import PaperDownloadResult
@@ -81,8 +80,8 @@ def file_digest(path, config=DEFAULT_DOWNLOAD):
 
 
 class PDFDownloader:
-    def __init__(self, client=None, validator=None, config=DEFAULT_DOWNLOAD):
-        self.client = client or HttpClient()
+    def __init__(self, client, validator=None, config=DEFAULT_DOWNLOAD):
+        self.client = client
         self.validator = validator or PDFFileValidator(config)
         self.config = config
 

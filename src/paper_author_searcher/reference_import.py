@@ -19,8 +19,7 @@ from .status import AnnotationState
 logger = logging.getLogger(__name__)
 
 
-def prepare_reference(pages, professor_name, client=None):
-    client = client or HttpClient()
+def prepare_reference(pages, professor_name, client):
     entries = []
     errors = []
     for page in pages:

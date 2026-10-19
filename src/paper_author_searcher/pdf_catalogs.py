@@ -5,7 +5,7 @@ from html.parser import HTMLParser
 from urllib.parse import urljoin, urlsplit
 
 from .config import DEFAULT_PDF
-from .http import HttpClient, SourceError
+from .http import SourceError
 from .matching import normalize
 from .models import PDFProviderResult
 from .pdf_identity import source_records
@@ -58,8 +58,8 @@ class JournalCatalogPDFProvider(LandingPagePDFProvider):
 
     name = 'journal_catalog'
 
-    def __init__(self, client=None, config=DEFAULT_PDF):
-        super().__init__(client or HttpClient(), config)
+    def __init__(self, client, config=DEFAULT_PDF):
+        super().__init__(client, config)
         self.cache = {}
 
     def find(self, paper):

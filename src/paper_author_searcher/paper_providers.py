@@ -113,8 +113,8 @@ class OpenAlexPaperProvider(PagedPaperProvider):
         'abstract_inverted_index,type,ids,is_authors_truncated'
     )
 
-    def __init__(self, provider=None, config=DEFAULT_COLLECTION):
-        self.provider = provider or OpenAlexProvider()
+    def __init__(self, provider: OpenAlexProvider, config=DEFAULT_COLLECTION):
+        self.provider = provider
         self.config = config
 
     def _fetch_page(self, author_id, token):
@@ -223,8 +223,8 @@ class SemanticScholarPaperProvider(PagedPaperProvider):
     FIELDS = 'title,authors,year,externalIds,venue,abstract,url,publicationTypes,openAccessPdf'
     AUTHOR_FIELDS = 'name,externalIds,affiliations'
 
-    def __init__(self, provider=None, config=DEFAULT_COLLECTION):
-        self.provider = provider or SemanticScholarProvider()
+    def __init__(self, provider: SemanticScholarProvider, config=DEFAULT_COLLECTION):
+        self.provider = provider
         self.config = config
 
     def collect(self, author_id):
@@ -341,8 +341,8 @@ class SemanticScholarPaperProvider(PagedPaperProvider):
 class DBLPPaperProvider:
     name = 'dblp'
 
-    def __init__(self, provider=None):
-        self.provider = provider or DBLPProvider()
+    def __init__(self, provider: DBLPProvider):
+        self.provider = provider
 
     def collect(self, author_id):
         result = PaperSourceResult(source=self.name, author_id=author_id)

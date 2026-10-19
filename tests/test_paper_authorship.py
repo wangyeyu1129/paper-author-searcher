@@ -3,12 +3,13 @@
 import json
 import unittest
 from dataclasses import asdict, replace
-from unittest.mock import patch
+from unittest.mock import Mock
 
 from paper_author_searcher.cli import _refresh_collection
 from paper_author_searcher.config import OwnershipConfig
 from paper_author_searcher.http import SourceError
 from paper_author_searcher.models import PaperCollectionResult, PaperSourceResult
+from paper_author_searcher.paper_collector import PaperCollector
 from paper_author_searcher.paper_deduplication import deduplicate_papers
 from paper_author_searcher.paper_ownership import PaperOwnershipValidator
 from paper_author_searcher.paper_providers import OpenAlexPaperProvider, SemanticScholarPaperProvider
@@ -46,7 +47,7 @@ class PaperAuthorProviderTests(unittest.TestCase):
         item = openalex_work('https://openalex.org/Wsynthetic', 'author-a')
         item['type'] = 'article'
         item['authorships'][0]['author']['orcid'] = 'https://orcid.org/profile-orcid'
-        parsed = OpenAlexPaperProvider()._parse_paper(item, 'author-a')
+        parsed = OpenAlexPaperProvider(Mock())._parse_paper(item, 'author-a')
         self.assertEqual(parsed.author_details[0]['orcid_scope'], 'resolved_author')
         result = validate([parsed])[0]
         self.assertEqual(result.ownership_status, 'needs_review')
@@ -90,7 +91,7 @@ class PaperAuthorProviderTests(unittest.TestCase):
         self.assertNotIn('authors_count', requested)
 
     def test_openalex_missing_id_and_missing_list_are_unknown(self):
-        adapter = OpenAlexPaperProvider()
+        adapter = OpenAlexPaperProvider(Mock())
         item = openalex_work('synthetic')
         del item['authorships'][0]['author']['id']
         self.assertIsNone(adapter._parse_paper(item, 'author-a').target_author_present)
@@ -178,7 +179,7 @@ class PaperAuthorProviderTests(unittest.TestCase):
         item = s2_work('other-author')
         item['references'] = [{'authors': [{'authorId': 'author-b', 'name': 'Alex Morgan'}]}]
         item['contributors'] = [{'authorId': 'author-b', 'name': 'Alex Morgan'}]
-        parsed = SemanticScholarPaperProvider()._parse_paper(item, 'author-b')
+        parsed = SemanticScholarPaperProvider(Mock())._parse_paper(item, 'author-b')
         self.assertFalse(parsed.target_author_present)
         self.assertNotIn('author-b', [detail['author_id'] for detail in parsed.author_details])
 
@@ -426,7 +427,8 @@ class AuthorshipPersistenceTests(unittest.TestCase):
                 'identity_confirmation': 'resolver_resolved',
             },
         }
-        with patch('paper_author_searcher.paper_providers.OpenAlexPaperProvider.collect') as request:
-            with self.assertRaises(ValueError):
-                _refresh_collection(saved)
-            request.assert_not_called()
+        provider = Mock()
+        provider.name = 'openalex'
+        with self.assertRaises(ValueError):
+            _refresh_collection(saved, PaperCollector([provider]))
+        provider.collect.assert_not_called()

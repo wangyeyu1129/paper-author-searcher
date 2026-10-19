@@ -14,7 +14,7 @@ from .status import ProviderStatus
 class CrossrefPDFProvider(MetadataPDFProvider):
     name = 'crossref'
 
-    def __init__(self, client=None, config=DEFAULT_PDF, email=None):
+    def __init__(self, client, config=DEFAULT_PDF, email=None):
         super().__init__(client)
         self.config = config
         self.cache = {}

@@ -10,54 +10,25 @@ from .config import DEFAULT_PDF
 from .http import HttpClient
 from .logging_config import log_isolated_failure
 from .models import PaperPDFResult, PDFProviderResult, PDFResolutionResult
-from .pdf_catalogs import JournalCatalogPDFProvider
-from .pdf_crossref import CrossrefPDFProvider
-from .pdf_providers import (
-    ArxivPDFProvider,
-    ExistingPDFProvider,
-    OpenAlexPDFProvider,
-    SemanticScholarPDFProvider,
-    UnpaywallPDFProvider,
-)
-from .pdf_public_pages import PublicPagePDFProvider
 from .pdf_resource_requests import PublicResourceRequests
 from .pdf_search_status import SEARCH_COMPLETION_DEFINITION, paper_search_complete
-from .pdf_validation import PDFURLValidator
 from .performance_diagnostics import pdf_failure_reasons
-from .settings import Credentials
 from .status import AccessStatus, IdentityStatus, OwnershipStatus, PDFValidationStatus, ProviderStatus
 
 logger = logging.getLogger(__name__)
 
 
 class PDFResolver:
-    def __init__(
-        self,
-        providers=None,
-        validator=None,
-        client=None,
-        config=DEFAULT_PDF,
-        unpaywall_email=None,
-        credentials: Optional[Credentials] = None,
-    ):
-        credentials = credentials or Credentials()
-        client = client or HttpClient()
-        if not isinstance(client, PublicResourceRequests):
-            client = PublicResourceRequests(client, config)
-        self.resource_requests = client
-        if providers is None:
-            providers = [
-                ExistingPDFProvider(),
-                OpenAlexPDFProvider(client, api_key=credentials.openalex_api_key),
-                SemanticScholarPDFProvider(client, api_key=credentials.semantic_scholar_api_key, config=config),
-                CrossrefPDFProvider(client, config, email=credentials.crossref_email),
-                UnpaywallPDFProvider(client, unpaywall_email or credentials.unpaywall_email, config),
-                ArxivPDFProvider(client, config),
-                JournalCatalogPDFProvider(client, config),
-                PublicPagePDFProvider(client, config),
-            ]
-        self.providers = providers
-        self.validator = validator or PDFURLValidator(client, config)
+    """Run every PDF source for each eligible paper and keep only validated candidates.
+
+    ``requests`` is the shared public-resource scheduler the providers and validator use; when given, its
+    probe statistics are reported. Build the full source set with ``composition.ServiceContainer``.
+    """
+
+    def __init__(self, providers, validator, requests: Optional[PublicResourceRequests] = None, config=DEFAULT_PDF):
+        self.providers = list(providers)
+        self.validator = validator
+        self.resource_requests = requests
         self.config = config
         self.preparation_errors = {}
 
@@ -286,18 +257,19 @@ class PDFResolver:
             'Counts describe processed saved entries and public-source observations, not all available PDFs.'
         )
         counts['provider_request_statistics'] = {}
-        counts['provider_request_statistics']['public_resources'] = dict(
-            self.resource_requests.statistics,
-            events=list(self.resource_requests.events),
-            deferrals=list(self.resource_requests.deferrals),
-            scope='Logical probe calls and terminal request failures; HTTP retries and redirects are separate',
-        )
+        if self.resource_requests is not None:
+            counts['provider_request_statistics']['public_resources'] = dict(
+                self.resource_requests.statistics,
+                events=list(self.resource_requests.events),
+                deferrals=list(self.resource_requests.deferrals),
+                scope='Logical probe calls and terminal request failures; HTTP retries and redirects are separate',
+            )
         counts['complete_search_papers'] = counts['processed_papers'] - counts['incomplete_search_papers']
         counts['search_completion_scope'] = (
             'Configured bounded source queries; not all legal PDFs or versions on the Internet'
         )
         counts['search_completion_definition'] = SEARCH_COMPLETION_DEFINITION
-        http_client = self.resource_requests.client
+        http_client = innermost_client(self.resource_requests)
         if isinstance(http_client, HttpClient):
             counts['http_configuration'] = {'timeout': http_client.timeout, 'retries': http_client.retries}
             counts['http_transport_statistics'] = deepcopy(http_client.transport_statistics)
@@ -314,3 +286,12 @@ class PDFResolver:
             'errors': 0,
             'query_status_counts': {},
         }
+
+
+def innermost_client(client):
+    """Follow decorator ``.client`` links (scheduler -> cache -> budget -> network) to the transport."""
+    seen = set()
+    while client is not None and id(client) not in seen and not isinstance(client, HttpClient):
+        seen.add(id(client))
+        client = vars(client).get('client')
+    return client

@@ -232,7 +232,7 @@ class ProviderTests(unittest.TestCase):
         self.assertEqual(ArxivPDFProvider(client).find(saved).status, 'error')
 
     def test_arxiv_observes_configured_interval(self):
-        provider = ArxivPDFProvider(config=replace(DEFAULT_PDF, arxiv_request_interval=3))
+        provider = ArxivPDFProvider(Mock(), replace(DEFAULT_PDF, arxiv_request_interval=3))
         provider.last_request = 10
         with patch('paper_author_searcher.pdf_providers.time.monotonic', return_value=11), patch(
             'paper_author_searcher.pdf_providers.time.sleep'

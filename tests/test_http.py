@@ -3,7 +3,7 @@ import unittest
 from unittest.mock import patch
 from urllib.error import HTTPError
 
-from paper_author_searcher.providers import HttpClient, SourceError
+from paper_author_searcher.http import HttpClient, SourceError
 
 
 class Response:

@@ -4,6 +4,7 @@ import json
 from html.parser import HTMLParser
 from urllib.parse import urljoin, urlsplit, urlunsplit
 
+from .config import DEFAULT_PDF
 from .http import SourceError, has_pdf_signature, require_public_http_url
 from .matching import normalize
 from .models import PDFProviderResult
@@ -72,11 +73,8 @@ def secure_page_url(url):
 class PublicPagePDFProvider(LandingPagePDFProvider):
     name = 'public_pages'
 
-    def __init__(self, client=None, config=None):
-        if config is None:
-            super().__init__(client)
-        else:
-            super().__init__(client, config)
+    def __init__(self, client, config=DEFAULT_PDF):
+        super().__init__(client, config)
         if not isinstance(self.client, PublicResourceRequests):
             self.client = PublicResourceRequests(self.client, self.config)
 
