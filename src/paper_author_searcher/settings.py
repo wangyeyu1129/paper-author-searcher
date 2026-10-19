@@ -41,6 +41,7 @@ from .config import (
     SourceConfig,
     StorageConfig,
 )
+from .redaction import register_secrets
 
 SETTINGS_FILE_VARIABLE = 'PAPER_SEARCH_SETTINGS'
 OVERRIDE_PREFIX = 'PAPER_SEARCH__'
@@ -112,7 +113,9 @@ class Settings:
         path = path or environ.get(SETTINGS_FILE_VARIABLE) or None
         settings = cls.from_mapping(_read_json(Path(path)) if path else {})
         settings = settings.with_overrides(_environment_overrides(environ))
-        return replace(settings, credentials=Credentials.from_environment(environ))
+        credentials = Credentials.from_environment(environ)
+        register_secrets(getattr(credentials, item.name) for item in fields(credentials))
+        return replace(settings, credentials=credentials)
 
     @classmethod
     def from_mapping(cls, data: Mapping[str, Any]) -> 'Settings':

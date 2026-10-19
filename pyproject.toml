@@ -133,6 +133,7 @@ module = [
     "paper_author_searcher.progress",
     "paper_author_searcher.reference_import",
     "paper_author_searcher.raw_metadata",
+    "paper_author_searcher.redaction",
     "paper_author_searcher.registry",
     "paper_author_searcher.settings",
     "paper_author_searcher.source_catalog",

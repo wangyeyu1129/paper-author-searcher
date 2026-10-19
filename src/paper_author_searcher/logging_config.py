@@ -12,6 +12,8 @@ import sys
 from datetime import datetime, timezone
 from typing import IO, Optional
 
+from .redaction import RedactingFilter
+
 PACKAGE_LOGGER = 'paper_author_searcher'
 LEVEL_ENVIRONMENT_VARIABLE = 'PAPER_SEARCH_LOG_LEVEL'
 FORMAT_ENVIRONMENT_VARIABLE = 'PAPER_SEARCH_LOG_FORMAT'
@@ -69,6 +71,7 @@ def configure_logging(level: Optional[str] = None, fmt: Optional[str] = None, st
         raise ValueError(f'log format must be one of {", ".join(FORMATS)}')
     handler = logging.StreamHandler(stream or sys.stderr)
     handler.setFormatter(JsonFormatter() if fmt == JSON else logging.Formatter(TEXT_FORMAT))
+    handler.addFilter(RedactingFilter())
     logger = logging.getLogger(PACKAGE_LOGGER)
     for existing in [item for item in logger.handlers if not isinstance(item, logging.NullHandler)]:
         logger.removeHandler(existing)

@@ -20,6 +20,7 @@ from urllib.request import HTTPRedirectHandler, Request
 from .config import DEFAULT_DOWNLOAD, DEFAULT_HTTP
 from .http_transport import KeepAliveTransport
 from .network_safety import secure_download_opener
+from .redaction import redact
 
 logger = logging.getLogger(__name__)
 
@@ -28,7 +29,8 @@ class SourceError(RuntimeError):
     def __init__(
         self, message, status_code=None, error_type=None, retry_after=None, endpoint_host=None, request_context=None
     ):
-        super().__init__(message)
+        # Source errors end up in logs and saved reports: never let a key or contact address ride along.
+        super().__init__(redact(str(message)))
         self.status_code = status_code
         self.retry_after = retry_after
         self.error_type = error_type or self._error_type(status_code)
