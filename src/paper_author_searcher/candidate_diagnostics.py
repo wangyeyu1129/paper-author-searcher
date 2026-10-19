@@ -11,9 +11,10 @@ from .logging_config import add_logging_arguments, configure_from_arguments, log
 from .models import PaperCollectionResult, PaperSourceResult
 from .paper_deduplication import deduplicate_papers
 from .paper_providers import DBLPPaperProvider, OpenAlexPaperProvider, SemanticScholarPaperProvider
-from .providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
+from .settings import add_settings_argument, load_settings
 from .status import OwnershipStatus, ResolutionStatus
 from .workflow import _resolution, read_json, write_json
+from .workflow_cli import build_identity_providers
 
 logger = logging.getLogger(__name__)
 
@@ -63,6 +64,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(
         description='Collect competing candidate records separately without confirming identity'
     )
+    add_settings_argument(parser)
     parser.add_argument('--identity', type=Path, required=True)
     parser.add_argument('--output-dir', type=Path, required=True)
     parser.add_argument('--timeout', type=float)
@@ -72,11 +74,13 @@ def main(argv=None):
     configure_from_arguments(args)
     try:
         result = _resolution(read_json(args.identity))
-        client = HttpClient(timeout=args.timeout, retries=args.retries)
+        settings = load_settings(args)
+        client = HttpClient(timeout=args.timeout, retries=args.retries, config=settings.http)
+        identity_providers = build_identity_providers(client, settings)
         providers = [
-            OpenAlexPaperProvider(OpenAlexProvider(client=client)),
-            SemanticScholarPaperProvider(SemanticScholarProvider(client=client)),
-            DBLPPaperProvider(DBLPProvider(client=client)),
+            OpenAlexPaperProvider(identity_providers[0], settings.collection),
+            SemanticScholarPaperProvider(identity_providers[1], settings.collection),
+            DBLPPaperProvider(identity_providers[2]),
         ]
         args.output_dir.mkdir(parents=True, exist_ok=True)
         for index, profile in enumerate(result.candidates[:2], 1):

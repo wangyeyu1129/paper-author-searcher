@@ -3,7 +3,6 @@
 An anchor is independent of the name search, so it separates namesakes and ties split profiles together.
 """
 
-import os
 import re
 from dataclasses import dataclass, field
 from html import unescape
@@ -76,14 +75,16 @@ class ScholarlyAnchorFinder:
         source_config=DEFAULT_SOURCES,
         matching_config=DEFAULT_MATCHING,
         anchor_config=DEFAULT_ANCHORS,
+        openalex_api_key: Optional[str] = None,
+        semantic_scholar_api_key: Optional[str] = None,
     ) -> None:
         self.client = client or HttpClient()
         self.openalex_url = source_config.openalex_url.rstrip('/')
         self.semantic_scholar_url = source_config.semantic_scholar_url.rstrip('/')
         self.matching = matching_config
         self.config = anchor_config
-        self.openalex_key = os.getenv('OPENALEX_API_KEY')
-        self.semantic_scholar_key = os.getenv('SEMANTIC_SCHOLAR_API_KEY')
+        self.openalex_key = openalex_api_key
+        self.semantic_scholar_key = semantic_scholar_api_key
 
     def find(self, query) -> IdentityAnchors:
         anchors = IdentityAnchors(orcid=canonical_orcid(query.orcid) if query.orcid else None)

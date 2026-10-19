@@ -6,13 +6,10 @@ import logging
 import math
 from dataclasses import replace
 from pathlib import Path
+from typing import Optional
 
 from .config import (
     AMBIGUITY_POLICIES,
-    DEFAULT_COLLECTION,
-    DEFAULT_DOWNLOAD,
-    DEFAULT_MATCHING,
-    DEFAULT_PDF,
     AmbiguityPolicy,
 )
 from .http import HttpClient
@@ -24,9 +21,9 @@ from .models import ProfessorQuery
 from .paper_collector import PaperCollector
 from .paper_providers import DBLPPaperProvider, OpenAlexPaperProvider, SemanticScholarPaperProvider
 from .pdf_resolver import PDFResolver
-from .pdf_settings import contact_email
 from .providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
 from .resolver import ProfessorResolver
+from .settings import Settings, add_settings_argument, load_settings, validate_contact_email
 from .status import RunStatus
 from .workflow import MODES, PaperSearchWorkflow, load_checkpoint
 
@@ -61,6 +58,7 @@ def query_from_args(args):
 
 
 def add_workflow_arguments(parser):
+    add_settings_argument(parser)
     parser.add_argument('--mode', choices=MODES, help='metadata, pdf-urls, or full workflow')
     parser.add_argument('--input', type=Path, help='Resolver, Collector, PDF URL JSON or workflow report')
     parser.add_argument('--output-dir', type=Path, default=Path('output'))
@@ -125,7 +123,8 @@ class ProgressReporter:
 def _validate(parser, args):
     if args.require_unpaywall:
         try:
-            if not contact_email(args.unpaywall_email, DEFAULT_PDF.unpaywall_email_environment):
+            email = args.unpaywall_email or load_settings(args).credentials.unpaywall_email
+            if not validate_contact_email(email):
                 raise ValueError('Set UNPAYWALL_EMAIL to your real contact email before running')
         except ValueError as exc:
             parser.error(str(exc))
@@ -149,25 +148,34 @@ def _validate(parser, args):
         parser.error('--retries must be nonnegative')
 
 
-def build_client(args):
+def build_client(args, settings: Optional[Settings] = None):
+    settings = settings or load_settings(args)
     # cache -> budget -> network: cached replays are free, only real requests are priced.
     metered = budgeted_client(
-        HttpClient(timeout=args.timeout, retries=args.retries),
+        HttpClient(timeout=args.timeout, retries=args.retries, config=settings.http),
         getattr(args, 'max_cost_usd', None),
         getattr(args, 'cost_ledger', 'default'),
     )
     return cached_client(metered, getattr(args, 'http_cache_dir', None), getattr(args, 'http_cache_mode', None))
 
 
-def build_identity_providers(client, matching_config=DEFAULT_MATCHING):
+def build_identity_providers(client, settings: Settings):
+    credentials = settings.credentials
     return [
-        OpenAlexProvider(client=client, matching_config=matching_config),
-        SemanticScholarProvider(client=client),
-        DBLPProvider(client=client),
+        OpenAlexProvider(
+            client=client,
+            api_key=credentials.openalex_api_key,
+            source_config=settings.sources,
+            matching_config=settings.matching,
+        ),
+        SemanticScholarProvider(
+            client=client, api_key=credentials.semantic_scholar_api_key, source_config=settings.sources
+        ),
+        DBLPProvider(client=client, source_config=settings.sources),
     ]
 
 
-def build_resolver(client, providers, matching_config=DEFAULT_MATCHING, llm_adjudication=False):
+def build_resolver(client, providers, settings: Settings, llm_adjudication=False):
     adjudicator = None
     if llm_adjudication:
         from .identity_adjudication import ClaudeIdentityAdjudicator
@@ -175,16 +183,24 @@ def build_resolver(client, providers, matching_config=DEFAULT_MATCHING, llm_adju
         adjudicator = ClaudeIdentityAdjudicator()
     return ProfessorResolver(
         providers,
-        config=matching_config,
-        anchor_finder=ScholarlyAnchorFinder(client, matching_config=matching_config),
+        config=settings.matching,
+        anchor_finder=ScholarlyAnchorFinder(
+            client,
+            source_config=settings.sources,
+            matching_config=settings.matching,
+            anchor_config=settings.anchors,
+            openalex_api_key=settings.credentials.openalex_api_key,
+            semantic_scholar_api_key=settings.credentials.semantic_scholar_api_key,
+        ),
         adjudicator=adjudicator,
     )
 
 
-def build_workflow(args):
-    client = build_client(args)
-    providers = build_identity_providers(client)
-    collection_config = DEFAULT_COLLECTION
+def build_workflow(args, settings: Optional[Settings] = None):
+    settings = settings or load_settings(args)
+    client = build_client(args, settings)
+    providers = build_identity_providers(client, settings)
+    collection_config = settings.collection
     if args.max_pages is not None:
         collection_config = replace(collection_config, maximum_pages=args.max_pages)
     if args.page_size is not None:
@@ -206,17 +222,18 @@ def build_workflow(args):
     if (args.mode or 'full') == 'full':
         from .pdf_downloader import PDFDownloader
 
-        config = DEFAULT_DOWNLOAD
+        config = settings.download
         if args.max_file_mb is not None:
             config = replace(config, maximum_file_bytes=int(args.max_file_mb * 1024 * 1024))
         downloader = PDFDownloader(client=client, config=config)
     return PaperSearchWorkflow(
-        resolver=build_resolver(client, providers, llm_adjudication=getattr(args, 'llm_adjudication', False)),
+        resolver=build_resolver(client, providers, settings, llm_adjudication=getattr(args, 'llm_adjudication', False)),
         collector=collector,
         pdf_resolver=PDFResolver(
             client=client,
             unpaywall_email=args.unpaywall_email,
-            config=replace(DEFAULT_PDF, bibliography_urls=tuple(args.bibliography_url)),
+            config=replace(settings.pdf, bibliography_urls=tuple(args.bibliography_url)),
+            credentials=settings.credentials,
         ),
         downloader=downloader,
         progress=ProgressReporter(args.verbose),

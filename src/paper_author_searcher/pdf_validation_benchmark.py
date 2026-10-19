@@ -5,13 +5,12 @@ import logging
 import math
 from pathlib import Path
 
-from .config import DEFAULT_PDF
 from .http import HttpClient
 from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_discovery_comparison import _cohort, _metadata_fingerprint, compare_runs, summarize_runs
 from .pdf_downloader import PDFDownloader, paper_key
 from .pdf_resolver import PDFResolver
-from .pdf_settings import contact_email
+from .settings import load_settings, validate_contact_email
 from .status import OwnershipStatus, RunStatus
 from .workflow import PaperSearchWorkflow, read_json, write_json
 from .workflow_cli import ProgressReporter
@@ -38,16 +37,19 @@ def benchmark_inputs(baseline_directory):
     return archive, len(selected)
 
 
-def run_benchmark(baseline_directory, output_directory, timeout, retries, progress=None):
+def run_benchmark(baseline_directory, output_directory, timeout, retries, progress=None, settings=None):
+    settings = settings or load_settings()
     if not math.isfinite(timeout) or timeout <= 0 or retries < 0:
         raise ValueError('Timeout must be finite and positive; retries must be nonnegative')
-    if not contact_email(None, DEFAULT_PDF.unpaywall_email_environment):
+    if not validate_contact_email(settings.credentials.unpaywall_email):
         raise ValueError('Set UNPAYWALL_EMAIL in your terminal before starting this benchmark')
     archive, cohort_size = benchmark_inputs(baseline_directory)
     baseline = summarize_runs([baseline_directory])
-    client = HttpClient(timeout=timeout, retries=retries)
+    client = HttpClient(timeout=timeout, retries=retries, config=settings.http)
     workflow = PaperSearchWorkflow(
-        pdf_resolver=PDFResolver(client=client), downloader=PDFDownloader(client=client), progress=progress
+        pdf_resolver=PDFResolver(client=client, config=settings.pdf, credentials=settings.credentials),
+        downloader=PDFDownloader(client=client, config=settings.download),
+        progress=progress,
     )
     report = workflow.run(saved=archive, output_dir=output_directory, mode='full', maximum_pdf_papers=cohort_size)
     root = Path(report['output_directory'])

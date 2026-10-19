@@ -15,6 +15,7 @@ from paper_author_searcher.pdf_resource_requests import PublicResourceRequests
 from paper_author_searcher.pdf_revalidation import revalidate
 from paper_author_searcher.pdf_validation_benchmark import benchmark_inputs, run_benchmark
 from paper_author_searcher.performance_diagnostics import workflow_outcomes
+from paper_author_searcher.settings import Credentials, Settings
 from pdf_fixtures import HAS_PYPDF, make_pdf
 from test_pdf_downloader import fake_client, target
 
@@ -195,11 +196,9 @@ class BenchmarkTests(unittest.TestCase):
                 benchmark_inputs(root)
 
     def test_missing_contact_stops_benchmark_without_requests(self):
-        with patch('paper_author_searcher.pdf_validation_benchmark.contact_email', return_value=None), patch(
-            'paper_author_searcher.pdf_validation_benchmark.HttpClient'
-        ) as client:
+        with patch('paper_author_searcher.pdf_validation_benchmark.HttpClient') as client:
             with self.assertRaisesRegex(ValueError, 'UNPAYWALL_EMAIL'):
-                run_benchmark(Path('baseline'), Path('output'), 6, 0)
+                run_benchmark(Path('baseline'), Path('output'), 6, 0, settings=Settings())
             client.assert_not_called()
 
     def test_changed_year_hidden_by_same_doi_fails_before_requests(self):
@@ -214,9 +213,8 @@ class BenchmarkTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             archive = {'papers': [target()]}
+            settings = Settings(credentials=Credentials(unpaywall_email='private@example.test'))
             with patch(
-                'paper_author_searcher.pdf_validation_benchmark.contact_email', return_value='private@example.test'
-            ), patch(
                 'paper_author_searcher.pdf_validation_benchmark.benchmark_inputs', return_value=(archive, 1)
             ), patch(
                 'paper_author_searcher.pdf_validation_benchmark.summarize_runs',
@@ -227,7 +225,7 @@ class BenchmarkTests(unittest.TestCase):
                 'paper_author_searcher.pdf_validation_benchmark.compare_runs', return_value={'before': {}, 'after': {}}
             ):
                 workflow.return_value.run.return_value = {'run_status': 'partial', 'output_directory': str(root)}
-                _, result = run_benchmark(Path('baseline'), root, 6, 0)
+                _, result = run_benchmark(Path('baseline'), root, 6, 0, settings=settings)
             self.assertNotIn('private@example.test', json.dumps(result))
             self.assertEqual(result['benchmark_configuration']['timeout'], 6)
             self.assertEqual(result['benchmark_configuration']['retries'], 0)

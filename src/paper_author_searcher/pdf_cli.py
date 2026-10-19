@@ -6,17 +6,17 @@ import logging
 from dataclasses import replace
 from pathlib import Path
 
-from .config import DEFAULT_PDF
 from .http import HttpClient
 from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_resolver import PDFResolver
-from .pdf_settings import contact_email
+from .settings import add_settings_argument, load_settings, validate_contact_email
 
 logger = logging.getLogger(__name__)
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description='Find and lightly validate public PDF URLs from saved papers')
+    add_settings_argument(parser)
     parser.add_argument('--input', type=Path, required=True, help='Saved Paper Collector JSON')
     parser.add_argument('--output', type=Path, required=True, help='PDF URL report JSON (no PDF files)')
     parser.add_argument(
@@ -46,9 +46,10 @@ def main(argv=None):
         parser.error('--timeout must be positive')
     if args.retries is not None and args.retries < 0:
         parser.error('--retries must be nonnegative')
+    settings = load_settings(args)
     if args.require_unpaywall:
         try:
-            if not contact_email(args.unpaywall_email, DEFAULT_PDF.unpaywall_email_environment):
+            if not validate_contact_email(args.unpaywall_email or settings.credentials.unpaywall_email):
                 raise ValueError('Set UNPAYWALL_EMAIL to your real contact email before running')
         except ValueError as exc:
             parser.error(str(exc))
@@ -58,9 +59,10 @@ def main(argv=None):
         if not isinstance(saved, dict):
             raise ValueError('Input must be a JSON object')
         resolver = PDFResolver(
-            client=HttpClient(timeout=args.timeout, retries=args.retries),
+            client=HttpClient(timeout=args.timeout, retries=args.retries, config=settings.http),
             unpaywall_email=args.unpaywall_email,
-            config=replace(DEFAULT_PDF, bibliography_urls=tuple(args.bibliography_url)),
+            config=replace(settings.pdf, bibliography_urls=tuple(args.bibliography_url)),
+            credentials=settings.credentials,
         )
         result = resolver.resolve(saved, args.include_needs_review, args.max_papers).to_dict()
         with args.output.open('w', encoding='utf-8') as handle:

@@ -1,6 +1,5 @@
 """Source adapters for identity metadata. No PDFs or publication bodies."""
 
-import os
 from typing import List, Protocol
 
 from .config import DEFAULT_MATCHING, DEFAULT_SOURCES
@@ -39,7 +38,7 @@ class OpenAlexProvider:
         matching_config=DEFAULT_MATCHING,
     ):
         self.client = client or HttpClient()
-        self.api_key = api_key or os.getenv('OPENALEX_API_KEY')
+        self.api_key = api_key
         self.base_url = source_config.openalex_url.rstrip('/')
         self.limit = source_config.author_limit if limit is None else limit
         self.enrich_limit = source_config.enrichment_limit if enrich_limit is None else enrich_limit
@@ -198,7 +197,7 @@ class SemanticScholarProvider:
 
     def __init__(self, client=None, api_key=None, limit=None, source_config=DEFAULT_SOURCES):
         self.client = client or HttpClient()
-        self.api_key = api_key or os.getenv('SEMANTIC_SCHOLAR_API_KEY')
+        self.api_key = api_key
         self.base_url = source_config.semantic_scholar_url.rstrip('/')
         self.limit = source_config.author_limit if limit is None else limit
 

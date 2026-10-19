@@ -6,20 +6,21 @@ from .config import DEFAULT_PDF
 from .http import SourceError
 from .pdf_identity import metadata_identity, paper_dois
 from .pdf_providers import MetadataPDFProvider, make_candidate
-from .pdf_settings import contact_email, redact_contact
+from .pdf_settings import redact_contact
+from .settings import validate_contact_email
 from .status import ProviderStatus
 
 
 class CrossrefPDFProvider(MetadataPDFProvider):
     name = 'crossref'
 
-    def __init__(self, client=None, config=DEFAULT_PDF):
+    def __init__(self, client=None, config=DEFAULT_PDF, email=None):
         super().__init__(client)
         self.config = config
         self.cache = {}
         self.configuration_error = None
         try:
-            self.email = contact_email(None, config.crossref_email_environment)
+            self.email = validate_contact_email(email)
         except ValueError as exc:
             self.email = None
             self.configuration_error = str(exc)

@@ -2,16 +2,15 @@
 
 import argparse
 import logging
-import os
 import subprocess
 from dataclasses import replace
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Optional
 
-from paper_author_searcher.config import DEFAULT_SOURCES
 from paper_author_searcher.http import HttpClient, SourceError
 from paper_author_searcher.logging_config import add_logging_arguments, configure_from_arguments, log_isolated_failure
+from paper_author_searcher.settings import load_settings
 from paper_author_searcher.status import AnnotationState, OwnershipStatus, RunStatus, TruthState
 from paper_author_searcher.workflow import read_json, write_json
 
@@ -75,7 +74,7 @@ def command_fetch(args) -> int:
         settings,
         registry,
         OrcidFetcher(settings, client),
-        None if args.no_crossref else CrossrefLookup(settings, client),
+        None if args.no_crossref else CrossrefLookup(settings, client, load_settings().credentials.crossref_email),
         None if args.no_arxiv else ArxivLookup(settings, client),
     )
     failures = 0
@@ -225,13 +224,17 @@ def command_diagnose(args) -> int:
     settings, roster, _registry, _warnings = _context(args)
     cache_dir = args.http_cache_dir or settings.run.http_cache_dir
     run = replace(settings.run, mode='metadata', http_cache_dir=cache_dir, http_cache_mode=args.http_cache_mode)
-    resolver = build_workflow(run).resolver
-    client = build_client(run)
+    service = load_settings(run)
+    resolver = build_workflow(run, service).resolver
+    client = build_client(run, service)
     lister = WorkLister(
         client,
-        DEFAULT_SOURCES.openalex_url,
-        DEFAULT_SOURCES.semantic_scholar_url,
-        {'openalex': os.getenv('OPENALEX_API_KEY'), 'semantic_scholar': os.getenv('SEMANTIC_SCHOLAR_API_KEY')},
+        service.sources.openalex_url,
+        service.sources.semantic_scholar_url,
+        {
+            'openalex': service.credentials.openalex_api_key,
+            'semantic_scholar': service.credentials.semantic_scholar_api_key,
+        },
     )
     diagnoser = IdentityDiagnoser(resolver.rank, lister)
     index = load_index(settings, args.run_id)
@@ -266,7 +269,6 @@ def command_diagnose(args) -> int:
 
 
 def command_calibrate(args) -> int:
-    from paper_author_searcher.config import DEFAULT_MATCHING
     from paper_author_searcher.workflow_cli import build_client, build_identity_providers, build_resolver
 
     from .calibration import IdentityCalibrator, markdown
@@ -282,15 +284,18 @@ def command_calibrate(args) -> int:
 
     run = replace(settings.run, retries=0, http_cache_dir=cache_dir, http_cache_mode=args.http_cache_mode)
 
+    service = load_settings(run)
+
     def resolver_factory(config):
-        client = build_client(run)
-        return build_resolver(client, build_identity_providers(client, config), config)
+        variant = replace(service, matching=config)
+        client = build_client(run, variant)
+        return build_resolver(client, build_identity_providers(client, variant), variant)
 
     calibration = settings.calibration
     tune = [person for person in roster.people if person.split == calibration.tune_split]
     holdout = [person for person in roster.people if person.split == calibration.holdout_split]
     calibrator = IdentityCalibrator(resolver_factory, settings.run.ambiguity_policy)
-    report = calibrator.search(DEFAULT_MATCHING, calibration.grid, tune, holdout, diagnoses, calibration.minimum_purity)
+    report = calibrator.search(service.matching, calibration.grid, tune, holdout, diagnoses, calibration.minimum_purity)
     settings.paths.reports.mkdir(parents=True, exist_ok=True)
     write_json(settings.paths.reports / (args.diagnosis_run + '.calibration.json'), report)
     text = markdown(report)

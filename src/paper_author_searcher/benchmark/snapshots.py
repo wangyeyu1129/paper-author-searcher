@@ -1,6 +1,5 @@
 """Live capture of truth inputs into dated local snapshots; building truth afterwards is offline."""
 
-import os
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -71,17 +70,19 @@ class OrcidFetcher:
 class CrossrefLookup:
     """Record Crossref candidates for DOI-less titles; acceptance is decided later, offline."""
 
-    def __init__(self, settings: BenchmarkSettings, client: Optional[HttpClient] = None) -> None:
+    def __init__(
+        self, settings: BenchmarkSettings, client: Optional[HttpClient] = None, contact: Optional[str] = None
+    ) -> None:
         self.settings = settings.sources
         self.client = client or HttpClient()
+        self.contact = contact
 
     def lookup(self, titles: Dict[str, Optional[int]], destination: Path) -> Dict[str, object]:
         path = destination / CROSSREF_SNAPSHOT
         snapshot = read_json(path) if path.exists() else {'lookups': {}}
         params_base = {'rows': self.settings.crossref_rows, 'select': 'DOI,title,author,issued,type,container-title'}
-        contact = os.getenv(self.settings.crossref_contact_environment)
-        if contact:
-            params_base['mailto'] = contact
+        if self.contact:
+            params_base['mailto'] = self.contact
         fetched, failed = 0, 0
         for title, year in sorted(titles.items()):
             key = title_key(title)

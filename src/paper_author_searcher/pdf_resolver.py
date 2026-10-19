@@ -3,6 +3,7 @@
 import logging
 from copy import deepcopy
 from dataclasses import asdict
+from typing import Optional
 from urllib.parse import urldefrag
 
 from .config import DEFAULT_PDF
@@ -23,13 +24,23 @@ from .pdf_resource_requests import PublicResourceRequests
 from .pdf_search_status import SEARCH_COMPLETION_DEFINITION, paper_search_complete
 from .pdf_validation import PDFURLValidator
 from .performance_diagnostics import pdf_failure_reasons
+from .settings import Credentials
 from .status import AccessStatus, IdentityStatus, OwnershipStatus, PDFValidationStatus, ProviderStatus
 
 logger = logging.getLogger(__name__)
 
 
 class PDFResolver:
-    def __init__(self, providers=None, validator=None, client=None, config=DEFAULT_PDF, unpaywall_email=None):
+    def __init__(
+        self,
+        providers=None,
+        validator=None,
+        client=None,
+        config=DEFAULT_PDF,
+        unpaywall_email=None,
+        credentials: Optional[Credentials] = None,
+    ):
+        credentials = credentials or Credentials()
         client = client or HttpClient()
         if not isinstance(client, PublicResourceRequests):
             client = PublicResourceRequests(client, config)
@@ -37,10 +48,10 @@ class PDFResolver:
         if providers is None:
             providers = [
                 ExistingPDFProvider(),
-                OpenAlexPDFProvider(client),
-                SemanticScholarPDFProvider(client, config=config),
-                CrossrefPDFProvider(client, config),
-                UnpaywallPDFProvider(client, unpaywall_email, config),
+                OpenAlexPDFProvider(client, api_key=credentials.openalex_api_key),
+                SemanticScholarPDFProvider(client, api_key=credentials.semantic_scholar_api_key, config=config),
+                CrossrefPDFProvider(client, config, email=credentials.crossref_email),
+                UnpaywallPDFProvider(client, unpaywall_email or credentials.unpaywall_email, config),
                 ArxivPDFProvider(client, config),
                 JournalCatalogPDFProvider(client, config),
                 PublicPagePDFProvider(client, config),

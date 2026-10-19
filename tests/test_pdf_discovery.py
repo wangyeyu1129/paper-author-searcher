@@ -13,9 +13,9 @@ from paper_author_searcher.pdf_identity import arxiv_ids
 from paper_author_searcher.pdf_providers import SemanticScholarPDFProvider, UnpaywallPDFProvider, openalex_landing_pages
 from paper_author_searcher.pdf_public_pages import PublicPagePDFProvider, secure_page_url
 from paper_author_searcher.pdf_resolver import PDFResolver
-from paper_author_searcher.pdf_settings import contact_email
 from paper_author_searcher.pdf_source_requests import SemanticScholarRequests
 from paper_author_searcher.performance_diagnostics import pdf_failure_reasons
+from paper_author_searcher.settings import Credentials, validate_contact_email
 from paper_author_searcher.workflow_cli import main as workflow_main
 
 
@@ -233,8 +233,8 @@ class ContactTests(unittest.TestCase):
     def test_email_read_from_environment_not_persisted_in_result(self):
         client = Mock()
         client.get.return_value = {'doi': '10.1234/method', 'is_oa': False}
-        with patch.dict('os.environ', {'UNPAYWALL_EMAIL': ' owner@example.org '}):
-            provider = UnpaywallPDFProvider(client)
+        credentials = Credentials.from_environment({'UNPAYWALL_EMAIL': ' owner@example.org '})
+        provider = UnpaywallPDFProvider(client, credentials.unpaywall_email)
         result = provider.find(saved_paper())
         self.assertEqual(client.get.call_args[1]['params'], {'email': 'owner@example.org'})
         self.assertNotIn('owner@example.org', str(result))
@@ -248,7 +248,8 @@ class ContactTests(unittest.TestCase):
         provider.client.get.assert_not_called()
 
     def test_unconfigured_provider_remains_explicitly_disabled(self):
-        with patch.dict('os.environ', {}, clear=True):
+        # Providers never read the environment; credentials are injected by the composition root.
+        with patch.dict('os.environ', {'UNPAYWALL_EMAIL': 'owner@example.org'}):
             self.assertEqual(UnpaywallPDFProvider(Mock()).find(saved_paper()).status, 'disabled')
 
     def test_error_contact_value_is_redacted(self):
@@ -276,9 +277,9 @@ class ContactTests(unittest.TestCase):
         self.assertEqual(result.candidates, [])
         self.assertEqual(result.landing_pages[0]['landing_page_url'], 'https://repo.example.edu/article')
 
-    def test_email_override_and_whitespace(self):
-        with patch.dict('os.environ', {'UNPAYWALL_EMAIL': 'owner@example.org'}):
-            self.assertEqual(contact_email(' other@example.org ', 'UNPAYWALL_EMAIL'), 'other@example.org')
+    def test_email_whitespace_is_stripped(self):
+        self.assertEqual(validate_contact_email(' other@example.org '), 'other@example.org')
+        self.assertIsNone(validate_contact_email('  '))
 
 
 class CrossrefTests(unittest.TestCase):

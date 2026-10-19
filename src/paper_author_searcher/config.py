@@ -179,9 +179,7 @@ DEFAULT_DEDUPLICATION = DeduplicationConfig()
 @dataclass(frozen=True)
 class PDFConfig:
     unpaywall_url: str = 'https://api.unpaywall.org/v2'
-    unpaywall_email_environment: str = 'UNPAYWALL_EMAIL'
     crossref_url: str = 'https://api.crossref.org'
-    crossref_email_environment: str = 'CROSSREF_MAILTO'
     crossref_search_results: int = 5
     semantic_scholar_batch_size: int = 100
     semantic_scholar_request_interval: float = 1.0

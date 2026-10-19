@@ -92,7 +92,6 @@
     "crossref_api_url": "https://api.crossref.org",
     "crossref_rows": 5,
     "crossref_year_tolerance": 1,
-    "crossref_contact_environment": "CROSSREF_MAILTO",
     "arxiv_api_url": "https://export.arxiv.org/api/query",
     "arxiv_rows": 5,
     "arxiv_delay_seconds": 3.0

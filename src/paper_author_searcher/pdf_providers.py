@@ -1,6 +1,5 @@
 """Independent public metadata providers; no paywall or login workarounds."""
 
-import os
 import time
 from html.parser import HTMLParser
 from urllib.parse import quote, urljoin
@@ -18,8 +17,9 @@ from .pdf_identity import (
     same_arxiv_version,
     source_records,
 )
-from .pdf_settings import contact_email, redact_contact
+from .pdf_settings import redact_contact
 from .pdf_source_requests import SemanticScholarRequests
+from .settings import validate_contact_email
 from .status import IdentityStatus, ProviderStatus
 
 VERSION_TYPES = {
@@ -251,7 +251,7 @@ class OpenAlexPDFProvider(MetadataPDFProvider):
 
     def __init__(self, client=None, sources=DEFAULT_SOURCES, api_key=None):
         super().__init__(client, sources)
-        self.api_key = api_key or os.getenv('OPENALEX_API_KEY')
+        self.api_key = api_key
 
     def lookups(self, paper):
         identifiers = paper_ids(paper, self.name)
@@ -280,7 +280,7 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
 
     def __init__(self, client=None, sources=DEFAULT_SOURCES, api_key=None, config=DEFAULT_PDF):
         super().__init__(client, sources)
-        self.api_key = api_key or os.getenv('SEMANTIC_SCHOLAR_API_KEY')
+        self.api_key = api_key
         self.config = config
         self.requests = SemanticScholarRequests(self.client, self.api_key, config, sources)
 
@@ -380,7 +380,7 @@ class UnpaywallPDFProvider(MetadataPDFProvider):
         self.config = config
         self.configuration_error = None
         try:
-            self.email = contact_email(email, config.unpaywall_email_environment)
+            self.email = validate_contact_email(email)
         except ValueError as exc:
             self.email = None
             self.configuration_error = str(exc)

@@ -64,6 +64,18 @@ OpenAlex 默认搜索 25 个候选，并为最多 8 个姓名兼容候选查询�
 
 若 Python 缺少系统 CA 配置，且 `/etc/ssl/cert.pem` 包含可信 CA，可设置 `SSL_CERT_FILE=/etc/ssl/cert.pem`。
 
+## 配置
+
+所有可调参数集中在 `paper_author_searcher.settings.Settings`（各分区即 `config.py` 中的 dataclass：`matching`、`anchors`、`http`、`sources`、`collection`、`ownership`、`deduplication`、`pdf`、`download`）。优先级从低到高：
+
+1. 代码默认值；
+2. JSON 配置文件：`--settings path.json` 或 `$PAPER_SEARCH_SETTINGS`，例如 `{"http": {"timeout": 30}, "collection": {"maximum_contenders": 5}}`；
+3. 环境变量覆盖：`PAPER_SEARCH__<分区>__<字段>`，例如 `PAPER_SEARCH__HTTP__TIMEOUT=30`、`PAPER_SEARCH__HTTP__RETRY_STATUSES=429,503`。
+
+值会按字段类型转换，并重新执行各分区自身的校验；未知分区或字段直接报错，不会被静默忽略。命令行参数（如 `--timeout`）仍优先于以上三层。
+
+凭据只从环境变量读取（`OPENALEX_API_KEY`、`SEMANTIC_SCHOLAR_API_KEY`、`UNPAYWALL_EMAIL`、`CROSSREF_MAILTO`），配置文件中出现 `credentials` 会被拒绝；`repr` 与 `Settings.to_dict()` 只显示 set/unset，不输出值。只有 `settings.py`（和日志引导）读取环境，有架构测试保证。
+
 ## 日志
 
 命令结果写到 stdout，诊断信息（进度、重试、限流、预算拒绝、被隔离的来源失败）通过 `logging` 写到 stderr，管道输出不会被污染。所有命令都支持：

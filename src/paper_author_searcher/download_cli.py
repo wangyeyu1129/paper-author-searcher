@@ -7,16 +7,17 @@ import math
 from dataclasses import replace
 from pathlib import Path
 
-from .config import DEFAULT_DOWNLOAD
 from .http import HttpClient
 from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_downloader import PDFDownloader
+from .settings import add_settings_argument, load_settings
 
 logger = logging.getLogger(__name__)
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description='Safely download and parse PDFs from a saved URL report')
+    add_settings_argument(parser)
     parser.add_argument('--input', type=Path, required=True)
     parser.add_argument('--output-dir', type=Path, required=True)
     parser.add_argument(
@@ -40,14 +41,17 @@ def main(argv=None):
     if args.max_file_mb is not None and (not math.isfinite(args.max_file_mb) or args.max_file_mb <= 0):
         parser.error('--max-file-mb must be finite and positive')
     try:
-        config = DEFAULT_DOWNLOAD
+        settings = load_settings(args)
+        config = settings.download
         if args.max_file_mb is not None:
             config = replace(config, maximum_file_bytes=int(args.max_file_mb * 1024 * 1024))
         with args.input.open(encoding='utf-8') as handle:
             saved = json.load(handle)
         if not isinstance(saved, dict):
             raise ValueError('Input must be a JSON object')
-        downloader = PDFDownloader(HttpClient(timeout=args.timeout, retries=args.retries), config=config)
+        downloader = PDFDownloader(
+            HttpClient(timeout=args.timeout, retries=args.retries, config=settings.http), config=config
+        )
         manifest = downloader.download(saved, args.output_dir, args.include_needs_review, args.max_downloads)
     except KeyboardInterrupt:
         logger.warning('Interrupted; rerun to reuse completed files. Manifest: %s', args.output_dir / 'manifest.json')

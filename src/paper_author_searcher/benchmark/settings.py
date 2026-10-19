@@ -60,6 +60,8 @@ class RunSettings:
     http_cache_dir: Optional[str] = None
     http_cache_mode: Optional[str] = None
     ambiguity_policy: str = AmbiguityPolicy.COLLECT_CONTENDERS
+    # Optional service settings file (see paper_author_searcher.settings); None uses $PAPER_SEARCH_SETTINGS.
+    settings: Optional[str] = None
     llm_adjudication: bool = False
     # "minimal": name, university, department only. "with_hints": also the roster's ORCID/homepage/known papers.
     input_profile: str = 'minimal'
@@ -75,7 +77,6 @@ class SourceSettings:
     crossref_api_url: str = 'https://api.crossref.org'
     crossref_rows: int = 5
     crossref_year_tolerance: int = 1
-    crossref_contact_environment: str = 'CROSSREF_MAILTO'
     arxiv_api_url: str = 'https://export.arxiv.org/api/query'
     arxiv_rows: int = 5
     arxiv_delay_seconds: float = 3.0
