@@ -15,7 +15,7 @@ from .evaluation_matching import bibliographic_name_agrees
 from .homepage_citations import ARXIV_IN_TEXT, DOI_IN_TEXT, CitationParser, HtmlCitationParser, prioritise
 from .html_support import decode_response
 from .http import HttpClient, SourceError
-from .matching import ARXIV_DOI_PREFIX, canonical_orcid, name_similarity, normalize
+from .matching import ARXIV_DOI_PREFIX, canonical_doi, canonical_orcid, name_similarity, normalize
 from .models import AnchorEvidence
 from .status import AnchorKind
 
@@ -200,13 +200,18 @@ class ScholarlyAnchorFinder:
             {
                 'filter': 'title.search:' + title.replace(',', ' '),
                 'per-page': self.config.title_search_results,
-                'select': 'id,title,authorships',
+                'select': 'id,title,doi,authorships',
                 'api_key': self.openalex_key,
             },
         )
         for work in data.get('results') or []:
             if normalize(work.get('title') or '') == normalize(title):
                 self._openalex_authorships(anchors, query, work, f'author of title "{title[:80]}"')
+                # Anchor Semantic Scholar as well, as a DOI hint does: once anchors exist, an unanchored ID cannot
+                # corroborate the other database, so a one-sided anchor would cost the cross-source evidence.
+                doi = canonical_doi(work['doi']).removeprefix('doi:') if work.get('doi') else None
+                if doi:
+                    self._guard(anchors, self._by_semantic_scholar_paper, query, 'DOI:' + doi)
 
 
 class RecordedAnchorFinder:

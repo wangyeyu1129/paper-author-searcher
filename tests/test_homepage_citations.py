@@ -4,7 +4,7 @@ import dataclasses
 import unittest
 
 from paper_author_searcher import ProfessorQuery as Q
-from paper_author_searcher.config import DEFAULT_ANCHORS
+from paper_author_searcher.config import DEFAULT_ANCHORS, DEFAULT_SOURCES
 from paper_author_searcher.homepage_citations import HomepageCitation, HtmlCitationParser, mentions, prioritise
 from paper_author_searcher.http import URLProbe
 from paper_author_searcher.identity_anchors import ScholarlyAnchorFinder
@@ -85,6 +85,23 @@ class FinderTests(unittest.TestCase):
         searches = [params['filter'] for url, params in client.requests if url.endswith('/works')]
         self.assertEqual(len(searches), 2)
         self.assertTrue(searches[0].startswith('title.search:Stable Lithium Metal Anodes'))
+
+    def test_title_match_anchors_semantic_scholar_through_its_doi(self):
+        class TitleClient(Client):
+            def get(self, url, params=None, headers=None, xml=False):
+                self.requests.append((url, dict(params or {})))
+                if url.endswith('/works'):
+                    title = 'Stable Lithium Metal Anodes with Interfacial Engineering'
+                    return {'results': [{'title': title, 'doi': 'https://doi.org/10.1000/anode', 'authorships': []}]}
+                if '/paper/' in url:
+                    return {'authors': [{'authorId': '55', 'name': 'Yi Cui'}]}
+                return {'results': []}
+
+        client = TitleClient(TITLE_ONLY_PAGE)
+        found = ScholarlyAnchorFinder(client).find(homepage_query('Yi Cui'))
+        lookup = DEFAULT_SOURCES.semantic_scholar_url + '/paper/DOI:10.1000/anode'
+        self.assertIn(lookup, [url for url, _ in client.requests])
+        self.assertEqual(found.author_ids.get('semantic_scholar'), {'55'})
 
     def test_named_citations_win_the_anchor_budget(self):
         client = Client(LAB_PAGE)
