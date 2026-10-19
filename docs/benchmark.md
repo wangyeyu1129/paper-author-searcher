@@ -39,6 +39,7 @@ paper-benchmark score --run-id 2026-10-18 --enforce-gate
 | `year_window` | 默认时间窗；roster 中个人可用 `year_start`/`year_end` 覆盖 |
 | `dimensions` | 分层维度及允许值；每人必须在每个维度有一个值 |
 | `publication_types` | 计入真值的出版类型；未知类型是否计入 |
+| `publication_types.non_publication_output` | 系统输出中不是出版物的 `paper_type`（数据集、书评、学位论文、会议摘要），评分时既不算命中也不算误检 |
 | `reported_metrics` | 报告的指标，取自现有 `PerformanceEvaluator` 的指标名 |
 | `gate.rules` | 门槛：指标 + 最小值（0–1） |
 | `gate.aggregation` | `macro`（每人等权平均，默认）或 `micro`（汇总分子分母） |

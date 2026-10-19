@@ -6,6 +6,7 @@ import json
 import tempfile
 import unittest
 from contextlib import redirect_stdout
+from dataclasses import replace
 from pathlib import Path
 
 from paper_author_searcher.benchmark.cli import main as benchmark_main
@@ -46,6 +47,7 @@ def config(minimum_people=1, require_review=True, rules=None):
             'included': ['journal_article', 'conference_paper', 'preprint'],
             'excluded': ['poster', 'thesis'],
             'unknown_included': True,
+            'non_publication_output': ['dataset'],
         },
         'reported_metrics': [
             'identity_resolution_rate',
@@ -713,8 +715,6 @@ class RunScoreGateTests(unittest.TestCase):
 
     def test_too_few_people_fails_the_stratum(self):
         settings = self.workspace.settings
-        from dataclasses import replace
-
         strict = replace(settings, minimum_people_per_stratum=2)
         scores = [
             PersonScorer(strict).score(person, settings.paths.runs / 'none', None)
@@ -739,6 +739,20 @@ class RunScoreGateTests(unittest.TestCase):
         self.run_benchmark(system)
         scored = score_run(self.workspace.settings, self.workspace.roster, 'run1', ['senior_good'])
         self.assertEqual(scored['people'][0]['metrics']['author_match_precision']['rate'], 1.0)
+
+    def test_non_publication_output_is_neither_a_hit_nor_a_false_positive(self):
+        files = [
+            dict(found(f'replication_{index}.tab', f'10.7910/dvn/{index}'), paper_type='dataset') for index in range(3)
+        ]
+        system = FakeSystem({pid: self.system.found['senior_good'] + files for pid in ('senior_good', 'junior_poor')})
+        self.run_benchmark(system)
+        scored = score_run(self.workspace.settings, self.workspace.roster, 'run1', ['senior_good'])
+        self.assertEqual(scored['people'][0]['metrics']['author_match_precision']['rate'], 1.0)
+        unscoped = replace(
+            self.workspace.settings, type_policy=replace(self.workspace.settings.type_policy, non_publication_output=())
+        )
+        unscoped_scores = score_run(unscoped, self.workspace.roster, 'run1', ['senior_good'])
+        self.assertLess(unscoped_scores['people'][0]['metrics']['author_match_precision']['rate'], 1.0)
 
     def test_cli_score_writes_reports_and_enforces_gate(self):
         self.run_benchmark()

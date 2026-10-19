@@ -1,10 +1,11 @@
 """Score each person with the existing evaluator, then aggregate by stratum."""
 
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping, Sequence
 from copy import deepcopy
 from dataclasses import dataclass, field
+from functools import cache
 from pathlib import Path
-from typing import Any
+from typing import Any, Protocol
 
 from paper_author_searcher.evaluation_matching import GroundTruth, GroundTruthMatcher
 from paper_author_searcher.jsonio import read_json
@@ -43,12 +44,41 @@ def load_truth(settings: BenchmarkSettings, person_id: str) -> dict | None:
     return None
 
 
-def scope_to_window(collection: dict, truth: dict, window: tuple[int, int]) -> dict:
+class OutputScope(Protocol):
+    """Decides whether one system output entry is judged at all. ``matched`` lazily reports a truth match."""
+
+    def keep(self, paper: dict, matched: Callable[[], bool]) -> bool: ...
+
+
+@dataclass(frozen=True)
+class WindowScope:
     """Judge only output inside the truth window; outside it, keep entries that match a truth publication.
 
     Without this, a closed-world score would count every verified paper from other years as a false positive.
     """
-    start, end = window
+
+    start: int
+    end: int
+
+    def keep(self, paper: dict, matched: Callable[[], bool]) -> bool:
+        records = paper.get('records') or [paper]
+        if any(record.get('year') is not None and self.start <= record['year'] <= self.end for record in records):
+            return True
+        return matched()
+
+
+@dataclass(frozen=True)
+class PublicationScope:
+    """Output that is not a publication (a dataset file, a book review) is neither a hit nor a false positive."""
+
+    non_publication_types: frozenset[str]
+
+    def keep(self, paper: dict, matched: Callable[[], bool]) -> bool:
+        return paper.get('paper_type') not in self.non_publication_types
+
+
+def scope_collection(collection: dict, truth: dict, scopes: Sequence[OutputScope]) -> dict:
+    """Keep the output entries every scope accepts."""
     matcher = GroundTruthMatcher(GroundTruth.from_dict(truth))
     # Copy only the two containers that are reassigned; paper dicts are shared (scoring never mutates them).
     scoped = dict(collection)
@@ -59,13 +89,27 @@ def scope_to_window(collection: dict, truth: dict, window: tuple[int, int]) -> d
 
     def keep(paper: dict) -> bool:
         records = paper.get('records') or [paper]
-        if any(record.get('year') is not None and start <= record['year'] <= end for record in records):
-            return True
-        return any(matcher.match(record).decision != 'unmatched' for record in records)
+
+        @cache
+        def matched() -> bool:
+            return any(matcher.match(record).decision != 'unmatched' for record in records)
+
+        return all(scope.keep(paper, matched) for scope in scopes)
 
     inner['all_papers'] = [paper for paper in papers if keep(paper)]
     inner['papers'] = inner['all_papers']
     return scoped
+
+
+def scope_to_window(collection: dict, truth: dict, window: tuple[int, int]) -> dict:
+    return scope_collection(collection, truth, [WindowScope(*window)])
+
+
+def output_scopes(settings: BenchmarkSettings, window: tuple[int, int]) -> list[OutputScope]:
+    scopes: list[OutputScope] = [WindowScope(*window)]
+    if settings.type_policy.non_publication_output:
+        scopes.append(PublicationScope(frozenset(settings.type_policy.non_publication_output)))
+    return scopes
 
 
 def truth_state(truth: dict) -> str:
@@ -156,7 +200,9 @@ class PersonScorer:
         if collection is EMPTY_COLLECTION:
             notes.append('Run produced no paper collection; every truth publication counts as missed')
         else:
-            collection = scope_to_window(collection, scoring, person.window(self.settings))
+            collection = scope_collection(
+                collection, scoring, output_scopes(self.settings, person.window(self.settings))
+            )
         result = self.evaluator.evaluate(
             collection, scoring, pdf_report, manifest, manifest_path, reference_only=not formal
         )

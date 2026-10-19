@@ -30,9 +30,13 @@ class GateRule:
 
 @dataclass(frozen=True)
 class TypePolicy:
+    """Which publications count. ``included``/``excluded`` use the truth vocabulary; ``non_publication_output``
+    lists system ``paper_type`` values that are not publications, so such output is never judged."""
+
     included: tuple[str, ...]
     excluded: tuple[str, ...]
     unknown_included: bool = True
+    non_publication_output: tuple[str, ...] = ()
 
     def includes(self, work_type: str | None) -> bool:
         if work_type in self.included:
@@ -157,7 +161,10 @@ class BenchmarkSettings:
             reported_metrics=tuple(data['reported_metrics']),
             paths=BenchmarkPaths(**paths),
             type_policy=TypePolicy(
-                tuple(policy['included']), tuple(policy['excluded']), bool(policy.get('unknown_included', True))
+                tuple(policy['included']),
+                tuple(policy['excluded']),
+                bool(policy.get('unknown_included', True)),
+                tuple(policy.get('non_publication_output') or ()),
             ),
             aggregation=Aggregation(data['gate'].get('aggregation', Aggregation.MACRO.value)),
             minimum_people_per_stratum=int(data['gate'].get('minimum_people_per_stratum', 2)),
