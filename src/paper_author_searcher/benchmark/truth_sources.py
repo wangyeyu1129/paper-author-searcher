@@ -267,7 +267,8 @@ def _bibtex_value(text: str, cursor: int) -> tuple[str, int]:
         return text[cursor + 1 :], len(text)
     if text[cursor] == '"':
         end = text.find('"', cursor + 1)
-        end = len(text) if end < 0 else end
+        if end < 0:  # unterminated: the value runs to the end of the text
+            return text[cursor + 1 :], len(text)
         return text[cursor + 1 : end], end + 1
     end = text.find(',', cursor)
     end = len(text) if end < 0 else end

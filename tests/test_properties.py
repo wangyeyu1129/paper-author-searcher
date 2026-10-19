@@ -125,3 +125,10 @@ class StatusProperties(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class BibtexRegressionTests(unittest.TestCase):
+    def test_unterminated_quoted_value_stops_at_the_end_of_the_text(self):
+        """Found by hypothesis: the cursor ran one past the end of the text."""
+        self.assertEqual(_bibtex_value('000000000"', 9), ('', 10))
+        self.assertEqual(_bibtex_value('title = "open', 8), ('open', 13))
