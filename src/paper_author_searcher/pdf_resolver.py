@@ -1,9 +1,10 @@
 """Resolve URLs from saved collections while preserving ownership judgments."""
 
 import logging
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from copy import deepcopy
 from dataclasses import asdict
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional, Tuple
 from urllib.parse import urldefrag
 
 from .config import DEFAULT_PDF
@@ -42,7 +43,6 @@ class PDFResolver:
         if not isinstance(papers, list) or not all(isinstance(paper, dict) for paper in papers):
             raise ValueError('Collection must contain a list of paper objects')
         results = []
-        processed = 0
         eligible_statuses = {OwnershipStatus.VERIFIED}
         if include_needs_review:
             eligible_statuses.add(OwnershipStatus.NEEDS_REVIEW)
@@ -52,6 +52,7 @@ class PDFResolver:
         if maximum_papers is not None:
             selected = selected[:maximum_papers]
         self._prepare_providers(selected)
+        jobs: List[Tuple[Dict[str, Any], PaperPDFResult]] = []
         for index, paper in enumerate(papers):
             result = PaperPDFResult(
                 index,
@@ -70,23 +71,38 @@ class PDFResolver:
             results.append(result)
             if result.ownership_status not in eligible_statuses:
                 result.validation_status = PDFValidationStatus.SKIPPED_OWNERSHIP
-                continue
-            if maximum_papers is not None and processed >= maximum_papers:
-                continue
-            try:
-                self._resolve_paper(paper, result)
-            except Exception as exc:
-                log_isolated_failure(
-                    logger, 'PDF resolution failed for %s: %s', paper.get('doi') or paper.get('title'), exc
-                )
-                result.validation_status = PDFValidationStatus.UNVERIFIED
-                result.error_details.append({'source': 'pdf_validation', 'error': str(exc)})
-            processed += 1
+            elif maximum_papers is None or len(jobs) < maximum_papers:
+                jobs.append((paper, result))
+        for processed in self._run_lookups(jobs):
             if progress:
                 progress('Finding PDF URLs', processed, progress_total)
         for result in results:
             result.failure_reasons = pdf_failure_reasons(asdict(result))
         return PDFResolutionResult(results, self._statistics(results))
+
+    def _run_lookups(self, jobs):
+        """Resolve papers concurrently (sources keep their own per-host pacing); yield the running count."""
+        workers = min(self.config.lookup_workers, len(jobs))
+        if workers <= 1:
+            for processed, job in enumerate(jobs, 1):
+                self._resolve_isolated(*job)
+                yield processed
+            return
+        with ThreadPoolExecutor(max_workers=workers, thread_name_prefix='pdf-lookup') as pool:
+            futures = [pool.submit(self._resolve_isolated, *job) for job in jobs]
+            for processed, future in enumerate(as_completed(futures), 1):
+                future.result()
+                yield processed
+
+    def _resolve_isolated(self, paper, result):
+        try:
+            self._resolve_paper(paper, result)
+        except Exception as exc:
+            log_isolated_failure(
+                logger, 'PDF resolution failed for %s: %s', paper.get('doi') or paper.get('title'), exc
+            )
+            result.validation_status = PDFValidationStatus.UNVERIFIED
+            result.error_details.append({'source': 'pdf_validation', 'error': str(exc)})
 
     def _prepare_providers(self, papers):
         self.preparation_errors = {}

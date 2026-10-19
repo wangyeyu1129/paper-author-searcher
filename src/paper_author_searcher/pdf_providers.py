@@ -1,6 +1,5 @@
 """Independent public metadata providers; no paywall or login workarounds."""
 
-import time
 from abc import ABC, abstractmethod
 from html.parser import HTMLParser
 from typing import Any, ClassVar, Dict, List, Tuple
@@ -10,6 +9,7 @@ from .config import DEFAULT_PDF, DEFAULT_SOURCES
 from .http import SourceError
 from .matching import normalize
 from .models import PDFCandidate, PDFProviderResult
+from .pacing import RequestPacer
 from .pdf_identity import (
     arxiv_id,
     arxiv_ids,
@@ -472,7 +472,7 @@ class ArxivPDFProvider:
     def __init__(self, client, config=DEFAULT_PDF):
         self.client = client
         self.config = config
-        self.last_request = None
+        self.pacer = RequestPacer(config.arxiv_request_interval)
 
     def find(self, paper):
         identifiers = arxiv_ids(paper)
@@ -500,11 +500,7 @@ class ArxivPDFProvider:
         return result
 
     def _wait_for_interval(self):
-        if self.last_request is not None:
-            remaining = self.config.arxiv_request_interval - (time.monotonic() - self.last_request)
-            if remaining > 0:
-                time.sleep(remaining)
-        self.last_request = time.monotonic()
+        self.pacer.wait()
 
     def _entry_candidates(self, paper, requested, entry, search=False):
         identifier = arxiv_id(entry.findtext(self.atom + 'id'))

@@ -1,5 +1,6 @@
 """Bounded Semantic Scholar requests, caching and source-local cooldowns."""
 
+import threading
 import time
 from functools import partial
 from typing import Any, Callable, Dict, Iterable, List, Optional
@@ -8,6 +9,7 @@ from urllib.parse import quote
 from .config import DEFAULT_PDF, DEFAULT_SOURCES, PDFConfig, SourceConfig
 from .http import SourceError
 from .json_types import JSONObject
+from .pacing import RequestPacer
 from .status import RequestOutcome
 
 
@@ -28,7 +30,8 @@ class SemanticScholarRequests:
         self.cache: Dict[str, Any] = {}
         self.origins: Dict[str, str] = {}
         self.batch_errors: Dict[str, str] = {}
-        self.last_request: Optional[float] = None
+        self._lock = threading.RLock()
+        self.pacer = RequestPacer(config.semantic_scholar_request_interval)
         self.cooldown_until = 0.0
         self.deferred_error: Optional[SourceError] = None
         self.blocked_error: Optional[SourceError] = None
@@ -49,6 +52,21 @@ class SemanticScholarRequests:
         return self.sources.semantic_scholar_url + '/paper/' + quote(identifier, safe=':')
 
     def _call(self, request: Callable[[], Any], operation: str) -> Any:
+        with self._lock:
+            self._refuse_while_unavailable()
+            self.statistics[operation] += 1
+        self.pacer.wait()
+        try:
+            result = request()
+        except SourceError as exc:
+            with self._lock:
+                self._record_failure(operation, exc)
+            raise
+        with self._lock:
+            self.failure_streak = 0
+        return result
+
+    def _refuse_while_unavailable(self) -> None:
         if self.blocked_error is not None:
             self.statistics['authentication_skips'] += 1
             raise SourceError(
@@ -66,35 +84,25 @@ class SemanticScholarRequests:
                 retry_after=self.cooldown_until - time.monotonic(),
                 request_context={'outcome': RequestOutcome.COOLDOWN_SKIP, 'request_attempted': False},
             )
-        if self.last_request is not None:
-            remaining = self.config.semantic_scholar_request_interval - (time.monotonic() - self.last_request)
-            if remaining > 0:
-                time.sleep(remaining)
-        self.last_request = time.monotonic()
-        self.statistics[operation] += 1
-        try:
-            result = request()
-            self.failure_streak = 0
-            return result
-        except SourceError as exc:
-            self.statistics['request_failures'] += 1
-            exc.request_context = {'outcome': RequestOutcome.REQUEST_FAILURE, 'request_attempted': True}
-            self.events.append({'operation': operation, 'error_type': exc.error_type, 'status_code': exc.status_code})
-            if exc.status_code in (401, 403):
-                self.blocked_error = exc
-            elif exc.status_code == 429 or exc.error_type in (
-                'timeout',
-                'network_error',
-                'server_error',
-                'invalid_content_type',
-                'empty_response',
-            ):
-                self.failure_streak += 1
-                delay = self.config.semantic_scholar_cooldown * (2 ** min(self.failure_streak - 1, 10))
-                wait = max(min(delay, self.config.source_maximum_cooldown), exc.retry_after or 0)
-                self.cooldown_until = time.monotonic() + wait
-                self.deferred_error = exc
-            raise
+
+    def _record_failure(self, operation: str, exc: SourceError) -> None:
+        self.statistics['request_failures'] += 1
+        exc.request_context = {'outcome': RequestOutcome.REQUEST_FAILURE, 'request_attempted': True}
+        self.events.append({'operation': operation, 'error_type': exc.error_type, 'status_code': exc.status_code})
+        if exc.status_code in (401, 403):
+            self.blocked_error = exc
+        elif exc.status_code == 429 or exc.error_type in (
+            'timeout',
+            'network_error',
+            'server_error',
+            'invalid_content_type',
+            'empty_response',
+        ):
+            self.failure_streak += 1
+            delay = self.config.semantic_scholar_cooldown * (2 ** min(self.failure_streak - 1, 10))
+            wait = max(min(delay, self.config.source_maximum_cooldown), exc.retry_after or 0)
+            self.cooldown_until = time.monotonic() + wait
+            self.deferred_error = exc
 
     def _headers(self) -> Optional[Dict[str, str]]:
         return {'x-api-key': self.api_key} if self.api_key else None
@@ -154,7 +162,8 @@ class SemanticScholarRequests:
             self.cache[identifier] = response
             self.origins[identifier] = 'individual'
         else:
-            self.statistics['work_cache_hits'] += 1
+            with self._lock:
+                self.statistics['work_cache_hits'] += 1
         work = self.cache[identifier]
         if work is None:
             raise SourceError('Semantic Scholar has no indexed paper for this identifier', status_code=404)
@@ -183,7 +192,8 @@ class SemanticScholarRequests:
                 )
             self.cache[key] = items
         else:
-            self.statistics['title_cache_hits'] += 1
+            with self._lock:
+                self.statistics['title_cache_hits'] += 1
         return self.cache[key]
 
     def diagnostics(self, identifier: str) -> JSONObject:

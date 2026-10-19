@@ -105,6 +105,7 @@ module = [
     "paper_author_searcher.logging_config",
     "paper_author_searcher.matching",
     "paper_author_searcher.models",
+    "paper_author_searcher.pacing",
     "paper_author_searcher.paper_authorship",
     "paper_author_searcher.paper_collector",
     "paper_author_searcher.paper_deduplication",

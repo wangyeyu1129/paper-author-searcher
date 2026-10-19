@@ -6,6 +6,7 @@ import json
 import logging
 import os
 import re
+import threading
 import time
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field, replace
@@ -118,8 +119,13 @@ class HttpClient:
         self.timeout = self.config.timeout
         self.retries = self.config.retries
         self.transport_statistics = {}
+        self._statistics_lock = threading.Lock()
         # Strategy for metadata requests: anything with urlopen's open(request, timeout) contract.
         self.transport = transport or KeepAliveTransport()
+
+    def _count(self, counters, key):
+        with self._statistics_lock:
+            counters[key] = counters.get(key, 0) + 1
 
     def close(self):
         close = getattr(self.transport, 'close', None)
@@ -143,28 +149,28 @@ class HttpClient:
         return self._with_retries(request, lambda: self._read_response(request, False, expected_type), 'metadata_post')
 
     def _with_retries(self, request, read_response, operation='request'):
-        statistics = self.transport_statistics.setdefault(
-            operation,
-            {
-                'operation_attempts': 0,
-                'completed_operations': 0,
-                'http_error_responses': {},
-                'network_errors': 0,
-                'response_errors': 0,
-                'deferred_operations': 0,
-                'scope': 'Read/transfer attempts include retries; redirect hops are not individual attempts',
-            },
-        )
+        with self._statistics_lock:
+            statistics = self.transport_statistics.setdefault(
+                operation,
+                {
+                    'operation_attempts': 0,
+                    'completed_operations': 0,
+                    'http_error_responses': {},
+                    'network_errors': 0,
+                    'response_errors': 0,
+                    'deferred_operations': 0,
+                    'scope': 'Read/transfer attempts include retries; redirect hops are not individual attempts',
+                },
+            )
         for attempt in range(self.retries + 1):
-            statistics['operation_attempts'] += 1
+            self._count(statistics, 'operation_attempts')
             try:
                 response = read_response()
-                statistics['completed_operations'] += 1
+                self._count(statistics, 'completed_operations')
                 return response
             except HTTPError as exc:
                 code = str(exc.code)
-                statuses = statistics['http_error_responses']
-                statuses[code] = statuses.get(code, 0) + 1
+                self._count(statistics['http_error_responses'], code)
                 retryable = exc.code in self.config.retry_statuses
                 retry_after = self._retry_after(exc)
                 wait_exceeds_budget = retry_after is not None and retry_after > self.config.maximum_retry_delay
@@ -181,7 +187,7 @@ class HttpClient:
                 )
                 time.sleep(delay)
             except (OSError, HTTPException) as exc:
-                statistics['network_errors'] += 1
+                self._count(statistics, 'network_errors')
                 if attempt == self.retries:
                     kind = 'network_error'
                     if isinstance(exc, TimeoutError) or 'timed out' in str(exc).lower():
@@ -191,13 +197,13 @@ class HttpClient:
                 logger.info('%s: %s; retry %d/%d in %.1fs', request.host, exc, attempt + 1, self.retries, delay)
                 time.sleep(delay)
             except (ValueError, ET.ParseError) as exc:
-                statistics['response_errors'] += 1
+                self._count(statistics, 'response_errors')
                 raise SourceError(f'{request.host}: {exc}') from exc
             except SourceError as exc:
                 if exc.error_type == 'source_deferred':
-                    statistics['deferred_operations'] += 1
+                    self._count(statistics, 'deferred_operations')
                 else:
-                    statistics['response_errors'] += 1
+                    self._count(statistics, 'response_errors')
                 raise
         return None
 

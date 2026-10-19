@@ -5,6 +5,7 @@ from unittest.mock import Mock, patch
 
 from paper_author_searcher.config import DEFAULT_PDF
 from paper_author_searcher.http import SourceError, URLProbe
+from paper_author_searcher.pacing import RequestPacer
 from paper_author_searcher.pdf_identity import arxiv_id, metadata_identity
 from paper_author_searcher.pdf_providers import (
     ArxivPDFProvider,
@@ -233,11 +234,10 @@ class ProviderTests(unittest.TestCase):
 
     def test_arxiv_observes_configured_interval(self):
         provider = ArxivPDFProvider(Mock(), replace(DEFAULT_PDF, arxiv_request_interval=3))
-        provider.last_request = 10
-        with patch('paper_author_searcher.pdf_providers.time.monotonic', return_value=11), patch(
-            'paper_author_searcher.pdf_providers.time.sleep'
-        ) as sleep:
-            provider._wait_for_interval()
+        sleep = Mock()
+        provider.pacer = RequestPacer(3, clock=iter([10, 11]).__next__, sleep=sleep)
+        provider._wait_for_interval()  # first request at t=10 starts immediately
+        provider._wait_for_interval()  # next one at t=11 waits for t=13
         sleep.assert_called_once_with(2)
 
     def test_landing_page_uses_explicit_citation_link_and_identity(self):

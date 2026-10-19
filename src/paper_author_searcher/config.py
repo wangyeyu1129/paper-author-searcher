@@ -203,6 +203,8 @@ class PDFConfig:
     public_page_cache_bytes: int = 8 * 1024 * 1024
     source_maximum_cooldown: float = 900.0
     redirect_failure_budget: int = 3
+    # Papers resolved concurrently; each source still paces its own hosts.
+    lookup_workers: int = 4
     bibliography_urls: Tuple[str, ...] = ()
     journal_catalogs: Tuple[Tuple[str, str], ...] = (
         ('Journal of Machine Learning Research', 'https://jmlr.org/papers/'),
@@ -237,6 +239,8 @@ class PDFConfig:
             < 1
         ):
             raise ValueError('Discovery and cache limits must be positive')
+        if self.lookup_workers < 1:
+            raise ValueError('lookup_workers must be positive')
         if self.public_page_maximum_bytes < self.html_metadata_bytes:
             raise ValueError('Public page maximum must cover the initial metadata preview')
         if self.public_page_cache_bytes < self.public_page_maximum_bytes:
