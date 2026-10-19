@@ -5,6 +5,7 @@ from typing import Any, Union
 
 from .status import (
     AccessStatus,
+    AnchorKind,
     DownloadStatus,
     FetchStatus,
     FormatStatus,
@@ -96,6 +97,7 @@ class AnchorEvidence:
     source: str
     author_id: str
     reason: str
+    kind: AnchorKind = AnchorKind.PAPER
 
     def __str__(self) -> str:
         return f'{self.source} {self.author_id}: {self.reason}'
@@ -106,12 +108,14 @@ class AnchorEvidence:
         if isinstance(value, cls):
             return value
         if isinstance(value, Mapping):
-            return cls(str(value['source']), str(value['author_id']), str(value.get('reason', '')))
+            reason = str(value.get('reason', ''))
+            kind = AnchorKind(value['kind']) if value.get('kind') else AnchorKind.from_reason(reason)
+            return cls(str(value['source']), str(value['author_id']), reason, kind)
         head, separator, reason = str(value).partition(':')
         source, _, author_id = head.strip().partition(' ')
         if not separator or not source or not author_id.strip():
             raise ValueError(f'Unrecognised identity anchor: {value!r}')
-        return cls(source, author_id.strip(), reason.strip())
+        return cls(source, author_id.strip(), reason.strip(), AnchorKind.from_reason(reason.strip()))
 
 
 @dataclass
@@ -135,6 +139,8 @@ class ProfessorProfile(ValidatedStatuses):
     adjudication: str | None = None
     # The name the caller searched for; kept because a source's display name can be corrupted ("Jia Liu B").
     requested_name: str | None = None
+    # Some record of this identity carries an ORCID other than the supplied one.
+    orcid_conflict: bool = False
 
     def __post_init__(self) -> None:
         super().__post_init__()

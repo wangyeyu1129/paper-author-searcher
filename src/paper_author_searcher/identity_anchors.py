@@ -16,6 +16,7 @@ from .html_support import decode_response
 from .http import HttpClient, SourceError
 from .matching import canonical_orcid, name_similarity, normalize
 from .models import AnchorEvidence
+from .status import AnchorKind
 
 # Added by the resolver itself when a candidate record carries the supplied ORCID; not an anchor-finder result.
 SUPPLIED_ORCID_REASON = 'ORCID matches the supplied ORCID'
@@ -32,9 +33,9 @@ class IdentityAnchors:
     evidence: list[AnchorEvidence] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
 
-    def add(self, source: str, author_id: str, reason: str) -> None:
+    def add(self, source: str, author_id: str, reason: str, kind: AnchorKind = AnchorKind.PAPER) -> None:
         self.author_ids.setdefault(source, set()).add(str(author_id))
-        self.evidence.append(AnchorEvidence(source, str(author_id), reason))
+        self.evidence.append(AnchorEvidence(source, str(author_id), reason, kind))
 
     def evidence_for(self, source: str, author_id: str) -> list[AnchorEvidence]:
         return [item for item in self.evidence if item.source == source and item.author_id == str(author_id)]
@@ -139,7 +140,7 @@ class ScholarlyAnchorFinder:
             {'filter': 'orcid:' + orcid, 'select': 'id,display_name', 'api_key': self.openalex_key},
         )
         for item in data.get('results') or []:
-            anchors.add('openalex', item['id'].rsplit('/', 1)[-1], 'ORCID ' + orcid)
+            anchors.add('openalex', item['id'].rsplit('/', 1)[-1], 'ORCID ' + orcid, AnchorKind.ORCID)
 
     def _openalex_authorships(self, anchors, query, work, reason) -> None:
         for authorship in work.get('authorships') or []:
@@ -212,7 +213,7 @@ class RecordedAnchorFinder:
     def find(self, query) -> IdentityAnchors:
         anchors = IdentityAnchors(orcid=canonical_orcid(query.orcid) if query.orcid else None)
         for item in self.evidence:
-            anchors.add(item.source, item.author_id, item.reason)
+            anchors.add(item.source, item.author_id, item.reason, item.kind)
         return anchors
 
 

@@ -249,9 +249,7 @@ class PaperOwnershipValidator:
             if normalize(author) in excluded:
                 continue
             is_target = any(
-                author_signatures_match(name, form)
-                for name in profile.target_names()
-                for form in byline_forms(author)
+                author_signatures_match(name, form) for name in profile.target_names() for form in byline_forms(author)
             )
             if not is_target:
                 names.add(normalize(author))

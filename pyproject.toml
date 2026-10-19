@@ -102,6 +102,7 @@ module = [
     "paper_author_searcher.html_support",
     "paper_author_searcher.identity",
     "paper_author_searcher.identity_adjudication",
+    "paper_author_searcher.identity_ranking",
     "paper_author_searcher.json_types",
     "paper_author_searcher.jsonio",
     "paper_author_searcher.logging_config",

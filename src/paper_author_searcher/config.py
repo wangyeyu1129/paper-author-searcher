@@ -35,6 +35,9 @@ class MatchingConfig:
     contextual_link_bonus: float = 0.01
     # Independent identity anchors (caller-supplied ORCID or papers the person is known to have written).
     anchor_bonus: float = 0.15
+    # Anchor kinds strong enough to act as a rule rather than a weight: a candidate holding one (and no conflicting
+    # ORCID) ranks first, is not contested by candidates without one, and resolves on a compatible name.
+    precedence_anchor_kinds: tuple[str, ...] = ('orcid',)
     orcid_conflict_penalty: float = 0.30
     # Optional LLM adjudication of close contests is accepted only at or above this stated confidence.
     adjudication_minimum_confidence: float = 0.8

@@ -7,6 +7,7 @@ import unittest
 from paper_author_searcher import AuthorCandidate as C
 from paper_author_searcher import ProfessorQuery as Q
 from paper_author_searcher import ProfessorResolver
+from paper_author_searcher.config import DEFAULT_MATCHING
 from paper_author_searcher.identity_anchors import (
     IdentityAnchors,
     RecordedAnchorFinder,
@@ -14,6 +15,7 @@ from paper_author_searcher.identity_anchors import (
     homepage_papers,
     paper_hints,
 )
+from paper_author_searcher.identity_ranking import IdentityRanking
 from paper_author_searcher.models import AnchorEvidence, ProfessorProfile
 
 
@@ -163,6 +165,48 @@ class ResolverAnchorTests(unittest.TestCase):
         self.assertEqual(provider.lookups, ['H1'])
         self.assertEqual(result.profile.author_ids['openalex'], 'H1')
 
+    def test_supplied_orcid_outranks_a_better_scoring_namesake(self):
+        orcid = '0000-0000-0000-0001'
+        records = [
+            C('openalex', 'A1', 'Mei Lin', SCHOOL),
+            C('openalex', 'B1', 'Mei Lin', ['Other College'], orcid=orcid),
+        ]
+        result, _ = self.resolve(records, anchors(orcid=orcid))
+        self.assertEqual(result.profile.author_ids['openalex'], 'B1')
+        self.assertEqual(result.profile.status, 'resolved')
+        self.assertIsNone(result.ambiguity)
+        self.assertEqual([anchor.kind for anchor in result.profile.identity_anchors], ['orcid'])
+
+    def test_anchor_contradicted_by_the_records_own_orcid_is_ignored(self):
+        orcid = '0000-0000-0000-0001'
+        found = anchors('B2', orcid=orcid)  # e.g. a source returned a namesake for the ORCID lookup
+        records = [
+            C('openalex', 'B1', 'Mei Lin', ['Other College'], orcid=orcid),
+            C('openalex', 'B2', 'Mei Lin', ['Other College'], orcid='0000-0000-0000-0009'),
+        ]
+        result, _ = self.resolve(records, found)
+        self.assertEqual(result.profile.author_id_aliases['openalex'], ['B1'])
+        self.assertFalse(result.profile.orcid_conflict)
+        self.assertEqual(result.profile.status, 'resolved')
+
+    def test_anchor_precedence_is_configurable(self):
+        orcid = '0000-0000-0000-0001'
+        records = [
+            C('openalex', 'A1', 'Mei Lin', SCHOOL),
+            C('openalex', 'B1', 'Mei Lin', ['Other College'], orcid=orcid),
+        ]
+        config = dataclasses.replace(DEFAULT_MATCHING, precedence_anchor_kinds=())
+        resolver = ProfessorResolver(
+            [Provider(records)], config=config, anchor_finder=FixedAnchors(anchors(orcid=orcid))
+        )
+        self.assertEqual(resolver.resolve(query()).profile.author_ids['openalex'], 'A1')
+
+    def test_paper_anchors_do_not_take_precedence(self):
+        records = [C('openalex', 'A1', 'Mei Lin', SCHOOL), C('openalex', 'B1', 'Mei Lin', ['Other College'])]
+        result, _ = self.resolve(records, anchors('B1'))
+        ranking = IdentityRanking()
+        self.assertFalse(any(ranking.has_precedence(profile) for profile in result.candidates))
+
     def test_orcid_conflict_is_penalised(self):
         conflicting = C('openalex', 'B1', 'Mei Lin', SCHOOL, orcid='0000-0000-0000-0009')
         result, _ = self.resolve(
@@ -260,6 +304,12 @@ class AnchorEvidenceTests(unittest.TestCase):
         self.assertEqual(AnchorEvidence.coerce(dataclasses.asdict(expected)), expected)
         self.assertIs(AnchorEvidence.coerce(expected), expected)
         self.assertEqual(str(expected), 'semantic_scholar B2: author of ARXIV:2501.00001')
+
+    def test_anchor_kind_is_kept_or_recovered_from_old_checkpoints(self):
+        self.assertEqual(AnchorEvidence.coerce('openalex A1: ORCID 0000-0001').kind, 'orcid')
+        self.assertEqual(AnchorEvidence.coerce('openalex A1: author of DOI 10.1/x').kind, 'paper')
+        stored = {'source': 'openalex', 'author_id': 'A1', 'reason': 'custom', 'kind': 'orcid'}
+        self.assertEqual(AnchorEvidence.coerce(stored).kind, 'orcid')
 
     def test_malformed_legacy_text_is_rejected(self):
         with self.assertRaises(ValueError):
