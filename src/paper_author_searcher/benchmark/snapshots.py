@@ -6,8 +6,8 @@ from pathlib import Path
 from typing import Dict, List, Optional
 
 from paper_author_searcher.http import HttpClient, SourceError
+from paper_author_searcher.jsonio import read_json, write_json
 from paper_author_searcher.matching import normalize
-from paper_author_searcher.workflow import read_json, write_json
 
 from .roster import BenchmarkPerson
 from .settings import BenchmarkSettings

@@ -6,12 +6,12 @@ from collections import Counter
 from dataclasses import asdict
 from pathlib import Path
 
+from .jsonio import read_json, write_json
 from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_downloader import paper_key
 from .pdf_file_validation import PDFFileValidator, validation_target
 from .performance_evaluation import _check_file
 from .status import FormatStatus, PDFValidationStatus
-from .workflow import read_json, write_json
 
 logger = logging.getLogger(__name__)
 

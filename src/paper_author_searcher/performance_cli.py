@@ -4,9 +4,9 @@ import argparse
 import logging
 from pathlib import Path
 
+from .jsonio import read_json, write_json
 from .logging_config import add_logging_arguments, configure_from_arguments
 from .performance_evaluation import PerformanceEvaluator, compare_performance
-from .workflow import read_json, write_json
 
 logger = logging.getLogger(__name__)
 

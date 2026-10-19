@@ -6,9 +6,9 @@ from pathlib import Path
 from typing import Dict, List, Mapping, Optional, Tuple
 
 from paper_author_searcher.evaluation_matching import GroundTruth, GroundTruthMatcher
+from paper_author_searcher.jsonio import read_json
 from paper_author_searcher.performance_evaluation import PerformanceEvaluator
 from paper_author_searcher.status import AnnotationState, TruthState
-from paper_author_searcher.workflow import read_json
 
 from .roster import BenchmarkPerson
 from .settings import Aggregation, BenchmarkSettings

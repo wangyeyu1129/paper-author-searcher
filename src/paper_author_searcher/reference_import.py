@@ -8,13 +8,13 @@ from pathlib import Path
 
 from .config import DEFAULT_MATCHING, DEFAULT_PDF
 from .http import HttpClient, SourceError
+from .jsonio import read_json, write_json
 from .logging_config import add_logging_arguments, configure_from_arguments
 from .matching import name_similarity
 from .paper_authorship import byline_forms
 from .paper_providers import parse_year
 from .pdf_providers import CitationMetadata
 from .status import AnnotationState
-from .workflow import read_json, write_json
 
 logger = logging.getLogger(__name__)
 

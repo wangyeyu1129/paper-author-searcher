@@ -7,8 +7,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable, Dict, Iterable, Optional, Protocol, Tuple
 
+from paper_author_searcher.jsonio import read_json, write_json
 from paper_author_searcher.status import RunStatus
-from paper_author_searcher.workflow import read_json, write_json
 
 from .roster import BenchmarkPerson
 from .settings import BenchmarkSettings, RunSettings

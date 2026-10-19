@@ -10,13 +10,14 @@ from unittest.mock import Mock, patch
 
 from paper_author_searcher.cli import main as legacy_main
 from paper_author_searcher.http import SourceError
+from paper_author_searcher.jsonio import read_json, write_json
 from paper_author_searcher.models import AuthorCandidate, PDFCandidate, PDFProviderResult, ProfessorQuery
 from paper_author_searcher.paper_collector import PaperCollector
 from paper_author_searcher.pdf_downloader import PDFDownloader
 from paper_author_searcher.pdf_file_validation import PDFFileValidator
 from paper_author_searcher.pdf_resolver import PDFResolver
 from paper_author_searcher.resolver import ProfessorResolver
-from paper_author_searcher.workflow import PaperSearchWorkflow, load_checkpoint, metadata_audit, read_json, write_json
+from paper_author_searcher.workflow import PaperSearchWorkflow, load_checkpoint, metadata_audit
 from paper_author_searcher.workflow_cli import main
 from pdf_fixtures import HAS_PYPDF, make_pdf
 from test_paper_collector import paper

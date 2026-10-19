@@ -9,10 +9,10 @@ from pathlib import Path
 from typing import List, Optional
 
 from paper_author_searcher.http import HttpClient, SourceError
+from paper_author_searcher.jsonio import read_json, write_json
 from paper_author_searcher.logging_config import add_logging_arguments, configure_from_arguments, log_isolated_failure
 from paper_author_searcher.settings import load_settings
 from paper_author_searcher.status import AnnotationState, OwnershipStatus, RunStatus, TruthState
-from paper_author_searcher.workflow import read_json, write_json
 
 from .gate import ReleaseGate
 from .report import markdown_report

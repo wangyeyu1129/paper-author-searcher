@@ -5,10 +5,10 @@ import logging
 from collections import Counter
 from pathlib import Path
 
+from .jsonio import read_json, write_json
 from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_discovery_comparison import _cohort, compare_runs
 from .pdf_search_status import paper_search_complete, provider_search_complete
-from .workflow import read_json, write_json
 
 logger = logging.getLogger(__name__)
 

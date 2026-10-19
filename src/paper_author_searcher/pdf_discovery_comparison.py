@@ -7,13 +7,13 @@ import logging
 from collections import Counter
 from pathlib import Path
 
+from .jsonio import read_json, write_json
 from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_downloader import paper_key
 from .pdf_search_status import SEARCH_COMPLETION_DEFINITION, provider_search_complete, search_satisfaction
 from .performance_diagnostics import pdf_failure_reasons
 from .performance_evaluation import _check_file, rate
 from .status import DownloadStatus, FormatStatus, IdentityStatus, PDFValidationStatus
-from .workflow import read_json, write_json
 
 logger = logging.getLogger(__name__)
 

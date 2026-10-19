@@ -1,10 +1,7 @@
 """Compose existing stages and checkpoint their results without changing decisions."""
 
-import json
 import logging
-import os
 import re
-import tempfile
 import uuid
 from copy import deepcopy
 from dataclasses import asdict, fields
@@ -12,6 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .config import DEFAULT_COLLECTION, DEFAULT_MATCHING, AmbiguityPolicy
+from .jsonio import read_json, write_json
 from .models import ProfessorProfile, ResolutionResult
 from .paper_collector import IdentityConfirmationRequired, PaperCollector
 from .paper_reanalysis import saved_collection_profile
@@ -23,30 +21,6 @@ from .status import ResolutionStatus, RunStatus, StageStatus, UniversityStatus
 logger = logging.getLogger(__name__)
 
 MODES = ('metadata', 'pdf-urls', 'full')
-
-
-def write_json(path, data):
-    if path.is_symlink():
-        raise ValueError('Output JSON must not be a symlink')
-    descriptor, temporary = tempfile.mkstemp(prefix='.checkpoint-', dir=str(path.parent))
-    try:
-        with os.fdopen(descriptor, 'w', encoding='utf-8') as handle:
-            json.dump(data, handle, ensure_ascii=False, indent=2)
-            handle.write('\n')
-            handle.flush()
-            os.fsync(handle.fileno())
-        os.replace(temporary, str(path))
-    finally:
-        if os.path.exists(temporary):
-            os.unlink(temporary)
-
-
-def read_json(path):
-    with Path(path).open(encoding='utf-8') as handle:
-        data = json.load(handle)
-    if not isinstance(data, dict):
-        raise ValueError('Input must be a JSON object')
-    return data
 
 
 def load_checkpoint(path):

@@ -24,7 +24,7 @@ from paper_author_searcher.benchmark.truth_sources import (
     latex_text,
     vancouver_name,
 )
-from paper_author_searcher.workflow import write_json
+from paper_author_searcher.jsonio import write_json
 
 DIMENSIONS = {'seniority': ['senior', 'junior'], 'name_profile': ['common', 'other']}
 

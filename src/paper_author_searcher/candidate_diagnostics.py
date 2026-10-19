@@ -7,13 +7,14 @@ from dataclasses import asdict
 from pathlib import Path
 
 from .http import HttpClient
+from .jsonio import read_json, write_json
 from .logging_config import add_logging_arguments, configure_from_arguments, log_isolated_failure
 from .models import PaperCollectionResult, PaperSourceResult
 from .paper_deduplication import deduplicate_papers
 from .paper_providers import DBLPPaperProvider, OpenAlexPaperProvider, SemanticScholarPaperProvider
 from .settings import add_settings_argument, load_settings
 from .status import OwnershipStatus, ResolutionStatus
-from .workflow import _resolution, read_json, write_json
+from .workflow import _resolution
 from .workflow_cli import build_identity_providers
 
 logger = logging.getLogger(__name__)
