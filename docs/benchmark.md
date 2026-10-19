@@ -48,15 +48,18 @@ paper-benchmark score --run-id 2026-10-18 --enforce-gate
 | `gate.require_human_review` | 有人未经人工审核时，达标也只给 `not_certifiable` |
 | `provisional_closed_world` | 未审核时把来源并集当完整列表计算精度（是精度下界） |
 | `version_grouping_year_tolerance` / `metadata_year_tolerance` | 版本归并、元数据匹配允许的年份差 |
+| `identity.minimum_truth_share` | `identity_precision` 判定"认对了人"所需的真值覆盖比例 |
 | `run` | 传给检索流程的参数（与 `paper-search` 同名） |
 | `sources` | ORCID / Crossref / arXiv 地址、批量大小、请求间隔 |
 
-当前门槛：每个分层 `verified_paper_recall ≥ 0.80`、`author_match_precision ≥ 0.95`，宏平均（每人等权）和汇总口径（按论文汇总）都要达到；召回类指标只统计真值至少 3 篇的人；每层至少 2 人。全文获取率（`actual_download_coverage`）只报告，不设门槛。
+当前门槛：每个分层 `identity_precision = 1.00`（不能认错人），`verified_paper_recall ≥ 0.80`、`author_match_precision ≥ 0.95`，宏平均（每人等权）和汇总口径（按论文汇总）都要达到；召回类指标只统计真值至少 3 篇的人；每层至少 2 人。全文获取率（`actual_download_coverage`）只报告，不设门槛。
 
 ## 指标口径
 
 指标由现有 `PerformanceEvaluator` 计算，基准层只做逐人调用和分层聚合：
 
+- `identity_resolution_rate`：系统自己确认了身份的人所占比例。
+- `identity_precision`：在系统确认了身份的人里，确认对了的比例。选中的身份所收集的论文至少覆盖本人真值的 `identity.minimum_truth_share`（默认 20%）才算对。认成同名者比不确认更糟，所以门槛要求每个分层都是 100%。
 - `verified_paper_recall`：真值论文中被系统判为 verified 的比例。**门槛用的召回率。**
 - `paper_discovery_recall`：真值论文中被系统检索到的比例（无论归属状态），用于区分"没搜到"和"搜到了但不敢确认"。
 - `author_match_precision`：系统 verified 的论文里确实属于本人的比例。需要真值标注 `not_belongs`，或审核者确认 `complete_positive_list`。

@@ -12,23 +12,11 @@ from paper_author_searcher.jsonio import read_json
 from paper_author_searcher.performance_evaluation import PerformanceEvaluator
 from paper_author_searcher.status import AnnotationState, TruthState
 
+from .metrics import BenchmarkMetric, MetricInput, benchmark_metrics
 from .roster import BenchmarkPerson
 from .settings import Aggregation, BenchmarkSettings
 
 OVERALL = ('overall', 'all')
-RESOLVED_CONFIRMATIONS = frozenset({'resolver_resolved', 'manual_author_id'})
-
-
-def identity_resolution(collection: dict | None) -> dict:
-    """1/1 when the system committed to an identity it confirmed itself; 0/1 when it stopped or only collected
-    competing profiles. Measured per person, so the stratum macro is the share of people resolved."""
-    inner = (collection or {}).get('collection') or {}
-    resolved = inner.get('identity_confirmation') in RESOLVED_CONFIRMATIONS
-    return {'numerator': int(resolved), 'denominator': 1, 'rate': float(resolved), 'available': True}
-
-
-# Metrics the benchmark computes itself rather than reading from PerformanceEvaluator.
-BENCHMARK_METRICS = {'identity_resolution_rate': identity_resolution}
 EMPTY_COLLECTION: dict[str, Any] = {'collection': {'all_papers': [], 'sources': []}}
 
 
@@ -156,9 +144,15 @@ class PersonScore:
 
 
 class PersonScorer:
-    def __init__(self, settings: BenchmarkSettings, evaluator: PerformanceEvaluator | None = None) -> None:
+    def __init__(
+        self,
+        settings: BenchmarkSettings,
+        evaluator: PerformanceEvaluator | None = None,
+        metrics: Mapping[str, BenchmarkMetric] | None = None,
+    ) -> None:
         self.settings = settings
         self.evaluator = evaluator or PerformanceEvaluator()
+        self.metrics = benchmark_metrics(settings) if metrics is None else metrics
 
     def score(self, person: BenchmarkPerson, run_root: Path, index_entry: dict | None) -> PersonScore:
         truth = load_truth(self.settings, person.person_id)
@@ -206,10 +200,12 @@ class PersonScorer:
         result = self.evaluator.evaluate(
             collection, scoring, pdf_report, manifest, manifest_path, reference_only=not formal
         )
+        positives = result['ownership_evaluation']['ground_truth']['positive_publications']
+        produced = MetricInput(None if collection is EMPTY_COLLECTION else collection, result, positives)
         metrics = {}
         for name in self.settings.reported_metrics:
-            if name in BENCHMARK_METRICS:
-                metrics[name] = BENCHMARK_METRICS[name](None if collection is EMPTY_COLLECTION else collection)
+            if name in self.metrics:
+                metrics[name] = self.metrics[name].compute(produced)
                 continue
             if name not in result['metrics']:
                 raise ValueError('Unknown reported metric: ' + name)
@@ -220,7 +216,6 @@ class PersonScorer:
                 'rate': metric['rate'],
                 'available': metric['available'],
             }
-        positives = result['ownership_evaluation']['ground_truth']['positive_publications']
         return PersonScore(person.person_id, person.strata, state, _status(index_entry), metrics, positives, notes)
 
 

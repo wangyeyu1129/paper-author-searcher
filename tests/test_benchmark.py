@@ -12,6 +12,7 @@ from pathlib import Path
 from paper_author_searcher.benchmark.cli import main as benchmark_main
 from paper_author_searcher.benchmark.cli import score_run
 from paper_author_searcher.benchmark.gate import GateStatus, ReleaseGate
+from paper_author_searcher.benchmark.metrics import benchmark_metrics
 from paper_author_searcher.benchmark.review import export_review, import_review
 from paper_author_searcher.benchmark.roster import Roster
 from paper_author_searcher.benchmark.runner import BenchmarkRunner, WorkflowSearchSystem, window_archive
@@ -51,6 +52,7 @@ def config(minimum_people=1, require_review=True, rules=None):
         },
         'reported_metrics': [
             'identity_resolution_rate',
+            'identity_precision',
             'verified_paper_recall',
             'paper_discovery_recall',
             'author_match_precision',
@@ -148,6 +150,15 @@ class SettingsAndRosterTests(unittest.TestCase):
         settings = BenchmarkSettings.from_dict(data, Path('.'))
         self.assertEqual(settings.rule_aggregation(settings.gate_rules[0]).value, 'micro')
         self.assertEqual(settings.minimum_truth_positives, {'verified_paper_recall': 3})
+
+    def test_identity_share_comes_from_config_and_is_a_rate(self):
+        data = config()
+        data['identity'] = {'minimum_truth_share': 0.5}
+        settings = BenchmarkSettings.from_dict(data, Path('.'))
+        self.assertEqual(benchmark_metrics(settings)['identity_precision'].minimum_truth_share, 0.5)
+        data['identity'] = {'minimum_truth_share': 0}
+        with self.assertRaises(ValueError):
+            benchmark_metrics(BenchmarkSettings.from_dict(data, Path('.')))
 
     def test_truth_floor_must_name_reported_metrics(self):
         data = config()
@@ -768,6 +779,23 @@ class RunScoreGateTests(unittest.TestCase):
         self.assertEqual(rates, {'senior_good': 1.0, 'junior_poor': 0.0})
         overall = next(entry for entry in scored['strata'] if entry['stratum'] == 'overall=all')
         self.assertEqual(overall['metrics']['identity_resolution_rate']['macro'], 0.5)
+
+    def test_identity_precision_flags_a_resolved_namesake(self):
+        namesake = [found('Unrelated Study', '10.1005/unrelated'), found('Other Study', '10.1005/other')]
+        system = FakeSystem(
+            {'senior_good': self.system.found['senior_good'], 'junior_poor': namesake},
+        )
+        self.run_benchmark(system)
+        scored = score_run(self.workspace.settings, self.workspace.roster, 'run1', [])
+        rates = {entry['person_id']: entry['metrics']['identity_precision']['rate'] for entry in scored['people']}
+        self.assertEqual(rates, {'senior_good': 1.0, 'junior_poor': 0.0})
+
+    def test_identity_precision_has_no_rate_for_unresolved_people(self):
+        system = FakeSystem(self.system.found, {'junior_poor': 'ambiguous_contenders'})
+        self.run_benchmark(system)
+        scored = score_run(self.workspace.settings, self.workspace.roster, 'run1', ['junior_poor'])
+        metric = scored['people'][0]['metrics']['identity_precision']
+        self.assertEqual((metric['denominator'], metric['rate']), (0, None))
 
     def test_verified_papers_outside_the_window_are_not_false_positives(self):
         old = dict(found('Old Unlisted Study', '10.1005/old'), year=2012)

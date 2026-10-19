@@ -79,6 +79,7 @@ module = [
     "paper_author_searcher.benchmark.calibration",
     "paper_author_searcher.benchmark.gate",
     "paper_author_searcher.benchmark.identity_diagnosis",
+    "paper_author_searcher.benchmark.metrics",
     "paper_author_searcher.benchmark.report",
     "paper_author_searcher.benchmark.review",
     "paper_author_searcher.benchmark.roster",

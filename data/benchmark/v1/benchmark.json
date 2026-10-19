@@ -59,6 +59,7 @@
   },
   "reported_metrics": [
     "identity_resolution_rate",
+    "identity_precision",
     "verified_paper_recall",
     "paper_discovery_recall",
     "author_match_precision",
@@ -69,6 +70,11 @@
     "minimum_people_per_stratum": 2,
     "require_human_review": true,
     "rules": [
+      {
+        "metric": "identity_precision",
+        "minimum": 1.0,
+        "label": "right person"
+      },
       {
         "metric": "verified_paper_recall",
         "minimum": 0.8,
@@ -97,6 +103,9 @@
       "paper_discovery_recall": 3,
       "actual_download_coverage": 3
     }
+  },
+  "identity": {
+    "minimum_truth_share": 0.2
   },
   "provisional_closed_world": true,
   "version_grouping_year_tolerance": 2,

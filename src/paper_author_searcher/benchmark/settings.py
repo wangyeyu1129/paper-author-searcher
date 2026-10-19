@@ -111,6 +111,13 @@ class CalibrationSettings:
 
 
 @dataclass(frozen=True)
+class IdentitySettings:
+    """identity_precision: a resolved identity is right when it holds this share of the person's truth."""
+
+    minimum_truth_share: float = 0.2
+
+
+@dataclass(frozen=True)
 class BenchmarkPaths:
     roster: Path
     snapshots: Path
@@ -141,6 +148,7 @@ class BenchmarkSettings:
     run: RunSettings = field(default_factory=RunSettings)
     sources: SourceSettings = field(default_factory=SourceSettings)
     calibration: CalibrationSettings = field(default_factory=CalibrationSettings)
+    identity: IdentitySettings = field(default_factory=IdentitySettings)
 
     def __post_init__(self) -> None:
         if self.year_start > self.year_end:
@@ -201,6 +209,7 @@ class BenchmarkSettings:
             run=_run_settings(data.get('run') or {}, base),
             sources=SourceSettings(**(data.get('sources') or {})),
             calibration=_calibration(data.get('calibration') or {}),
+            identity=IdentitySettings(**(data.get('identity') or {})),
         )
 
 
