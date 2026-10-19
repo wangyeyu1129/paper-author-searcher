@@ -8,6 +8,7 @@ import subprocess
 import sys
 import unicodedata
 from dataclasses import asdict
+from pathlib import Path
 from typing import Any, Dict
 
 from .config import DEFAULT_DOWNLOAD, DownloadConfig
@@ -261,6 +262,15 @@ def inspect_pdf(path, paper, config=DEFAULT_DOWNLOAD):
     return result
 
 
+# The parser worker imports this package from the same location as its parent however it was installed (an
+# ignored .pth, e.g. a macOS-hidden editable install, must not silently disable parsing). argv: root, pdf path.
+PACKAGE_ROOT = str(Path(__file__).resolve().parents[1])
+WORKER_BOOTSTRAP = (
+    'import runpy, sys; root = sys.argv.pop(1); sys.path.insert(0, root); '
+    "runpy.run_module('paper_author_searcher.pdf_file_validation', run_name='__main__')"
+)
+
+
 class PDFFileValidator:
     def __init__(self, config=DEFAULT_DOWNLOAD):
         self.config = config
@@ -284,7 +294,7 @@ class PDFFileValidator:
         request = json.dumps({'paper': target, 'config': asdict(self.config)})
         try:
             completed = subprocess.run(
-                [sys.executable, '-m', 'paper_author_searcher.pdf_file_validation', str(path)],
+                [sys.executable, '-c', WORKER_BOOTSTRAP, PACKAGE_ROOT, str(path)],
                 input=request,
                 text=True,
                 stdout=subprocess.PIPE,
