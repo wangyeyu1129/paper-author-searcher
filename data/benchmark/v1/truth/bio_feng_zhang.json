@@ -1,0 +1,1700 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "assistant_reviewed",
+    "reviewer": "Claude (AI review requested by the user, 2026-10-19)",
+    "reviewed_at": "2026-10-19",
+    "person_id": "bio_feng_zhang",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Feng Zhang",
+      "university": "Massachusetts Institute of Technology"
+    },
+    "scope": {
+      "year_start": 2024,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.426369+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "lab_publications.json",
+        "url": "https://www.zlab.bio/publications",
+        "records": 12
+      }
+    ],
+    "excluded_counts": {},
+    "review_progress": {
+      "decided": 32,
+      "pending": 0
+    }
+  },
+  "papers": [
+    {
+      "evaluation_id": "bio_feng_zhang:fb20a682803e",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Human paraneoplastic antigen Ma2 (PNMA2) forms icosahedral capsids that can be engineered for mRNA delivery",
+      "year": 2024,
+      "authors": [
+        "Victoria Madigan",
+        "Yugang Zhang",
+        "Rumya Raghavan",
+        "Max Wilkinson",
+        "Guilhem Faure",
+        "Elena Puccio",
+        "Michael Segel",
+        "Blake Lash",
+        "Rhiannon Macrae",
+        "Feng Zhang"
+      ],
+      "listed_venue": "PNAS",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.zlab.bio/publications entry 12 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1073/pnas.2307812120"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Human paraneoplastic antigen Ma2 (PNMA2) forms icosahedral capsids that can be engineered for mRNA delivery",
+          "year": 2023,
+          "authors": [
+            "Victoria Madigan",
+            "Yugang Zhang",
+            "Rumya Raghavan",
+            "Max Wilkinson",
+            "Guilhem Faure",
+            "Elena Puccio",
+            "Michael Segel",
+            "Blake Lash",
+            "Rhiannon Macrae",
+            "Feng Zhang"
+          ]
+        },
+        {
+          "title": "Human paraneoplastic antigen Ma2 (PNMA2) forms icosahedral capsids that can be engineered for mRNA delivery",
+          "year": 2025,
+          "authors": [
+            "Victoria Madigan",
+            "Yugang Zhang",
+            "Rumya Raghavan",
+            "Max Wilkinson",
+            "Guilhem Faure",
+            "Elena Puccio",
+            "Michael Segel",
+            "Blake Lash",
+            "Rhiannon Macrae",
+            "Feng Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1073/pnas.2307812120",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Human paraneoplastic antigen Ma2 (PNMA2) forms icosahedral capsids that can be engineered for mRNA delivery",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_feng_zhang:380cb71bd639",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Internal initiation of reverse transcription in a Penelope-like retrotransposon",
+      "year": 2024,
+      "authors": [
+        "Chris Frangieh",
+        "Max Wilkinson",
+        "Daniel Strebinger",
+        "Jonathan Strecker",
+        "Michelle Walsh",
+        "Guilhem Faure",
+        "Irina Yushenova",
+        "Rhiannon Macrae",
+        "Irina Arkhipova",
+        "Feng Zhang"
+      ],
+      "listed_venue": "Mobile DNA",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.zlab.bio/publications entry 11 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1186/s13100-024-00322-z"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Internal initiation of reverse transcription in a Penelope-like retrotransposon",
+          "year": 2023,
+          "authors": [
+            "Chris Frangieh",
+            "Max Wilkinson",
+            "Daniel Strebinger",
+            "Jonathan Strecker",
+            "Michelle Walsh",
+            "Guilhem Faure",
+            "Irina Yushenova",
+            "Rhiannon Macrae",
+            "Irina Arkhipova",
+            "Feng Zhang"
+          ]
+        },
+        {
+          "title": "Internal initiation of reverse transcription in a Penelope-like retrotransposon",
+          "year": 2025,
+          "authors": [
+            "Chris Frangieh",
+            "Max Wilkinson",
+            "Daniel Strebinger",
+            "Jonathan Strecker",
+            "Michelle Walsh",
+            "Guilhem Faure",
+            "Irina Yushenova",
+            "Rhiannon Macrae",
+            "Irina Arkhipova",
+            "Feng Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_feng_zhang:3770a61568d0",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Phage-triggered reverse transcription assembles a toxic repetitive gene from a noncoding RNA",
+      "year": 2024,
+      "authors": [
+        "Max Wilkinson",
+        "David Li",
+        "Alex Gao",
+        "Rhiannon Macrae",
+        "Feng Zhang"
+      ],
+      "listed_venue": "Science",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.zlab.bio/publications entry 8 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1126/science.adq3977"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Phage-triggered reverse transcription assembles a toxic repetitive gene from a noncoding RNA",
+          "year": 2023,
+          "authors": [
+            "Max Wilkinson",
+            "David Li",
+            "Alex Gao",
+            "Rhiannon Macrae",
+            "Feng Zhang"
+          ]
+        },
+        {
+          "title": "Phage-triggered reverse transcription assembles a toxic repetitive gene from a noncoding RNA",
+          "year": 2025,
+          "authors": [
+            "Max Wilkinson",
+            "David Li",
+            "Alex Gao",
+            "Rhiannon Macrae",
+            "Feng Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_feng_zhang:c3eb2d7982f3",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Structural determinants of DNA cleavage by a CRISPR HNH-Cascade system",
+      "year": 2024,
+      "authors": [
+        "Seichii Hirano",
+        "Han Altae-Tran",
+        "Soumya Kannan",
+        "Rhiannon Macrae",
+        "Feng Zhang"
+      ],
+      "listed_venue": "Molecular Cell",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.zlab.bio/publications entry 10 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.molcel.2024.07.026"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Structural determinants of DNA cleavage by a CRISPR HNH-Cascade system",
+          "year": 2023,
+          "authors": [
+            "Seichii Hirano",
+            "Han Altae-Tran",
+            "Soumya Kannan",
+            "Rhiannon Macrae",
+            "Feng Zhang"
+          ]
+        },
+        {
+          "title": "Structural determinants of DNA cleavage by a CRISPR HNH-Cascade system",
+          "year": 2025,
+          "authors": [
+            "Seichii Hirano",
+            "Han Altae-Tran",
+            "Soumya Kannan",
+            "Rhiannon Macrae",
+            "Feng Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_feng_zhang:b6165fc40f28",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Structural insights into the diversity and DNA cleavage mechanism of Fanzor",
+      "year": 2024,
+      "authors": [
+        "Peiyu Xu",
+        "Makoto Saito",
+        "Guilhem Faure",
+        "Samantha Maguire",
+        "Samuel Vo",
+        "Max Wilkinson",
+        "Huihui Kuang",
+        "Bing Wang",
+        "William Rice",
+        "Rhiannon Macrae",
+        "Feng Zhang"
+      ],
+      "listed_venue": "Cell",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.zlab.bio/publications entry 9 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.cell.2024.07.050"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Structural insights into the diversity and DNA cleavage mechanism of Fanzor",
+          "year": 2023,
+          "authors": [
+            "Peiyu Xu",
+            "Makoto Saito",
+            "Guilhem Faure",
+            "Samantha Maguire",
+            "Samuel Vo",
+            "Max Wilkinson",
+            "Huihui Kuang",
+            "Bing Wang",
+            "William Rice",
+            "Rhiannon Macrae",
+            "Feng Zhang"
+          ]
+        },
+        {
+          "title": "Structural insights into the diversity and DNA cleavage mechanism of Fanzor",
+          "year": 2025,
+          "authors": [
+            "Peiyu Xu",
+            "Makoto Saito",
+            "Guilhem Faure",
+            "Samantha Maguire",
+            "Samuel Vo",
+            "Max Wilkinson",
+            "Huihui Kuang",
+            "Bing Wang",
+            "William Rice",
+            "Rhiannon Macrae",
+            "Feng Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_feng_zhang:bab5c54e0559",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Evolution-guided protein design of IscB for persistent epigenome editing in vivo",
+      "year": 2025,
+      "authors": [
+        "Soumya Kannan",
+        "Han Altae-Tran",
+        "Shiyou Zhu",
+        "Peiyu Xu",
+        "Daniel Strebinger",
+        "Rachel Oshiro",
+        "Guilhem Faure",
+        "Lukas Moeller",
+        "Julie Pham",
+        "Kepler Mears",
+        "Heyuan Ni",
+        "Rhiannon Macrae",
+        "Feng Zhang"
+      ],
+      "listed_venue": "Nature Biotechnology",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.zlab.bio/publications entry 4 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41587-025-02655-3"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Evolution-guided protein design of IscB for persistent epigenome editing in vivo",
+          "year": 2024,
+          "authors": [
+            "Soumya Kannan",
+            "Han Altae-Tran",
+            "Shiyou Zhu",
+            "Peiyu Xu",
+            "Daniel Strebinger",
+            "Rachel Oshiro",
+            "Guilhem Faure",
+            "Lukas Moeller",
+            "Julie Pham",
+            "Kepler Mears",
+            "Heyuan Ni",
+            "Rhiannon Macrae",
+            "Feng Zhang"
+          ]
+        },
+        {
+          "title": "Evolution-guided protein design of IscB for persistent epigenome editing in vivo",
+          "year": 2026,
+          "authors": [
+            "Soumya Kannan",
+            "Han Altae-Tran",
+            "Shiyou Zhu",
+            "Peiyu Xu",
+            "Daniel Strebinger",
+            "Rachel Oshiro",
+            "Guilhem Faure",
+            "Lukas Moeller",
+            "Julie Pham",
+            "Kepler Mears",
+            "Heyuan Ni",
+            "Rhiannon Macrae",
+            "Feng Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_feng_zhang:ec1e4d44f72c",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Rational engineering of minimally immunogenic nucleases for gene therapy",
+      "year": 2025,
+      "authors": [
+        "Rumya Raghavan",
+        "Mirco Friedrich",
+        "Indigo King",
+        "Samuel Chau-Duy-Tam Vo",
+        "Daniel Strebinger",
+        "Blake Lash",
+        "Michael Kilian",
+        "Michael Platten",
+        "Rhiannon Macrae",
+        "Yifan Song",
+        "Lucas Nivon",
+        "Feng Zhang"
+      ],
+      "listed_venue": "Nature Communications",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.zlab.bio/publications entry 7 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41467-024-55522-1"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Rational engineering of minimally immunogenic nucleases for gene therapy",
+          "year": 2024,
+          "authors": [
+            "Rumya Raghavan",
+            "Mirco Friedrich",
+            "Indigo King",
+            "Samuel Chau-Duy-Tam Vo",
+            "Daniel Strebinger",
+            "Blake Lash",
+            "Michael Kilian",
+            "Michael Platten",
+            "Rhiannon Macrae",
+            "Yifan Song",
+            "Lucas Nivon",
+            "Feng Zhang"
+          ]
+        },
+        {
+          "title": "Rational engineering of minimally immunogenic nucleases for gene therapy",
+          "year": 2026,
+          "authors": [
+            "Rumya Raghavan",
+            "Mirco Friedrich",
+            "Indigo King",
+            "Samuel Chau-Duy-Tam Vo",
+            "Daniel Strebinger",
+            "Blake Lash",
+            "Michael Kilian",
+            "Michael Platten",
+            "Rhiannon Macrae",
+            "Yifan Song",
+            "Lucas Nivon",
+            "Feng Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_feng_zhang:bf1236e94dad",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Reprogrammable RNA-targeting CRISPR systems evolved from RNA toxin-antitoxins",
+      "year": 2025,
+      "authors": [
+        "Shai Zilberzwige-Tal",
+        "Han Altae-Tran",
+        "Soumya Kannan",
+        "Max Wilkinson",
+        "Samuel Chau-Duy-Tam Vo",
+        "Daniel Strebinger",
+        "KeHuan Edmonds",
+        "Chun-Chen Jerry Yao",
+        "Kepler Mears",
+        "Sergey Shmakov",
+        "Kira Makarova",
+        "Rhiannon Macrae",
+        "Eugene Koonin",
+        "Feng Zhang"
+      ],
+      "listed_venue": "Cell",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.zlab.bio/publications entry 6 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.cell.2025.01.034"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Reprogrammable RNA-targeting CRISPR systems evolved from RNA toxin-antitoxins",
+          "year": 2024,
+          "authors": [
+            "Shai Zilberzwige-Tal",
+            "Han Altae-Tran",
+            "Soumya Kannan",
+            "Max Wilkinson",
+            "Samuel Chau-Duy-Tam Vo",
+            "Daniel Strebinger",
+            "KeHuan Edmonds",
+            "Chun-Chen Jerry Yao",
+            "Kepler Mears",
+            "Sergey Shmakov",
+            "Kira Makarova",
+            "Rhiannon Macrae",
+            "Eugene Koonin",
+            "Feng Zhang"
+          ]
+        },
+        {
+          "title": "Reprogrammable RNA-targeting CRISPR systems evolved from RNA toxin-antitoxins",
+          "year": 2026,
+          "authors": [
+            "Shai Zilberzwige-Tal",
+            "Han Altae-Tran",
+            "Soumya Kannan",
+            "Max Wilkinson",
+            "Samuel Chau-Duy-Tam Vo",
+            "Daniel Strebinger",
+            "KeHuan Edmonds",
+            "Chun-Chen Jerry Yao",
+            "Kepler Mears",
+            "Sergey Shmakov",
+            "Kira Makarova",
+            "Rhiannon Macrae",
+            "Eugene Koonin",
+            "Feng Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_feng_zhang:36160eabdc91",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Structure and biochemistry-guided engineering of an all-RNA system for DNA insertion with R2 retrotransposons",
+      "year": 2025,
+      "authors": [
+        "KeHuan Edmonds",
+        "Max Wilkinson",
+        "Daniel Strebinger",
+        "Hongyu Chen",
+        "Blake Lash",
+        "Clarissa Schaefer",
+        "Shiyou Zhu",
+        "Dangliang Liu",
+        "Shai Zilberzwige-Tal",
+        "Alim Ladha",
+        "Michelle Walsh",
+        "Chris Frangieh",
+        "Nicholas Vaz Reay",
+        "Rhiannon Macrae",
+        "Xiao Wang",
+        "Feng Zhang"
+      ],
+      "listed_venue": "Nature Communications",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.zlab.bio/publications entry 3 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41467-025-61321-z"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Structure and biochemistry-guided engineering of an all-RNA system for DNA insertion with R2 retrotransposons",
+          "year": 2024,
+          "authors": [
+            "KeHuan Edmonds",
+            "Max Wilkinson",
+            "Daniel Strebinger",
+            "Hongyu Chen",
+            "Blake Lash",
+            "Clarissa Schaefer",
+            "Shiyou Zhu",
+            "Dangliang Liu",
+            "Shai Zilberzwige-Tal",
+            "Alim Ladha",
+            "Michelle Walsh",
+            "Chris Frangieh",
+            "Nicholas Vaz Reay",
+            "Rhiannon Macrae",
+            "Xiao Wang",
+            "Feng Zhang"
+          ]
+        },
+        {
+          "title": "Structure and biochemistry-guided engineering of an all-RNA system for DNA insertion with R2 retrotransposons",
+          "year": 2026,
+          "authors": [
+            "KeHuan Edmonds",
+            "Max Wilkinson",
+            "Daniel Strebinger",
+            "Hongyu Chen",
+            "Blake Lash",
+            "Clarissa Schaefer",
+            "Shiyou Zhu",
+            "Dangliang Liu",
+            "Shai Zilberzwige-Tal",
+            "Alim Ladha",
+            "Michelle Walsh",
+            "Chris Frangieh",
+            "Nicholas Vaz Reay",
+            "Rhiannon Macrae",
+            "Xiao Wang",
+            "Feng Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_feng_zhang:de772a1e85f4",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Targeted delivery of diverse biomolecules with engineered bacterial nanosyringes",
+      "year": 2025,
+      "authors": [
+        "Joseph Kreitz",
+        "Victoria Yang",
+        "Mirco Friedrich",
+        "Julie Pham",
+        "Rhiannon Macrae",
+        "Feng Zhang"
+      ],
+      "listed_venue": "Nature Biotechnology",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.zlab.bio/publications entry 2 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41587-025-02774-x"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Targeted delivery of diverse biomolecules with engineered bacterial nanosyringes",
+          "year": 2024,
+          "authors": [
+            "Joseph Kreitz",
+            "Victoria Yang",
+            "Mirco Friedrich",
+            "Julie Pham",
+            "Rhiannon Macrae",
+            "Feng Zhang"
+          ]
+        },
+        {
+          "title": "Targeted delivery of diverse biomolecules with engineered bacterial nanosyringes",
+          "year": 2026,
+          "authors": [
+            "Joseph Kreitz",
+            "Victoria Yang",
+            "Mirco Friedrich",
+            "Julie Pham",
+            "Rhiannon Macrae",
+            "Feng Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_feng_zhang:cad705218421",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "TIGR-Tas: A family of modular RNA-guided DNA-targeting systems in prokaryotes and their viruses",
+      "year": 2025,
+      "authors": [
+        "Guilhem Faure",
+        "Makoto Saito",
+        "Max Wilkinson",
+        "Natalia Quinones-Olvera",
+        "Peiyu Xu",
+        "Daniel Flam-Shepherd",
+        "Stephanie Kim",
+        "Nishith Reddy",
+        "Shiyou Zhu",
+        "Lilia Evegniou",
+        "Eugene Koonin",
+        "Rhiannon Macrae",
+        "Feng Zhang"
+      ],
+      "listed_venue": "Science",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.zlab.bio/publications entry 5 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1126/science.adv9789"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "TIGR-Tas: A family of modular RNA-guided DNA-targeting systems in prokaryotes and their viruses",
+          "year": 2024,
+          "authors": [
+            "Guilhem Faure",
+            "Makoto Saito",
+            "Max Wilkinson",
+            "Natalia Quinones-Olvera",
+            "Peiyu Xu",
+            "Daniel Flam-Shepherd",
+            "Stephanie Kim",
+            "Nishith Reddy",
+            "Shiyou Zhu",
+            "Lilia Evegniou",
+            "Eugene Koonin",
+            "Rhiannon Macrae",
+            "Feng Zhang"
+          ]
+        },
+        {
+          "title": "TIGR-Tas: A family of modular RNA-guided DNA-targeting systems in prokaryotes and their viruses",
+          "year": 2026,
+          "authors": [
+            "Guilhem Faure",
+            "Makoto Saito",
+            "Max Wilkinson",
+            "Natalia Quinones-Olvera",
+            "Peiyu Xu",
+            "Daniel Flam-Shepherd",
+            "Stephanie Kim",
+            "Nishith Reddy",
+            "Shiyou Zhu",
+            "Lilia Evegniou",
+            "Eugene Koonin",
+            "Rhiannon Macrae",
+            "Feng Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_feng_zhang:7b6c7ece9a7c",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Transient hepatic reconstitution of trophic factors enhances aged immunity",
+      "year": 2025,
+      "authors": [
+        "Mirco Friedrich",
+        "Julie Pham",
+        "Jiakun Tian",
+        "Hongyu Chen",
+        "Jiahao Huang",
+        "Niklas Kehl",
+        "Sophia Liu",
+        "Blake Lash",
+        "Fei Chen",
+        "Xiao Wang",
+        "Rhiannon Macrae",
+        "Feng Zhang"
+      ],
+      "listed_venue": "Nature",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.zlab.bio/publications entry 1 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41586-025-09873-4"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Transient hepatic reconstitution of trophic factors enhances aged immunity",
+          "year": 2024,
+          "authors": [
+            "Mirco Friedrich",
+            "Julie Pham",
+            "Jiakun Tian",
+            "Hongyu Chen",
+            "Jiahao Huang",
+            "Niklas Kehl",
+            "Sophia Liu",
+            "Blake Lash",
+            "Fei Chen",
+            "Xiao Wang",
+            "Rhiannon Macrae",
+            "Feng Zhang"
+          ]
+        },
+        {
+          "title": "Transient hepatic reconstitution of trophic factors enhances aged immunity",
+          "year": 2026,
+          "authors": [
+            "Mirco Friedrich",
+            "Julie Pham",
+            "Jiakun Tian",
+            "Hongyu Chen",
+            "Jiahao Huang",
+            "Niklas Kehl",
+            "Sophia Liu",
+            "Blake Lash",
+            "Fei Chen",
+            "Xiao Wang",
+            "Rhiannon Macrae",
+            "Feng Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "An updated evolutionary classification of CRISPR–Cas systems including rare variants",
+      "year": 2025,
+      "authors": [
+        "Kira S. Makarova",
+        "Sergey A. Shmakov",
+        "Yuri I. Wolf",
+        "Pascal Mutz",
+        "Han Altae-Tran",
+        "Chase L. Beisel",
+        "Stan J. J. Brouns",
+        "Emmanuelle Charpentier",
+        "David Cheng",
+        "Jennifer Doudna",
+        "Daniel H. Haft",
+        "Philippe Horvath",
+        "Sylvain Moineau",
+        "Francisco J. M. Mojica",
+        "Patrick Pausch",
+        "Rafael Pinilla-Redondo",
+        "Shiraz A. Shah",
+        "Virginijus Siksnys",
+        "Michael P. Terns",
+        "Jesse Tordoff",
+        "Česlovas Venclovas",
+        "Malcolm F. White",
+        "Alexander F. Yakunin",
+        "Feng Zhang",
+        "Roger A. Garrett",
+        "Rolf Backofen",
+        "John van der Oost",
+        "Rodolphe Barrangou",
+        "Eugene V. Koonin"
+      ],
+      "listed_venue": "Nature Microbiology",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 4 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1038/s41564-025-02180-8"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-12ecb7ba44",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "4 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Clusterin drives myeloid bias in aged hematopoietic stem cells by regulating mitochondrial function",
+      "year": 2025,
+      "authors": [
+        "Ninghe Sun",
+        "Chun-Hsin Lin",
+        "Michelle Y. Li",
+        "Yuting Wang",
+        "Danyang Chen",
+        "Xiangle Ren",
+        "Feng Zhang",
+        "Yi Zhang"
+      ],
+      "listed_venue": "Nature Aging",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1038/s43587-025-00908-z"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-d2129b2088",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Hepatic adaptation to chronic metabolic stress primes tumorigenesis",
+      "year": 2025,
+      "authors": [
+        "Constantine N. Tzouanas",
+        "Jessica E.S. Shay",
+        "Marc S. Sherman",
+        "Adam J. Rubin",
+        "Benjamin E. Mead",
+        "Tyler T. Dao",
+        "Junyan Tao",
+        "Brandon M. Lehrich",
+        "George Eng",
+        "Jeffrey Patterson-Fortin",
+        "Titus Butzlaff",
+        "Miyeko D. Mana",
+        "Kellie E. Kolb",
+        "Chad Walesky",
+        "Brian J. Pepe-Mooney",
+        "Colton J. Smith",
+        "Sanjay M. Prakadan",
+        "Michelle L. Ramseier",
+        "Yuzhou Evelyn Tong",
+        "Julia Joung",
+        "Fangtao Chi",
+        "Thomas McMahon-Skates",
+        "Carolyn L. Winston",
+        "Woo-Jeong Jeong",
+        "Katherine J. Aney",
+        "Ethan Chen",
+        "Sahar Nissim",
+        "Feng Zhang",
+        "Vikram Deshpande",
+        "Satdarshan P. Monga",
+        "Georg M. Lauer",
+        "Wolfram Goessling",
+        "Ömer H. Yilmaz",
+        "Alex K. Shalek"
+      ],
+      "listed_venue": "Cell",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.cell.2025.11.031"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-fd3b051a3b",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Characterizing protein sequence determinants of nuclear condensates by high-throughput pooled imaging with CondenSeq",
+      "year": 2025,
+      "authors": [
+        "Kalli Kappel",
+        "Daniel Strebinger",
+        "KeHuan K. Edmonds",
+        "Samuel Chau-Duy-Tam VO",
+        "Christopher M. Vockley",
+        "Tridib Biswas",
+        "Samouil L. Farhi",
+        "Rhiannon Macrae",
+        "Feng Zhang",
+        "Aviv Regev"
+      ],
+      "listed_venue": "Nature Methods",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 4 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1038/s41592-025-02726-y"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-d09bdfaed9",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "4 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Structural insights into RNA-guided RNA editing by the Cas13b–ADAR2 complex",
+      "year": 2025,
+      "authors": [
+        "Junichiro Ishikawa",
+        "Kazuki Kato",
+        "Soumya Kannan",
+        "Sae Okazaki",
+        "Soh Ishiguro",
+        "Keitaro Yamashita",
+        "Nozomu Yachie",
+        "Tomohiro Nishizawa",
+        "Feng Zhang",
+        "Hiroshi Nishimasu"
+      ],
+      "listed_venue": "Nature Structural & Molecular Biology",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1038/s41594-025-01529-1"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-191ec07459",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Tissue architecture dynamics underlying immune development and decline in the thymus",
+      "year": 2025,
+      "authors": [
+        "Sophia Liu",
+        "Mirco J. Friedrich",
+        "Ruth Raichur",
+        "Dennis Gong",
+        "Niklas Kehl",
+        "Qiyu Gong",
+        "Bingxian Chen",
+        "Karin Gustafsson",
+        "Larissa L. Ma",
+        "David T. Scadden",
+        "Rhiannon K. Macrae",
+        "Feng Zhang",
+        "Fei Chen"
+      ],
+      "listed_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 5 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1101/2025.06.28.662120"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-9b194af5fc",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "5 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Tissue architecture dynamics underlying immune development and decline in the thymus",
+      "year": 2025,
+      "authors": [
+        "Liu, Sophia",
+        "Friedrich, Mirco",
+        "Raichur, Ruth",
+        "Gong, Dennis",
+        "Kehl, Niklas",
+        "Gong, Qiyu",
+        "Chen, Bingxian",
+        "Gustafsson, Karin",
+        "Ma, Larissa",
+        "Scadden, David",
+        "Macrae, Rhiannon",
+        "Zhang, Feng",
+        "Chen, Fei"
+      ],
+      "listed_venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Dataset/software record, excluded type"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.5281/zenodo.17525728"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-513e6f03e1",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Dataset/software record, excluded type"
+    },
+    {
+      "title": "BPS2025 - Characterizing protein sequence determinants of nuclear condensates by high-throughput pooled imaging with CondenSeq",
+      "year": 2025,
+      "authors": [
+        "Kalli Kappel",
+        "Daniel Strebinger",
+        "KeHuan Kuo Edmonds",
+        "Samuel Chau-Duy-Tam VO",
+        "Christopher M. Vockley",
+        "Tridib Biswas",
+        "Samouil L. Farhi",
+        "Rhiannon Macrae",
+        "Feng Zhang",
+        "Aviv Regev"
+      ],
+      "listed_venue": "Biophysical Journal",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Meeting abstract or correction notice, not a publication"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.bpj.2024.11.2223"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-c2ccb84c82",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Meeting abstract or correction notice, not a publication"
+    },
+    {
+      "title": "BPS2025 - Characterizing protein sequence determinants of nuclear condensates by high-throughput pooled imaging with CondenSeq",
+      "year": 2025,
+      "authors": [
+        "Kalli Kappel",
+        "Daniel Strebinger",
+        "KeHuan Kuo Edmonds",
+        "Samuel Chau-Duy-Tam VO",
+        "Christopher M. Vockley",
+        "Tridib Biswas",
+        "Samouil L. Farhi",
+        "Rhiannon Macrae",
+        "Feng Zhang",
+        "Aviv Regev"
+      ],
+      "listed_venue": "Biophysical Journal",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Meeting abstract or correction notice, not a publication"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.bpj.2024.11.218"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-d7c00869ff",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Meeting abstract or correction notice, not a publication"
+    },
+    {
+      "title": "Gene Editing for ATXN3 Inactivation in Machado-Joseph disease: CRISPR-Cas9 as a Therapeutic Alternative to TALEN-Induced Toxicity",
+      "year": 2025,
+      "authors": [
+        "Sara Monteiro Lopes",
+        "Miguel Monteiro Lopes",
+        "Daniela Oliveira",
+        "Magda Matos Santana",
+        "Ana Rita Fernandes",
+        "Ana Vasconcelos-Ferreira",
+        "Dina Pereira",
+        "Maria Casquinha",
+        "Clévio Nóbrega",
+        "Carlos A. Matos",
+        "Neville E. Sanjana",
+        "Patrick D. Hsu",
+        "Fei Ann Ran",
+        "Lukasz Swiech",
+        "Le Cong",
+        "Feng Zhang",
+        "Rui Jorge Nobre",
+        "Luís Pereira de Almeida"
+      ],
+      "listed_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1101/2025.02.14.637261"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-7c3c42eafa",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "A Round Table at IUPAB Congress in Kyoto 2024: Dreaming the Next 50 Years in Our Biophysics II",
+      "year": 2025,
+      "authors": [
+        "Kumiko HAYASHI",
+        "Gerhard HUMMER",
+        "Jerelle A. JOSEPH",
+        "Rong LI",
+        "Takeharu NAGAI",
+        "Shuichi ONAMI",
+        "Feng ZHANG",
+        "Akira KITAMURA",
+        "Yuichi TOGASHI",
+        "Akira KAKUGO",
+        "Ikuko FUJIWARA",
+        "Tamiki KOMATSUZAKI"
+      ],
+      "listed_venue": "Seibutsu Butsuri",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: McGovern Institute for Brain Research, Massachusetts Institute of Technology"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.2142/biophys.65.101"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-a7ffcc7828",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: McGovern Institute for Brain Research, Massachusetts Institute of Technology"
+    },
+    {
+      "title": "Effects of an app-based brief gratitude practice on positive and negative daily affect during the COVID-19 pandemic",
+      "year": 2025,
+      "authors": [
+        "Shengjie Lin",
+        "Shuting Shen",
+        "Zorana Ivcevic",
+        "David R. Cheng",
+        "Ryan Probasco",
+        "Ben Silbermann",
+        "Feng Zhang",
+        "Xihong Lin",
+        "Marc Brackett"
+      ],
+      "listed_venue": "Acta Psychologica",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Different field and unit, no shared coauthors: a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.actpsy.2025.105579"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-77ffd69c47",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Different field and unit, no shared coauthors: a namesake"
+    },
+    {
+      "title": "The Specification and Functional Maturation of Sub-Cerebral Projection Neurons Derived from Human Induced Pluripotent Stem Cells",
+      "year": 2025,
+      "authors": [
+        "Zachary Jordan",
+        "Anukriti Singh",
+        "Seth Kattapong-Graber",
+        "Sonal Goswami",
+        "Neville E. Sanjana",
+        "Emanuela Zuccaro",
+        "Feng Zhang",
+        "Kevin Eggan",
+        "Jenny Hsieh",
+        "Brian P. Hermann",
+        "Jean M. Hebert",
+        "Asif Mirza Maroof"
+      ],
+      "listed_venue": "Stem Cells and Development",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Broad Institute of MIT and Harvard, Cambridge, Massachusetts, USA."
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1177/15473287251399623"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-0905b398ad",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Broad Institute of MIT and Harvard, Cambridge, Massachusetts, USA."
+    },
+    {
+      "title": "Transient hepatic reconstitution of thymic factors using mRNA rejuvenates T cell immunity, and improves vaccination and cancer immunotherapy responses in aged hosts",
+      "year": 2025,
+      "authors": [
+        "Mirco Friedrich",
+        "Julie Pham",
+        "Jiakun Tian",
+        "Hongyu Chen",
+        "Jiahao Huang",
+        "Niklas Kehl",
+        "Sophia Liu",
+        "Blake Lash",
+        "Fei Chen",
+        "Xiao Wang",
+        "Rhiannon Macrae",
+        "Feng Zhang"
+      ],
+      "listed_venue": "Blood",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 11 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1182/blood-2025-380"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-682f6a0fcf",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "11 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Chemical and topological design of multicapped mRNA and capped circular RNA to augment translation",
+      "year": 2024,
+      "authors": [
+        "Hongyu Chen",
+        "Dangliang Liu",
+        "Abhishek Aditham",
+        "Jianting Guo",
+        "Jiahao Huang",
+        "Franklin Kostas",
+        "Kamal Maher",
+        "Mirco J. Friedrich",
+        "Ramnik J. Xavier",
+        "Feng Zhang",
+        "Xiao Wang"
+      ],
+      "listed_venue": "Nature Biotechnology",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 5 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1038/s41587-024-02393-y"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-7876f663d1",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "5 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Structural basis for pegRNA-guided reverse transcription by a prime editor",
+      "year": 2024,
+      "authors": [
+        "Yutaro Shuto",
+        "Ryoya Nakagawa",
+        "Shiyou Zhu",
+        "Mizuki Hoki",
+        "Satoshi N. Omura",
+        "Hisato Hirano",
+        "Yuzuru Itoh",
+        "Feng Zhang",
+        "Osamu Nureki"
+      ],
+      "listed_venue": "Nature",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1038/s41586-024-07497-8"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-35949c5eed",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "A transcription factor atlas of directed differentiation",
+      "year": 2024,
+      "authors": [
+        "Julia Joung",
+        "Sai Ma",
+        "Tristan Tay",
+        "Kathryn R. Geiger-Schuller",
+        "Paul C. Kirchgatterer",
+        "Vanessa K. Verdine",
+        "Baolin Guo",
+        "Mario A. Arias-Garcia",
+        "William E. Allen",
+        "Ankita Singh",
+        "Olena Kuksenko",
+        "Omar O. Abudayyeh",
+        "Jonathan S. Gootenberg",
+        "Zhanyan Fu",
+        "Rhiannon K. Macrae",
+        "Jason D. Buenrostro",
+        "Aviv Regev",
+        "Feng Zhang"
+      ],
+      "listed_venue": "Cell",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.cell.2024.04.038"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-b1672b8fd1",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "CRISPR-based rapid molecular diagnostic tests for fusion-driven leukemias",
+      "year": 2024,
+      "authors": [
+        "Rahul S. Vedula",
+        "Hannah Q. Karp",
+        "Jeremy Koob",
+        "Felicia Lim",
+        "Jacqueline S. Garcia",
+        "Eric S. Winer",
+        "Marlise R. Luskin",
+        "Gabriel Ghiaur",
+        "Annette S. Kim",
+        "Lan W. Beppu",
+        "Olga Sala-Torra",
+        "Jerald Radich",
+        "Jonathan Gootenberg",
+        "Omar Abudayyeh",
+        "Feng Zhang",
+        "R. Coleman Lindsley"
+      ],
+      "listed_venue": "Blood",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1182/blood.2023022908"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-c81c3a009f",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Daily positive and negative affect during the COVID-19 pandemic",
+      "year": 2024,
+      "authors": [
+        "Zorana Ivcevic",
+        "Shuting Shen",
+        "Shengjie Lin",
+        "David Cheng",
+        "Ryan Probasco",
+        "Ben Silbermann",
+        "Feng Zhang",
+        "Xihong Lin",
+        "Marc Brackett"
+      ],
+      "listed_venue": "Frontiers in Psychology",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Different field and unit, no shared coauthors: a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.3389/fpsyg.2023.1239123"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-b2bccffc9e",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Different field and unit, no shared coauthors: a namesake"
+    },
+    {
+      "title": "A round table at IUPAB Congress in Kyoto 2024: Dreaming the next 50 years in our biophysics",
+      "year": 2024,
+      "authors": [
+        "Kumiko Hayashi",
+        "Gerhard Hummer",
+        "Jerelle A. Joseph",
+        "Rong Li",
+        "Takeharu Nagai",
+        "Shuichi Onami",
+        "Feng Zhang",
+        "Akira Kitamura",
+        "Yuichi Togashi",
+        "Akira Kakugo",
+        "Ikuko Fujiwara",
+        "Tamiki Komatsuzaki"
+      ],
+      "listed_venue": "Biophysics and Physicobiology",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 22"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.2142/biophysico.bppb-v21.e2012"
+      ],
+      "evaluation_id": "bio_feng_zhang:added-ec06608bad",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 22"
+    }
+  ],
+  "excluded": []
+}

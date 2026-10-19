@@ -1,0 +1,4829 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "assistant_reviewed",
+    "reviewer": "Claude (AI review requested by the user, 2026-10-19)",
+    "reviewed_at": "2026-10-19",
+    "person_id": "cs_christopher_manning",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Christopher Manning",
+      "university": "Stanford University"
+    },
+    "scope": {
+      "year_start": 2024,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.317148+00:00",
+    "sources": [
+      {
+        "kind": "orcid",
+        "locator": "0000-0001-6155-649X",
+        "url": "https://orcid.org/0000-0001-6155-649X",
+        "records": 363
+      }
+    ],
+    "excluded_counts": {
+      "outside_year_window": 268
+    },
+    "review_progress": {
+      "decided": 36,
+      "pending": 0
+    }
+  },
+  "papers": [
+    {
+      "evaluation_id": "cs_christopher_manning:0a54b474e2d0",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Handwritten Code Recognition for Pen-and-Paper CS Education",
+      "year": 2024,
+      "authors": [
+        "Md Sazzad Islam",
+        "Moussa Koulako Bala Doumbouya",
+        "Christopher D. Manning",
+        "Chris Piech"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-6155-649X put-code 163671454"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3657604.3662027"
+      ],
+      "external_ids": {
+        "arxiv": "2408.07220"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Handwritten Code Recognition for Pen-and-Paper CS Education",
+          "year": 2023,
+          "authors": [
+            "Md Sazzad Islam",
+            "Moussa Koulako Bala Doumbouya",
+            "Christopher D. Manning",
+            "Chris Piech"
+          ]
+        },
+        {
+          "title": "Handwritten Code Recognition for Pen-and-Paper CS Education",
+          "year": 2025,
+          "authors": [
+            "Md Sazzad Islam",
+            "Moussa Koulako Bala Doumbouya",
+            "Christopher D. Manning",
+            "Chris Piech"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2408.07220",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Handwritten Code Recognition for Pen-and-Paper CS Education",
+          "arxiv_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_christopher_manning:795e1e2c4a46",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Predicting Narratives of Climate Obstruction in Social Media Advertising",
+      "year": 2024,
+      "authors": [
+        "Rowlands, Harri",
+        "Morio, Gaku",
+        "Tanner, Dylan",
+        "Manning, Christopher D.",
+        "Martins, A.",
+        "Srikumar",
+        "Ku, L. W."
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-6155-649X put-code 179431862"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2024.findings-acl.330"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Predicting Narratives of Climate Obstruction in Social Media Advertising",
+          "year": 2023,
+          "authors": [
+            "Rowlands, Harri",
+            "Morio, Gaku",
+            "Tanner, Dylan",
+            "Manning, Christopher D.",
+            "Martins, A.",
+            "Srikumar",
+            "Ku, L. W."
+          ]
+        },
+        {
+          "title": "Predicting Narratives of Climate Obstruction in Social Media Advertising",
+          "year": 2025,
+          "authors": [
+            "Rowlands, Harri",
+            "Morio, Gaku",
+            "Tanner, Dylan",
+            "Manning, Christopher D.",
+            "Martins, A.",
+            "Srikumar",
+            "Ku, L. W."
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.18653/v1/2024.findings-acl.330",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Predicting Narratives of Climate Obstruction in Social Media Advertising",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_christopher_manning:be443eaf6bfc",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "pyvene: A Library for Understanding and Improving PyTorch Models via Interventions",
+      "year": 2024,
+      "authors": [
+        "Wu, Zhengxuan",
+        "Geiger, Atticus",
+        "Arora, Aryaman",
+        "Huang, Jing",
+        "Wang, Zheng",
+        "Goodman, Noah D.",
+        "Manning, Christopher D.",
+        "Potts, Christopher",
+        "Chang, K. W.",
+        "Lee, A.",
+        "Rajani, N."
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-6155-649X put-code 196108526"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "version_identifiers_added_in_review"
+      ],
+      "dois": [
+        "10.18653/v1/2024.naacl-demo.16",
+        "10.48550/arxiv.2403.07809"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "pyvene: A Library for Understanding and Improving PyTorch Models via Interventions",
+          "year": 2023,
+          "authors": [
+            "Wu, Zhengxuan",
+            "Geiger, Atticus",
+            "Arora, Aryaman",
+            "Huang, Jing",
+            "Wang, Zheng",
+            "Goodman, Noah D.",
+            "Manning, Christopher D.",
+            "Potts, Christopher",
+            "Chang, K. W.",
+            "Lee, A.",
+            "Rajani, N."
+          ]
+        },
+        {
+          "title": "pyvene: A Library for Understanding and Improving PyTorch Models via Interventions",
+          "year": 2025,
+          "authors": [
+            "Wu, Zhengxuan",
+            "Geiger, Atticus",
+            "Arora, Aryaman",
+            "Huang, Jing",
+            "Wang, Zheng",
+            "Goodman, Noah D.",
+            "Manning, Christopher D.",
+            "Potts, Christopher",
+            "Chang, K. W.",
+            "Lee, A.",
+            "Rajani, N."
+          ]
+        },
+        {
+          "title": "pyvene: A Library for Understanding and Improving PyTorch Models via Interventions",
+          "year": 2024,
+          "authors": [
+            "Wu, Zhengxuan",
+            "Geiger, Atticus",
+            "Arora, Aryaman",
+            "Huang, Jing",
+            "Wang, Zheng",
+            "Goodman, Noah D.",
+            "Manning, Christopher D.",
+            "Potts, Christopher"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.18653/v1/2024.naacl-demo.16",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "pyvene: A Library for Understanding and Improving PyTorch Models via Interventions",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_christopher_manning:cdff27861efa",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "ReportParse: A Unified NLP Tool for Extracting Document Structure and Semantics of Corporate Sustainability Reporting",
+      "year": 2024,
+      "authors": [
+        "Morio, Gaku",
+        "In, Soh Young",
+        "Yoon, Jungah",
+        "Rowlands, Harri",
+        "Manning, Christopher",
+        "Larson, K."
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-6155-649X put-code 179431865"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.24963/ijcai.2024/1024"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "ReportParse: A Unified NLP Tool for Extracting Document Structure and Semantics of Corporate Sustainability Reporting",
+          "year": 2023,
+          "authors": [
+            "Morio, Gaku",
+            "In, Soh Young",
+            "Yoon, Jungah",
+            "Rowlands, Harri",
+            "Manning, Christopher",
+            "Larson, K."
+          ]
+        },
+        {
+          "title": "ReportParse: A Unified NLP Tool for Extracting Document Structure and Semantics of Corporate Sustainability Reporting",
+          "year": 2025,
+          "authors": [
+            "Morio, Gaku",
+            "In, Soh Young",
+            "Yoon, Jungah",
+            "Rowlands, Harri",
+            "Manning, Christopher",
+            "Larson, K."
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.24963/ijcai.2024/1024",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "ReportParse: A Unified NLP Tool for Extracting Document Structure and Semantics of Corporate Sustainability Reporting",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_christopher_manning:4a9f54251024",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Statistical Uncertainty in Word Embeddings: GloVe-V",
+      "year": 2024,
+      "authors": [
+        "Vallebueno, Andrea",
+        "Handan-Nader, Cassandra",
+        "Manning, Christopher D.",
+        "Ho, Daniel E.",
+        "Al-Onaizan, Y.",
+        "Bansal, M.",
+        "Chen, Y. N."
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-6155-649X put-code 186887227"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2024.emnlp-main.510"
+      ],
+      "external_ids": {
+        "arxiv": "2406.12165"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Statistical Uncertainty in Word Embeddings: GloVe-V",
+          "year": 2023,
+          "authors": [
+            "Vallebueno, Andrea",
+            "Handan-Nader, Cassandra",
+            "Manning, Christopher D.",
+            "Ho, Daniel E.",
+            "Al-Onaizan, Y.",
+            "Bansal, M.",
+            "Chen, Y. N."
+          ]
+        },
+        {
+          "title": "Statistical Uncertainty in Word Embeddings: GloVe-V",
+          "year": 2025,
+          "authors": [
+            "Vallebueno, Andrea",
+            "Handan-Nader, Cassandra",
+            "Manning, Christopher D.",
+            "Ho, Daniel E.",
+            "Al-Onaizan, Y.",
+            "Bansal, M.",
+            "Chen, Y. N."
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2406.12165",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Statistical Uncertainty in Word Embeddings: GloVe-V",
+          "arxiv_year": 2024,
+          "doi": "10.18653/v1/2024.emnlp-main.510",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Statistical Uncertainty in Word Embeddings: GloVe-V",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_christopher_manning:8dfab6293b64",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "A Reasoning-Focused Legal Retrieval Benchmark",
+      "year": 2025,
+      "authors": [
+        "Lucia Zheng",
+        "Neel Guha",
+        "Javokhir Arifov",
+        "Sarah Zhang",
+        "Michal Skreta",
+        "Christopher D. Manning",
+        "Peter Henderson",
+        "Daniel E. Ho"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-6155-649X put-code 180011528"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3709025.3712219"
+      ],
+      "external_ids": {
+        "arxiv": "2505.03970"
+      },
+      "metadata_aliases": [
+        {
+          "title": "A Reasoning-Focused Legal Retrieval Benchmark",
+          "year": 2024,
+          "authors": [
+            "Lucia Zheng",
+            "Neel Guha",
+            "Javokhir Arifov",
+            "Sarah Zhang",
+            "Michal Skreta",
+            "Christopher D. Manning",
+            "Peter Henderson",
+            "Daniel E. Ho"
+          ]
+        },
+        {
+          "title": "A Reasoning-Focused Legal Retrieval Benchmark",
+          "year": 2026,
+          "authors": [
+            "Lucia Zheng",
+            "Neel Guha",
+            "Javokhir Arifov",
+            "Sarah Zhang",
+            "Michal Skreta",
+            "Christopher D. Manning",
+            "Peter Henderson",
+            "Daniel E. Ho"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2505.03970",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "A Reasoning-Focused Legal Retrieval Benchmark",
+          "arxiv_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_christopher_manning:89c71265b4a4",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "AXBENCH: Steering LLMs? Even Simple Baselines Outperform Sparse Autoencoders",
+      "year": 2025,
+      "authors": [
+        "Wu, Zhengxuan",
+        "Arora, Aryaman",
+        "Geiger, Atticus",
+        "Wang, Zheng",
+        "Huang, Jing",
+        "Jurafsky, Dan",
+        "Manning, Christopher D.",
+        "Potts, Christopher",
+        "Singh, A.",
+        "Fazel, M.",
+        "Hsu, D.",
+        "Lacoste-Julien, S.",
+        "Berkenkamp, F.",
+        "Maharaj, T.",
+        "Wagstaff, K.",
+        "Zhu, J."
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-6155-649X put-code 211786278"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2501.17148"
+      },
+      "metadata_aliases": [
+        {
+          "title": "AXBENCH: Steering LLMs? Even Simple Baselines Outperform Sparse Autoencoders",
+          "year": 2024,
+          "authors": [
+            "Wu, Zhengxuan",
+            "Arora, Aryaman",
+            "Geiger, Atticus",
+            "Wang, Zheng",
+            "Huang, Jing",
+            "Jurafsky, Dan",
+            "Manning, Christopher D.",
+            "Potts, Christopher",
+            "Singh, A.",
+            "Fazel, M.",
+            "Hsu, D.",
+            "Lacoste-Julien, S.",
+            "Berkenkamp, F.",
+            "Maharaj, T.",
+            "Wagstaff, K.",
+            "Zhu, J."
+          ]
+        },
+        {
+          "title": "AXBENCH: Steering LLMs? Even Simple Baselines Outperform Sparse Autoencoders",
+          "year": 2026,
+          "authors": [
+            "Wu, Zhengxuan",
+            "Arora, Aryaman",
+            "Geiger, Atticus",
+            "Wang, Zheng",
+            "Huang, Jing",
+            "Jurafsky, Dan",
+            "Manning, Christopher D.",
+            "Potts, Christopher",
+            "Singh, A.",
+            "Fazel, M.",
+            "Hsu, D.",
+            "Lacoste-Julien, S.",
+            "Berkenkamp, F.",
+            "Maharaj, T.",
+            "Wagstaff, K.",
+            "Zhu, J."
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2501.17148",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "AxBench: Steering LLMs? Even Simple Baselines Outperform Sparse Autoencoders",
+          "arxiv_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_christopher_manning:1a21a589ea01",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools",
+      "year": 2025,
+      "authors": [
+        "Magesh, Varun",
+        "Surani, Faiz",
+        "Dahl, Matthew",
+        "Suzgun, Mirac",
+        "Manning, Christopher D.",
+        "Ho, Daniel E."
+      ],
+      "listed_venue": "JOURNAL OF EMPIRICAL LEGAL STUDIES",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-6155-649X put-code 185279773"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1111/jels.12413"
+      ],
+      "external_ids": {
+        "arxiv": "2405.20362"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools",
+          "year": 2024,
+          "authors": [
+            "Magesh, Varun",
+            "Surani, Faiz",
+            "Dahl, Matthew",
+            "Suzgun, Mirac",
+            "Manning, Christopher D.",
+            "Ho, Daniel E."
+          ]
+        },
+        {
+          "title": "Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools",
+          "year": 2026,
+          "authors": [
+            "Magesh, Varun",
+            "Surani, Faiz",
+            "Dahl, Matthew",
+            "Suzgun, Mirac",
+            "Manning, Christopher D.",
+            "Ho, Daniel E."
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2405.20362",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools",
+          "arxiv_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_christopher_manning:5239d7c358e0",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "High-Accuracy Transition-Based Constituency Parsing",
+      "year": 2025,
+      "authors": [
+        "Bauer, John",
+        "Manning, Christopher D.",
+        "Sagae, K.",
+        "Oepen, S."
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-6155-649X put-code 211786280"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "High-Accuracy Transition-Based Constituency Parsing",
+          "year": 2024,
+          "authors": [
+            "Bauer, John",
+            "Manning, Christopher D.",
+            "Sagae, K.",
+            "Oepen, S."
+          ]
+        },
+        {
+          "title": "High-Accuracy Transition-Based Constituency Parsing",
+          "year": 2026,
+          "authors": [
+            "Bauer, John",
+            "Manning, Christopher D.",
+            "Sagae, K.",
+            "Oepen, S."
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_christopher_manning:18f8abceb761",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Quantifying large language model usage in scientific papers.",
+      "year": 2025,
+      "authors": [
+        "Weixin Liang",
+        "Yaohui Zhang",
+        "Zhengxuan Wu",
+        "Haley Lepp",
+        "Wenlong Ji",
+        "Xuandong Zhao",
+        "Hancheng Cao",
+        "Sheng Liu",
+        "Siyu He",
+        "Zhi Huang",
+        "Diyi Yang",
+        "Christopher Potts",
+        "Christopher D Manning",
+        "James Zou"
+      ],
+      "listed_venue": "Nature human behaviour",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-6155-649X put-code 196108524"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41562-025-02273-8"
+      ],
+      "external_ids": {
+        "pubmed": "40760036",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/40760036"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Quantifying large language model usage in scientific papers.",
+          "year": 2024,
+          "authors": [
+            "Weixin Liang",
+            "Yaohui Zhang",
+            "Zhengxuan Wu",
+            "Haley Lepp",
+            "Wenlong Ji",
+            "Xuandong Zhao",
+            "Hancheng Cao",
+            "Sheng Liu",
+            "Siyu He",
+            "Zhi Huang",
+            "Diyi Yang",
+            "Christopher Potts",
+            "Christopher D Manning",
+            "James Zou"
+          ]
+        },
+        {
+          "title": "Quantifying large language model usage in scientific papers.",
+          "year": 2026,
+          "authors": [
+            "Weixin Liang",
+            "Yaohui Zhang",
+            "Zhengxuan Wu",
+            "Haley Lepp",
+            "Wenlong Ji",
+            "Xuandong Zhao",
+            "Hancheng Cao",
+            "Sheng Liu",
+            "Siyu He",
+            "Zhi Huang",
+            "Diyi Yang",
+            "Christopher Potts",
+            "Christopher D Manning",
+            "James Zou"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_christopher_manning:96dbf4343920",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Sneaking Syntax into Transformer Language Models with Tree Regularization",
+      "year": 2025,
+      "authors": [
+        "Nandi, Ananjan",
+        "Manning, Christopher D.",
+        "Murty, Shikhar",
+        "Ritter, A,,",
+        "Chiruzzo, L.",
+        "Wang, L."
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-6155-649X put-code 205003834"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "version_identifiers_added_in_review"
+      ],
+      "dois": [
+        "10.18653/v1/2025.naacl-long.407",
+        "10.48550/arxiv.2411.18885"
+      ],
+      "external_ids": {
+        "arxiv": "2411.18885"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Sneaking Syntax into Transformer Language Models with Tree Regularization",
+          "year": 2024,
+          "authors": [
+            "Nandi, Ananjan",
+            "Manning, Christopher D.",
+            "Murty, Shikhar",
+            "Ritter, A,,",
+            "Chiruzzo, L.",
+            "Wang, L."
+          ]
+        },
+        {
+          "title": "Sneaking Syntax into Transformer Language Models with Tree Regularization",
+          "year": 2026,
+          "authors": [
+            "Nandi, Ananjan",
+            "Manning, Christopher D.",
+            "Murty, Shikhar",
+            "Ritter, A,,",
+            "Chiruzzo, L.",
+            "Wang, L."
+          ]
+        },
+        {
+          "title": "Sneaking Syntax into Transformer Language Models with Tree Regularization",
+          "year": 2024,
+          "authors": [
+            "Nandi, Ananjan",
+            "Manning, Christopher D.",
+            "Murty, Shikhar"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2411.18885",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Sneaking Syntax into Transformer Language Models with Tree Regularization",
+          "arxiv_year": 2024,
+          "doi": "10.18653/v1/2025.naacl-long.407",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Sneaking Syntax into Transformer Language Models with Tree Regularization",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_christopher_manning:c57f73541b98",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "The Surprising Victory of NLP: From Philosophy to Agentic Language Models",
+      "year": 2025,
+      "authors": [
+        "Christopher D. Manning"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-6155-649X put-code 189052495"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1145/3711896.3736801"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "The Surprising Victory of NLP: From Philosophy to Agentic Language Models",
+          "year": 2024,
+          "authors": [
+            "Christopher D. Manning"
+          ]
+        },
+        {
+          "title": "The Surprising Victory of NLP: From Philosophy to Agentic Language Models",
+          "year": 2026,
+          "authors": [
+            "Christopher D. Manning"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_christopher_manning:62cbd5e25cc5",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Transcribe, Translate, or Transliterate: An Investigation of Intermediate Representations in Spoken Language Models",
+      "year": 2025,
+      "authors": [
+        "Ogunremi, Tolulope",
+        "Manning, Christopher D.",
+        "Jurafsky, Dan",
+        "Livescu, Karen"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-6155-649X put-code 225670583"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/asru65441.2025.11434765"
+      ],
+      "external_ids": {
+        "arxiv": "2510.02569"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Transcribe, Translate, or Transliterate: An Investigation of Intermediate Representations in Spoken Language Models",
+          "year": 2024,
+          "authors": [
+            "Ogunremi, Tolulope",
+            "Manning, Christopher D.",
+            "Jurafsky, Dan",
+            "Livescu, Karen"
+          ]
+        },
+        {
+          "title": "Transcribe, Translate, or Transliterate: An Investigation of Intermediate Representations in Spoken Language Models",
+          "year": 2026,
+          "authors": [
+            "Ogunremi, Tolulope",
+            "Manning, Christopher D.",
+            "Jurafsky, Dan",
+            "Livescu, Karen"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2510.02569",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Transcribe, Translate, or Transliterate: An Investigation of Intermediate Representations in Spoken Language Models",
+          "arxiv_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_christopher_manning:d7b722a3065b",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Universal Dependencies for Sindhi",
+      "year": 2025,
+      "authors": [
+        "Bauer, John",
+        "Shah, Sakiina",
+        "Shaheer, Muhammad",
+        "Talpur, Mir Afza Ahmed",
+        "Sanjrani, Zubair",
+        "Qureshi, Sarwat",
+        "Pirzada, Shafi",
+        "Manning, Christopher D.",
+        "Rahman, Mutee U.",
+        "Bouma, G.",
+        "Coltekin, C."
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-6155-649X put-code 211786279"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Universal Dependencies for Sindhi",
+          "year": 2024,
+          "authors": [
+            "Bauer, John",
+            "Shah, Sakiina",
+            "Shaheer, Muhammad",
+            "Talpur, Mir Afza Ahmed",
+            "Sanjrani, Zubair",
+            "Qureshi, Sarwat",
+            "Pirzada, Shafi",
+            "Manning, Christopher D.",
+            "Rahman, Mutee U.",
+            "Bouma, G.",
+            "Coltekin, C."
+          ]
+        },
+        {
+          "title": "Universal Dependencies for Sindhi",
+          "year": 2026,
+          "authors": [
+            "Bauer, John",
+            "Shah, Sakiina",
+            "Shaheer, Muhammad",
+            "Talpur, Mir Afza Ahmed",
+            "Sanjrani, Zubair",
+            "Qureshi, Sarwat",
+            "Pirzada, Shafi",
+            "Manning, Christopher D.",
+            "Rahman, Mutee U.",
+            "Bouma, G.",
+            "Coltekin, C."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "LawInstruct: A Resource for Studying Language Model Adaptation to the Legal Domain",
+      "year": 2025,
+      "authors": [
+        "Joel Niklaus",
+        "Lucia Zheng",
+        "Arya D. McCarthy",
+        "Christopher Hahn",
+        "Brian M Rosen",
+        "Peter Henderson",
+        "Daniel E. Ho",
+        "Garrett Honke",
+        "Percy Liang",
+        "Christopher D Manning"
+      ],
+      "listed_venue": "Findings of the Association for Computational Linguistics: NAACL",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.18653/v1/2025.findings-naacl.7"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-1887921999",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Do Language Models Use Their Depth Efficiently?",
+      "year": 2025,
+      "authors": [
+        "Róbert Csordás",
+        "Christopher D Manning",
+        "Chris Potts"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Stanford University"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-5357"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-8ac0cb216c",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Stanford University"
+    },
+    {
+      "title": "Stronger Baselines for Retrieval-Augmented Generation with Long-Context Language Models",
+      "year": 2025,
+      "authors": [
+        "Alex Laitenberger",
+        "Christopher D Manning",
+        "Nelson F. Liu"
+      ],
+      "listed_venue": "Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.18653/v1/2025.emnlp-main.1656"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-d69e6121a3",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "AI for scaling legal reform: mapping and redacting racial covenants in Santa Clara County",
+      "year": 2025,
+      "authors": [
+        "Faiz Surani",
+        "Mirac Suzgun",
+        "Vyoma Raman",
+        "Christopher D Manning",
+        "Peter Henderson",
+        "Daniel E Ho"
+      ],
+      "listed_venue": "The Journal of Legal Analysis",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Stanford University; 4 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1093/jla/laaf005"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-7dbee9c4cc",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Stanford University; 4 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Drop Dropout on Single Epoch Language Model Pretraining",
+      "year": 2025,
+      "authors": [
+        "Houjun Liu",
+        "John Bauer",
+        "Christopher D Manning"
+      ],
+      "listed_venue": null,
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.18653/v1/2025.findings-acl.111"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-90676dc5a2",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Improved Representation Steering for Language Models",
+      "year": 2025,
+      "authors": [
+        "Zhengxuan Wu",
+        "Qinan Yu",
+        "Aryaman Arora",
+        "Christopher D Manning",
+        "Chris Potts"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Stanford University; 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-5364"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-5c97ad1be2",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Stanford University; 2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Mechanisms vs. Outcomes: Probing for Syntax Fails to Explain Performance on Targeted Syntactic Evaluations",
+      "year": 2025,
+      "authors": [
+        "Ananth Agarwal",
+        "Jasper Jian",
+        "Christopher D Manning",
+        "Shikhar Murty"
+      ],
+      "listed_venue": "Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.18653/v1/2025.emnlp-main.1712"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-eb83093806",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Synthetic Data Generation & Multi-Step RL for Reasoning & Tool Use",
+      "year": 2025,
+      "authors": [
+        "Goldie, Anna",
+        "Mirhoseini, Azalia",
+        "Zhou, Hao",
+        "Cai, Irene",
+        "Manning, Christopher D."
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2504.04736"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-6290236b61",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "WebDS: An End-to-End Benchmark for Web-based Data Science",
+      "year": 2025,
+      "authors": [
+        "Hsu, Ethan",
+        "Yam, Hong Meng",
+        "Bouissou, Ines",
+        "John, Aaron Murali",
+        "Thota, Raj",
+        "Koe, Josh",
+        "Putta, Vivek Sarath",
+        "Dharesan, G K",
+        "Spangher, Alexander",
+        "Murty, Shikhar",
+        "Huang, Tenghao",
+        "Manning, Christopher D."
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2508.01222"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-16fcf8fa6f",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "A Multimodal Benchmark for Framing of Oil & Gas Advertising and Potential Greenwashing Detection",
+      "year": 2025,
+      "authors": [
+        "Gaku Morio",
+        "Harri Rowlands",
+        "Dominik Stammbach",
+        "Christopher D Manning",
+        "Peter Henderson"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Stanford University; 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-2956"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-d50edbe088",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Stanford University; 3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "ReFT: Representation Finetuning for Language Models",
+      "year": 2024,
+      "authors": [
+        "Zhengxuan Wu",
+        "Aryaman Arora",
+        "Zheng Wang",
+        "Atticus Geiger",
+        "Dan Jurafsky",
+        "Christopher Manning",
+        "Christopher Potts"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 6 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/079017-2041"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-6ec8434b0b",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "6 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "MoEUT: Mixture-of-Experts Universal Transformers",
+      "year": 2024,
+      "authors": [
+        "Róbert Csordás",
+        "Kazuki Irie",
+        "Jürgen Schmidhuber",
+        "Christopher Potts",
+        "Christopher Manning"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/079017-0897"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-d3a24121be",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Recurrent Neural Networks Learn to Store and Generate Sequences using Non-Linear Representations",
+      "year": 2024,
+      "authors": [
+        "Róbert Csordás",
+        "Christopher Potts",
+        "Christopher D Manning",
+        "Atticus Geiger"
+      ],
+      "listed_venue": null,
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.18653/v1/2024.blackboxnlp-1.17"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-0cfe464c22",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "MSCAW-coref: Multilingual, Singleton and Conjunction-Aware Word-Level Coreference Resolution",
+      "year": 2024,
+      "authors": [
+        "Houjun Liu",
+        "John Bauer",
+        "Karel D’Oosterlinck",
+        "Christopher Potts",
+        "Christopher D. Manning"
+      ],
+      "listed_venue": null,
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.18653/v1/2024.crac-1.4"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-f6039cda57",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Mapping the Increasing Use of LLMs in Scientific Papers",
+      "year": 2024,
+      "authors": [
+        "Liang, Weixin",
+        "Zhang, Yaohui",
+        "Wu, Zhengxuan",
+        "Lepp, Haley",
+        "Ji, Wenlong",
+        "Zhao, Xuandong",
+        "Cao, Hancheng",
+        "Liu, Sheng",
+        "He, Siyu",
+        "Huang, Zhi",
+        "Yang, Diyi",
+        "Potts, Christopher",
+        "Manning, Christopher D",
+        "Zou, James Y."
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Paper is his (arXiv byline), but the DOI the system attached belongs to a different Dagstuhl paper"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.4230/lipics.esem.2026.6"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-099f495927",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Paper is his (arXiv byline), but the DOI the system attached belongs to a different Dagstuhl paper"
+    },
+    {
+      "title": "BioMedLM: A 2.7B Parameter Language Model Trained On Biomedical Text",
+      "year": 2024,
+      "authors": [
+        "Bolton, Elliot",
+        "Venigalla, Abhinav",
+        "Yasunaga, Michihiro",
+        "Hall, David",
+        "Xiong, Betty",
+        "Lee, Tony",
+        "Daneshjou, Roxana",
+        "Frankle, Jonathan",
+        "Liang, Percy",
+        "Carbin, Michael",
+        "Manning, Christopher D."
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2403.18421"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-df8f55fa4f",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval",
+      "year": 2024,
+      "authors": [
+        "Sarthi, Parth",
+        "Abdullah, Salman",
+        "Tuli, Aditi",
+        "Khanna, Shubh",
+        "Goldie, Anna",
+        "Manning, Christopher D."
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2401.18059"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-85bb64147e",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "Instruction Following without Instruction Tuning",
+      "year": 2024,
+      "authors": [
+        "Hewitt, John",
+        "Liu, Nelson F.",
+        "Liang, Percy",
+        "Manning, Christopher D."
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2409.14254"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-6de55cd32c",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "BAGEL: Bootstrapping Agents by Guiding Exploration with Language",
+      "year": 2024,
+      "authors": [
+        "Murty, Shikhar",
+        "Manning, Christopher",
+        "Shaw, Peter",
+        "Joshi, Mandar",
+        "Lee, Kenton"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2403.08140"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-4164e69265",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Semgrex and Ssurgeon, Searching and Manipulating Dependency Graphs",
+      "year": 2024,
+      "authors": [
+        "Bauer, John",
+        "Kiddon, Chloe",
+        "Yeh, Eric",
+        "Shan, Alex",
+        "Manning, Christopher D."
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2404.16250"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-aa593779ab",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Model Editing with Canonical Examples",
+      "year": 2024,
+      "authors": [
+        "Hewitt, John",
+        "Chen, Sarah",
+        "Xie, Lanruo Lora",
+        "Adams, Edward",
+        "Liang, Percy",
+        "Manning, Christopher D."
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2402.06155"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-87f9833ac9",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "MrT5: Dynamic Token Merging for Efficient Byte-level Language Models",
+      "year": 2024,
+      "authors": [
+        "Kallini, Julie",
+        "Murty, Shikhar",
+        "Manning, Christopher D.",
+        "Potts, Christopher",
+        "Csordás, Róbert"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2410.20771"
+      ],
+      "evaluation_id": "cs_christopher_manning:added-e144bb4dd4",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    }
+  ],
+  "excluded": [
+    {
+      "reason": "outside_year_window",
+      "title": "Synthetic Disinformation Attacks on Automated Fact Verification Systems",
+      "year": 2022,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121420",
+        "ORCID 0000-0001-6155-649X put-code 145265425"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Capturing logical structure of visually structured documents with multimodal transition parser",
+      "year": 2021,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121430"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "GREASELM: GRAPH REASONING ENHANCED LANGUAGE MODELS FOR QUESTION ANSWERING",
+      "year": 2022,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121421"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "You only need one model for open-domain question answering",
+      "year": 2021,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121422"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Fast model editing at scale",
+      "year": 2021,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121423"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Hindsight: Posterior-guided training of retrievers for improved open-ended generation",
+      "year": 2021,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121424"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "ContractNLI: A dataset for document-level natural language inference for contracts",
+      "year": 2021,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121425"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "On the opportunities and risks of foundation models",
+      "year": 2021,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121427"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Neural abstructions: Abstractions that support construction for grounded language learning",
+      "year": 2021,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121428"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mind your outliers! Investigating the negative impact of outliers on active learning for visual question answering",
+      "year": 2021,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121429"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Human-like informative conversations: Better acknowledgements using conditional mutual information",
+      "year": 2021,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121431",
+        "ORCID 0000-0001-6155-649X put-code 145656676"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Biomedical and clinical English model packages for the Stanza Python NLP library",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121472"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Conditional probing: Measuring usable information beyond a baseline",
+      "year": 2021,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121426",
+        "ORCID 0000-0001-6155-649X put-code 145265422"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Universal Dependencies",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121281"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Self-Destructing Models: Increasing the Costs of Harmful Dual Uses of Foundation Models",
+      "year": 2023,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 141379909"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Large-Scale Quantitative Evaluation of Dialogue Agents' Response Strategies against Offensive Users",
+      "year": 2021,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265411"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Memory-Based Model Editing at Scale",
+      "year": 2022,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265429"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Challenges for Information Extraction from Dialogue in Criminal Law",
+      "year": 2021,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265404"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Understanding and predicting user dissatisfaction in a neural generative chatbot",
+      "year": 2021,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265407"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Effective Social Chatbot Strategies for Increasing User Initiative",
+      "year": 2021,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265408"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Answering open-domain questions of varying reasoning steps from text",
+      "year": 2020,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121433",
+        "ORCID 0000-0001-6155-649X put-code 145265419"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "DReCa: A General Task Augmentation Strategy for Few-Shot Natural Language Inference",
+      "year": 2021,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145656677"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "ReCOGS: How Incidental Details of a Logical Form Overshadow an Evaluation of Semantic Interpretation",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 153980845"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Grokking of Hierarchical Structure in Vanilla Transformers",
+      "year": 2023,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 158268527"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mini But Mighty: Efficient Multilingual Pretraining with Linguistically-Informed Data Selection",
+      "year": 2023,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 158268529"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Backpack Language Models",
+      "year": 2023,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 158268525"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "At the boundary: Law and AI",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 221274244"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "There is no free benchmark: An institutional view of legal AI benchmarking",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 221274245"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "AI for scaling legal reform: mapping and redacting racial covenants in Santa Clara County",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 225670555"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Universal dependencies",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121473"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Human Language Understanding &amp; Reasoning",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121474"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+      "year": 2023,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 164159337"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Natural Language Processing: How NSF Supports Visionary New Approaches to NLP",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 218560870"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Towards ecologically valid research on language user interfaces",
+      "year": 2020,
+      "work_types": [
+        "other",
+        "preprint"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121437",
+        "ORCID 0000-0001-6155-649X put-code 82758299"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Deep biaffine attention for neural dependency parsing",
+      "year": 2019,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659905"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Pre-training transformers as energy-based cloze models",
+      "year": 2020,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121432",
+        "ORCID 0000-0001-6155-649X put-code 145656682"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "HOTPOTQA: A dataset for diverse, explainable multi-hop question answering",
+      "year": 2018,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121456",
+        "ORCID 0000-0001-6155-649X put-code 145656688"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Universal Dependencies v2: An Evergrowing Multilingual Treebank Collection",
+      "year": 2020,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121440",
+        "ORCID 0000-0001-6155-649X put-code 145656685"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Stanza : A Python natural language processing toolkit for many human languages",
+      "year": 2020,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121444",
+        "ORCID 0000-0001-6155-649X put-code 145265384"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Universal dependency parsing from scratch",
+      "year": 2018,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121453",
+        "ORCID 0000-0001-6155-649X put-code 69660054"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Syn-QG: Syntactic and Shallow Semantic Rules for Question Generation",
+      "year": 2020,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121441",
+        "ORCID 0000-0001-6155-649X put-code 145265385"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Mapping three decades of intellectual change in academia",
+      "year": 2020,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121442"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Electra: Pre-training text encoders as discriminators rather than generators",
+      "year": 2020,
+      "work_types": [
+        "journal_article",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121443",
+        "ORCID 0000-0001-6155-649X put-code 145656675"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Compositional attention networks for machine reasoning",
+      "year": 2018,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121464",
+        "ORCID 0000-0001-6155-649X put-code 69659907"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "RNNs can generate bounded hierarchical languages with optimal memory",
+      "year": 2020,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121434",
+        "ORCID 0000-0001-6155-649X put-code 145656678"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Contrastive learning of medical visual representations from paired images and text",
+      "year": 2020,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121435"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Biomedical and clinical english model packages in the stanza python NLP library",
+      "year": 2020,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121436"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Finding Universal Grammatical Relations in Multilingual BERT",
+      "year": 2020,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121438"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Stay Hungry, Stay Focused: Generating Informative and Specific Questions in Information-Seeking Conversations",
+      "year": 2020,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121439"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Optimizing the Factual Correctness of a Summary: A Study of Summarizing Radiology Reports",
+      "year": 2019,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121445"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Answering complex open-domain questions through iterative query generation",
+      "year": 2019,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121446",
+        "ORCID 0000-0001-6155-649X put-code 145656690"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Do massively pretrained language models make better storytellers?",
+      "year": 2019,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121447"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Replication of the Keyword Extraction part of the paper “Without the Clutter of Unimportant Words”: Descriptive keyphrases for text visualization",
+      "year": 2019,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121448"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "BAM! Born-Again Multi-Task Networks for Natural Language Understanding",
+      "year": 2019,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121449",
+        "ORCID 0000-0001-6155-649X put-code 145265288"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning by Abstraction: The Neural State Machine",
+      "year": 2019,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121450",
+        "ORCID 0000-0001-6155-649X put-code 113121454",
+        "ORCID 0000-0001-6155-649X put-code 145265378"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "What does BERT look at? An analysis of BERT's attention",
+      "year": 2019,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121451",
+        "ORCID 0000-0001-6155-649X put-code 145265379"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "GQA: A new dataset for real-world visual reasoning and compositional question answering",
+      "year": 2019,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121452",
+        "ORCID 0000-0001-6155-649X put-code 69660086"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Graph Convolution over Pruned Dependency Trees Improves Relation Extraction",
+      "year": 2018,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121455",
+        "ORCID 0000-0001-6155-649X put-code 145656706"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "CoQA: A conversational question answering challenge",
+      "year": 2018,
+      "work_types": [
+        "journal_article",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121461",
+        "ORCID 0000-0001-6155-649X put-code 145656718"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Simpler but More Accurate Semantic Dependency Parsing",
+      "year": 2018,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121462",
+        "ORCID 0000-0001-6155-649X put-code 145265289",
+        "ORCID 0000-0001-6155-649X put-code 69659910"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Textual Analogy Parsing: What's Shared and What's Compared among Analogous Facts",
+      "year": 2018,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121460",
+        "ORCID 0000-0001-6155-649X put-code 145656680"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "SLM: Learning a Discourse Language Representation with Sentence Unshuffling",
+      "year": 2020,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145656684"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Structural Probe for Finding Syntax in Word Representations",
+      "year": 2019,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145656691"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Semi-Supervised Sequence Modeling with Cross-View Training",
+      "year": 2018,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121458",
+        "ORCID 0000-0001-6155-649X put-code 145656726"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Emergent linguistic structure in artificial neural networks trained by self-supervision",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 76732677"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Universal Dependencies v1: A Multilingual Treebank Collection",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265398",
+        "ORCID 0000-0001-6155-649X put-code 69659931"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Advances in natural language processing",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660053"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Sentences with Gapping: Parsing and reconstructing elided predicates",
+      "year": 2018,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121463"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Naturalizing a programming language via interactive learning",
+      "year": 2017,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121467",
+        "ORCID 0000-0001-6155-649X put-code 69660050"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Get To The Point: Summarization with Pointer-Generator Networks",
+      "year": 2017,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121468",
+        "ORCID 0000-0001-6155-649X put-code 69660073"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "SceneSeer: 3D scene design with natural language",
+      "year": 2017,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121469"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Computational linguistics and deep learning",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121278",
+        "ORCID 0000-0001-6155-649X put-code 69660076"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning to summarize radiology findings",
+      "year": 2018,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121459"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Key-value retrieval networks for task-oriented dialogue",
+      "year": 2017,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121465",
+        "ORCID 0000-0001-6155-649X put-code 145656735"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Copy-Augmented Sequence-To-Sequence Architecture Gives Good Performance on Task-Oriented Dialogue",
+      "year": 2017,
+      "work_types": [
+        "conference_paper",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121470",
+        "ORCID 0000-0001-6155-649X put-code 69659922"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Improving Coreference Resolution by Learning Entity-Level Distributed Representations",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265338",
+        "ORCID 0000-0001-6155-649X put-code 69659928"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Deep reinforcement learning for mention-ranking coreference models",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659903"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Achieving Open Vocabulary Neural Machine Translation with Hybrid Word-Character Models",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265334",
+        "ORCID 0000-0001-6155-649X put-code 69659927"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "CoNLL 2017 shared task: Multilingual parsing from raw text to universal dependencies",
+      "year": 2017,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659901"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Stanford’s graph-based neural dependency parser at the CoNLL 2017 shared task",
+      "year": 2017,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659902"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Compression of neural machine translation models via pruning",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659904"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Position-aware attention and supervised data improve slot filling",
+      "year": 2017,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659911"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A comparison of Named-Entity Disambiguation and Word Sense Disambiguation",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265391",
+        "ORCID 0000-0001-6155-649X put-code 69659916"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Enhanced English Universal Dependencies: An Improved Representation for Natural Language Understanding Tasks",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265394",
+        "ORCID 0000-0001-6155-649X put-code 69659919"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Combining Natural Logic and Shallow Reasoning for Question Answering",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265325",
+        "ORCID 0000-0001-6155-649X put-code 69659923"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning Language Games through Interaction",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265329",
+        "ORCID 0000-0001-6155-649X put-code 69659924"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Thorough Examination of the CNN/Daily Mail Reading Comprehension Task",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265321",
+        "ORCID 0000-0001-6155-649X put-code 69659925"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Fast Unified Model for Parsing and Sentence Understanding",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265332",
+        "ORCID 0000-0001-6155-649X put-code 69659926"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A large annotated corpus for learning natural language inference",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659940"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Arc-swift: A novel transition system for dependency parsing",
+      "year": 2017,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660046"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Leveraging Linguistic Structure For Open Domain Information Extraction",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265331",
+        "ORCID 0000-0001-6155-649X put-code 69659944"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Entity-Centric Coreference Resolution with Model Stacking",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265311",
+        "ORCID 0000-0001-6155-649X put-code 69659946"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Text to 3D Scene Generation with Rich Lexical Grounding",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265291",
+        "ORCID 0000-0001-6155-649X put-code 69659947"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Robust Subgraph Generation Improves Abstract Meaning Representation Parsing",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265346",
+        "ORCID 0000-0001-6155-649X put-code 69659945"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "On-the-Job Learning with Bayesian Decision Theory",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265315",
+        "ORCID 0000-0001-6155-649X put-code 69659935"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Improved Semantic Representations From Tree-Structured Long Short-Term Memory Networks",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265340",
+        "ORCID 0000-0001-6155-649X put-code 69659943"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Understanding Human Language: Can NLP and Deep Learning Help?",
+      "year": 2016,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265326"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning distributed word representations for natural logic reasoning",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659932"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Natural language translation at the intersection of AI and HCI",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660056"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Global Belief Recursive Neural Networks",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265306",
+        "ORCID 0000-0001-6155-649X put-code 69659956"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning Distributed Representations for Structured Output Prediction",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265308",
+        "ORCID 0000-0001-6155-649X put-code 69659957"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Event Extraction Using Distant Supervision",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265361",
+        "ORCID 0000-0001-6155-649X put-code 69659921"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Tree-structured composition in neural networks without tree-structured architectures",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659934"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Human effort and machine learnability in computer aided translation",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659936"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Relaxations for inference in restricted Boltzmann machines",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659912"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Improved pattern learning for bootstrapped entity extraction",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659913"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Deep neural language models for machine translation",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659918"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Universal Stanford Dependencies: A cross-linguistic typology",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265359",
+        "ORCID 0000-0001-6155-649X put-code 69659920"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Gold Standard Dependency Corpus for English",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265362",
+        "ORCID 0000-0001-6155-649X put-code 69659933"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Modeling biological processes for reading comprehension",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659937"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Effective approaches to attention-based neural machine translation",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659941"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A fast and accurate dependency parser using neural networks",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659942"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "GloVe: Global vectors for word representation",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659938"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Distributed representations of words to guide bootstrapped entity classifiers",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659939"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Simple MAP Inference via Low-Rank Relaxations",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265297",
+        "ORCID 0000-0001-6155-649X put-code 69659948"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "NaturalLI: Natural logic inference for common sense reasoning",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659964"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Combining distant and partial supervision for relation extraction",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659963"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning spatial knowledge for text to 3D scene generation",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659965"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Faster Phrase-Based Decoding by Refining Feature State",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145656695",
+        "ORCID 0000-0001-6155-649X put-code 69659970"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Word Segmentation of Informal Arabic with Domain Adaptation",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145656745",
+        "ORCID 0000-0001-6155-649X put-code 69659971"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Robust Logistic Regression using Shift Parameters",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145656746",
+        "ORCID 0000-0001-6155-649X put-code 69659968"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Two Knives Cut Better Than One: Chinese Word Segmentation with Dual Decomposition",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265302",
+        "ORCID 0000-0001-6155-649X put-code 69659972"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "On being the right scale: Sizing large collections of 3D models",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660058"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Forum77: An analysis of an online health forum dedicated to addiction recovery",
+      "year": 2015,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660059"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "TransPhoner: Automated mnemonic keyword generation",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660063"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Predictive translation memory: A mixed-initiative system for human language translation",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660079"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Induced lexico-syntactic patterns improve information extraction from online medical forums",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660081"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Parsing Models for Identifying Multiword Expressions",
+      "year": 2013,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121276",
+        "ORCID 0000-0001-6155-649X put-code 145265050",
+        "ORCID 0000-0001-6155-649X put-code 69660074"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Natural Logic and Natural Language Inference",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265365"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "The Stanford CoreNLP Natural Language Processing Toolkit",
+      "year": 2014,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265399"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Baselines and bigrams: Simple, good sentiment and topic classification",
+      "year": 2012,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659992"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Did It Happen? The Pragmatic Complexity of Veridicality Assessment",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121275",
+        "ORCID 0000-0001-6155-649X put-code 145265046",
+        "ORCID 0000-0001-6155-649X put-code 69660064"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Short message communications: Users, topics, and in-language processing",
+      "year": 2012,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265301",
+        "ORCID 0000-0001-6155-649X put-code 69660070"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "SUTIME: Evaluation in TempEval-3",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659929"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "SUTIME: A library for recognizing and normalizing time expressions",
+      "year": 2012,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265237",
+        "ORCID 0000-0001-6155-649X put-code 69659930"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning new facts from knowledge bases with neural tensor networks and semantic word vectors",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659906"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Zero-shot learning through cross-modal transfer",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659908"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Better word representations with recursive neural networks for morphology",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659909"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Recursive deep models for semantic compositionality over a sentiment treebank",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659959"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Bilingual word embeddings for phrase-based machine translation",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659961"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Feature noising for log-linear structured prediction",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659958"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning biological processes with global constraints",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659960"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Fast and adaptive online training of feature-rich translation models",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659966"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Entity clustering across languages",
+      "year": 2012,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659969"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Dictionaries and endangered languages",
+      "year": 2013,
+      "work_types": [
+        "book"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659962"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Joint word alignment and bilingual Named Entity Recognition using dual decomposition",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659967"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Reasoning with neural tensor networks for knowledge base completion",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659976"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Philosophers are mortal: Inferring the truth of unseen facts",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659973"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Named entity recognition with bilingual constraints",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659983"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Parsing time: Learning to interpret time expressions",
+      "year": 2012,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659984"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Fast dropout training",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659979"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Topic model diagnostics: Assessing domain relevance via topical alignment",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659980"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Parsing with compositional vector grammars",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659981"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Effective bilingual constraints for semi-supervised learning of Named Entity Recognizers",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659982"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Improving word representations via global context and multipleword prototypes",
+      "year": 2012,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659990"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Semantic compositionality through recursive matrix-vector spaces",
+      "year": 2012,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659993"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Multi-instance multi-label learning for relation extraction",
+      "year": 2012,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659985"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Probabilistic finite state machines for regression-based MT evaluation",
+      "year": 2012,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659986"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning constraints for consistent timeline extraction",
+      "year": 2012,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659987"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Convolutional-recursive deep learning for 3D object classification",
+      "year": 2012,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659991"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Dynamic pooling and unfolding recursive autoencoders for paraphrase detection",
+      "year": 2011,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659999"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Event extraction as dependency parsing",
+      "year": 2011,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660007"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Parsing natural scenes and natural language with recursive neural networks",
+      "year": 2011,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660015"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Multiword expression identification with tree substitution grammars: A parsing TOUR DE FORCE with French",
+      "year": 2011,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660030"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Part-of-speech tagging from 97% to 100%: Is it time for some linguistics?",
+      "year": 2011,
+      "work_types": [
+        "book",
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265107",
+        "ORCID 0000-0001-6155-649X put-code 69660061"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Termite: Visualization techniques for assessing textual topic models",
+      "year": 2012,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660065"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "The efficacy of human post-editing for language translation",
+      "year": 2013,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660068"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Interpretation and trust: Designing model-driven visualizations for text analysis",
+      "year": 2012,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660069"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Differentiating language usage through topic models",
+      "year": 2013,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660071"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Partially labeled topic models for interpretable text mining",
+      "year": 2011,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660078"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "\"Without the clutter of unimportant words\": Descriptive keyphrases for text visualization",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660082"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Combining joint models for biomedical event extraction.",
+      "year": 2012,
+      "work_types": [
+        "conference_paper",
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265027",
+        "ORCID 0000-0001-6155-649X put-code 69660084"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Measuring machine translation quality as semantic equivalence: A metric based on entailment features",
+      "year": 2009,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660080",
+        "ORCID 0000-0001-6155-649X put-code 82758281"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Ensemble Models for dependency parsing: Cheap and good?",
+      "year": 2010,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660010"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Joint parsing and named entity recognition",
+      "year": 2009,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660012"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Hierarchical joint learning: Improving joint parsing and named entity recognition with non-jointly labeled data",
+      "year": 2010,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265351",
+        "ORCID 0000-0001-6155-649X put-code 69660017"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A simple and effective hierarchical phrase reordering model",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660022"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A global joint model for semantic role labeling",
+      "year": 2008,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 113121271",
+        "ORCID 0000-0001-6155-649X put-code 145265133",
+        "ORCID 0000-0001-6155-649X put-code 69660085"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Lexicon schemas and related data models: When standards meet users",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659914"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Parsing to Stanford Dependencies: Trade-offs between speed and accuracy",
+      "year": 2010,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145656747",
+        "ORCID 0000-0001-6155-649X put-code 69659917"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Modeling semantic containment and exclusion in natural language inference",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660034"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "WikiWalk: Random walks on wikipedia for semantic relatedness",
+      "year": 2009,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659994"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Viterbi training improves unsupervised dependency parsing",
+      "year": 2010,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659995"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Enforcing transitivity in coreference resolution",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660001"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Spectral Chinese restaurant processes: Nonparametric clustering based on similarities",
+      "year": 2011,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659997"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "TopicFlow model: Unsupervised learning of topic-specific influences of hyperlinked documents",
+      "year": 2011,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659998"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Legal docket-entry classification: Where Machine Learning stumbles",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660021"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Robust machine translation evaluation with entailment features",
+      "year": 2009,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660003"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Finding contradictions in text",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660004"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Which words are hard to recognize? Prosodic, lexical, and disfluency factors that increase ASR error rates",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660005"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Subword variation in text message classification",
+      "year": 2010,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660009"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "The best lexical metric for phrase-based statistical MT system optimization",
+      "year": 2010,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660011"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "\"Was it good? It was provocative.\" Learning the meaning of scalar adjectives",
+      "year": 2010,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265343",
+        "ORCID 0000-0001-6155-649X put-code 69660014"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Probabilistic tree-edit models with structured latent variables for textual entailment and question answering",
+      "year": 2010,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660016"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Improved models of distortion cost for statistical machine translation",
+      "year": 2010,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660013"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Nested named entity recognition",
+      "year": 2009,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660018"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Labeled LDA: A supervised topic model for credit attribution in multi-labeled corpora",
+      "year": 2009,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660019"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Studying the history of ideas using topic models",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660024"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Robust graph alignment methods for textual inference and machine reading",
+      "year": 2007,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660039"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Semi-supervised recursive autoencoders for predicting sentiment distributions",
+      "year": 2011,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660028"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Accurate non-hierarchical phrase-based translation",
+      "year": 2010,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660029"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Hierarchical Bayesian domain adaptation",
+      "year": 2009,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660031"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A multi-pass sieve for coreference resolution",
+      "year": 2010,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660026"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Better arabic parsing: Baselines, evaluations, and analysis",
+      "year": 2010,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660032"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Random walks for text semantic similarity",
+      "year": 2009,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660033"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A phrase-based alignment model for natural language inference",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660035"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Efficient, feature-based, conditional random field parsing",
+      "year": 2008,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660036"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Regularization, adaptation, and non-independent features improve hidden conditional random fields for phone classification",
+      "year": 2007,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265061",
+        "ORCID 0000-0001-6155-649X put-code 69660038"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Veridicality and utterance understanding",
+      "year": 2011,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660048"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Which words are hard to recognize? Prosodic, lexical, and disfluency factors that increase speech recognition error rates",
+      "year": 2010,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660049"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Risk analysis for intellectual property litigation",
+      "year": 2011,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660051"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Clustering the tagged web",
+      "year": 2009,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660052"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Assessing the relationship between excess argon content and recrystallization of ultrahigh-pressure metamorphic rocks",
+      "year": 2010,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265043"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Legal Claim Identification: Information Extraction with Hierarchically Labeled Data",
+      "year": 2010,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265356"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Manning Christopher, Prabhakar Raghavan, Hinrich Schütze: Introduction to information retrieval",
+      "year": 2009,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660130"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Unsupervised discovery of a statistical verb lexicon",
+      "year": 2006,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660023"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Using feature conjunctions across examples for learning pairwise classifiers",
+      "year": 2004,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265099",
+        "ORCID 0000-0001-6155-649X put-code 69660042"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Natural language grammar induction with a generative constituent-context model",
+      "year": 2005,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660057"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A generative model for semantic role labeling",
+      "year": 2003,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265193",
+        "ORCID 0000-0001-6155-649X put-code 69659899"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Optimizing local probability models for statistical parsing",
+      "year": 2003,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265203",
+        "ORCID 0000-0001-6155-649X put-code 69659900"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Generating typed dependency parses from phrase structure parses",
+      "year": 2006,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659915"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Log-linear models for label ranking",
+      "year": 2004,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145656687",
+        "ORCID 0000-0001-6155-649X put-code 69659975"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Natural language grammar induction using a constituent-context model",
+      "year": 2002,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265075",
+        "ORCID 0000-0001-6155-649X put-code 69659977"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Fast exact inference with a factored model for natural language parsing",
+      "year": 2003,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659974"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Factored A* search for models over sequences and trees",
+      "year": 2003,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659989"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Spectral learning",
+      "year": 2003,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659988"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A joint model for semantic role labeling",
+      "year": 2005,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69659996"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Corpus-based induction of syntactic structure: Models of constituency and dependency",
+      "year": 2004,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660043"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "The infinite tree",
+      "year": 2007,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660000"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Incorporating non-local information into information extraction systems by Gibbs sampling",
+      "year": 2005,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660002"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Unsupervised learning of field segmentation models for information extraction",
+      "year": 2005,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660006"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning to recognize features of valid textual entailments",
+      "year": 2006,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660008"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Solving the problem of cascading errors: Approximate Bayesian inference for linguistic annotation pipelines",
+      "year": 2006,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660020"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Exploring sentiment summarization",
+      "year": 2005,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660040"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Robust textual inference via learning and abductive reasoning",
+      "year": 2005,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660041"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "An effective two-stage model for exploiting non-local dependencies in named entity recognition",
+      "year": 2006,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265122",
+        "ORCID 0000-0001-6155-649X put-code 69660025"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Robust textual inference via graph matching",
+      "year": 2005,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660027"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Joint learning improves semantic role labeling",
+      "year": 2005,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660037"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning random walk models for inducing word dependency distributions",
+      "year": 2004,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660044"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Probabilistic models of language processing and acquisition",
+      "year": 2006,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660047"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A system for identifying named entities in biomedical text: How results from two evaluations reflect on both the system and the evaluations",
+      "year": 2005,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660060"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Extrapolation methods for accelerating PageRank computations",
+      "year": 2003,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660066"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Foundations of Statistical Natural Language Processing",
+      "year": 2002,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660067"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Stochastic HPSG parse disambiguation using the Redwoods corpus",
+      "year": 2005,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660072"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "How useful and usable are dictionaries for speakers of Australian indigenous languages?",
+      "year": 2004,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265036",
+        "ORCID 0000-0001-6155-649X put-code 69660075"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Exploring the boundaries: Gene and protein identification in biomedical text",
+      "year": 2005,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660077"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Graphical model representations of word lattices",
+      "year": 2006,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660088"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Feature-rich part-of-speech tagging with a cyclic dependency network",
+      "year": 2003,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265067"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Beyond grammar: An experiences theory of language",
+      "year": 2002,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265033"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Programming for linguists: Java (TM) technology for language researchers.",
+      "year": 2005,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265039"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Conditional structure versus conditional estimation in NLP models",
+      "year": 2002,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265066"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A* parsing: Fast extract viterbi parse selection",
+      "year": 2003,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265090"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Probabilistic syntax",
+      "year": 2003,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265115"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A generative constituent-context model for improved grammar induction",
+      "year": 2002,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265063"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Accurate unlexicalized parsing",
+      "year": 2003,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265065"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Parsing and hypergraphs",
+      "year": 2004,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265071"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Extensions to HMM-based statistical word alignment models",
+      "year": 2002,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265139"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Is it harder to parse Chinese, or the Chinese treebank?",
+      "year": 2003,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265207"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "What's related? Generalizing approaches to related articles in medicine.",
+      "year": 2000,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660045"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Argument Structure, Valence, and Binding",
+      "year": 1998,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660062",
+        "ORCID 0000-0001-6155-649X put-code 82758277"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Kirrkirr: Software for Browsing and Visual Exploration of a Structured Warlpiri Dictionary",
+      "year": 2001,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 69660087",
+        "ORCID 0000-0001-6155-649X put-code 82758280"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Ergativity: Argument Structure and Grammatical Relations",
+      "year": 1995,
+      "work_types": [
+        "book",
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 82758274",
+        "ORCID 0000-0001-6155-649X put-code 82758276"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "The Lexical Integrity of Japanese Causatives",
+      "year": 1999,
+      "work_types": [
+        "book"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 82758278"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Dissociations between Argument Structure and Grammatical Relations",
+      "year": 1999,
+      "work_types": [
+        "book"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 82758279"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Synovial tissue in rheumatoid arthritis is a source of osteoclast differentiation factor",
+      "year": 2000,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265053"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Parsing with treebank grammars: Empirical bounds, theoretical models, and the structure of the Penn Treebank",
+      "year": 2001,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265069"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Enriching the knowledge sources used in a maximum entropy part-of-speech tagger",
+      "year": 2000,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265208"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Grammatical relations versus binding: On the distinctness of argument structure",
+      "year": 1997,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-6155-649X put-code 145265369"
+      ]
+    }
+  ],
+  "professor": {
+    "orcid": "0000-0001-6155-649X",
+    "author_ids": {},
+    "author_ids_complete": false
+  }
+}

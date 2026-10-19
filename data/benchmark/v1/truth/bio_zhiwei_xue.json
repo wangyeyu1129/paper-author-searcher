@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "assistant_reviewed",
+    "reviewer": "Claude (AI review requested by the user, 2026-10-19)",
+    "reviewed_at": "2026-10-19",
+    "person_id": "bio_zhiwei_xue",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Zhiwei Xue",
+      "university": "University of California, Berkeley"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.808136+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "lab_publications.json",
+        "url": "https://doudnalab.org/publications/",
+        "records": 2
+      }
+    ],
+    "excluded_counts": {},
+    "review_progress": {
+      "decided": 1,
+      "pending": 0
+    }
+  },
+  "papers": [
+    {
+      "evaluation_id": "bio_zhiwei_xue:14d883b04cc6",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Mechanism-guided engineering of a minimal biological particle for genome editing",
+      "year": 2025,
+      "authors": [
+        "W. Ngo",
+        "J. Peukes",
+        "A. Baldwin",
+        "Z. W. Xue",
+        "S. Hwang",
+        "R. R. Stickels",
+        "Z. Lin",
+        "A. T. Satpathy",
+        "J. A. Wells",
+        "R. Schekman",
+        "E. Nogales",
+        "J. A. Doudna"
+      ],
+      "listed_venue": "Proc Natl Acad Sci USA 122(1)",
+      "work_types": [
+        "journal_article",
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://doudnalab.org/publications/ entry 1 captured 2026-10-18",
+        "Public list https://doudnalab.org/publications/ entry 2 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1073/pnas.2413519121",
+        "10.1101/2024.07.23.604809"
+      ],
+      "external_ids": {
+        "pubmed": "39091760",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/39091760"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Mechanism-guided engineering of a minimal biological particle for genome editing",
+          "year": 2024,
+          "authors": [
+            "W. Ngo",
+            "J. T. Peukes",
+            "A. Baldwin",
+            "Z. W. Xue",
+            "S. Hwang",
+            "R. R. Stickels",
+            "Z. Lin",
+            "A. T. Satpathy",
+            "J. A. Wells",
+            "R. Schekman",
+            "E. Nogales",
+            "J. A. Doudna"
+          ]
+        },
+        {
+          "title": "Mechanism-guided engineering of a minimal biological particle for genome editing",
+          "year": 2026,
+          "authors": [
+            "W. Ngo",
+            "J. Peukes",
+            "A. Baldwin",
+            "Z. W. Xue",
+            "S. Hwang",
+            "R. R. Stickels",
+            "Z. Lin",
+            "A. T. Satpathy",
+            "J. A. Wells",
+            "R. Schekman",
+            "E. Nogales",
+            "J. A. Doudna"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

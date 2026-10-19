@@ -1,0 +1,1892 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "assistant_reviewed",
+    "reviewer": "Claude (AI review requested by the user, 2026-10-19)",
+    "reviewed_at": "2026-10-19",
+    "person_id": "bio_marena_trinidad",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Marena Trinidad",
+      "university": "University of California, Berkeley"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.809823+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "lab_publications.json",
+        "url": "https://doudnalab.org/publications/",
+        "records": 6
+      }
+    ],
+    "excluded_counts": {},
+    "review_progress": {
+      "decided": 38,
+      "pending": 0
+    }
+  },
+  "papers": [
+    {
+      "evaluation_id": "bio_marena_trinidad:f7482d51c304",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "CasPEDIA Database: a functional classification system for class 2 CRISPR-Cas enzymes",
+      "year": 2023,
+      "authors": [
+        "B. A. Adler",
+        "M. I. Trinidad",
+        "D. Bellieny-Rabelo",
+        "E. Zhang",
+        "H. M. Karp",
+        "P. Skopintsev",
+        "B. W. Thornton",
+        "R. F. Weissman",
+        "P. H. Yoon",
+        "L. Chen",
+        "T. Hessler",
+        "A. R. Eggers",
+        "D. Colognori",
+        "R. Boger",
+        "E. E. Doherty",
+        "C. A. Tsuchida",
+        "R. V. Tran",
+        "L. Hofman",
+        "H. Shi",
+        "K. M. Wasko",
+        "Z. Zhou",
+        "C. Xia",
+        "M. J. Al-Shimary",
+        "J. R. Patel",
+        "Thomas VCJX",
+        "R. Pattali",
+        "M. J. Kan",
+        "A. Vardapetyan",
+        "A. Yang"
+      ],
+      "listed_venue": "CasPEDIA Database",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://doudnalab.org/publications/ entry 6 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "version_identifiers_added_in_review"
+      ],
+      "dois": [
+        "10.1093/nar/gkad890",
+        "10.32942/x2c31f"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "CasPEDIA Database: a functional classification system for class 2 CRISPR-Cas enzymes",
+          "year": 2022,
+          "authors": [
+            "B. A. Adler",
+            "M. I. Trinidad",
+            "D. Bellieny-Rabelo",
+            "E. Zhang",
+            "H. M. Karp",
+            "P. Skopintsev",
+            "B. W. Thornton",
+            "R. F. Weissman",
+            "P. H. Yoon",
+            "L. Chen",
+            "T. Hessler",
+            "A. R. Eggers",
+            "D. Colognori",
+            "R. Boger",
+            "E. E. Doherty",
+            "C. A. Tsuchida",
+            "R. V. Tran",
+            "L. Hofman",
+            "H. Shi",
+            "K. M. Wasko",
+            "Z. Zhou",
+            "C. Xia",
+            "M. J. Al-Shimary",
+            "J. R. Patel",
+            "Thomas VCJX",
+            "R. Pattali",
+            "M. J. Kan",
+            "A. Vardapetyan",
+            "A. Yang"
+          ]
+        },
+        {
+          "title": "CasPEDIA Database: a functional classification system for class 2 CRISPR-Cas enzymes",
+          "year": 2024,
+          "authors": [
+            "B. A. Adler",
+            "M. I. Trinidad",
+            "D. Bellieny-Rabelo",
+            "E. Zhang",
+            "H. M. Karp",
+            "P. Skopintsev",
+            "B. W. Thornton",
+            "R. F. Weissman",
+            "P. H. Yoon",
+            "L. Chen",
+            "T. Hessler",
+            "A. R. Eggers",
+            "D. Colognori",
+            "R. Boger",
+            "E. E. Doherty",
+            "C. A. Tsuchida",
+            "R. V. Tran",
+            "L. Hofman",
+            "H. Shi",
+            "K. M. Wasko",
+            "Z. Zhou",
+            "C. Xia",
+            "M. J. Al-Shimary",
+            "J. R. Patel",
+            "Thomas VCJX",
+            "R. Pattali",
+            "M. J. Kan",
+            "A. Vardapetyan",
+            "A. Yang"
+          ]
+        },
+        {
+          "title": "CasPEDIA Database: a functional classification system for class 2 CRISPR-Cas enzymes",
+          "year": 2023,
+          "authors": [
+            "Benjamin A Adler",
+            "Marena I Trinidad",
+            "Daniel Bellieny-Rabelo",
+            "Elaine Zhang",
+            "Hannah M Karp",
+            "Petr Skopintsev",
+            "Brittney W Thornton",
+            "Rachel F Weissman",
+            "Peter H Yoon",
+            "LinXing Chen",
+            "Tomas Hessler",
+            "Amy R Eggers",
+            "David Colognori",
+            "Ron Boger",
+            "Erin E Doherty",
+            "Connor A Tsuchida",
+            "Ryan V Tran",
+            "Laura Hofman",
+            "Honglue Shi",
+            "Kevin M Wasko",
+            "Zehan Zhou",
+            "Chenglong Xia",
+            "Muntathar J Al-Shimary",
+            "Jaymin R Patel",
+            "Vienna C J X Thomas",
+            "Rithu Pattali",
+            "Matthew J Kan",
+            "Anna Vardapetyan",
+            "Alana Yang",
+            "Arushi Lahiri",
+            "Micaela F Maxwell",
+            "Andrew G Murdock",
+            "Glenn C Ramit",
+            "Hope R Henderson",
+            "Roland W Calvert",
+            "Rebecca S Bamert",
+            "Gavin J Knott",
+            "Audrone Lapinaite",
+            "Patrick Pausch",
+            "Joshua C Cofsky",
+            "Erik J Sontheimer",
+            "Blake Wiedenheft",
+            "Peter C Fineran",
+            "Stan J J Brouns",
+            "Dipali G Sashital",
+            "Brian C Thomas",
+            "Christopher T Brown",
+            "Daniela S A Goltsman",
+            "Rodolphe Barrangou",
+            "Virginius Siksnys",
+            "Jillian F Banfield",
+            "David F Savage",
+            "Jennifer A Doudna"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.32942/x2c31f",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "CasPEDIA Database: A Functional Classification System for Class 2 CRISPR-Cas Enzymes",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_marena_trinidad:18d8ae46ef33",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Rapid DNA unwinding accelerates genome editing by engineered CRISPR-Cas9",
+      "year": 2024,
+      "authors": [
+        "A. R. Eggers",
+        "K. Chen",
+        "K. M. Soczek",
+        "O. T. Tuck",
+        "E. E. Doherty",
+        "B. Xu",
+        "M. I. Trinidad",
+        "B. W. Thornton",
+        "P. H. Yoon",
+        "J. A. Doudna"
+      ],
+      "listed_venue": "Cell",
+      "work_types": [
+        "journal_article",
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://doudnalab.org/publications/ entry 3 captured 2026-10-18",
+        "Public list https://doudnalab.org/publications/ entry 5 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1016/j.cell.2024.04.031",
+        "10.1101/2023.12.14.571777"
+      ],
+      "external_ids": {
+        "pubmed": "38781968",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/38781968"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Rapid DNA unwinding accelerates genome editing by engineered CRISPR-Cas9",
+          "year": 2023,
+          "authors": [
+            "A. R. Eggers",
+            "K. Chen",
+            "K. M. Soczek",
+            "O. T. Tuck",
+            "E. E. Doherty",
+            "B. W. Thornton",
+            "B. Xu",
+            "M. I. Trinidad",
+            "J. A. Doudna"
+          ]
+        },
+        {
+          "title": "Rapid DNA unwinding accelerates genome editing by engineered CRISPR-Cas9",
+          "year": 2025,
+          "authors": [
+            "A. R. Eggers",
+            "K. Chen",
+            "K. M. Soczek",
+            "O. T. Tuck",
+            "E. E. Doherty",
+            "B. Xu",
+            "M. I. Trinidad",
+            "B. W. Thornton",
+            "P. H. Yoon",
+            "J. A. Doudna"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_marena_trinidad:001b79639c73",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "RNA language models predict mutations that improve RNA function",
+      "year": 2024,
+      "authors": [
+        "Y. Shulgina",
+        "M. I. Trinidad",
+        "C. J. Langeberg",
+        "H. Nisonoff",
+        "S. Chithrananda",
+        "P. Skopintsev",
+        "A. J. Nissley",
+        "J. Patel",
+        "R. S. Boger",
+        "H. Shi",
+        "P. H. Yoon",
+        "E. E. Doherty",
+        "T. Pande",
+        "A. M. Iyer",
+        "J. A. Doudna",
+        "J. H. D. Cate"
+      ],
+      "listed_venue": "Nat Commun 15(1)",
+      "work_types": [
+        "journal_article",
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://doudnalab.org/publications/ entry 2 captured 2026-10-18",
+        "Public list https://doudnalab.org/publications/ entry 4 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1038/s41467-024-54812-y",
+        "10.1101/2024.04.05.588317"
+      ],
+      "external_ids": {
+        "pubmed": "39638800",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/39638800"
+      },
+      "metadata_aliases": [
+        {
+          "title": "RNA language models predict mutations that improve RNA function",
+          "year": 2023,
+          "authors": [
+            "Y. Shulgina",
+            "M. I. Trinidad",
+            "C. J. Langeberg",
+            "H. Nisonoff",
+            "S. Chithrananda",
+            "P. Skopintsev",
+            "A. J. Nissley",
+            "J. Patel",
+            "R. S. Boger",
+            "H. Shi",
+            "P. H. Yoon",
+            "E. E. Doherty",
+            "T. Pande",
+            "A. M. Iyer",
+            "J. A. Doudna",
+            "J. H. D. Cate"
+          ]
+        },
+        {
+          "title": "RNA language models predict mutations that improve RNA function",
+          "year": 2025,
+          "authors": [
+            "Y. Shulgina",
+            "M. I. Trinidad",
+            "C. J. Langeberg",
+            "H. Nisonoff",
+            "S. Chithrananda",
+            "P. Skopintsev",
+            "A. J. Nissley",
+            "J. Patel",
+            "R. S. Boger",
+            "H. Shi",
+            "P. H. Yoon",
+            "E. E. Doherty",
+            "T. Pande",
+            "A. M. Iyer",
+            "J. A. Doudna",
+            "J. H. D. Cate"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_marena_trinidad:9240f6a87632",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Rapid two-step target capture ensures efficient CRISPR-Cas9-guided genome editing",
+      "year": 2025,
+      "authors": [
+        "H. Shi",
+        "N. Al-Sayyad",
+        "K. M. Wasko",
+        "M. I. Trinidad",
+        "E. E. Doherty",
+        "K. Vohra",
+        "R. S. Boger",
+        "D. Colognori",
+        "J. C. Cofsky",
+        "P. Skopintsev",
+        "Z. Bryant",
+        "J. A. Doudna"
+      ],
+      "listed_venue": "Mol Cell 85(9)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://doudnalab.org/publications/ entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.molcel.2025.03.024"
+      ],
+      "external_ids": {
+        "pubmed": "40273916",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/40273916"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Rapid two-step target capture ensures efficient CRISPR-Cas9-guided genome editing",
+          "year": 2024,
+          "authors": [
+            "H. Shi",
+            "N. Al-Sayyad",
+            "K. M. Wasko",
+            "M. I. Trinidad",
+            "E. E. Doherty",
+            "K. Vohra",
+            "R. S. Boger",
+            "D. Colognori",
+            "J. C. Cofsky",
+            "P. Skopintsev",
+            "Z. Bryant",
+            "J. A. Doudna"
+          ]
+        },
+        {
+          "title": "Rapid two-step target capture ensures efficient CRISPR-Cas9-guided genome editing",
+          "year": 2026,
+          "authors": [
+            "H. Shi",
+            "N. Al-Sayyad",
+            "K. M. Wasko",
+            "M. I. Trinidad",
+            "E. E. Doherty",
+            "K. Vohra",
+            "R. S. Boger",
+            "D. Colognori",
+            "J. C. Cofsky",
+            "P. Skopintsev",
+            "Z. Bryant",
+            "J. A. Doudna"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "CRISPRi-ART enables functional genomics of diverse bacteriophages using RNA-binding dCas13d",
+      "year": 2025,
+      "authors": [
+        "Benjamin A. Adler",
+        "Muntathar J. Al-Shimary",
+        "Jaymin R. Patel",
+        "Emily G. Armbruster",
+        "David Colognori",
+        "Emeric J. Charles",
+        "Kate V. Miller",
+        "Arushi Lahiri",
+        "Michael L. Cui",
+        "Agnès Oromí-Bosch",
+        "Angela Voelker",
+        "Marena Trinidad",
+        "Jina Lee",
+        "Sebastien Beurnier",
+        "Ron Boger",
+        "Jason Nomburg",
+        "Rodolphe Barrangou",
+        "Vivek K. Mutalik",
+        "Joseph S. Schoeniger",
+        "Joseph A. Pogliano",
+        "David F. Savage",
+        "Jennifer A. Doudna",
+        "Brady F. Cress"
+      ],
+      "listed_venue": "Nature Microbiology",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1038/s41564-025-01935-7"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-f5b3fc2688",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "Directed evolution expands CRISPR–Cas12a genome-editing capacity",
+      "year": 2025,
+      "authors": [
+        "Enbo Ma",
+        "Kai Chen",
+        "Honglue Shi",
+        "Kevin M Wasko",
+        "Isabel Esain-Garcia",
+        "Marena I Trinidad",
+        "Kaihong Zhou",
+        "Jinjuan Ye",
+        "Jennifer A Doudna"
+      ],
+      "listed_venue": "Nucleic Acids Research",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Innovative Genomics Institute, University of California, Berkeley , Berkeley , C"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1093/nar/gkaf649"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-7dbc258964",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Innovative Genomics Institute, University of California, Berkeley , Berkeley , C"
+    },
+    {
+      "title": "Pathways underlying selective neuronal vulnerability in Alzheimer's disease: Contrasting the vulnerable locus coeruleus to the resilient substantia nigra",
+      "year": 2025,
+      "authors": [
+        "Alexander J. Ehrenberg",
+        "Cathrine Sant",
+        "Felipe L. Pereira",
+        "Song Hua Li",
+        "Jessica Buxton",
+        "Sonali Langlois",
+        "Marena Trinidad",
+        "Ian Oh",
+        "Renata Elaine Paraizo Leite",
+        "Roberta Diehl Rodriguez",
+        "Vitor Ribeiro Paes",
+        "Carlos Agusto Pasqualucci",
+        "William W. Seeley",
+        "Salvatore Spina",
+        "Claudia K. Suemoto",
+        "Sally Temple",
+        "Daniela Kaufer",
+        "Lea T. Grinberg"
+      ],
+      "listed_venue": "Alzheimer s & Dementia",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Innovative Genomics Institute University of California  Berkeley California USA"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1002/alz.70087"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-dc2d2a5c3c",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Innovative Genomics Institute University of California  Berkeley California USA"
+    },
+    {
+      "title": "eIF3 engages with 3’-UTR termini of highly translated mRNAs",
+      "year": 2025,
+      "authors": [
+        "Santi Mestre-Fos",
+        "Lucas Ferguson",
+        "Marena Trinidad",
+        "Nicholas T. Ingolia",
+        "Jamie H. D. Cate"
+      ],
+      "listed_venue": "eLife",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Innovative Genomics Institute, University of California, Berkeley"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.7554/elife.102977.3"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-c9587c48a2",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Innovative Genomics Institute, University of California, Berkeley"
+    },
+    {
+      "title": "Evaluation of enzyme activity predictions for variants of unknown significance in Arylsulfatase A",
+      "year": 2025,
+      "authors": [
+        "Shantanu Jain",
+        "Marena Trinidad",
+        "Thanh Binh Nguyen",
+        "Kaiya Jones",
+        "Santiago Diaz Neto",
+        "Fang Ge",
+        "Ailin Glagovsky",
+        "Cameron Jones",
+        "Giankaleb Moran",
+        "Boqi Wang",
+        "Kobra Rahimi",
+        "Sümeyra Zeynep Çalıcı",
+        "Luis R. Cedillo",
+        "Silvia Berardelli",
+        "Buse Özden",
+        "Ken Chen",
+        "Panagiotis Katsonis",
+        "Amanda Williams",
+        "Olivier Lichtarge",
+        "Sadhna Rana",
+        "Swatantra Pradhan",
+        "Rajgopal Srinivasan",
+        "Rakshanda Sajeed",
+        "Dinesh Joshi",
+        "Eshel Faraggi",
+        "Robert Jernigan",
+        "Andrzej Kloczkowski",
+        "Jierui Xu",
+        "Zigang Song",
+        "Selen Özkan",
+        "Natàlia Padilla",
+        "Xavier de la Cruz",
+        "Rocio Acuna-Hidalgo",
+        "Andrea Grafmüller",
+        "Laura T. Jiménez Barrón",
+        "Matteo Manfredi",
+        "Castrense Savojardo",
+        "Giulia Babbi",
+        "Pier Luigi Martelli",
+        "Rita Casadio",
+        "Yuanfei Sun",
+        "Shaowen Zhu",
+        "Yang Shen",
+        "Fabrizio Pucci",
+        "Marianne Rooman",
+        "Gabriel Cia",
+        "Daniele Raimondi",
+        "Pauline Hermans",
+        "Sofia Kwee",
+        "Ella Chen",
+        "Courtney Astore",
+        "Akash Kamandula",
+        "Vikas Pejaver",
+        "Rashika Ramola",
+        "Michelle Velyunskiy",
+        "Daniel Zeiberg",
+        "Reet Mishra",
+        "Teague Sterling",
+        "Jennifer L. Goldstein",
+        "Jose Lugo-Martinez",
+        "Sufyan Kazi",
+        "Sindy Li",
+        "Kinsey Long",
+        "Steven E. Brenner",
+        "Constantina Bakolitsa",
+        "Predrag Radivojac",
+        "Dean Suhr",
+        "Teryn Suhr",
+        "Wyatt T. Clark"
+      ],
+      "listed_venue": "Human Genetics",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Human-genetics/industry paper with no shared coauthors or affiliation; same person not established"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1007/s00439-025-02731-3"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-e2bd843e8d",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Human-genetics/industry paper with no shared coauthors or affiliation; same person not established"
+    },
+    {
+      "title": "BPS2025 - Rapid two-step target capture ensures efficient CRISPR-Cas9-guided genome editing",
+      "year": 2025,
+      "authors": [
+        "Honglue Shi",
+        "Noor Al-Sayyad",
+        "Kevin Wasko",
+        "Marena I. Trinidad",
+        "Erin E. Doherty",
+        "Kamakshi Vohra",
+        "Ron Boger",
+        "David Colognori",
+        "Joshua Cofsky",
+        "Petr Skopintsev",
+        "Zev Bryant",
+        "Jennifer A. Doudna"
+      ],
+      "listed_venue": "Biophysical Journal",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Meeting abstract or correction notice, not a publication"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.bpj.2024.11.547"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-930c28e9e5",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Meeting abstract or correction notice, not a publication"
+    },
+    {
+      "title": "Atlas of CRISPR Correction of Pathogenic Human Genetic Variants",
+      "year": 2025,
+      "authors": [
+        "Taylor Hudson",
+        "Daniel Bellieny-Rabelo",
+        "Christy George",
+        "Kevin Briseno",
+        "Francesca Budiman",
+        "Evan Woo",
+        "Marena Trinidad",
+        "Fyodor Urnov",
+        "Jennifer Doudna",
+        "Petros Giannikopoulos"
+      ],
+      "listed_venue": "Research Square",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: University of California, Berkeley"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.21203/rs.3.rs-6107416/v1"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-1b9fda5a93",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: University of California, Berkeley"
+    },
+    {
+      "title": "Directed evolution expands CRISPR-Cas12a genome editing capacity",
+      "year": 2025,
+      "authors": [
+        "E. Ma",
+        "Kai Chen",
+        "Honglue Shi",
+        "Kevin M. Wasko",
+        "Isabel Esain-Garcia",
+        "Marena I. Trinidad",
+        "Kaihong Zhou",
+        "Jinjuan Ye",
+        "J. Doudna"
+      ],
+      "listed_venue": "bioRxiv",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 5"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1101/2025.03.26.645588"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-5fc6261961",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 5"
+    },
+    {
+      "title": "In vivo human T cell engineering with enveloped delivery vehicles",
+      "year": 2024,
+      "authors": [
+        "Jennifer R. Hamilton",
+        "Evelyn Chen",
+        "Barbara S. Perez",
+        "Cindy R. Sandoval Espinoza",
+        "Min Hyung Kang",
+        "Marena Trinidad",
+        "Wayne Ngo",
+        "Jennifer A. Doudna"
+      ],
+      "listed_venue": "Nature Biotechnology",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1038/s41587-023-02085-z"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-7b6d5c1f4a",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "Lung and liver editing by lipid nanoparticle delivery of a stable CRISPR–Cas9 ribonucleoprotein",
+      "year": 2024,
+      "authors": [
+        "Kai Chen",
+        "Hesong Han",
+        "Sheng Zhao",
+        "Bryant Xu",
+        "Boyan Yin",
+        "Atip Lawanprasert",
+        "Marena Trinidad",
+        "Benjamin W. Burgstone",
+        "Niren Murthy",
+        "Jennifer A. Doudna"
+      ],
+      "listed_venue": "Nature Biotechnology",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1038/s41587-024-02437-3"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-c35fa54f1e",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "Structure-guided discovery of ancestral CRISPR-Cas13 ribonucleases",
+      "year": 2024,
+      "authors": [
+        "Peter H. Yoon",
+        "Zeyuan Zhang",
+        "Kenneth J. Loi",
+        "Benjamin A. Adler",
+        "Arushi Lahiri",
+        "Kamakshi Vohra",
+        "Honglue Shi",
+        "Daniel Bellieny Rabelo",
+        "Marena Trinidad",
+        "Ron S. Boger",
+        "Muntathar J. Al-Shimary",
+        "Jennifer A. Doudna"
+      ],
+      "listed_venue": "Science",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Innovative Genomics Institute, University of California, Berkeley, Berkeley, CA,"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1126/science.adq0553"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-8e72230522",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Innovative Genomics Institute, University of California, Berkeley, Berkeley, CA,"
+    },
+    {
+      "title": "Engineering self-deliverable ribonucleoproteins for genome editing in the brain",
+      "year": 2024,
+      "authors": [
+        "Kai Chen",
+        "Elizabeth C. Stahl",
+        "Min Hyung Kang",
+        "Bryant Xu",
+        "Ryan Allen",
+        "Marena Trinidad",
+        "Jennifer A. Doudna"
+      ],
+      "listed_venue": "Nature Communications",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1038/s41467-024-45998-2"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-5d89eabb9e",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "Haploinsufficiency underlies the neurodevelopmental consequences of SLC6A1 variants",
+      "year": 2024,
+      "authors": [
+        "Dina Buitrago Silva",
+        "Marena Trinidad",
+        "Alicia Ljungdahl",
+        "Jezrael L. Revalde",
+        "Geoffrey Y. Berguig",
+        "William Wallace",
+        "Cory S. Patrick",
+        "Lorenzo Bomba",
+        "Michelle Arkin",
+        "Shan Dong",
+        "Karol Estrada",
+        "Keino Hutchinson",
+        "Jonathan H. LeBowitz",
+        "Avner Schlessinger",
+        "Katrine M. Johannesen",
+        "Rikke S. Møller",
+        "Kathleen M. Giacomini",
+        "Steven Froelich",
+        "Stephan J. Sanders",
+        "Arthur Wuster"
+      ],
+      "listed_venue": "The American Journal of Human Genetics",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Human-genetics/industry paper with no shared coauthors or affiliation; same person not established"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.ajhg.2024.04.021"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-952faf0d17",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Human-genetics/industry paper with no shared coauthors or affiliation; same person not established"
+    },
+    {
+      "title": "eIF3 engages with 3’-UTR termini of highly translated mRNAs",
+      "year": 2024,
+      "authors": [
+        "Santi Mestre-Fos",
+        "Lucas Ferguson",
+        "Marena I Trinidad",
+        "Nicholas T Ingolia",
+        "Jamie HD Cate"
+      ],
+      "listed_venue": "eLife",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 7"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.7554/elife.102977"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-170da94cfe",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 7"
+    },
+    {
+      "title": "eIF3 engages with 3’-UTR termini of highly translated mRNAs",
+      "year": 2024,
+      "authors": [
+        "Santi Mestre-Fos",
+        "Lucas Ferguson",
+        "Marena Trinidad",
+        "Nicholas T Ingolia",
+        "Jamie HD Cate"
+      ],
+      "listed_venue": "eLife",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 7"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.7554/elife.102977.2"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-67cc845f48",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 7"
+    },
+    {
+      "title": "Author Correction: Engineering self-deliverable ribonucleoproteins for genome editing in the brain",
+      "year": 2024,
+      "authors": [
+        "Kai Chen",
+        "Elizabeth C. Stahl",
+        "Min Hyung Kang",
+        "Bryant Xu",
+        "Ryan Allen",
+        "Marena Trinidad",
+        "Jennifer A. Doudna"
+      ],
+      "listed_venue": "Nature Communications",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Meeting abstract or correction notice, not a publication"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1038/s41467-024-48087-6"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-e4a253f115",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Meeting abstract or correction notice, not a publication"
+    },
+    {
+      "title": "eIF3 engages with 3’-UTR termini of highly translated mRNAs",
+      "year": 2024,
+      "authors": [
+        "Santi Mestre-Fos",
+        "Lucas Ferguson",
+        "Marena Trinidad",
+        "Nicholas T Ingolia",
+        "Jamie HD Cate"
+      ],
+      "listed_venue": "eLife",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 7"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.7554/elife.102977.1"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-7d4493feeb",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 7"
+    },
+    {
+      "title": "Mitigation of chromosome loss in clinical CRISPR-Cas9-engineered T cells",
+      "year": 2023,
+      "authors": [
+        "Connor A. Tsuchida",
+        "Nadav Brandes",
+        "Raymund Bueno",
+        "Marena Trinidad",
+        "Thomas Mazumder",
+        "Bingfei Yu",
+        "Byungjin Hwang",
+        "Christopher Chang",
+        "Jamin Liu",
+        "Yang Sun",
+        "Caitlin R. Hopkins",
+        "Kevin R. Parker",
+        "Yanyan Qi",
+        "Laura Hofman",
+        "Ansuman T. Satpathy",
+        "Edward A. Stadtmauer",
+        "Jamie H.D. Cate",
+        "Justin Eyquem",
+        "Joseph A. Fraietta",
+        "Carl H. June",
+        "Howard Y. Chang",
+        "Chun Jimmie Ye",
+        "Jennifer A. Doudna"
+      ],
+      "listed_venue": "Cell",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.cell.2023.08.041"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-ae54bfcda3",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "Precise transcript targeting by CRISPR-Csm complexes",
+      "year": 2023,
+      "authors": [
+        "David Colognori",
+        "Marena Trinidad",
+        "Jennifer A. Doudna"
+      ],
+      "listed_venue": "Nature Biotechnology",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1038/s41587-022-01649-9"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-de2fd02bef",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "Genome editing in the mouse brain with minimally immunogenic Cas9 RNPs",
+      "year": 2023,
+      "authors": [
+        "Elizabeth C. Stahl",
+        "Jennifer K. Sabo",
+        "Min Hyung Kang",
+        "Ryan Allen",
+        "Elizabeth Applegate",
+        "Shin Eui Kim",
+        "Yoonjin Kwon",
+        "Anmol Seth",
+        "Nicholas Lemus",
+        "Viviana Salinas-Rios",
+        "Katarzyna M. Soczek",
+        "Marena Trinidad",
+        "Linda T. Vo",
+        "Chris Jeans",
+        "Anna Wozniak",
+        "Timothy Morris",
+        "Athen Kimberlin",
+        "Thomas Foti",
+        "David F. Savage",
+        "Jennifer A. Doudna"
+      ],
+      "listed_venue": "Molecular Therapy",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.ymthe.2023.06.019"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-585b096e2e",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "Eukaryotic RNA-guided endonucleases evolved from a unique clade of bacterial enzymes",
+      "year": 2023,
+      "authors": [
+        "Peter H Yoon",
+        "Petr Skopintsev",
+        "Honglue Shi",
+        "LinXing Chen",
+        "Benjamin A Adler",
+        "Muntathar Al-Shimary",
+        "Rory J Craig",
+        "Kenneth J Loi",
+        "Evan C DeTurk",
+        "Zheng Li",
+        "Jasmine Amerasekera",
+        "Marena Trinidad",
+        "Hunter Nisonoff",
+        "Kai Chen",
+        "Arushi Lahiri",
+        "Ron Boger",
+        "Steve Jacobsen",
+        "Jillian F Banfield",
+        "Jennifer A Doudna"
+      ],
+      "listed_venue": "Nucleic Acids Research",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Innovative Genomics Institute; University of California , Berkeley , CA , USA"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1093/nar/gkad1053"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-8dc7eeffac",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Innovative Genomics Institute; University of California , Berkeley , CA , USA"
+    },
+    {
+      "title": "SLC6A1 variant pathogenicity, molecular function and phenotype: a genetic and clinical analysis",
+      "year": 2023,
+      "authors": [
+        "Arthur Stefanski",
+        "Eduardo Pérez-Palma",
+        "Tobias Brünger",
+        "Ludovica Montanucci",
+        "Cornelius Gati",
+        "Chiara Klöckner",
+        "Katrine M Johannesen",
+        "Kimberly Goodspeed",
+        "Marie Macnee",
+        "Alexander T Deng",
+        "Ángel Aledo-Serrano",
+        "Artem Borovikov",
+        "Maina Kava",
+        "Arjan M Bouman",
+        "M J Hajianpour",
+        "Deb K Pal",
+        "Marc Engelen",
+        "Eveline E O Hagebeuk",
+        "Marwan Shinawi",
+        "Alexis R Heidlebaugh",
+        "Kathryn Oetjens",
+        "Trevor L Hoffman",
+        "Pasquale Striano",
+        "Amanda S Freed",
+        "Line Futtrup",
+        "Thomas Balslev",
+        "Anna Abulí",
+        "Leslie Danvoye",
+        "Damien Lederer",
+        "Tugce Balci",
+        "Maryam Nabavi Nouri",
+        "Elizabeth Butler",
+        "Sarah Drewes",
+        "Kalene van Engelen",
+        "Katherine B Howell",
+        "Jean Khoury",
+        "Patrick May",
+        "Marena Trinidad",
+        "Steven Froelich",
+        "Johannes R Lemke",
+        "Jacob Tiller",
+        "Amber N Freed",
+        "Jing-Qiong Kang",
+        "Arthur Wuster",
+        "Rikke S Møller",
+        "Dennis Lal"
+      ],
+      "listed_venue": "Brain",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Human-genetics/industry paper with no shared coauthors or affiliation; same person not established"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1093/brain/awad292"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-b77c4de9d9",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Human-genetics/industry paper with no shared coauthors or affiliation; same person not established"
+    },
+    {
+      "title": "Predicting disease severity in metachromatic leukodystrophy using protein activity and a patient phenotype matrix",
+      "year": 2023,
+      "authors": [
+        "Marena Trinidad",
+        "Xinying Hong",
+        "Steven Froelich",
+        "Jessica Daiker",
+        "James Sacco",
+        "Hong Phuc Nguyen",
+        "Madelynn Campagna",
+        "Dean Suhr",
+        "Teryn Suhr",
+        "Jonathan H. LeBowitz",
+        "Michael H. Gelb",
+        "Wyatt T. Clark"
+      ],
+      "listed_venue": "Genome biology",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Human-genetics/industry paper with no shared coauthors or affiliation; same person not established"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1186/s13059-023-03001-z"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-fa833e1cbb",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Human-genetics/industry paper with no shared coauthors or affiliation; same person not established"
+    },
+    {
+      "title": "Genome-wide Characterization of Diverse Bacteriophages Enabled by RNA-Binding CRISPRi",
+      "year": 2023,
+      "authors": [
+        "Benjamin A. Adler",
+        "Muntathar J. Al-Shimary",
+        "Jaymin R. Patel",
+        "Emily Armbruster",
+        "David Colognori",
+        "Emeric J. Charles",
+        "Kate V. Miller",
+        "Arushi Lahiri",
+        "Marena Trinidad",
+        "Ron Boger",
+        "Jason Nomburg",
+        "Sebastien Beurnier",
+        "Michael L. Cui",
+        "Rodolphe Barrangou",
+        "Vivek K. Mutalik",
+        "Joseph S. Schoeniger",
+        "Joseph A. Pogliano",
+        "David F. Savage",
+        "Jennifer A. Doudna",
+        "Brady F. Cress"
+      ],
+      "listed_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1101/2023.09.18.558157"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-06ea7d5ced",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "Lung and liver editing by lipid nanoparticle delivery of a stable CRISPR-Cas9 RNP",
+      "year": 2023,
+      "authors": [
+        "Kai Chen",
+        "He-Song Han",
+        "Sheng Zhao",
+        "Bryant Xu",
+        "Boyan Yin",
+        "Marena I. Trinidad",
+        "Benjamin W. Burgstone",
+        "N. Murthy",
+        "J. Doudna"
+      ],
+      "listed_venue": "bioRxiv",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 13"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1101/2023.11.15.566339"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-2d158ebef2",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 13"
+    },
+    {
+      "title": "Eukaryotic RNA-guided endonucleases evolved from a unique clade of bacterial enzymes",
+      "year": 2023,
+      "authors": [
+        "P. Yoon",
+        "P. Skopintsev",
+        "Honglue Shi",
+        "Lin-Xing Chen",
+        "B. Adler",
+        "Muntathar J. Al-Shimary",
+        "Rory J. Craig",
+        "Zheng Li",
+        "Jasmine Amerasekera",
+        "Marena I. Trinidad",
+        "Hunter M. Nisonoff",
+        "Kai Chen",
+        "Arushi Lahiri",
+        "Ron S. Boger",
+        "S. Jacobsen",
+        "J. Banfield",
+        "J. Doudna"
+      ],
+      "listed_venue": "bioRxiv",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 25"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1101/2023.08.09.552727"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-378502e6f3",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 25"
+    },
+    {
+      "title": "Engineering self-deliverable ribonucleoproteins for genome editing in the brain",
+      "year": 2023,
+      "authors": [
+        "Kai Chen",
+        "E. Stahl",
+        "Min Kang",
+        "Bryant Xu",
+        "Ryan Allen",
+        "Marena I. Trinidad",
+        "J. Doudna"
+      ],
+      "listed_venue": "bioRxiv",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 15"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1101/2023.11.15.567251"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-03570c139e",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 15"
+    },
+    {
+      "title": "Mitigation of chromosome loss in clinical CRISPR-Cas9-engineered T cells",
+      "year": 2023,
+      "authors": [
+        "Connor A. Tsuchida",
+        "N. Brandes",
+        "R. Bueno",
+        "Marena I. Trinidad",
+        "Thomas Mazumder",
+        "Bingfei Yu",
+        "Byungjin Hwang",
+        "Christopher R. Chang",
+        "Jamin Liu",
+        "Yang Sun",
+        "Caitlin R. Hopkins",
+        "Kevin R. Parker",
+        "Yan-Yan Qi",
+        "Ansuman T. Satpathy",
+        "E. Stadtmauer",
+        "Jamie H. D. Cate",
+        "Justin Eyquem",
+        "J. Fraietta",
+        "Carl H. June",
+        "Howard Y. Chang",
+        "C. Ye",
+        "J. Doudna"
+      ],
+      "listed_venue": "bioRxiv",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 21"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1101/2023.03.22.533709"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-a16ec63739",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 21"
+    },
+    {
+      "title": "Improved genome editing by an engineered CRISPR-Cas12a",
+      "year": 2022,
+      "authors": [
+        "Enbo Ma",
+        "Kai Chen",
+        "Honglue Shi",
+        "Elizabeth C Stahl",
+        "Ben Adler",
+        "Marena Trinidad",
+        "Junjie Liu",
+        "Kaihong Zhou",
+        "Jinjuan Ye",
+        "Jennifer A Doudna"
+      ],
+      "listed_venue": "Nucleic Acids Research",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Innovative Genomics Institute, University of California , Berkeley , CA  94720,"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1093/nar/gkac1192"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-10dbc4d002",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Innovative Genomics Institute, University of California , Berkeley , CA  94720,"
+    },
+    {
+      "title": "Decorating chromatin for enhanced genome editing using CRISPR-Cas9",
+      "year": 2022,
+      "authors": [
+        "Evelyn Chen",
+        "Enrique Lin-Shiao",
+        "Marena Trinidad",
+        "Mohammad Saffari Doost",
+        "David Colognori",
+        "Jennifer A. Doudna"
+      ],
+      "listed_venue": "Proceedings of the National Academy of Sciences",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Department of Molecular and Cell Biology, University of California, Berkeley, CA"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1073/pnas.2204259119"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-5437c0ff35",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Department of Molecular and Cell Biology, University of California, Berkeley, CA"
+    },
+    {
+      "title": "Programmable enveloped delivery vehicles for human genome engineering in vivo",
+      "year": 2022,
+      "authors": [
+        "Jennifer R. Hamilton",
+        "Evelyn Chen",
+        "Barbara S. Perez",
+        "Cindy R. Sandoval Espinoza",
+        "Min Hyung Kang",
+        "Marena Trinidad",
+        "Jennifer A. Doudna"
+      ],
+      "listed_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1101/2022.08.24.505004"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-e1f8ce9461",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "Haploinsufficiency underlies the neurodevelopmental consequences of SLC6A1 /GAT-1 variants",
+      "year": 2022,
+      "authors": [
+        "Dina Buitrago Silva",
+        "Marena Trinidad",
+        "Alicia Ljungdahl",
+        "Jezrael L. Revalde",
+        "Geoffrey Y. Berguig",
+        "William Wallace",
+        "Cory S. Patrick",
+        "Lorenzo Bomba",
+        "Michelle Arkin",
+        "Shan Dong",
+        "Karol Estrada",
+        "Keino Hutchinson",
+        "Jonathan H. LeBowitz",
+        "Avner Schlessinger",
+        "Katrine M. Johannesen",
+        "Rikke S. Møller",
+        "Kathleen M. Giacomini",
+        "Steven Froelich",
+        "Stephan J. Sanders",
+        "Arthur Wuster"
+      ],
+      "listed_venue": "medRxiv",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Human-genetics/industry paper with no shared coauthors or affiliation; same person not established"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1101/2022.03.09.22271804"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-3f179b1057",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Human-genetics/industry paper with no shared coauthors or affiliation; same person not established"
+    },
+    {
+      "title": "Identifying therapeutic drug targets using bidirectional effect genes",
+      "year": 2021,
+      "authors": [
+        "Karol Estrada",
+        "Steven Froelich",
+        "Arthur Wuster",
+        "Christopher R. Bauer",
+        "Teague Sterling",
+        "Wyatt T. Clark",
+        "Yuanbin Ru",
+        "Marena Trinidad",
+        "Hong Phuc Nguyen",
+        "Amanda R. Luu",
+        "Daniel J. Wendt",
+        "Gouri Yogalingam",
+        "Guoying Karen Yu",
+        "Jonathan H. LeBowitz",
+        "Lon R. Cardon"
+      ],
+      "listed_venue": "Nature Communications",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Human-genetics/industry paper with no shared coauthors or affiliation; same person not established"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1038/s41467-021-21843-8"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-cacd36bed2",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Human-genetics/industry paper with no shared coauthors or affiliation; same person not established"
+    },
+    {
+      "title": "Identifying therapeutic drug targets for rare and common forms of short stature",
+      "year": 2020,
+      "authors": [
+        "Karol Estrada",
+        "Steven Froelich",
+        "Arthur Wuster",
+        "Christopher R. Bauer",
+        "Teague Sterling",
+        "Wyatt T. Clark",
+        "Yuanbin Ru",
+        "Marena Trinidad",
+        "Hong Phuc Nguyen",
+        "Amanda R. Luu",
+        "Daniel J. Wendt",
+        "Gouri Yogalingam",
+        "Guoying Karen Yu",
+        "Jonathan H. LeBowitz",
+        "Lon R. Cardon"
+      ],
+      "listed_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Human-genetics/industry paper with no shared coauthors or affiliation; same person not established"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1101/2020.04.02.022624"
+      ],
+      "evaluation_id": "bio_marena_trinidad:added-a4bdb258ba",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Human-genetics/industry paper with no shared coauthors or affiliation; same person not established"
+    }
+  ],
+  "excluded": []
+}

@@ -1,0 +1,2616 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "assistant_reviewed",
+    "reviewer": "Claude (AI review requested by the user, 2026-10-19)",
+    "reviewed_at": "2026-10-19",
+    "person_id": "bio_brian_hie",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Brian Hie",
+      "university": "Stanford University"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.805655+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "stanford_profile.json",
+        "url": "https://profiles.stanford.edu/brian-hie?tab=publications",
+        "records": 18
+      },
+      {
+        "kind": "orcid",
+        "locator": "0000-0003-3224-8142",
+        "url": "https://orcid.org/0000-0003-3224-8142",
+        "records": 52
+      }
+    ],
+    "excluded_counts": {
+      "outside_year_window": 18
+    },
+    "review_progress": {
+      "decided": 41,
+      "pending": 0
+    }
+  },
+  "papers": [
+    {
+      "evaluation_id": "bio_brian_hie:7278143ace82",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Computational Methods for Single-Cell RNA Sequencing",
+      "year": 2020,
+      "authors": [
+        "Hie, Brian",
+        "Peters, Joshua",
+        "Nyquist, Sarah K.",
+        "Shalek, Alex K.",
+        "Berger, Bonnie",
+        "Bryson, Bryan D.",
+        "Altman, R. B."
+      ],
+      "listed_venue": "ANNUAL REVIEW OF BIOMEDICAL DATA SCIENCE, VOL 3, 2020",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 102729649",
+        "Public list https://profiles.stanford.edu/brian-hie?tab=publications entry 18 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1146/annurev-biodatasci-012220-100601"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Hie, B., Peters, J., Nyquist, S. K., Shalek, A. K., Berger, B., Bryson, B. D",
+          "year": 2020,
+          "authors": [
+            "R. B. edited by Altman"
+          ]
+        },
+        {
+          "title": "Computational Methods for Single-Cell RNA Sequencing",
+          "year": 2019,
+          "authors": [
+            "Hie, Brian",
+            "Peters, Joshua",
+            "Nyquist, Sarah K.",
+            "Shalek, Alex K.",
+            "Berger, Bonnie",
+            "Bryson, Bryan D.",
+            "Altman, R. B."
+          ]
+        },
+        {
+          "title": "Computational Methods for Single-Cell RNA Sequencing",
+          "year": 2021,
+          "authors": [
+            "Hie, Brian",
+            "Peters, Joshua",
+            "Nyquist, Sarah K.",
+            "Shalek, Alex K.",
+            "Berger, Bonnie",
+            "Bryson, Bryan D.",
+            "Altman, R. B."
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:0388ece1b982",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Learning the language of viral evolution and escape",
+      "year": 2020,
+      "authors": [
+        "B. Hie",
+        "E. D. Zhong",
+        "B. Berger",
+        "B. Bryson"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article",
+        "other",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 77058533",
+        "ORCID 0000-0003-3224-8142 put-code 86855367",
+        "Public list https://profiles.stanford.edu/brian-hie?tab=publications entry 16 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_3_source_records"
+      ],
+      "dois": [
+        "10.1101/2020.07.08.193946",
+        "10.1126/science.abd7331"
+      ],
+      "external_ids": {
+        "pubmed": "33446556",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/33446556"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Learning the language of viral evolution and escape",
+          "year": 2021,
+          "authors": [
+            "B. Hie",
+            "E. D. Zhong",
+            "B. Berger",
+            "B. Bryson"
+          ]
+        },
+        {
+          "title": "Learning the language of viral evolution and escape",
+          "year": 2019,
+          "authors": [
+            "B. Hie",
+            "E. D. Zhong",
+            "B. Berger",
+            "B. Bryson"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:767c8e3d0146",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Learning with uncertainty for biological discovery and design",
+      "year": 2020,
+      "authors": [
+        "Brian Hie",
+        "Bryan Bryson",
+        "Bonnie Berger"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 78746801"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1101/2020.08.11.247072"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Learning with uncertainty for biological discovery and design",
+          "year": 2019,
+          "authors": [
+            "Brian Hie",
+            "Bryan Bryson",
+            "Bonnie Berger"
+          ]
+        },
+        {
+          "title": "Learning with uncertainty for biological discovery and design",
+          "year": 2021,
+          "authors": [
+            "Brian Hie",
+            "Bryan Bryson",
+            "Bonnie Berger"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:6f43856f5998",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Leveraging Uncertainty in Machine Learning Accelerates Biological Discovery and Design",
+      "year": 2020,
+      "authors": [
+        "B. Hie",
+        "B. D. Bryson",
+        "B. Berger"
+      ],
+      "listed_venue": "CELL SYSTEMS",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 102729650",
+        "Public list https://profiles.stanford.edu/brian-hie?tab=publications entry 17 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1016/j.cels.2020.09.007"
+      ],
+      "external_ids": {
+        "pubmed": "33065027",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/33065027"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Leveraging Uncertainty in Machine Learning Accelerates Biological Discovery and Design",
+          "year": 2019,
+          "authors": [
+            "B. Hie",
+            "B. D. Bryson",
+            "B. Berger"
+          ]
+        },
+        {
+          "title": "Leveraging Uncertainty in Machine Learning Accelerates Biological Discovery and Design",
+          "year": 2021,
+          "authors": [
+            "B. Hie",
+            "B. D. Bryson",
+            "B. Berger"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:98c2cb9bdf6b",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Evolutionary velocity with protein language models",
+      "year": 2021,
+      "authors": [
+        "Brian L. Hie",
+        "Kevin K. Yang",
+        "Peter S. Kim"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "other"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 95137049"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1101/2021.06.07.447389"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Evolutionary velocity with protein language models",
+          "year": 2020,
+          "authors": [
+            "Brian L. Hie",
+            "Kevin K. Yang",
+            "Peter S. Kim"
+          ]
+        },
+        {
+          "title": "Evolutionary velocity with protein language models",
+          "year": 2022,
+          "authors": [
+            "Brian L. Hie",
+            "Kevin K. Yang",
+            "Peter S. Kim"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:04158914f724",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Predicting the mutational drivers of future SARS-CoV-2 variants of concern",
+      "year": 2021,
+      "authors": [
+        "M. Cyrus Maher",
+        "Istvan Bartha",
+        "Steven Weaver",
+        "Julia di Iulio",
+        "Elena Ferri",
+        "Leah Soriaga",
+        "Florian A. Lempp",
+        "Brian L. Hie",
+        "Bryan Bryson",
+        "Bonnie Berger",
+        "David L. Robertson",
+        "Gyorgy Snell",
+        "Davide Corti",
+        "Herbert W. Virgin",
+        "Sergei L. Kosakovsky Pond",
+        "Amalio Telenti"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "journal_article",
+        "other"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 106100943",
+        "ORCID 0000-0003-3224-8142 put-code 95905595"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1101/2021.06.21.21259286",
+        "10.1126/scitranslmed.abk3445"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Predicting the mutational drivers of future SARS-CoV-2 variants of concern",
+          "year": 2022,
+          "authors": [
+            "M. Cyrus Maher",
+            "Istvan Bartha",
+            "Steven Weaver",
+            "Julia di Iulio",
+            "Elena Ferri",
+            "Leah Soriaga",
+            "Florian A. Lempp",
+            "Brian L. Hie",
+            "Bryan Bryson",
+            "Bonnie Berger",
+            "David L. Robertson",
+            "Gyorgy Snell",
+            "Davide Corti",
+            "Herbert W. Virgin",
+            "Sergei L. Kosakovsky Pond",
+            "Amalio Telenti"
+          ]
+        },
+        {
+          "title": "Predicting the mutational drivers of future SARS-CoV-2 variants of concern",
+          "year": 2020,
+          "authors": [
+            "M. Cyrus Maher",
+            "Istvan Bartha",
+            "Steven Weaver",
+            "Julia di Iulio",
+            "Elena Ferri",
+            "Leah Soriaga",
+            "Florian A. Lempp",
+            "Brian L. Hie",
+            "Bryan Bryson",
+            "Bonnie Berger",
+            "David L. Robertson",
+            "Gyorgy Snell",
+            "Davide Corti",
+            "Herbert W. Virgin",
+            "Sergei L. Kosakovsky Pond",
+            "Amalio Telenti"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:f9ede8f54348",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Schema: metric learning enables interpretable synthesis of heterogeneous single-cell modalities",
+      "year": 2021,
+      "authors": [
+        "R. Singh",
+        "B. L. Hie",
+        "A. Narayan",
+        "B. Berger"
+      ],
+      "listed_venue": "GENOME BIOLOGY",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 102729652",
+        "Public list https://profiles.stanford.edu/brian-hie?tab=publications entry 15 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1186/s13059-021-02313-2"
+      ],
+      "external_ids": {
+        "pubmed": "33941239",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/33941239"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Schema: metric learning enables interpretable synthesis of heterogeneous single-cell modalities",
+          "year": 2020,
+          "authors": [
+            "R. Singh",
+            "B. L. Hie",
+            "A. Narayan",
+            "B. Berger"
+          ]
+        },
+        {
+          "title": "Schema: metric learning enables interpretable synthesis of heterogeneous single-cell modalities",
+          "year": 2022,
+          "authors": [
+            "R. Singh",
+            "B. L. Hie",
+            "A. Narayan",
+            "B. Berger"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:59935dd89cdc",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "A high-level programming language for generative protein design",
+      "year": 2022,
+      "authors": [
+        "Brian Hie",
+        "Salvatore Candido",
+        "Zeming Lin",
+        "Ori Kabeli",
+        "Roshan Rao",
+        "Nikita Smetanin",
+        "Tom Sercu",
+        "Alexander Rives"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 163838771"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1101/2022.12.21.521526"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A high-level programming language for generative protein design",
+          "year": 2021,
+          "authors": [
+            "Brian Hie",
+            "Salvatore Candido",
+            "Zeming Lin",
+            "Ori Kabeli",
+            "Roshan Rao",
+            "Nikita Smetanin",
+            "Tom Sercu",
+            "Alexander Rives"
+          ]
+        },
+        {
+          "title": "A high-level programming language for generative protein design",
+          "year": 2023,
+          "authors": [
+            "Brian Hie",
+            "Salvatore Candido",
+            "Zeming Lin",
+            "Ori Kabeli",
+            "Roshan Rao",
+            "Nikita Smetanin",
+            "Tom Sercu",
+            "Alexander Rives"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:266812a66198",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Adaptive machine learning for protein engineering",
+      "year": 2022,
+      "authors": [
+        "Brian L. Hie",
+        "Kevin K. Yang"
+      ],
+      "listed_venue": "Current Opinion in Structural Biology",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 104516148"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1016/j.sbi.2021.11.002"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Adaptive machine learning for protein engineering",
+          "year": 2021,
+          "authors": [
+            "Brian L. Hie",
+            "Kevin K. Yang"
+          ]
+        },
+        {
+          "title": "Adaptive machine learning for protein engineering",
+          "year": 2023,
+          "authors": [
+            "Brian L. Hie",
+            "Kevin K. Yang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:7fb62dabe812",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "title": "Efficient evolution of human antibodies from general protein language models and sequence information alone",
+      "year": 2022,
+      "authors": [
+        "Brian L. Hie",
+        "Duo Xu",
+        "Varun R. Shanker",
+        "Theodora U.J. Bruun",
+        "Payton A. Weidenbacher",
+        "Shaogeng Tang",
+        "Peter S. Kim"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 111681113"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1101/2022.04.10.487811"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Efficient evolution of human antibodies from general protein language models and sequence information alone",
+          "year": 2021,
+          "authors": [
+            "Brian L. Hie",
+            "Duo Xu",
+            "Varun R. Shanker",
+            "Theodora U.J. Bruun",
+            "Payton A. Weidenbacher",
+            "Shaogeng Tang",
+            "Peter S. Kim"
+          ]
+        },
+        {
+          "title": "Efficient evolution of human antibodies from general protein language models and sequence information alone",
+          "year": 2023,
+          "authors": [
+            "Brian L. Hie",
+            "Duo Xu",
+            "Varun R. Shanker",
+            "Theodora U.J. Bruun",
+            "Payton A. Weidenbacher",
+            "Shaogeng Tang",
+            "Peter S. Kim"
+          ]
+        }
+      ],
+      "reviewer_note": "Another version of row 12"
+    },
+    {
+      "evaluation_id": "bio_brian_hie:64afb57a1cce",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Evolutionary velocity with protein language models predicts evolutionary dynamics of diverse proteins",
+      "year": 2022,
+      "authors": [
+        "B. L. Hie",
+        "K. K. Yang",
+        "P. S. Kim"
+      ],
+      "listed_venue": "Cell systems",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 108043713",
+        "Public list https://profiles.stanford.edu/brian-hie?tab=publications entry 14 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1016/j.cels.2022.01.003"
+      ],
+      "external_ids": {
+        "pubmed": "35120643",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/35120643"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Evolutionary velocity with protein language models predicts evolutionary dynamics of diverse proteins",
+          "year": 2021,
+          "authors": [
+            "B. L. Hie",
+            "K. K. Yang",
+            "P. S. Kim"
+          ]
+        },
+        {
+          "title": "Evolutionary velocity with protein language models predicts evolutionary dynamics of diverse proteins",
+          "year": 2023,
+          "authors": [
+            "B. L. Hie",
+            "K. K. Yang",
+            "P. S. Kim"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:f58169bc4b9a",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Learning inverse folding from millions of predicted structures",
+      "year": 2022,
+      "authors": [
+        "Hsu, Chloe",
+        "Verkuil, Robert",
+        "Liu, Jason",
+        "Lin, Zeming",
+        "Hie, Brian",
+        "Sercu, Tom",
+        "Lerer, Adam",
+        "Rives, Alexander",
+        "Chaudhuri, Kamalika",
+        "Jegelka, Stefanie",
+        "Song, Le",
+        "Szepesvari, Csaba",
+        "Niu, Gang",
+        "Sabato, Sivan"
+      ],
+      "listed_venue": "Proceedings of the 39th International Conference on Machine Learning",
+      "work_types": [
+        "conference_paper",
+        "preprint"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 111335359",
+        "ORCID 0000-0003-3224-8142 put-code 163838992"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1101/2022.04.10.487779"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Learning inverse folding from millions of predicted structures",
+          "year": 2021,
+          "authors": [
+            "Hsu, Chloe",
+            "Verkuil, Robert",
+            "Liu, Jason",
+            "Lin, Zeming",
+            "Hie, Brian",
+            "Sercu, Tom",
+            "Lerer, Adam",
+            "Rives, Alexander",
+            "Chaudhuri, Kamalika",
+            "Jegelka, Stefanie",
+            "Song, Le",
+            "Szepesvari, Csaba",
+            "Niu, Gang",
+            "Sabato, Sivan"
+          ]
+        },
+        {
+          "title": "Learning inverse folding from millions of predicted structures",
+          "year": 2023,
+          "authors": [
+            "Hsu, Chloe",
+            "Verkuil, Robert",
+            "Liu, Jason",
+            "Lin, Zeming",
+            "Hie, Brian",
+            "Sercu, Tom",
+            "Lerer, Adam",
+            "Rives, Alexander",
+            "Chaudhuri, Kamalika",
+            "Jegelka, Stefanie",
+            "Song, Le",
+            "Szepesvari, Csaba",
+            "Niu, Gang",
+            "Sabato, Sivan"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2022.04.10.487779",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Learning inverse folding from millions of predicted structures",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:762fe5a1aeda",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Efficient evolution of human antibodies from general protein language models",
+      "year": 2023,
+      "authors": [
+        "B. L. Hie",
+        "V. R. Shanker",
+        "D. Xu",
+        "T. U. Bruun",
+        "P. A. Weidenbacher",
+        "S. Tang",
+        "W. Wu",
+        "J. E. Pak",
+        "P. S. Kim"
+      ],
+      "listed_venue": "Nature biotechnology",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 133680506",
+        "Public list https://profiles.stanford.edu/brian-hie?tab=publications entry 12 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1038/s41587-023-01763-2"
+      ],
+      "external_ids": {
+        "pubmed": "37095349",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/37095349"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Efficient evolution of human antibodies from general protein language models",
+          "year": 2024,
+          "authors": [
+            "Brian L. Hie",
+            "Varun R. Shanker",
+            "Duo Xu",
+            "Theodora U. J. Bruun",
+            "Payton A. Weidenbacher",
+            "Shaogeng Tang",
+            "Wesley Wu",
+            "John E. Pak",
+            "Peter S. Kim"
+          ]
+        },
+        {
+          "title": "Efficient evolution of human antibodies from general protein language models",
+          "year": 2022,
+          "authors": [
+            "B. L. Hie",
+            "V. R. Shanker",
+            "D. Xu",
+            "T. U. Bruun",
+            "P. A. Weidenbacher",
+            "S. Tang",
+            "W. Wu",
+            "J. E. Pak",
+            "P. S. Kim"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:3d582f28edb8",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Evolutionary-scale prediction of atomic-level protein structure with a language model",
+      "year": 2023,
+      "authors": [
+        "Z. Lin",
+        "H. Akin",
+        "R. Rao",
+        "B. Hie",
+        "Z. Zhu",
+        "W. Lu",
+        "N. Smetanin",
+        "R. Verkuil",
+        "O. Kabeli",
+        "Y. Shmueli",
+        "A. Dos Santos Costa",
+        "M. Fazel-Zarandi",
+        "T. Sercu",
+        "S. Candido",
+        "A. Rives"
+      ],
+      "listed_venue": "Science (New York, N.Y.)",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 130981740",
+        "Public list https://profiles.stanford.edu/brian-hie?tab=publications entry 13 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1126/science.ade2574"
+      ],
+      "external_ids": {
+        "pubmed": "36927031",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/36927031"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Evolutionary-scale prediction of atomic-level protein structure with a language model",
+          "year": 2022,
+          "authors": [
+            "Z. Lin",
+            "H. Akin",
+            "R. Rao",
+            "B. Hie",
+            "Z. Zhu",
+            "W. Lu",
+            "N. Smetanin",
+            "R. Verkuil",
+            "O. Kabeli",
+            "Y. Shmueli",
+            "A. Dos Santos Costa",
+            "M. Fazel-Zarandi",
+            "T. Sercu",
+            "S. Candido",
+            "A. Rives"
+          ]
+        },
+        {
+          "title": "Evolutionary-scale prediction of atomic-level protein structure with a language model",
+          "year": 2024,
+          "authors": [
+            "Z. Lin",
+            "H. Akin",
+            "R. Rao",
+            "B. Hie",
+            "Z. Zhu",
+            "W. Lu",
+            "N. Smetanin",
+            "R. Verkuil",
+            "O. Kabeli",
+            "Y. Shmueli",
+            "A. Dos Santos Costa",
+            "M. Fazel-Zarandi",
+            "T. Sercu",
+            "S. Candido",
+            "A. Rives"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:243cea217f63",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Inverse folding of protein complexes with a structure-informed language model enables unsupervised antibody evolution",
+      "year": 2023,
+      "authors": [
+        "V. R. Shanker",
+        "T. U. Bruun",
+        "B. L. Hie",
+        "P. S. Kim"
+      ],
+      "listed_venue": "bioRxiv : the preprint server for biology",
+      "work_types": [
+        "preprint",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 149153608",
+        "Public list https://profiles.stanford.edu/brian-hie?tab=publications entry 10 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1101/2023.12.19.572475"
+      ],
+      "external_ids": {
+        "pubmed": "38187780",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/38187780"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Inverse folding of protein complexes with a structure-informed language model enables unsupervised antibody evolution",
+          "year": 2022,
+          "authors": [
+            "V. R. Shanker",
+            "T. U. Bruun",
+            "B. L. Hie",
+            "P. S. Kim"
+          ]
+        },
+        {
+          "title": "Inverse folding of protein complexes with a structure-informed language model enables unsupervised antibody evolution",
+          "year": 2024,
+          "authors": [
+            "V. R. Shanker",
+            "T. U. Bruun",
+            "B. L. Hie",
+            "P. S. Kim"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:bbdc4e0b844a",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Machine Learning for Protein Engineering",
+      "year": 2023,
+      "authors": [
+        "K. E. Johnston",
+        "C. Fannjiang",
+        "B. J. Wittmann",
+        "B. L. Hie",
+        "K. K. Yang",
+        "Z. Wu"
+      ],
+      "listed_venue": "ArXiv",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 145092147",
+        "Public list https://profiles.stanford.edu/brian-hie?tab=publications entry 11 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1038/nrm2805"
+      ],
+      "external_ids": {
+        "pubmed": "37292483",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/37292483"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Machine Learning for Protein Engineering",
+          "year": 2022,
+          "authors": [
+            "K. E. Johnston",
+            "C. Fannjiang",
+            "B. J. Wittmann",
+            "B. L. Hie",
+            "K. K. Yang",
+            "Z. Wu"
+          ]
+        },
+        {
+          "title": "Machine Learning for Protein Engineering",
+          "year": 2024,
+          "authors": [
+            "K. E. Johnston",
+            "C. Fannjiang",
+            "B. J. Wittmann",
+            "B. L. Hie",
+            "K. K. Yang",
+            "Z. Wu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:743c51359366",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Aligning protein generative models with experimental fitness via Direct Preference Optimization",
+      "year": 2024,
+      "authors": [
+        "Talal Widatalla",
+        "Rafael Rafailov",
+        "Brian Hie"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 160037545"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1101/2024.05.20.595026"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Aligning protein generative models with experimental fitness via Direct Preference Optimization",
+          "year": 2023,
+          "authors": [
+            "Talal Widatalla",
+            "Rafael Rafailov",
+            "Brian Hie"
+          ]
+        },
+        {
+          "title": "Aligning protein generative models with experimental fitness via Direct Preference Optimization",
+          "year": 2025,
+          "authors": [
+            "Talal Widatalla",
+            "Rafael Rafailov",
+            "Brian Hie"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:ce43fa227465",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Generative artificial intelligence for de novo protein design",
+      "year": 2024,
+      "authors": [
+        "A. Winnifrith",
+        "C. Outeiral",
+        "B. L. Hie"
+      ],
+      "listed_venue": "Current opinion in structural biology",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 189886360",
+        "Public list https://profiles.stanford.edu/brian-hie?tab=publications entry 9 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1016/j.sbi.2024.102794"
+      ],
+      "external_ids": {
+        "pubmed": "38663170",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/38663170"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Generative artificial intelligence for de novo protein design",
+          "year": 2023,
+          "authors": [
+            "A. Winnifrith",
+            "C. Outeiral",
+            "B. L. Hie"
+          ]
+        },
+        {
+          "title": "Generative artificial intelligence for de novo protein design",
+          "year": 2025,
+          "authors": [
+            "A. Winnifrith",
+            "C. Outeiral",
+            "B. L. Hie"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:4c11dcd30507",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Scanorama: integrating large and diverse single-cell transcriptomic datasets",
+      "year": 2024,
+      "authors": [
+        "B. L. Hie",
+        "S. Kim",
+        "T. A. Rando",
+        "B. Bryson",
+        "B. Berger"
+      ],
+      "listed_venue": "Nature protocols",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 189886364",
+        "Public list https://profiles.stanford.edu/brian-hie?tab=publications entry 8 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1038/s41596-024-00991-3"
+      ],
+      "external_ids": {
+        "pubmed": "38844552",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/38844552"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Scanorama: integrating large and diverse single-cell transcriptomic datasets",
+          "year": 2023,
+          "authors": [
+            "B. L. Hie",
+            "S. Kim",
+            "T. A. Rando",
+            "B. Bryson",
+            "B. Berger"
+          ]
+        },
+        {
+          "title": "Scanorama: integrating large and diverse single-cell transcriptomic datasets",
+          "year": 2025,
+          "authors": [
+            "B. L. Hie",
+            "S. Kim",
+            "T. A. Rando",
+            "B. Bryson",
+            "B. Berger"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:c7c811170fff",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "title": "Semantic mining of functional de novo genes from a genomic language model",
+      "year": 2024,
+      "authors": [
+        "Aditi T. Merchant",
+        "Samuel H. King",
+        "Eric Nguyen",
+        "Brian L. Hie"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 177361427"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1101/2024.12.17.628962"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Semantic mining of functional de novo genes from a genomic language model",
+          "year": 2023,
+          "authors": [
+            "Aditi T. Merchant",
+            "Samuel H. King",
+            "Eric Nguyen",
+            "Brian L. Hie"
+          ]
+        },
+        {
+          "title": "Semantic mining of functional de novo genes from a genomic language model",
+          "year": 2025,
+          "authors": [
+            "Aditi T. Merchant",
+            "Samuel H. King",
+            "Eric Nguyen",
+            "Brian L. Hie"
+          ]
+        }
+      ],
+      "reviewer_note": "Another version of row 24"
+    },
+    {
+      "evaluation_id": "bio_brian_hie:bd4396d9016b",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Sequence modeling and design from molecular to genome scale with Evo",
+      "year": 2024,
+      "authors": [
+        "E. Nguyen",
+        "M. Poli",
+        "M. G. Durrant",
+        "B. Kang",
+        "D. Katrekar",
+        "D. B. Li",
+        "L. J. Bartie",
+        "A. W. Thomas",
+        "S. H. King",
+        "G. Brixi",
+        "J. Sullivan",
+        "M. Y. Ng",
+        "A. Lewis",
+        "A. Lou",
+        "S. Ermon",
+        "S. A. Baccus",
+        "T. Hernandez-Boussard",
+        "C. Re",
+        "P. D. Hsu",
+        "B. L. Hie"
+      ],
+      "listed_venue": "Science (New York, N.Y.)",
+      "work_types": [
+        "journal_article",
+        "preprint",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 163838774",
+        "ORCID 0000-0003-3224-8142 put-code 189886365",
+        "Public list https://profiles.stanford.edu/brian-hie?tab=publications entry 6 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_3_source_records"
+      ],
+      "dois": [
+        "10.1101/2024.02.27.582234",
+        "10.1126/science.ado9336"
+      ],
+      "external_ids": {
+        "pubmed": "39541441",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/39541441"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Sequence modeling and design from molecular to genome scale with Evo",
+          "year": 2023,
+          "authors": [
+            "E. Nguyen",
+            "M. Poli",
+            "M. G. Durrant",
+            "B. Kang",
+            "D. Katrekar",
+            "D. B. Li",
+            "L. J. Bartie",
+            "A. W. Thomas",
+            "S. H. King",
+            "G. Brixi",
+            "J. Sullivan",
+            "M. Y. Ng",
+            "A. Lewis",
+            "A. Lou",
+            "S. Ermon",
+            "S. A. Baccus",
+            "T. Hernandez-Boussard",
+            "C. Re",
+            "P. D. Hsu",
+            "B. L. Hie"
+          ]
+        },
+        {
+          "title": "Sequence modeling and design from molecular to genome scale with Evo",
+          "year": 2025,
+          "authors": [
+            "E. Nguyen",
+            "M. Poli",
+            "M. G. Durrant",
+            "B. Kang",
+            "D. Katrekar",
+            "D. B. Li",
+            "L. J. Bartie",
+            "A. W. Thomas",
+            "S. H. King",
+            "G. Brixi",
+            "J. Sullivan",
+            "M. Y. Ng",
+            "A. Lewis",
+            "A. Lou",
+            "S. Ermon",
+            "S. A. Baccus",
+            "T. Hernandez-Boussard",
+            "C. Re",
+            "P. D. Hsu",
+            "B. L. Hie"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:c5a58b2d6bf3",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Unsupervised evolution of protein and antibody complexes with a structure-informed language model",
+      "year": 2024,
+      "authors": [
+        "V. R. Shanker",
+        "T. U. Bruun",
+        "B. L. Hie",
+        "P. S. Kim"
+      ],
+      "listed_venue": "Science (New York, N.Y.)",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 162982385",
+        "Public list https://profiles.stanford.edu/brian-hie?tab=publications entry 7 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1126/science.adk8946"
+      ],
+      "external_ids": {
+        "pubmed": "38963838",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/38963838"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Unsupervised evolution of protein and antibody complexes with a structure-informed language model",
+          "year": 2023,
+          "authors": [
+            "V. R. Shanker",
+            "T. U. Bruun",
+            "B. L. Hie",
+            "P. S. Kim"
+          ]
+        },
+        {
+          "title": "Unsupervised evolution of protein and antibody complexes with a structure-informed language model",
+          "year": 2025,
+          "authors": [
+            "V. R. Shanker",
+            "T. U. Bruun",
+            "B. L. Hie",
+            "P. S. Kim"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:dba53b4c9e66",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Efficient generation of epitope-targetedde novoantibodies with Germinal",
+      "year": 2025,
+      "authors": [
+        "Luis S. Mille-Fragoso",
+        "Claudia L. Driscoll",
+        "John N. Wang",
+        "Haoyu Dai",
+        "Talal Widatalla",
+        "Jim L. Zhang",
+        "Xiaowei Zhang",
+        "Bing Rao",
+        "Liang Feng",
+        "Brian L. Hie",
+        "Xiaojing J. Gao"
+      ],
+      "listed_venue": "bioRxiv : the preprint server for biology",
+      "work_types": [
+        "preprint",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 192637758",
+        "Public list https://profiles.stanford.edu/brian-hie?tab=publications entry 2 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1101/2025.09.19.677421"
+      ],
+      "external_ids": {
+        "pubmed": "41040335",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/41040335"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Efficient generation of epitope-targeted de novo antibodies with Germinal",
+          "year": 2025,
+          "authors": [
+            "Luis S. Mille-Fragoso",
+            "Claudia L. Driscoll",
+            "John N. Wang",
+            "Haoyu Dai",
+            "Talal Widatalla",
+            "Jim L. Zhang",
+            "Xiaowei Zhang",
+            "Bing Rao",
+            "Liang Feng",
+            "Brian L. Hie",
+            "Xiaojing J. Gao"
+          ]
+        },
+        {
+          "title": "Efficient generation of epitope-targetedde novoantibodies with Germinal",
+          "year": 2024,
+          "authors": [
+            "Luis S. Mille-Fragoso",
+            "Claudia L. Driscoll",
+            "John N. Wang",
+            "Haoyu Dai",
+            "Talal Widatalla",
+            "Jim L. Zhang",
+            "Xiaowei Zhang",
+            "Bing Rao",
+            "Liang Feng",
+            "Brian L. Hie",
+            "Xiaojing J. Gao"
+          ]
+        },
+        {
+          "title": "Efficient generation of epitope-targetedde novoantibodies with Germinal",
+          "year": 2026,
+          "authors": [
+            "Luis S. Mille-Fragoso",
+            "Claudia L. Driscoll",
+            "John N. Wang",
+            "Haoyu Dai",
+            "Talal Widatalla",
+            "Jim L. Zhang",
+            "Xiaowei Zhang",
+            "Bing Rao",
+            "Liang Feng",
+            "Brian L. Hie",
+            "Xiaojing J. Gao"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:0e615a8cc4e6",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Generative design of novel bacteriophages with genome language models",
+      "year": 2025,
+      "authors": [
+        "Samuel H. King",
+        "Claudia L. Driscoll",
+        "David B. Li",
+        "Daniel Guo",
+        "Aditi T. Merchant",
+        "Garyk Brixi",
+        "Max E. Wilkinson",
+        "Brian L. Hie"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 192101698"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1101/2025.09.12.675911"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Generative design of novel bacteriophages with genome language models",
+          "year": 2024,
+          "authors": [
+            "Samuel H. King",
+            "Claudia L. Driscoll",
+            "David B. Li",
+            "Daniel Guo",
+            "Aditi T. Merchant",
+            "Garyk Brixi",
+            "Max E. Wilkinson",
+            "Brian L. Hie"
+          ]
+        },
+        {
+          "title": "Generative design of novel bacteriophages with genome language models",
+          "year": 2026,
+          "authors": [
+            "Samuel H. King",
+            "Claudia L. Driscoll",
+            "David B. Li",
+            "Daniel Guo",
+            "Aditi T. Merchant",
+            "Garyk Brixi",
+            "Max E. Wilkinson",
+            "Brian L. Hie"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:146ba33d6fe1",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Semantic design of functional de novo genes from a genomic language model",
+      "year": 2025,
+      "authors": [
+        "A. T. Merchant",
+        "S. H. King",
+        "E. Nguyen",
+        "B. L. Hie"
+      ],
+      "listed_venue": "Nature",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 197397728",
+        "Public list https://profiles.stanford.edu/brian-hie?tab=publications entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1038/s41586-025-09749-7"
+      ],
+      "external_ids": {
+        "pubmed": "41261132",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/41261132"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Semantic design of functional de novo genes from a genomic language model",
+          "year": 2026,
+          "authors": [
+            "Aditi T. Merchant",
+            "Samuel H. King",
+            "Eric Nguyen",
+            "Brian L. Hie"
+          ]
+        },
+        {
+          "title": "Semantic design of functional de novo genes from a genomic language model",
+          "year": 2024,
+          "authors": [
+            "A. T. Merchant",
+            "S. H. King",
+            "E. Nguyen",
+            "B. L. Hie"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:0940ba30481d",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Sidechain conditioning and modeling for full-atom protein sequence design with FAMPNN",
+      "year": 2025,
+      "authors": [
+        "Widatalla, Talal",
+        "Shuai, Richard W.",
+        "Hie, Brian L.",
+        "Huang, Po-Ssu",
+        "Singh, A.",
+        "Fazel, M.",
+        "Hsu, D.",
+        "Lacoste-Julien, S.",
+        "Berkenkamp, F.",
+        "Maharaj, T.",
+        "Wagstaff, K.",
+        "Zhu, J."
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper",
+        "journal_article",
+        "preprint",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 178294728",
+        "ORCID 0000-0003-3224-8142 put-code 198646869",
+        "ORCID 0000-0003-3224-8142 put-code 218945444",
+        "Public list https://profiles.stanford.edu/brian-hie?tab=publications entry 3 captured 2026-10-18",
+        "Public list https://profiles.stanford.edu/brian-hie?tab=publications entry 4 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "grouped_5_source_records"
+      ],
+      "dois": [
+        "10.1101/2024.09.25.614868",
+        "10.1101/2025.02.13.637498"
+      ],
+      "external_ids": {
+        "pubmed": "41307002",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/41307002"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Sidechain conditioning and modeling for full-atom protein sequence design with FAMPNN",
+          "year": 2024,
+          "authors": [
+            "Widatalla, Talal",
+            "Shuai, Richard W.",
+            "Hie, Brian L.",
+            "Huang, Po-Ssu",
+            "Singh, A.",
+            "Fazel, M.",
+            "Hsu, D.",
+            "Lacoste-Julien, S.",
+            "Berkenkamp, F.",
+            "Maharaj, T.",
+            "Wagstaff, K.",
+            "Zhu, J."
+          ]
+        },
+        {
+          "title": "Sidechain conditioning and modeling for full-atom protein sequence design with FAMPNN",
+          "year": 2026,
+          "authors": [
+            "Widatalla, Talal",
+            "Shuai, Richard W.",
+            "Hie, Brian L.",
+            "Huang, Po-Ssu",
+            "Singh, A.",
+            "Fazel, M.",
+            "Hsu, D.",
+            "Lacoste-Julien, S.",
+            "Berkenkamp, F.",
+            "Maharaj, T.",
+            "Wagstaff, K.",
+            "Zhu, J."
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2025.02.13.637498",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Sidechain conditioning and modeling for full-atom protein sequence design with FAMPNN",
+          "crossref_year": 2025
+        },
+        {
+          "doi": "10.1101/2025.02.13.637498",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Sidechain conditioning and modeling for full-atom protein sequence design with FAMPNN",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_brian_hie:cec64ee0e19d",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Utilizing Machine Learning to Improve Neutralization Potency of an HIV-1 Antibody Targeting the gp41 N-Heptad Repeat",
+      "year": 2025,
+      "authors": [
+        "M. V. Filsinger Interrante",
+        "S. Tang",
+        "S. Kim",
+        "V. R. Shanker",
+        "B. L. Hie",
+        "T. U. Bruun",
+        "W. Wu",
+        "J. E. Pak",
+        "D. Fernandez",
+        "P. S. Kim"
+      ],
+      "listed_venue": "ACS chemical biology",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 189886363",
+        "Public list https://profiles.stanford.edu/brian-hie?tab=publications entry 5 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1021/acschembio.5c00035"
+      ],
+      "external_ids": {
+        "pubmed": "40540236",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/40540236"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Utilizing Machine Learning to Improve Neutralization Potency of an HIV-1 Antibody Targeting the gp41 N-Heptad Repeat",
+          "year": 2024,
+          "authors": [
+            "M. V. Filsinger Interrante",
+            "S. Tang",
+            "S. Kim",
+            "V. R. Shanker",
+            "B. L. Hie",
+            "T. U. Bruun",
+            "W. Wu",
+            "J. E. Pak",
+            "D. Fernandez",
+            "P. S. Kim"
+          ]
+        },
+        {
+          "title": "Utilizing Machine Learning to Improve Neutralization Potency of an HIV-1 Antibody Targeting the gp41 N-Heptad Repeat",
+          "year": 2026,
+          "authors": [
+            "M. V. Filsinger Interrante",
+            "S. Tang",
+            "S. Kim",
+            "V. R. Shanker",
+            "B. L. Hie",
+            "T. U. Bruun",
+            "W. Wu",
+            "J. E. Pak",
+            "D. Fernandez",
+            "P. S. Kim"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Genome modeling and design across all domains of life with Evo 2",
+      "year": 2025,
+      "authors": [
+        "Garyk Brixi",
+        "Matthew G. Durrant",
+        "Jerome Ku",
+        "Michael Poli",
+        "Greg Brockman",
+        "Daniel Chang",
+        "Gabriel A. Gonzalez",
+        "Samuel H. King",
+        "David B. Li",
+        "Aditi T. Merchant",
+        "Mohsen Naghipourfar",
+        "Eric Nguyen",
+        "Chiara Ricci-Tam",
+        "David W. Romero",
+        "Gwanggyu Sun",
+        "Ali Taghibakshi",
+        "Anton Vorontsov",
+        "Brandon Yang",
+        "Myra Deng",
+        "Liv Gorton",
+        "Nam Nguyen",
+        "Nicholas K. Wang",
+        "Etowah Adams",
+        "Stephen A. Baccus",
+        "Steven Dillmann",
+        "Stefano Ermon",
+        "Daniel Guo",
+        "Rajesh Ilango",
+        "Ken Janik",
+        "Amy X. Lu",
+        "Reshma Mehta",
+        "Mohammad R.K. Mofrad",
+        "Madelena Y. Ng",
+        "Jaspreet Pannu",
+        "Christopher Ré",
+        "Jonathan C. Schmok",
+        "John St. John",
+        "Jeremy Sullivan",
+        "Kevin Zhu",
+        "Greg Zynda",
+        "Daniel Balsam",
+        "Patrick Collison",
+        "Anthony B. Costa",
+        "Tina Hernandez-Boussard",
+        "Eric Ho",
+        "Ming-Yu Liu",
+        "Thomas McGrath",
+        "Kimberly Powell",
+        "Dave P. Burke",
+        "Hani Goodarzi",
+        "Patrick D. Hsu",
+        "Brian L. Hie"
+      ],
+      "listed_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref byline carries the researcher's ORCID; Crossref affiliation: Arc Institute; 6 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1101/2025.02.18.638918"
+      ],
+      "evaluation_id": "bio_brian_hie:added-37f4ad2b7a",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref byline carries the researcher's ORCID; Crossref affiliation: Arc Institute; 6 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Large language models for science and medicine",
+      "year": 2024,
+      "authors": [
+        "Amalio Telenti",
+        "Michael Auli",
+        "Brian L. Hie",
+        "Cyrus Maher",
+        "Suchi Saria",
+        "John P. A. Ioannidis"
+      ],
+      "listed_venue": "European Journal of Clinical Investigation",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: FAIR, Meta  Menlo Park California USA; 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1111/eci.14183"
+      ],
+      "evaluation_id": "bio_brian_hie:added-8139f74fdf",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: FAIR, Meta  Menlo Park California USA; 2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "BHLHE40 Regulates Myeloid Cell Polarization through IL-10–Dependent and –Independent Mechanisms",
+      "year": 2024,
+      "authors": [
+        "Skyler V Hendrix",
+        "Yassin Mreyoud",
+        "Michael E McNehlan",
+        "Asya Smirnov",
+        "Sthefany M Chavez",
+        "Brian Hie",
+        "Megan M Chamberland",
+        "Tara R Bradstreet",
+        "Ashlee M Webber",
+        "Darren Kreamalmeyer",
+        "Reshma Taneja",
+        "Bryan D Bryson",
+        "Brian T Edelson",
+        "Christina L Stallings"
+      ],
+      "listed_venue": "The Journal of Immunology",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Ragon Institute of MGH, MIT, and Harvard , Cambridge, Massachusetts; 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.4049/jimmunol.2200819"
+      ],
+      "evaluation_id": "bio_brian_hie:added-17ad4db6bb",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Ragon Institute of MGH, MIT, and Harvard , Cambridge, Massachusetts; 1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Single-Sequence, Structure Free Allosteric Residue Prediction with Protein Language Models",
+      "year": 2024,
+      "authors": [
+        "Gokul R. Kannan",
+        "Brian L. Hie",
+        "Peter S. Kim"
+      ],
+      "listed_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1101/2024.10.03.616547"
+      ],
+      "evaluation_id": "bio_brian_hie:added-2349af98a9",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Mechanistic Design and Scaling of Hybrid Architectures",
+      "year": 2024,
+      "authors": [
+        "Poli, Michael",
+        "Thomas, Armin W",
+        "Nguyen, Eric",
+        "Ponnusamy, Pragaash",
+        "Deiseroth, Björn",
+        "Kersting, Kristian",
+        "Suzuki, Taiji",
+        "Hie, Brian",
+        "Ermon, Stefano",
+        "Ré, Christopher",
+        "Zhang, Ce",
+        "Massaroli, Stefano"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2403.17844"
+      ],
+      "evaluation_id": "bio_brian_hie:added-9b3ce1c5cc",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Scanorama datasets",
+      "year": 2023,
+      "authors": [
+        "Soochi Kim",
+        "Hie, Brian"
+      ],
+      "listed_venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Dataset/software record, excluded type"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.5281/zenodo.7916345"
+      ],
+      "evaluation_id": "bio_brian_hie:added-34b04ad0f7",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Dataset/software record, excluded type"
+    },
+    {
+      "title": "Scanorama datasets in .h5ad",
+      "year": 2023,
+      "authors": [
+        "Soochi Kim",
+        "Hie, Brian"
+      ],
+      "listed_venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Dataset/software record, excluded type"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.5281/zenodo.7960622"
+      ],
+      "evaluation_id": "bio_brian_hie:added-dddc87dcc4",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Dataset/software record, excluded type"
+    },
+    {
+      "title": "ESM Atlas v0 random sample of high confidence predicted protein structures",
+      "year": 2022,
+      "authors": [
+        "Lin, Zeming",
+        "Akin, Halil",
+        "Rao, Roshan",
+        "Hie, Brian",
+        "Zhu, Zhongkai",
+        "Lu, Wenting",
+        "Smetanin, Nikita",
+        "Verkuil, Robert",
+        "Kabeli, Ori",
+        "Shmueli, Yaniv",
+        "dos Santos Costa, Allan",
+        "Fazel-Zarandi, Maryam",
+        "Sercu, Tom",
+        "Candido, Salvatore",
+        "Rives, Alexander"
+      ],
+      "listed_venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Dataset/software record, excluded type"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.5281/zenodo.7623626"
+      ],
+      "evaluation_id": "bio_brian_hie:added-3a20c023c9",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Dataset/software record, excluded type"
+    },
+    {
+      "title": "ESM Atlas v0 representative random sample of predicted protein structures",
+      "year": 2022,
+      "authors": [
+        "Lin, Zeming",
+        "Akin, Halil",
+        "Rao, Roshan",
+        "Hie, Brian",
+        "Zhu, Zhongkai",
+        "Lu, Wenting",
+        "Smetanin, Nikita",
+        "Verkuil, Robert",
+        "Kabeli, Ori",
+        "Shmueli, Yaniv",
+        "dos Santos Costa, Allan",
+        "Fazel-Zarandi, Maryam",
+        "Sercu, Tom",
+        "Candido, Salvatore",
+        "Rives, Alexander"
+      ],
+      "listed_venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Dataset/software record, excluded type"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.5281/zenodo.7623481"
+      ],
+      "evaluation_id": "bio_brian_hie:added-c40e6cca27",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Dataset/software record, excluded type"
+    },
+    {
+      "title": "Data for paper",
+      "year": 2022,
+      "authors": [
+        "Hie, Brian"
+      ],
+      "listed_venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Dataset/software record, excluded type"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.5281/zenodo.6347794"
+      ],
+      "evaluation_id": "bio_brian_hie:added-3b54f0241a",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Dataset/software record, excluded type"
+    },
+    {
+      "title": "Data for \"Evolutionary velocity with protein languge models\"",
+      "year": 2021,
+      "authors": [
+        "Hie, Brian L.",
+        "Yang, Kevin K.",
+        "Kim, Peter S."
+      ],
+      "listed_venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Dataset/software record, excluded type"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.5281/zenodo.4891757"
+      ],
+      "evaluation_id": "bio_brian_hie:added-3cb45a1767",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Dataset/software record, excluded type"
+    },
+    {
+      "title": "Learning Mutational Semantics",
+      "year": 2020,
+      "authors": [
+        "Brian Hie",
+        "Ellen D. Zhong",
+        "Bryan D. Bryson",
+        "Bonnie Berger"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "evaluation_id": "bio_brian_hie:added-692a9eda5a",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "GM-CSF differentiation of human monocytes stabilizes macrophage state via oxidative signaling",
+      "year": 2020,
+      "authors": [
+        "Christopher Y Itoh",
+        "Cal Gunnarsson",
+        "Gregory H Babunovic",
+        "Armel Nibasumba",
+        "Ngomu Akeem Akilimali",
+        "Marc H Wadsworth",
+        "Travis K Hughes",
+        "Sydney L Solomon",
+        "Brian Hie",
+        "Bonnie Berger",
+        "Alex K Shalek",
+        "Sarah M Fortune",
+        "Bryan D Bryson"
+      ],
+      "listed_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1101/2020.09.29.318352"
+      ],
+      "evaluation_id": "bio_brian_hie:added-68bac8dabf",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Systems and Algorithms for Convolutional Multi-Hybrid Language Models at Scale",
+      "year": 2025,
+      "authors": [
+        "Jerome Ku",
+        "Eric Nguyen",
+        "David W. Romero",
+        "G. Brixi",
+        "Brandon Yang",
+        "Anton Vorontsov",
+        "Ali Taghibakhshi",
+        "Amy X Lu",
+        "Dave P. Burke",
+        "Greg Brockman",
+        "Stefano Massaroli",
+        "Christopher Ré",
+        "Patrick D. Hsu",
+        "Brian L. Hie",
+        "Stefano Ermon",
+        "Michael Poli"
+      ],
+      "listed_venue": "arXiv.org",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2503.01868"
+      ],
+      "external_ids": {
+        "arxiv": "2503.01868"
+      },
+      "evaluation_id": "bio_brian_hie:added-d2ed1eaea5",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    }
+  ],
+  "excluded": [
+    {
+      "reason": "outside_year_window",
+      "title": "Geometric Sketching Compactly Summarizes the Single-Cell Transcriptomic Landscape",
+      "year": 2019,
+      "work_types": [
+        "journal_article",
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 102729648",
+        "ORCID 0000-0003-3224-8142 put-code 53461220"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Fine-mapping cis-regulatory variants in diverse human populations",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 56585253"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Realizing private and practical pharmacological collaboration",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 49506681"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Genome modelling and design across all domains of life with Evo 2",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 209040794"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Efficient integration of heterogeneous single-cell transcriptomes using Scanorama",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 57235416"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Coexpression enables multi-study cellular trajectories of development and disease",
+      "year": 2019,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 60047923"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Metric learning enables synthesis of heterogeneous single-cell modalities",
+      "year": 2019,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 64315327"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Scanorama",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 64741033"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Aligning protein-generative models to experimental fitness with ProteinDPO",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 223748385"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Efficient generation of epitope-targeted antibodies with Germinal",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 218519557"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A high-level programming language for generative biology with Proto",
+      "year": 2026,
+      "work_types": [
+        "preprint"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 218799869"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Rapid directed evolution guided by protein language models and epistatic interactions",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 206095946"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Forecasting viral evolution from phylogenetic trees",
+      "year": 2026,
+      "work_types": [
+        "preprint"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 225871951"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Generative design of bacteriophages with genome language models",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 222870697"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Alignment with experimental data improves protein generative modeling",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 229542789"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Machine learning-assisted directed evolution of plant Rubisco",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 228961275"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Pooled ChIP-Seq Links Variation in Transcription Factor Binding to Complex Disease Risk.",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 37448742"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Panoramic stitching of heterogeneous single-cell transcriptomic data",
+      "year": 2018,
+      "work_types": [
+        "other"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-3224-8142 put-code 49468757"
+      ]
+    }
+  ],
+  "professor": {
+    "orcid": "0000-0003-3224-8142",
+    "author_ids": {},
+    "author_ids_complete": false
+  }
+}
