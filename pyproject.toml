@@ -13,7 +13,7 @@ dependencies = []
 download = ["pypdf>=5.9,<6"]
 # Optional identity adjudication with Claude; the Anthropic SDK 1.x requires Python >= 3.10.
 llm = ["anthropic>=1; python_version >= '3.10'"]
-dev = ["ruff==0.8.6", "mypy==1.14.1", "pre-commit==3.5.0", "coverage==7.6.1", "hypothesis==6.113.0"]
+dev = ["ruff==0.8.6", "mypy==1.14.1", "pre-commit==3.5.0", "coverage[toml]==7.6.1", "hypothesis==6.113.0"]
 
 [project.scripts]
 professor-resolve = "paper_author_searcher.cli:main"
