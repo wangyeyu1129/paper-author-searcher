@@ -40,10 +40,10 @@ class ReleaseGate:
         self.settings = settings
 
     def evaluate(self, aggregates: dict[tuple[str, str], dict]) -> GateResult:
-        aggregation = self.settings.aggregation.value
         checks = []
         for (dimension, value), stratum in sorted(aggregates.items()):
             for rule in self.settings.gate_rules:
+                aggregation = self.settings.rule_aggregation(rule).value
                 metric = stratum['metrics'][rule.metric]
                 observed = metric[aggregation]
                 enough_people = metric['people_with_rate'] >= self.settings.minimum_people_per_stratum

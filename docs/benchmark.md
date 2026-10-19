@@ -41,7 +41,8 @@ paper-benchmark score --run-id 2026-10-18 --enforce-gate
 | `publication_types` | 计入真值的出版类型；未知类型是否计入 |
 | `publication_types.non_publication_output` | 系统输出中不是出版物的 `paper_type`（数据集、书评、学位论文、会议摘要），评分时既不算命中也不算误检 |
 | `reported_metrics` | 报告的指标，取自现有 `PerformanceEvaluator` 的指标名 |
-| `gate.rules` | 门槛：指标 + 最小值（0–1） |
+| `gate.rules` | 门槛：指标 + 最小值（0–1）；可选 `aggregation`（`macro`/`micro`）覆盖默认口径，同一指标可以同时要求两种口径 |
+| `gate.minimum_truth_positives` | 按指标设置每人至少多少篇真值；不够的人不进入该指标的分层汇总（报告里会列出），避免一两篇论文让宏平均大幅波动 |
 | `gate.aggregation` | `macro`（每人等权平均，默认）或 `micro`（汇总分子分母） |
 | `gate.minimum_people_per_stratum` | 每个分层至少有多少人有可计算的值，否则该层判失败 |
 | `gate.require_human_review` | 有人未经人工审核时，达标也只给 `not_certifiable` |
@@ -50,7 +51,7 @@ paper-benchmark score --run-id 2026-10-18 --enforce-gate
 | `run` | 传给检索流程的参数（与 `paper-search` 同名） |
 | `sources` | ORCID / Crossref / arXiv 地址、批量大小、请求间隔 |
 
-当前门槛：每个分层 `verified_paper_recall ≥ 0.80`，`author_match_precision ≥ 0.95`，宏平均，每层至少 2 人。全文获取率（`actual_download_coverage`）只报告，不设门槛。
+当前门槛：每个分层 `verified_paper_recall ≥ 0.80`、`author_match_precision ≥ 0.95`，宏平均（每人等权）和汇总口径（按论文汇总）都要达到；召回类指标只统计真值至少 3 篇的人；每层至少 2 人。全文获取率（`actual_download_coverage`）只报告，不设门槛。
 
 ## 指标口径
 

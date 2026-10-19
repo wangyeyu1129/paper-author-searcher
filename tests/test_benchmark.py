@@ -16,7 +16,7 @@ from paper_author_searcher.benchmark.review import export_review, import_review
 from paper_author_searcher.benchmark.roster import Roster
 from paper_author_searcher.benchmark.runner import BenchmarkRunner, WorkflowSearchSystem, window_archive
 from paper_author_searcher.benchmark.scoring import PersonScorer, aggregate, truth_paths
-from paper_author_searcher.benchmark.settings import BenchmarkSettings, RunSettings
+from paper_author_searcher.benchmark.settings import Aggregation, BenchmarkSettings, GateRule, RunSettings
 from paper_author_searcher.benchmark.snapshots import ARXIV_SNAPSHOT, CROSSREF_SNAPSHOT
 from paper_author_searcher.benchmark.truth_builder import TruthBuilder
 from paper_author_searcher.benchmark.truth_sources import (
@@ -141,6 +141,19 @@ class SettingsAndRosterTests(unittest.TestCase):
     def test_threshold_must_be_a_rate(self):
         with self.assertRaises(ValueError):
             BenchmarkSettings.from_dict(config(rules=[{'metric': 'verified_paper_recall', 'minimum': 80}]), Path('.'))
+
+    def test_rule_aggregation_and_truth_floor_come_from_config(self):
+        data = config(rules=[{'metric': 'verified_paper_recall', 'minimum': 0.8, 'aggregation': 'micro'}])
+        data['gate']['minimum_truth_positives'] = {'verified_paper_recall': 3}
+        settings = BenchmarkSettings.from_dict(data, Path('.'))
+        self.assertEqual(settings.rule_aggregation(settings.gate_rules[0]).value, 'micro')
+        self.assertEqual(settings.minimum_truth_positives, {'verified_paper_recall': 3})
+
+    def test_truth_floor_must_name_reported_metrics(self):
+        data = config()
+        data['gate']['minimum_truth_positives'] = {'f1_unknown': 3}
+        with self.assertRaises(ValueError):
+            BenchmarkSettings.from_dict(data, Path('.'))
 
     def test_roster_rejects_unknown_stratum_and_duplicates(self):
         workspace = Workspace([person('a_one'), person('a_one')], {})
@@ -723,6 +736,29 @@ class RunScoreGateTests(unittest.TestCase):
         result = ReleaseGate(strict).evaluate(aggregate(scores, strict))
         reasons = {check['reason'] for check in result.checks if not check['passed']}
         self.assertTrue(any(reason.startswith('only 1 people') for reason in reasons))
+
+    def test_rule_aggregation_overrides_the_gate_default(self):
+        self.run_benchmark()
+        settings = self.workspace.settings
+        micro = replace(settings, gate_rules=(GateRule('verified_paper_recall', 0.5, aggregation=Aggregation.MICRO),))
+        scores = score_run(micro, self.workspace.roster, 'run1', [])
+        overall = next(check for check in scores['gate']['checks'] if check['stratum'] == 'overall=all')
+        stratum = next(entry for entry in scores['strata'] if entry['stratum'] == 'overall=all')
+        self.assertEqual(overall['aggregation'], 'micro')
+        self.assertEqual(overall['observed'], stratum['metrics']['verified_paper_recall']['micro'])
+
+    def test_people_below_the_truth_floor_are_left_out_of_that_metric(self):
+        self.run_benchmark()
+        strict = replace(self.workspace.settings, minimum_truth_positives={'verified_paper_recall': 5})
+        scores = score_run(strict, self.workspace.roster, 'run1', [])
+        overall = next(entry for entry in scores['strata'] if entry['stratum'] == 'overall=all')
+        recall = overall['metrics']['verified_paper_recall']
+        self.assertEqual((recall['people_with_rate'], recall['below_truth_minimum']), (0, 2))
+        self.assertEqual(overall['metrics']['author_match_precision']['below_truth_minimum'], 0)
+        failed = {
+            check['reason'] for check in scores['gate']['failed_checks'] if check['metric'] == 'verified_paper_recall'
+        }
+        self.assertEqual(failed, {'metric unavailable'})
 
     def test_identity_resolution_rate_counts_only_confirmed_identities(self):
         system = FakeSystem(self.system.found, {'junior_poor': 'ambiguous_contenders'})

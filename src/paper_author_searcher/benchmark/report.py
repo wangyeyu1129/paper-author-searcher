@@ -13,17 +13,34 @@ def markdown_report(scored: dict, settings: BenchmarkSettings) -> str:
     gate = scored['gate']
     aggregation = settings.aggregation.value
     metrics = list(settings.reported_metrics)
-    thresholds = {rule.metric: rule.minimum for rule in settings.gate_rules}
+    # Marks come from the gate's own checks, so the table and the verdict cannot disagree.
+    failed = {(check['stratum'], check['metric']) for check in gate['failed_checks']}
+    extra_aggregations: dict[str, list[str]] = {}
+    for rule in settings.gate_rules:
+        value = settings.rule_aggregation(rule).value
+        if value != aggregation and value not in extra_aggregations.setdefault(rule.metric, []):
+            extra_aggregations[rule.metric].append(value)
     lines: list[str] = [
         '# Benchmark {} — run {}'.format(scored['dataset_id'], scored['run_id']),
         '',
         '- Gate: **{}** (exit code {})'.format(gate['status'], gate['exit_code']),
         f'- Aggregation: {aggregation} over people; minimum {settings.minimum_people_per_stratum} people per stratum',
-        '- Thresholds: ' + ', '.join(f'{metric} ≥ {minimum:.0%}' for metric, minimum in thresholds.items()),
+        '- Thresholds: '
+        + ', '.join(
+            f'{rule.metric} ({settings.rule_aggregation(rule).value}) ≥ {rule.minimum:.0%}'
+            for rule in settings.gate_rules
+        ),
         '- Truth: {} human-reviewed, {} assistant-reviewed, {} provisional, {} missing'.format(
             *(sum(person['truth_state'] == state for person in scored['people']) for state in TruthState)
         ),
     ]
+    if settings.minimum_truth_positives:
+        lines.append(
+            '- Truth floor (people below it are left out of that metric): '
+            + ', '.join(
+                f'{metric} ≥ {floor} publications' for metric, floor in settings.minimum_truth_positives.items()
+            )
+        )
     lines.extend('- ' + reason for reason in gate['reasons'])
     lines += [
         '',
@@ -36,10 +53,9 @@ def markdown_report(scored: dict, settings: BenchmarkSettings) -> str:
         cells = []
         for metric in metrics:
             values = stratum['metrics'][metric]
-            mark = ''
-            if metric in thresholds and (values[aggregation] is None or values[aggregation] < thresholds[metric]):
-                mark = ' ✗'
-            cells.append('{} (min {}){}'.format(_rate(values[aggregation]), _rate(values['minimum']), mark))
+            extra = ''.join(f' · {name} {_rate(values[name])}' for name in extra_aggregations.get(metric, []))
+            mark = ' ✗' if (stratum['stratum'], metric) in failed else ''
+            cells.append('{} (min {}){}{}'.format(_rate(values[aggregation]), _rate(values['minimum']), extra, mark))
         lines.append('| {} | {} | {} |'.format(stratum['stratum'], stratum['people'], ' | '.join(cells)))
     lines += [
         '',

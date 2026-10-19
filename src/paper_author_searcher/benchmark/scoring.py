@@ -241,7 +241,9 @@ def aggregate(scores: list[PersonScore], settings: BenchmarkSettings) -> dict[tu
     for key, members in strata.items():
         metrics = {}
         for name in settings.reported_metrics:
-            available = [member.metrics[name] for member in members if member.metrics[name]['available']]
+            floor = settings.minimum_truth_positives.get(name, 0)
+            eligible = [member for member in members if member.positives >= floor]
+            available = [member.metrics[name] for member in eligible if member.metrics[name]['available']]
             rates = [value['rate'] for value in available if value['rate'] is not None]
             numerator = sum(value['numerator'] for value in available)
             denominator = sum(value['denominator'] for value in available)
@@ -252,6 +254,7 @@ def aggregate(scores: list[PersonScore], settings: BenchmarkSettings) -> dict[tu
                 'minimum': min(rates) if rates else None,
                 'numerator': numerator,
                 'denominator': denominator,
+                'below_truth_minimum': len(members) - len(eligible),
             }
         result[key] = {
             'people': len(members),
