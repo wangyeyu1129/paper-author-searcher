@@ -19,7 +19,7 @@ from paper_author_searcher.pdf_downloader import PDFDownloader
 from paper_author_searcher.pdf_file_validation import PDFFileValidator
 from paper_author_searcher.pdf_resolver import PDFResolver
 from paper_author_searcher.resolver import ProfessorResolver
-from paper_author_searcher.workflow import PaperSearchWorkflow, load_checkpoint, metadata_audit
+from paper_author_searcher.workflow import PaperSearchWorkflow, WorkflowStage, load_checkpoint, metadata_audit
 from paper_author_searcher.workflow_cli import main
 from pdf_fixtures import HAS_PYPDF, make_pdf
 from test_paper_collector import paper
@@ -527,3 +527,44 @@ class WorkflowTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class PipelineTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+
+    def test_injected_stages_run_in_their_modes_and_can_halt(self):
+        calls = []
+
+        class Record(WorkflowStage):
+            name = 'Recording'
+            modes = frozenset({'metadata'})
+
+            def run(self, context):
+                calls.append(context.request.mode)
+                context.archive = {'papers': []}
+
+        class Halt(WorkflowStage):
+            name = 'Halting'
+
+            def run(self, context):
+                context.halted = True
+
+        class Never(WorkflowStage):
+            name = 'Never'
+
+            def run(self, context):
+                calls.append('never')
+
+        workflow = PaperSearchWorkflow(stages=[Record(), Halt(), Never()])
+        report = workflow.run(query=QUERY, output_dir=self.root, mode='metadata')
+        self.assertEqual(calls, ['metadata'])
+        self.assertEqual(report['run_status'], 'running')  # halted before the closing classification
+        workflow.run(query=QUERY, output_dir=self.root, mode='full')
+        self.assertEqual(calls, ['metadata'])  # Record is metadata-only
+
+    def test_output_directory_name_keeps_word_characters(self):
+        root = PaperSearchWorkflow(stages=[])._directory(self.root, 'Zoë Smith-Jones/PhD', None)
+        self.assertTrue(root.name.startswith('search_Zoë_Smith-Jones_PhD_'), root.name)

@@ -134,6 +134,7 @@ module = [
     "paper_author_searcher.settings",
     "paper_author_searcher.source_catalog",
     "paper_author_searcher.status",
+    "paper_author_searcher.workflow",
 ]
 disallow_untyped_defs = true
 disallow_incomplete_defs = true

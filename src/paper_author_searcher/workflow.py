@@ -3,15 +3,17 @@
 import logging
 import re
 import uuid
+from abc import ABC, abstractmethod
 from copy import deepcopy
-from dataclasses import asdict, fields
+from dataclasses import asdict, dataclass, fields
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Callable, ClassVar, Dict, FrozenSet, List, Optional, Sequence, Tuple, Union
 
 from .config import DEFAULT_COLLECTION, DEFAULT_MATCHING, AmbiguityPolicy
+from .json_types import JSONObject
 from .jsonio import read_json, write_json
-from .models import ProfessorProfile, ResolutionResult
+from .models import ProfessorProfile, ProfessorQuery, ResolutionResult
 from .paper_collector import IdentityConfirmationRequired
 from .paper_reanalysis import saved_collection_profile
 from .performance_diagnostics import workflow_outcomes
@@ -22,7 +24,7 @@ logger = logging.getLogger(__name__)
 MODES = ('metadata', 'pdf-urls', 'full')
 
 
-def load_checkpoint(path):
+def load_checkpoint(path: Union[str, Path]) -> JSONObject:
     """Report references are local artifacts, never arbitrary paths or URLs."""
     path = Path(path).resolve()
     data = read_json(path)
@@ -51,7 +53,7 @@ def load_checkpoint(path):
     raise ValueError('Report contains no resumable checkpoint')
 
 
-def _profile(values):
+def _profile(values: JSONObject) -> ProfessorProfile:
     values = dict(values)
     values.setdefault('affiliations', values.get('matched_affiliations') or [])
     values.setdefault('identity_confidence', values.get('confidence', 0))
@@ -60,12 +62,12 @@ def _profile(values):
     return ProfessorProfile(**{key: value for key, value in values.items() if key in allowed})
 
 
-def _resolution(saved):
+def _resolution(saved: JSONObject) -> ResolutionResult:
     if 'candidates' not in saved or 'profile' not in saved:
         if not saved.get('name') or not isinstance(saved.get('author_ids'), dict) or 'status' not in saved:
             raise ValueError('Expected Resolver, Collector or PDF Resolver JSON')
-        profile = _profile(saved)
-        return ResolutionResult(profile, [profile], saved.get('source_errors') or {}, saved.get('ambiguity'))
+        single = _profile(saved)
+        return ResolutionResult(single, [single], saved.get('source_errors') or {}, saved.get('ambiguity'))
     profile = _profile(saved['profile']) if saved['profile'] else None
     return ResolutionResult(
         profile,
@@ -75,9 +77,11 @@ def _resolution(saved):
     )
 
 
-def contender_profile(result, maximum_contenders, margin):
+def contender_profile(result: ResolutionResult, maximum_contenders: int, margin: float) -> ProfessorProfile:
     """Merge the leading, school-compatible candidates into one unconfirmed profile for collection."""
     best = result.profile
+    if best is None:
+        raise IdentityConfirmationRequired('No identity candidate available')
     contenders = [
         candidate
         for candidate in result.candidates
@@ -102,7 +106,13 @@ def contender_profile(result, maximum_contenders, margin):
     return merged
 
 
-def _select_identity(result, selection, policy='stop', maximum_contenders=3, margin=0.1):
+def _select_identity(
+    result: ResolutionResult,
+    selection: Optional[str],
+    policy: str = 'stop',
+    maximum_contenders: int = 3,
+    margin: float = 0.1,
+) -> Tuple[ProfessorProfile, Optional[Tuple[str, str]]]:
     if selection:
         if ':' not in selection:
             raise IdentityConfirmationRequired('Selection must use SOURCE:AUTHOR_ID')
@@ -128,11 +138,11 @@ def _select_identity(result, selection, policy='stop', maximum_contenders=3, mar
     return result.profile, None
 
 
-def _is_pdf_report(saved):
+def _is_pdf_report(saved: JSONObject) -> bool:
     return 'validation_scope' in saved and isinstance(saved.get('papers'), list)
 
 
-def _paper_entries(saved):
+def _paper_entries(saved: JSONObject) -> List[JSONObject]:
     collection = saved.get('collection', saved)
     papers = collection.get('all_papers', collection.get('papers'))
     if not isinstance(papers, list) or not all(isinstance(item, dict) for item in papers):
@@ -140,7 +150,9 @@ def _paper_entries(saved):
     return papers
 
 
-def metadata_audit(original, pdf=None, manifest=None):
+def metadata_audit(
+    original: List[JSONObject], pdf: Optional[JSONObject] = None, manifest: Optional[JSONObject] = None
+) -> JSONObject:
     """Missing source data is separate from evidence lost between stages."""
     audited_fields = (
         'title',
@@ -174,23 +186,267 @@ class MissingStageService(RuntimeError):
     """A requested stage needs a service the workflow was built without."""
 
 
-def _required(service, name):
+def _required(service: Any, name: str) -> Any:
     if service is None:
         raise MissingStageService(f'This workflow has no {name}; build it with composition.ServiceContainer')
     return service
 
 
+IDENTITY_STAGE = 'Resolving professor identity'
+PDF_STAGE = 'Finding PDF URLs'
+DOWNLOAD_STAGE = 'Downloading PDFs'
+COLLECTION_STAGES = ('Collecting papers', 'Deduplicating papers', 'Validating ownership')
+
+
+@dataclass
+class RunRequest:
+    """What one workflow run was asked to do."""
+
+    query: Optional[ProfessorQuery]
+    saved: Optional[JSONObject]
+    mode: str
+    selected_author: Optional[str]
+    include_needs_review: bool
+    maximum_pdf_papers: Optional[int]
+    maximum_downloads: Optional[int]
+
+
+@dataclass
+class RunContext:
+    """State shared by the stages of one run: inputs, the output directory, the report and stage artifacts."""
+
+    request: RunRequest
+    root: Path
+    report: JSONObject
+    progress: Callable[..., None]
+    archive: Optional[JSONObject] = None
+    pdf: Optional[JSONObject] = None
+    manifest: Optional[JSONObject] = None
+    halted: bool = False
+
+    def write_artifact(self, key: str, filename: str, data: Any) -> None:
+        write_json(self.root / filename, data)
+        self.report['artifacts'][key] = filename
+
+
+class WorkflowStage(ABC):
+    """One checkpointed step of the pipeline; it runs only in the modes it declares."""
+
+    name: ClassVar[str]
+    modes: ClassVar[FrozenSet[str]] = frozenset(MODES)
+
+    def applies(self, context: RunContext) -> bool:
+        return context.request.mode in self.modes
+
+    @abstractmethod
+    def run(self, context: RunContext) -> None:
+        """Advance ``context``; set ``context.halted`` to stop the remaining stages."""
+
+
+class IdentityAndCollectionStage(WorkflowStage):
+    """Resolve (or reuse) the identity, then collect, deduplicate and validate its papers (or reuse them)."""
+
+    name = IDENTITY_STAGE
+
+    def __init__(self, resolver: Any, collector: Any, collection_config: Any, matching_config: Any) -> None:
+        self.resolver = resolver
+        self.collector = collector
+        self.collection_config = collection_config
+        self.matching_config = matching_config
+
+    def run(self, context: RunContext) -> None:
+        archive, pdf = self._prepare_input(context)
+        if context.report['run_status'] == RunStatus.IDENTITY_CONFIRMATION_REQUIRED:
+            context.halted = True
+            return
+        context.archive, context.pdf = archive, pdf
+        context.write_artifact('papers', 'papers.json', archive)
+        context.report['collection_statistics'] = archive.get('collection', archive).get('statistics', {})
+
+    def _prepare_input(self, context: RunContext) -> Tuple[JSONObject, Optional[JSONObject]]:
+        request, report = context.request, context.report
+        query, saved, selection = request.query, request.saved, request.selected_author
+        if saved is not None and (_is_pdf_report(saved) or 'collection' in saved):
+            if selection:
+                raise ValueError('Saved paper ownership is tied to its original identity; select from Resolver JSON')
+            archive = deepcopy(saved.get('collection_archive') or saved)
+            pdf = deepcopy(saved) if _is_pdf_report(saved) else None
+            if pdf is not None:
+                pdf.pop('collection_archive', None)
+            context.progress('Reusing collected papers')
+            report['stages'].extend({'stage': stage, 'status': StageStatus.REUSED} for stage in COLLECTION_STAGES)
+            identity = saved.get('identity_archive')
+            if 'collection' in archive and (identity is None or 'profile' not in identity):
+                saved_profile = asdict(saved_collection_profile(archive))
+                identity = {
+                    'profile': saved_profile,
+                    'candidates': [saved_profile],
+                    'source_errors': archive.get('source_errors') or {},
+                    'ambiguity': archive.get('ambiguity'),
+                }
+            if identity:
+                report['identity'] = deepcopy(identity)
+                if pdf is not None:
+                    pdf['identity_archive'] = deepcopy(identity)
+                context.write_artifact('professor', 'professor.json', identity)
+                for source, error in identity.get('source_errors', {}).items():
+                    report['errors'].append({'stage': IDENTITY_STAGE, 'source': source, 'error': error})
+            _collection_errors(archive, report)
+            return archive, pdf
+        if saved is not None and 'selected_author_ids' in saved and 'papers' in saved:
+            if selection:
+                raise ValueError('Cannot change identity for an existing collection')
+            _collection_errors(saved, report)
+            context.progress('Reusing collected papers')
+            report['stages'].append({'stage': 'Collecting papers', 'status': StageStatus.REUSED})
+            return deepcopy(saved), None
+        context.progress(IDENTITY_STAGE)
+        result = _required(self.resolver, 'resolver').resolve(query) if query else _resolution(saved or {})
+        identity = result.to_dict()
+        context.write_artifact('professor', 'professor.json', identity)
+        report['identity'] = identity
+        report['stages'].append(
+            {'stage': IDENTITY_STAGE, 'status': StageStatus.COMPLETED if query else StageStatus.REUSED}
+        )
+        for source, error in result.source_errors.items():
+            report['errors'].append({'stage': IDENTITY_STAGE, 'source': source, 'error': error})
+        try:
+            profile, selected = _select_identity(
+                result,
+                selection,
+                self.collection_config.ambiguity_policy,
+                self.collection_config.maximum_contenders,
+                self.matching_config.ambiguity_margin,
+            )
+            if profile.status == ResolutionStatus.AMBIGUOUS_CONTENDERS:
+                report['warnings'].append(
+                    {
+                        'stage': IDENTITY_STAGE,
+                        'warning': 'Identity unconfirmed; competing profiles collected for review',
+                    }
+                )
+        except IdentityConfirmationRequired as exc:
+            report['run_status'] = RunStatus.IDENTITY_CONFIRMATION_REQUIRED
+            report['errors'].append({'stage': IDENTITY_STAGE, 'error': str(exc)})
+            return {}, None
+        context.progress('Collecting papers')
+        collection = _required(self.collector, 'collector').collect(
+            profile, selected_author=selected, progress=context.progress
+        )
+        archive = dict(
+            identity,
+            collection=collection.to_dict(),
+            collection_identity={
+                'name': profile.name,
+                'status': profile.status,
+                'orcid': profile.orcid,
+                'name_aliases': profile.name_aliases,
+                'author_ids': collection.selected_author_ids,
+                'confirmation': collection.identity_confirmation,
+            },
+        )
+        report['stages'].extend({'stage': stage, 'status': StageStatus.COMPLETED} for stage in COLLECTION_STAGES)
+        _collection_errors(archive, report)
+        return archive, None
+
+
+class PDFDiscoveryStage(WorkflowStage):
+    """Find and validate public PDF URLs (or reuse a saved PDF report)."""
+
+    name = PDF_STAGE
+    modes = frozenset({'pdf-urls', 'full'})
+
+    def __init__(self, pdf_resolver: Any) -> None:
+        self.pdf_resolver = pdf_resolver
+
+    def run(self, context: RunContext) -> None:
+        request, report = context.request, context.report
+        context.progress(self.name)
+        pdf = context.pdf
+        if pdf is None:
+            pdf = (
+                _required(self.pdf_resolver, 'pdf_resolver')
+                .resolve(
+                    context.archive, request.include_needs_review, request.maximum_pdf_papers, progress=context.progress
+                )
+                .to_dict()
+            )
+            # The full archive keeps raw authorship and identity provenance when resuming.
+            pdf['identity_archive'] = report.get('identity') or {}
+        context.pdf = pdf
+        reused = _is_pdf_report(request.saved or {})
+        report['stages'].append({'stage': self.name, 'status': StageStatus.REUSED if reused else StageStatus.COMPLETED})
+        context.write_artifact('pdf_urls', 'pdf_urls.json', pdf)
+        report['pdf_statistics'] = pdf.get('statistics', {})
+        for item in pdf['papers']:
+            title = item.get('title')
+            report['warnings'].extend(
+                dict(warning, stage=self.name, title=title) for warning in item.get('warnings') or []
+            )
+            report['candidate_decisions'].extend(
+                dict(decision, stage=self.name, title=title) for decision in item.get('candidate_decisions') or []
+            )
+            report['errors'].extend(
+                dict(error, stage=self.name, title=title) for error in item.get('error_details') or []
+            )
+        write_json(context.root / 'report.json', report)
+
+
+class DownloadStage(WorkflowStage):
+    """Download, validate and file the PDFs, and measure whether the search found complete papers."""
+
+    name = DOWNLOAD_STAGE
+    modes = frozenset({'full'})
+
+    def __init__(self, downloader: Any) -> None:
+        self.downloader = downloader
+
+    def run(self, context: RunContext) -> None:
+        request, report = context.request, context.report
+        context.progress(self.name)
+        manifest = _required(self.downloader, 'downloader').download(
+            context.pdf,
+            context.root / 'papers',
+            request.include_needs_review,
+            request.maximum_downloads,
+            manifest_path=context.root / 'manifest.json',
+            progress=context.progress,
+        )
+        context.manifest = manifest
+        report['artifacts']['manifest'] = 'manifest.json'
+        report['download_statistics'] = manifest['statistics']
+        processed = report['pdf_statistics'].get('processed_papers', 0)
+        satisfied = manifest['statistics'].get('search_sufficiently_satisfied_papers', 0)
+        report['search_satisfaction'] = {
+            'satisfied_papers': satisfied,
+            'processed_papers': processed,
+            'rate': satisfied / processed if processed else None,
+            'unknown_document_type_papers': manifest['statistics'].get('search_satisfaction_unknown_papers', 0),
+            'definition': 'Verified ownership, local integrity, PDF format, content identity '
+            'and full_text/preprint type',
+            'independent_of_search_completion': True,
+        }
+        report['download_run_complete'] = manifest['run_complete']
+        report['stages'].append({'stage': self.name, 'status': StageStatus.COMPLETED})
+        for item in manifest['papers']:
+            for error in item.get('error_details') or []:
+                report['errors'].append({'stage': self.name, 'title': item.get('title'), 'error': error})
+
+
 class PaperSearchWorkflow:
+    """Runs the pipeline stages in order, checkpointing each, and classifies the run's outcome."""
+
     def __init__(
         self,
-        resolver=None,
-        collector=None,
-        pdf_resolver=None,
-        downloader=None,
-        progress=None,
-        collection_config=DEFAULT_COLLECTION,
-        matching_config=DEFAULT_MATCHING,
-    ):
+        resolver: Any = None,
+        collector: Any = None,
+        pdf_resolver: Any = None,
+        downloader: Any = None,
+        progress: Optional[Callable[..., None]] = None,
+        collection_config: Any = DEFAULT_COLLECTION,
+        matching_config: Any = DEFAULT_MATCHING,
+        stages: Optional[Sequence[WorkflowStage]] = None,
+    ) -> None:
         self.resolver = resolver
         self.collector = collector
         self.collection_config = collection_config
@@ -198,13 +454,26 @@ class PaperSearchWorkflow:
         self.pdf_resolver = pdf_resolver
         self.downloader = downloader
         self.progress = progress
+        self.current_stage = IDENTITY_STAGE
+        self._stages = list(stages) if stages is not None else None
 
-    def _progress(self, stage, completed=None, total=None):
+    @property
+    def stages(self) -> List[WorkflowStage]:
+        """Injected stages, or the default pipeline over the configured services (read at run time)."""
+        if self._stages is not None:
+            return self._stages
+        return [
+            IdentityAndCollectionStage(self.resolver, self.collector, self.collection_config, self.matching_config),
+            PDFDiscoveryStage(self.pdf_resolver),
+            DownloadStage(self.downloader),
+        ]
+
+    def _progress(self, stage: str, completed: Optional[int] = None, total: Optional[int] = None) -> None:
         self.current_stage = stage
         if self.progress:
             self.progress(stage, completed, total)
 
-    def _directory(self, output_dir, name, resume_dir):
+    def _directory(self, output_dir: Any, name: str, resume_dir: Any) -> Path:
         if resume_dir is not None:
             root = Path(resume_dir).resolve()
             marker = read_json(root / 'report.json')
@@ -221,16 +490,16 @@ class PaperSearchWorkflow:
 
     def run(
         self,
-        query=None,
-        saved=None,
-        output_dir='output',
-        mode='full',
-        selected_author=None,
-        include_needs_review=False,
-        maximum_pdf_papers=None,
-        maximum_downloads=None,
-        resume_dir=None,
-    ):
+        query: Optional[ProfessorQuery] = None,
+        saved: Optional[JSONObject] = None,
+        output_dir: Any = 'output',
+        mode: str = 'full',
+        selected_author: Optional[str] = None,
+        include_needs_review: bool = False,
+        maximum_pdf_papers: Optional[int] = None,
+        maximum_downloads: Optional[int] = None,
+        resume_dir: Any = None,
+    ) -> JSONObject:
         if mode not in MODES:
             raise ValueError('Unknown workflow mode')
         if (query is None) == (saved is None):
@@ -238,6 +507,9 @@ class PaperSearchWorkflow:
         for limit in (maximum_pdf_papers, maximum_downloads):
             if limit is not None and limit < 1:
                 raise ValueError('Workflow limits must be positive')
+        request = RunRequest(
+            query, saved, mode, selected_author, include_needs_review, maximum_pdf_papers, maximum_downloads
+        )
         stored_identity = (saved or {}).get('identity_archive') or saved or {}
         identity = stored_identity.get('profile') or stored_identity.get('collection_identity') or stored_identity
         name = query.name if query else identity.get('name', 'saved_search')
@@ -245,7 +517,7 @@ class PaperSearchWorkflow:
         if (root / 'papers').is_symlink():
             raise ValueError('PDF directory must not be a symlink')
         (root / 'papers').mkdir(exist_ok=True)
-        report = {
+        report: JSONObject = {
             'schema_version': 1,
             'report_type': 'paper_search_workflow',
             'mode': mode,
@@ -257,94 +529,23 @@ class PaperSearchWorkflow:
             'limits': {'maximum_pdf_papers': maximum_pdf_papers, 'maximum_downloads': maximum_downloads},
             'include_needs_review': include_needs_review,
             'count_scope': 'retrieved_metadata_not_total_publications',
+            'warnings': [],
+            'candidate_decisions': [],
         }
-        report['warnings'] = []
-        report['candidate_decisions'] = []
         if query:
             report['query'] = asdict(query)
         write_json(root / 'report.json', report)
-        stage = 'Resolving professor identity'
-        self.current_stage = stage
+        context = RunContext(request, root, report, self._progress)
+        self.current_stage = IDENTITY_STAGE
         try:
-            archive, pdf = self._prepare_input(query, saved, selected_author, root, report)
-            if report['run_status'] == RunStatus.IDENTITY_CONFIRMATION_REQUIRED:
-                return report
-            original = _paper_entries(archive)
-            write_json(root / 'papers.json', archive)
-            report['artifacts']['papers'] = 'papers.json'
-            report['collection_statistics'] = archive.get('collection', archive).get('statistics', {})
-            manifest = None
-            if mode != 'metadata':
-                stage = 'Finding PDF URLs'
-                self._progress(stage)
-                if pdf is None:
-                    resolver = _required(self.pdf_resolver, 'pdf_resolver')
-                    pdf = resolver.resolve(
-                        archive, include_needs_review, maximum_pdf_papers, progress=self._progress
-                    ).to_dict()
-                    # The full archive keeps raw authorship and identity provenance when resuming.
-                    pdf['identity_archive'] = report.get('identity') or {}
-                report['stages'].append(
-                    {
-                        'stage': stage,
-                        'status': StageStatus.REUSED if _is_pdf_report(saved or {}) else StageStatus.COMPLETED,
-                    }
-                )
-                write_json(root / 'pdf_urls.json', pdf)
-                report['artifacts']['pdf_urls'] = 'pdf_urls.json'
-                report['pdf_statistics'] = pdf.get('statistics', {})
-                for item in pdf['papers']:
-                    report['warnings'].extend(
-                        dict(warning, stage=stage, title=item.get('title')) for warning in item.get('warnings') or []
-                    )
-                    report['candidate_decisions'].extend(
-                        dict(decision, stage=stage, title=item.get('title'))
-                        for decision in item.get('candidate_decisions') or []
-                    )
-                    report['errors'].extend(
-                        dict(error, stage=stage, title=item.get('title')) for error in item.get('error_details') or []
-                    )
-                write_json(root / 'report.json', report)
-            if mode == 'full':
-                stage = 'Downloading PDFs'
-                self._progress(stage)
-                manifest = _required(self.downloader, 'downloader').download(
-                    pdf,
-                    root / 'papers',
-                    include_needs_review,
-                    maximum_downloads,
-                    manifest_path=root / 'manifest.json',
-                    progress=self._progress,
-                )
-                report['artifacts']['manifest'] = 'manifest.json'
-                report['download_statistics'] = manifest['statistics']
-                processed = report['pdf_statistics'].get('processed_papers', 0)
-                satisfied = manifest['statistics'].get('search_sufficiently_satisfied_papers', 0)
-                report['search_satisfaction'] = {
-                    'satisfied_papers': satisfied,
-                    'processed_papers': processed,
-                    'rate': satisfied / processed if processed else None,
-                    'unknown_document_type_papers': manifest['statistics'].get('search_satisfaction_unknown_papers', 0),
-                    'definition': 'Verified ownership, local integrity, PDF format, content identity '
-                    'and full_text/preprint type',
-                    'independent_of_search_completion': True,
-                }
-                report['download_run_complete'] = manifest['run_complete']
-                report['stages'].append({'stage': stage, 'status': StageStatus.COMPLETED})
-                for item in manifest['papers']:
-                    for error in item.get('error_details') or []:
-                        report['errors'].append({'stage': stage, 'title': item.get('title'), 'error': error})
-            report['metadata_audit'] = metadata_audit(original, pdf, manifest)
-            review_files = bool(manifest and manifest['statistics']['needs_review_papers'])
-            incomplete_pdf_search = bool(pdf and pdf.get('statistics', {}).get('incomplete_search_papers'))
-            partial = bool(
-                report['errors']
-                or report['metadata_audit']['transmission_losses']
-                or review_files
-                or incomplete_pdf_search
-            )
-            report['run_status'] = RunStatus.PARTIAL if partial else RunStatus.COMPLETED
-            self._progress('Generating report')
+            for stage in self.stages:
+                if not stage.applies(context):
+                    continue
+                self.current_stage = stage.name
+                stage.run(context)
+                if context.halted:
+                    return report
+            self._finish(context)
         except IdentityConfirmationRequired as exc:
             report['run_status'] = RunStatus.IDENTITY_CONFIRMATION_REQUIRED
             report['errors'].append({'stage': self.current_stage, 'error': str(exc)})
@@ -363,111 +564,30 @@ class PaperSearchWorkflow:
             write_json(root / 'report.json', report)
         return report
 
-    def _prepare_input(self, query, saved, selection, root, report):
-        if saved is not None and (_is_pdf_report(saved) or 'collection' in saved):
-            if selection:
-                raise ValueError('Saved paper ownership is tied to its original identity; select from Resolver JSON')
-            archive = deepcopy(saved.get('collection_archive') or saved)
-            pdf = deepcopy(saved) if _is_pdf_report(saved) else None
-            if pdf is not None:
-                pdf.pop('collection_archive', None)
-            self._progress('Reusing collected papers')
-            report['stages'].extend(
-                {'stage': stage, 'status': StageStatus.REUSED}
-                for stage in ('Collecting papers', 'Deduplicating papers', 'Validating ownership')
-            )
-            identity = saved.get('identity_archive')
-            if 'collection' in archive and (identity is None or 'profile' not in identity):
-                saved_profile = asdict(saved_collection_profile(archive))
-                identity = {
-                    'profile': saved_profile,
-                    'candidates': [saved_profile],
-                    'source_errors': archive.get('source_errors') or {},
-                    'ambiguity': archive.get('ambiguity'),
-                }
-            if identity:
-                report['identity'] = deepcopy(identity)
-                if pdf is not None:
-                    pdf['identity_archive'] = deepcopy(identity)
-                write_json(root / 'professor.json', identity)
-                report['artifacts']['professor'] = 'professor.json'
-                for source, error in identity.get('source_errors', {}).items():
-                    report['errors'].append({'stage': 'Resolving professor identity', 'source': source, 'error': error})
-            self._collection_errors(archive, report)
-            return archive, pdf
-        if saved is not None and 'selected_author_ids' in saved and 'papers' in saved:
-            if selection:
-                raise ValueError('Cannot change identity for an existing collection')
-            self._collection_errors(saved, report)
-            self._progress('Reusing collected papers')
-            report['stages'].append({'stage': 'Collecting papers', 'status': StageStatus.REUSED})
-            return deepcopy(saved), None
-        self._progress('Resolving professor identity')
-        result = _required(self.resolver, 'resolver').resolve(query) if query else _resolution(saved)
-        identity = result.to_dict()
-        write_json(root / 'professor.json', identity)
-        report['identity'] = identity
-        report['artifacts']['professor'] = 'professor.json'
-        report['stages'].append(
-            {'stage': 'Resolving professor identity', 'status': StageStatus.COMPLETED if query else StageStatus.REUSED}
+    def _finish(self, context: RunContext) -> None:
+        report, pdf, manifest = context.report, context.pdf, context.manifest
+        report['metadata_audit'] = metadata_audit(_paper_entries(context.archive or {}), pdf, manifest)
+        review_files = bool(manifest and manifest['statistics']['needs_review_papers'])
+        incomplete_pdf_search = bool(pdf and pdf.get('statistics', {}).get('incomplete_search_papers'))
+        partial = bool(
+            report['errors'] or report['metadata_audit']['transmission_losses'] or review_files or incomplete_pdf_search
         )
-        for source, error in result.source_errors.items():
-            report['errors'].append({'stage': 'Resolving professor identity', 'source': source, 'error': error})
-        try:
-            profile, selected = _select_identity(
-                result,
-                selection,
-                self.collection_config.ambiguity_policy,
-                self.collection_config.maximum_contenders,
-                self.matching_config.ambiguity_margin,
-            )
-            if profile.status == ResolutionStatus.AMBIGUOUS_CONTENDERS:
-                report['warnings'].append(
-                    {
-                        'stage': 'Resolving professor identity',
-                        'warning': 'Identity unconfirmed; competing profiles collected for review',
-                    }
-                )
-        except IdentityConfirmationRequired as exc:
-            report['run_status'] = RunStatus.IDENTITY_CONFIRMATION_REQUIRED
-            report['errors'].append({'stage': 'Resolving professor identity', 'error': str(exc)})
-            return {}, None
-        self._progress('Collecting papers')
-        collection = _required(self.collector, 'collector').collect(
-            profile, selected_author=selected, progress=self._progress
-        )
-        archive = dict(
-            identity,
-            collection=collection.to_dict(),
-            collection_identity={
-                'name': profile.name,
-                'status': profile.status,
-                'orcid': profile.orcid,
-                'name_aliases': profile.name_aliases,
-                'author_ids': collection.selected_author_ids,
-                'confirmation': collection.identity_confirmation,
-            },
-        )
-        report['stages'].extend(
-            {'stage': stage, 'status': StageStatus.COMPLETED}
-            for stage in ('Collecting papers', 'Deduplicating papers', 'Validating ownership')
-        )
-        self._collection_errors(archive, report)
-        return archive, None
+        report['run_status'] = RunStatus.PARTIAL if partial else RunStatus.COMPLETED
+        self._progress('Generating report')
 
-    @staticmethod
-    def _collection_errors(archive, report):
-        collection = archive.get('collection', archive)
-        report['collection_complete'] = collection.get('complete')
-        report['collection_sources'] = deepcopy(collection.get('sources') or [])
-        for source in collection.get('sources') or []:
-            if source.get('error'):
-                report['errors'].append(
-                    {'stage': 'Collecting papers', 'source': source.get('source'), 'error': source['error']}
-                )
-            for error in source.get('metadata_errors') or []:
-                report['errors'].append({'stage': 'Collecting papers', 'source': source.get('source'), 'error': error})
-        if collection.get('complete') is False and not any(
-            source.get('error') for source in collection.get('sources') or []
-        ):
-            report['errors'].append({'stage': 'Collecting papers', 'error': 'Incomplete collection or pagination'})
+
+def _collection_errors(archive: JSONObject, report: JSONObject) -> None:
+    collection = archive.get('collection', archive)
+    report['collection_complete'] = collection.get('complete')
+    report['collection_sources'] = deepcopy(collection.get('sources') or [])
+    for source in collection.get('sources') or []:
+        if source.get('error'):
+            report['errors'].append(
+                {'stage': 'Collecting papers', 'source': source.get('source'), 'error': source['error']}
+            )
+        for error in source.get('metadata_errors') or []:
+            report['errors'].append({'stage': 'Collecting papers', 'source': source.get('source'), 'error': error})
+    if collection.get('complete') is False and not any(
+        source.get('error') for source in collection.get('sources') or []
+    ):
+        report['errors'].append({'stage': 'Collecting papers', 'error': 'Incomplete collection or pagination'})
