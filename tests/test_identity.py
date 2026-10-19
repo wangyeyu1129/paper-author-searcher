@@ -187,3 +187,54 @@ class IdentityTests(unittest.TestCase):
         self.assertEqual(len(result.candidates), 2)
         for profile in result.candidates:
             self.assertFalse('first' in profile.author_ids and 'third' in profile.author_ids)
+
+
+class NameBoundTests(unittest.TestCase):
+    """The grouping shortcut is exact only if the bound never falls below the real similarity."""
+
+    NAMES = (
+        'Wei Wang',
+        'Wang Wei',
+        'W. Wang',
+        'Wei Wang 2019',
+        'Wei-Wang',
+        'Weiwei Wang',
+        'Wei Huang',
+        'Mei Lin',
+        'Mei Lim',
+        'M Lin',
+        'Christopher D. Manning',
+        'Christopher Manning',
+        'Christopher Mannig',
+        'C. D. Manning',
+        'Chris Manning',
+        'Zoë Smith-Jones',
+        'Zoe Smith Jones',
+        'Huan Zhang',
+        'Zhang Huan',
+        'H. Zhang',
+        'Hao Zhang',
+        'Aarti Singh',
+        'A. Singh',
+        'Aarti S. Singh',
+        'Aarti R. Singh',
+        'Yi Cui',
+        'Yi  Cui',
+        'Cui Yi',
+        'J. P. Smith',
+        'John Paul Smith',
+        'John Smith',
+        'Jon Smith',
+        'José Álvarez',
+        'Jose Alvarez',
+        '',
+        'X',
+    )
+
+    def test_upper_bound_dominates_similarity_for_every_pair(self):
+        from paper_author_searcher.matching import name_similarity, name_similarity_upper_bound
+
+        for left in self.NAMES:
+            for right in self.NAMES:
+                with self.subTest(left=left, right=right):
+                    self.assertGreaterEqual(name_similarity_upper_bound(left, right), name_similarity(left, right))

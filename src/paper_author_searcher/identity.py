@@ -10,6 +10,7 @@ from .matching import (
     canonical_orcid,
     institution_similarity,
     name_similarity,
+    name_similarity_upper_bound,
     normalize,
 )
 from .models import AuthorCandidate
@@ -144,6 +145,17 @@ def link_evidence(
     left: AuthorCandidate, right: AuthorCandidate, config: MatchingConfig = DEFAULT_MATCHING
 ) -> List[str]:
     return compare_identity(left, right, config).evidence
+
+
+def names_may_match(left: AuthorCandidate, right: AuthorCandidate, config: MatchingConfig = DEFAULT_MATCHING) -> bool:
+    """False only when ``compare_identity`` is certain to find the names incompatible (exact, never a guess)."""
+    if left.source == right.source and left.author_id == right.author_id:
+        return True
+    left_names = [left.name, *left.aliases]
+    right_names = [right.name, *right.aliases]
+    return any(
+        name_similarity_upper_bound(a, b, config) >= config.compatible_name for a in left_names for b in right_names
+    )
 
 
 def linked(left: AuthorCandidate, right: AuthorCandidate, config: MatchingConfig = DEFAULT_MATCHING) -> bool:

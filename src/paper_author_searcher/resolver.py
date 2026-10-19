@@ -7,7 +7,7 @@ from itertools import combinations
 from typing import Any, Dict, List
 
 from .config import DEFAULT_MATCHING
-from .identity import IdentityLink, compare_identity
+from .identity import IdentityLink, compare_identity, names_may_match
 from .identity_adjudication import accepted
 from .identity_anchors import IdentityAnchors
 from .logging_config import log_isolated_failure
@@ -177,6 +177,9 @@ class ProfessorResolver:
     def _can_join(self, candidate, group):
         # Complete-link prevents incompatible records merging through a bridge. Split-profile fragments of one
         # person are often only chained (A~B, A~C), so one split link suffices when no member conflicts.
+        # A member with incompatible names always blocks the join, so a cheap exact bound rules it out first.
+        if not all(names_may_match(candidate, member, self.config) for member in group):
+            return False
         links = [compare_identity(candidate, member, self.config) for member in group]
         if all(link.matched for link in links):
             return True

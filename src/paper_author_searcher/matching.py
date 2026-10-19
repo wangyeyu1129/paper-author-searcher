@@ -69,6 +69,35 @@ def name_similarity(left: str, right: str, config: MatchingConfig = DEFAULT_MATC
 
 
 @lru_cache(maxsize=200_000)
+def name_similarity_upper_bound(left: str, right: str, config: MatchingConfig = DEFAULT_MATCHING) -> float:
+    """Never below ``name_similarity(left, right)``, at linear cost.
+
+    Mirrors ``name_similarity`` rule for rule and replaces only the closing ``SequenceMatcher.ratio()`` (quadratic)
+    with ``quick_ratio()``, which difflib guarantees is an upper bound of it. Lets grouping rule out a pair of
+    incompatible names without the fuzzy comparison.
+    """
+    left_words = normalize(left).split()
+    right_words = normalize(re.sub(r'\s+\d{4}$', '', right)).split()
+    if not left_words or not right_words:
+        return 0.0
+    if sorted(left_words) == sorted(right_words):
+        return 1.0
+    has_full_names = len(left_words) >= 2 and len(right_words) >= 2
+    if has_full_names and left_words[-1] == right_words[-1]:
+        first_left = left_words[0]
+        first_right = right_words[0]
+        if first_left == first_right:
+            if _compatible_middle_names(left_words[1:-1], right_words[1:-1]):
+                return config.middle_name_similarity
+            return 0.0
+        same_initial = first_left[0] == first_right[0]
+        contains_initial = len(first_left) == 1 or len(first_right) == 1
+        if same_initial and contains_initial:
+            return config.initial_similarity
+    return SequenceMatcher(None, ' '.join(left_words), ' '.join(right_words)).quick_ratio()
+
+
+@lru_cache(maxsize=200_000)
 def institution_similarity(left: str, right: str, config: MatchingConfig = DEFAULT_MATCHING) -> float:
     left_name = normalize(left)
     right_name = normalize(right)
