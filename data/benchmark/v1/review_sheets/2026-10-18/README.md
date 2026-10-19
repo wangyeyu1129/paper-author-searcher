@@ -66,6 +66,6 @@
 - 评分时按已审核的标签计算，但门槛不会把它算作正式认证。
 - 判断依据：Crossref 的作者列表和机构、研究者本人主页、ORCID。每条决定和理由见 [assistant_decisions.py](assistant_decisions.py)。
 - Wei Wang 补充了本人主页的完整论文列表（真值从 8 条增加到 44 条）。
-- 只有 Wei Wang 和 Raj Chetty 标为"已列全"。
+- 只有 Wei Wang 和 Raj Chetty 标为"已列全"。（2026-10-19 已撤销：两份真值其实不全，见 [2026-10-19-closed-world](../2026-10-19-closed-world/README.md)。）
 
 你可以随时复核：修改 CSV 里的决定后重新导入，用 `--review-state human_reviewed` 并写上你的名字，就会变成正式的人工审核。
