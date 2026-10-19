@@ -14,9 +14,10 @@ from email.utils import parsedate_to_datetime
 from http.client import HTTPException
 from urllib.error import HTTPError
 from urllib.parse import urlencode, urlsplit
-from urllib.request import HTTPRedirectHandler, Request, urlopen
+from urllib.request import HTTPRedirectHandler, Request
 
 from .config import DEFAULT_DOWNLOAD, DEFAULT_HTTP
+from .http_transport import KeepAliveTransport
 from .network_safety import secure_download_opener
 
 logger = logging.getLogger(__name__)
@@ -105,7 +106,9 @@ class DownloadReceipt:
 
 
 class HttpClient:
-    def __init__(self, timeout=None, retries=None, config=DEFAULT_HTTP):
+    """Bounded JSON/XML API client with retries; metadata calls reuse pooled keep-alive connections."""
+
+    def __init__(self, timeout=None, retries=None, config=DEFAULT_HTTP, transport=None):
         overrides = {}
         if timeout is not None:
             overrides['timeout'] = timeout
@@ -115,6 +118,19 @@ class HttpClient:
         self.timeout = self.config.timeout
         self.retries = self.config.retries
         self.transport_statistics = {}
+        # Strategy for metadata requests: anything with urlopen's open(request, timeout) contract.
+        self.transport = transport or KeepAliveTransport()
+
+    def close(self):
+        close = getattr(self.transport, 'close', None)
+        if callable(close):
+            close()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc_info):
+        self.close()
 
     def get(self, url, params=None, headers=None, xml=False):
         request = self._request(url, params, headers, xml)
@@ -322,7 +338,7 @@ class HttpClient:
         return Request(url, headers=request_headers)
 
     def _read_response(self, request, xml, expected_type=dict):
-        with urlopen(request, timeout=self.timeout) as response:
+        with self.transport.open(request, timeout=self.timeout) as response:
             data = response.read(self.config.response_limit + 1)
             status = response.status
             content_type = response.headers.get('Content-Type', '').lower()

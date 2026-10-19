@@ -239,7 +239,8 @@ class TransportTests(unittest.TestCase):
         error = HTTPError('https://api.example.edu', 429, 'limited', {'Retry-After': '0'}, None)
         client = HttpClient(retries=1)
         with patch(
-            'paper_author_searcher.http.urlopen', side_effect=[error, Response(b'{}', 'application/json')]
+            'paper_author_searcher.http_transport.KeepAliveTransport.open',
+            side_effect=[error, Response(b'{}', 'application/json')],
         ), patch('paper_author_searcher.http.time.sleep'):
             client.get('https://api.example.edu/paper')
         stats = client.transport_statistics['metadata_get']
@@ -250,7 +251,7 @@ class TransportTests(unittest.TestCase):
     def test_redirect_guard_error_does_not_count_as_an_http_429_response(self):
         client = HttpClient(retries=1)
         with patch(
-            'paper_author_searcher.http.urlopen',
+            'paper_author_searcher.http_transport.KeepAliveTransport.open',
             side_effect=SourceError('destination cooling', 429, error_type='source_deferred'),
         ):
             with self.assertRaises(SourceError):

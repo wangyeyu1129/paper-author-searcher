@@ -62,7 +62,7 @@ class ConfigurationTests(unittest.TestCase):
     def test_http_response_limit_is_injectable(self):
         config = replace(HttpConfig(), response_limit=2)
         response = Response(b'{"a":1}', 'application/json')
-        with patch('paper_author_searcher.http.urlopen', return_value=response):
+        with patch('paper_author_searcher.http_transport.KeepAliveTransport.open', return_value=response):
             with self.assertRaisesRegex(SourceError, 'size limit'):
                 HttpClient(config=config).get('https://example.test')
 

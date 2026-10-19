@@ -327,7 +327,10 @@ class ResolverAndCLITests(unittest.TestCase):
             output = root / 'evaluation.json'
             result.write_text(json.dumps(saved([entry('a')])), encoding='utf-8')
             gold.write_text(json.dumps(truth([truth_paper('a')])), encoding='utf-8')
-            with patch('paper_author_searcher.http.urlopen', side_effect=AssertionError('Must remain offline')):
+            with patch(
+                'paper_author_searcher.http_transport.KeepAliveTransport.open',
+                side_effect=AssertionError('Must remain offline'),
+            ):
                 with redirect_stdout(io.StringIO()):
                     self.assertEqual(
                         main(['--result', str(result), '--ground-truth', str(gold), '--output', str(output)]), 0
