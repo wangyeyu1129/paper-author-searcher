@@ -75,11 +75,9 @@ class PublicHTTPSHandler(HTTPSHandler):
 
     def https_open(self, request):
         addresses = public_addresses(request.full_url, self.allowed_ports)
+        # Hostname verification lives in the SSL context; Python 3.12 removed HTTPSConnection's check_hostname.
         return self.do_open(
-            pinned_connection(HTTPSConnection, addresses),
-            request,
-            context=getattr(self, '_context', None),
-            check_hostname=getattr(self, '_check_hostname', None),
+            pinned_connection(HTTPSConnection, addresses), request, context=getattr(self, '_context', None)
         )
 
 
