@@ -82,6 +82,17 @@ OpenAlex 默认搜索 25 个候选，并为最多 8 个姓名兼容候选查询�
 
 凭据只从环境变量读取（`OPENALEX_API_KEY`、`SEMANTIC_SCHOLAR_API_KEY`、`UNPAYWALL_EMAIL`、`CROSSREF_MAILTO`），配置文件中出现 `credentials` 会被拒绝；`repr` 与 `Settings.to_dict()` 只显示 set/unset，不输出值。只有 `settings.py`（和日志引导）读取环境，有架构测试保证。
 
+## 数据源注册表
+
+数据源按名字注册在 `source_catalog.py`（`IDENTITY_SOURCES`、`PAPER_SOURCES`、`PDF_SOURCES`），由配置决定启用哪些、按什么顺序：
+
+```json
+{"sources": {"identity_sources": ["openalex", "semantic_scholar"]},
+ "pdf": {"sources": ["existing_metadata", "openalex", "arxiv", "public_pages"]}}
+```
+
+新增数据源：写好适配器，在 `source_catalog.py` 用 `@PDF_SOURCES.register('name')` 注册工厂函数，再把名字加入配置即可，无需改动 Resolver / Collector / Workflow。配置中出现未注册的名字会在构建时直接报错。
+
 ## 日志
 
 命令结果写到 stdout，诊断信息（进度、重试、限流、预算拒绝、被隔离的来源失败）通过 `logging` 写到 stderr，管道输出不会被污染。所有命令都支持：

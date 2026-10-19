@@ -17,7 +17,8 @@ logger = logging.getLogger(__name__)
 
 
 class PaperProvider(Protocol):
-    name: str
+    @property
+    def name(self) -> str: ...
 
     def collect(self, author_id: str) -> PaperSourceResult: ...
 

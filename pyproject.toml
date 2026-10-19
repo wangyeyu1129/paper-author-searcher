@@ -130,7 +130,9 @@ module = [
     "paper_author_searcher.performance_evaluation",
     "paper_author_searcher.progress",
     "paper_author_searcher.reference_import",
+    "paper_author_searcher.registry",
     "paper_author_searcher.settings",
+    "paper_author_searcher.source_catalog",
     "paper_author_searcher.status",
 ]
 disallow_untyped_defs = true

@@ -81,6 +81,8 @@ class SourceConfig:
     # Name-only search returns the 25 most prominent namesakes; for common names the target is often absent.
     institution_scoped_search: bool = True
     institution_limit: int = 2
+    # Enabled identity sources, in order (names registered in source_catalog.IDENTITY_SOURCES).
+    identity_sources: Tuple[str, ...] = ('openalex', 'semantic_scholar', 'dblp')
 
 
 @dataclass(frozen=True)
@@ -208,6 +210,18 @@ class PDFConfig:
     # Full collected records live in papers.json; reports keep a bibliographic view plus entry_index.
     # True embeds the full record (self-contained but duplicated) in the PDF report and manifest.
     embed_full_metadata: bool = False
+    # Enabled PDF sources, in lookup order (names registered in source_catalog.PDF_SOURCES). Later sources
+    # see the landing pages earlier ones found.
+    sources: Tuple[str, ...] = (
+        'existing_metadata',
+        'openalex',
+        'semantic_scholar',
+        'crossref',
+        'unpaywall',
+        'arxiv',
+        'journal_catalog',
+        'public_pages',
+    )
     bibliography_urls: Tuple[str, ...] = ()
     journal_catalogs: Tuple[Tuple[str, str], ...] = (
         ('Journal of Machine Learning Research', 'https://jmlr.org/papers/'),

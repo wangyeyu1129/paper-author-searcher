@@ -16,24 +16,13 @@ from .http_cache import cached_client
 from .identity_anchors import ScholarlyAnchorFinder
 from .paper_collector import PaperCollector
 from .paper_ownership import PaperOwnershipValidator
-from .paper_providers import DBLPPaperProvider, OpenAlexPaperProvider, SemanticScholarPaperProvider
-from .pdf_catalogs import JournalCatalogPDFProvider
-from .pdf_crossref import CrossrefPDFProvider
-from .pdf_providers import (
-    ArxivPDFProvider,
-    ExistingPDFProvider,
-    OpenAlexPDFProvider,
-    SemanticScholarPDFProvider,
-    UnpaywallPDFProvider,
-)
-from .pdf_public_pages import PublicPagePDFProvider
 from .pdf_resolver import PDFResolver
 from .pdf_resource_requests import PublicResourceRequests
 from .pdf_validation import PDFURLValidator
 from .progress import ProgressReporter
-from .providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
 from .resolver import ProfessorResolver
 from .settings import Settings
+from .source_catalog import IDENTITY_SOURCES, PAPER_SOURCES, PDF_SOURCES
 from .workflow import PaperSearchWorkflow
 
 FULL_MODE = 'full'
@@ -111,19 +100,7 @@ class ServiceContainer:
 
     @cached_property
     def identity_providers(self) -> List[Any]:
-        settings, credentials = self.settings, self.settings.credentials
-        return [
-            OpenAlexProvider(
-                client=self.http_client,
-                api_key=credentials.openalex_api_key,
-                source_config=settings.sources,
-                matching_config=settings.matching,
-            ),
-            SemanticScholarProvider(
-                client=self.http_client, api_key=credentials.semantic_scholar_api_key, source_config=settings.sources
-            ),
-            DBLPProvider(client=self.http_client, source_config=settings.sources),
-        ]
+        return IDENTITY_SOURCES.create(self.settings.sources.identity_sources, self)
 
     @cached_property
     def anchor_finder(self) -> ScholarlyAnchorFinder:
@@ -163,11 +140,11 @@ class ServiceContainer:
 
     @cached_property
     def paper_providers(self) -> List[Any]:
-        openalex, semantic_scholar, dblp = self.identity_providers
+        """One collector per enabled identity source that has a registered paper source."""
         return [
-            OpenAlexPaperProvider(openalex, self.collection_config),
-            SemanticScholarPaperProvider(semantic_scholar, self.collection_config),
-            DBLPPaperProvider(dblp),
+            PAPER_SOURCES.factory(provider.name)(self, provider)
+            for provider in self.identity_providers
+            if provider.name in PAPER_SOURCES
         ]
 
     @cached_property
@@ -193,18 +170,7 @@ class ServiceContainer:
 
     @cached_property
     def pdf_providers(self) -> List[Any]:
-        requests, config, credentials = self.resource_requests, self.pdf_config, self.settings.credentials
-        sources = self.settings.sources
-        return [
-            ExistingPDFProvider(),
-            OpenAlexPDFProvider(requests, sources, api_key=credentials.openalex_api_key),
-            SemanticScholarPDFProvider(requests, sources, api_key=credentials.semantic_scholar_api_key, config=config),
-            CrossrefPDFProvider(requests, config, email=credentials.crossref_email),
-            UnpaywallPDFProvider(requests, self.options.unpaywall_email or credentials.unpaywall_email, config),
-            ArxivPDFProvider(requests, config),
-            JournalCatalogPDFProvider(requests, config),
-            PublicPagePDFProvider(requests, config),
-        ]
+        return PDF_SOURCES.create(self.pdf_config.sources, self)
 
     @cached_property
     def pdf_validator(self) -> PDFURLValidator:
