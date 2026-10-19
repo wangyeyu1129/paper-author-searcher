@@ -11,6 +11,7 @@ from unittest.mock import patch
 from paper_author_searcher.evaluation import Evaluator
 from paper_author_searcher.evaluation_cli import main
 from paper_author_searcher.evaluation_matching import GroundTruth, GroundTruthMatcher
+from paper_author_searcher.matching import arxiv_from_doi, canonical_arxiv
 
 
 def truth_paper(evaluation_id, label='belongs', doi=None):
@@ -195,6 +196,20 @@ class EvaluationMatchingTests(unittest.TestCase):
         match = self.matcher([truth_paper('a')]).match(candidate)
         self.assertEqual(match.decision, 'identifier_conflict')
         self.assertIsNone(match.evaluation_id)
+
+    def test_arxiv_doi_is_a_version_of_the_published_paper(self):
+        annotation = dict(truth_paper('a'), external_ids={'arxiv': 'arXiv:2401.01234v2'})
+        candidate = dict(record('a'), doi='https://doi.org/10.48550/arXiv.2401.01234')
+        match = self.matcher([annotation]).match(candidate)
+        self.assertEqual(match.evaluation_id, 'a')
+        self.assertNotEqual(match.decision, 'identifier_conflict')
+
+    def test_arxiv_identifiers_are_canonical(self):
+        for value in ('2401.01234', 'arXiv:2401.01234v3', 'https://arxiv.org/abs/2401.01234', 'hep-th/9901001v1'):
+            self.assertIsNotNone(canonical_arxiv(value), value)
+        self.assertEqual(canonical_arxiv('arXiv:2401.01234v3'), '2401.01234')
+        self.assertEqual(arxiv_from_doi('10.48550/ARXIV.2401.01234'), '2401.01234')
+        self.assertIsNone(arxiv_from_doi('10.1145/3706598.3713767'))
 
     def test_stable_identifiers_pointing_to_different_truths_are_ambiguous(self):
         annotation = truth_paper('b')

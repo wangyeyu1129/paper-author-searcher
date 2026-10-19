@@ -3,7 +3,7 @@
 import re
 from urllib.parse import urlsplit
 
-from .matching import canonical_doi, normalize
+from .matching import ARXIV_DOI_PREFIX, canonical_doi, normalize
 from .paper_authorship import byline_forms
 from .paper_deduplication import author_signatures_match
 from .status import IdentityStatus, OwnershipStatus
@@ -137,7 +137,7 @@ def arxiv_ids(paper):
                 if value:
                     identifiers.append(value)
     for doi in sorted(paper_dois(paper)):
-        prefix = 'doi:10.48550/arxiv.'
+        prefix = 'doi:' + ARXIV_DOI_PREFIX
         if doi.startswith(prefix):
             identifier = arxiv_id(doi[len(prefix) :])
             if identifier:

@@ -15,13 +15,12 @@ from .evaluation_matching import bibliographic_name_agrees
 from .homepage_citations import ARXIV_IN_TEXT, DOI_IN_TEXT, CitationParser, HtmlCitationParser, prioritise
 from .html_support import decode_response
 from .http import HttpClient, SourceError
-from .matching import canonical_orcid, name_similarity, normalize
+from .matching import ARXIV_DOI_PREFIX, canonical_orcid, name_similarity, normalize
 from .models import AnchorEvidence
 from .status import AnchorKind
 
 # Added by the resolver itself when a candidate record carries the supplied ORCID; not an anchor-finder result.
 SUPPLIED_ORCID_REASON = 'ORCID matches the supplied ORCID'
-ARXIV_DOI_PREFIX = '10.48550/arxiv.'
 ARXIV_HINT = re.compile(r'^(?:arxiv:)?(\d{4}\.\d{4,5})(?:v\d+)?$', re.IGNORECASE)
 
 

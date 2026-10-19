@@ -139,6 +139,27 @@ def canonical_doi(value: str) -> str:
     return 'doi:' + value
 
 
+# arXiv registers a DataCite DOI for every preprint; it names the arXiv identifier, not a separate publication.
+ARXIV_DOI_PREFIX = '10.48550/arxiv.'
+ARXIV_IDENTIFIER = re.compile(r'(\d{4}\.\d{4,5}|[a-z\-]+(?:\.[a-z]{2})?/\d{7})(?:v\d+)?$', re.IGNORECASE)
+
+
+def canonical_arxiv(value: str) -> str | None:
+    """'arXiv:2401.01234v2', 'https://arxiv.org/abs/2401.01234' and '2401.01234' all become '2401.01234'."""
+    text = value.strip().lower()
+    for prefix in ('https://arxiv.org/abs/', 'http://arxiv.org/abs/', 'https://arxiv.org/pdf/', 'arxiv:'):
+        if text.startswith(prefix):
+            text = text[len(prefix) :]
+    match = ARXIV_IDENTIFIER.match(text.removesuffix('.pdf'))
+    return match.group(1) if match else None
+
+
+def arxiv_from_doi(value: str) -> str | None:
+    """The arXiv identifier behind an arXiv DataCite DOI, or None for any other DOI."""
+    doi = canonical_doi(value).removeprefix('doi:')
+    return canonical_arxiv(doi[len(ARXIV_DOI_PREFIX) :]) if doi.startswith(ARXIV_DOI_PREFIX) else None
+
+
 # Process-wide memo caches of the pure similarity functions (bounded LRU). A long-running service reports them
 # as metrics and may clear them, e.g. after changing matching configuration.
 SIMILARITY_CACHES = {
