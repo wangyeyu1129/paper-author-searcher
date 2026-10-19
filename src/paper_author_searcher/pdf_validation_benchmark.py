@@ -5,16 +5,14 @@ import logging
 import math
 from pathlib import Path
 
-from .http import HttpClient
+from .composition import RunOptions, ServiceContainer
 from .jsonio import read_json, write_json
 from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_discovery_comparison import _cohort, _metadata_fingerprint, compare_runs, summarize_runs
-from .pdf_downloader import PDFDownloader, paper_key
-from .pdf_resolver import PDFResolver
+from .pdf_downloader import paper_key
+from .progress import ProgressReporter
 from .settings import load_settings, validate_contact_email
 from .status import OwnershipStatus, RunStatus
-from .workflow import PaperSearchWorkflow
-from .workflow_cli import ProgressReporter
 
 logger = logging.getLogger(__name__)
 
@@ -46,12 +44,8 @@ def run_benchmark(baseline_directory, output_directory, timeout, retries, progre
         raise ValueError('Set UNPAYWALL_EMAIL in your terminal before starting this benchmark')
     archive, cohort_size = benchmark_inputs(baseline_directory)
     baseline = summarize_runs([baseline_directory])
-    client = HttpClient(timeout=timeout, retries=retries, config=settings.http)
-    workflow = PaperSearchWorkflow(
-        pdf_resolver=PDFResolver(client=client, config=settings.pdf, credentials=settings.credentials),
-        downloader=PDFDownloader(client=client, config=settings.download),
-        progress=progress,
-    )
+    container = ServiceContainer(settings, RunOptions(timeout=timeout, retries=retries))
+    workflow = container.workflow(progress)
     report = workflow.run(saved=archive, output_dir=output_directory, mode='full', maximum_pdf_papers=cohort_size)
     root = Path(report['output_directory'])
     if report['run_status'] not in (RunStatus.COMPLETED, RunStatus.PARTIAL):

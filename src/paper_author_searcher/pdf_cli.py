@@ -3,12 +3,10 @@
 import argparse
 import json
 import logging
-from dataclasses import replace
 from pathlib import Path
 
-from .http import HttpClient
+from .composition import RunOptions, ServiceContainer
 from .logging_config import add_logging_arguments, configure_from_arguments
-from .pdf_resolver import PDFResolver
 from .settings import add_settings_argument, load_settings, validate_contact_email
 
 logger = logging.getLogger(__name__)
@@ -58,12 +56,14 @@ def main(argv=None):
             saved = json.load(handle)
         if not isinstance(saved, dict):
             raise ValueError('Input must be a JSON object')
-        resolver = PDFResolver(
-            client=HttpClient(timeout=args.timeout, retries=args.retries, config=settings.http),
+        options = RunOptions(
+            mode='pdf-urls',
+            timeout=args.timeout,
+            retries=args.retries,
             unpaywall_email=args.unpaywall_email,
-            config=replace(settings.pdf, bibliography_urls=tuple(args.bibliography_url)),
-            credentials=settings.credentials,
+            bibliography_urls=tuple(args.bibliography_url),
         )
+        resolver = ServiceContainer(settings, options).pdf_resolver
         result = resolver.resolve(saved, args.include_needs_review, args.max_papers).to_dict()
         with args.output.open('w', encoding='utf-8') as handle:
             json.dump(result, handle, ensure_ascii=False, indent=2)

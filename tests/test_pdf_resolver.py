@@ -242,7 +242,7 @@ class CLITests(unittest.TestCase):
             output_path = Path(directory) / 'pdf_urls.json'
             input_path.write_text(json.dumps(saved_collection()), encoding='utf-8')
             resolver = PDFResolver([provider()], validator())
-            with patch('paper_author_searcher.pdf_cli.PDFResolver', return_value=resolver), patch('builtins.print'):
+            with patch('paper_author_searcher.composition.PDFResolver', return_value=resolver), patch('builtins.print'):
                 code = main(['--input', str(input_path), '--output', str(output_path), '--max-papers', '1'])
             self.assertEqual(code, 0)
             result = json.loads(output_path.read_text(encoding='utf-8'))
@@ -262,6 +262,6 @@ class CLITests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             input_path, output_path = Path(directory) / 'input.json', Path(directory) / 'output.json'
             input_path.write_text(json.dumps(saved_collection()), encoding='utf-8')
-            with patch('paper_author_searcher.pdf_cli.PDFResolver', return_value=resolver), patch('builtins.print'):
+            with patch('paper_author_searcher.composition.PDFResolver', return_value=resolver), patch('builtins.print'):
                 self.assertEqual(main(['--input', str(input_path), '--output', str(output_path)]), 2)
             self.assertTrue(output_path.exists())

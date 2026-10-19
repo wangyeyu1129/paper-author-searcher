@@ -4,28 +4,16 @@ import argparse
 import json
 import logging
 import math
-from dataclasses import replace
 from pathlib import Path
 from typing import Optional
 
-from .config import (
-    AMBIGUITY_POLICIES,
-    AmbiguityPolicy,
-)
-from .http import HttpClient
-from .http_budget import budgeted_client
-from .http_cache import cached_client
-from .identity_anchors import ScholarlyAnchorFinder
+from .composition import RunOptions, ServiceContainer
+from .config import AMBIGUITY_POLICIES, AmbiguityPolicy
 from .logging_config import add_logging_arguments, configure_from_arguments
 from .models import ProfessorQuery
-from .paper_collector import PaperCollector
-from .paper_providers import DBLPPaperProvider, OpenAlexPaperProvider, SemanticScholarPaperProvider
-from .pdf_resolver import PDFResolver
-from .providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
-from .resolver import ProfessorResolver
 from .settings import Settings, add_settings_argument, load_settings, validate_contact_email
 from .status import RunStatus
-from .workflow import MODES, PaperSearchWorkflow, load_checkpoint
+from .workflow import MODES, load_checkpoint
 
 logger = logging.getLogger(__name__)
 
@@ -102,24 +90,6 @@ def add_workflow_arguments(parser):
     )
 
 
-class ProgressReporter:
-    """Logs stage changes and every 10% of progress (every step when verbose)."""
-
-    def __init__(self, verbose=False):
-        self.verbose = verbose
-        self.stage = None
-        self.bucket = -1
-
-    def __call__(self, stage, completed=None, total=None):
-        new_stage = stage != self.stage
-        bucket = int(10 * completed / total) if completed is not None and total else -1
-        if new_stage or self.verbose or bucket > self.bucket:
-            suffix = f' [{completed}/{total}]' if completed is not None else ''
-            logger.info('%s%s', stage, suffix)
-        self.stage = stage
-        self.bucket = bucket
-
-
 def _validate(parser, args):
     if args.require_unpaywall:
         try:
@@ -148,97 +118,12 @@ def _validate(parser, args):
         parser.error('--retries must be nonnegative')
 
 
-def build_client(args, settings: Optional[Settings] = None):
-    settings = settings or load_settings(args)
-    # cache -> budget -> network: cached replays are free, only real requests are priced.
-    metered = budgeted_client(
-        HttpClient(timeout=args.timeout, retries=args.retries, config=settings.http),
-        getattr(args, 'max_cost_usd', None),
-        getattr(args, 'cost_ledger', 'default'),
-    )
-    return cached_client(metered, getattr(args, 'http_cache_dir', None), getattr(args, 'http_cache_mode', None))
-
-
-def build_identity_providers(client, settings: Settings):
-    credentials = settings.credentials
-    return [
-        OpenAlexProvider(
-            client=client,
-            api_key=credentials.openalex_api_key,
-            source_config=settings.sources,
-            matching_config=settings.matching,
-        ),
-        SemanticScholarProvider(
-            client=client, api_key=credentials.semantic_scholar_api_key, source_config=settings.sources
-        ),
-        DBLPProvider(client=client, source_config=settings.sources),
-    ]
-
-
-def build_resolver(client, providers, settings: Settings, llm_adjudication=False):
-    adjudicator = None
-    if llm_adjudication:
-        from .identity_adjudication import ClaudeIdentityAdjudicator
-
-        adjudicator = ClaudeIdentityAdjudicator()
-    return ProfessorResolver(
-        providers,
-        config=settings.matching,
-        anchor_finder=ScholarlyAnchorFinder(
-            client,
-            source_config=settings.sources,
-            matching_config=settings.matching,
-            anchor_config=settings.anchors,
-            openalex_api_key=settings.credentials.openalex_api_key,
-            semantic_scholar_api_key=settings.credentials.semantic_scholar_api_key,
-        ),
-        adjudicator=adjudicator,
-    )
+def build_container(args, settings: Optional[Settings] = None) -> ServiceContainer:
+    return ServiceContainer(settings or load_settings(args), RunOptions.from_namespace(args))
 
 
 def build_workflow(args, settings: Optional[Settings] = None):
-    settings = settings or load_settings(args)
-    client = build_client(args, settings)
-    providers = build_identity_providers(client, settings)
-    collection_config = settings.collection
-    if args.max_pages is not None:
-        collection_config = replace(collection_config, maximum_pages=args.max_pages)
-    if args.page_size is not None:
-        collection_config = replace(
-            collection_config, openalex_page_size=args.page_size, semantic_scholar_page_size=args.page_size
-        )
-    collection_config = replace(
-        collection_config,
-        ambiguity_policy=getattr(args, 'ambiguity_policy', None) or AmbiguityPolicy.COLLECT_CONTENDERS,
-    )
-    collector = PaperCollector(
-        [
-            OpenAlexPaperProvider(providers[0], collection_config),
-            SemanticScholarPaperProvider(providers[1], collection_config),
-            DBLPPaperProvider(providers[2]),
-        ]
-    )
-    downloader = None
-    if (args.mode or 'full') == 'full':
-        from .pdf_downloader import PDFDownloader
-
-        config = settings.download
-        if args.max_file_mb is not None:
-            config = replace(config, maximum_file_bytes=int(args.max_file_mb * 1024 * 1024))
-        downloader = PDFDownloader(client=client, config=config)
-    return PaperSearchWorkflow(
-        resolver=build_resolver(client, providers, settings, llm_adjudication=getattr(args, 'llm_adjudication', False)),
-        collector=collector,
-        pdf_resolver=PDFResolver(
-            client=client,
-            unpaywall_email=args.unpaywall_email,
-            config=replace(settings.pdf, bibliography_urls=tuple(args.bibliography_url)),
-            credentials=settings.credentials,
-        ),
-        downloader=downloader,
-        progress=ProgressReporter(args.verbose),
-        collection_config=collection_config,
-    )
+    return build_container(args, settings).workflow()
 
 
 def _show_candidates(report, verbose=False):

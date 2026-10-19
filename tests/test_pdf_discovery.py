@@ -214,7 +214,7 @@ class SemanticRequestTests(unittest.TestCase):
 class ContactTests(unittest.TestCase):
     def test_required_unpaywall_stops_cli_before_any_provider_requests(self):
         with patch.dict('os.environ', {}, clear=True), patch('sys.stderr'), patch(
-            'paper_author_searcher.pdf_cli.PDFResolver'
+            'paper_author_searcher.composition.PDFResolver'
         ) as resolver:
             with self.assertRaises(SystemExit) as raised:
                 pdf_main(['--input', 'missing.json', '--output', 'result.json', '--require-unpaywall'])

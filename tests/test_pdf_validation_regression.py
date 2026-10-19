@@ -196,10 +196,10 @@ class BenchmarkTests(unittest.TestCase):
                 benchmark_inputs(root)
 
     def test_missing_contact_stops_benchmark_without_requests(self):
-        with patch('paper_author_searcher.pdf_validation_benchmark.HttpClient') as client:
+        with patch('paper_author_searcher.pdf_validation_benchmark.ServiceContainer') as container:
             with self.assertRaisesRegex(ValueError, 'UNPAYWALL_EMAIL'):
                 run_benchmark(Path('baseline'), Path('output'), 6, 0, settings=Settings())
-            client.assert_not_called()
+            container.assert_not_called()
 
     def test_changed_year_hidden_by_same_doi_fails_before_requests(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -219,17 +219,16 @@ class BenchmarkTests(unittest.TestCase):
             ), patch(
                 'paper_author_searcher.pdf_validation_benchmark.summarize_runs',
                 return_value={'runs': [{'statistics': {}}]},
-            ), patch('paper_author_searcher.pdf_validation_benchmark.PaperSearchWorkflow') as workflow, patch(
-                'paper_author_searcher.pdf_validation_benchmark.PDFResolver'
-            ), patch('paper_author_searcher.pdf_validation_benchmark.PDFDownloader'), patch(
+            ), patch('paper_author_searcher.pdf_validation_benchmark.ServiceContainer') as container, patch(
                 'paper_author_searcher.pdf_validation_benchmark.compare_runs', return_value={'before': {}, 'after': {}}
             ):
-                workflow.return_value.run.return_value = {'run_status': 'partial', 'output_directory': str(root)}
+                workflow = container.return_value.workflow.return_value
+                workflow.run.return_value = {'run_status': 'partial', 'output_directory': str(root)}
                 _, result = run_benchmark(Path('baseline'), root, 6, 0, settings=settings)
             self.assertNotIn('private@example.test', json.dumps(result))
             self.assertEqual(result['benchmark_configuration']['timeout'], 6)
             self.assertEqual(result['benchmark_configuration']['retries'], 0)
             self.assertIsNone(result['benchmark_configuration']['baseline_http_configuration'])
             self.assertTrue((root / 'comparison.json').exists())
-            self.assertEqual(workflow.return_value.run.call_args[1]['saved'], archive)
-            self.assertEqual(workflow.return_value.run.call_args[1]['maximum_pdf_papers'], 1)
+            self.assertEqual(workflow.run.call_args[1]['saved'], archive)
+            self.assertEqual(workflow.run.call_args[1]['maximum_pdf_papers'], 1)

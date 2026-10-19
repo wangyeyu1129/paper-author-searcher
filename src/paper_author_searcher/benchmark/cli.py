@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Optional
 
+from paper_author_searcher.composition import RunOptions, ServiceContainer
 from paper_author_searcher.http import HttpClient, SourceError
 from paper_author_searcher.jsonio import read_json, write_json
 from paper_author_searcher.logging_config import add_logging_arguments, configure_from_arguments, log_isolated_failure
@@ -217,18 +218,17 @@ def command_score(args) -> int:
 
 def command_diagnose(args) -> int:
     from paper_author_searcher.http_budget import ledger_summary
-    from paper_author_searcher.workflow_cli import build_client, build_workflow
 
     from .identity_diagnosis import IdentityDiagnoser, WorkLister, markdown
 
     settings, roster, _registry, _warnings = _context(args)
     cache_dir = args.http_cache_dir or settings.run.http_cache_dir
     run = replace(settings.run, mode='metadata', http_cache_dir=cache_dir, http_cache_mode=args.http_cache_mode)
-    service = load_settings(run)
-    resolver = build_workflow(run, service).resolver
-    client = build_client(run, service)
+    container = ServiceContainer(load_settings(run), RunOptions.from_namespace(run))
+    service = container.settings
+    resolver = container.resolver
     lister = WorkLister(
-        client,
+        container.http_client,
         service.sources.openalex_url,
         service.sources.semantic_scholar_url,
         {
@@ -269,8 +269,6 @@ def command_diagnose(args) -> int:
 
 
 def command_calibrate(args) -> int:
-    from paper_author_searcher.workflow_cli import build_client, build_identity_providers, build_resolver
-
     from .calibration import IdentityCalibrator, markdown
 
     settings, roster, _registry, _warnings = _context(args)
@@ -284,12 +282,12 @@ def command_calibrate(args) -> int:
 
     run = replace(settings.run, retries=0, http_cache_dir=cache_dir, http_cache_mode=args.http_cache_mode)
 
-    service = load_settings(run)
+    # Calibration replays recorded responses many times; it never asks the (metered) LLM adjudicator.
+    base = ServiceContainer(load_settings(run), replace(RunOptions.from_namespace(run), llm_adjudication=False))
+    service = base.settings
 
     def resolver_factory(config):
-        variant = replace(service, matching=config)
-        client = build_client(run, variant)
-        return build_resolver(client, build_identity_providers(client, variant), variant)
+        return base.with_settings(replace(service, matching=config)).resolver
 
     calibration = settings.calibration
     tune = [person for person in roster.people if person.split == calibration.tune_split]

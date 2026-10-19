@@ -4,12 +4,10 @@ import argparse
 import json
 import logging
 import math
-from dataclasses import replace
 from pathlib import Path
 
-from .http import HttpClient
+from .composition import RunOptions, ServiceContainer
 from .logging_config import add_logging_arguments, configure_from_arguments
-from .pdf_downloader import PDFDownloader
 from .settings import add_settings_argument, load_settings
 
 logger = logging.getLogger(__name__)
@@ -41,17 +39,13 @@ def main(argv=None):
     if args.max_file_mb is not None and (not math.isfinite(args.max_file_mb) or args.max_file_mb <= 0):
         parser.error('--max-file-mb must be finite and positive')
     try:
-        settings = load_settings(args)
-        config = settings.download
-        if args.max_file_mb is not None:
-            config = replace(config, maximum_file_bytes=int(args.max_file_mb * 1024 * 1024))
+        options = RunOptions(timeout=args.timeout, retries=args.retries, max_file_mb=args.max_file_mb)
+        container = ServiceContainer(load_settings(args), options)
         with args.input.open(encoding='utf-8') as handle:
             saved = json.load(handle)
         if not isinstance(saved, dict):
             raise ValueError('Input must be a JSON object')
-        downloader = PDFDownloader(
-            HttpClient(timeout=args.timeout, retries=args.retries, config=settings.http), config=config
-        )
+        downloader = container.downloader
         manifest = downloader.download(saved, args.output_dir, args.include_needs_review, args.max_downloads)
     except KeyboardInterrupt:
         logger.warning('Interrupted; rerun to reuse completed files. Manifest: %s', args.output_dir / 'manifest.json')

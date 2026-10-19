@@ -7,7 +7,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable, Dict, Iterable, Optional, Protocol, Tuple
 
+from paper_author_searcher.composition import RunOptions, ServiceContainer
 from paper_author_searcher.jsonio import read_json, write_json
+from paper_author_searcher.settings import load_settings
 from paper_author_searcher.status import RunStatus
 
 from .roster import BenchmarkPerson
@@ -53,6 +55,11 @@ def window_archive(archive: dict, window: Tuple[int, int]) -> dict:
     return restricted
 
 
+def default_workflow_factory(run: RunSettings):
+    """Production wiring: the service's own composition root, configured by the run settings."""
+    return ServiceContainer(load_settings(run), RunOptions.from_namespace(run)).workflow()
+
+
 class WorkflowSearchSystem:
     """Adapter over the existing end-to-end workflow; it only ever sees the search input.
 
@@ -70,9 +77,7 @@ class WorkflowSearchSystem:
         workflow_factory: Optional[Callable] = None,
     ) -> None:
         if workflow_factory is None:
-            from paper_author_searcher.workflow_cli import build_workflow
-
-            workflow_factory = build_workflow
+            workflow_factory = default_workflow_factory
         self.run_settings = run
         self.settings = settings
         self.workflow_factory = workflow_factory

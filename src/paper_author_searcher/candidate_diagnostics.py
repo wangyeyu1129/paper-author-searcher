@@ -6,16 +6,14 @@ from copy import deepcopy
 from dataclasses import asdict
 from pathlib import Path
 
-from .http import HttpClient
+from .composition import RunOptions, ServiceContainer
 from .jsonio import read_json, write_json
 from .logging_config import add_logging_arguments, configure_from_arguments, log_isolated_failure
 from .models import PaperCollectionResult, PaperSourceResult
 from .paper_deduplication import deduplicate_papers
-from .paper_providers import DBLPPaperProvider, OpenAlexPaperProvider, SemanticScholarPaperProvider
 from .settings import add_settings_argument, load_settings
 from .status import OwnershipStatus, ResolutionStatus
 from .workflow import _resolution
-from .workflow_cli import build_identity_providers
 
 logger = logging.getLogger(__name__)
 
@@ -75,14 +73,8 @@ def main(argv=None):
     configure_from_arguments(args)
     try:
         result = _resolution(read_json(args.identity))
-        settings = load_settings(args)
-        client = HttpClient(timeout=args.timeout, retries=args.retries, config=settings.http)
-        identity_providers = build_identity_providers(client, settings)
-        providers = [
-            OpenAlexPaperProvider(identity_providers[0], settings.collection),
-            SemanticScholarPaperProvider(identity_providers[1], settings.collection),
-            DBLPPaperProvider(identity_providers[2]),
-        ]
+        container = ServiceContainer(load_settings(args), RunOptions(timeout=args.timeout, retries=args.retries))
+        providers = container.paper_providers
         args.output_dir.mkdir(parents=True, exist_ok=True)
         for index, profile in enumerate(result.candidates[:2], 1):
             data = collect_candidate(profile, providers)
