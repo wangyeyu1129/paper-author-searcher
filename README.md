@@ -2,7 +2,7 @@
 
 Python >= 3.8 的论文检索工具，接入 OpenAlex、Semantic Scholar 和 DBLP，支持教授身份确认、论文收集、归属验证、去重、公开 PDF 检索与下载，以及离线评估。元数据与 URL 阶段无第三方依赖；PDF 解析需要安装 `download` extra。
 
-真实场景指标、人工标注格式、未获取 PDF 的原因和全量运行命令见 [性能评估](docs/performance.md)，本轮实际检索和优化前后对照见 [测试报告](reports/performance/comparison.md)。代码重构中每项性能、内存改动的测量与取舍见 [优化记录](docs/optimization.md)。
+真实场景指标、人工标注格式、未获取 PDF 的原因和全量运行命令见 [性能评估](docs/performance.md)，本轮实际检索和优化前后对照见 [测试报告](reports/performance/comparison.md)。代码重构中每项性能、内存改动的测量与取舍见 [优化记录](docs/optimization.md)。`output/` 下的运行产物（论文、PDF、manifest、HTTP 缓存）只保存在本地、不进入版本库，结论摘要在 `reports/`。
 
 人工待确认的参考论文与分层审核队列见 [审核清单](reports/performance/ground_truth_review.md)。人工选择 Author ID 不替代逐篇归属验证；作者档案 ORCID 不单独作为论文归属正面证据。
 
