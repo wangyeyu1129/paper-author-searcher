@@ -12,6 +12,7 @@ from urllib.parse import quote
 
 from .config import DEFAULT_ANCHORS, DEFAULT_MATCHING, DEFAULT_SOURCES
 from .evaluation_matching import bibliographic_name_agrees
+from .homepage_citations import ARXIV_IN_TEXT, DOI_IN_TEXT, CitationParser, HtmlCitationParser, prioritise
 from .html_support import decode_response
 from .http import HttpClient, SourceError
 from .matching import canonical_orcid, name_similarity, normalize
@@ -20,8 +21,6 @@ from .status import AnchorKind
 
 # Added by the resolver itself when a candidate record carries the supplied ORCID; not an anchor-finder result.
 SUPPLIED_ORCID_REASON = 'ORCID matches the supplied ORCID'
-DOI_IN_TEXT = re.compile(r'\b10\.\d{4,9}/[^\s"\'<>)\]]+', re.IGNORECASE)
-ARXIV_IN_TEXT = re.compile(r'arxiv\.org/(?:abs|pdf)/(\d{4}\.\d{4,5})', re.IGNORECASE)
 ARXIV_DOI_PREFIX = '10.48550/arxiv.'
 ARXIV_HINT = re.compile(r'^(?:arxiv:)?(\d{4}\.\d{4,5})(?:v\d+)?$', re.IGNORECASE)
 
@@ -75,6 +74,10 @@ def homepage_papers(html: str) -> list[str]:
     return list(dict.fromkeys(found))
 
 
+def _merge(*lists: list[str]) -> list[str]:
+    return list(dict.fromkeys(value for values in lists for value in values))
+
+
 class ScholarlyAnchorFinder:
     """Resolve hints through OpenAlex and Semantic Scholar paper/author lookups."""
 
@@ -86,8 +89,10 @@ class ScholarlyAnchorFinder:
         anchor_config=DEFAULT_ANCHORS,
         openalex_api_key: str | None = None,
         semantic_scholar_api_key: str | None = None,
+        citation_parser: CitationParser | None = None,
     ) -> None:
         self.client = client
+        self.citation_parser = citation_parser or HtmlCitationParser(anchor_config)
         self.openalex_url = source_config.openalex_url.rstrip('/')
         self.semantic_scholar_url = source_config.semantic_scholar_url.rstrip('/')
         self.matching = matching_config
@@ -99,19 +104,28 @@ class ScholarlyAnchorFinder:
         anchors = IdentityAnchors(orcid=canonical_orcid(query.orcid) if query.orcid else None)
         if anchors.orcid:
             self._guard(anchors, self._by_orcid, query, anchors.orcid)
-        values = list(query.known_papers)
+        hints = paper_hints(list(query.known_papers))
+        page_titles: list[str] = []
         if query.homepage:
             try:
-                values += homepage_papers(self._read_page(query.homepage))
+                citations = prioritise(self.citation_parser.parse(self._read_page(query.homepage)), query.name)
             except (SourceError, ValueError) as exc:
                 anchors.errors.append(f'homepage: {exc}')
-        hints = paper_hints(values)
+                citations = []
+            # The caller's own hints first, then the page's citations that name the person, then the rest.
+            hints['doi'] = _merge(hints['doi'], [doi.lower() for item in citations for doi in item.dois])
+            hints['arxiv'] = _merge(hints['arxiv'], [arxiv for item in citations for arxiv in item.arxiv_ids])
+            page_titles = _merge([title for item in citations for title in item.titles])
         budget = self.config.maximum_anchor_papers
-        for doi in hints['doi'][:budget]:
+        dois, arxiv_ids = hints['doi'][:budget], hints['arxiv'][:budget]
+        # A page that links no identifiers (titles only) is still usable: exact-title lookups fill the budget left.
+        title_budget = min(self.config.maximum_title_anchors, max(0, budget - len(dois) - len(arxiv_ids)))
+        titles = hints['title'][:budget] + page_titles[:title_budget]
+        for doi in dois:
             self._guard(anchors, self._by_doi, query, doi)
-        for arxiv in hints['arxiv'][:budget]:
+        for arxiv in arxiv_ids:
             self._guard(anchors, self._by_arxiv, query, arxiv)
-        for title in hints['title'][:budget]:
+        for title in titles:
             self._guard(anchors, self._by_title, query, title)
         return anchors
 

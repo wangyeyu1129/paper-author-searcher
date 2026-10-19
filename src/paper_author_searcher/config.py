@@ -98,6 +98,13 @@ class AnchorConfig:
     homepage_bytes: int = 2_000_000
     maximum_redirects: int = 5
     title_search_results: int = 3
+    # Homepage parsing: each block element is one citation; emphasised or quoted spans of title length are titles.
+    citation_block_tags: tuple[str, ...] = ('li', 'p', 'tr', 'dd', 'dt', 'div')
+    title_tags: tuple[str, ...] = ('a', 'b', 'strong', 'i', 'em', 'cite')
+    title_minimum_words: int = 4
+    title_maximum_characters: int = 300
+    # Title lookups (one search request each) only fill what identifier anchors left of maximum_anchor_papers.
+    maximum_title_anchors: int = 10
 
 
 DEFAULT_MATCHING = MatchingConfig()
