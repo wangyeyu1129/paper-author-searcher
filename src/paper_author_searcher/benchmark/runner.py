@@ -1,7 +1,6 @@
 """Run the search system once per benchmark person and keep a resumable run index."""
 
 import logging
-from copy import deepcopy
 from dataclasses import asdict, replace
 from datetime import datetime, timezone
 from pathlib import Path
@@ -41,8 +40,11 @@ class SearchSystem(Protocol):
 def window_archive(archive: dict, window: Tuple[int, int]) -> dict:
     """Keep collected papers whose year falls in the window (or is unknown); decisions are untouched."""
     start, end = window
-    restricted = deepcopy(archive)
-    collection = restricted.get('collection', restricted)
+    # Copy only the containers that change; paper dicts are shared (nothing downstream mutates them).
+    restricted = dict(archive)
+    collection = restricted
+    if isinstance(restricted.get('collection'), dict):
+        collection = restricted['collection'] = dict(restricted['collection'])
     papers = collection.get('all_papers', collection.get('papers')) or []
     kept = [paper for paper in papers if paper.get('year') is None or start <= paper['year'] <= end]
     collection['all_papers'] = kept

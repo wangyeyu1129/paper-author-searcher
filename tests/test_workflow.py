@@ -594,3 +594,13 @@ class ArtifactFormatTests(unittest.TestCase):
     def test_compaction_can_be_turned_off(self):
         papers, _ = self.run_metadata(StorageConfig(compact_artifacts=False))
         self.assertIn('\n  "', papers)
+
+
+class CheckpointImmutabilityTests(WorkflowTests):
+    def test_resuming_never_mutates_the_callers_checkpoints(self):
+        first = self.run_workflow(mode='pdf-urls')
+        for artifact in ('papers', 'pdf_urls'):
+            saved = self.output(first, artifact)
+            before = json.dumps(saved, sort_keys=True)
+            self.workflow.run(saved=saved, output_dir=self.root, mode='full')
+            self.assertEqual(json.dumps(saved, sort_keys=True), before, artifact)

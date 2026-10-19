@@ -270,8 +270,10 @@ class IdentityAndCollectionStage(WorkflowStage):
         if saved is not None and (_is_pdf_report(saved) or 'collection' in saved):
             if selection:
                 raise ValueError('Saved paper ownership is tied to its original identity; select from Resolver JSON')
-            archive = deepcopy(saved.get('collection_archive') or saved)
-            pdf = deepcopy(saved) if _is_pdf_report(saved) else None
+            # Stages only read the archive; the PDF report gets a shallow copy because two top-level keys change.
+            # Neither the caller's checkpoint nor the archive is mutated, so no deep copy is needed.
+            archive = saved.get('collection_archive') or saved
+            pdf = dict(saved) if _is_pdf_report(saved) else None
             if pdf is not None:
                 pdf.pop('collection_archive', None)
             context.progress('Reusing collected papers')
@@ -300,7 +302,7 @@ class IdentityAndCollectionStage(WorkflowStage):
             _collection_errors(saved, report)
             context.progress('Reusing collected papers')
             report['stages'].append({'stage': 'Collecting papers', 'status': StageStatus.REUSED})
-            return deepcopy(saved), None
+            return saved, None
         context.progress(IDENTITY_STAGE)
         result = _required(self.resolver, 'resolver').resolve(query) if query else _resolution(saved or {})
         identity = result.to_dict()
