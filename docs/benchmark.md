@@ -83,6 +83,7 @@ paper-benchmark score --run-id 2026-10-18 --enforce-gate
 - 审核者发现来源漏掉的论文，可新增一行：`evaluation_id` 留空，填 `decision=belongs`、`title`、`year`、`authors`（`; ` 分隔）、可选 `dois` / `external_ids`、`reviewer_note`。
 - 只有全部条目都有决定，才会写成正式真值 `truth/<id>.json`；`--allow-pending` 只保存进度。
 - `--complete-positive-list` 只在审核者确认窗口内论文已列全时使用，它使未在真值中的 verified 输出成为可计算的误检。
+- 复核 AI 审核：`review-export --prefill-from assistant_reviewed` 会把 AI 的决定预先填好，人工只需修改不同意的行，再用默认的 `--review-state human_reviewed` 导入。导入后整份真值记为人工审核，所以每一行都要真正看过。
 
 ## 门槛结果与退出码
 

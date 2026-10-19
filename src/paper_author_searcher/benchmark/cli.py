@@ -16,7 +16,7 @@ from paper_author_searcher.status import AnnotationState, OwnershipStatus, RunSt
 
 from .gate import ReleaseGate
 from .report import markdown_report
-from .review import export_review, import_review
+from .review import REVIEW_STATES, export_review, import_review
 from .roster import Roster
 from .runner import BenchmarkRunner, WorkflowSearchSystem, load_index
 from .scoring import OVERALL, PersonScorer, aggregate, is_human_reviewed, load_truth, truth_paths
@@ -132,7 +132,8 @@ def command_review_export(args) -> int:
                     args.suggestion_limit,
                     tuple(args.suggest_status),
                 )
-    count = export_review(truth, args.output, suggestions)
+    prefill = tuple(dict.fromkeys([AnnotationState.HUMAN_REVIEWED, *(args.prefill_from or [])]))
+    count = export_review(truth, args.output, suggestions, prefill)
     print(f'Exported {count} rows ({len(suggestions)} system suggestions) from {source} to {args.output}')
     return 0
 
@@ -334,6 +335,13 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help='System ownership statuses to include as leads (default: verified)',
     )
+    export.add_argument(
+        '--prefill-from',
+        action='append',
+        choices=[state.value for state in REVIEW_STATES],
+        default=None,
+        help='Also fill in decisions recorded under this review state (human decisions are always filled in)',
+    )
     export.set_defaults(handler=command_review_export)
 
     review = commands.add_parser('review-import', help='Apply reviewer decisions from a spreadsheet')
@@ -349,7 +357,7 @@ def build_parser() -> argparse.ArgumentParser:
     review.add_argument(
         '--review-state',
         default=AnnotationState.HUMAN_REVIEWED.value,
-        choices=(AnnotationState.HUMAN_REVIEWED.value, AnnotationState.ASSISTANT_REVIEWED.value),
+        choices=[state.value for state in REVIEW_STATES],
         help='assistant_reviewed records an AI review; it is scored but never certifies the gate',
     )
     review.set_defaults(handler=command_review_import)

@@ -434,6 +434,20 @@ class ReviewTests(unittest.TestCase):
         self.assertEqual(reviewed['metadata']['annotation_state'], 'human_reviewed')
         self.assertTrue(reviewed['complete_positive_list'])
 
+    def test_assistant_decisions_prefill_a_human_check(self):
+        self.decide({'Kept Study': 'belongs', 'Rejected Study': 'not_belongs'})
+        assistant = import_review(self.truth, self.sheet, 'Assistant', False, review_state='assistant_reviewed')
+        export_review(assistant, self.sheet)
+        with self.sheet.open(encoding='utf-8-sig', newline='') as handle:
+            self.assertEqual({row['decision'] for row in csv.DictReader(handle)}, {''})
+        export_review(assistant, self.sheet, prefill=('human_reviewed', 'assistant_reviewed'))
+        with self.sheet.open(encoding='utf-8-sig', newline='') as handle:
+            decisions = {row['title']: row['decision'] for row in csv.DictReader(handle)}
+        self.assertEqual(decisions, {'Kept Study': 'belongs', 'Rejected Study': 'not_belongs'})
+        checked = import_review(assistant, self.sheet, 'Reviewer A', False, reviewed_at='2026-02-01')
+        self.assertEqual(checked['metadata']['annotation_state'], 'human_reviewed')
+        self.assertEqual({entry['annotation_status'] for entry in checked['papers']}, {'human_reviewed'})
+
     def test_pending_rows_are_refused_unless_partial_progress_is_requested(self):
         self.decide({'Kept Study': 'belongs'})
         with self.assertRaises(ValueError):

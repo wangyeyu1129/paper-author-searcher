@@ -2,7 +2,7 @@
 
 import csv
 import hashlib
-from collections.abc import Sequence
+from collections.abc import Collection, Sequence
 from copy import deepcopy
 from datetime import date
 from pathlib import Path
@@ -100,12 +100,19 @@ def system_suggestions(
     return rows[:limit]
 
 
-def export_review(truth: dict, path: Path, suggestions: list[dict] | None = None) -> int:
+def export_review(
+    truth: dict,
+    path: Path,
+    suggestions: list[dict] | None = None,
+    prefill: Collection[str] = (AnnotationState.HUMAN_REVIEWED,),
+) -> int:
+    """Write the review sheet. Decisions recorded under a state in ``prefill`` are filled in, so a reviewer
+    checking an earlier (for example an assistant's) review only edits the rows they disagree with."""
     with Path(path).open('w', encoding='utf-8-sig', newline='') as handle:
         writer = csv.DictWriter(handle, COLUMNS)
         writer.writeheader()
         for paper in truth['papers']:
-            decided = paper['ownership'] if paper.get('annotation_status') == AnnotationState.HUMAN_REVIEWED else ''
+            decided = paper['ownership'] if paper.get('annotation_status') in prefill else ''
             writer.writerow(
                 {
                     'row_kind': 'truth',
