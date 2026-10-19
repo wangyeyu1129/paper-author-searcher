@@ -103,6 +103,7 @@ module = [
     "paper_author_searcher.json_types",
     "paper_author_searcher.jsonio",
     "paper_author_searcher.logging_config",
+    "paper_author_searcher.manifest_journal",
     "paper_author_searcher.matching",
     "paper_author_searcher.models",
     "paper_author_searcher.pacing",

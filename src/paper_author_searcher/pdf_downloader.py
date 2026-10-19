@@ -15,6 +15,7 @@ from typing import Any, Dict, List, Optional, Union
 
 from .config import DEFAULT_DOWNLOAD
 from .logging_config import log_isolated_failure
+from .manifest_journal import ManifestJournal, journal_path, replay
 from .matching import canonical_doi, normalize
 from .models import PaperDownloadResult
 from .pdf_document_types import NON_FULL_DOCUMENTS
@@ -107,6 +108,7 @@ class PDFDownloader:
         if manifest_path.parent.resolve() not in (root, root.parent):
             raise ValueError('Manifest must be in the PDF directory or its parent')
         previous = self._load_manifest(root, manifest_path)
+        journal = ManifestJournal(journal_path(manifest_path))
         previous_by_key: Dict[str, Any] = {}
         known_files: Dict[str, Any] = {}
         for entry in previous.get('papers', []):
@@ -117,10 +119,12 @@ class PDFDownloader:
         current_keys = {record.paper_key for record in results}
         retained = [entry for entry in previous.get('papers', []) if entry['paper_key'] not in current_keys]
         attempted = 0
+        # Full snapshot now and at the end; per-paper changes go to the append-only journal in between.
         manifest = self._save_manifest(root, results, retained, attempted, False, previous, manifest_path)
+        journal.discard()
         complete = False
         try:
-            for paper, record in zip(papers, results):
+            for index, (paper, record) in enumerate(zip(papers, results)):
                 candidates = self._eligible_candidates(paper, record, include_needs_review)
                 if not candidates:
                     continue
@@ -133,12 +137,12 @@ class PDFDownloader:
                 record.download_status = DownloadStatus.DOWNLOADING
                 if progress:
                     progress('Downloading PDFs', attempted, maximum_downloads or len(papers))
-                self._save_manifest(root, results, retained, attempted, False, previous, manifest_path)
+                journal.append({'index': index, 'record': asdict(record)})
                 self._download_paper(root, paper, record, candidates, known_files)
                 previous_by_key.setdefault(record.paper_key, []).append(asdict(record))
                 if record.local_filename and record.sha256:
                     known_files.setdefault(record.sha256, record.local_filename)
-                self._save_manifest(root, results, retained, attempted, False, previous, manifest_path)
+                journal.append({'index': index, 'record': asdict(record)})
             self._organize_confirmed_files(root, results, retained)
             complete = True
         except KeyboardInterrupt:
@@ -148,7 +152,11 @@ class PDFDownloader:
                     record.error_details.append('Interrupted transfer; incomplete files restart from byte zero')
             raise
         finally:
-            manifest = self._save_manifest(root, results, retained, attempted, complete, previous, manifest_path)
+            try:
+                manifest = self._save_manifest(root, results, retained, attempted, complete, previous, manifest_path)
+            finally:
+                journal.close()  # kept on disk if the snapshot failed, so the next run can replay it
+            journal.discard()
         return manifest
 
     def _new_record(self, paper, previous_by_key):
@@ -469,7 +477,8 @@ class PDFDownloader:
         expected_root = os.path.relpath(str(root), str(path.parent))
         if saved.get('file_root', '.') != expected_root:
             raise ValueError('Manifest refers to a different PDF directory')
-        return saved
+        # A run that died between snapshots left its per-paper progress in the journal.
+        return replay(saved, ManifestJournal(journal_path(path)).entries())
 
     def _save_manifest(self, root, results, retained, attempted, complete, previous, manifest_path=None):
         manifest_path = manifest_path if manifest_path is not None else root / 'manifest.json'
