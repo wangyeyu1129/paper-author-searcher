@@ -9,6 +9,7 @@ from paper_author_searcher import ProfessorQuery as Q
 from paper_author_searcher import ProfessorResolver
 from paper_author_searcher.identity_anchors import (
     IdentityAnchors,
+    RecordedAnchorFinder,
     ScholarlyAnchorFinder,
     homepage_papers,
     paper_hints,
@@ -52,6 +53,21 @@ def query(**hints):
 
 
 SCHOOL = ['Example University']
+
+
+class RecordedAnchorTests(unittest.TestCase):
+    def test_saved_identity_anchors_are_replayed_without_resolver_derived_ones(self):
+        identity = {
+            'profile': {'identity_anchors': [{'source': 'openalex', 'author_id': 'A1', 'reason': 'ORCID 0000-0001'}]},
+            'candidates': [
+                {'identity_anchors': ['openalex A1: ORCID 0000-0001', 'semantic_scholar 9: author of DOI:10.1/x']},
+                {'identity_anchors': ['openalex A2: ORCID matches the supplied ORCID']},
+            ],
+        }
+        found = RecordedAnchorFinder.from_identity(identity).find(query(orcid='0000-0001'))
+        self.assertEqual(found.author_ids, {'openalex': {'A1'}, 'semantic_scholar': {'9'}})
+        self.assertEqual(found.orcid, '0000-0001')
+        self.assertEqual(len(found.evidence), 2)
 
 
 class HintParsingTests(unittest.TestCase):

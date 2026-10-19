@@ -15,7 +15,12 @@ from paper_author_searcher.benchmark.gate import GateStatus, ReleaseGate
 from paper_author_searcher.benchmark.metrics import benchmark_metrics
 from paper_author_searcher.benchmark.review import export_review, import_review
 from paper_author_searcher.benchmark.roster import Roster
-from paper_author_searcher.benchmark.runner import BenchmarkRunner, WorkflowSearchSystem, window_archive
+from paper_author_searcher.benchmark.runner import (
+    BenchmarkRunner,
+    RecordedRunAnchors,
+    WorkflowSearchSystem,
+    window_archive,
+)
 from paper_author_searcher.benchmark.scoring import PersonScorer, aggregate, truth_paths
 from paper_author_searcher.benchmark.settings import Aggregation, BenchmarkSettings, GateRule, RunSettings
 from paper_author_searcher.benchmark.snapshots import ARXIV_SNAPSHOT, CROSSREF_SNAPSHOT
@@ -886,7 +891,7 @@ class WindowedFullTextTests(unittest.TestCase):
             system = WorkflowSearchSystem(
                 RunSettings(mode='full'),
                 workspace.settings,
-                workflow_factory=lambda run: FakeWorkflow(calls, workspace.root),
+                workflow_factory=lambda run, anchor_finder: FakeWorkflow(calls, workspace.root),
             )
             report = system.search(workspace.roster.people[0], workspace.root / 'out')
         finally:
@@ -896,6 +901,39 @@ class WindowedFullTextTests(unittest.TestCase):
         titles = [paper['title'] for paper in calls[1]['saved']['collection']['all_papers']]
         self.assertEqual(titles, ['Recent', 'Undated'])
         self.assertTrue(report['fulltext_report'].endswith('pass1'))
+
+    def test_anchor_source_reaches_every_pass_of_the_workflow(self):
+        workspace = Workspace([person('a_one', year_start=2024, year_end=2025)], {})
+        finders, recorded = [], object()
+        try:
+            system = WorkflowSearchSystem(
+                RunSettings(mode='full'),
+                workspace.settings,
+                workflow_factory=lambda run, anchor_finder: finders.append(anchor_finder)
+                or FakeWorkflow([], workspace.root),
+                anchor_source=lambda person: recorded,
+            )
+            system.search(workspace.roster.people[0], workspace.root / 'out')
+        finally:
+            workspace.close()
+        self.assertEqual(finders, [recorded, recorded])
+
+    def test_recorded_run_anchors_replay_what_the_run_found(self):
+        workspace = Workspace([person('a_one')], {})
+        try:
+            run = workspace.settings.paths.runs / 'old'
+            report = run / 'a_one' / 'search_x'
+            report.mkdir(parents=True)
+            write_json(run / 'index.json', {'people': {'a_one': {'report': 'a_one/search_x'}}})
+            write_json(
+                report / 'professor.json',
+                {'profile': None, 'candidates': [{'identity_anchors': ['openalex A1: ORCID 0000-0001']}]},
+            )
+            finder = RecordedRunAnchors(workspace.settings, 'old')(workspace.roster.people[0])
+            anchors = finder.find(workspace.roster.people[0].search_input.to_query(True))
+        finally:
+            workspace.close()
+        self.assertTrue(anchors.contains('openalex', 'A1'))
 
 
 if __name__ == '__main__':

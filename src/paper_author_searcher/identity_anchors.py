@@ -4,9 +4,10 @@ An anchor is independent of the name search, so it separates namesakes and ties 
 """
 
 import re
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass, field
 from html import unescape
-from typing import Protocol
+from typing import Any, Protocol
 from urllib.parse import quote
 
 from .config import DEFAULT_ANCHORS, DEFAULT_MATCHING, DEFAULT_SOURCES
@@ -16,6 +17,8 @@ from .http import HttpClient, SourceError
 from .matching import canonical_orcid, name_similarity, normalize
 from .models import AnchorEvidence
 
+# Added by the resolver itself when a candidate record carries the supplied ORCID; not an anchor-finder result.
+SUPPLIED_ORCID_REASON = 'ORCID matches the supplied ORCID'
 DOI_IN_TEXT = re.compile(r'\b10\.\d{4,9}/[^\s"\'<>)\]]+', re.IGNORECASE)
 ARXIV_IN_TEXT = re.compile(r'arxiv\.org/(?:abs|pdf)/(\d{4}\.\d{4,5})', re.IGNORECASE)
 ARXIV_DOI_PREFIX = '10.48550/arxiv.'
@@ -190,6 +193,27 @@ class ScholarlyAnchorFinder:
         for work in data.get('results') or []:
             if normalize(work.get('title') or '') == normalize(title):
                 self._openalex_authorships(anchors, query, work, f'author of title "{title[:80]}"')
+
+
+class RecordedAnchorFinder:
+    """Replays the anchors an earlier run found, read from its saved identity, so an offline replay reproduces
+    them without fetching homepages or anchor papers again."""
+
+    def __init__(self, evidence: Iterable[AnchorEvidence]) -> None:
+        self.evidence = [item for item in evidence if item.reason != SUPPLIED_ORCID_REASON]
+
+    @classmethod
+    def from_identity(cls, identity: Mapping[str, Any]) -> 'RecordedAnchorFinder':
+        profiles = [identity.get('profile') or {}, *(identity.get('candidates') or [])]
+        recorded = [item for profile in profiles for item in (profile or {}).get('identity_anchors') or []]
+        evidence = [AnchorEvidence.coerce(item) for item in recorded]
+        return cls(dict.fromkeys(evidence))
+
+    def find(self, query) -> IdentityAnchors:
+        anchors = IdentityAnchors(orcid=canonical_orcid(query.orcid) if query.orcid else None)
+        for item in self.evidence:
+            anchors.add(item.source, item.author_id, item.reason)
+        return anchors
 
 
 class NoAnchors:

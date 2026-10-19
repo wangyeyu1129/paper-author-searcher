@@ -14,7 +14,7 @@ from .config import CollectionConfig, DownloadConfig, PDFConfig
 from .http import HttpClient
 from .http_budget import budgeted_client
 from .http_cache import cached_client
-from .identity_anchors import ScholarlyAnchorFinder
+from .identity_anchors import AnchorFinder, ScholarlyAnchorFinder
 from .paper_collector import PaperCollector
 from .paper_ownership import PaperOwnershipValidator
 from .pdf_resolver import PDFResolver
@@ -78,14 +78,17 @@ class ServiceContainer:
         settings: Settings,
         options: RunOptions | None = None,
         adjudicator_factory: Callable[[], Any] | None = None,
+        anchor_finder: AnchorFinder | None = None,
     ) -> None:
         self.settings = settings
         self.options = options or RunOptions()
         self.adjudicator_factory = adjudicator_factory or _claude_adjudicator
+        # Overrides how caller hints become anchors (an offline replay supplies the anchors a run recorded).
+        self.anchor_finder_override = anchor_finder
 
     def with_settings(self, settings: Settings) -> 'ServiceContainer':
         """A fresh container (new clients, providers and caches) for a variant of the settings."""
-        return ServiceContainer(settings, self.options, self.adjudicator_factory)
+        return ServiceContainer(settings, self.options, self.adjudicator_factory, self.anchor_finder_override)
 
     # Transport ---------------------------------------------------------------------------------------------------
 
@@ -104,7 +107,9 @@ class ServiceContainer:
         return IDENTITY_SOURCES.create(self.settings.sources.identity_sources, self)
 
     @cached_property
-    def anchor_finder(self) -> ScholarlyAnchorFinder:
+    def anchor_finder(self) -> AnchorFinder:
+        if self.anchor_finder_override is not None:
+            return self.anchor_finder_override
         settings = self.settings
         return ScholarlyAnchorFinder(
             self.http_client,

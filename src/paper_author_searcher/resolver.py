@@ -9,7 +9,7 @@ from typing import Any
 from .config import DEFAULT_MATCHING
 from .identity import IdentityLink, compare_identity, names_may_match
 from .identity_adjudication import accepted
-from .identity_anchors import IdentityAnchors
+from .identity_anchors import SUPPLIED_ORCID_REASON, IdentityAnchors
 from .logging_config import log_isolated_failure
 from .matching import (
     best_similarity,
@@ -278,9 +278,7 @@ class ProfessorResolver:
             if self._is_anchored(record, anchors):
                 anchor_evidence.extend(anchors.evidence_for(record.source, record.author_id))
                 if anchors.orcid and record.orcid and canonical_orcid(record.orcid) == anchors.orcid:
-                    anchor_evidence.append(
-                        AnchorEvidence(record.source, str(record.author_id), 'ORCID matches the supplied ORCID')
-                    )
+                    anchor_evidence.append(AnchorEvidence(record.source, str(record.author_id), SUPPLIED_ORCID_REASON))
         orcid_conflict = bool(
             anchors.orcid and any(record.orcid and canonical_orcid(record.orcid) != anchors.orcid for record in group)
         )
