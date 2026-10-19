@@ -59,7 +59,7 @@ class PaperOwnershipValidator:
                 signatures.extend(byline_forms(author))
         best = 0.0
         for signature in signatures:
-            for name in [profile.name, *profile.name_aliases]:
+            for name in profile.target_names():
                 best = max(best, name_similarity(name, signature))
         return best, signatures
 
@@ -250,7 +250,7 @@ class PaperOwnershipValidator:
                 continue
             is_target = any(
                 author_signatures_match(name, form)
-                for name in [profile.name, *profile.name_aliases]
+                for name in profile.target_names()
                 for form in byline_forms(author)
             )
             if not is_target:

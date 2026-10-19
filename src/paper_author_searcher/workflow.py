@@ -346,6 +346,7 @@ class IdentityAndCollectionStage(WorkflowStage):
                 'status': profile.status,
                 'orcid': profile.orcid,
                 'name_aliases': profile.name_aliases,
+                'requested_name': profile.requested_name,
                 'author_ids': collection.selected_author_ids,
                 'confirmation': collection.identity_confirmation,
             },

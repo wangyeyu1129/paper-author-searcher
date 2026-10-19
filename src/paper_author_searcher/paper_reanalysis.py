@@ -56,6 +56,7 @@ def saved_collection_profile(data: JSONObject) -> ProfessorProfile:
         orcid=collection_identity.get('orcid', identity.get('orcid')),
         author_id_aliases=selected,
         name_aliases=collection_identity.get('name_aliases', identity.get('name_aliases')) or [],
+        requested_name=collection_identity.get('requested_name', identity.get('requested_name')),
         university=identity.get('university'),
         university_status=identity.get('university_status', UniversityStatus.UNKNOWN),
         requested_university=identity.get('requested_university'),

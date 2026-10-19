@@ -70,6 +70,22 @@ class OwnershipTests(unittest.TestCase):
     def test_explicit_wrong_target_signature_is_rejected(self):
         self.assertEqual(validate([record(name='Someone Else')])[0].ownership_status, 'rejected')
 
+    def test_byline_is_compared_with_the_requested_name_too(self):
+        # A source display name can carry noise ("Jia Liu B"); the caller's own query name still matches the byline.
+        corrupted = replace(profile(), name='Jia Liu B', name_aliases=['Jia Liu B'], orcid=None)
+        for target, expected in (
+            (corrupted, 'needs_review'),
+            (replace(corrupted, requested_name='Jia Liu'), 'verified'),
+        ):
+            papers = deduplicate_papers([record(name='Jia Liu')])
+            papers[0].records[0].author_details[0]['institutions'] = [{'display_name': 'Example University'}]
+            PaperOwnershipValidator().validate(papers, target)
+            self.assertEqual(papers[0].ownership_status, expected)
+
+    def test_target_names_are_unique_and_include_the_request(self):
+        target = replace(profile(), name_aliases=['Alex Morgan', 'A. Morgan'], requested_name='Alex Morgan')
+        self.assertEqual(target.target_names(), ['Alex Morgan', 'A. Morgan'])
+
     def test_cross_source_work_and_signature_and_coauthors_verify(self):
         papers = validate([record(), record('semantic_scholar', publication_type='JournalArticle')])
         self.assertEqual(len(papers), 1)

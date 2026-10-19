@@ -423,5 +423,6 @@ class ProfessorResolver:
             matched_affiliations=matched_affiliations,
             author_id_aliases=author_id_aliases,
             name_aliases=sorted({candidate.name for candidate in group}),
+            requested_name=query.name,
             identity_anchors=signals.anchors,
         )

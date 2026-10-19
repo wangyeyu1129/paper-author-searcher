@@ -133,10 +133,17 @@ class ProfessorProfile(ValidatedStatuses):
     name_aliases: list[str] = field(default_factory=list)
     identity_anchors: list[AnchorEvidence] = field(default_factory=list)
     adjudication: str | None = None
+    # The name the caller searched for; kept because a source's display name can be corrupted ("Jia Liu B").
+    requested_name: str | None = None
 
     def __post_init__(self) -> None:
         super().__post_init__()
         self.identity_anchors = [AnchorEvidence.coerce(item) for item in self.identity_anchors]
+
+    def target_names(self) -> list[str]:
+        """Every name the target may appear under in a byline: display name, aliases and the requested name."""
+        names = [self.name, *self.name_aliases, self.requested_name]
+        return list(dict.fromkeys(name for name in names if name))
 
 
 @dataclass

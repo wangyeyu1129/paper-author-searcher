@@ -50,6 +50,7 @@ def summary(result: ResolutionResult) -> JSONObject:
         'author_id_aliases': profile.author_id_aliases,
         'orcid': profile.orcid,
         'name_aliases': profile.name_aliases,
+        'requested_name': profile.requested_name,
         'status': profile.status,
         'evidence': profile.evidence[:SUMMARY_EVIDENCE_LIMIT],
     }
@@ -146,6 +147,7 @@ def _collect_output(
         'status': profile.status,
         'orcid': profile.orcid,
         'name_aliases': profile.name_aliases,
+        'requested_name': profile.requested_name,
     }
     if collection.complete:
         return SUCCESS_EXIT_CODE
