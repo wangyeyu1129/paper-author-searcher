@@ -11,6 +11,7 @@ from paper_author_searcher.composition import RunOptions, ServiceContainer
 from paper_author_searcher.jsonio import read_json, write_json
 from paper_author_searcher.settings import load_settings
 from paper_author_searcher.status import RunStatus
+from paper_author_searcher.workflow import PaperSearchWorkflow
 
 from .roster import BenchmarkPerson
 from .settings import BenchmarkSettings, RunSettings
@@ -55,7 +56,7 @@ def window_archive(archive: dict, window: Tuple[int, int]) -> dict:
     return restricted
 
 
-def default_workflow_factory(run: RunSettings):
+def default_workflow_factory(run: RunSettings) -> PaperSearchWorkflow:
     """Production wiring: the service's own composition root, configured by the run settings."""
     return ServiceContainer(load_settings(run), RunOptions.from_namespace(run)).workflow()
 
@@ -106,7 +107,7 @@ class WorkflowSearchSystem:
         report['fulltext_status'] = fulltext.get('run_status')
         return report
 
-    def _run(self, run: RunSettings, output_dir: Path, **source) -> dict:
+    def _run(self, run: RunSettings, output_dir: Path, **source: Any) -> dict:
         workflow = self.workflow_factory(run)
         return workflow.run(
             output_dir=output_dir,

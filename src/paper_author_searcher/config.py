@@ -52,7 +52,7 @@ class MatchingConfig:
         'universität',
     )
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         if self.doi_coverage_target <= 0:
             raise ValueError('doi_coverage_target must be positive')
 
@@ -119,7 +119,7 @@ class CollectionConfig:
     ambiguity_policy: str = 'stop'
     maximum_contenders: int = 3
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         if self.ambiguity_policy not in AMBIGUITY_POLICIES:
             raise ValueError(f'ambiguity_policy must be one of {AMBIGUITY_POLICIES}')
         if self.maximum_contenders < 1:
@@ -215,7 +215,7 @@ class PDFConfig:
         'unknown',
     )
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         if self.preview_bytes < 5 or self.html_metadata_bytes < self.preview_bytes:
             raise ValueError('PDF preview must fit the signature and HTML limit must cover the preview')
         if self.maximum_redirects < 0 or self.arxiv_request_interval < 0:
@@ -277,7 +277,7 @@ class DownloadConfig:
     poster_minimum_edge_points: float = 1000
     slide_minimum_aspect_ratio: float = 1.2
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         if self.maximum_file_bytes < 1024 or self.chunk_bytes < 1024:
             raise ValueError('Download and chunk limits must be at least 1024 bytes')
         if self.filename_bytes < 64 or not 8 <= self.filename_hash_characters <= 64:

@@ -1,9 +1,9 @@
 """Cross-source identity evidence, separate from query ranking."""
 
 from dataclasses import dataclass, field
-from typing import List
+from typing import List, Set, Tuple
 
-from .config import DEFAULT_MATCHING
+from .config import DEFAULT_MATCHING, MatchingConfig
 from .matching import (
     best_similarity,
     canonical_doi,
@@ -12,6 +12,7 @@ from .matching import (
     name_similarity,
     normalize,
 )
+from .models import AuthorCandidate
 
 
 @dataclass
@@ -25,7 +26,9 @@ class IdentityLink:
     conflict: bool = False
 
 
-def compare_identity(left, right, config=DEFAULT_MATCHING):
+def compare_identity(
+    left: AuthorCandidate, right: AuthorCandidate, config: MatchingConfig = DEFAULT_MATCHING
+) -> IdentityLink:
     if left.source == right.source:
         if left.author_id == right.author_id:
             return IdentityLink(matched=True, evidence=['same source ID'])
@@ -89,7 +92,9 @@ def compare_identity(left, right, config=DEFAULT_MATCHING):
     return IdentityLink()
 
 
-def _shared_context(left, right, config):
+def _shared_context(
+    left: AuthorCandidate, right: AuthorCandidate, config: MatchingConfig
+) -> Tuple[Set[str], Set[str], float]:
     shared_coauthors = set(map(normalize, left.coauthors)) & set(map(normalize, right.coauthors))
     shared_coauthors.difference_update(map(normalize, [left.name, right.name, *left.aliases, *right.aliases]))
     shared_topics = set(map(normalize, left.topics)) & set(map(normalize, right.topics))
@@ -101,7 +106,9 @@ def _shared_context(left, right, config):
     return shared_coauthors, shared_topics, school_similarity
 
 
-def split_profile_link(left, right, config=DEFAULT_MATCHING):
+def split_profile_link(
+    left: AuthorCandidate, right: AuthorCandidate, config: MatchingConfig = DEFAULT_MATCHING
+) -> IdentityLink:
     """One person indexed twice by the same source: compatible names, a shared school, and both
     collaborators and topics in common. Different namesakes at one school rarely share several coauthors."""
     refusal = IdentityLink(reason='Distinct source IDs without shared ORCID')
@@ -133,9 +140,11 @@ def split_profile_link(left, right, config=DEFAULT_MATCHING):
     return refusal
 
 
-def link_evidence(left, right, config=DEFAULT_MATCHING):
+def link_evidence(
+    left: AuthorCandidate, right: AuthorCandidate, config: MatchingConfig = DEFAULT_MATCHING
+) -> List[str]:
     return compare_identity(left, right, config).evidence
 
 
-def linked(left, right, config=DEFAULT_MATCHING):
+def linked(left: AuthorCandidate, right: AuthorCandidate, config: MatchingConfig = DEFAULT_MATCHING) -> bool:
     return compare_identity(left, right, config).matched

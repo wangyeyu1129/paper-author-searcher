@@ -1,14 +1,22 @@
 """Classify document form independently of its association with a paper."""
 
 import re
+from typing import Any, List, Mapping, Optional, Sequence, Tuple
 
-from .config import DEFAULT_DOWNLOAD
+from .config import DEFAULT_DOWNLOAD, DownloadConfig
 from .pdf_front_matter import front_matter
 
 NON_FULL_DOCUMENTS = {'poster', 'slides', 'supplementary_material'}
 
 
-def classify_document(metadata, first_page_text, page_count, page_size, version_type=None, config=DEFAULT_DOWNLOAD):
+def classify_document(
+    metadata: Mapping[str, Any],
+    first_page_text: str,
+    page_count: int,
+    page_size: Sequence[float],
+    version_type: Optional[str] = None,
+    config: DownloadConfig = DEFAULT_DOWNLOAD,
+) -> Tuple[str, List[str]]:
     title = str(metadata.get('/Title') or '')
     subject = str(metadata.get('/Subject') or '')
     creator = str(metadata.get('/Creator') or '')

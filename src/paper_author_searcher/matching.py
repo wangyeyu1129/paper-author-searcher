@@ -4,9 +4,9 @@ import re
 import unicodedata
 from difflib import SequenceMatcher
 from functools import lru_cache
-from typing import Callable, Iterable
+from typing import Callable, Iterable, Optional, Sequence
 
-from .config import DEFAULT_MATCHING
+from .config import DEFAULT_MATCHING, MatchingConfig
 
 
 def normalize(value: str) -> str:
@@ -27,7 +27,7 @@ def best_similarity(left: Iterable[str], right: Iterable[str], compare: Callable
     return best
 
 
-def _compatible_middle_names(left, right):
+def _compatible_middle_names(left: Sequence[str], right: Sequence[str]) -> bool:
     if not left or not right:
         return True
     if len(left) != len(right):
@@ -43,7 +43,7 @@ def _compatible_middle_names(left, right):
 
 
 @lru_cache(maxsize=200_000)
-def name_similarity(left: str, right: str, config=DEFAULT_MATCHING) -> float:
+def name_similarity(left: str, right: str, config: MatchingConfig = DEFAULT_MATCHING) -> float:
     left_words = normalize(left).split()
     right_words = normalize(re.sub(r'\s+\d{4}$', '', right)).split()
     if not left_words or not right_words:
@@ -69,7 +69,7 @@ def name_similarity(left: str, right: str, config=DEFAULT_MATCHING) -> float:
 
 
 @lru_cache(maxsize=200_000)
-def institution_similarity(left: str, right: str, config=DEFAULT_MATCHING) -> float:
+def institution_similarity(left: str, right: str, config: MatchingConfig = DEFAULT_MATCHING) -> float:
     left_name = normalize(left)
     right_name = normalize(right)
     if left_name == right_name:
@@ -87,7 +87,7 @@ def research_similarity(left: str, right: str) -> float:
     return SequenceMatcher(None, normalize(left), normalize(right)).ratio()
 
 
-def canonical_orcid(value):
+def canonical_orcid(value: Optional[str]) -> Optional[str]:
     if value:
         return value.rstrip('/').rsplit('/', 1)[-1]
     return None

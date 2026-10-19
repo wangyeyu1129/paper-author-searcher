@@ -5,7 +5,7 @@ import json
 import logging
 import math
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Sequence
 
 from .composition import RunOptions, ServiceContainer
 from .config import AMBIGUITY_POLICIES, AmbiguityPolicy
@@ -229,7 +229,7 @@ def run_arguments(parser, args):
     return 0 if report['run_status'] == RunStatus.COMPLETED else 2
 
 
-def main(argv=None):
+def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description='Resolve a professor, collect papers and obtain public PDFs')
     parser.add_argument('--name')
     parser.add_argument('--university')

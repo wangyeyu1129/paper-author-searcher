@@ -6,16 +6,17 @@ import typing
 from collections import Counter
 from copy import deepcopy
 from pathlib import Path
-from typing import Dict, Set
+from typing import Dict, Optional, Set, Tuple
 
 from .evaluation import Evaluator
 from .evaluation_matching import MATCHING_RULES_VERSION, GroundTruth, GroundTruthMatcher
+from .json_types import JSONList, JSONObject
 from .pdf_downloader import file_digest, paper_key
 from .performance_diagnostics import ownership_diagnostics, pdf_failure_reasons
 from .status import AnnotationState, DownloadStatus, FormatStatus, IdentityStatus, OwnershipStatus, PDFValidationStatus
 
 
-def rate(numerator, denominator):
+def rate(numerator: int, denominator: int) -> JSONObject:
     return {
         'numerator': numerator,
         'denominator': denominator,
@@ -23,14 +24,14 @@ def rate(numerator, denominator):
     }
 
 
-def _papers(saved):
+def _papers(saved: Optional[JSONObject]) -> JSONList:
     if saved is None:
         return []
     collection = saved.get('collection', saved)
     return collection.get('all_papers', collection.get('papers')) or []
 
 
-def _stage_scope(saved):
+def _stage_scope(saved: Optional[JSONObject]) -> Optional[JSONObject]:
     if saved is None:
         return None
     if not isinstance(saved, dict) or not isinstance(saved.get('papers'), list):
@@ -48,7 +49,7 @@ def _stage_scope(saved):
     return {'processed_publications': len(set(identities)), 'fingerprint': digest}
 
 
-def _association(paper, matcher):
+def _association(paper: JSONObject, matcher: GroundTruthMatcher) -> Optional[str]:
     metadata = paper.get('paper_metadata') or paper
     matches = [matcher.match(record) for record in metadata.get('records') or [metadata]]
     identities = {match.evaluation_id for match in matches if match.evaluation_id}
@@ -58,7 +59,7 @@ def _association(paper, matcher):
     return next(iter(identities))
 
 
-def _confirmed_url(paper):
+def _confirmed_url(paper: JSONObject) -> bool:
     return any(
         candidate.get('validation_status') == PDFValidationStatus.VERIFIED
         and candidate.get('identity_status') == IdentityStatus.VERIFIED
@@ -66,8 +67,8 @@ def _confirmed_url(paper):
     )
 
 
-def _check_file(paper, manifest, manifest_path):
-    if manifest_path is None:
+def _check_file(paper: JSONObject, manifest: Optional[JSONObject], manifest_path: Optional[Path]) -> Tuple[bool, str]:
+    if manifest_path is None or manifest is None:
         return False, 'Manifest path not supplied; file existence and checksum were not checked'
     if not paper.get('local_filename') or not paper.get('sha256'):
         return False, 'No local file/checksum recorded'
@@ -94,8 +95,14 @@ def _check_file(paper, manifest, manifest_path):
 
 class PerformanceEvaluator:
     def evaluate(
-        self, collection, truth_data, pdf_report=None, manifest=None, manifest_path=None, reference_only=False
-    ):
+        self,
+        collection: JSONObject,
+        truth_data: JSONObject,
+        pdf_report: Optional[JSONObject] = None,
+        manifest: Optional[JSONObject] = None,
+        manifest_path: Optional[Path] = None,
+        reference_only: bool = False,
+    ) -> JSONObject:
         GroundTruth.from_dict(truth_data)
         pdf_scope = _stage_scope(pdf_report)
         _stage_scope(manifest)
@@ -304,7 +311,7 @@ class PerformanceEvaluator:
         }
 
 
-def compare_performance(before, after):
+def compare_performance(before: JSONObject, after: JSONObject) -> JSONObject:
     if before['ground_truth_fingerprint'] != after['ground_truth_fingerprint']:
         raise ValueError('Before/after comparison requires the same reference set and labels')
     if before['metric_scope'] != after['metric_scope']:

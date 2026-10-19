@@ -4,20 +4,22 @@ import argparse
 import logging
 import math
 from pathlib import Path
+from typing import Callable, Optional, Sequence, Tuple
 
 from .composition import RunOptions, ServiceContainer
+from .json_types import JSONObject
 from .jsonio import read_json, write_json
 from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_discovery_comparison import _cohort, _metadata_fingerprint, compare_runs, summarize_runs
 from .pdf_downloader import paper_key
 from .progress import ProgressReporter
-from .settings import load_settings, validate_contact_email
+from .settings import Settings, load_settings, validate_contact_email
 from .status import OwnershipStatus, RunStatus
 
 logger = logging.getLogger(__name__)
 
 
-def benchmark_inputs(baseline_directory):
+def benchmark_inputs(baseline_directory: Path) -> Tuple[JSONObject, int]:
     root = Path(baseline_directory)
     selected = _cohort(read_json(root / 'pdf_urls.json'))
     archive = read_json(root / 'papers.json')
@@ -36,7 +38,14 @@ def benchmark_inputs(baseline_directory):
     return archive, len(selected)
 
 
-def run_benchmark(baseline_directory, output_directory, timeout, retries, progress=None, settings=None):
+def run_benchmark(
+    baseline_directory: Path,
+    output_directory: Path,
+    timeout: float,
+    retries: int,
+    progress: Optional[Callable[..., None]] = None,
+    settings: Optional[Settings] = None,
+) -> Tuple[Path, JSONObject]:
     settings = settings or load_settings()
     if not math.isfinite(timeout) or timeout <= 0 or retries < 0:
         raise ValueError('Timeout must be finite and positive; retries must be nonnegative')
@@ -65,7 +74,7 @@ def run_benchmark(baseline_directory, output_directory, timeout, retries, progre
     return root, comparison
 
 
-def main(argv=None):
+def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--baseline-run', type=Path, required=True)
     parser.add_argument('--output-dir', type=Path, required=True)

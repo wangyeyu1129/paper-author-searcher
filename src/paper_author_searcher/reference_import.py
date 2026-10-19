@@ -5,9 +5,11 @@ import hashlib
 import logging
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any, Optional, Sequence
 
 from .config import DEFAULT_MATCHING, DEFAULT_PDF
 from .http import HttpClient, SourceError
+from .json_types import JSONList, JSONObject
 from .jsonio import read_json, write_json
 from .logging_config import add_logging_arguments, configure_from_arguments
 from .matching import name_similarity
@@ -19,7 +21,7 @@ from .status import AnnotationState
 logger = logging.getLogger(__name__)
 
 
-def prepare_reference(pages, professor_name, client):
+def prepare_reference(pages: JSONList, professor_name: str, client: Any) -> JSONObject:
     entries = []
     errors = []
     for page in pages:
@@ -88,7 +90,7 @@ def prepare_reference(pages, professor_name, client):
     }
 
 
-def main(argv=None):
+def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description='Prepare publisher metadata references for human ground truth review')
     parser.add_argument('--pages', type=Path, required=True, help='JSON object with pages=[{url,context}]')
     parser.add_argument('--name', required=True)

@@ -16,6 +16,8 @@ from statistics import mean
 from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Sequence, Set, Tuple
 
 from paper_author_searcher.config import AmbiguityPolicy, MatchingConfig
+from paper_author_searcher.models import AuthorCandidate, ProfessorQuery
+from paper_author_searcher.resolver import ProfessorResolver
 from paper_author_searcher.status import ResolutionStatus, UniversityStatus
 from paper_author_searcher.workflow import contender_profile
 
@@ -67,32 +69,35 @@ def score_selection(selected: Set[AuthorKey], diagnosis: dict) -> Tuple[Optional
 class MemoizedProvider:
     """Search results do not depend on the tuned scoring parameters, so each query is searched once."""
 
-    def __init__(self, provider, memory: dict) -> None:
+    def __init__(self, provider: Any, memory: dict) -> None:
         self.provider = provider
         self.name = provider.name
         self.memory = memory
 
-    def search(self, query):
+    def search(self, query: ProfessorQuery) -> List[AuthorCandidate]:
         key = (self.name, query.name, query.university)
         if key not in self.memory:
             self.memory[key] = self.provider.search(query)
         return deepcopy(self.memory[key])
 
-    def lookup(self, author_id):
+    def lookup(self, author_id: str) -> AuthorCandidate:
         key = (self.name, 'lookup', author_id)
         if key not in self.memory:
             self.memory[key] = self.provider.lookup(author_id)
         return deepcopy(self.memory[key])
 
 
-def memoized(resolver, memory: dict):
+def memoized(resolver: ProfessorResolver, memory: dict) -> ProfessorResolver:
     resolver.providers = [MemoizedProvider(provider, memory) for provider in resolver.providers]
     return resolver
 
 
 class IdentityCalibrator:
     def __init__(
-        self, resolver_factory: Callable[[MatchingConfig], object], policy: str = 'stop', maximum_contenders: int = 3
+        self,
+        resolver_factory: Callable[[MatchingConfig], ProfessorResolver],
+        policy: str = 'stop',
+        maximum_contenders: int = 3,
     ) -> None:
         self.resolver_factory = resolver_factory
         self.memory: dict = {}
@@ -176,7 +181,7 @@ class IdentityCalibrator:
         ]
         pool = eligible or trials
 
-        def rank(trial):
+        def rank(trial: dict) -> Tuple[float, ...]:
             tune = trial['tune']
             return (tune['resolved_coverage'] or 0.0, tune['resolved_purity'] or 0.0, -_distance(trial, base))
 
@@ -208,7 +213,7 @@ def _distance(trial: dict, base: MatchingConfig) -> int:
 
 
 def markdown(report: dict) -> str:
-    def row(label, summary):
+    def row(label: str, summary: dict) -> str:
         return '| {} | {} | {} | {} | {} |'.format(
             label,
             summary['people'],

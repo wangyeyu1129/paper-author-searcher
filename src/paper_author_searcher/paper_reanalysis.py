@@ -1,15 +1,17 @@
 """Re-evaluate saved metadata without API calls or modifying the source file."""
 
 from dataclasses import fields
+from typing import Mapping, Sequence
 
-from .config import DEFAULT_DEDUPLICATION, DEFAULT_OWNERSHIP
+from .config import DEFAULT_DEDUPLICATION, DEFAULT_OWNERSHIP, DeduplicationConfig, OwnershipConfig
+from .json_types import JSONObject
 from .models import PaperCollectionResult, PaperRecord, PaperSourceResult, ProfessorProfile
 from .paper_deduplication import deduplicate_papers
 from .paper_ownership import PaperOwnershipValidator
 from .status import OwnershipStatus, UniversityStatus
 
 
-def _contains_selected_ids(candidate, selected):
+def _contains_selected_ids(candidate: JSONObject, selected: Mapping[str, Sequence[str]]) -> bool:
     for source, author_ids in selected.items():
         known = set((candidate.get('author_id_aliases') or {}).get(source) or [])
         representative = (candidate.get('author_ids') or {}).get(source)
@@ -20,7 +22,7 @@ def _contains_selected_ids(candidate, selected):
     return True
 
 
-def _saved_identity(data, selected):
+def _saved_identity(data: JSONObject, selected: Mapping[str, Sequence[str]]) -> JSONObject:
     candidates = data.get('candidates') or [data.get('profile') or data]
     for candidate in candidates:
         if not isinstance(candidate, dict):
@@ -34,7 +36,7 @@ def _saved_identity(data, selected):
     return data.get('collection_identity') or {}
 
 
-def saved_collection_profile(data):
+def saved_collection_profile(data: JSONObject) -> ProfessorProfile:
     collection = data.get('collection')
     if collection is None:
         raise ValueError('Expected a saved CLI result containing collection and professor identity')
@@ -64,7 +66,11 @@ def saved_collection_profile(data):
     )
 
 
-def reanalyze_saved_result(data, ownership=DEFAULT_OWNERSHIP, deduplication=DEFAULT_DEDUPLICATION):
+def reanalyze_saved_result(
+    data: JSONObject,
+    ownership: OwnershipConfig = DEFAULT_OWNERSHIP,
+    deduplication: DeduplicationConfig = DEFAULT_DEDUPLICATION,
+) -> PaperCollectionResult:
     profile = saved_collection_profile(data)
     collection = data['collection']
     selected = collection['selected_author_ids']

@@ -3,8 +3,10 @@
 import re
 import typing
 from collections import Counter
+from typing import List
 
-from .config import DEFAULT_OWNERSHIP
+from .config import DEFAULT_OWNERSHIP, OwnershipConfig
+from .json_types import JSONList, JSONObject
 from .paper_authorship import canonical_author_id
 from .status import (
     AccessStatus,
@@ -18,7 +20,7 @@ from .status import (
 )
 
 
-def workflow_outcomes(report):
+def workflow_outcomes(report: JSONObject) -> JSONObject:
     reused = {item.get('stage') for item in report.get('stages') or [] if item.get('status') == StageStatus.REUSED}
     counts: typing.Counter[str] = Counter()
     for error in report.get('errors') or []:
@@ -61,7 +63,7 @@ def workflow_outcomes(report):
     }
 
 
-def pdf_failure_reasons(paper):
+def pdf_failure_reasons(paper: JSONObject) -> List[str]:
     reasons = set()
     status = paper.get('validation_status')
     download = paper.get('download_status', '')
@@ -159,7 +161,7 @@ def pdf_failure_reasons(paper):
     return sorted(reasons)
 
 
-def review_reasons(paper, config=DEFAULT_OWNERSHIP):
+def review_reasons(paper: JSONObject, config: OwnershipConfig = DEFAULT_OWNERSHIP) -> List[str]:
     if paper.get('ownership_status') != OwnershipStatus.NEEDS_REVIEW:
         return []
     reasons = set()
@@ -205,7 +207,7 @@ def review_reasons(paper, config=DEFAULT_OWNERSHIP):
     return sorted(reasons)
 
 
-def ownership_diagnostics(papers):
+def ownership_diagnostics(papers: JSONList) -> JSONObject:
     counts: typing.Counter[str] = Counter()
     entries = []
     for index, paper in enumerate(papers):

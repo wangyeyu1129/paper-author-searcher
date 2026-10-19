@@ -4,6 +4,7 @@ import argparse
 import json
 import logging
 from pathlib import Path
+from typing import Optional, Sequence
 
 from .composition import RunOptions, ServiceContainer
 from .logging_config import add_logging_arguments, configure_from_arguments
@@ -12,7 +13,7 @@ from .settings import add_settings_argument, load_settings, validate_contact_ema
 logger = logging.getLogger(__name__)
 
 
-def main(argv=None):
+def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description='Find and lightly validate public PDF URLs from saved papers')
     add_settings_argument(parser)
     parser.add_argument('--input', type=Path, required=True, help='Saved Paper Collector JSON')

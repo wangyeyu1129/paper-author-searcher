@@ -1,5 +1,5 @@
 from dataclasses import asdict, dataclass, field
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, Dict, List, Mapping, Optional, Sequence, Union
 
 from .status import (
     AccessStatus,
@@ -28,11 +28,11 @@ class ProfessorQuery:
     email: Optional[str] = None
     known_papers: List[str] = field(default_factory=list)
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         if not self.name.strip() or not self.university.strip():
             raise ValueError('name and university are required')
 
-    def has_hints(self):
+    def has_hints(self) -> bool:
         return bool(self.orcid or self.homepage or self.known_papers)
 
 
@@ -110,7 +110,7 @@ class ResolutionResult:
 
     ambiguity: Optional[dict] = None
 
-    def to_dict(self):
+    def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
 
@@ -171,7 +171,9 @@ class PaperCollectionResult:
     identity_confirmation: str
     professor_identity_status: str = ResolutionStatus.UNKNOWN
 
-    def to_dict(self, academic_only=False, ownership_statuses=None):
+    def to_dict(
+        self, academic_only: bool = False, ownership_statuses: Optional[Sequence[str]] = None
+    ) -> Dict[str, Any]:
         from .paper_types import ACADEMIC_TYPES
 
         data = asdict(self)
@@ -362,7 +364,7 @@ class PDFResolutionResult:
     papers: List[PaperPDFResult]
     statistics: dict
 
-    def to_dict(self):
+    def to_dict(self) -> Dict[str, Any]:
         return {
             'schema_version': 1,
             'validation_scope': 'bounded_file_signature_and_source_metadata_identity_not_full_text',

@@ -3,7 +3,7 @@
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Callable, Dict, List, Optional
 
 from paper_author_searcher.http import HttpClient, SourceError
 from paper_author_searcher.jsonio import read_json, write_json
@@ -120,7 +120,9 @@ class CrossrefLookup:
 class ArxivLookup:
     """Record arXiv candidates for titles without an arXiv ID; most CS conference papers have no DOI."""
 
-    def __init__(self, settings: BenchmarkSettings, client: HttpClient, sleep=time.sleep) -> None:
+    def __init__(
+        self, settings: BenchmarkSettings, client: HttpClient, sleep: Callable[[float], None] = time.sleep
+    ) -> None:
         self.settings = settings.sources
         self.client = client
         self.sleep = sleep

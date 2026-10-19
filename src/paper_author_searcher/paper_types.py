@@ -1,6 +1,7 @@
 """Interpret explicit source type labels; never infer types from titles/topics."""
 
 from .matching import normalize
+from .models import PaperRecord
 
 TYPE_LABELS = {
     'article': 'research_paper',
@@ -31,7 +32,7 @@ ACADEMIC_TYPES = frozenset({'research_paper', 'review', 'preprint', 'book_chapte
 SPECIFIC_TYPES = ('editorial', 'review', 'preprint', 'book_chapter', 'dataset', 'book_review')
 
 
-def classify_record(record):
+def classify_record(record: PaperRecord) -> None:
     labels = []
     if record.publication_type:
         labels = record.publication_type.split(',')
@@ -51,7 +52,7 @@ def classify_record(record):
         record.type_evidence.append('Missing, unsupported or conflicting explicit type labels')
 
 
-def publication_form(record):
+def publication_form(record: PaperRecord) -> str:
     labels = set()
     if record.publication_type:
         labels = set(map(normalize, record.publication_type.split(',')))

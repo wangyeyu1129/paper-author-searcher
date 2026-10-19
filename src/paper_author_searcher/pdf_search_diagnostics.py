@@ -5,8 +5,9 @@ import logging
 import typing
 from collections import Counter
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, Optional, Sequence
 
+from .json_types import JSONObject
 from .jsonio import read_json, write_json
 from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_discovery_comparison import _cohort, compare_runs
@@ -15,7 +16,7 @@ from .pdf_search_status import paper_search_complete, provider_search_complete
 logger = logging.getLogger(__name__)
 
 
-def solely_deferred(paper):
+def solely_deferred(paper: JSONObject) -> bool:
     incomplete = [provider for provider in paper.get('providers') or [] if not provider_search_complete(provider)]
     if not incomplete:
         return False
@@ -31,7 +32,7 @@ def solely_deferred(paper):
     return True
 
 
-def _resource_statistics(statistics):
+def _resource_statistics(statistics: Optional[JSONObject]) -> JSONObject:
     if not statistics:
         return {'available': False, 'note': 'Legacy report has no public-resource request trace'}
     events = statistics.get('events') or []
@@ -60,7 +61,7 @@ def _resource_statistics(statistics):
     }
 
 
-def _trace_summary(pdf_report, papers):
+def _trace_summary(pdf_report: JSONObject, papers: Dict[str, JSONObject]) -> JSONObject:
     statuses: Dict[str, Any] = {}
     warning_counts: typing.Counter[str] = Counter()
     warning_papers: typing.Counter[str] = Counter()
@@ -97,7 +98,7 @@ def _trace_summary(pdf_report, papers):
     }
 
 
-def diagnose_search(before_directory, after_directory):
+def diagnose_search(before_directory: Path, after_directory: Path) -> JSONObject:
     comparison = compare_runs([before_directory], [after_directory])
     before_report = read_json(Path(before_directory) / 'pdf_urls.json')
     after_report = read_json(Path(after_directory) / 'pdf_urls.json')
@@ -135,7 +136,7 @@ def diagnose_search(before_directory, after_directory):
     }
 
 
-def main(argv=None):
+def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--before', type=Path, required=True)
     parser.add_argument('--after', type=Path, required=True)

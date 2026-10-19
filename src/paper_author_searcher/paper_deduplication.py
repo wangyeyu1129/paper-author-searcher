@@ -2,15 +2,15 @@
 
 from dataclasses import asdict
 from itertools import combinations
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Sequence, Set, Tuple
 
-from .config import DEFAULT_DEDUPLICATION
+from .config import DEFAULT_DEDUPLICATION, DeduplicationConfig
 from .matching import canonical_doi, name_similarity, normalize
-from .models import Paper
+from .models import Paper, PaperRecord
 from .paper_types import classify_record, publication_form
 
 
-def author_signatures_match(left, right, config=DEFAULT_DEDUPLICATION):
+def author_signatures_match(left: str, right: str, config: DeduplicationConfig = DEFAULT_DEDUPLICATION) -> bool:
     if name_similarity(left, right) >= config.author_similarity:
         return True
     if not config.allow_author_initials:
@@ -34,7 +34,7 @@ def author_signatures_match(left, right, config=DEFAULT_DEDUPLICATION):
     return True
 
 
-def shared_authors(left, right, config=DEFAULT_DEDUPLICATION):
+def shared_authors(left: PaperRecord, right: PaperRecord, config: DeduplicationConfig = DEFAULT_DEDUPLICATION) -> int:
     used = set()
     count = 0
     for author in left.authors:
@@ -48,7 +48,7 @@ def shared_authors(left, right, config=DEFAULT_DEDUPLICATION):
     return count
 
 
-def _metadata_agrees(left, right, config):
+def _metadata_agrees(left: PaperRecord, right: PaperRecord, config: DeduplicationConfig) -> bool:
     if not left.title or normalize(left.title) != normalize(right.title):
         return False
     if left.year is None or left.year != right.year:
@@ -60,7 +60,7 @@ def _metadata_agrees(left, right, config):
     return count / total >= config.author_overlap
 
 
-def _stable_ids(record):
+def _stable_ids(record: PaperRecord) -> Set[Tuple[str, str]]:
     ids = set()
     if record.source_paper_id:
         ids.add(('source:' + record.source, record.source_paper_id))
@@ -74,7 +74,9 @@ def _stable_ids(record):
     return ids
 
 
-def duplicate_evidence(left, right, config=DEFAULT_DEDUPLICATION):
+def duplicate_evidence(
+    left: PaperRecord, right: PaperRecord, config: DeduplicationConfig = DEFAULT_DEDUPLICATION
+) -> List[str]:
     shared = _stable_ids(left) & _stable_ids(right)
     conflicting_dois = left.doi and right.doi and canonical_doi(left.doi) != canonical_doi(right.doi)
     if conflicting_dois:
@@ -96,12 +98,14 @@ def duplicate_evidence(left, right, config=DEFAULT_DEDUPLICATION):
     return ['Matching normalized title, year, compatible authors and publication metadata']
 
 
-def deduplicate_papers(records, config=DEFAULT_DEDUPLICATION):
-    groups: List[Any] = []
-    index: Dict[str, Any] = {}
+def deduplicate_papers(
+    records: Sequence[PaperRecord], config: DeduplicationConfig = DEFAULT_DEDUPLICATION
+) -> List[Paper]:
+    groups: List[List[PaperRecord]] = []
+    index: Dict[Tuple[Any, ...], Set[int]] = {}
     for record in records:
         classify_record(record)
-        keys = list(_stable_ids(record))
+        keys: List[Tuple[Any, ...]] = list(_stable_ids(record))
         if record.title:
             keys.append(('title-year', normalize(record.title), record.year))
         candidates = set()
@@ -125,9 +129,9 @@ def deduplicate_papers(records, config=DEFAULT_DEDUPLICATION):
         for left, right in combinations(group, 2):
             evidence.update(duplicate_evidence(left, right, config))
         for record in group[1:]:
-            for key in ('doi', 'abstract', 'venue', 'paper_url', 'year'):
-                if not values[key]:
-                    values[key] = getattr(record, key)
+            for name in ('doi', 'abstract', 'venue', 'paper_url', 'year'):
+                if not values[name]:
+                    values[name] = getattr(record, name)
         if values['doi']:
             values['doi'] = canonical_doi(values['doi'])[len('doi:') :]
         values.update(_combine_authorship_metadata(group))
@@ -151,7 +155,7 @@ def deduplicate_papers(records, config=DEFAULT_DEDUPLICATION):
     return papers
 
 
-def _combine_authorship_metadata(group):
+def _combine_authorship_metadata(group: Sequence[PaperRecord]) -> Dict[str, Any]:
     details = []
     source_ids = []
     external_values: Dict[str, Any] = {}
@@ -200,7 +204,7 @@ def _combine_authorship_metadata(group):
     }
 
 
-def _link_related_versions(papers, config):
+def _link_related_versions(papers: List[Paper], config: DeduplicationConfig) -> None:
     titles: Dict[str, Any] = {}
     for paper in papers:
         titles.setdefault(normalize(paper.title), []).append(paper)

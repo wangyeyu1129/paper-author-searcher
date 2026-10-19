@@ -1,19 +1,22 @@
 """Bounded resource probes plus metadata identity, never complete PDF retrieval."""
 
 import re
+from typing import Any, Mapping, Optional
 
-from .config import DEFAULT_PDF
+from .config import DEFAULT_PDF, PDFConfig
 from .http import SourceError, has_pdf_signature
+from .json_types import JSONObject
+from .models import PDFCandidate
 from .pdf_identity import arxiv_id, arxiv_ids, same_arxiv_version
 from .status import AccessStatus, IdentityStatus, PDFValidationStatus
 
 
 class PDFURLValidator:
-    def __init__(self, client, config=DEFAULT_PDF):
+    def __init__(self, client: Any, config: PDFConfig = DEFAULT_PDF) -> None:
         self.client = client
         self.config = config
 
-    def validate(self, candidate, paper=None):
+    def validate(self, candidate: PDFCandidate, paper: Optional[JSONObject] = None) -> PDFCandidate:
         try:
             response = self.client.probe(
                 candidate.url,
@@ -66,11 +69,11 @@ class PDFURLValidator:
             candidate.error_details.append('PDF signature confirmed, but paper correspondence remains unverified')
         return candidate
 
-    def _starts_at_zero(self, headers):
+    def _starts_at_zero(self, headers: Mapping[str, str]) -> bool:
         values = {key.lower(): value for key, value in headers.items()}
         return bool(re.match(r'^bytes\s+0-\d+/', values.get('content-range', ''), flags=re.IGNORECASE))
 
-    def _arxiv_redirect_conflicts(self, candidate, paper):
+    def _arxiv_redirect_conflicts(self, candidate: PDFCandidate, paper: Optional[JSONObject]) -> bool:
         expected = arxiv_id(candidate.url)
         returned = arxiv_id(candidate.final_url)
         if expected and returned and not same_arxiv_version(expected, returned):

@@ -1,30 +1,39 @@
 """Bounded Semantic Scholar requests, caching and source-local cooldowns."""
 
 import time
+from functools import partial
+from typing import Any, Callable, Dict, Iterable, List, Optional
 from urllib.parse import quote
 
-from .config import DEFAULT_PDF, DEFAULT_SOURCES
+from .config import DEFAULT_PDF, DEFAULT_SOURCES, PDFConfig, SourceConfig
 from .http import SourceError
+from .json_types import JSONObject
 from .status import RequestOutcome
 
 
 class SemanticScholarRequests:
     fields = 'title,year,authors,externalIds,openAccessPdf,url'
 
-    def __init__(self, client, api_key=None, config=DEFAULT_PDF, sources=DEFAULT_SOURCES):
+    def __init__(
+        self,
+        client: Any,
+        api_key: Optional[str] = None,
+        config: PDFConfig = DEFAULT_PDF,
+        sources: SourceConfig = DEFAULT_SOURCES,
+    ) -> None:
         self.client = client
         self.api_key = api_key
         self.config = config
         self.sources = sources
-        self.cache = {}
-        self.origins = {}
-        self.batch_errors = {}
-        self.last_request = None
+        self.cache: Dict[str, Any] = {}
+        self.origins: Dict[str, str] = {}
+        self.batch_errors: Dict[str, str] = {}
+        self.last_request: Optional[float] = None
         self.cooldown_until = 0.0
-        self.deferred_error = None
-        self.blocked_error = None
+        self.deferred_error: Optional[SourceError] = None
+        self.blocked_error: Optional[SourceError] = None
         self.failure_streak = 0
-        self.events = []
+        self.events: List[JSONObject] = []
         self.statistics = {
             'batch_requests': 0,
             'individual_requests': 0,
@@ -36,10 +45,10 @@ class SemanticScholarRequests:
             'request_failures': 0,
         }
 
-    def url(self, identifier):
+    def url(self, identifier: str) -> str:
         return self.sources.semantic_scholar_url + '/paper/' + quote(identifier, safe=':')
 
-    def _call(self, request, operation):
+    def _call(self, request: Callable[[], Any], operation: str) -> Any:
         if self.blocked_error is not None:
             self.statistics['authentication_skips'] += 1
             raise SourceError(
@@ -87,10 +96,10 @@ class SemanticScholarRequests:
                 self.deferred_error = exc
             raise
 
-    def _headers(self):
+    def _headers(self) -> Optional[Dict[str, str]]:
         return {'x-api-key': self.api_key} if self.api_key else None
 
-    def prefetch(self, identifiers):
+    def prefetch(self, identifiers: Iterable[str]) -> None:
         pending = [value for value in dict.fromkeys(identifiers) if value not in self.cache]
         size = self.config.semantic_scholar_batch_size
         url = self.sources.semantic_scholar_url + '/paper/batch'
@@ -98,8 +107,13 @@ class SemanticScholarRequests:
             batch = pending[start : start + size]
             try:
                 response = self._call(
-                    lambda batch=batch: self.client.post_json(
-                        url, {'ids': batch}, params={'fields': self.fields}, headers=self._headers(), expected_type=list
+                    partial(
+                        self.client.post_json,
+                        url,
+                        {'ids': batch},
+                        params={'fields': self.fields},
+                        headers=self._headers(),
+                        expected_type=list,
                     ),
                     'batch_requests',
                 )
@@ -121,7 +135,7 @@ class SemanticScholarRequests:
                 if self.blocked_error is not None or time.monotonic() < self.cooldown_until:
                     break
 
-    def work(self, identifier):
+    def work(self, identifier: str) -> Any:
         if identifier not in self.cache:
             try:
                 response = self._call(
@@ -146,7 +160,7 @@ class SemanticScholarRequests:
             raise SourceError('Semantic Scholar has no indexed paper for this identifier', status_code=404)
         return work
 
-    def search(self, title):
+    def search(self, title: str) -> Any:
         key = 'title:' + title
         if key not in self.cache:
             url = self.sources.semantic_scholar_url + '/paper/search'
@@ -172,8 +186,8 @@ class SemanticScholarRequests:
             self.statistics['title_cache_hits'] += 1
         return self.cache[key]
 
-    def diagnostics(self, identifier):
-        result = {'lookup_method': self.origins.get(identifier, 'individual')}
+    def diagnostics(self, identifier: str) -> JSONObject:
+        result: JSONObject = {'lookup_method': self.origins.get(identifier, 'individual')}
         if identifier in self.batch_errors:
             result['batch_error'] = self.batch_errors[identifier]
         if self.deferred_error is not None and time.monotonic() < self.cooldown_until:

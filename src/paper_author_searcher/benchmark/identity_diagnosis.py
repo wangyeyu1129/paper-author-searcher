@@ -6,7 +6,7 @@ retrieved) and must never feed back into the search system's decisions.
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Callable, Dict, Iterable, List, Optional, Set, Tuple
+from typing import Any, Callable, Dict, Iterable, List, Optional, Set, Tuple
 
 from paper_author_searcher.config import DEFAULT_MATCHING
 from paper_author_searcher.http import SourceError
@@ -91,7 +91,9 @@ def work_keys(work: dict) -> Iterable[Tuple[str, str]]:
 class WorkLister:
     """Lists an author profile's works in a year window (OpenAlex and Semantic Scholar)."""
 
-    def __init__(self, client, openalex_url: str, semantic_scholar_url: str, api_keys: Optional[dict] = None) -> None:
+    def __init__(
+        self, client: Any, openalex_url: str, semantic_scholar_url: str, api_keys: Optional[dict] = None
+    ) -> None:
         self.client = client
         self.openalex_url = openalex_url.rstrip('/')
         self.semantic_scholar_url = semantic_scholar_url.rstrip('/')

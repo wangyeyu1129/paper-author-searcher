@@ -5,7 +5,9 @@ import logging
 from collections import Counter
 from dataclasses import asdict
 from pathlib import Path
+from typing import Any, Optional, Sequence
 
+from .json_types import JSONObject
 from .jsonio import read_json, write_json
 from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_downloader import paper_key
@@ -16,7 +18,7 @@ from .status import FormatStatus, PDFValidationStatus
 logger = logging.getLogger(__name__)
 
 
-def _selected_candidate(paper, saved):
+def _selected_candidate(paper: JSONObject, saved: JSONObject) -> Optional[JSONObject]:
     saved_urls = {saved.get('pdf_url'), saved.get('final_url')} - {None, ''}
     for candidate in paper.get('pdf_candidates') or []:
         if saved_urls.intersection({candidate.get('url'), candidate.get('final_url')}):
@@ -24,7 +26,9 @@ def _selected_candidate(paper, saved):
     return None
 
 
-def revalidate(manifest_path, pdf_report_path, only_needs_review=False, validator=None):
+def revalidate(
+    manifest_path: Path, pdf_report_path: Path, only_needs_review: bool = False, validator: Any = None
+) -> JSONObject:
     manifest_path = Path(manifest_path)
     manifest = read_json(manifest_path)
     pdf_report = read_json(pdf_report_path)
@@ -94,7 +98,7 @@ def revalidate(manifest_path, pdf_report_path, only_needs_review=False, validato
     }
 
 
-def main(argv=None):
+def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(
         description='Revalidate existing PDF contents without network calls or file changes'
     )

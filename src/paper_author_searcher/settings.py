@@ -10,6 +10,7 @@ Values are coerced to each field's declared type and every section re-runs its o
 only from their conventional environment variables, never from a settings file, and are never rendered.
 """
 
+import argparse
 import json
 import os
 import re
@@ -212,7 +213,7 @@ def _coerce(value: Any, annotation: Any) -> Any:
     return value
 
 
-def add_settings_argument(parser) -> None:
+def add_settings_argument(parser: argparse.ArgumentParser) -> None:
     parser.add_argument(
         '--settings',
         type=Path,
@@ -222,6 +223,6 @@ def add_settings_argument(parser) -> None:
     )
 
 
-def load_settings(arguments=None) -> Settings:
+def load_settings(arguments: Any = None) -> Settings:
     """Settings for a command: its ``--settings`` file (if any), the environment and its credentials."""
     return Settings.load(getattr(arguments, 'settings', None))

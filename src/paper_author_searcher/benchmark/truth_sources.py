@@ -8,7 +8,7 @@ import json
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Protocol
+from typing import Any, Dict, List, Optional, Protocol, Tuple
 
 from .roster import BenchmarkPerson, TruthSourceSpec
 
@@ -86,7 +86,7 @@ def vancouver_name(name: str) -> str:
     return ' '.join([letter + '.' for letter in match.group('initials')] + [match.group('family')])
 
 
-def parse_year(value) -> Optional[int]:
+def parse_year(value: Any) -> Optional[int]:
     if value is None:
         return None
     match = YEAR.search(str(value))
@@ -127,7 +127,7 @@ ORCID_TYPES = {
 ORCID_IDENTIFIER_RELATIONSHIPS = ('self', 'version-of')
 
 
-def _value(node, *keys):
+def _value(node: Any, *keys: str) -> Any:
     for key in keys:
         if not isinstance(node, dict):
             return None
@@ -140,7 +140,7 @@ class OrcidSource:
 
     kind = 'orcid'
 
-    def load(self, person, spec, snapshot_dir):
+    def load(self, person: BenchmarkPerson, spec: TruthSourceSpec, snapshot_dir: Path) -> List[TruthRecord]:
         path = snapshot_path(snapshot_dir, orcid_snapshot_name(spec.locator))
         with path.open(encoding='utf-8') as handle:
             snapshot = json.load(handle)
@@ -254,7 +254,7 @@ def bibtex_entries(text: str) -> List[Dict[str, str]]:
 FIELD_NAME = re.compile(r'[\s,]*([A-Za-z_\-]+)\s*=\s*')
 
 
-def _bibtex_value(text: str, cursor: int):
+def _bibtex_value(text: str, cursor: int) -> Tuple[str, int]:
     """Return one field value and the index after it: braced, quoted or bare (numbers, macros)."""
     if cursor >= len(text):
         return '', cursor
@@ -279,7 +279,7 @@ class BibtexSource:
 
     kind = 'bibtex'
 
-    def load(self, person, spec, snapshot_dir):
+    def load(self, person: BenchmarkPerson, spec: TruthSourceSpec, snapshot_dir: Path) -> List[TruthRecord]:
         text = snapshot_path(snapshot_dir, spec.locator).read_text(encoding='utf-8')
         records = []
         for entry in bibtex_entries(text):
@@ -320,7 +320,7 @@ class ManualListSource:
 
     kind = 'manual'
 
-    def load(self, person, spec, snapshot_dir):
+    def load(self, person: BenchmarkPerson, spec: TruthSourceSpec, snapshot_dir: Path) -> List[TruthRecord]:
         with snapshot_path(snapshot_dir, spec.locator).open(encoding='utf-8') as handle:
             snapshot = json.load(handle)
         origin = snapshot.get('source_url') or spec.url

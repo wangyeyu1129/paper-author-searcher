@@ -6,7 +6,7 @@ Place it inside the response cache (cache -> budget -> client) so cached replays
 import logging
 import threading
 from dataclasses import dataclass, field
-from typing import Dict, Optional
+from typing import Any, Dict, Optional
 from urllib.parse import urlsplit
 
 from .http import SourceError
@@ -35,7 +35,7 @@ class BudgetConfig:
 
 
 class BudgetExceeded(SourceError):
-    def __init__(self, message):
+    def __init__(self, message: str) -> None:
         super().__init__(message, error_type='budget_exceeded')
 
 
@@ -104,16 +104,22 @@ def classify(url: str, params: Optional[dict]) -> str:
 
 
 class BudgetedHttpClient:
-    def __init__(self, client, ledger: CostLedger, config: Optional[BudgetConfig] = None) -> None:
+    def __init__(self, client: Any, ledger: CostLedger, config: Optional[BudgetConfig] = None) -> None:
         config = config or BudgetConfig()
         self.client = client
         self.ledger = ledger
         self.hosts = {host.host: host for host in config.hosts}
 
-    def __getattr__(self, name):
+    def __getattr__(self, name: str) -> Any:
         return getattr(self.client, name)
 
-    def get(self, url, params=None, headers=None, xml=False):
+    def get(
+        self,
+        url: str,
+        params: Optional[Dict[str, Any]] = None,
+        headers: Optional[Dict[str, str]] = None,
+        xml: bool = False,
+    ) -> Any:
         host = self.hosts.get(urlsplit(url).hostname or '')
         if host is not None:
             kind = classify(url, params)
@@ -121,7 +127,7 @@ class BudgetedHttpClient:
         return self.client.get(url, params, headers, xml)
 
 
-def budgeted_client(client, maximum_cost_usd: Optional[float], ledger_name: str = 'default'):
+def budgeted_client(client: Any, maximum_cost_usd: Optional[float], ledger_name: str = 'default') -> Any:
     if maximum_cost_usd is None:
         return client
     return BudgetedHttpClient(

@@ -7,9 +7,10 @@ known DOIs). Its verdict can merge split profiles or break a tie between profile
 import json
 import logging
 from dataclasses import dataclass, field
-from typing import List, Optional, Protocol, Sequence
+from typing import Any, Iterable, List, Optional, Protocol, Sequence
 
 from .logging_config import log_isolated_failure
+from .models import ProfessorQuery
 
 logger = logging.getLogger(__name__)
 
@@ -50,13 +51,13 @@ class AdjudicationVerdict:
 
 
 class IdentityAdjudicator(Protocol):
-    def judge(self, query, first: Sequence, second: Sequence) -> AdjudicationVerdict: ...
+    def judge(self, query: ProfessorQuery, first: Sequence, second: Sequence) -> AdjudicationVerdict: ...
 
 
 def describe(records: Sequence, limit: int) -> dict:
     """Compact, deterministic evidence summary of one candidate group (a list of AuthorCandidate)."""
 
-    def take(values):
+    def take(values: Iterable[Any]) -> List[Any]:
         return sorted({value for value in values if value})[:limit]
 
     return {
@@ -70,7 +71,7 @@ def describe(records: Sequence, limit: int) -> dict:
     }
 
 
-def prompt(query, first: Sequence, second: Sequence, limit: int) -> str:
+def prompt(query: ProfessorQuery, first: Sequence, second: Sequence, limit: int) -> str:
     request = {
         'name': query.name,
         'university': query.university,
@@ -91,7 +92,7 @@ class ClaudeIdentityAdjudicator:
 
     def __init__(
         self,
-        client=None,
+        client: Any = None,
         model: str = 'claude-opus-5-5',
         effort: str = 'medium',
         evidence_limit: int = 40,
@@ -107,7 +108,7 @@ class ClaudeIdentityAdjudicator:
         self.evidence_limit = evidence_limit
         self.max_tokens = max_tokens
 
-    def judge(self, query, first, second) -> AdjudicationVerdict:
+    def judge(self, query: ProfessorQuery, first: Sequence, second: Sequence) -> AdjudicationVerdict:
         try:
             response = self.client.beta.messages.create(
                 model=self.model,

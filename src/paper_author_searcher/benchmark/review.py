@@ -5,7 +5,7 @@ import hashlib
 from copy import deepcopy
 from datetime import date
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 from paper_author_searcher.evaluation_matching import LABELS, GroundTruth, GroundTruthMatcher
 from paper_author_searcher.matching import canonical_doi, normalize
@@ -39,7 +39,12 @@ LIST_SEPARATOR = '; '
 
 
 def system_suggestions(
-    collection: dict, truth: dict, window, run_id: str, limit: int, statuses=(OwnershipStatus.VERIFIED,)
+    collection: dict,
+    truth: dict,
+    window: Tuple[int, int],
+    run_id: str,
+    limit: int,
+    statuses: Sequence[str] = (OwnershipStatus.VERIFIED,),
 ) -> List[dict]:
     """Papers the search system collected in the window that match no truth entry: leads for completing the list.
 

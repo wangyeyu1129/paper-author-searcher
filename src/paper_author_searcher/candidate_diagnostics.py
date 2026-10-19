@@ -5,12 +5,14 @@ import logging
 from copy import deepcopy
 from dataclasses import asdict
 from pathlib import Path
+from typing import Any, Optional, Sequence
 
 from .composition import RunOptions, ServiceContainer
-from .config import DEFAULT_DEDUPLICATION
+from .config import DEFAULT_DEDUPLICATION, DeduplicationConfig
+from .json_types import JSONObject
 from .jsonio import read_json, write_json
 from .logging_config import add_logging_arguments, configure_from_arguments, log_isolated_failure
-from .models import PaperCollectionResult, PaperSourceResult
+from .models import PaperCollectionResult, PaperSourceResult, ProfessorProfile
 from .paper_deduplication import deduplicate_papers
 from .settings import add_settings_argument, load_settings
 from .status import OwnershipStatus, ResolutionStatus
@@ -19,7 +21,9 @@ from .workflow import _resolution
 logger = logging.getLogger(__name__)
 
 
-def collect_candidate(profile, providers, deduplication=DEFAULT_DEDUPLICATION):
+def collect_candidate(
+    profile: ProfessorProfile, providers: Sequence[Any], deduplication: DeduplicationConfig = DEFAULT_DEDUPLICATION
+) -> JSONObject:
     sources = []
     records = []
     for provider in providers:
@@ -60,7 +64,7 @@ def collect_candidate(profile, providers, deduplication=DEFAULT_DEDUPLICATION):
     }
 
 
-def main(argv=None):
+def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(
         description='Collect competing candidate records separately without confirming identity'
     )

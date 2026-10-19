@@ -4,9 +4,12 @@ import argparse
 import json
 import logging
 from pathlib import Path
+from typing import Optional, Sequence, Tuple
 
+from .json_types import JSONList, JSONObject
 from .logging_config import add_logging_arguments, configure_from_arguments
-from .paper_collector import IdentityConfirmationRequired
+from .models import PaperCollectionResult, ProfessorProfile, ResolutionResult
+from .paper_collector import IdentityConfirmationRequired, PaperCollector
 from .paper_reanalysis import reanalyze_saved_result, saved_collection_profile
 from .status import OwnershipStatus, ResolutionStatus
 from .workflow_cli import (
@@ -24,7 +27,7 @@ SUCCESS_EXIT_CODE = 0
 REVIEW_EXIT_CODE = 2
 
 
-def summary(result):
+def summary(result: ResolutionResult) -> JSONObject:
     profile = result.profile
     if profile is None:
         return {
@@ -57,7 +60,7 @@ def summary(result):
     return output
 
 
-def build_parser():
+def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Resolve a professor's scholarly author identities",
     )
@@ -88,7 +91,7 @@ def build_parser():
     return parser
 
 
-def _selected_profile(result, selection):
+def _selected_profile(result: ResolutionResult, selection: str) -> Tuple[ProfessorProfile, Tuple[str, str]]:
     if ':' not in selection:
         raise IdentityConfirmationRequired('Use SOURCE:AUTHOR_ID for --select-author')
     source, author_id = selection.split(':', 1)
@@ -99,7 +102,7 @@ def _selected_profile(result, selection):
     raise IdentityConfirmationRequired('Selected Author ID is absent from resolver candidates')
 
 
-def _candidate_summaries(result):
+def _candidate_summaries(result: ResolutionResult) -> JSONList:
     candidates = []
     for profile in result.candidates:
         candidates.append(
@@ -115,7 +118,14 @@ def _candidate_summaries(result):
     return candidates
 
 
-def _collect_output(result, selected_author, output, collector, academic_only=False, ownership_statuses=None):
+def _collect_output(
+    result: ResolutionResult,
+    selected_author: Optional[str],
+    output: JSONObject,
+    collector: PaperCollector,
+    academic_only: bool = False,
+    ownership_statuses: Optional[Sequence[str]] = None,
+) -> int:
     try:
         profile = result.profile
         selection = None
@@ -142,14 +152,14 @@ def _collect_output(result, selected_author, output, collector, academic_only=Fa
     return REVIEW_EXIT_CODE
 
 
-def _write_output(output, path):
+def _write_output(output: JSONObject, path: Optional[Path]) -> None:
     serialized = json.dumps(output, ensure_ascii=False, indent=2)
     if path:
         path.write_text(serialized + '\n', encoding='utf-8')
     print(serialized)
 
 
-def _refresh_collection(saved, collector):
+def _refresh_collection(saved: JSONObject, collector: PaperCollector) -> PaperCollectionResult:
     profile = saved_collection_profile(saved)
     stored = saved['collection']
     selection = None
@@ -164,7 +174,7 @@ def _refresh_collection(saved, collector):
     return collector.collect(profile, selected_author=selection)
 
 
-def main(argv=None):
+def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = build_parser()
     add_logging_arguments(parser)
     args = parser.parse_args(argv)

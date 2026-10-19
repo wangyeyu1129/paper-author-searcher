@@ -5,7 +5,7 @@ import json
 import xml.etree.ElementTree as ET
 from enum import Enum
 from pathlib import Path
-from typing import Iterable, Optional, Union
+from typing import Any, Dict, Iterable, Optional, Union
 from urllib.parse import urlencode
 
 from .http import SourceError
@@ -27,7 +27,7 @@ class CachingHttpClient:
 
     def __init__(
         self,
-        client,
+        client: Any,
         directory: Path,
         mode: CacheMode = CacheMode.RECORD,
         ignored_parameters: Iterable[str] = SECRET_PARAMETERS,
@@ -38,7 +38,7 @@ class CachingHttpClient:
         self.ignored_parameters = frozenset(name.lower() for name in ignored_parameters)
         self.statistics = {'hits': 0, 'misses': 0, 'stored': 0}
 
-    def __getattr__(self, name):
+    def __getattr__(self, name: str) -> Any:
         return getattr(self.client, name)
 
     def key(self, url: str, params: Optional[dict], xml: bool) -> str:
@@ -50,7 +50,13 @@ class CachingHttpClient:
         material = url + '?' + urlencode(public) + ('#xml' if xml else '')
         return hashlib.sha256(material.encode('utf-8')).hexdigest()
 
-    def get(self, url, params=None, headers=None, xml=False):
+    def get(
+        self,
+        url: str,
+        params: Optional[Dict[str, Any]] = None,
+        headers: Optional[Dict[str, str]] = None,
+        xml: bool = False,
+    ) -> Any:
         key = self.key(url, params, xml)
         path = self.directory / key[:2] / (key + '.json')
         if self.mode is not CacheMode.REFRESH and path.exists():
@@ -75,7 +81,7 @@ class CachingHttpClient:
         return body
 
 
-def cached_client(client, directory: Optional[Union[str, Path]], mode: Optional[str]):
+def cached_client(client: Any, directory: Optional[Union[str, Path]], mode: Optional[str]) -> Any:
     """Return the client unchanged when no cache directory is configured."""
     if not directory:
         return client

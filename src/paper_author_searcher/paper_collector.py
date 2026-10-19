@@ -2,12 +2,14 @@
 
 import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from typing import Callable, Dict, Iterable, List, Optional, Sequence, Tuple
 
-from .config import DEFAULT_DEDUPLICATION
+from .config import DEFAULT_DEDUPLICATION, DeduplicationConfig
 from .logging_config import log_isolated_failure
-from .models import PaperCollectionResult, PaperSourceResult
+from .models import Paper, PaperCollectionResult, PaperSourceResult, ProfessorProfile
 from .paper_deduplication import deduplicate_papers
 from .paper_ownership import PaperOwnershipValidator
+from .paper_providers import PaperProvider
 from .status import OwnershipStatus, ResolutionStatus
 
 logger = logging.getLogger(__name__)
@@ -17,7 +19,7 @@ class IdentityConfirmationRequired(ValueError):
     pass
 
 
-def hold_for_review(papers, contenders):
+def hold_for_review(papers: Sequence[Paper], contenders: int) -> None:
     """Papers gathered from competing namesake profiles are leads, never verified authorship."""
     note = f'Identity unconfirmed: collected from {contenders} competing profiles; verification withheld'
     for paper in papers:
@@ -28,12 +30,19 @@ def hold_for_review(papers, contenders):
 
 
 class PaperCollector:
-    def __init__(self, providers, ownership_validator=None, deduplication=DEFAULT_DEDUPLICATION):
+    def __init__(
+        self,
+        providers: Iterable[PaperProvider],
+        ownership_validator: Optional[PaperOwnershipValidator] = None,
+        deduplication: DeduplicationConfig = DEFAULT_DEDUPLICATION,
+    ) -> None:
         self.providers = list(providers)
         self.ownership_validator = ownership_validator or PaperOwnershipValidator()
         self.deduplication = deduplication
 
-    def _select_ids(self, profile, selected_author):
+    def _select_ids(
+        self, profile: ProfessorProfile, selected_author: Optional[Tuple[str, str]]
+    ) -> Tuple[Dict[str, List[str]], str]:
         if selected_author is not None:
             source, author_id = selected_author
             known_ids = profile.author_id_aliases.get(source, [])
@@ -54,7 +63,12 @@ class PaperCollector:
             return selected, ResolutionStatus.AMBIGUOUS_CONTENDERS
         return selected, 'resolver_resolved'
 
-    def collect(self, profile, selected_author=None, progress=None):
+    def collect(
+        self,
+        profile: ProfessorProfile,
+        selected_author: Optional[Tuple[str, str]] = None,
+        progress: Optional[Callable[..., None]] = None,
+    ) -> PaperCollectionResult:
         selected, confirmation = self._select_ids(profile, selected_author)
         available = {provider.name: provider for provider in self.providers}
         sources = []
@@ -95,9 +109,9 @@ class PaperCollector:
                     sources.append(PaperSourceResult(source=source, author_id=author_id, error=str(exc)))
         sources.sort(key=lambda result: (result.source, result.author_id or ''))
         records = []
-        for source in sources:
-            records.extend(source.papers)
-        complete = bool(sources) and all(source.complete for source in sources)
+        for fetched in sources:
+            records.extend(fetched.papers)
+        complete = bool(sources) and all(fetched.complete for fetched in sources)
         if progress:
             progress('Deduplicating papers', len(records), len(records))
         papers = deduplicate_papers(records, self.deduplication)

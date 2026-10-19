@@ -7,8 +7,9 @@ import logging
 import typing
 from collections import Counter
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, Mapping, Optional, Sequence
 
+from .json_types import JSONObject
 from .jsonio import read_json, write_json
 from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_downloader import paper_key
@@ -20,7 +21,7 @@ from .status import DownloadStatus, FormatStatus, IdentityStatus, PDFValidationS
 logger = logging.getLogger(__name__)
 
 
-def _cohort(report):
+def _cohort(report: JSONObject) -> Dict[str, JSONObject]:
     papers = report.get('papers')
     if not isinstance(papers, list) or any(not isinstance(paper, dict) for paper in papers):
         raise ValueError('Each PDF report must contain a paper list')
@@ -43,7 +44,7 @@ def _cohort(report):
     return selected
 
 
-def _metadata_fingerprint(selected):
+def _metadata_fingerprint(selected: Mapping[str, JSONObject]) -> str:
     fields = (
         'title',
         'authors',
@@ -60,7 +61,7 @@ def _metadata_fingerprint(selected):
     return hashlib.sha256(encoded).hexdigest()
 
 
-def summarize_runs(run_directories):
+def summarize_runs(run_directories: Sequence[Path]) -> JSONObject:
     cohort = None
     metadata_fingerprint = None
     verified_papers, urls, files, content = set(), set(), set(), set()
@@ -205,7 +206,7 @@ def summarize_runs(run_directories):
     }
 
 
-def compare_runs(before_directories, after_directories):
+def compare_runs(before_directories: Sequence[Path], after_directories: Sequence[Path]) -> JSONObject:
     before = summarize_runs(before_directories)
     after = summarize_runs(after_directories)
     if before['cohort_fingerprint'] != after['cohort_fingerprint']:
@@ -225,7 +226,7 @@ def compare_runs(before_directories, after_directories):
     }
 
 
-def main(argv=None):
+def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description='Offline PDF discovery comparison on the same processed paper cohort')
     parser.add_argument(
         '--before',
