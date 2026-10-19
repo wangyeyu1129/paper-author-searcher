@@ -4,7 +4,7 @@ import re
 import unicodedata
 from difflib import SequenceMatcher
 from functools import lru_cache
-from typing import Callable, Iterable, Optional, Sequence
+from typing import Any, Callable, Dict, Iterable, Optional, Sequence
 
 from .config import DEFAULT_MATCHING, MatchingConfig
 
@@ -136,3 +136,32 @@ def canonical_doi(value: str) -> str:
             value = value[len(prefix) :]
             break
     return 'doi:' + value
+
+
+# Process-wide memo caches of the pure similarity functions (bounded LRU). A long-running service reports them
+# as metrics and may clear them, e.g. after changing matching configuration.
+SIMILARITY_CACHES = {
+    'name_similarity': name_similarity,
+    'name_similarity_upper_bound': name_similarity_upper_bound,
+    'institution_similarity': institution_similarity,
+}
+
+
+def similarity_cache_statistics() -> Dict[str, Dict[str, Any]]:
+    statistics: Dict[str, Dict[str, Any]] = {}
+    for name, function in SIMILARITY_CACHES.items():
+        info = function.cache_info()
+        lookups = info.hits + info.misses
+        statistics[name] = {
+            'hits': info.hits,
+            'misses': info.misses,
+            'entries': info.currsize,
+            'capacity': info.maxsize,
+            'hit_rate': round(info.hits / lookups, 4) if lookups else None,
+        }
+    return statistics
+
+
+def clear_similarity_caches() -> None:
+    for function in SIMILARITY_CACHES.values():
+        function.cache_clear()

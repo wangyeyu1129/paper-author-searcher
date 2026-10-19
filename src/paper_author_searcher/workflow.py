@@ -13,6 +13,7 @@ from typing import Any, Callable, ClassVar, Dict, FrozenSet, List, Optional, Seq
 from .config import DEFAULT_COLLECTION, DEFAULT_MATCHING, DEFAULT_STORAGE, AmbiguityPolicy, StorageConfig
 from .json_types import JSONObject
 from .jsonio import read_json, write_json
+from .matching import similarity_cache_statistics
 from .models import ProfessorProfile, ProfessorQuery, ResolutionResult
 from .paper_collector import IdentityConfirmationRequired
 from .paper_reanalysis import saved_collection_profile
@@ -566,6 +567,7 @@ class PaperSearchWorkflow:
             report['errors'].append({'stage': self.current_stage, 'error': str(exc)})
         finally:
             report['outcomes'] = workflow_outcomes(report)
+            report['similarity_caches'] = similarity_cache_statistics()
             write_json(root / 'report.json', report)
         return report
 

@@ -238,3 +238,17 @@ class NameBoundTests(unittest.TestCase):
             for right in self.NAMES:
                 with self.subTest(left=left, right=right):
                     self.assertGreaterEqual(name_similarity_upper_bound(left, right), name_similarity(left, right))
+
+
+class SimilarityCacheTests(unittest.TestCase):
+    def test_statistics_and_clearing(self):
+        from paper_author_searcher.matching import clear_similarity_caches, name_similarity, similarity_cache_statistics
+
+        clear_similarity_caches()
+        name_similarity('Mei Lin', 'Mei Lin')
+        name_similarity('Mei Lin', 'Mei Lin')
+        statistics = similarity_cache_statistics()['name_similarity']
+        self.assertEqual((statistics['hits'], statistics['misses'], statistics['entries']), (1, 1, 1))
+        self.assertEqual(statistics['hit_rate'], 0.5)
+        clear_similarity_caches()
+        self.assertEqual(similarity_cache_statistics()['name_similarity']['entries'], 0)
