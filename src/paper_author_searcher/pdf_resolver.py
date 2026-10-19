@@ -9,6 +9,7 @@ from urllib.parse import urldefrag
 
 from .config import DEFAULT_PDF
 from .http import HttpClient
+from .http_decorators import unwrap
 from .logging_config import log_isolated_failure
 from .models import PaperPDFResult, PDFProviderResult, PDFResolutionResult
 from .paper_views import bibliographic_view
@@ -286,7 +287,7 @@ class PDFResolver:
             'Configured bounded source queries; not all legal PDFs or versions on the Internet'
         )
         counts['search_completion_definition'] = SEARCH_COMPLETION_DEFINITION
-        http_client = innermost_client(self.resource_requests)
+        http_client = unwrap(self.resource_requests)
         if isinstance(http_client, HttpClient):
             counts['http_configuration'] = {'timeout': http_client.timeout, 'retries': http_client.retries}
             counts['http_transport_statistics'] = deepcopy(http_client.transport_statistics)
@@ -303,12 +304,3 @@ class PDFResolver:
             'errors': 0,
             'query_status_counts': {},
         }
-
-
-def innermost_client(client):
-    """Follow decorator ``.client`` links (scheduler -> cache -> budget -> network) to the transport."""
-    seen = set()
-    while client is not None and id(client) not in seen and not isinstance(client, HttpClient):
-        seen.add(id(client))
-        client = vars(client).get('client')
-    return client

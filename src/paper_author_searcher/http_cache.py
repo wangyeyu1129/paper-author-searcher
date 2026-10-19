@@ -9,6 +9,7 @@ from typing import Any, Dict, Iterable, Optional, Union
 from urllib.parse import urlencode
 
 from .http import SourceError
+from .http_decorators import HttpClientDecorator
 
 SECRET_PARAMETERS = frozenset({'api_key', 'apikey', 'key', 'token', 'mailto', 'email'})
 
@@ -19,7 +20,7 @@ class CacheMode(str, Enum):
     REFRESH = 'refresh'  # always fetch and overwrite
 
 
-class CachingHttpClient:
+class CachingHttpClient(HttpClientDecorator):
     """Wraps an HttpClient; only ``get`` is cached. Probes, posts and downloads pass straight through.
 
     Secrets never reach the cache key or the stored file; failed requests are not cached.
@@ -32,14 +33,11 @@ class CachingHttpClient:
         mode: CacheMode = CacheMode.RECORD,
         ignored_parameters: Iterable[str] = SECRET_PARAMETERS,
     ) -> None:
-        self.client = client
+        super().__init__(client)
         self.directory = Path(directory)
         self.mode = CacheMode(mode)
         self.ignored_parameters = frozenset(name.lower() for name in ignored_parameters)
         self.statistics = {'hits': 0, 'misses': 0, 'stored': 0}
-
-    def __getattr__(self, name: str) -> Any:
-        return getattr(self.client, name)
 
     def key(self, url: str, params: Optional[dict], xml: bool) -> str:
         public = sorted(

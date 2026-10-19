@@ -8,13 +8,16 @@ from urllib.parse import urldefrag, urlsplit
 
 from .config import DEFAULT_PDF
 from .http import HttpClient, SourceError
+from .http_decorators import HttpClientDecorator, unwrap
 from .pacing import RequestPacer
 from .status import CacheStatus, RequestOutcome
 
 
-class PublicResourceRequests:
+class PublicResourceRequests(HttpClientDecorator):
+    """Schedules public-resource probes: per-host pacing and cooldowns, redirect routes, a bounded page cache."""
+
     def __init__(self, client, config=DEFAULT_PDF):
-        self.client = client
+        super().__init__(client)
         self.config = config
         self.cache = OrderedDict()
         self.cache_bytes = 0
@@ -42,9 +45,6 @@ class PublicResourceRequests:
             'source_backpressure_skips': 0,
         }
 
-    def __getattr__(self, name):
-        return getattr(self.client, name)
-
     def _request(self, url, maximum_bytes, html_bytes, maximum_redirects, allow_source_backpressure=False):
         hostname = urlsplit(url).hostname or ''
         with self._lock:
@@ -61,7 +61,8 @@ class PublicResourceRequests:
             self._before_redirect(destination)
 
         try:
-            if isinstance(self.client, HttpClient):
+            # The network client re-checks every redirect hop through this guard (also through cache/budget).
+            if isinstance(unwrap(self.client), HttpClient):
                 response = self.client.probe(
                     url, maximum_bytes, html_bytes, maximum_redirects, redirect_guard=guard_redirect
                 )
@@ -209,7 +210,15 @@ class PublicResourceRequests:
         if len(route['urls']) < self.config.redirect_failure_budget:
             route['urls'].add(urldefrag(origin)[0])
 
-    def probe(self, url, maximum_bytes=1024, html_bytes=0, maximum_redirects=5, allow_source_backpressure=False):
+    def probe(
+        self,
+        url,
+        maximum_bytes=1024,
+        html_bytes=0,
+        maximum_redirects=5,
+        redirect_guard=None,  # the scheduler installs its own per-hop guard
+        allow_source_backpressure=False,
+    ):
         key = urldefrag(url)[0]
         with self._lock:
             cached = self._cached(key, html_bytes)

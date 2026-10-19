@@ -10,6 +10,7 @@ from typing import Any, Dict, Optional
 from urllib.parse import urlsplit
 
 from .http import SourceError
+from .http_decorators import HttpClientDecorator
 
 logger = logging.getLogger(__name__)
 
@@ -103,15 +104,14 @@ def classify(url: str, params: Optional[dict]) -> str:
     return 'single'
 
 
-class BudgetedHttpClient:
+class BudgetedHttpClient(HttpClientDecorator):
+    """Prices each metered GET before sending it and refuses requests past the shared run budget."""
+
     def __init__(self, client: Any, ledger: CostLedger, config: Optional[BudgetConfig] = None) -> None:
         config = config or BudgetConfig()
-        self.client = client
+        super().__init__(client)
         self.ledger = ledger
         self.hosts = {host.host: host for host in config.hosts}
-
-    def __getattr__(self, name: str) -> Any:
-        return getattr(self.client, name)
 
     def get(
         self,
