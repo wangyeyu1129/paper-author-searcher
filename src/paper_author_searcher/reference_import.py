@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any, Optional, Sequence
 
 from .config import DEFAULT_MATCHING, DEFAULT_PDF
+from .html_support import decode_response
 from .http import HttpClient, SourceError
 from .json_types import JSONList, JSONObject
 from .jsonio import read_json, write_json
@@ -35,7 +36,7 @@ def prepare_reference(pages: JSONList, professor_name: str, client: Any) -> JSON
             if len(response.prefix) >= DEFAULT_PDF.catalog_preview_bytes:
                 raise SourceError('Reference HTML exceeds the configured preview limit')
             parser = CitationMetadata()
-            parser.feed(response.prefix.decode('utf-8', errors='replace'))
+            parser.feed(decode_response(response))
             values = parser.values
             titles = list(dict.fromkeys(values.get('citation_title') or []))
             if len(titles) != 1:

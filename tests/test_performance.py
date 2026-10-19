@@ -14,7 +14,7 @@ from paper_author_searcher.config import DEFAULT_PDF
 from paper_author_searcher.evaluation_matching import GroundTruth, GroundTruthMatcher
 from paper_author_searcher.http import URLProbe
 from paper_author_searcher.models import PaperRecord, PaperSourceResult, ProfessorProfile
-from paper_author_searcher.pdf_catalogs import CatalogLinks, JournalCatalogPDFProvider
+from paper_author_searcher.pdf_catalogs import JournalCatalogPDFProvider, catalog_links
 from paper_author_searcher.pdf_identity import metadata_identity
 from paper_author_searcher.pdf_providers import ArxivPDFProvider, OpenAlexPDFProvider, SemanticScholarPDFProvider
 from paper_author_searcher.performance_diagnostics import ownership_diagnostics, pdf_failure_reasons
@@ -403,12 +403,11 @@ class OptimizedPDFTests(unittest.TestCase):
         self.assertEqual(client.probe.call_count, 4)
 
     def test_catalog_omitted_dt_end_does_not_include_byline_or_next_title(self):
-        parser = CatalogLinks()
-        parser.feed(
+        links = catalog_links(
             '<dt>First study<dd>Alex Example; 2020. <a href="first.html">abs</a>'
             '<dt>Second study<dd>Other Author; 2021. <a href="second.html">abs</a>'
         )
-        self.assertEqual([link['heading'] for link in parser.links], ['First study', 'Second study'])
+        self.assertEqual([link['heading'] for link in links], ['First study', 'Second study'])
 
     def test_catalog_relative_article_links_use_redirected_directory_url(self):
         config = replace(DEFAULT_PDF, journal_catalogs=(('Example Journal', 'https://journal.example/catalog'),))

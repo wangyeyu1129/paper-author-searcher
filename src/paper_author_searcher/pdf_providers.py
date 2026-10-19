@@ -6,6 +6,7 @@ from typing import Any, ClassVar, Dict, List, Tuple
 from urllib.parse import quote, urljoin
 
 from .config import DEFAULT_PDF, DEFAULT_SOURCES
+from .html_support import decode_response
 from .http import SourceError
 from .matching import normalize
 from .models import PDFCandidate, PDFProviderResult
@@ -621,7 +622,7 @@ class LandingPagePDFProvider:
                 return self._direct_pdf(paper, response, bindings)
             return []
         parser = CitationMetadata()
-        parser.feed(response.prefix.decode('utf-8', errors='replace'))
+        parser.feed(decode_response(response))
         values = parser.values
         pdf_urls = values.get('citation_pdf_url', [])
         if not pdf_urls:

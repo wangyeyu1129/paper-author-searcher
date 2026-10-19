@@ -98,6 +98,7 @@ module = [
     "paper_author_searcher.http_budget",
     "paper_author_searcher.http_cache",
     "paper_author_searcher.http_transport",
+    "paper_author_searcher.html_support",
     "paper_author_searcher.identity",
     "paper_author_searcher.identity_adjudication",
     "paper_author_searcher.json_types",

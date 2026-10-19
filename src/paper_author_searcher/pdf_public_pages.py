@@ -1,10 +1,10 @@
 """Follow explicit scholarly page links without inventing paths or byline evidence."""
 
 import json
-from html.parser import HTMLParser
 from urllib.parse import urljoin, urlsplit, urlunsplit
 
 from .config import DEFAULT_PDF
+from .html_support import LinkExtractor, decode_response
 from .http import SourceError, has_pdf_signature, require_public_http_url
 from .matching import normalize
 from .models import PDFProviderResult
@@ -12,53 +12,6 @@ from .pdf_identity import metadata_identity
 from .pdf_providers import CitationMetadata, LandingPagePDFProvider, make_candidate
 from .pdf_resource_requests import PublicResourceRequests
 from .status import IdentityStatus, ProviderStatus, RequestOutcome
-
-
-class PublicLinks(HTMLParser):
-    def __init__(self):
-        super().__init__(convert_charrefs=True)
-        self.links = []
-        self.current = None
-        self.heading = ''
-        self.in_heading = False
-        self.scripts = []
-        self.script = None
-
-    def handle_starttag(self, tag, attrs):
-        tag = tag.lower()
-        attributes = dict(attrs)
-        if tag in ('dt', 'h2', 'h3'):
-            self.heading = ''
-            self.in_heading = True
-        elif tag == 'dd':
-            self.in_heading = False
-        if tag == 'script' and attributes.get('type') == 'application/ld+json':
-            self.script = ''
-        if tag in ('a', 'link') and attributes.get('href'):
-            item = dict(attributes, text='', heading=self.heading)
-            if tag == 'link':
-                self.links.append(item)
-            else:
-                self.current = item
-
-    def handle_data(self, value):
-        if self.script is not None:
-            self.script += value
-        elif self.in_heading:
-            self.heading += value
-        if self.current is not None:
-            self.current['text'] += value
-
-    def handle_endtag(self, tag):
-        tag = tag.lower()
-        if tag in ('dt', 'h2', 'h3'):
-            self.in_heading = False
-        if tag == 'a' and self.current is not None:
-            self.links.append(self.current)
-            self.current = None
-        if tag == 'script' and self.script is not None:
-            self.scripts.append(self.script)
-            self.script = None
 
 
 def secure_page_url(url):
@@ -141,8 +94,8 @@ class PublicPagePDFProvider(LandingPagePDFProvider):
         )
 
     def _linked_candidates(self, paper, response, result, visited, linked_budget):
-        content = response.prefix.decode('utf-8', errors='replace')
-        parser = PublicLinks()
+        content = decode_response(response)
+        parser = public_page_links()
         parser.feed(content)
         if not response.body_complete and len(response.prefix) >= self.config.html_metadata_bytes:
             result.warnings.append(
@@ -314,3 +267,10 @@ class PublicPagePDFProvider(LandingPagePDFProvider):
                         )
                     )
         return candidates
+
+
+def public_page_links() -> LinkExtractor:
+    """Links (anchors and <link href>) with their dt/h2/h3 heading, plus JSON-LD blocks, of a public page."""
+    return LinkExtractor(
+        heading_tags=('dt', 'h2', 'h3'), body_tags=('dd',), include_link_elements=True, capture_json_ld=True
+    )

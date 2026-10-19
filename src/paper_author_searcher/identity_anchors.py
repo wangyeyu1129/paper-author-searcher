@@ -11,6 +11,7 @@ from urllib.parse import quote
 
 from .config import DEFAULT_ANCHORS, DEFAULT_MATCHING, DEFAULT_SOURCES
 from .evaluation_matching import bibliographic_name_agrees
+from .html_support import decode_response
 from .http import HttpClient, SourceError
 from .matching import canonical_orcid, name_similarity, normalize
 from .models import AnchorEvidence
@@ -119,7 +120,7 @@ class ScholarlyAnchorFinder:
 
     def _read_page(self, url: str) -> str:
         response = self.client.probe(url, 1024, self.config.homepage_bytes, self.config.maximum_redirects)
-        return response.prefix.decode('utf-8', errors='replace')
+        return decode_response(response)
 
     def _compatible(self, query, name: Optional[str]) -> bool:
         if not name:
