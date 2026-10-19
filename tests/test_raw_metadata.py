@@ -13,9 +13,18 @@ OPENALEX = {
 
 
 def record(source='openalex', raw=None):
-    values = dict(source=source, source_paper_id='W1', title='T', authors=[], year=2020, doi=None, venue=None)
     return PaperRecord(
-        **values, abstract=None, paper_url=None, source_author_id='A1', raw_metadata=dict(raw or OPENALEX)
+        source=source,
+        source_paper_id='W1',
+        title='T',
+        authors=[],
+        year=2020,
+        doi=None,
+        venue=None,
+        abstract=None,
+        paper_url=None,
+        source_author_id='A1',
+        raw_metadata=dict(raw or OPENALEX),
     )
 
 
