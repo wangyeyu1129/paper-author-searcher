@@ -5,12 +5,13 @@ import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Sequence, Tuple
 
-from .config import DEFAULT_COLLECTION, DEFAULT_DEDUPLICATION, DeduplicationConfig
+from .config import DEFAULT_COLLECTION, DEFAULT_DEDUPLICATION, DeduplicationConfig, RawMetadataPolicy
 from .logging_config import log_isolated_failure
 from .models import Paper, PaperCollectionResult, PaperSourceResult, ProfessorProfile
 from .paper_deduplication import deduplicate_papers
 from .paper_ownership import PaperOwnershipValidator
 from .paper_providers import PaperProvider
+from .raw_metadata import apply_policy
 from .status import OwnershipStatus, ResolutionStatus
 
 logger = logging.getLogger(__name__)
@@ -37,12 +38,14 @@ class PaperCollector:
         ownership_validator: Optional[PaperOwnershipValidator] = None,
         deduplication: DeduplicationConfig = DEFAULT_DEDUPLICATION,
         concurrency: Optional[Mapping[str, int]] = None,
+        raw_metadata: str = RawMetadataPolicy.FULL,
     ) -> None:
         self.providers = list(providers)
         self.ownership_validator = ownership_validator or PaperOwnershipValidator()
         self.deduplication = deduplication
         # Author IDs paged at once per source; sources run side by side.
         self.concurrency = dict(DEFAULT_COLLECTION.source_concurrency if concurrency is None else concurrency)
+        self.raw_metadata = RawMetadataPolicy(raw_metadata)
 
     @staticmethod
     def _collect_one(provider: PaperProvider, author_id: str, gate: Any) -> PaperSourceResult:
@@ -130,6 +133,7 @@ class PaperCollector:
         if progress:
             progress('Validating ownership', len(papers), len(papers))
         self.ownership_validator.validate(papers, profile)
+        apply_policy(papers, self.raw_metadata)
         if confirmation == ResolutionStatus.AMBIGUOUS_CONTENDERS:
             hold_for_review(papers, len(selected.get('openalex', [])) or sum(map(len, selected.values())))
         return PaperCollectionResult(

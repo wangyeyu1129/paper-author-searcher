@@ -596,7 +596,11 @@ class ArtifactFormatTests(unittest.TestCase):
         self.assertIn('\n  "', papers)
 
 
-class CheckpointImmutabilityTests(WorkflowTests):
+class CheckpointImmutabilityTests(unittest.TestCase):
+    setUp = WorkflowTests.setUp
+    run_workflow = WorkflowTests.run_workflow
+    output = WorkflowTests.output
+
     def test_resuming_never_mutates_the_callers_checkpoints(self):
         first = self.run_workflow(mode='pdf-urls')
         for artifact in ('papers', 'pdf_urls'):

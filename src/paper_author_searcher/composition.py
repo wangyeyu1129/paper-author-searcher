@@ -158,6 +158,7 @@ class ServiceContainer:
             self.ownership_validator,
             self.settings.deduplication,
             concurrency=dict(self.collection_config.source_concurrency),
+            raw_metadata=self.collection_config.raw_metadata,
         )
 
     # Full text ---------------------------------------------------------------------------------------------------
