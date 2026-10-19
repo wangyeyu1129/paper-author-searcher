@@ -9,15 +9,25 @@ from typing import Any, Dict, Union
 PathLike = Union[str, Path]
 
 
-def write_json(path: PathLike, data: Any) -> None:
-    """Replace ``path`` atomically so a crash never leaves a truncated checkpoint behind."""
+COMPACT_SEPARATORS = (',', ':')
+
+
+def write_json(path: PathLike, data: Any, compact: bool = False) -> None:
+    """Replace ``path`` atomically so a crash never leaves a truncated checkpoint behind.
+
+    ``compact`` drops indentation and spaces: for machine-read artifacts (about half the size, several times
+    faster to write). Files people read or diff keep the indented form.
+    """
     path = Path(path)
     if path.is_symlink():
         raise ValueError('Output JSON must not be a symlink')
     descriptor, temporary = tempfile.mkstemp(prefix='.checkpoint-', dir=str(path.parent))
     try:
         with os.fdopen(descriptor, 'w', encoding='utf-8') as handle:
-            json.dump(data, handle, ensure_ascii=False, indent=2)
+            if compact:
+                json.dump(data, handle, ensure_ascii=False, separators=COMPACT_SEPARATORS)
+            else:
+                json.dump(data, handle, ensure_ascii=False, indent=2)
             handle.write('\n')
             handle.flush()
             os.fsync(handle.fileno())

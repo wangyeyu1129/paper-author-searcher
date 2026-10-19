@@ -326,3 +326,15 @@ class DownloadConfig:
 
 
 DEFAULT_DOWNLOAD = DownloadConfig()
+
+
+@dataclass(frozen=True)
+class StorageConfig:
+    """How run artifacts are written."""
+
+    # papers.json, pdf_urls.json, professor.json and the manifest are machine-read: write them without
+    # indentation. report.json stays indented for people.
+    compact_artifacts: bool = True
+
+
+DEFAULT_STORAGE = StorageConfig()

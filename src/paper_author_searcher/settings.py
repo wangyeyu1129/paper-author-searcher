@@ -29,6 +29,7 @@ from .config import (
     DEFAULT_OWNERSHIP,
     DEFAULT_PDF,
     DEFAULT_SOURCES,
+    DEFAULT_STORAGE,
     AnchorConfig,
     CollectionConfig,
     DeduplicationConfig,
@@ -38,6 +39,7 @@ from .config import (
     OwnershipConfig,
     PDFConfig,
     SourceConfig,
+    StorageConfig,
 )
 
 SETTINGS_FILE_VARIABLE = 'PAPER_SEARCH_SETTINGS'
@@ -98,6 +100,7 @@ class Settings:
     deduplication: DeduplicationConfig = DEFAULT_DEDUPLICATION
     pdf: PDFConfig = DEFAULT_PDF
     download: DownloadConfig = DEFAULT_DOWNLOAD
+    storage: StorageConfig = DEFAULT_STORAGE
     credentials: Credentials = field(default_factory=Credentials)
 
     SECRET_SECTIONS: ClassVar[frozenset] = frozenset({'credentials'})

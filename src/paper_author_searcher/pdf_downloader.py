@@ -13,7 +13,8 @@ from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
 from typing import Any, Dict, List, Optional, Union
 
-from .config import DEFAULT_DOWNLOAD
+from .config import DEFAULT_DOWNLOAD, DEFAULT_STORAGE
+from .jsonio import COMPACT_SEPARATORS
 from .logging_config import log_isolated_failure
 from .manifest_journal import ManifestJournal, journal_path, replay
 from .matching import canonical_doi, normalize
@@ -84,10 +85,11 @@ def file_digest(path, config=DEFAULT_DOWNLOAD):
 
 
 class PDFDownloader:
-    def __init__(self, client, validator=None, config=DEFAULT_DOWNLOAD):
+    def __init__(self, client, validator=None, config=DEFAULT_DOWNLOAD, storage=DEFAULT_STORAGE):
         self.client = client
         self.validator = validator or PDFFileValidator(config)
         self.config = config
+        self.storage = storage
 
     def download(
         self,
@@ -544,7 +546,10 @@ class PDFDownloader:
         descriptor, filename = tempfile.mkstemp(prefix='.manifest-', suffix='.tmp', dir=str(manifest_path.parent))
         try:
             with os.fdopen(descriptor, 'w', encoding='utf-8') as handle:
-                json.dump(manifest, handle, ensure_ascii=False, indent=2)
+                if self.storage.compact_artifacts:
+                    json.dump(manifest, handle, ensure_ascii=False, separators=COMPACT_SEPARATORS)
+                else:
+                    json.dump(manifest, handle, ensure_ascii=False, indent=2)
                 handle.write('\n')
                 handle.flush()
                 os.fsync(handle.fileno())

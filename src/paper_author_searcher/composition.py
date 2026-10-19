@@ -191,7 +191,7 @@ class ServiceContainer:
         from .pdf_downloader import PDFDownloader  # deferred: needs the optional "download" extra (pypdf)
 
         # The file validator is a local, configuration-driven parser the downloader derives from its config.
-        return PDFDownloader(client=self.http_client, config=self.download_config)
+        return PDFDownloader(client=self.http_client, config=self.download_config, storage=self.settings.storage)
 
     # Pipeline ----------------------------------------------------------------------------------------------------
 
@@ -204,6 +204,7 @@ class ServiceContainer:
             progress=progress if progress is not None else ProgressReporter(self.options.verbose),
             collection_config=self.collection_config,
             matching_config=self.settings.matching,
+            storage=self.settings.storage,
         )
 
 

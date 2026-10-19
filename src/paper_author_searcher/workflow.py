@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable, ClassVar, Dict, FrozenSet, List, Optional, Sequence, Tuple, Union
 
-from .config import DEFAULT_COLLECTION, DEFAULT_MATCHING, AmbiguityPolicy
+from .config import DEFAULT_COLLECTION, DEFAULT_MATCHING, DEFAULT_STORAGE, AmbiguityPolicy, StorageConfig
 from .json_types import JSONObject
 from .jsonio import read_json, write_json
 from .models import ProfessorProfile, ProfessorQuery, ResolutionResult
@@ -223,9 +223,10 @@ class RunContext:
     pdf: Optional[JSONObject] = None
     manifest: Optional[JSONObject] = None
     halted: bool = False
+    compact_artifacts: bool = True
 
     def write_artifact(self, key: str, filename: str, data: Any) -> None:
-        write_json(self.root / filename, data)
+        write_json(self.root / filename, data, compact=self.compact_artifacts)
         self.report['artifacts'][key] = filename
 
 
@@ -446,6 +447,7 @@ class PaperSearchWorkflow:
         collection_config: Any = DEFAULT_COLLECTION,
         matching_config: Any = DEFAULT_MATCHING,
         stages: Optional[Sequence[WorkflowStage]] = None,
+        storage: StorageConfig = DEFAULT_STORAGE,
     ) -> None:
         self.resolver = resolver
         self.collector = collector
@@ -456,6 +458,7 @@ class PaperSearchWorkflow:
         self.progress = progress
         self.current_stage = IDENTITY_STAGE
         self._stages = list(stages) if stages is not None else None
+        self.storage = storage
 
     @property
     def stages(self) -> List[WorkflowStage]:
@@ -535,7 +538,7 @@ class PaperSearchWorkflow:
         if query:
             report['query'] = asdict(query)
         write_json(root / 'report.json', report)
-        context = RunContext(request, root, report, self._progress)
+        context = RunContext(request, root, report, self._progress, compact_artifacts=self.storage.compact_artifacts)
         self.current_stage = IDENTITY_STAGE
         try:
             for stage in self.stages:

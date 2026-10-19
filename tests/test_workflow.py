@@ -10,6 +10,7 @@ from pathlib import Path
 from unittest.mock import Mock, patch
 
 from paper_author_searcher.cli import main as legacy_main
+from paper_author_searcher.config import StorageConfig
 from paper_author_searcher.http import SourceError
 from paper_author_searcher.jsonio import read_json, write_json
 from paper_author_searcher.models import AuthorCandidate, PDFCandidate, PDFProviderResult, ProfessorQuery
@@ -568,3 +569,28 @@ class PipelineTests(unittest.TestCase):
     def test_output_directory_name_keeps_word_characters(self):
         root = PaperSearchWorkflow(stages=[])._directory(self.root, 'Zoë Smith-Jones/PhD', None)
         self.assertTrue(root.name.startswith('search_Zoë_Smith-Jones_PhD_'), root.name)
+
+
+class ArtifactFormatTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+
+    def run_metadata(self, storage):
+        workflow = PaperSearchWorkflow(
+            ProfessorResolver([author_provider()]), PaperCollector([paper_provider()]), storage=storage
+        )
+        report = workflow.run(query=QUERY, output_dir=self.root, mode='metadata')
+        directory = Path(report['output_directory'])
+        return (directory / 'papers.json').read_text(), (directory / 'report.json').read_text()
+
+    def test_machine_artifacts_are_compact_and_the_report_stays_readable(self):
+        papers, report = self.run_metadata(StorageConfig())
+        self.assertNotIn('\n  ', papers)
+        self.assertIn('\n  "', report)
+        self.assertEqual(json.loads(papers)['collection']['paper_count'], 1)
+
+    def test_compaction_can_be_turned_off(self):
+        papers, _ = self.run_metadata(StorageConfig(compact_artifacts=False))
+        self.assertIn('\n  "', papers)
