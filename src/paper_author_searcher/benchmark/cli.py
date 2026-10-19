@@ -131,6 +131,7 @@ def command_review_export(args) -> int:
                     args.suggest_from_run,
                     args.suggestion_limit,
                     tuple(args.suggest_status),
+                    settings.type_policy.non_publication_output,
                 )
     prefill = tuple(dict.fromkeys([AnnotationState.HUMAN_REVIEWED, *(args.prefill_from or [])]))
     count = export_review(truth, args.output, suggestions, prefill)

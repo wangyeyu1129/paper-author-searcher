@@ -485,10 +485,18 @@ class ReviewTests(unittest.TestCase):
                         'authors': ['Alex Morgan'],
                         'ownership_status': 'verified',
                     },
+                    {
+                        'title': 'replication_data.tab',
+                        'year': 2024,
+                        'doi': '10.7910/dvn/x',
+                        'authors': ['Alex Morgan'],
+                        'ownership_status': 'verified',
+                        'paper_type': 'dataset',
+                    },
                 ]
             }
         }
-        leads = system_suggestions(collection, self.truth, (2020, 2025), 'run1', 10)
+        leads = system_suggestions(collection, self.truth, (2020, 2025), 'run1', 10, excluded_types=('dataset',))
         self.assertEqual([lead['title'] for lead in leads], ['Unlisted Study'])
         export_review(self.truth, self.sheet, leads)
         with self.sheet.open(encoding='utf-8-sig', newline='') as handle:

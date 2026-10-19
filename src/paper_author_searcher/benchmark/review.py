@@ -46,10 +46,12 @@ def system_suggestions(
     run_id: str,
     limit: int,
     statuses: Sequence[str] = (OwnershipStatus.VERIFIED,),
+    excluded_types: Collection[str] = (),
 ) -> list[dict]:
     """Papers the search system collected in the window that match no truth entry: leads for completing the list.
 
     They are review aids only; a lead enters truth solely when the reviewer confirms it from an independent source.
+    Output of ``excluded_types`` (not publications, never scored) is not offered.
     """
     start, end = window
     matcher = GroundTruthMatcher(GroundTruth.from_dict(dict(truth, complete_positive_list=False)))
@@ -58,6 +60,8 @@ def system_suggestions(
     for paper in inner.get('all_papers', inner.get('papers')) or []:
         records = paper.get('records') or [paper]
         if paper.get('year') is None or not start <= paper['year'] <= end:
+            continue
+        if paper.get('paper_type') in excluded_types:
             continue
         # By default only verified output: it is what precision is scored on, so it is what needs a label.
         if statuses and paper.get('ownership_status', OwnershipStatus.NEEDS_REVIEW) not in statuses:
