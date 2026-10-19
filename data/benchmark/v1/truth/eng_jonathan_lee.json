@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "assistant_reviewed",
+    "reviewer": "Claude (AI review requested by the user, 2026-10-19)",
+    "reviewed_at": "2026-10-19",
+    "person_id": "eng_jonathan_lee",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Jonathan Lee",
+      "university": "Yale University"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.908981+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "group_publications.json",
+        "url": "https://lugroup.yale.edu/publications/",
+        "records": 1
+      }
+    ],
+    "excluded_counts": {},
+    "review_progress": {
+      "decided": 1,
+      "pending": 0
+    }
+  },
+  "papers": [
+    {
+      "evaluation_id": "eng_jonathan_lee:624ae277e9d0",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Efficient and generalizable nested Fourier-DeepONet for three-dimensional geological carbon sequestration",
+      "year": 2024,
+      "authors": [
+        "J. E. Lee",
+        "M. Zhu",
+        "Z. Xi",
+        "K. Wang",
+        "Y. O. Yuan",
+        "L. Lu"
+      ],
+      "listed_venue": "Engineering Applications of Computational Fluid Mechanics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://lugroup.yale.edu/publications/ entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1080/19942060.2024.2435457"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Efficient and generalizable nested Fourier-DeepONet for three-dimensional geological carbon sequestration",
+          "year": 2023,
+          "authors": [
+            "J. E. Lee",
+            "M. Zhu",
+            "Z. Xi",
+            "K. Wang",
+            "Y. O. Yuan",
+            "L. Lu"
+          ]
+        },
+        {
+          "title": "Efficient and generalizable nested Fourier-DeepONet for three-dimensional geological carbon sequestration",
+          "year": 2025,
+          "authors": [
+            "J. E. Lee",
+            "M. Zhu",
+            "Z. Xi",
+            "K. Wang",
+            "Y. O. Yuan",
+            "L. Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1080/19942060.2024.2435457",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Efficient and generalizable nested Fourier-DeepONet for three-dimensional geological carbon sequestration",
+          "crossref_year": 2024
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

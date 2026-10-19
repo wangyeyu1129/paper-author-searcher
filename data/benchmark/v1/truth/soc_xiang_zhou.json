@@ -1,0 +1,1084 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "assistant_reviewed",
+    "reviewer": "Claude (AI review requested by the user, 2026-10-19)",
+    "reviewed_at": "2026-10-19",
+    "person_id": "soc_xiang_zhou",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Xiang Zhou",
+      "university": "Harvard University"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.918406+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "harvard_scholars.json",
+        "url": "https://xzhou.scholars.harvard.edu/publications",
+        "records": 12
+      }
+    ],
+    "excluded_counts": {},
+    "review_progress": {
+      "decided": 23,
+      "pending": 0
+    }
+  },
+  "papers": [
+    {
+      "evaluation_id": "soc_xiang_zhou:b1c124aef97a",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Heterogeneous Treatment Effects in the Presence of Self-Selection: A Propensity Score Perspective",
+      "year": 2020,
+      "authors": [
+        "Xiang Zhou",
+        "Yu Xie"
+      ],
+      "listed_venue": "Sociological Methodology 50(1)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://xzhou.scholars.harvard.edu/publications entry 12 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1177/0081175019862593"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Heterogeneous Treatment Effects in the Presence of Self-Selection: A Propensity Score Perspective",
+          "year": 2019,
+          "authors": [
+            "Xiang Zhou",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "Heterogeneous Treatment Effects in the Presence of Self-Selection: A Propensity Score Perspective",
+          "year": 2021,
+          "authors": [
+            "Xiang Zhou",
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1177/0081175019862593",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Heterogeneous Treatment Effects in the Presence of Self-Selection: A Propensity Score Perspective",
+          "crossref_year": 2019
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_xiang_zhou:e43047c29e41",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Heterogeneous Returns to College over the Life Course",
+      "year": 2021,
+      "authors": [
+        "Siwei Cheng",
+        "Jennie Brand",
+        "Xiang Zhou",
+        "Yu Xie",
+        "Michael Hout"
+      ],
+      "listed_venue": "Science Advances",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://xzhou.scholars.harvard.edu/publications entry 11 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1126/sciadv.abg7641"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Heterogeneous Returns to College over the Life Course",
+          "year": 2020,
+          "authors": [
+            "Siwei Cheng",
+            "Jennie Brand",
+            "Xiang Zhou",
+            "Yu Xie",
+            "Michael Hout"
+          ]
+        },
+        {
+          "title": "Heterogeneous Returns to College over the Life Course",
+          "year": 2022,
+          "authors": [
+            "Siwei Cheng",
+            "Jennie Brand",
+            "Xiang Zhou",
+            "Yu Xie",
+            "Michael Hout"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1126/sciadv.abg7641",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Heterogeneous returns to college over the life course",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_xiang_zhou:18bf08359b4e",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Rbw: An R Package for Constructing Residual Balancing Weights",
+      "year": 2022,
+      "authors": [
+        "Derick Baum",
+        "Xiang Zhou"
+      ],
+      "listed_venue": "The R Journal 14(3)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://xzhou.scholars.harvard.edu/publications entry 10 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.32614/rj-2022-049"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Rbw: An R Package for Constructing Residual Balancing Weights",
+          "year": 2021,
+          "authors": [
+            "Derick Baum",
+            "Xiang Zhou"
+          ]
+        },
+        {
+          "title": "Rbw: An R Package for Constructing Residual Balancing Weights",
+          "year": 2023,
+          "authors": [
+            "Derick Baum",
+            "Xiang Zhou"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.32614/rj-2022-049",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "rbw: An R Package for Constructing Residual Balancing Weights",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_xiang_zhou:f15b4818b2dd",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Semiparametric Estimation for Causal Mediation Analysis With Multiple Causally Ordered Mediators",
+      "year": 2022,
+      "authors": [
+        "Xiang Zhou"
+      ],
+      "listed_venue": "Journal of the Royal Statistical Society: Series B 84(3)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://xzhou.scholars.harvard.edu/publications entry 8 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1111/rssb.12487"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Semiparametric Estimation for Causal Mediation Analysis With Multiple Causally Ordered Mediators",
+          "year": 2021,
+          "authors": [
+            "Xiang Zhou"
+          ]
+        },
+        {
+          "title": "Semiparametric Estimation for Causal Mediation Analysis With Multiple Causally Ordered Mediators",
+          "year": 2023,
+          "authors": [
+            "Xiang Zhou"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1111/rssb.12487",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Semiparametric Estimation for Causal Mediation Analysis with Multiple Causally Ordered Mediators",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_xiang_zhou:9702efb9af6c",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Trends in Social Mobility in Post-Revolution China",
+      "year": 2022,
+      "authors": [
+        "Yu Xie",
+        "Hao Dong",
+        "Xiang Zhou",
+        "Xi Song"
+      ],
+      "listed_venue": "Proceedings of the National Academy of Sciences 119(7)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://xzhou.scholars.harvard.edu/publications entry 9 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "version_identifiers_added_in_review"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Trends in Social Mobility in Post-Revolution China",
+          "year": 2021,
+          "authors": [
+            "Yu Xie",
+            "Hao Dong",
+            "Xiang Zhou",
+            "Xi Song"
+          ]
+        },
+        {
+          "title": "Trends in Social Mobility in Post-Revolution China",
+          "year": 2023,
+          "authors": [
+            "Yu Xie",
+            "Hao Dong",
+            "Xiang Zhou",
+            "Xi Song"
+          ]
+        },
+        {
+          "title": "Trends in social mobility in postrevolution China",
+          "year": 2022,
+          "authors": [
+            "Yu Xie",
+            "Hao Dong",
+            "Xiang Zhou",
+            "Xi Song"
+          ]
+        }
+      ],
+      "dois": [
+        "10.1073/pnas.2117471119"
+      ]
+    },
+    {
+      "evaluation_id": "soc_xiang_zhou:34aa52df1028",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Higher Education and the Black-White Earnings Gap",
+      "year": 2023,
+      "authors": [
+        "Xiang Zhou",
+        "Guanghui Pan"
+      ],
+      "listed_venue": "American Sociological Review 88(1)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://xzhou.scholars.harvard.edu/publications entry 6 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.31235/osf.io/c49mn"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Higher Education and the Black-White Earnings Gap",
+          "year": 2022,
+          "authors": [
+            "Xiang Zhou",
+            "Guanghui Pan"
+          ]
+        },
+        {
+          "title": "Higher Education and the Black-White Earnings Gap",
+          "year": 2024,
+          "authors": [
+            "Xiang Zhou",
+            "Guanghui Pan"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.31235/osf.io/c49mn",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Higher Education and the Black-White Earnings Gap",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_xiang_zhou:aeef7eae3e83",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "How, and for Whom, Does Higher Education Increase Voting?",
+      "year": 2023,
+      "authors": [
+        "Caitlin Ahearn",
+        "Jennie Brand",
+        "Xiang Zhou"
+      ],
+      "listed_venue": "Research in Higher Education 64",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://xzhou.scholars.harvard.edu/publications entry 5 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/s11162-022-09717-4"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "How, and for Whom, Does Higher Education Increase Voting?",
+          "year": 2022,
+          "authors": [
+            "Caitlin Ahearn",
+            "Jennie Brand",
+            "Xiang Zhou"
+          ]
+        },
+        {
+          "title": "How, and for Whom, Does Higher Education Increase Voting?",
+          "year": 2024,
+          "authors": [
+            "Caitlin Ahearn",
+            "Jennie Brand",
+            "Xiang Zhou"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1007/s11162-022-09717-4",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "How, and For Whom, Does Higher Education Increase Voting?",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_xiang_zhou:454407d54540",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Recent Developments in Causal Inference and Machine Learning",
+      "year": 2023,
+      "authors": [
+        "Jennie Brand",
+        "Xiang Zhou",
+        "Yu Xie"
+      ],
+      "listed_venue": "Annual Review of Sociology 49",
+      "work_types": [
+        "review"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://xzhou.scholars.harvard.edu/publications entry 7 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.31235/osf.io/627tz"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Recent Developments in Causal Inference and Machine Learning",
+          "year": 2022,
+          "authors": [
+            "Jennie Brand",
+            "Xiang Zhou",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "Recent Developments in Causal Inference and Machine Learning",
+          "year": 2024,
+          "authors": [
+            "Jennie Brand",
+            "Xiang Zhou",
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.31235/osf.io/627tz",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Recent Developments in Causal Inference and  Machine Learning",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_xiang_zhou:d08c77374af4",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Tracing Causal Paths from Experimental and Observational Data",
+      "year": 2023,
+      "authors": [
+        "Xiang Zhou",
+        "Teppei Yamamoto"
+      ],
+      "listed_venue": "Journal of Politics 85(1)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://xzhou.scholars.harvard.edu/publications entry 4 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1086/720310"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Tracing Causal Paths from Experimental and Observational Data",
+          "year": 2022,
+          "authors": [
+            "Xiang Zhou",
+            "Teppei Yamamoto"
+          ]
+        },
+        {
+          "title": "Tracing Causal Paths from Experimental and Observational Data",
+          "year": 2024,
+          "authors": [
+            "Xiang Zhou",
+            "Teppei Yamamoto"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1086/720310",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Tracing Causal Paths from Experimental and Observational Data",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_xiang_zhou:f08f7c71592a",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Attendance, Completion, and Heterogeneous Returns to College: A Causal Mediation Approach",
+      "year": 2024,
+      "authors": [
+        "Xiang Zhou"
+      ],
+      "listed_venue": "Sociological Methods & Research 53(3)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://xzhou.scholars.harvard.edu/publications entry 2 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "version_identifiers_added_in_review",
+        "version_identifiers_added_in_review"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Attendance, Completion, and Heterogeneous Returns to College: A Causal Mediation Approach",
+          "year": 2023,
+          "authors": [
+            "Xiang Zhou"
+          ]
+        },
+        {
+          "title": "Attendance, Completion, and Heterogeneous Returns to College: A Causal Mediation Approach",
+          "year": 2025,
+          "authors": [
+            "Xiang Zhou"
+          ]
+        },
+        {
+          "title": "Attendance, Completion, and Heterogeneous Returns to College: A Causal Mediation Approach",
+          "year": 2022,
+          "authors": [
+            "Xiang Zhou"
+          ]
+        },
+        {
+          "title": "Attendance, Completion, and Heterogeneous Returns to College: A Causal Mediation Approach",
+          "year": 2021,
+          "authors": [
+            "Xiang Zhou"
+          ]
+        }
+      ],
+      "dois": [
+        "10.1177/00491241221113876",
+        "10.31235/osf.io/hr3n6"
+      ]
+    },
+    {
+      "evaluation_id": "soc_xiang_zhou:dc9d9b3f45c5",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Causal Inference With Latent Outcomes",
+      "year": 2024,
+      "authors": [
+        "Lukas Stoetzer",
+        "Xiang Zhou",
+        "Marco Steenbergen"
+      ],
+      "listed_venue": "American Journal of Political Science",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://xzhou.scholars.harvard.edu/publications entry 3 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "version_identifiers_added_in_review"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Causal Inference With Latent Outcomes",
+          "year": 2023,
+          "authors": [
+            "Lukas Stoetzer",
+            "Xiang Zhou",
+            "Marco Steenbergen"
+          ]
+        },
+        {
+          "title": "Causal Inference With Latent Outcomes",
+          "year": 2025,
+          "authors": [
+            "Lukas Stoetzer",
+            "Xiang Zhou",
+            "Marco Steenbergen"
+          ]
+        },
+        {
+          "title": "Causal Inference with Latent Outcomes",
+          "year": 2022,
+          "authors": [
+            "Lukas Stoetzer",
+            "Xiang Zhou",
+            "Marco Robert Steenbergen"
+          ]
+        }
+      ],
+      "dois": [
+        "10.31219/osf.io/g6skh"
+      ]
+    },
+    {
+      "evaluation_id": "soc_xiang_zhou:686465a91fca",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Disparity Analysis: A Tale of Two Approaches",
+      "year": 2025,
+      "authors": [
+        "Aleksei Opacic",
+        "Lai Wei",
+        "Xiang Zhou"
+      ],
+      "listed_venue": "Journal of the Royal Statistical Society: Series A (forthcoming)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://xzhou.scholars.harvard.edu/publications entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1093/jrsssa/qnaf008"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Disparity Analysis: A Tale of Two Approaches",
+          "year": 2024,
+          "authors": [
+            "Aleksei Opacic",
+            "Lai Wei",
+            "Xiang Zhou"
+          ]
+        },
+        {
+          "title": "Disparity Analysis: A Tale of Two Approaches",
+          "year": 2026,
+          "authors": [
+            "Aleksei Opacic",
+            "Lai Wei",
+            "Xiang Zhou"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1093/jrsssa/qnaf008",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Disparity analysis: a tale of two approaches",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "title": "Is There a Mobility Effect? On Methodological Issues in the Mobility Contrast Model",
+      "year": 2025,
+      "authors": [
+        "Xi Song",
+        "Xiang Zhou"
+      ],
+      "listed_venue": "Sociological Methods & Research",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Department of Sociology, Harvard University, Cambridge, MA, USA; 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1177/00491241251347983"
+      ],
+      "evaluation_id": "soc_xiang_zhou:added-0a5694bd3c",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Department of Sociology, Harvard University, Cambridge, MA, USA; 1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Impact and Gender Differences in Intragenerational Mobility and Fertility Intentions in China",
+      "year": 2025,
+      "authors": [
+        "Qi Li",
+        "Xiang Zhou",
+        "Yingliang Sun"
+      ],
+      "listed_venue": "Studies in Family Planning",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1111/sifp.70013"
+      ],
+      "evaluation_id": "soc_xiang_zhou:added-1996b01838",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Methods for large‐scale single mediator hypothesis testing: Possible choices and comparisons",
+      "year": 2022,
+      "authors": [
+        "Jiacong Du",
+        "Xiang Zhou",
+        "Dylan Clark‐Boucher",
+        "Wei Hao",
+        "Yongmei Liu",
+        "Jennifer A. Smith",
+        "Bhramar Mukherjee"
+      ],
+      "listed_venue": "Genetic Epidemiology",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: University of Michigan biostatistics Xiang Zhou, a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1002/gepi.22510"
+      ],
+      "external_ids": {
+        "arxiv": "2203.13293"
+      },
+      "evaluation_id": "soc_xiang_zhou:added-70d3abd637",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "University of Michigan biostatistics Xiang Zhou, a namesake"
+    },
+    {
+      "title": "Bayesian Sparse Mediation Analysis with Targeted Penalization of Natural Indirect Effects",
+      "year": 2021,
+      "authors": [
+        "Yanyi Song",
+        "Xiang Zhou",
+        "Jian Kang",
+        "Max T. Aung",
+        "Min Zhang",
+        "Wei Zhao",
+        "Belinda L. Needham",
+        "Sharon L. R. Kardia",
+        "Yongmei Liu",
+        "John D. Meeker",
+        "Jennifer A. Smith",
+        "Bhramar Mukherjee"
+      ],
+      "listed_venue": "Journal of the Royal Statistical Society Series C (Applied Statistics)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: University of Michigan biostatistics Xiang Zhou, a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1111/rssc.12518"
+      ],
+      "external_ids": {
+        "arxiv": "2008.06366"
+      },
+      "evaluation_id": "soc_xiang_zhou:added-64fc9da715",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "University of Michigan biostatistics Xiang Zhou, a namesake"
+    },
+    {
+      "title": "Replication Data for: Semiparametric Estimation for Causal Mediation Analysis with Multiple Causally Ordered Mediators",
+      "year": 2021,
+      "authors": [
+        "Zhou, Xiang"
+      ],
+      "listed_venue": "Harvard Dataverse",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Dataset/software record, excluded type"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.7910/dvn/5tbum3"
+      ],
+      "evaluation_id": "soc_xiang_zhou:added-1a021899bc",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Dataset/software record, excluded type"
+    },
+    {
+      "title": "Effect Decomposition in the Presence of Treatment-induced Confounding",
+      "year": 2020,
+      "authors": [
+        "Geoffrey T. Wodtke",
+        "Xiang Zhou"
+      ],
+      "listed_venue": "Epidemiology",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Department of Sociology, Harvard University, Cambridge, MA."
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1097/ede.0000000000001168"
+      ],
+      "evaluation_id": "soc_xiang_zhou:added-64280fac95",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Department of Sociology, Harvard University, Cambridge, MA."
+    },
+    {
+      "title": "Residual Balancing: A Method of Constructing Weights for Marginal Structural Models",
+      "year": 2020,
+      "authors": [
+        "Xiang Zhou",
+        "Geoffrey T. Wodtke"
+      ],
+      "listed_venue": "Political Analysis",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1017/pan.2020.2"
+      ],
+      "external_ids": {
+        "arxiv": "1807.10869"
+      },
+      "evaluation_id": "soc_xiang_zhou:added-c875cbbea9",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Some Doubly and Multiply Robust Estimators of Controlled Direct Effects",
+      "year": 2020,
+      "authors": [
+        "Zhou, Xiang"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2011.09569"
+      ],
+      "external_ids": {
+        "arxiv": "2011.09569"
+      },
+      "evaluation_id": "soc_xiang_zhou:added-d9e12519ca",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Replication Data for: On Estimation of Path-Specific Effects",
+      "year": 2020,
+      "authors": [
+        "Zhou, Xiang"
+      ],
+      "listed_venue": "Harvard Dataverse",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Dataset/software record, excluded type"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.7910/dvn/m2d3zs"
+      ],
+      "evaluation_id": "soc_xiang_zhou:added-e7a0f77733",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Dataset/software record, excluded type"
+    },
+    {
+      "title": "rbw_replication.7z",
+      "year": 2020,
+      "authors": [
+        "Zhou, Xiang",
+        "Wodtke, Geoffrey T."
+      ],
+      "listed_venue": "Harvard Dataverse",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Dataset/software record, excluded type"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.7910/dvn/vzfxyw/nsgxya"
+      ],
+      "evaluation_id": "soc_xiang_zhou:added-b993f67168",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Dataset/software record, excluded type"
+    },
+    {
+      "title": "Bayesian hierarchical models for high-dimensional mediation analysis with coordinated selection of correlated mediators",
+      "year": 2020,
+      "authors": [
+        "Yanyi Song",
+        "Xiang Zhou",
+        "Jian Kang",
+        "M. Aung",
+        "Min Zhang",
+        "Wei Zhao",
+        "Belinda L. Needham",
+        "S. Kardia",
+        "Yong-Mei Liu",
+        "J. Meeker",
+        "Jennifer A. Smith",
+        "B. Mukherjee"
+      ],
+      "listed_venue": "Statistics in Medicine",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: University of Michigan biostatistics Xiang Zhou, a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1002/sim.9168"
+      ],
+      "external_ids": {
+        "arxiv": "2009.11409"
+      },
+      "evaluation_id": "soc_xiang_zhou:added-1174bbe53e",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "University of Michigan biostatistics Xiang Zhou, a namesake"
+    }
+  ],
+  "excluded": []
+}

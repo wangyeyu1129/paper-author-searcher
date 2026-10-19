@@ -1,0 +1,4551 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "assistant_reviewed",
+    "reviewer": "Claude (AI review requested by the user, 2026-10-19)",
+    "reviewed_at": "2026-10-19",
+    "person_id": "eng_daniela_rus",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Daniela Rus",
+      "university": "Massachusetts Institute of Technology"
+    },
+    "scope": {
+      "year_start": 2024,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.833083+00:00",
+    "sources": [
+      {
+        "kind": "orcid",
+        "locator": "0000-0001-5473-3566",
+        "url": "https://orcid.org/0000-0001-5473-3566",
+        "records": 88
+      }
+    ],
+    "excluded_counts": {
+      "outside_year_window": 65
+    },
+    "review_progress": {
+      "decided": 98,
+      "pending": 0
+    }
+  },
+  "papers": [
+    {
+      "evaluation_id": "eng_daniela_rus:2541f4110e97",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "A Chemical Reaction-Driven Untethered Volume Changing Robotic Capsule for Tissue Dilation",
+      "year": 2024,
+      "authors": [
+        "Kaan Esendag",
+        "Mark E. McAlindon",
+        "Daniela Rus",
+        "Shuhei Miyashita",
+        "Dana D. Damian"
+      ],
+      "listed_venue": "IEEE Transactions on Medical Robotics and Bionics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 167932784"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1109/tmrb.2024.3464728"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A Chemical Reaction-Driven Untethered Volume Changing Robotic Capsule for Tissue Dilation",
+          "year": 2023,
+          "authors": [
+            "Kaan Esendag",
+            "Mark E. McAlindon",
+            "Daniela Rus",
+            "Shuhei Miyashita",
+            "Dana D. Damian"
+          ]
+        },
+        {
+          "title": "A Chemical Reaction-Driven Untethered Volume Changing Robotic Capsule for Tissue Dilation",
+          "year": 2025,
+          "authors": [
+            "Kaan Esendag",
+            "Mark E. McAlindon",
+            "Daniela Rus",
+            "Shuhei Miyashita",
+            "Dana D. Damian"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:a20c5c7acf64",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Adaptive In-Vehicle Virtual Reality for Reducing Motion Sickness: Manipulating Passenger Posture During Driving Events",
+      "year": 2024,
+      "authors": [
+        "Ahmed Elsharkawy",
+        "Aya Ataya",
+        "Dohyeon Yeo",
+        "Minwoo Seong",
+        "Seokhyun Hwang",
+        "Joseph DelPreto",
+        "Wojciech Matusik",
+        "Daniela Rus",
+        "SeungJun Kim"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 167998659"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1145/3675094.3678381"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Adaptive In-Vehicle Virtual Reality for Reducing Motion Sickness: Manipulating Passenger Posture During Driving Events",
+          "year": 2023,
+          "authors": [
+            "Ahmed Elsharkawy",
+            "Aya Ataya",
+            "Dohyeon Yeo",
+            "Minwoo Seong",
+            "Seokhyun Hwang",
+            "Joseph DelPreto",
+            "Wojciech Matusik",
+            "Daniela Rus",
+            "SeungJun Kim"
+          ]
+        },
+        {
+          "title": "Adaptive In-Vehicle Virtual Reality for Reducing Motion Sickness: Manipulating Passenger Posture During Driving Events",
+          "year": 2025,
+          "authors": [
+            "Ahmed Elsharkawy",
+            "Aya Ataya",
+            "Dohyeon Yeo",
+            "Minwoo Seong",
+            "Seokhyun Hwang",
+            "Joseph DelPreto",
+            "Wojciech Matusik",
+            "Daniela Rus",
+            "SeungJun Kim"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:64f6e0613eed",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Adaptive tactile interaction transfer via digitally embroidered smart gloves",
+      "year": 2024,
+      "authors": [
+        "Yiyue Luo",
+        "Chao Liu",
+        "Young Joong Lee",
+        "Joseph DelPreto",
+        "Kui Wu",
+        "Michael Foshey",
+        "Daniela Rus",
+        "Tomás Palacios",
+        "Yunzhu Li",
+        "Antonio Torralba",
+        "Wojciech Matusik"
+      ],
+      "listed_venue": "Nature Communications",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 151839584"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41467-024-45059-8"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Adaptive tactile interaction transfer via digitally embroidered smart gloves",
+          "year": 2023,
+          "authors": [
+            "Yiyue Luo",
+            "Chao Liu",
+            "Young Joong Lee",
+            "Joseph DelPreto",
+            "Kui Wu",
+            "Michael Foshey",
+            "Daniela Rus",
+            "Tomás Palacios",
+            "Yunzhu Li",
+            "Antonio Torralba",
+            "Wojciech Matusik"
+          ]
+        },
+        {
+          "title": "Adaptive tactile interaction transfer via digitally embroidered smart gloves",
+          "year": 2025,
+          "authors": [
+            "Yiyue Luo",
+            "Chao Liu",
+            "Young Joong Lee",
+            "Joseph DelPreto",
+            "Kui Wu",
+            "Michael Foshey",
+            "Daniela Rus",
+            "Tomás Palacios",
+            "Yunzhu Li",
+            "Antonio Torralba",
+            "Wojciech Matusik"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:7cb86f636f8d",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Concept Graph Neural Networks for Surgical Video Understanding",
+      "year": 2024,
+      "authors": [
+        "Yutong Ban",
+        "Jennifer A. Eckhoff",
+        "Thomas M. Ward",
+        "Daniel A. Hashimoto",
+        "Ozanan R. Meireles",
+        "Daniela Rus",
+        "Guy Rosman"
+      ],
+      "listed_venue": "IEEE Transactions on Medical Imaging",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 139424660"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1109/tmi.2023.3299518"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Concept Graph Neural Networks for Surgical Video Understanding",
+          "year": 2023,
+          "authors": [
+            "Yutong Ban",
+            "Jennifer A. Eckhoff",
+            "Thomas M. Ward",
+            "Daniel A. Hashimoto",
+            "Ozanan R. Meireles",
+            "Daniela Rus",
+            "Guy Rosman"
+          ]
+        },
+        {
+          "title": "Concept Graph Neural Networks for Surgical Video Understanding",
+          "year": 2025,
+          "authors": [
+            "Yutong Ban",
+            "Jennifer A. Eckhoff",
+            "Thomas M. Ward",
+            "Daniel A. Hashimoto",
+            "Ozanan R. Meireles",
+            "Daniela Rus",
+            "Guy Rosman"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:72f7056e96f8",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Contextual and combinatorial structure in sperm whale vocalisations",
+      "year": 2024,
+      "authors": [
+        "Pratyusha Sharma",
+        "Shane Gero",
+        "Roger Payne",
+        "David F. Gruber",
+        "Daniela Rus",
+        "Antonio Torralba",
+        "Jacob Andreas"
+      ],
+      "listed_venue": "Nature Communications",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 159155789"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41467-024-47221-8"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Contextual and combinatorial structure in sperm whale vocalisations",
+          "year": 2023,
+          "authors": [
+            "Pratyusha Sharma",
+            "Shane Gero",
+            "Roger Payne",
+            "David F. Gruber",
+            "Daniela Rus",
+            "Antonio Torralba",
+            "Jacob Andreas"
+          ]
+        },
+        {
+          "title": "Contextual and combinatorial structure in sperm whale vocalisations",
+          "year": 2025,
+          "authors": [
+            "Pratyusha Sharma",
+            "Shane Gero",
+            "Roger Payne",
+            "David F. Gruber",
+            "Daniela Rus",
+            "Antonio Torralba",
+            "Jacob Andreas"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:fa8e3068318b",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Exploring Potential Application Areas of Artificial Intelligence-Infused System for Engagement Recognition: Insights from Special Education Experts",
+      "year": 2024,
+      "authors": [
+        "Won Kim",
+        "Minwoo Seong",
+        "Joseph DelPreto",
+        "Wojciech Matusik",
+        "Daniela Rus",
+        "SeungJun Kim"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 167998661"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1145/3675094.3678376"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Exploring Potential Application Areas of Artificial Intelligence-Infused System for Engagement Recognition: Insights from Special Education Experts",
+          "year": 2023,
+          "authors": [
+            "Won Kim",
+            "Minwoo Seong",
+            "Joseph DelPreto",
+            "Wojciech Matusik",
+            "Daniela Rus",
+            "SeungJun Kim"
+          ]
+        },
+        {
+          "title": "Exploring Potential Application Areas of Artificial Intelligence-Infused System for Engagement Recognition: Insights from Special Education Experts",
+          "year": 2025,
+          "authors": [
+            "Won Kim",
+            "Minwoo Seong",
+            "Joseph DelPreto",
+            "Wojciech Matusik",
+            "Daniela Rus",
+            "SeungJun Kim"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:0a2115f9a045",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Follow Anything: Open-Set Detection, Tracking, and Following in Real-Time",
+      "year": 2024,
+      "authors": [
+        "Alaa Maalouf",
+        "Ninad Jadhav",
+        "Krishna Murthy Jatavallabhula",
+        "Makram Chahine",
+        "Daniel M. Vogt",
+        "Robert J. Wood",
+        "Antonio Torralba",
+        "Daniela Rus"
+      ],
+      "listed_venue": "IEEE Robotics and Automation Letters",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 153181491"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1109/lra.2024.3366013"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Follow Anything: Open-Set Detection, Tracking, and Following in Real-Time",
+          "year": 2023,
+          "authors": [
+            "Alaa Maalouf",
+            "Ninad Jadhav",
+            "Krishna Murthy Jatavallabhula",
+            "Makram Chahine",
+            "Daniel M. Vogt",
+            "Robert J. Wood",
+            "Antonio Torralba",
+            "Daniela Rus"
+          ]
+        },
+        {
+          "title": "Follow Anything: Open-Set Detection, Tracking, and Following in Real-Time",
+          "year": 2025,
+          "authors": [
+            "Alaa Maalouf",
+            "Ninad Jadhav",
+            "Krishna Murthy Jatavallabhula",
+            "Makram Chahine",
+            "Daniel M. Vogt",
+            "Robert J. Wood",
+            "Antonio Torralba",
+            "Daniela Rus"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:2c0ae1dbe8dc",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "In-Hand Manipulation With a Simple Belted Parallel-Jaw Gripper",
+      "year": 2024,
+      "authors": [
+        "Gregory Xie",
+        "Rachel Holladay",
+        "Lillian Chin",
+        "Daniela Rus"
+      ],
+      "listed_venue": "IEEE Robotics and Automation Letters",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 149609748"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1109/lra.2023.3346750"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "In-Hand Manipulation With a Simple Belted Parallel-Jaw Gripper",
+          "year": 2023,
+          "authors": [
+            "Gregory Xie",
+            "Rachel Holladay",
+            "Lillian Chin",
+            "Daniela Rus"
+          ]
+        },
+        {
+          "title": "In-Hand Manipulation With a Simple Belted Parallel-Jaw Gripper",
+          "year": 2025,
+          "authors": [
+            "Gregory Xie",
+            "Rachel Holladay",
+            "Lillian Chin",
+            "Daniela Rus"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:46d54322c39a",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Intelligent Seat: Tactile Signal-Based 3D Sitting Pose Inference",
+      "year": 2024,
+      "authors": [
+        "Minwoo Seong",
+        "Gwangbin Kim",
+        "Jaehee Lee",
+        "Joseph DelPreto",
+        "Wojciech Matusik",
+        "Daniela Rus",
+        "SeungJun Kim"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 167998662"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1145/3675094.3678374"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Intelligent Seat: Tactile Signal-Based 3D Sitting Pose Inference",
+          "year": 2023,
+          "authors": [
+            "Minwoo Seong",
+            "Gwangbin Kim",
+            "Jaehee Lee",
+            "Joseph DelPreto",
+            "Wojciech Matusik",
+            "Daniela Rus",
+            "SeungJun Kim"
+          ]
+        },
+        {
+          "title": "Intelligent Seat: Tactile Signal-Based 3D Sitting Pose Inference",
+          "year": 2025,
+          "authors": [
+            "Minwoo Seong",
+            "Gwangbin Kim",
+            "Jaehee Lee",
+            "Joseph DelPreto",
+            "Wojciech Matusik",
+            "Daniela Rus",
+            "SeungJun Kim"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:1d4158853201",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "LegSense: Inducing Walking Sensation in Seated VR by Providing Movement Illusion via Electrical Muscle Stimulation",
+      "year": 2024,
+      "authors": [
+        "Juwon Um",
+        "Eunki Jeon",
+        "Yumin Kang",
+        "Seongjun Kang",
+        "Ahmed Elsharkawy",
+        "Joseph DelPreto",
+        "Wojciech Matusik",
+        "Daniela Rus",
+        "SeungJun Kim"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 167998660"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1145/3675094.3678375"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "LegSense: Inducing Walking Sensation in Seated VR by Providing Movement Illusion via Electrical Muscle Stimulation",
+          "year": 2023,
+          "authors": [
+            "Juwon Um",
+            "Eunki Jeon",
+            "Yumin Kang",
+            "Seongjun Kang",
+            "Ahmed Elsharkawy",
+            "Joseph DelPreto",
+            "Wojciech Matusik",
+            "Daniela Rus",
+            "SeungJun Kim"
+          ]
+        },
+        {
+          "title": "LegSense: Inducing Walking Sensation in Seated VR by Providing Movement Illusion via Electrical Muscle Stimulation",
+          "year": 2025,
+          "authors": [
+            "Juwon Um",
+            "Eunki Jeon",
+            "Yumin Kang",
+            "Seongjun Kang",
+            "Ahmed Elsharkawy",
+            "Joseph DelPreto",
+            "Wojciech Matusik",
+            "Daniela Rus",
+            "SeungJun Kim"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:bcebdfd32ff9",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Proposal of a Framework for Enhancing Teleoperation Experience with Biomechanical Simulation-Based Electrical Muscle Stimulation in Virtual Reality",
+      "year": 2024,
+      "authors": [
+        "Seokhyun Hwang",
+        "Seongjun Kang",
+        "Jeongseok Oh",
+        "Jeongju Park",
+        "Semoo Shin",
+        "Yiyue Luo",
+        "Joseph DelPreto",
+        "Wojciech Matusik",
+        "Daniela Rus",
+        "SeungJun Kim"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 167998658"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1145/3675094.3678380"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Proposal of a Framework for Enhancing Teleoperation Experience with Biomechanical Simulation-Based Electrical Muscle Stimulation in Virtual Reality",
+          "year": 2023,
+          "authors": [
+            "Seokhyun Hwang",
+            "Seongjun Kang",
+            "Jeongseok Oh",
+            "Jeongju Park",
+            "Semoo Shin",
+            "Yiyue Luo",
+            "Joseph DelPreto",
+            "Wojciech Matusik",
+            "Daniela Rus",
+            "SeungJun Kim"
+          ]
+        },
+        {
+          "title": "Proposal of a Framework for Enhancing Teleoperation Experience with Biomechanical Simulation-Based Electrical Muscle Stimulation in Virtual Reality",
+          "year": 2025,
+          "authors": [
+            "Seokhyun Hwang",
+            "Seongjun Kang",
+            "Jeongseok Oh",
+            "Jeongju Park",
+            "Semoo Shin",
+            "Yiyue Luo",
+            "Joseph DelPreto",
+            "Wojciech Matusik",
+            "Daniela Rus",
+            "SeungJun Kim"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:2e5fb7a29bc1",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "TimelyTale: A Multimodal Dataset Approach to Assessing Passengers' Explanation Demands in Highly Automated Vehicles",
+      "year": 2024,
+      "authors": [
+        "Gwangbin Kim",
+        "Seokhyun Hwang",
+        "Minwoo Seong",
+        "Dohyeon Yeo",
+        "Daniela Rus",
+        "SeungJun Kim"
+      ],
+      "listed_venue": "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 167128290"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1145/3678544"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "TimelyTale: A Multimodal Dataset Approach to Assessing Passengers' Explanation Demands in Highly Automated Vehicles",
+          "year": 2023,
+          "authors": [
+            "Gwangbin Kim",
+            "Seokhyun Hwang",
+            "Minwoo Seong",
+            "Dohyeon Yeo",
+            "Daniela Rus",
+            "SeungJun Kim"
+          ]
+        },
+        {
+          "title": "TimelyTale: A Multimodal Dataset Approach to Assessing Passengers' Explanation Demands in Highly Automated Vehicles",
+          "year": 2025,
+          "authors": [
+            "Gwangbin Kim",
+            "Seokhyun Hwang",
+            "Minwoo Seong",
+            "Dohyeon Yeo",
+            "Daniela Rus",
+            "SeungJun Kim"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:6f0bf9bbb3e9",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "WhaleLM: Finding Structure and Information in Sperm Whale Vocalizations and Behavior with Machine Learning",
+      "year": 2024,
+      "authors": [
+        "Pratyusha Sharma",
+        "Shane Gero",
+        "Daniela Rus",
+        "Antonio Torralba",
+        "Jacob Andreas"
+      ],
+      "listed_venue": null,
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 170826944"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1101/2024.10.31.621071"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "WhaleLM: Finding Structure and Information in Sperm Whale Vocalizations and Behavior with Machine Learning",
+          "year": 2023,
+          "authors": [
+            "Pratyusha Sharma",
+            "Shane Gero",
+            "Daniela Rus",
+            "Antonio Torralba",
+            "Jacob Andreas"
+          ]
+        },
+        {
+          "title": "WhaleLM: Finding Structure and Information in Sperm Whale Vocalizations and Behavior with Machine Learning",
+          "year": 2025,
+          "authors": [
+            "Pratyusha Sharma",
+            "Shane Gero",
+            "Daniela Rus",
+            "Antonio Torralba",
+            "Jacob Andreas"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:1d4665782af6",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Contact-Aware Safety in Soft Robots Using High-Order Control Barrier and Lyapunov Functions",
+      "year": 2025,
+      "authors": [
+        "Kiwan Wong",
+        "Maximilian Stölzle",
+        "Wei Xiao",
+        "Cosimo Della Santina",
+        "Daniela Rus",
+        "Gioele Zardini"
+      ],
+      "listed_venue": "IEEE Robotics and Automation Letters",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 195331955"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1109/lra.2025.3621965"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Contact-Aware Safety in Soft Robots Using High-Order Control Barrier and Lyapunov Functions",
+          "year": 2024,
+          "authors": [
+            "Kiwan Wong",
+            "Maximilian Stölzle",
+            "Wei Xiao",
+            "Cosimo Della Santina",
+            "Daniela Rus",
+            "Gioele Zardini"
+          ]
+        },
+        {
+          "title": "Contact-Aware Safety in Soft Robots Using High-Order Control Barrier and Lyapunov Functions",
+          "year": 2026,
+          "authors": [
+            "Kiwan Wong",
+            "Maximilian Stölzle",
+            "Wei Xiao",
+            "Cosimo Della Santina",
+            "Daniela Rus",
+            "Gioele Zardini"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:507c4966e305",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Controlling diverse robots by inferring Jacobian fields with deep networks",
+      "year": 2025,
+      "authors": [
+        "Sizhe Lester Li",
+        "Annan Zhang",
+        "Boyuan Chen",
+        "Hanna Matusik",
+        "Chao Liu",
+        "Daniela Rus",
+        "Vincent Sitzmann"
+      ],
+      "listed_venue": "Nature",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 186667820"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1038/s41586-025-09170-0"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Controlling diverse robots by inferring Jacobian fields with deep networks",
+          "year": 2024,
+          "authors": [
+            "Sizhe Lester Li",
+            "Annan Zhang",
+            "Boyuan Chen",
+            "Hanna Matusik",
+            "Chao Liu",
+            "Daniela Rus",
+            "Vincent Sitzmann"
+          ]
+        },
+        {
+          "title": "Controlling diverse robots by inferring Jacobian fields with deep networks",
+          "year": 2026,
+          "authors": [
+            "Sizhe Lester Li",
+            "Annan Zhang",
+            "Boyuan Chen",
+            "Hanna Matusik",
+            "Chao Liu",
+            "Daniela Rus",
+            "Vincent Sitzmann"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:8f2ec2f033e3",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "“Data Will Solve Robotics and Automation: True or False?”: A Debate",
+      "year": 2025,
+      "authors": [
+        "Frank  Park",
+        "Nancy M. Amato",
+        "Russell  Tedrake",
+        "Animesh  Garg",
+        "Daniela  Rus",
+        "Aude  Billard",
+        "Ken  Goldberg",
+        "Seth  Hutchinson"
+      ],
+      "listed_venue": "Science Robotics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 190572234"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1126/scirobotics.aea7897"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "“Data Will Solve Robotics and Automation: True or False?”: A Debate",
+          "year": 2024,
+          "authors": [
+            "Frank  Park",
+            "Nancy M. Amato",
+            "Russell  Tedrake",
+            "Animesh  Garg",
+            "Daniela  Rus",
+            "Aude  Billard",
+            "Ken  Goldberg",
+            "Seth  Hutchinson"
+          ]
+        },
+        {
+          "title": "“Data Will Solve Robotics and Automation: True or False?”: A Debate",
+          "year": 2026,
+          "authors": [
+            "Frank  Park",
+            "Nancy M. Amato",
+            "Russell  Tedrake",
+            "Animesh  Garg",
+            "Daniela  Rus",
+            "Aude  Billard",
+            "Ken  Goldberg",
+            "Seth  Hutchinson"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:80702318218f",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Optimal On-the-Fly Route Planning With Rich Transportation Requests",
+      "year": 2025,
+      "authors": [
+        "Cristian-Ioan Vasile",
+        "Jana Tumova",
+        "Sertac Karaman",
+        "Calin Belta",
+        "Daniela Rus"
+      ],
+      "listed_venue": "IEEE Transactions on Robotics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 186814472"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1109/tro.2025.3577010"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Optimal On-the-Fly Route Planning With Rich Transportation Requests",
+          "year": 2024,
+          "authors": [
+            "Cristian-Ioan Vasile",
+            "Jana Tumova",
+            "Sertac Karaman",
+            "Calin Belta",
+            "Daniela Rus"
+          ]
+        },
+        {
+          "title": "Optimal On-the-Fly Route Planning With Rich Transportation Requests",
+          "year": 2026,
+          "authors": [
+            "Cristian-Ioan Vasile",
+            "Jana Tumova",
+            "Sertac Karaman",
+            "Calin Belta",
+            "Daniela Rus"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:903fdd52c426",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Probing Multimodal LLMs as World Models for Driving",
+      "year": 2025,
+      "authors": [
+        "Shiva Sreeram",
+        "Tsun-Hsuan Wang",
+        "Alaa Maalouf",
+        "Guy Rosman",
+        "Sertac Karaman",
+        "Daniela Rus"
+      ],
+      "listed_venue": "IEEE Robotics and Automation Letters",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 192668099"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1109/lra.2025.3608656"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Probing Multimodal LLMs as World Models for Driving",
+          "year": 2024,
+          "authors": [
+            "Shiva Sreeram",
+            "Tsun-Hsuan Wang",
+            "Alaa Maalouf",
+            "Guy Rosman",
+            "Sertac Karaman",
+            "Daniela Rus"
+          ]
+        },
+        {
+          "title": "Probing Multimodal LLMs as World Models for Driving",
+          "year": 2026,
+          "authors": [
+            "Shiva Sreeram",
+            "Tsun-Hsuan Wang",
+            "Alaa Maalouf",
+            "Guy Rosman",
+            "Sertac Karaman",
+            "Daniela Rus"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:dde6bf32214c",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "R-FAC: Resilient Value Function Factorization for Multirobot Efficient Search With Individual Failure Probabilities",
+      "year": 2025,
+      "authors": [
+        "Hongliang Guo",
+        "Qi Kang",
+        "Wei-Yun Yau",
+        "Chee-Meng Chew",
+        "Daniela Rus"
+      ],
+      "listed_venue": "IEEE Transactions on Robotics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 184948650"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1109/tro.2025.3567478"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "R-FAC: Resilient Value Function Factorization for Multirobot Efficient Search With Individual Failure Probabilities",
+          "year": 2024,
+          "authors": [
+            "Hongliang Guo",
+            "Qi Kang",
+            "Wei-Yun Yau",
+            "Chee-Meng Chew",
+            "Daniela Rus"
+          ]
+        },
+        {
+          "title": "R-FAC: Resilient Value Function Factorization for Multirobot Efficient Search With Individual Failure Probabilities",
+          "year": 2026,
+          "authors": [
+            "Hongliang Guo",
+            "Qi Kang",
+            "Wei-Yun Yau",
+            "Chee-Meng Chew",
+            "Daniela Rus"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_daniela_rus:72a02decb7c5",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Reverse engineering the control law for schooling in zebrafish using virtual reality",
+      "year": 2025,
+      "authors": [
+        "Liang Li",
+        "Máté Nagy",
+        "Guy Amichay",
+        "Ruiheng Wu",
+        "Wei Wang",
+        "Oliver Deussen",
+        "Daniela Rus",
+        "Iain D. Couzin"
+      ],
+      "listed_venue": "Science Robotics",
+      "work_types": [
+        "journal_article",
+        "preprint"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 142932870",
+        "ORCID 0000-0001-5473-3566 put-code 183231199"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1126/scirobotics.adq6784",
+        "10.21203/rs.3.rs-2801869/v1"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Reverse engineering the control law for schooling in zebrafish using virtual reality",
+          "year": 2023,
+          "authors": [
+            "Liang Li",
+            "Mate Nagy",
+            "Guy Amichay",
+            "Wei Wang",
+            "Oliver Deussen",
+            "Daniela Rus",
+            "Iain Couzin"
+          ]
+        },
+        {
+          "title": "Reverse engineering the control law for schooling in zebrafish using virtual reality",
+          "year": 2024,
+          "authors": [
+            "Liang Li",
+            "Máté Nagy",
+            "Guy Amichay",
+            "Ruiheng Wu",
+            "Wei Wang",
+            "Oliver Deussen",
+            "Daniela Rus",
+            "Iain D. Couzin"
+          ]
+        },
+        {
+          "title": "Reverse engineering the control law for schooling in zebrafish using virtual reality",
+          "year": 2026,
+          "authors": [
+            "Liang Li",
+            "Máté Nagy",
+            "Guy Amichay",
+            "Ruiheng Wu",
+            "Wei Wang",
+            "Oliver Deussen",
+            "Daniela Rus",
+            "Iain D. Couzin"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "TelePulse: Enhancing the Teleoperation Experience through Biomechanical Simulation-Based Electrical Muscle Stimulation in Virtual Reality",
+      "year": 2025,
+      "authors": [
+        "Seokhyun Hwang",
+        "Seongjun Kang",
+        "Jeongseok Oh",
+        "Jeongju Park",
+        "Semoo Shin",
+        "Yiyue Luo",
+        "Joseph DelPreto",
+        "Sangbeom Lee",
+        "Kyoobin Lee",
+        "Wojciech Matusik",
+        "Daniela Rus",
+        "SeungJun Kim"
+      ],
+      "listed_venue": "CHI Conference on Human Factors in Computing Systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref byline carries the researcher's ORCID; Crossref affiliation: Distributed Robotics Lab, Massachusetts Institute of Technology, Cambridge, Mass; 9 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1145/3706598.3713767"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-1744677239",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref byline carries the researcher's ORCID; Crossref affiliation: Distributed Robotics Lab, Massachusetts Institute of Technology, Cambridge, Mass; 9 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Generating Out-of-Distribution Scenarios Using Language Models",
+      "year": 2025,
+      "authors": [
+        "Erfan Aasi",
+        "Phat Nguyen",
+        "Shiva Sreeram",
+        "Guy Rosman",
+        "Sertac Karaman",
+        "Daniela Rus"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: MIT CSAIL; 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra55743.2025.11127950"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-4df2e61502",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: MIT CSAIL; 3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Design of Trimmed Helicoid Soft-Rigid Hybrid Robots",
+      "year": 2025,
+      "authors": [
+        "Zach J. Patterson",
+        "Emily R. Sologuren",
+        "Daniela Rus"
+      ],
+      "listed_venue": "IEEE International Conference on Soft Robotics (RoboSoft)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: MIT,Computer Science and Artificial Intelligence Laboratory"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/robosoft63089.2025.11020854"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-f9e40e8bee",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: MIT,Computer Science and Artificial Intelligence Laboratory"
+    },
+    {
+      "title": "Superfast Configuration-Space Convex Set Computation on GPUs for Online Motion Planning",
+      "year": 2025,
+      "authors": [
+        "Peter Werner",
+        "Richard Cheng",
+        "Tom Stewart",
+        "Russ Tedrake",
+        "Daniela Rus"
+      ],
+      "listed_venue": null,
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.15607/rss.2025.xxi.045"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-578a0a2212",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "Predicting mesoscale movement of sperm whale units in the Caribbean based on social dynamics",
+      "year": 2025,
+      "authors": [
+        "Yaly Mevorach",
+        "Alaa Maalouf",
+        "Guy Gubnitsky",
+        "Pernille Tønnesen",
+        "David F. Gruber",
+        "Daniela Rus",
+        "Dan Tchernov",
+        "Shane Gero"
+      ],
+      "listed_venue": "Scientific Reports",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1038/s41598-025-23733-1"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-f295d8c5ce",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "An open-source bio-logger for studying cetacean behavior and communication",
+      "year": 2025,
+      "authors": [
+        "Daniel M. Vogt",
+        "Joseph DelPreto",
+        "Michael Salino-Hugg",
+        "Matthew R. Cummings",
+        "Michael A. Bell",
+        "Aidan Kenny",
+        "Peter Malkin",
+        "Alyssa M. Hernandez",
+        "Andrew L. Wright",
+        "Molly A. Duncan",
+        "Matthew R. Davidsen",
+        "Kaveet Grewal",
+        "Saksham Ahuja",
+        "Kelly Ostrom",
+        "Matthew Garcia",
+        "Phillip Shahviri",
+        "Chanuth Weeraratna",
+        "Hannah Zink",
+        "Stefano Pagani",
+        "Germain Meyer",
+        "Roee Diamant",
+        "Daniela Rus",
+        "David F. Gruber",
+        "Shane Gero",
+        "Robert J. Wood"
+      ],
+      "listed_venue": "PLoS ONE",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 5 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1371/journal.pone.0337093"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-e2f18a08fd",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "5 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Decoding Your Ride: What Information Builds Human Trust on Real Roads?",
+      "year": 2025,
+      "authors": [
+        "Gwangbin Kim",
+        "Dohyeon Yeo",
+        "Taewoo Jo",
+        "Daniela Rus",
+        "SeungJun Kim"
+      ],
+      "listed_venue": "GetMobile Mobile Computing and Communications",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: MIT CSAIL, Cambridge, MA, USA; 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1145/3760535.3760537"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-afbc20654a",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: MIT CSAIL, Cambridge, MA, USA; 3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Realizing Emergent Collective Behaviors Through Robotic Swarmalators",
+      "year": 2025,
+      "authors": [
+        "Richard Beattie",
+        "Steven Ceron",
+        "Daniela Rus"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra55743.2025.11128695"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-83d6f71971",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen"
+    },
+    {
+      "title": "Hypergraph-Transformer (HGT) for Interaction Event Prediction in Laparoscopic and Robotic Surgery",
+      "year": 2025,
+      "authors": [
+        "Lianhao Yin",
+        "Yutong Ban",
+        "Jennifer Eckhoff",
+        "Ozanan Meireles",
+        "Daniela Rus",
+        "Guy Rosman"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: MIT,Computer Science and Artificial Intelligence Laboratory,MA,US; 4 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra55743.2025.11127325"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-39c52fbb17",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: MIT,Computer Science and Artificial Intelligence Laboratory,MA,US; 4 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "1.2 From Chips to Thoughts: Building Physical Intelligence into Robotic Systems",
+      "year": 2025,
+      "authors": [
+        "Daniela Rus"
+      ],
+      "listed_venue": "Digest of technical papers/Digest of technical papers - IEEE International Solid-State Circuits Conference",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology,CSAIL,Cambridge,MA"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/isscc49661.2025.10904576"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-0d972abc9b",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology,CSAIL,Cambridge,MA"
+    },
+    {
+      "title": "Generative-AI-Driven Jumping Robot Design Using Diffusion Models",
+      "year": 2025,
+      "authors": [
+        "Byungchul Kim",
+        "Tsun-Hsuan Wang",
+        "Daniela Rus"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology,Distributed Robotics Laboratory, Computer ; 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra55743.2025.11128113"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-d983e691a3",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology,Distributed Robotics Laboratory, Computer ; 1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "The Master Key Filters Hypothesis: Deep Filters Are General",
+      "year": 2025,
+      "authors": [
+        "Zahra Babaiee",
+        "Peyman M. Kiasari",
+        "Daniela Rus",
+        "Radu Grosu"
+      ],
+      "listed_venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1609/aaai.v39i2.32175"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-53e0eff1a3",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "Advancing AI Challenges for the United States Department of the Air Force *",
+      "year": 2025,
+      "authors": [
+        "Christian Prothmann",
+        "Vijay Gadepally",
+        "Jeremy Kepner",
+        "Koley Borchard",
+        "Luca Carlone",
+        "Zachary Folcik",
+        "J. Daniel Griffith",
+        "Michael Houle",
+        "Jonathan P. How",
+        "Nathan Hughes",
+        "Ifueko Igbinedion",
+        "Hayden Jananthan",
+        "Tejas Jayashankar",
+        "Michael Jones",
+        "Sertac Karaman",
+        "Binoy G. Kurien",
+        "Alejandro Lancho",
+        "Giovanni Lavezzi",
+        "Gary C. F. Lee",
+        "Charles E. Leiserson",
+        "Richard Linares",
+        "Lindsey McEvoy",
+        "Peter Michaleas",
+        "Chasen Milner",
+        "Alex Pentland",
+        "Yury Polyanskiy",
+        "Jovan Popovich",
+        "Jeffrey Price",
+        "Tim W. Reid",
+        "Stephanie Riley",
+        "Siddharth Samsi",
+        "Peter Saunders",
+        "Olga Simek",
+        "Mark S. Veillette",
+        "Amir Weiss",
+        "Gregory W. Wornell",
+        "Daniela Rus",
+        "Scott T. Ruppel"
+      ],
+      "listed_venue": "IEEE High Performance Extreme Computing Conference",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/hpec67600.2025.11196365"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-796eeceba0",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology"
+    },
+    {
+      "title": "Compress to Impress: Efficient LLM Adaptation Using a Single Gradient Step on 100 Samples",
+      "year": 2025,
+      "authors": [
+        "Shiva Sreeram",
+        "Alaa Maalouf",
+        "Pratyusha Sharma",
+        "Daniela Rus"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology; 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-3697"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-1630fd2fbd",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology; 3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Electrohydraulic Jammed Variable Stiffness Robotic Link",
+      "year": 2025,
+      "authors": [
+        "Quan Xiong",
+        "Quan Xiong",
+        "Xuanyi Zhou",
+        "Xuanyi Zhou",
+        "Dannuo Li",
+        "Dannuo Li",
+        "Gavril Tan",
+        "Daniela Rus",
+        "Raye Chen-Hua Yeow",
+        "Raye Chen-Hua Yeow"
+      ],
+      "listed_venue": "Soft Robotics",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Computer Science &amp; Artificial Intelligence Laboratory, Massachusetts Institu"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1089/soro.2024.0154"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-4f82be4ae6",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Computer Science &amp; Artificial Intelligence Laboratory, Massachusetts Institu"
+    },
+    {
+      "title": "Learning Object Properties Using Robot Proprioception via Differentiable Robot-Object Interaction",
+      "year": 2025,
+      "authors": [
+        "Peter Yichen Chen",
+        "Chao Liu",
+        "Pingchuan Ma",
+        "John Eastman",
+        "Daniela Rus",
+        "Dylan Randle",
+        "Yuri Ivanov",
+        "Wojciech Matusik"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: MIT CSAIL; 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra55743.2025.11127955"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-ac579ea531",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: MIT CSAIL; 2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "LFM2 Technical Report",
+      "year": 2025,
+      "authors": [
+        "Amini, Alexander",
+        "Banaszak, Anna",
+        "Benoit, Harold",
+        "Böök, Arthur",
+        "Dakhran, Tarek",
+        "Duong, Song",
+        "Eng, Alfred",
+        "Fernandes, Fernando",
+        "Härkönen, Marc",
+        "Harrington, Anne",
+        "Hasani, Ramin",
+        "Karwa, Saniya",
+        "Khrustalev, Yuri",
+        "Labonne, Maxime",
+        "Lechner, Mathias",
+        "Lechner, Valentine",
+        "Lee, Simon",
+        "Li, Zetian",
+        "Loo, Noel",
+        "Marks, Jacob",
+        "Mosca, Edoardo",
+        "Paech, Samuel J.",
+        "Pak, Paul",
+        "Parnichkun, Rom N.",
+        "Quach, Alex",
+        "Rogers, Ryan",
+        "Rus, Daniela",
+        "Saxena, Nayan",
+        "Schlager, Bettina",
+        "Seyde, Tim",
+        "Smith, Jimmy T. H.",
+        "Tadimeti, Aditya",
+        "Tumma, Neehal"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2511.23404"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-8fb7e02129",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "ReasonIR: Training Retrievers for Reasoning Tasks",
+      "year": 2025,
+      "authors": [
+        "Shao, Rulin",
+        "Qiao, Rui",
+        "Kishore, Varsha",
+        "Muennighoff, Niklas",
+        "Lin, Xi Victoria",
+        "Rus, Daniela",
+        "Low, Bryan Kian Hsiang",
+        "Min, Sewon",
+        "Yih, Wen-tau",
+        "Koh, Pang Wei",
+        "Zettlemoyer, Luke"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2504.20595"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-d248f61111",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "Proprioceptive Inchworm Robots for Space Applications",
+      "year": 2025,
+      "authors": [
+        "Pascal Spino",
+        "Daniela Rus",
+        "Frank Sebastianelli",
+        "Olivia Formoso",
+        "Irina Kostitsyna",
+        "Christine Gregg",
+        "Kenneth Cheung"
+      ],
+      "listed_venue": "Proceedings - IEEE Aerospace Conference",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No Crossref/DataCite record to confirm the byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/aero63441.2025.11068540"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-7eb5b39a62",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No Crossref/DataCite record to confirm the byline"
+    },
+    {
+      "title": "TETRIS: Optimal Draft Token Selection for Batch Speculative Decoding",
+      "year": 2025,
+      "authors": [
+        "Zhaoxuan Wu",
+        "Zijian Zhou",
+        "Arun Verma",
+        "Alok Prakash",
+        "Daniela Rus",
+        "Bryan Kian Hsiang Low"
+      ],
+      "listed_venue": "Annual Meeting of the Association for Computational Linguistics (ACL)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.18653/v1/2025.acl-long.1598"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-22a8709391",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "AI-Enhanced Automatic Design of Efficient Underwater Gliders",
+      "year": 2025,
+      "authors": [
+        "Peter Yichen Chen",
+        "Pingchuan Ma",
+        "Niklas Hagemann",
+        "John Romanishin",
+        "Wei Wang",
+        "Daniela Rus",
+        "Wojciech Matusik"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: MIT CSAIL; 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra55743.2025.11127645"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-922d4f90e2",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: MIT CSAIL; 2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Large-Expansion Bi-Layer Auxetics Create Compliant Cellular Motion",
+      "year": 2025,
+      "authors": [
+        "Lillian Chin",
+        "Gregory Xie",
+        "Jeffrey Lipton",
+        "Daniela Rus"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen; 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra55743.2025.11127822"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-a524a39fe1",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen; 2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Adaptive Walker: User Intention and Terrain Aware Intelligent Walker with High-Resolution Tactile and IMU Sensor",
+      "year": 2025,
+      "authors": [
+        "Yunho Choi",
+        "Seokhyun Hwang",
+        "JaeYoung Moon",
+        "Hosu Lee",
+        "Dohyeon Yeo",
+        "Minwoo Seong",
+        "Yiyue Luo",
+        "SeungJun Kim",
+        "Wojciech Matusik",
+        "Daniela Rus",
+        "Kyung-Joong Kim"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology,Computer Science Artificial Intelligence L; 6 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra55743.2025.11127691"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-3d1141e8e7",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology,Computer Science Artificial Intelligence L; 6 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "ActiveDPO: Active Direct Preference Optimization for Sample-Efficient Alignment",
+      "year": 2025,
+      "authors": [
+        "Lin, Xiaoqiang",
+        "Verma, Arun",
+        "Dai, Zhongxiang",
+        "Rus, Daniela",
+        "Ng, See-Kiong",
+        "Low, Bryan Kian Hsiang"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2505.19241"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-bfdc0adf0d",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "The Quest for Universal Master Key Filters in DS-CNNs",
+      "year": 2025,
+      "authors": [
+        "Zahra Babaiee",
+        "Peyman M. Kiasari",
+        "Daniela Rus",
+        "Radu Grosu"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-2172"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-2221a88c88",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology"
+    },
+    {
+      "title": "Learning to Move in Rhythm: Task-Conditioned Motion Policies with Orbital Stability Guarantees",
+      "year": 2025,
+      "authors": [
+        "Stölzle, Maximilian",
+        "Rusch, T. Konstantin",
+        "Patterson, Zach J.",
+        "Pérez-Dattari, Rodrigo",
+        "Stella, Francesco",
+        "Hughes, Josie",
+        "Della Santina, Cosimo",
+        "Rus, Daniela"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2507.10602"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-69e5585443",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Neural Low-Discrepancy Sequences",
+      "year": 2025,
+      "authors": [
+        "Van Huffel, Michael Etienne",
+        "Kirk, Nathan",
+        "Chahine, Makram",
+        "Rus, Daniela",
+        "Rusch, T. Konstantin"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2510.03745"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-3a44d8827d",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "DataS^3: Dataset Subset Selection for Specialization",
+      "year": 2025,
+      "authors": [
+        "Hulkund, Neha",
+        "Maalouf, Alaa",
+        "Cai, Levi",
+        "Yang, Daniel",
+        "Wang, Tsun-Hsuan",
+        "O'Neil, Abigail",
+        "Haucke, Timm",
+        "Mukherjee, Sandeep",
+        "Ramaswamy, Vikram",
+        "Shen, Judy Hansen",
+        "Tseng, Gabriel",
+        "Walmsley, Mike",
+        "Rus, Daniela",
+        "Goldberg, Ken",
+        "Kerner, Hannah",
+        "Chen, Irene",
+        "Girdhar, Yogesh",
+        "Beery, Sara"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2504.16277"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-ddb444fb30",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Holistic Surgical Phase Recognition with Hierarchical Input Dependent State Space Models",
+      "year": 2025,
+      "authors": [
+        "Wu, Haoyang",
+        "Wang, Tsun-Hsuan",
+        "Lechner, Mathias",
+        "Hasani, Ramin",
+        "Eckhoff, Jennifer A.",
+        "Pak, Paul",
+        "Meireles, Ozanan R.",
+        "Rosman, Guy",
+        "Ban, Yutong",
+        "Rus, Daniela"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 5 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2506.21330"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-92d3a49e44",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "5 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Learning an interpretable logic monitor for risk-aware and socially-compliant trajectory planning",
+      "year": 2025,
+      "authors": [
+        "Xiao Li",
+        "Jonathan DeCastro",
+        "Cristian-Ioan Vasile",
+        "Sertac Karaman",
+        "Daniela Rus"
+      ],
+      "listed_venue": "The International Journal of Robotics Research",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Computer Science and Artificial Intelligence Lab, Cambridge, MIT; 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1177/02783649251365282"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-28ea5e1ccc",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Computer Science and Artificial Intelligence Lab, Cambridge, MIT; 2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "The Curious Case of In-Training Compression of State Space Models",
+      "year": 2025,
+      "authors": [
+        "Chahine, Makram",
+        "Nazari, Philipp",
+        "Rus, Daniela",
+        "Rusch, T. Konstantin"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2510.02823"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-38e2feaad7",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Soft yet Effective Robots via Holistic Co-Design",
+      "year": 2025,
+      "authors": [
+        "Stölzle, Maximilian",
+        "Pagliarani, Niccolò",
+        "Stella, Francesco",
+        "Hughes, Josie",
+        "Laschi, Cecilia",
+        "Rus, Daniela",
+        "Cianchetti, Matteo",
+        "Della Santina, Cosimo",
+        "Zardini, Gioele"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2505.03761"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-332e20ae50",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "SAFe-Copilot: Unified Shared Autonomy Framework",
+      "year": 2025,
+      "authors": [
+        "Nguyen, Phat",
+        "Aasi, Erfan",
+        "Sreeram, Shiva",
+        "Rosman, Guy",
+        "Silva, Andrew",
+        "Karaman, Sertac",
+        "Rus, Daniela"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2511.04664"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-d86a2a07c6",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Decentralized Vision-Based Autonomous Aerial Wildlife Monitoring",
+      "year": 2025,
+      "authors": [
+        "Chahine, Makram",
+        "Yang, William",
+        "Maalouf, Alaa",
+        "Siriska, Justin",
+        "Jadhav, Ninad",
+        "Vogt, Daniel",
+        "Gil, Stephanie",
+        "Wood, Robert",
+        "Rus, Daniela"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 5 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2508.15038"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-ae154f15e6",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "5 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Active Human Feedback Collection via Neural Contextual Dueling Bandits",
+      "year": 2025,
+      "authors": [
+        "Verma, Arun",
+        "Lin, Xiaoqiang",
+        "Dai, Zhongxiang",
+        "Rus, Daniela",
+        "Low, Bryan Kian Hsiang"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2504.12016"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-e95ddc72f2",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "Safe Motion Planning and Control Using Predictive and Adaptive Barrier Methods for Autonomous Surface Vessels",
+      "year": 2025,
+      "authors": [
+        "Alejandro Gonzalez-Garcia",
+        "Wei Xiao",
+        "Wei Wang",
+        "Alejandro Astudillo",
+        "Wilm Decré",
+        "Jan Swevers",
+        "Carlo Ratti",
+        "Daniela Rus"
+      ],
+      "listed_venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen; 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/iros60139.2025.11247574"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-ef658443e6",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen; 2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Visual Graph Arena: Evaluating Visual Conceptualization of Vision and Multimodal Large Language Models",
+      "year": 2025,
+      "authors": [
+        "Babaiee, Zahra",
+        "Kiasari, Peyman M.",
+        "Rus, Daniela",
+        "Grosu, Radu"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2506.06242"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-3f230ffea4",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "Enhancing Steering Estimation with Semantic-Aware GNNs",
+      "year": 2025,
+      "authors": [
+        "Makiyeh, Fouad",
+        "Nguyen, Huy-Dung",
+        "Chareyre, Patrick",
+        "Hasani, Ramin",
+        "Blanchon, Marc",
+        "Rus, Daniela"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2503.17153"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-57c89558e0",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "ReGen: Generative Robot Simulation via Inverse Design",
+      "year": 2025,
+      "authors": [
+        "Nguyen, Phat",
+        "Wang, Tsun-Hsuan",
+        "Hong, Zhang-Wei",
+        "Aasi, Erfan",
+        "Silva, Andrew",
+        "Rosman, Guy",
+        "Karaman, Sertac",
+        "Rus, Daniela"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2511.04769"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-1abd1f6ae3",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Project CETI Sperm Whale Birth Videos with Segmentations and Annotations",
+      "year": 2025,
+      "authors": [
+        "DelPreto, Joseph",
+        "Maalouf, Alaa",
+        "Lucas, Maxime",
+        "Poetto, Simone",
+        "Andreas, Jacob",
+        "Torralba, Antonio",
+        "Petri, Giovanni",
+        "Gero, Shane",
+        "Rus, Daniela",
+        "Gruber, David"
+      ],
+      "listed_venue": "Harvard Dataverse",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Dataset/software record, excluded type"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.7910/dvn/swihan"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-b52baf1166",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Dataset/software record, excluded type"
+    },
+    {
+      "title": "Myoelectric Origami‐Based Soft Robotic Knee Exoskeleton to Enhance Sit‐to‐Stand Assistance in Elderly Populations",
+      "year": 2025,
+      "authors": [
+        "Yuchuan Jia",
+        "Xingjian Ye",
+        "Xuanyi Zhou",
+        "Yong Ling",
+        "Daniela Rus",
+        "Chen‐Hua Yeow"
+      ],
+      "listed_venue": "Advanced Intelligent Systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Computer Science and Artificial Intelligence Laboratory (CSAIL) Massachusetts In"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1002/aisy.202501036"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-150d742e28",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Computer Science and Artificial Intelligence Laboratory (CSAIL) Massachusetts In"
+    },
+    {
+      "title": "Data from: Reverse engineering the control law for schooling in zebrafish using virtual reality",
+      "year": 2025,
+      "authors": [
+        "Li, Liang",
+        "Nagy, Mate",
+        "Amichay, Guy",
+        "Wu, Ruiheng",
+        "Wang, Wei",
+        "Deussen, Oliver",
+        "Rus, Daniela",
+        "Couzin, Iain"
+      ],
+      "listed_venue": "DRYAD",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Dataset/software record, excluded type"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.5061/dryad.np5hqc02k"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-867e419c3d",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Dataset/software record, excluded type"
+    },
+    {
+      "title": "Drive Anywhere: Generalizable End-to-end Autonomous Driving with Multi-modal Foundation Models",
+      "year": 2024,
+      "authors": [
+        "Tsun-Hsuan Wang",
+        "Alaa Maalouf",
+        "Wei Xiao",
+        "Yutong Ban",
+        "Alexander Amini",
+        "Guy Rosman",
+        "Sertac Karaman",
+        "Daniela Rus"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: MIT CSAIL; 6 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra57147.2024.10611590"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-d0834b0aa9",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: MIT CSAIL; 6 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Approximating Robot Configuration Spaces with few Convex Sets using Clique Covers of Visibility Graphs",
+      "year": 2024,
+      "authors": [
+        "Peter Werner",
+        "Alexandre Amice",
+        "Tobia Marcucci",
+        "Daniela Rus",
+        "Russ Tedrake"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: MIT,CSAIL"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra57147.2024.10610005"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-a048750243",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: MIT,CSAIL"
+    },
+    {
+      "title": "Robust Model Predictive Control with Control Barrier Functions for Autonomous Surface Vessels",
+      "year": 2024,
+      "authors": [
+        "Wei Wang",
+        "Wei Xiao",
+        "Alejandro Gonzalez-Garcia",
+        "Jan Swevers",
+        "Carlo Ratti",
+        "Daniela Rus"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen; 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra57147.2024.10610620"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-b734f3d0cb",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen; 2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Towards Centimeter-Scale Underwater Mobile Robots: An Architecture for Capable µAUVs",
+      "year": 2024,
+      "authors": [
+        "Pascal Spino",
+        "Daniela Rus"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra57147.2024.10610474"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-fe16fe44c9",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen"
+    },
+    {
+      "title": "Text-to-Drive: Diverse Driving Behavior Synthesis via Large Language Models",
+      "year": 2024,
+      "authors": [
+        "Phat Nguyen",
+        "Tsun-Hsuan Wang",
+        "Zhang-Wei Hong",
+        "Sertac Karaman",
+        "Daniela Rus"
+      ],
+      "listed_venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: MIT CSAIL; 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/iros58592.2024.10801754"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-ee8d8e65af",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: MIT CSAIL; 2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Safe Control for Soft-Rigid Robots with Self-Contact Using Control Barrier Functions",
+      "year": 2024,
+      "authors": [
+        "Zach J. Patterson",
+        "Wei Xiao",
+        "Emily Sologuren",
+        "Daniela Rus"
+      ],
+      "listed_venue": "IEEE International Conference on Soft Robotics (RoboSoft)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: MIT.,Computer Science and Artificial Intelligence Laboratory; 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/robosoft60065.2024.10522000"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-46a700fdbe",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: MIT.,Computer Science and Artificial Intelligence Laboratory; 1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Directly 3D Printed, Pneumatically Actuated Multi-Material Robotic Hand",
+      "year": 2024,
+      "authors": [
+        "Hanna Matusik",
+        "Chao Liu",
+        "Daniela Rus"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen; 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra57147.2024.10610016"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-c6c63174d8",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen; 2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Message-Passing Monte Carlo: Generating low-discrepancy point sets via graph neural networks",
+      "year": 2024,
+      "authors": [
+        "T. Konstantin Rusch",
+        "Nathan Kirk",
+        "Michael M. Bronstein",
+        "Christiane Lemieux",
+        "Daniela Rus"
+      ],
+      "listed_venue": "Proceedings of the National Academy of Sciences",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Computer Science and Artificial Intelligence Laboratory, Massachusetts Institute"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1073/pnas.2409913121"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-9012ef1e4e",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Computer Science and Artificial Intelligence Laboratory, Massachusetts Institute"
+    },
+    {
+      "title": "An Experimental Study of Model-Based Control for Planar Handed Shearing Auxetics Robots",
+      "year": 2024,
+      "authors": [
+        "Maximilian Stölzle",
+        "Daniela Rus",
+        "Cosimo Della Santina"
+      ],
+      "listed_venue": "Springer proceedings in advanced robotics",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1007/978-3-031-63596-0_14"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-a97328f5f8",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Embedded air channels transform soft lattices into sensorized grippers",
+      "year": 2024,
+      "authors": [
+        "Annan Zhang",
+        "Lillian Chin",
+        "Daniel L. Tong",
+        "Daniela Rus"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology,MIT Computer Science &#x0026; Artificial I; 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra57147.2024.10610187"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-6d197e5c99",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology,MIT Computer Science &#x0026; Artificial I; 2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Guiding Soft Robots with Motor-Imagery Brain Signals and Impedance Control",
+      "year": 2024,
+      "authors": [
+        "Maximilian Stölzle",
+        "Sonal Santosh Baberwal",
+        "Daniela Rus",
+        "Shirley Coyle",
+        "Cosimo Della Santina"
+      ],
+      "listed_venue": "IEEE International Conference on Soft Robotics (RoboSoft)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology,MIT Computer Science and Artificial Intell; 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/robosoft60065.2024.10522005"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-8be82817aa",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology,MIT Computer Science and Artificial Intell; 2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Real- Time Grocery Packing by Integrating Vision, Tactile Sensing, and Soft Fingers",
+      "year": 2024,
+      "authors": [
+        "Valerie K. Chen",
+        "Lillian Chin",
+        "Jeana Choi",
+        "Annan Zhang",
+        "Daniela Rus"
+      ],
+      "listed_venue": "IEEE International Conference on Soft Robotics (RoboSoft)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology,MIT Computer Science and Artificial Intell; 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/robosoft60065.2024.10521917"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-eed57c253d",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology,MIT Computer Science and Artificial Intell; 2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Reciprocal and Non-Reciprocal Swarmalators with Programmable Locomotion and Formations for Robot Swarms",
+      "year": 2024,
+      "authors": [
+        "Steven Ceron",
+        "Wei Xiao",
+        "Daniela Rus"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen; 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra57147.2024.10610540"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-a3fdebe8df",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen; 1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Strong Compliant Grasps Using a Cable-Driven Soft Gripper",
+      "year": 2024,
+      "authors": [
+        "Gregory Xie",
+        "Lillian Chin",
+        "Byungchul Kim",
+        "Rachel Holladay",
+        "Daniela Rus"
+      ],
+      "listed_venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: MIT Computer Science and Artificial Intelligence Laboratory (CSAIL), Massachuset; 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/iros58592.2024.10801693"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-4bdbdff239",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: MIT Computer Science and Artificial Intelligence Laboratory (CSAIL), Massachuset; 3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Exploring Latent Pathways: Enhancing the Interpretability of Autonomous Driving with a Variational Autoencoder",
+      "year": 2024,
+      "authors": [
+        "Anass Bairouk",
+        "Mirjana Maras",
+        "Simon Herlin",
+        "Alexander Amini",
+        "Marc Blanchon",
+        "Ramin Hasani",
+        "Patrick Chareyre",
+        "Daniela Rus"
+      ],
+      "listed_venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/iros58592.2024.10801915"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-da74ae6513",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen"
+    },
+    {
+      "title": "Liquids Identification and Manipulation via Digitally Fabricated Impedance Sensors",
+      "year": 2024,
+      "authors": [
+        "Junyi Zhu",
+        "Young Joong Lee",
+        "Yiyue Luo",
+        "Tianyu Xu",
+        "Chao Liu",
+        "Daniela Rus",
+        "Stefanie Mueller",
+        "Wojciech Matusik"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen; 4 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra57147.2024.10610518"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-26d43ddf46",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen; 4 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Wirelessly Actuated Rotation-free Magnetic Motor",
+      "year": 2024,
+      "authors": [
+        "Umur Ulas Harman",
+        "Ahmed Hafez",
+        "Cameron Duffield",
+        "Zihan Zhao",
+        "Luke Dixon",
+        "Daniela Rus",
+        "Shuhei Miyashita"
+      ],
+      "listed_venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen; 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/iros58592.2024.10802494"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-3868842233",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen; 1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Learning with Chemical versus Electrical Synapses Does it Make a Difference?",
+      "year": 2024,
+      "authors": [
+        "Mónika Farsang",
+        "Mathias Lechner",
+        "David Lung",
+        "Ramin Hasani",
+        "Daniela Rus",
+        "Radu Grosu"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: CSAIL, Massachusetts Institute of Technology (MIT),MA,USA"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra57147.2024.10611016"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-16c1bba05b",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: CSAIL, Massachusetts Institute of Technology (MIT),MA,USA"
+    },
+    {
+      "title": "Robust and Non-conservative Control Barrier Functions for Stochastic Systems with Arbitrary Relative Degree",
+      "year": 2024,
+      "authors": [
+        "Wei Xiao",
+        "Tsun-Hsuan Wang",
+        "Daniela Rus"
+      ],
+      "listed_venue": "Proceedings of the IEEE Conference on Decision & Control, including the Symposium on Adaptive Processes",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: CSAIL, MIT; 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/cdc56724.2024.10886741"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-c336272bba",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: CSAIL, MIT; 2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Neural Echos: Depthwise Convolutional Filters Replicate Biological Receptive Fields",
+      "year": 2024,
+      "authors": [
+        "Zahra Babaiee",
+        "Peyman M. Kiasari",
+        "Daniela Rus",
+        "Radu Grosu"
+      ],
+      "listed_venue": "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: MIT"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/wacv57701.2024.00803"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-e7640b66fc",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: MIT"
+    },
+    {
+      "title": "Modeling and Control of Intrinsically Elasticity Coupled Soft-Rigid Robots",
+      "year": 2024,
+      "authors": [
+        "Zach J. Patterson",
+        "Cosimo Della Santina",
+        "Daniela Rus"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: MIT,Computer Science and Artificial Intelligence Laboratory; 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra57147.2024.10610229"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-d7b889cfc2",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: MIT,Computer Science and Artificial Intelligence Laboratory; 1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Learning autonomous driving from aerial imagery",
+      "year": 2024,
+      "authors": [
+        "Varun Murali",
+        "Rosman Guy",
+        "Karaman Sertac",
+        "Daniela Rus"
+      ],
+      "listed_venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: MIT CSAIL"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/iros58592.2024.10801752"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-568cd6c206",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: MIT CSAIL"
+    },
+    {
+      "title": "MultiSenseBadminton: Wearable Sensor–Based Biomechanical Dataset for Evaluation of Badminton Performance",
+      "year": 2024,
+      "authors": [
+        "Minwoo Seong",
+        "Gwangbin Kim",
+        "Dohyeon Yeo",
+        "Yumin Kang",
+        "Heesan Yang",
+        "Joseph DelPreto",
+        "Wojciech Matusik",
+        "Daniela Rus",
+        "SeungJun Kim"
+      ],
+      "listed_venue": "Scientific Data",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 7 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1038/s41597-024-03144-z"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-7f84d226a0",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "7 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "LLM and Simulation as Bilevel Optimizers: A New Paradigm to Advance Physical Scientific Discovery",
+      "year": 2024,
+      "authors": [
+        "Ma, Pingchuan",
+        "Wang, Tsun-Hsuan",
+        "Guo, Minghao",
+        "Sun, Zhiqing",
+        "Tenenbaum, Joshua B.",
+        "Rus, Daniela",
+        "Gan, Chuang",
+        "Matusik, Wojciech"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2405.09783"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-e942ec9bc2",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Growing Q-Networks: Solving Continuous Control Tasks with Adaptive Control Resolution",
+      "year": 2024,
+      "authors": [
+        "Seyde, Tim",
+        "Werner, Peter",
+        "Schwarting, Wilko",
+        "Wulfmeier, Markus",
+        "Rus, Daniela"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2404.04253"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-1604faee08",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "Design and Control of Modular Soft-Rigid Hybrid Manipulators with Self-Contact",
+      "year": 2024,
+      "authors": [
+        "Patterson, Zach J.",
+        "Sologuren, Emily",
+        "Della Santina, Cosimo",
+        "Rus, Daniela"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2408.09275"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-00bc61cd78",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Improving Efficiency of Sampling-based Motion Planning via Message-Passing Monte Carlo",
+      "year": 2024,
+      "authors": [
+        "Chahine, Makram",
+        "Rusch, T. Konstantin",
+        "Patterson, Zach J.",
+        "Rus, Daniela"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2410.03909"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-50db0e627c",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Oscillatory State-Space Models",
+      "year": 2024,
+      "authors": [
+        "Rusch, T. Konstantin",
+        "Rus, Daniela"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2410.03943"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-cb321e44ee",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "Unveiling the Unseen: Identifiable Clusters in Trained Depthwise Convolutional Kernels",
+      "year": 2024,
+      "authors": [
+        "Babaiee, Zahra",
+        "Kiasari, Peyman M.",
+        "Rus, Daniela",
+        "Grosu, Radu"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2401.14469"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-11059182f5",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref/DataCite byline names the researcher; no namesake in the field; topic matches"
+    },
+    {
+      "title": "Hypergraph-Transformer (HGT) for Interactive Event Prediction in Laparoscopic and Robotic Surgery",
+      "year": 2024,
+      "authors": [
+        "Yin, Lianhao",
+        "Ban, Yutong",
+        "Eckhoff, Jennifer",
+        "Meireles, Ozanan",
+        "Rus, Daniela",
+        "Rosman, Guy"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 28"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2402.01974"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-27b29023fc",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 28"
+    },
+    {
+      "title": "Toward Efficient Visual Gyroscopes: Spherical Moments, Harmonics Filtering, and Masking Techniques for Spherical Camera Applications",
+      "year": 2024,
+      "authors": [
+        "Du, Yao",
+        "Mateo, Carlos M.",
+        "Maras, Mirjana",
+        "Wang, Tsun-Hsuan",
+        "Blanchon, Marc",
+        "Amini, Alexander",
+        "Rus, Daniela",
+        "Tahri, Omar"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2404.01924"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-6237ca02e4",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "ABNet: Attention BarrierNet for Safe and Scalable Robot Learning",
+      "year": 2024,
+      "authors": [
+        "Xiao, Wei",
+        "Wang, Tsun-Hsuan",
+        "Rus, Daniela"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2406.13025"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-60aa133217",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Gaussian Splatting to Real World Flight Navigation Transfer with Liquid Networks",
+      "year": 2024,
+      "authors": [
+        "Quach, Alex",
+        "Chahine, Makram",
+        "Amini, Alexander",
+        "Hasani, Ramin",
+        "Rus, Daniela"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2406.15149"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-4e2586c0a0",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Overparametrization helps offline-to-online generalization of closed-loop control from pixels",
+      "year": 2024,
+      "authors": [
+        "Mathias Lechner",
+        "Ramin Hasani",
+        "Alexander Amini",
+        "Tsun-Hsuan Wang",
+        "Thomas A. Henzinger",
+        "Daniela Rus"
+      ],
+      "listed_venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology (MIT); 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icra57147.2024.10610284"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-40d13a2433",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology (MIT); 1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Optical Flow Matters: an Empirical Comparative Study on Fusing Monocular Extracted Modalities for Better Steering",
+      "year": 2024,
+      "authors": [
+        "Makiyeh, Fouad",
+        "Bastourous, Mark",
+        "Bairouk, Anass",
+        "Xiao, Wei",
+        "Maras, Mirjana",
+        "Wangb, Tsun-Hsuan",
+        "Blanchon, Marc",
+        "Hasani, Ramin",
+        "Chareyre, Patrick",
+        "Rus, Daniela"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2409.12716"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-3c25f12b07",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Competitive Multi-Team Behavior in Dynamic Flight Scenarios",
+      "year": 2024,
+      "authors": [
+        "Tim Seyde",
+        "Mathias Lechner",
+        "Joshua Rountree",
+        "Daniela Rus"
+      ],
+      "listed_venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/iros58592.2024.10803062"
+      ],
+      "evaluation_id": "eng_daniela_rus:added-7e23e78d3a",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Massachusetts Institute of Technology,Computer Science and Artificial Intelligen"
+    }
+  ],
+  "excluded": [
+    {
+      "reason": "outside_year_window",
+      "title": "Intention Communication and Hypothesis Likelihood in Game-Theoretic Motion Planning",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 126911110"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Model-Based Control of Soft Robots: A Survey of the State of the Art and Open Challenges",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 135732344"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Hot-NetVLAD: Learning Discriminatory Key Points for Visual Place Recognition",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 126127476"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Revisiting the Adversarial Robustness-Accuracy Tradeoff in Robot Learning",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 127754843"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Cross-Entropy Regularized Policy Gradient for Multirobot Nonadversarial Moving Target Search",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 133123007"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "BarrierNet: Differentiable Control Barrier Functions for Learning of Safe Robot Control",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 131300334"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Multi-Abstractive Neural Controller: An Efficient Hierarchical Control Architecture for Interactive Driving",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 134426098"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Origami-based integration of robots that sense, decide, and respond",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 132279778"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "RealTwin: Concept Graph Representation and Grounding Framework for Reality-Preserving Digital Twin Reconstruction",
+      "year": 2026,
+      "work_types": [
+        "conference_paper"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 211532148"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Self-reconfiguring modular robotic boats",
+      "year": 2026,
+      "work_types": [
+        "journal_article",
+        "preprint"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 187185840",
+        "ORCID 0000-0001-5473-3566 put-code 220148041"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "EM-Patroller: Entropy Maximized Multi-Robot Patrolling With Steady State Distribution Approximation",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 139620152"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Dual Dynamic Programming for the Mean Standard Deviation Canadian Traveller Problem",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 116007269"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Navigation With Time Limits in Transportation Networks: A Fourth Moment Approach",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 116007267"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "TransCenter: Transformers With Dense Representations for Multiple-Object Tracking",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 123706733"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Flipper-Style Locomotion Through Strong Expanding Modular Robots",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 124374418"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Least-Mean-Squares Coresets for Infinite Streams",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 140034294"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "What and When to Explain?",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 143144740"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Robust flight navigation out of distribution with liquid neural networks",
+      "year": 2023,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 133420454"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Emergent and controllable behaviors of Janus swarmalator collectives",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 216218756"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Kernel Reboot: Breaking the Boundaries of Neural Tangent Kernels for Neural Fields",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 222968361"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "MA-APD: Multiagent Asynchronous Probability-Decomposed Policy Gradient for Time-Constrained Moving Target Search",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 222314722"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A general soft robotic controller inspired by neuronal structural and plastic synapses that adapts to diverse arms, tasks, and perturbations",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 201618897"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Cooperation by non-kin during birth underpins sperm whale social complexity",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 209716048"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Flex: End-to-End Text-Instructed Visual Navigation From Foundation Model Features",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 209953615"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Vacuum-Driven Origami Muscle for Wearable Knee Assistance",
+      "year": 2026,
+      "work_types": [
+        "preprint"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 211121583"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Select Less, Drive Better: Efficient and Generalizable E2E Autonomous Driving With Foundation Models via Stochastic Patch Selection",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 228469561"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Tell Me When It Feels Right: LLM-Mediated Challenge Regulation for Physical Self-Training in Badminton",
+      "year": 2026,
+      "work_types": [
+        "preprint"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 222163018"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Real-time Multi-modal Comprehensive Bodyweight Exercise Feedback System with a Personal Virtual Expert Guiding",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 228335094"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Evaluating Autonomous Urban Perception and Planning in a 1/10th Scale MiniCity",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 118677452"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Spotlight on origami robots",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256077"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Exploration of underwater life with an acoustically controlled soft robotic fish",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256078"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Handedness in shearing auxetics creates rigid and compliant structures",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256080"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "An End-to-End Approach to Self-Folding Origami Structures",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256082"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "JelloCube: A Continuously Jumping Robot With Soft Body",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256083"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A review of collective robotic construction",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256084"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Exact Task Execution in Highly Under-Actuated Soft Limbs: An Operational Space Based Approach",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256086"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Trajectory Optimization and Situational Analysis Framework for Autonomous Overtaking With Visibility Maximization",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256089"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Control Oriented Modeling of Soft Robots: The Polynomial Curvature Case",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256090"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "MapLite: Autonomous Intersection Navigation Without a Detailed Prior Map",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256091"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning Robust Control Policies for End-to-End Autonomous Driving From Data-Driven Simulation",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256092"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "On an Improved State Parametrization for Soft Robots With Piecewise Constant Curvature and Its Use in Model Based Control",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256093"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Autonomous Navigation in Inclement Weather Based on a Localizing Ground Penetrating Radar",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256094"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Distributed Proprioception of 3D Configuration in Soft, Sensorized Robots via Deep Learning",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256095"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Simple, Inexpensive, Wearable Glove with Hybrid Resistive‐Pressure Sensors for Computational Sensing, Proprioception, and Task Identification",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256096",
+        "ORCID 0000-0001-5473-3566 put-code 103256097"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Deep Context Maps: Agent Trajectory Prediction Using Location-Specific Latent Maps",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256098"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Data–Driven Disturbance Observers for Estimating External Forces on Soft Robots",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256099"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Social Trajectory Planning for Urban Autonomous Surface Vessels",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256100"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Covid-19 and Flattening the Curve: A Feedback Control Perspective",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256101"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Co-Learning of Task and Sensor Placement for Soft Robotics",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256102"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Recipe for Electrically-Driven Soft Robots via 3D Printed Handed Shearing Auxetics",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256103"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Multi-Scale Feature Aggregation by Cross-Scale Pixel-to-Region Relation Operation for Semantic Segmentation",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256106"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Stochastic Dynamic Games in Belief Space",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 104202764"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning an Explainable Trajectory Generator Using the Automaton Generative Network (AGN)",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 105420291"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Learning Policies by Learning Rules",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 106048992"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "MapLite 2.0: Online HD Map Inference Using a Prior SD Map",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 115046072"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "SUPR-GAN: SUrgical PRediction GAN for Event Anticipation in Laparoscopic and Robotic Surgery",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 110709124"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Interpretable Autonomous Flight Via Compact Visualizable Neural Circuit Policies",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 107799833"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "BIMS-PU: Bi-Directional and Multi-Scale Point Cloud Upsampling",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 114705142"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Robotic metamorphosis by origami exoskeletons",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256076"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Probabilistic Risk Metrics for Navigating Occluded Intersections",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256088"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Vehicle Trajectory Prediction Using Generative Adversarial Network With Temporal Logic Syntax Tree Features",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256104"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "A Wearable Smart Glove and Its Application of Pose and Gesture Detection to Sign Language Classification",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 115897877"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Fluidic innervation sensorizes structures from a single build material",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 117075431"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Vision-Based Sensing for Electrically-Driven Soft Actuators",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 117877838"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Underwater Soft Robot Modeling and Control With Differentiable Simulation",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0001-5473-3566 put-code 103256105"
+      ]
+    }
+  ],
+  "professor": {
+    "orcid": "0000-0001-5473-3566",
+    "author_ids": {},
+    "author_ids_complete": false
+  }
+}
