@@ -13,7 +13,7 @@ dependencies = []
 download = ["pypdf>=5.9,<6"]
 # Optional identity adjudication with Claude; the Anthropic SDK 1.x requires Python >= 3.10.
 llm = ["anthropic>=1; python_version >= '3.10'"]
-dev = ["ruff==0.8.6", "mypy==1.14.1", "pre-commit==3.5.0"]
+dev = ["ruff==0.8.6", "mypy==1.14.1", "pre-commit==3.5.0", "coverage==7.6.1"]
 
 [project.scripts]
 professor-resolve = "paper_author_searcher.cli:main"
@@ -141,3 +141,12 @@ module = [
 ]
 disallow_untyped_defs = true
 disallow_incomplete_defs = true
+
+[tool.coverage.run]
+branch = true
+source = ["src/paper_author_searcher"]
+
+[tool.coverage.report]
+# Whole package: no regression below today's level. Core domain modules have their own, higher gate in CI.
+fail_under = 84
+skip_covered = true
