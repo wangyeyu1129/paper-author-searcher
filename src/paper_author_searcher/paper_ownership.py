@@ -2,7 +2,6 @@
 
 import typing
 from collections import Counter
-from typing import Dict, Set
 
 from .config import DEFAULT_OWNERSHIP
 from .matching import canonical_orcid, institution_similarity, name_similarity, normalize
@@ -223,7 +222,7 @@ class PaperOwnershipValidator:
 
     def _coauthors(self, record, profile):
         names = set()
-        excluded: Set[str] = set()
+        excluded: set[str] = set()
         for detail in self._target_details(record, profile):
             excluded.update(normalize(name) for name in signature_names(detail))
             if detail.get('name'):
@@ -335,7 +334,7 @@ class PaperOwnershipValidator:
                 continue
             if self._compatible_signature(record, profile):
                 eligible.append(record)
-        upgrades: Dict[int, Set[str]] = {}
+        upgrades: dict[int, set[str]] = {}
         for index, left in enumerate(eligible):
             for right in eligible[index + 1 :]:
                 if left.source == right.source:

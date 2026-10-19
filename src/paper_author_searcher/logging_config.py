@@ -10,7 +10,7 @@ import logging
 import os
 import sys
 from datetime import datetime, timezone
-from typing import IO, Optional
+from typing import IO
 
 from .redaction import RedactingFilter
 
@@ -61,7 +61,7 @@ def add_logging_arguments(parser: argparse.ArgumentParser) -> None:
     )
 
 
-def configure_logging(level: Optional[str] = None, fmt: Optional[str] = None, stream: Optional[IO] = None) -> None:
+def configure_logging(level: str | None = None, fmt: str | None = None, stream: IO | None = None) -> None:
     """Install a single stderr handler on the package logger; safe to call more than once."""
     level = (level or os.environ.get(LEVEL_ENVIRONMENT_VARIABLE) or DEFAULT_LEVEL).upper()
     fmt = (fmt or os.environ.get(FORMAT_ENVIRONMENT_VARIABLE) or TEXT).lower()

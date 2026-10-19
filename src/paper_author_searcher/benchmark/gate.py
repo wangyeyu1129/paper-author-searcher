@@ -2,7 +2,6 @@
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Dict, List, Tuple
 
 from .settings import BenchmarkSettings
 
@@ -19,8 +18,8 @@ EXIT_CODES = {GateStatus.PASSED: 0, GateStatus.FAILED: 1, GateStatus.NOT_CERTIFI
 @dataclass
 class GateResult:
     status: GateStatus
-    checks: List[dict] = field(default_factory=list)
-    reasons: List[str] = field(default_factory=list)
+    checks: list[dict] = field(default_factory=list)
+    reasons: list[str] = field(default_factory=list)
 
     @property
     def exit_code(self) -> int:
@@ -40,7 +39,7 @@ class ReleaseGate:
     def __init__(self, settings: BenchmarkSettings) -> None:
         self.settings = settings
 
-    def evaluate(self, aggregates: Dict[Tuple[str, str], dict]) -> GateResult:
+    def evaluate(self, aggregates: dict[tuple[str, str], dict]) -> GateResult:
         aggregation = self.settings.aggregation.value
         checks = []
         for (dimension, value), stratum in sorted(aggregates.items()):

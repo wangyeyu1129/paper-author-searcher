@@ -6,7 +6,7 @@ Place it inside the response cache (cache -> budget -> client) so cached replays
 import logging
 import threading
 from dataclasses import dataclass, field
-from typing import Any, Dict, Optional
+from typing import Any
 from urllib.parse import urlsplit
 
 from .http import SourceError
@@ -46,7 +46,7 @@ class CostLedger:
 
     maximum_cost_usd: float
     spent_usd: float = 0.0
-    requests: Dict[str, int] = field(default_factory=dict)
+    requests: dict[str, int] = field(default_factory=dict)
     refused: int = 0
     lock: threading.Lock = field(default_factory=threading.Lock, repr=False, compare=False)
 
@@ -76,7 +76,7 @@ class CostLedger:
         }
 
 
-_LEDGERS: Dict[str, CostLedger] = {}
+_LEDGERS: dict[str, CostLedger] = {}
 _LEDGERS_LOCK = threading.Lock()
 
 
@@ -88,12 +88,12 @@ def shared_ledger(name: str, maximum_cost_usd: float) -> CostLedger:
         return ledger
 
 
-def ledger_summary(name: str) -> Optional[dict]:
+def ledger_summary(name: str) -> dict | None:
     ledger = _LEDGERS.get(name)
     return ledger.summary() if ledger else None
 
 
-def classify(url: str, params: Optional[dict]) -> str:
+def classify(url: str, params: dict | None) -> str:
     """'search', 'listing' or 'single' for a metered request."""
     params = params or {}
     if params.get('search') or '.search:' in str(params.get('filter') or ''):
@@ -107,7 +107,7 @@ def classify(url: str, params: Optional[dict]) -> str:
 class BudgetedHttpClient(HttpClientDecorator):
     """Prices each metered GET before sending it and refuses requests past the shared run budget."""
 
-    def __init__(self, client: Any, ledger: CostLedger, config: Optional[BudgetConfig] = None) -> None:
+    def __init__(self, client: Any, ledger: CostLedger, config: BudgetConfig | None = None) -> None:
         config = config or BudgetConfig()
         super().__init__(client)
         self.ledger = ledger
@@ -116,8 +116,8 @@ class BudgetedHttpClient(HttpClientDecorator):
     def get(
         self,
         url: str,
-        params: Optional[Dict[str, Any]] = None,
-        headers: Optional[Dict[str, str]] = None,
+        params: dict[str, Any] | None = None,
+        headers: dict[str, str] | None = None,
         xml: bool = False,
     ) -> Any:
         host = self.hosts.get(urlsplit(url).hostname or '')
@@ -127,7 +127,7 @@ class BudgetedHttpClient(HttpClientDecorator):
         return self.client.get(url, params, headers, xml)
 
 
-def budgeted_client(client: Any, maximum_cost_usd: Optional[float], ledger_name: str = 'default') -> Any:
+def budgeted_client(client: Any, maximum_cost_usd: float | None, ledger_name: str = 'default') -> Any:
     if maximum_cost_usd is None:
         return client
     return BudgetedHttpClient(

@@ -1,7 +1,8 @@
 """Bounded resource probes plus metadata identity, never complete PDF retrieval."""
 
 import re
-from typing import Any, Mapping, Optional
+from collections.abc import Mapping
+from typing import Any
 
 from .config import DEFAULT_PDF, PDFConfig
 from .http import SourceError, has_pdf_signature
@@ -16,7 +17,7 @@ class PDFURLValidator:
         self.client = client
         self.config = config
 
-    def validate(self, candidate: PDFCandidate, paper: Optional[JSONObject] = None) -> PDFCandidate:
+    def validate(self, candidate: PDFCandidate, paper: JSONObject | None = None) -> PDFCandidate:
         try:
             response = self.client.probe(
                 candidate.url,
@@ -73,7 +74,7 @@ class PDFURLValidator:
         values = {key.lower(): value for key, value in headers.items()}
         return bool(re.match(r'^bytes\s+0-\d+/', values.get('content-range', ''), flags=re.IGNORECASE))
 
-    def _arxiv_redirect_conflicts(self, candidate: PDFCandidate, paper: Optional[JSONObject]) -> bool:
+    def _arxiv_redirect_conflicts(self, candidate: PDFCandidate, paper: JSONObject | None) -> bool:
         expected = arxiv_id(candidate.url)
         returned = arxiv_id(candidate.final_url)
         if expected and returned and not same_arxiv_version(expected, returned):

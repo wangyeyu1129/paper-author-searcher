@@ -5,8 +5,9 @@ PDF report and the download manifest keep only the bibliographic identity they n
 plus ``entry_index``, the paper's position in that collection, so the full record is always one lookup away.
 """
 
+from collections.abc import Mapping, Sequence
 from copy import deepcopy
-from typing import Any, Dict, List, Mapping, Optional, Sequence
+from typing import Any
 
 from .json_types import JSONObject
 
@@ -64,16 +65,14 @@ def history_entry(record: Mapping[str, Any]) -> JSONObject:
     return {name: deepcopy(value) for name, value in record.items() if name not in HISTORY_EXCLUDED_FIELDS}
 
 
-def extend_history(previous: Mapping[str, Any]) -> List[JSONObject]:
+def extend_history(previous: Mapping[str, Any]) -> list[JSONObject]:
     """History for a new record: the previous record's history plus the previous record, newest last, bounded."""
     history = [dict(entry) for entry in previous.get('history') or []]
     history.append(history_entry(previous))
     return history[-MAX_HISTORY:]
 
 
-def full_paper_metadata(
-    entry: Mapping[str, Any], collection_papers: Sequence[Mapping[str, Any]]
-) -> Optional[JSONObject]:
+def full_paper_metadata(entry: Mapping[str, Any], collection_papers: Sequence[Mapping[str, Any]]) -> JSONObject | None:
     """The full collected record behind a PDF-report or manifest entry, or ``None`` if it no longer matches."""
     index = entry.get('entry_index')
     if not isinstance(index, int) or not 0 <= index < len(collection_papers):
@@ -84,6 +83,6 @@ def full_paper_metadata(
     return dict(paper)
 
 
-def collection_papers(papers_artifact: Mapping[str, Any]) -> List[Dict[str, Any]]:
+def collection_papers(papers_artifact: Mapping[str, Any]) -> list[dict[str, Any]]:
     collection = papers_artifact.get('collection', papers_artifact)
     return list(collection.get('all_papers', collection.get('papers')) or [])

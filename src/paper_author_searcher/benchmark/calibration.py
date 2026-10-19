@@ -10,10 +10,11 @@ Only resolved identities feed verification, so the objective is resolved coverag
 """
 
 import itertools
+from collections.abc import Callable, Iterable, Mapping, Sequence
 from copy import deepcopy
 from dataclasses import dataclass, replace
 from statistics import mean
-from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Sequence, Set, Tuple
+from typing import Any
 
 from paper_author_searcher.config import AmbiguityPolicy, MatchingConfig
 from paper_author_searcher.models import AuthorCandidate, ProfessorQuery
@@ -23,16 +24,16 @@ from paper_author_searcher.workflow import contender_profile
 
 from .identity_diagnosis import is_inconclusive
 
-AuthorKey = Tuple[str, str]
+AuthorKey = tuple[str, str]
 
 
 @dataclass
 class IdentityOutcome:
     person_id: str
     status: str
-    coverage: Optional[float]
-    purity: Optional[float]
-    selected: List[str]
+    coverage: float | None
+    purity: float | None
+    selected: list[str]
 
     def to_dict(self) -> dict:
         return {
@@ -44,7 +45,7 @@ class IdentityOutcome:
         }
 
 
-def labelled_profiles(diagnosis: dict) -> List[Tuple[Set[AuthorKey], int, int]]:
+def labelled_profiles(diagnosis: dict) -> list[tuple[set[AuthorKey], int, int]]:
     profiles = []
     for candidate in diagnosis.get('candidates') or []:
         keys = {(source, str(value)) for source, values in candidate['author_ids'].items() for value in values}
@@ -52,7 +53,7 @@ def labelled_profiles(diagnosis: dict) -> List[Tuple[Set[AuthorKey], int, int]]:
     return profiles
 
 
-def score_selection(selected: Set[AuthorKey], diagnosis: dict) -> Tuple[Optional[float], Optional[float]]:
+def score_selection(selected: set[AuthorKey], diagnosis: dict) -> tuple[float | None, float | None]:
     profiles = labelled_profiles(diagnosis)
     total = sum(hits for _, hits, _ in profiles)
     reached = sum(hits for keys, hits, _ in profiles if keys & selected)
@@ -74,7 +75,7 @@ class MemoizedProvider:
         self.name = provider.name
         self.memory = memory
 
-    def search(self, query: ProfessorQuery) -> List[AuthorCandidate]:
+    def search(self, query: ProfessorQuery) -> list[AuthorCandidate]:
         key = (self.name, query.name, query.university)
         if key not in self.memory:
             self.memory[key] = self.provider.search(query)
@@ -106,7 +107,7 @@ class IdentityCalibrator:
 
     def evaluate(
         self, config: MatchingConfig, people: Iterable, diagnoses: Mapping[str, dict]
-    ) -> List[IdentityOutcome]:
+    ) -> list[IdentityOutcome]:
         resolver = memoized(self.resolver_factory(config), self.memory)
         outcomes = []
         for person in people:
@@ -162,15 +163,15 @@ class IdentityCalibrator:
         self,
         base: MatchingConfig,
         grid: Mapping[str, Sequence[object]],
-        tune: List,
-        holdout: List,
+        tune: list,
+        holdout: list,
         diagnoses: Mapping[str, dict],
         minimum_purity: float,
     ) -> dict:
         names = sorted(grid)
         trials = []
         for values in itertools.product(*(grid[name] for name in names)) if names else [()]:
-            overrides: Dict[str, Any] = dict(zip(names, values))
+            overrides: dict[str, Any] = dict(zip(names, values, strict=True))
             config = replace(base, **overrides)
             summary = self.summary(self.evaluate(config, tune, diagnoses))
             trials.append({'parameters': overrides, 'tune': summary})
@@ -181,7 +182,7 @@ class IdentityCalibrator:
         ]
         pool = eligible or trials
 
-        def rank(trial: dict) -> Tuple[float, ...]:
+        def rank(trial: dict) -> tuple[float, ...]:
             tune = trial['tune']
             return (tune['resolved_coverage'] or 0.0, tune['resolved_purity'] or 0.0, -_distance(trial, base))
 
@@ -240,5 +241,5 @@ def markdown(report: dict) -> str:
     return '\n'.join(lines)
 
 
-def _rate(value: Optional[float]) -> str:
+def _rate(value: float | None) -> str:
     return '–' if value is None else f'{value:.1%}'

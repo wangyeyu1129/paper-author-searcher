@@ -6,8 +6,9 @@ import json
 import logging
 import typing
 from collections import Counter
+from collections.abc import Mapping, Sequence
 from pathlib import Path
-from typing import Any, Dict, Mapping, Optional, Sequence
+from typing import Any
 
 from .json_types import JSONObject
 from .jsonio import read_json, write_json
@@ -21,7 +22,7 @@ from .status import DownloadStatus, FormatStatus, IdentityStatus, PDFValidationS
 logger = logging.getLogger(__name__)
 
 
-def _cohort(report: JSONObject) -> Dict[str, JSONObject]:
+def _cohort(report: JSONObject) -> dict[str, JSONObject]:
     papers = report.get('papers')
     if not isinstance(papers, list) or any(not isinstance(paper, dict) for paper in papers):
         raise ValueError('Each PDF report must contain a paper list')
@@ -67,15 +68,15 @@ def summarize_runs(run_directories: Sequence[Path]) -> JSONObject:
     verified_papers, urls, files, content = set(), set(), set(), set()
     attempted, failed, review = set(), set(), set()
     failures: typing.Counter[str] = Counter()
-    source_contributions: Dict[str, Any] = {}
+    source_contributions: dict[str, Any] = {}
     file_checks = []
     query_statistics = []
-    search_observations: Dict[str, Any] = {}
+    search_observations: dict[str, Any] = {}
     document_types: typing.Counter[str] = Counter()
     full_text_content = set()
     classified_documents = False
     satisfied_papers = set()
-    satisfaction_observations: Dict[str, Any] = {}
+    satisfaction_observations: dict[str, Any] = {}
     for directory in run_directories:
         root = Path(directory)
         report = read_json(root / 'pdf_urls.json')
@@ -226,7 +227,7 @@ def compare_runs(before_directories: Sequence[Path], after_directories: Sequence
     }
 
 
-def main(argv: Optional[Sequence[str]] = None) -> int:
+def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description='Offline PDF discovery comparison on the same processed paper cohort')
     parser.add_argument(
         '--before',

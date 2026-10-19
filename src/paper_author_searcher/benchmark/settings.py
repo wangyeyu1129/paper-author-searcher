@@ -1,10 +1,11 @@
 """Benchmark configuration loaded from the dataset's own JSON file; no thresholds live in code."""
 
 import json
+from collections.abc import Mapping
 from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
-from typing import Any, Dict, Mapping, Optional, Tuple
+from typing import Any
 
 from paper_author_searcher.config import AmbiguityPolicy
 
@@ -29,11 +30,11 @@ class GateRule:
 
 @dataclass(frozen=True)
 class TypePolicy:
-    included: Tuple[str, ...]
-    excluded: Tuple[str, ...]
+    included: tuple[str, ...]
+    excluded: tuple[str, ...]
     unknown_included: bool = True
 
-    def includes(self, work_type: Optional[str]) -> bool:
+    def includes(self, work_type: str | None) -> bool:
         if work_type in self.included:
             return True
         if work_type in self.excluded:
@@ -46,27 +47,27 @@ class RunSettings:
     """Attribute names match the workflow CLI so the existing composition root can be reused."""
 
     mode: str = 'full'
-    timeout: Optional[float] = None
-    retries: Optional[int] = None
-    max_pages: Optional[int] = None
-    page_size: Optional[int] = None
-    max_pdf_papers: Optional[int] = None
-    max_downloads: Optional[int] = None
-    max_file_mb: Optional[float] = None
+    timeout: float | None = None
+    retries: int | None = None
+    max_pages: int | None = None
+    page_size: int | None = None
+    max_pdf_papers: int | None = None
+    max_downloads: int | None = None
+    max_file_mb: float | None = None
     include_needs_review: bool = False
-    unpaywall_email: Optional[str] = None
-    bibliography_url: Tuple[str, ...] = ()
+    unpaywall_email: str | None = None
+    bibliography_url: tuple[str, ...] = ()
     verbose: bool = False
-    http_cache_dir: Optional[str] = None
-    http_cache_mode: Optional[str] = None
+    http_cache_dir: str | None = None
+    http_cache_mode: str | None = None
     ambiguity_policy: str = AmbiguityPolicy.COLLECT_CONTENDERS
     # Optional service settings file (see paper_author_searcher.settings); None uses $PAPER_SEARCH_SETTINGS.
-    settings: Optional[str] = None
+    settings: str | None = None
     llm_adjudication: bool = False
     # "minimal": name, university, department only. "with_hints": also the roster's ORCID/homepage/known papers.
     input_profile: str = 'minimal'
     # One shared cap for the whole benchmark run (all people), in estimated USD of metered API requests.
-    max_cost_usd: Optional[float] = 0.5
+    max_cost_usd: float | None = 0.5
     cost_ledger: str = 'benchmark'
 
 
@@ -86,11 +87,11 @@ class SourceSettings:
 class CalibrationSettings:
     """Identity calibration: choose matching parameters on dev people, report them on held-out test people."""
 
-    splits: Tuple[str, ...] = ('dev', 'test')
+    splits: tuple[str, ...] = ('dev', 'test')
     tune_split: str = 'dev'
     holdout_split: str = 'test'
     minimum_purity: float = 0.95
-    grid: Mapping[str, Tuple[object, ...]] = field(default_factory=dict)
+    grid: Mapping[str, tuple[object, ...]] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
@@ -107,9 +108,9 @@ class BenchmarkSettings:
     dataset_id: str
     year_start: int
     year_end: int
-    dimensions: Mapping[str, Tuple[str, ...]]
-    gate_rules: Tuple[GateRule, ...]
-    reported_metrics: Tuple[str, ...]
+    dimensions: Mapping[str, tuple[str, ...]]
+    gate_rules: tuple[GateRule, ...]
+    reported_metrics: tuple[str, ...]
     paths: BenchmarkPaths
     type_policy: TypePolicy
     aggregation: Aggregation = Aggregation.MACRO
@@ -170,7 +171,7 @@ class BenchmarkSettings:
         )
 
 
-def _calibration(values: Dict[str, Any]) -> CalibrationSettings:
+def _calibration(values: dict[str, Any]) -> CalibrationSettings:
     values = dict(values)
     if 'splits' in values:
         values['splits'] = tuple(values['splits'])
@@ -178,7 +179,7 @@ def _calibration(values: Dict[str, Any]) -> CalibrationSettings:
     return CalibrationSettings(**values)
 
 
-def _run_settings(values: Dict[str, Any], base: Path) -> RunSettings:
+def _run_settings(values: dict[str, Any], base: Path) -> RunSettings:
     values = dict(values)
     values['bibliography_url'] = tuple(values.get('bibliography_url') or ())
     if values.get('http_cache_dir'):

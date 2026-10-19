@@ -2,6 +2,7 @@ import threading
 import time
 import unittest
 from dataclasses import replace
+from itertools import pairwise
 from unittest.mock import Mock
 
 from paper_author_searcher.config import DEFAULT_PDF
@@ -36,7 +37,7 @@ class PacerTests(unittest.TestCase):
             thread.start()
         for thread in threads:
             thread.join()
-        gaps = [later - earlier for earlier, later in zip(sorted(starts), sorted(starts)[1:])]
+        gaps = [later - earlier for earlier, later in pairwise(sorted(starts))]
         self.assertTrue(all(gap >= 0.04 for gap in gaps), gaps)
 
 

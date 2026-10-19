@@ -1,13 +1,11 @@
 """Readable summaries of a scored benchmark run."""
 
-from typing import List, Optional
-
 from paper_author_searcher.status import TruthState
 
 from .settings import BenchmarkSettings
 
 
-def _rate(value: Optional[float]) -> str:
+def _rate(value: float | None) -> str:
     return '–' if value is None else f'{value:.1%}'
 
 
@@ -16,7 +14,7 @@ def markdown_report(scored: dict, settings: BenchmarkSettings) -> str:
     aggregation = settings.aggregation.value
     metrics = list(settings.reported_metrics)
     thresholds = {rule.metric: rule.minimum for rule in settings.gate_rules}
-    lines: List[str] = [
+    lines: list[str] = [
         '# Benchmark {} — run {}'.format(scored['dataset_id'], scored['run_id']),
         '',
         '- Gate: **{}** (exit code {})'.format(gate['status'], gate['exit_code']),

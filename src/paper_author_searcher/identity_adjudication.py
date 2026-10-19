@@ -6,8 +6,9 @@ known DOIs). Its verdict can merge split profiles or break a tie between profile
 
 import json
 import logging
+from collections.abc import Iterable, Sequence
 from dataclasses import dataclass, field
-from typing import Any, Iterable, List, Optional, Protocol, Sequence
+from typing import Any, Protocol
 
 from .logging_config import log_isolated_failure
 from .models import ProfessorQuery
@@ -43,7 +44,7 @@ class AdjudicationVerdict:
     confidence: float
     rationale: str
     model: str = ''
-    errors: List[str] = field(default_factory=list)
+    errors: list[str] = field(default_factory=list)
 
     @classmethod
     def unsure(cls, reason: str) -> 'AdjudicationVerdict':
@@ -57,7 +58,7 @@ class IdentityAdjudicator(Protocol):
 def describe(records: Sequence, limit: int) -> dict:
     """Compact, deterministic evidence summary of one candidate group (a list of AuthorCandidate)."""
 
-    def take(values: Iterable[Any]) -> List[Any]:
+    def take(values: Iterable[Any]) -> list[Any]:
         return sorted({value for value in values if value})[:limit]
 
     return {
@@ -88,7 +89,7 @@ def prompt(query: ProfessorQuery, first: Sequence, second: Sequence, limit: int)
 
 
 class ClaudeIdentityAdjudicator:
-    """Claude via the Anthropic SDK (optional extra ``llm``; needs Python >= 3.10 and Anthropic credentials)."""
+    """Claude via the Anthropic SDK (optional extra ``llm``; needs Anthropic credentials)."""
 
     def __init__(
         self,
@@ -139,5 +140,5 @@ class ClaudeIdentityAdjudicator:
         )
 
 
-def accepted(verdict: Optional[AdjudicationVerdict], minimum_confidence: float) -> bool:
+def accepted(verdict: AdjudicationVerdict | None, minimum_confidence: float) -> bool:
     return verdict is not None and not verdict.errors and verdict.confidence >= minimum_confidence

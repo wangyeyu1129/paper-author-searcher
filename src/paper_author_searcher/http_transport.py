@@ -13,7 +13,7 @@ import http.client
 import io
 import ssl
 import threading
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 from urllib.error import HTTPError
 from urllib.parse import urljoin, urlsplit
 from urllib.request import Request, getproxies, proxy_bypass, urlopen
@@ -25,7 +25,7 @@ ERROR_BODY_BYTES = 64 * 1024
 # A reused connection the server already closed fails like this; such a request is retried once on a fresh one.
 STALE_CONNECTION_ERRORS = (http.client.RemoteDisconnected, ConnectionResetError, BrokenPipeError)
 
-ConnectionKey = Tuple[str, str, int]
+ConnectionKey = tuple[str, str, int]
 
 
 class PooledResponse:
@@ -38,7 +38,7 @@ class PooledResponse:
         self.status = response.status
         self.headers = response.headers
 
-    def read(self, amount: Optional[int] = None) -> bytes:
+    def read(self, amount: int | None = None) -> bytes:
         return self._response.read(amount)
 
     def geturl(self) -> str:
@@ -63,8 +63,8 @@ class KeepAliveTransport:
     def __init__(
         self,
         maximum_redirects: int = 5,
-        context: Optional[ssl.SSLContext] = None,
-        proxies: Optional[Dict[str, str]] = None,
+        context: ssl.SSLContext | None = None,
+        proxies: dict[str, str] | None = None,
     ) -> None:
         if maximum_redirects < 0:
             raise ValueError('maximum_redirects must be nonnegative')
@@ -73,10 +73,10 @@ class KeepAliveTransport:
         self.proxies = getproxies() if proxies is None else proxies
         self._local = threading.local()
         self._lock = threading.Lock()
-        self._all: List[http.client.HTTPConnection] = []
+        self._all: list[http.client.HTTPConnection] = []
         self.statistics = {'connections_opened': 0, 'connections_reused': 0, 'stale_reconnects': 0, 'redirects': 0}
 
-    def open(self, request: Request, timeout: Optional[float] = None) -> Any:
+    def open(self, request: Request, timeout: float | None = None) -> Any:
         if self._proxied(request.full_url):
             return urlopen(request, timeout=timeout)  # proxies are urllib's job; keep its behaviour exactly
         method, url, body = request.get_method(), request.full_url, request.data
@@ -120,7 +120,7 @@ class KeepAliveTransport:
         return bool(self.proxies.get(parts.scheme)) and not proxy_bypass(parts.hostname or '')
 
     @staticmethod
-    def _target(url: str) -> Tuple[ConnectionKey, str]:
+    def _target(url: str) -> tuple[ConnectionKey, str]:
         parts = urlsplit(url)
         if parts.scheme not in ('http', 'https') or not parts.hostname:
             raise ValueError(f'Unsupported URL: {url}')
@@ -128,7 +128,7 @@ class KeepAliveTransport:
         path = (parts.path or '/') + (f'?{parts.query}' if parts.query else '')
         return (parts.scheme, parts.hostname, port), path
 
-    def _pool(self) -> Dict[ConnectionKey, http.client.HTTPConnection]:
+    def _pool(self) -> dict[ConnectionKey, http.client.HTTPConnection]:
         pool = getattr(self._local, 'pool', None)
         if pool is None:
             pool = self._local.pool = {}
@@ -140,8 +140,8 @@ class KeepAliveTransport:
         method: str,
         path: str,
         body: Any,
-        headers: Dict[str, str],
-        timeout: Optional[float],
+        headers: dict[str, str],
+        timeout: float | None,
     ) -> http.client.HTTPResponse:
         pool = self._pool()
         connection = pool.get(key)
@@ -168,7 +168,7 @@ class KeepAliveTransport:
             self._discard(key)
             raise
 
-    def _connect(self, key: ConnectionKey, timeout: Optional[float]) -> http.client.HTTPConnection:
+    def _connect(self, key: ConnectionKey, timeout: float | None) -> http.client.HTTPConnection:
         scheme, host, port = key
         connection: http.client.HTTPConnection
         if scheme == 'https':

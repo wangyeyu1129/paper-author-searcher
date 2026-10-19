@@ -1,6 +1,6 @@
 """Type aliases for the JSON documents (saved reports, checkpoints, API payloads) passed between stages."""
 
-from typing import Any, Dict, List
+from typing import Any
 
-JSONObject = Dict[str, Any]
-JSONList = List[JSONObject]
+JSONObject = dict[str, Any]
+JSONList = list[JSONObject]

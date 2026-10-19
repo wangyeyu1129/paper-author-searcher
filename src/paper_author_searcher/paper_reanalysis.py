@@ -1,7 +1,7 @@
 """Re-evaluate saved metadata without API calls or modifying the source file."""
 
+from collections.abc import Mapping, Sequence
 from dataclasses import fields
-from typing import Mapping, Sequence
 
 from .config import DEFAULT_DEDUPLICATION, DEFAULT_OWNERSHIP, DeduplicationConfig, OwnershipConfig
 from .json_types import JSONObject

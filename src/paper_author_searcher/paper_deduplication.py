@@ -1,8 +1,9 @@
 """Exact work grouping plus explicit links between probable related versions."""
 
+from collections.abc import Sequence
 from dataclasses import asdict
 from itertools import combinations
-from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
+from typing import Any
 
 from .config import DEFAULT_DEDUPLICATION, DeduplicationConfig
 from .matching import canonical_doi, name_similarity, normalize
@@ -26,7 +27,7 @@ def author_signatures_match(left: str, right: str, config: DeduplicationConfig =
     middle_left, middle_right = left_words[1:-1], right_words[1:-1]
     if len(middle_left) != len(middle_right):
         return False
-    for first, second in zip(middle_left, middle_right):
+    for first, second in zip(middle_left, middle_right, strict=True):
         if first == second:
             continue
         if first[0] != second[0] or min(len(first), len(second)) != 1:
@@ -60,7 +61,7 @@ def _metadata_agrees(left: PaperRecord, right: PaperRecord, config: Deduplicatio
     return count / total >= config.author_overlap
 
 
-def _stable_ids(record: PaperRecord) -> Set[Tuple[str, str]]:
+def _stable_ids(record: PaperRecord) -> set[tuple[str, str]]:
     ids = set()
     if record.source_paper_id:
         ids.add(('source:' + record.source, record.source_paper_id))
@@ -76,7 +77,7 @@ def _stable_ids(record: PaperRecord) -> Set[Tuple[str, str]]:
 
 def duplicate_evidence(
     left: PaperRecord, right: PaperRecord, config: DeduplicationConfig = DEFAULT_DEDUPLICATION
-) -> List[str]:
+) -> list[str]:
     shared = _stable_ids(left) & _stable_ids(right)
     conflicting_dois = left.doi and right.doi and canonical_doi(left.doi) != canonical_doi(right.doi)
     if conflicting_dois:
@@ -100,14 +101,14 @@ def duplicate_evidence(
 
 def deduplicate_papers(
     records: Sequence[PaperRecord], config: DeduplicationConfig = DEFAULT_DEDUPLICATION
-) -> List[Paper]:
-    groups: List[List[PaperRecord]] = []
+) -> list[Paper]:
+    groups: list[list[PaperRecord]] = []
     # Evidence of every pair in a group, gathered while deciding joins (each pair is compared exactly once).
-    group_evidence: List[Set[str]] = []
-    index: Dict[Tuple[Any, ...], Set[int]] = {}
+    group_evidence: list[set[str]] = []
+    index: dict[tuple[Any, ...], set[int]] = {}
     for record in records:
         classify_record(record)
-        keys: List[Tuple[Any, ...]] = list(_stable_ids(record))
+        keys: list[tuple[Any, ...]] = list(_stable_ids(record))
         if record.title:
             keys.append(('title-year', normalize(record.title), record.year))
         candidates = set()
@@ -128,7 +129,7 @@ def deduplicate_papers(
         for key in keys:
             index.setdefault(key, set()).add(selected)
     papers = []
-    for group, evidence in zip(groups, group_evidence):
+    for group, evidence in zip(groups, group_evidence, strict=True):
         values = asdict(group[0])
         for record in group[1:]:
             for name in ('doi', 'abstract', 'venue', 'paper_url', 'year'):
@@ -159,9 +160,9 @@ def deduplicate_papers(
 
 def _evidence_with_every_member(
     record: PaperRecord, group: Sequence[PaperRecord], config: DeduplicationConfig
-) -> Optional[Set[str]]:
+) -> set[str] | None:
     """Complete link: the union of duplicate evidence with each member, or ``None`` if any member is not one."""
-    found: Set[str] = set()
+    found: set[str] = set()
     for other in group:
         evidence = duplicate_evidence(record, other, config)
         if not evidence:
@@ -170,10 +171,10 @@ def _evidence_with_every_member(
     return found
 
 
-def _combine_authorship_metadata(group: Sequence[PaperRecord]) -> Dict[str, Any]:
+def _combine_authorship_metadata(group: Sequence[PaperRecord]) -> dict[str, Any]:
     details = []
     source_ids = []
-    external_values: Dict[str, Any] = {}
+    external_values: dict[str, Any] = {}
     errors = set()
     for record in group:
         source_ids.append(
@@ -219,8 +220,8 @@ def _combine_authorship_metadata(group: Sequence[PaperRecord]) -> Dict[str, Any]
     }
 
 
-def _link_related_versions(papers: List[Paper], config: DeduplicationConfig) -> None:
-    titles: Dict[str, Any] = {}
+def _link_related_versions(papers: list[Paper], config: DeduplicationConfig) -> None:
+    titles: dict[str, Any] = {}
     for paper in papers:
         titles.setdefault(normalize(paper.title), []).append(paper)
     for candidates in titles.values():

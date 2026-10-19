@@ -2,9 +2,10 @@
 
 import json
 import re
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Mapping, Optional, Tuple
+from typing import Any
 
 from paper_author_searcher.models import ProfessorQuery
 
@@ -19,16 +20,16 @@ class SearchInput:
 
     name: str
     university: str
-    department: Optional[str] = None
-    research: Tuple[str, ...] = ()
-    university_aliases: Tuple[str, ...] = ()
+    department: str | None = None
+    research: tuple[str, ...] = ()
+    university_aliases: tuple[str, ...] = ()
     # Optional hints a production caller may have (used only when the run's input profile asks for them).
-    orcid: Optional[str] = None
-    homepage: Optional[str] = None
-    known_papers: Tuple[str, ...] = ()
+    orcid: str | None = None
+    homepage: str | None = None
+    known_papers: tuple[str, ...] = ()
 
     def to_query(self, with_hints: bool = False) -> ProfessorQuery:
-        hints: Dict[str, Any] = {}
+        hints: dict[str, Any] = {}
         if with_hints:
             hints = {'orcid': self.orcid, 'homepage': self.homepage, 'known_papers': list(self.known_papers)}
         return ProfessorQuery(
@@ -51,15 +52,15 @@ class BenchmarkPerson:
     person_id: str
     search_input: SearchInput
     strata: Mapping[str, str]
-    truth_sources: Tuple[TruthSourceSpec, ...]
-    identity_evidence: Tuple[str, ...] = ()
-    orcid: Optional[str] = None
-    year_start: Optional[int] = None
-    year_end: Optional[int] = None
+    truth_sources: tuple[TruthSourceSpec, ...]
+    identity_evidence: tuple[str, ...] = ()
+    orcid: str | None = None
+    year_start: int | None = None
+    year_end: int | None = None
     notes: str = ''
-    split: Optional[str] = None
+    split: str | None = None
 
-    def window(self, settings: BenchmarkSettings) -> Tuple[int, int]:
+    def window(self, settings: BenchmarkSettings) -> tuple[int, int]:
         return (self.year_start or settings.year_start, self.year_end or settings.year_end)
 
     @classmethod
@@ -91,10 +92,10 @@ class BenchmarkPerson:
 @dataclass(frozen=True)
 class Roster:
     dataset_id: str
-    people: Tuple[BenchmarkPerson, ...]
+    people: tuple[BenchmarkPerson, ...]
     metadata: Mapping[str, object] = field(default_factory=dict)
 
-    def select(self, person_ids: Iterable[str] = ()) -> List[BenchmarkPerson]:
+    def select(self, person_ids: Iterable[str] = ()) -> list[BenchmarkPerson]:
         wanted = set(person_ids)
         if not wanted:
             return list(self.people)
@@ -103,7 +104,7 @@ class Roster:
             raise ValueError(f'Unknown benchmark people: {sorted(unknown)}')
         return [person for person in self.people if person.person_id in wanted]
 
-    def validate(self, settings: BenchmarkSettings, known_source_kinds: Iterable[str]) -> List[str]:
+    def validate(self, settings: BenchmarkSettings, known_source_kinds: Iterable[str]) -> list[str]:
         """Raise on structural errors; return warnings for strata below the configured size."""
         if self.dataset_id != settings.dataset_id:
             raise ValueError('Roster dataset_id does not match the benchmark config')
@@ -136,7 +137,7 @@ class Roster:
             if count < settings.minimum_people_per_stratum
         ]
 
-    def stratum_sizes(self, settings: BenchmarkSettings) -> Dict[Tuple[str, str], int]:
+    def stratum_sizes(self, settings: BenchmarkSettings) -> dict[tuple[str, str], int]:
         sizes = {(dimension, value): 0 for dimension, values in settings.dimensions.items() for value in values}
         for person in self.people:
             for dimension, value in person.strata.items():

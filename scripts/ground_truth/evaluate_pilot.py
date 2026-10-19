@@ -243,7 +243,7 @@ def evaluate_pilot(saved, truth, audit=None):
     verified_negative = set()
     false_positives = []
     excluded = []
-    for paper, entry in zip(result_entries(saved), template['matching_evidence']):
+    for paper, entry in zip(result_entries(saved), template['matching_evidence'], strict=True):
         status = paper.get('ownership_status', 'needs_review')
         if status not in ('verified', 'needs_review', 'rejected'):
             raise ValueError('Unknown ownership_status')

@@ -1,6 +1,6 @@
 # Paper Author Searcher
 
-Python >= 3.8 的论文检索工具，接入 OpenAlex、Semantic Scholar 和 DBLP，支持教授身份确认、论文收集、归属验证、去重、公开 PDF 检索与下载，以及离线评估。元数据与 URL 阶段无第三方依赖；PDF 解析需要安装 `download` extra。
+Python >= 3.10 的论文检索工具，接入 OpenAlex、Semantic Scholar 和 DBLP，支持教授身份确认、论文收集、归属验证、去重、公开 PDF 检索与下载，以及离线评估。元数据与 URL 阶段无第三方依赖；PDF 解析需要安装 `download` extra。
 
 真实场景指标、人工标注格式、未获取 PDF 的原因和全量运行命令见 [性能评估](docs/performance.md)，本轮实际检索和优化前后对照见 [测试报告](reports/performance/comparison.md)。代码重构中每项性能、内存改动的测量与取舍见 [优化记录](docs/optimization.md)。`output/` 下的运行产物（论文、PDF、manifest、HTTP 缓存）只保存在本地、不进入版本库，结论摘要在 `reports/`。
 
@@ -268,7 +268,7 @@ PYTHONPATH=src python3 -m paper_author_searcher.pdf_cli \
 新增独立 `PDFDownloader`、`PDFFileValidator` 和下载 CLI。只读取已有 PDF Resolver JSON，不重新解析教授身份或检索论文。默认要求 ownership=verified，且候选的 URL 验证与元数据身份状态均为 verified；`--include-needs-review` 仅放行待审核的论文归属，不能放行未经验证的 URL。rejected 论文始终跳过，原有归属状态不改变。
 
 ```bash
-# 在当前 Python 环境安装下载阶段的可选依赖；仍兼容 Python 3.8
+# 在当前 Python 环境安装下载阶段的可选依赖
 python3 -m pip install -e '.[download]'
 
 python3 -m paper_author_searcher.download_cli \
@@ -281,7 +281,7 @@ python3 -m paper_author_searcher.download_cli \
   --include-needs-review
 ```
 
-已安装项目时也可运行 `pdf-download`。使用本项目 `.venv` 时，将 `python3` 替换为 `.venv/bin/python`；当前环境需要的可信 CA 配置可继续使用 `SSL_CERT_FILE=/etc/ssl/cert.pem`。下载依赖限定为支持 Python 3.8 的 `pypdf>=5.9,<6`，原有其他阶段不必安装此可选依赖。
+已安装项目时也可运行 `pdf-download`。使用本项目 `.venv` 时，将 `python3` 替换为 `.venv/bin/python`；当前环境需要的可信 CA 配置可继续使用 `SSL_CERT_FILE=/etc/ssl/cert.pem`。下载依赖固定为 `pypdf>=5.9,<6`，原有其他阶段不必安装此可选依赖。
 
 HTTP 流式写入临时 `.part` 文件，默认限制单文件 50 MiB，逐块计算 SHA-256，核对实际大小和完整响应。重定向和 DNS 结果逐一检查，禁止本地/内网目标、凭据 URL 与非配置端口；连接固定到已经检查的公网 IP，同时保留原主机名的 TLS 验证。下载器不使用环境代理，不处理登录或验证码。
 

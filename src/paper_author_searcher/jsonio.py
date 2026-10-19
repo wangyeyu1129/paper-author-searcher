@@ -5,9 +5,9 @@ import os
 import sys
 import tempfile
 from pathlib import Path
-from typing import Any, Dict, List, Tuple, Union
+from typing import Any
 
-PathLike = Union[str, Path]
+PathLike = str | Path
 
 
 COMPACT_SEPARATORS = (',', ':')
@@ -42,7 +42,7 @@ def write_json(path: PathLike, data: Any, compact: bool = False) -> None:
 INTERN_MAXIMUM_LENGTH = 200
 
 
-def _interning_object(pairs: List[Tuple[str, Any]]) -> Dict[str, Any]:
+def _interning_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
     return {key: _intern(value) for key, value in pairs}
 
 
@@ -54,7 +54,7 @@ def _intern(value: Any) -> Any:
     return value
 
 
-def read_json(path: PathLike, intern_strings: bool = False) -> Dict[str, Any]:
+def read_json(path: PathLike, intern_strings: bool = False) -> dict[str, Any]:
     """Read a JSON file whose top level must be an object.
 
     ``intern_strings`` shares one copy of each repeated short string: about a third less memory for a large

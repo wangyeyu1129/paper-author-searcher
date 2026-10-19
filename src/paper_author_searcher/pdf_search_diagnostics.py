@@ -4,8 +4,9 @@ import argparse
 import logging
 import typing
 from collections import Counter
+from collections.abc import Sequence
 from pathlib import Path
-from typing import Any, Dict, Optional, Sequence
+from typing import Any
 
 from .json_types import JSONObject
 from .jsonio import read_json, write_json
@@ -32,7 +33,7 @@ def solely_deferred(paper: JSONObject) -> bool:
     return True
 
 
-def _resource_statistics(statistics: Optional[JSONObject]) -> JSONObject:
+def _resource_statistics(statistics: JSONObject | None) -> JSONObject:
     if not statistics:
         return {'available': False, 'note': 'Legacy report has no public-resource request trace'}
     events = statistics.get('events') or []
@@ -61,8 +62,8 @@ def _resource_statistics(statistics: Optional[JSONObject]) -> JSONObject:
     }
 
 
-def _trace_summary(pdf_report: JSONObject, papers: Dict[str, JSONObject]) -> JSONObject:
-    statuses: Dict[str, Any] = {}
+def _trace_summary(pdf_report: JSONObject, papers: dict[str, JSONObject]) -> JSONObject:
+    statuses: dict[str, Any] = {}
     warning_counts: typing.Counter[str] = Counter()
     warning_papers: typing.Counter[str] = Counter()
     for paper in papers.values():
@@ -136,7 +137,7 @@ def diagnose_search(before_directory: Path, after_directory: Path) -> JSONObject
     }
 
 
-def main(argv: Optional[Sequence[str]] = None) -> int:
+def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--before', type=Path, required=True)
     parser.add_argument('--after', type=Path, required=True)

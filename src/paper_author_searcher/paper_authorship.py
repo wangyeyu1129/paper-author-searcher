@@ -1,6 +1,7 @@
 """Source-scoped author IDs and three-valued authorship observations."""
 
-from typing import Any, List, Mapping, Optional, Sequence
+from collections.abc import Mapping, Sequence
+from typing import Any
 
 
 def canonical_author_id(source: str, value: Any) -> str:
@@ -13,8 +14,8 @@ def canonical_author_id(source: str, value: Any) -> str:
 
 
 def target_membership(
-    source: str, author_id: Any, details: Sequence[Mapping[str, Any]], complete: Optional[bool] = None
-) -> Optional[bool]:
+    source: str, author_id: Any, details: Sequence[Mapping[str, Any]], complete: bool | None = None
+) -> bool | None:
     expected = canonical_author_id(source, author_id)
     for author in details:
         if expected and canonical_author_id(source, author.get('author_id')) == expected:
@@ -26,7 +27,7 @@ def target_membership(
     return None
 
 
-def signature_names(author: Mapping[str, Any]) -> List[str]:
+def signature_names(author: Mapping[str, Any]) -> list[str]:
     # Prefer the printed byline to the resolved profile name when both exist.
     raw_name = author.get('raw_author_name')
     if raw_name:
@@ -36,7 +37,7 @@ def signature_names(author: Mapping[str, Any]) -> List[str]:
     return []
 
 
-def byline_forms(name: str) -> List[str]:
+def byline_forms(name: str) -> list[str]:
     forms = [name]
     parts = name.split(',')
     if len(parts) == 2 and all(part.strip() for part in parts):

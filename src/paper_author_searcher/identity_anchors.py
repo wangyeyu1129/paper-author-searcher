@@ -6,7 +6,7 @@ An anchor is independent of the name search, so it separates namesakes and ties 
 import re
 from dataclasses import dataclass, field
 from html import unescape
-from typing import Dict, List, Optional, Protocol, Set
+from typing import Protocol
 from urllib.parse import quote
 
 from .config import DEFAULT_ANCHORS, DEFAULT_MATCHING, DEFAULT_SOURCES
@@ -24,16 +24,16 @@ ARXIV_HINT = re.compile(r'^(?:arxiv:)?(\d{4}\.\d{4,5})(?:v\d+)?$', re.IGNORECASE
 
 @dataclass
 class IdentityAnchors:
-    author_ids: Dict[str, Set[str]] = field(default_factory=dict)
-    orcid: Optional[str] = None
-    evidence: List[AnchorEvidence] = field(default_factory=list)
-    errors: List[str] = field(default_factory=list)
+    author_ids: dict[str, set[str]] = field(default_factory=dict)
+    orcid: str | None = None
+    evidence: list[AnchorEvidence] = field(default_factory=list)
+    errors: list[str] = field(default_factory=list)
 
     def add(self, source: str, author_id: str, reason: str) -> None:
         self.author_ids.setdefault(source, set()).add(str(author_id))
         self.evidence.append(AnchorEvidence(source, str(author_id), reason))
 
-    def evidence_for(self, source: str, author_id: str) -> List[AnchorEvidence]:
+    def evidence_for(self, source: str, author_id: str) -> list[AnchorEvidence]:
         return [item for item in self.evidence if item.source == source and item.author_id == str(author_id)]
 
     def contains(self, source: str, author_id: str) -> bool:
@@ -47,9 +47,9 @@ class AnchorFinder(Protocol):
     def find(self, query) -> IdentityAnchors: ...
 
 
-def paper_hints(values: List[str]) -> Dict[str, List[str]]:
+def paper_hints(values: list[str]) -> dict[str, list[str]]:
     """Split free-form known papers into DOIs, arXiv IDs and titles."""
-    hints: Dict[str, List[str]] = {'doi': [], 'arxiv': [], 'title': []}
+    hints: dict[str, list[str]] = {'doi': [], 'arxiv': [], 'title': []}
     for value in values:
         value = value.strip()
         doi = DOI_IN_TEXT.search(value)
@@ -63,7 +63,7 @@ def paper_hints(values: List[str]) -> Dict[str, List[str]]:
     return hints
 
 
-def homepage_papers(html: str) -> List[str]:
+def homepage_papers(html: str) -> list[str]:
     """DOIs and arXiv IDs linked from a researcher's page, in order of appearance."""
     text = unescape(html)
     found = [match.group(0).rstrip('.,;') for match in DOI_IN_TEXT.finditer(text)]
@@ -80,8 +80,8 @@ class ScholarlyAnchorFinder:
         source_config=DEFAULT_SOURCES,
         matching_config=DEFAULT_MATCHING,
         anchor_config=DEFAULT_ANCHORS,
-        openalex_api_key: Optional[str] = None,
-        semantic_scholar_api_key: Optional[str] = None,
+        openalex_api_key: str | None = None,
+        semantic_scholar_api_key: str | None = None,
     ) -> None:
         self.client = client
         self.openalex_url = source_config.openalex_url.rstrip('/')
@@ -122,7 +122,7 @@ class ScholarlyAnchorFinder:
         response = self.client.probe(url, 1024, self.config.homepage_bytes, self.config.maximum_redirects)
         return decode_response(response)
 
-    def _compatible(self, query, name: Optional[str]) -> bool:
+    def _compatible(self, query, name: str | None) -> bool:
         if not name:
             return False
         # Paper bylines often abbreviate given names ("M. Lin"), which plain similarity rejects.

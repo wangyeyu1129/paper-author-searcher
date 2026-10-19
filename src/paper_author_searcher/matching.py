@@ -2,9 +2,10 @@
 
 import re
 import unicodedata
+from collections.abc import Callable, Iterable, Sequence
 from difflib import SequenceMatcher
 from functools import lru_cache
-from typing import Any, Callable, Dict, Iterable, Optional, Sequence
+from typing import Any
 
 from .config import DEFAULT_MATCHING, MatchingConfig
 
@@ -32,7 +33,7 @@ def _compatible_middle_names(left: Sequence[str], right: Sequence[str]) -> bool:
         return True
     if len(left) != len(right):
         return False
-    for left_name, right_name in zip(left, right):
+    for left_name, right_name in zip(left, right, strict=True):
         if left_name == right_name:
             continue
         same_initial = left_name[0] == right_name[0]
@@ -116,7 +117,7 @@ def research_similarity(left: str, right: str) -> float:
     return SequenceMatcher(None, normalize(left), normalize(right)).ratio()
 
 
-def canonical_orcid(value: Optional[str]) -> Optional[str]:
+def canonical_orcid(value: str | None) -> str | None:
     if value:
         return value.rstrip('/').rsplit('/', 1)[-1]
     return None
@@ -147,8 +148,8 @@ SIMILARITY_CACHES = {
 }
 
 
-def similarity_cache_statistics() -> Dict[str, Dict[str, Any]]:
-    statistics: Dict[str, Dict[str, Any]] = {}
+def similarity_cache_statistics() -> dict[str, dict[str, Any]]:
+    statistics: dict[str, dict[str, Any]] = {}
     for name, function in SIMILARITY_CACHES.items():
         info = function.cache_info()
         lookups = info.hits + info.misses

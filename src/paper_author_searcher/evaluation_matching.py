@@ -1,7 +1,7 @@
 """Ground-truth matching independent of retrieval/ownership heuristics."""
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional, Set, Tuple
+from typing import Any
 
 from .matching import canonical_doi, normalize
 from .paper_authorship import byline_forms
@@ -12,9 +12,9 @@ MATCHING_RULES_VERSION = 2
 
 @dataclass
 class GroundTruth:
-    papers: List[dict]
+    papers: list[dict]
     complete_positive_list: bool = False
-    professor: Optional[dict] = None
+    professor: dict | None = None
     metadata: dict = field(default_factory=dict)
 
     @classmethod
@@ -147,9 +147,9 @@ def metadata_key(paper):
 
 @dataclass
 class TruthMatch:
-    evaluation_id: Optional[str] = None
-    candidates: List[str] = field(default_factory=list)
-    evidence: List[str] = field(default_factory=list)
+    evaluation_id: str | None = None
+    candidates: list[str] = field(default_factory=list)
+    evidence: list[str] = field(default_factory=list)
     decision: str = 'unmatched'
 
 
@@ -158,8 +158,8 @@ class GroundTruthMatcher:
         self.truth = truth
         self.by_id = {paper['evaluation_id']: paper for paper in truth.papers}
         self.identifiers = {}
-        self.metadata: Dict[Any, Dict[str, Set[str]]] = {}
-        self.title_year: Dict[Tuple[str, Any], List[Any]] = {}
+        self.metadata: dict[Any, dict[str, set[str]]] = {}
+        self.title_year: dict[tuple[str, Any], list[Any]] = {}
         for paper in truth.papers:
             evaluation_id = paper['evaluation_id']
             for key in stable_identifiers(paper):
@@ -247,7 +247,7 @@ def bibliographic_name_agrees(left, right):
         return True
     if len(middle_left) != len(middle_right):
         return False
-    return all(_name_token_agrees(a, b) for a, b in zip(middle_left, middle_right))
+    return all(_name_token_agrees(a, b) for a, b in zip(middle_left, middle_right, strict=True))
 
 
 def _name_token_agrees(left, right):
@@ -263,7 +263,7 @@ def _bibliographic_authors_agree(left, right):
     for name in left:
         choices.append([index for index, other in enumerate(right) if bibliographic_name_agrees(name, other)])
     # A complete matching avoids greedily assigning an abbreviated name to the wrong author.
-    assigned: Dict[str, Any] = {}
+    assigned: dict[str, Any] = {}
 
     def assign(position, visited):
         for index in choices[position]:

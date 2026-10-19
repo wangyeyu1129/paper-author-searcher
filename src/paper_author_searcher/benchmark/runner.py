@@ -1,10 +1,11 @@
 """Run the search system once per benchmark person and keep a resumable run index."""
 
 import logging
+from collections.abc import Callable, Iterable
 from dataclasses import asdict, replace
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Callable, Dict, Iterable, Optional, Protocol, Tuple
+from typing import Any, Protocol
 
 from paper_author_searcher.composition import RunOptions, ServiceContainer
 from paper_author_searcher.jsonio import read_json, write_json
@@ -37,7 +38,7 @@ class SearchSystem(Protocol):
     def search(self, person: BenchmarkPerson, output_dir: Path) -> dict: ...
 
 
-def window_archive(archive: dict, window: Tuple[int, int]) -> dict:
+def window_archive(archive: dict, window: tuple[int, int]) -> dict:
     """Keep collected papers whose year falls in the window (or is unknown); decisions are untouched."""
     start, end = window
     # Copy only the containers that change; paper dicts are shared (nothing downstream mutates them).
@@ -76,8 +77,8 @@ class WorkflowSearchSystem:
     def __init__(
         self,
         run: RunSettings,
-        settings: Optional[BenchmarkSettings] = None,
-        workflow_factory: Optional[Callable] = None,
+        settings: BenchmarkSettings | None = None,
+        workflow_factory: Callable | None = None,
     ) -> None:
         if workflow_factory is None:
             workflow_factory = default_workflow_factory
@@ -123,7 +124,7 @@ class WorkflowSearchSystem:
 
 class BenchmarkRunner:
     def __init__(
-        self, settings: BenchmarkSettings, system: SearchSystem, progress: Optional[Callable[[str], None]] = None
+        self, settings: BenchmarkSettings, system: SearchSystem, progress: Callable[[str], None] | None = None
     ) -> None:
         self.settings = settings
         self.system = system
@@ -133,7 +134,7 @@ class BenchmarkRunner:
         self,
         people: Iterable[BenchmarkPerson],
         run_id: str,
-        metadata: Optional[Dict[str, object]] = None,
+        metadata: dict[str, object] | None = None,
         rerun: bool = False,
     ) -> dict:
         root = self.settings.paths.runs / run_id
@@ -161,7 +162,7 @@ class BenchmarkRunner:
                 )
                 continue
             self.progress(f'[{position}/{len(people)}] {person.person_id} searching')
-            entry: Dict[str, Any] = {'started_at': _now(), 'status': RunStatus.RUNNING}
+            entry: dict[str, Any] = {'started_at': _now(), 'status': RunStatus.RUNNING}
             index['people'][person.person_id] = entry
             write_json(index_path, index)
             try:
@@ -190,7 +191,7 @@ class BenchmarkRunner:
         write_json(index_path, index)
         return index
 
-    def budget_summary(self) -> Optional[dict]:
+    def budget_summary(self) -> dict | None:
         from paper_author_searcher.http_budget import ledger_summary
 
         return ledger_summary(self.settings.run.cost_ledger)

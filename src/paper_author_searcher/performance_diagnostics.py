@@ -3,7 +3,6 @@
 import re
 import typing
 from collections import Counter
-from typing import List
 
 from .config import DEFAULT_OWNERSHIP, OwnershipConfig
 from .json_types import JSONList, JSONObject
@@ -63,7 +62,7 @@ def workflow_outcomes(report: JSONObject) -> JSONObject:
     }
 
 
-def pdf_failure_reasons(paper: JSONObject) -> List[str]:
+def pdf_failure_reasons(paper: JSONObject) -> list[str]:
     reasons = set()
     status = paper.get('validation_status')
     download = paper.get('download_status', '')
@@ -161,7 +160,7 @@ def pdf_failure_reasons(paper: JSONObject) -> List[str]:
     return sorted(reasons)
 
 
-def review_reasons(paper: JSONObject, config: OwnershipConfig = DEFAULT_OWNERSHIP) -> List[str]:
+def review_reasons(paper: JSONObject, config: OwnershipConfig = DEFAULT_OWNERSHIP) -> list[str]:
     if paper.get('ownership_status') != OwnershipStatus.NEEDS_REVIEW:
         return []
     reasons = set()

@@ -8,7 +8,7 @@ import json
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Protocol, Tuple
+from typing import Any, Protocol
 
 from .roster import BenchmarkPerson, TruthSourceSpec
 
@@ -22,28 +22,28 @@ YEAR = re.compile(r'(19|20)\d{2}')
 @dataclass
 class TruthRecord:
     title: str
-    year: Optional[int]
-    authors: List[str]
+    year: int | None
+    authors: list[str]
     source_kind: str
     evidence: str
-    doi: Optional[str] = None
-    external_ids: Dict[str, str] = field(default_factory=dict)
-    venue: Optional[str] = None
-    work_type: Optional[str] = None
-    related_dois: List[str] = field(default_factory=list)
+    doi: str | None = None
+    external_ids: dict[str, str] = field(default_factory=dict)
+    venue: str | None = None
+    work_type: str | None = None
+    related_dois: list[str] = field(default_factory=list)
 
 
 class TruthSource(Protocol):
     kind: str
 
-    def load(self, person: BenchmarkPerson, spec: TruthSourceSpec, snapshot_dir: Path) -> List[TruthRecord]: ...
+    def load(self, person: BenchmarkPerson, spec: TruthSourceSpec, snapshot_dir: Path) -> list[TruthRecord]: ...
 
 
 class TruthSourceRegistry:
     """Open for new bibliography formats without editing the builder."""
 
     def __init__(self) -> None:
-        self._sources: Dict[str, TruthSource] = {}
+        self._sources: dict[str, TruthSource] = {}
 
     def register(self, source: TruthSource) -> 'TruthSourceRegistry':
         if source.kind in self._sources:
@@ -57,18 +57,18 @@ class TruthSourceRegistry:
         except KeyError:
             raise ValueError('Unknown truth source kind: ' + kind) from None
 
-    def kinds(self) -> List[str]:
+    def kinds(self) -> list[str]:
         return sorted(self._sources)
 
 
-def clean_doi(value: Optional[str]) -> Optional[str]:
+def clean_doi(value: str | None) -> str | None:
     if not value:
         return None
     match = DOI_PATTERN.search(value.strip())
     return match.group(0).rstrip('.,;)').lower() if match else None
 
 
-def clean_arxiv(value: Optional[str]) -> Optional[str]:
+def clean_arxiv(value: str | None) -> str | None:
     if not value:
         return None
     match = ARXIV_ID.search(value.strip())
@@ -86,7 +86,7 @@ def vancouver_name(name: str) -> str:
     return ' '.join([letter + '.' for letter in match.group('initials')] + [match.group('family')])
 
 
-def parse_year(value: Any) -> Optional[int]:
+def parse_year(value: Any) -> int | None:
     if value is None:
         return None
     match = YEAR.search(str(value))
@@ -140,7 +140,7 @@ class OrcidSource:
 
     kind = 'orcid'
 
-    def load(self, person: BenchmarkPerson, spec: TruthSourceSpec, snapshot_dir: Path) -> List[TruthRecord]:
+    def load(self, person: BenchmarkPerson, spec: TruthSourceSpec, snapshot_dir: Path) -> list[TruthRecord]:
         path = snapshot_path(snapshot_dir, orcid_snapshot_name(spec.locator))
         with path.open(encoding='utf-8') as handle:
             snapshot = json.load(handle)
@@ -149,9 +149,9 @@ class OrcidSource:
             title = _value(work, 'title', 'title', 'value')
             if not title:
                 continue
-            doi: Optional[str] = None
-            related: List[str] = []
-            external: Dict[str, str] = {}
+            doi: str | None = None
+            related: list[str] = []
+            external: dict[str, str] = {}
             for identifier in _value(work, 'external-ids', 'external-id') or []:
                 if identifier.get('external-id-relationship') not in ORCID_IDENTIFIER_RELATIONSHIPS:
                     continue
@@ -187,7 +187,7 @@ class OrcidSource:
         return records
 
 
-def pubmed_identifiers(pmid: str) -> Dict[str, str]:
+def pubmed_identifiers(pmid: str) -> dict[str, str]:
     # Semantic Scholar stores the bare PMID; OpenAlex stores the PubMed URL.
     return {'pubmed': pmid, 'pmid': 'https://pubmed.ncbi.nlm.nih.gov/' + pmid}
 
@@ -214,9 +214,9 @@ def latex_text(value: str) -> str:
     return ' '.join(value.replace('{', '').replace('}', '').replace('~', ' ').split())
 
 
-def bibtex_entries(text: str) -> List[Dict[str, str]]:
+def bibtex_entries(text: str) -> list[dict[str, str]]:
     """Small brace-aware parser; enough for author-published .bib files, no third-party dependency."""
-    entries: List[Any] = []
+    entries: list[Any] = []
     position = 0
     while True:
         start = text.find('@', position)
@@ -254,7 +254,7 @@ def bibtex_entries(text: str) -> List[Dict[str, str]]:
 FIELD_NAME = re.compile(r'[\s,]*([A-Za-z_\-]+)\s*=\s*')
 
 
-def _bibtex_value(text: str, cursor: int) -> Tuple[str, int]:
+def _bibtex_value(text: str, cursor: int) -> tuple[str, int]:
     """Return one field value and the index after it: braced, quoted or bare (numbers, macros)."""
     if cursor >= len(text):
         return '', cursor
@@ -279,7 +279,7 @@ class BibtexSource:
 
     kind = 'bibtex'
 
-    def load(self, person: BenchmarkPerson, spec: TruthSourceSpec, snapshot_dir: Path) -> List[TruthRecord]:
+    def load(self, person: BenchmarkPerson, spec: TruthSourceSpec, snapshot_dir: Path) -> list[TruthRecord]:
         text = snapshot_path(snapshot_dir, spec.locator).read_text(encoding='utf-8')
         records = []
         for entry in bibtex_entries(text):
@@ -320,7 +320,7 @@ class ManualListSource:
 
     kind = 'manual'
 
-    def load(self, person: BenchmarkPerson, spec: TruthSourceSpec, snapshot_dir: Path) -> List[TruthRecord]:
+    def load(self, person: BenchmarkPerson, spec: TruthSourceSpec, snapshot_dir: Path) -> list[TruthRecord]:
         with snapshot_path(snapshot_dir, spec.locator).open(encoding='utf-8') as handle:
             snapshot = json.load(handle)
         origin = snapshot.get('source_url') or spec.url

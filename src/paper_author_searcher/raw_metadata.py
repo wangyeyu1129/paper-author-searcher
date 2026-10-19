@@ -5,12 +5,13 @@ locations and identifiers), so saved PDF sources need no new requests. ``none`` 
 queries the sources again.
 """
 
-from typing import Any, Dict, Iterable, Mapping, Tuple
+from collections.abc import Iterable, Mapping
+from typing import Any
 
 from .config import RawMetadataPolicy
 
 # Fields of the raw payload that downstream stages read, per source.
-RETAINED_FIELDS: Mapping[str, Tuple[str, ...]] = {
+RETAINED_FIELDS: Mapping[str, tuple[str, ...]] = {
     'openalex': (
         'id',
         'doi',
@@ -25,7 +26,7 @@ RETAINED_FIELDS: Mapping[str, Tuple[str, ...]] = {
 }
 
 
-def retained(source: str, raw: Mapping[str, Any], policy: RawMetadataPolicy) -> Dict[str, Any]:
+def retained(source: str, raw: Mapping[str, Any], policy: RawMetadataPolicy) -> dict[str, Any]:
     if policy is RawMetadataPolicy.FULL:
         return dict(raw)
     if policy is RawMetadataPolicy.NONE:

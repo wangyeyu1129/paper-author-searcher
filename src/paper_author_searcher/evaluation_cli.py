@@ -3,8 +3,8 @@
 import argparse
 import json
 import logging
+from collections.abc import Sequence
 from pathlib import Path
-from typing import Optional, Sequence
 
 from .evaluation import Evaluator
 from .evaluation_matching import GroundTruth
@@ -14,7 +14,7 @@ from .status import AnnotationState
 logger = logging.getLogger(__name__)
 
 
-def main(argv: Optional[Sequence[str]] = None) -> int:
+def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description='Evaluate a saved collection against human ground truth')
     parser.add_argument('--result', type=Path, required=True, help='Saved resolver/collection JSON')
     parser.add_argument('--ground-truth', type=Path, required=True, help='Human-adjudicated ground truth JSON')

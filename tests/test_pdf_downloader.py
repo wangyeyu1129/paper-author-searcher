@@ -430,8 +430,9 @@ class DownloadCLITests(unittest.TestCase):
             output = Path(directory) / 'downloads'
             source.write_text(json.dumps({'papers': [target()]}))
             downloader = PDFDownloader(fake_client(), fake_validator())
-            with patch('paper_author_searcher.pdf_downloader.PDFDownloader', return_value=downloader), patch(
-                'builtins.print'
+            with (
+                patch('paper_author_searcher.pdf_downloader.PDFDownloader', return_value=downloader),
+                patch('builtins.print'),
             ):
                 self.assertEqual(main(['--input', str(source), '--output-dir', str(output), '--max-downloads', '1']), 0)
             self.assertTrue((output / 'manifest.json').is_file())
@@ -455,8 +456,9 @@ class DownloadCLITests(unittest.TestCase):
             source = Path(directory) / 'urls.json'
             source.write_text(json.dumps({'papers': [target()]}))
             downloader = PDFDownloader(fake_client(), fake_validator('needs_review'))
-            with patch('paper_author_searcher.pdf_downloader.PDFDownloader', return_value=downloader), patch(
-                'builtins.print'
+            with (
+                patch('paper_author_searcher.pdf_downloader.PDFDownloader', return_value=downloader),
+                patch('builtins.print'),
             ):
                 code = main(['--input', str(source), '--output-dir', str(Path(directory) / 'downloads')])
             self.assertEqual(code, 2)

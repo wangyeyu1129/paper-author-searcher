@@ -169,9 +169,10 @@ class ProbeTests(unittest.TestCase):
     def test_http_rate_limit_retries_bounded(self):
         opener = Mock()
         opener.open.side_effect = [HTTPError(URL, 429, 'limit', {'Retry-After': '3'}, None), Response()]
-        with patch('paper_author_searcher.http.secure_download_opener', return_value=opener), patch(
-            'paper_author_searcher.http.time.sleep'
-        ) as sleep:
+        with (
+            patch('paper_author_searcher.http.secure_download_opener', return_value=opener),
+            patch('paper_author_searcher.http.time.sleep') as sleep,
+        ):
             self.assertEqual(HttpClient(retries=1).probe(URL).status, 200)
         self.assertEqual(sleep.call_args[0][0], 3)
         self.assertEqual(opener.open.call_count, 2)
@@ -179,8 +180,9 @@ class ProbeTests(unittest.TestCase):
     def test_network_errors_retry_then_keep_error(self):
         opener = Mock()
         opener.open.side_effect = URLError('timed out')
-        with patch('paper_author_searcher.http.secure_download_opener', return_value=opener), patch(
-            'paper_author_searcher.http.time.sleep'
+        with (
+            patch('paper_author_searcher.http.secure_download_opener', return_value=opener),
+            patch('paper_author_searcher.http.time.sleep'),
         ):
             with self.assertRaises(SourceError):
                 HttpClient(retries=1).probe(URL)

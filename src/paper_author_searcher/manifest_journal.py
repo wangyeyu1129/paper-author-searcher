@@ -8,8 +8,9 @@ mid-write) is ignored, so every complete line is durable and nothing half-writte
 
 import json
 import os
+from collections.abc import Iterator
 from pathlib import Path
-from typing import IO, Any, Dict, Iterator, List, Optional
+from typing import IO, Any
 
 JOURNAL_SUFFIX = '.journal.jsonl'
 
@@ -21,9 +22,9 @@ def journal_path(manifest_path: Path) -> Path:
 class ManifestJournal:
     def __init__(self, path: Path) -> None:
         self.path = Path(path)
-        self._handle: Optional[IO[str]] = None
+        self._handle: IO[str] | None = None
 
-    def append(self, entry: Dict[str, Any]) -> None:
+    def append(self, entry: dict[str, Any]) -> None:
         if self.path.is_symlink():
             raise ValueError('Manifest journal must not be a symlink')
         if self._handle is None:
@@ -32,7 +33,7 @@ class ManifestJournal:
         self._handle.flush()
         os.fsync(self._handle.fileno())
 
-    def entries(self) -> Iterator[Dict[str, Any]]:
+    def entries(self) -> Iterator[dict[str, Any]]:
         if not self.path.exists():
             return
         if self.path.is_symlink():
@@ -60,9 +61,9 @@ class ManifestJournal:
             self.path.unlink()
 
 
-def replay(manifest: Dict[str, Any], entries: Iterator[Dict[str, Any]]) -> Dict[str, Any]:
+def replay(manifest: dict[str, Any], entries: Iterator[dict[str, Any]]) -> dict[str, Any]:
     """Apply journal records to a snapshot: each entry carries the full record of one input paper."""
-    papers: List[Dict[str, Any]] = list(manifest.get('papers') or [])
+    papers: list[dict[str, Any]] = list(manifest.get('papers') or [])
     run_size = (manifest.get('statistics') or {}).get('total_input_papers', 0)
     for entry in entries:
         record = entry.get('record')

@@ -213,18 +213,22 @@ class SemanticRequestTests(unittest.TestCase):
 
 class ContactTests(unittest.TestCase):
     def test_required_unpaywall_stops_cli_before_any_provider_requests(self):
-        with patch.dict('os.environ', {}, clear=True), patch('sys.stderr'), patch(
-            'paper_author_searcher.composition.PDFResolver'
-        ) as resolver:
+        with (
+            patch.dict('os.environ', {}, clear=True),
+            patch('sys.stderr'),
+            patch('paper_author_searcher.composition.PDFResolver') as resolver,
+        ):
             with self.assertRaises(SystemExit) as raised:
                 pdf_main(['--input', 'missing.json', '--output', 'result.json', '--require-unpaywall'])
         self.assertEqual(raised.exception.code, 2)
         resolver.assert_not_called()
 
     def test_required_unpaywall_stops_workflow_before_building_stages(self):
-        with patch.dict('os.environ', {}, clear=True), patch('sys.stderr'), patch(
-            'paper_author_searcher.workflow_cli.build_workflow'
-        ) as workflow:
+        with (
+            patch.dict('os.environ', {}, clear=True),
+            patch('sys.stderr'),
+            patch('paper_author_searcher.workflow_cli.build_workflow') as workflow,
+        ):
             with self.assertRaises(SystemExit) as raised:
                 workflow_main(['--input', 'missing.json', '--mode', 'full', '--require-unpaywall'])
         self.assertEqual(raised.exception.code, 2)

@@ -4,11 +4,12 @@ import logging
 import re
 import uuid
 from abc import ABC, abstractmethod
+from collections.abc import Callable, Sequence
 from copy import deepcopy
 from dataclasses import asdict, dataclass, fields
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Callable, ClassVar, Dict, FrozenSet, List, Optional, Sequence, Tuple, Union
+from typing import Any, ClassVar
 
 from .config import DEFAULT_COLLECTION, DEFAULT_MATCHING, DEFAULT_STORAGE, AmbiguityPolicy, StorageConfig
 from .json_types import JSONObject
@@ -25,7 +26,7 @@ logger = logging.getLogger(__name__)
 MODES = ('metadata', 'pdf-urls', 'full')
 
 
-def load_checkpoint(path: Union[str, Path], intern_strings: bool = False) -> JSONObject:
+def load_checkpoint(path: str | Path, intern_strings: bool = False) -> JSONObject:
     """Report references are local artifacts, never arbitrary paths or URLs."""
     path = Path(path).resolve()
     data = read_json(path, intern_strings)
@@ -91,7 +92,7 @@ def contender_profile(result: ResolutionResult, maximum_contenders: int, margin:
     ][:maximum_contenders]
     merged = deepcopy(best)
     merged.status = ResolutionStatus.AMBIGUOUS_CONTENDERS
-    aliases: Dict[str, Any] = {}
+    aliases: dict[str, Any] = {}
     for candidate in contenders:
         for source, author_id in candidate.author_ids.items():
             aliases.setdefault(source, [])
@@ -109,11 +110,11 @@ def contender_profile(result: ResolutionResult, maximum_contenders: int, margin:
 
 def _select_identity(
     result: ResolutionResult,
-    selection: Optional[str],
+    selection: str | None,
     policy: str = 'stop',
     maximum_contenders: int = 3,
     margin: float = 0.1,
-) -> Tuple[ProfessorProfile, Optional[Tuple[str, str]]]:
+) -> tuple[ProfessorProfile, tuple[str, str] | None]:
     if selection:
         if ':' not in selection:
             raise IdentityConfirmationRequired('Selection must use SOURCE:AUTHOR_ID')
@@ -143,7 +144,7 @@ def _is_pdf_report(saved: JSONObject) -> bool:
     return 'validation_scope' in saved and isinstance(saved.get('papers'), list)
 
 
-def _paper_entries(saved: JSONObject) -> List[JSONObject]:
+def _paper_entries(saved: JSONObject) -> list[JSONObject]:
     collection = saved.get('collection', saved)
     papers = collection.get('all_papers', collection.get('papers'))
     if not isinstance(papers, list) or not all(isinstance(item, dict) for item in papers):
@@ -152,7 +153,7 @@ def _paper_entries(saved: JSONObject) -> List[JSONObject]:
 
 
 def metadata_audit(
-    original: List[JSONObject], pdf: Optional[JSONObject] = None, manifest: Optional[JSONObject] = None
+    original: list[JSONObject], pdf: JSONObject | None = None, manifest: JSONObject | None = None
 ) -> JSONObject:
     """Missing source data is separate from evidence lost between stages."""
     audited_fields = (
@@ -173,7 +174,7 @@ def metadata_audit(
     for stage, downstream in (('pdf_urls', pdf), ('download', manifest)):
         if downstream is None:
             continue
-        for index, (before, after) in enumerate(zip(original, downstream.get('papers', []))):
+        for index, (before, after) in enumerate(zip(original, downstream.get('papers', []), strict=False)):
             for field in audited_fields:
                 value = before.get(field)
                 if value not in (None, '', []) and after.get(field) != value:
@@ -203,13 +204,13 @@ COLLECTION_STAGES = ('Collecting papers', 'Deduplicating papers', 'Validating ow
 class RunRequest:
     """What one workflow run was asked to do."""
 
-    query: Optional[ProfessorQuery]
-    saved: Optional[JSONObject]
+    query: ProfessorQuery | None
+    saved: JSONObject | None
     mode: str
-    selected_author: Optional[str]
+    selected_author: str | None
     include_needs_review: bool
-    maximum_pdf_papers: Optional[int]
-    maximum_downloads: Optional[int]
+    maximum_pdf_papers: int | None
+    maximum_downloads: int | None
 
 
 @dataclass
@@ -220,9 +221,9 @@ class RunContext:
     root: Path
     report: JSONObject
     progress: Callable[..., None]
-    archive: Optional[JSONObject] = None
-    pdf: Optional[JSONObject] = None
-    manifest: Optional[JSONObject] = None
+    archive: JSONObject | None = None
+    pdf: JSONObject | None = None
+    manifest: JSONObject | None = None
     halted: bool = False
     compact_artifacts: bool = True
 
@@ -235,7 +236,7 @@ class WorkflowStage(ABC):
     """One checkpointed step of the pipeline; it runs only in the modes it declares."""
 
     name: ClassVar[str]
-    modes: ClassVar[FrozenSet[str]] = frozenset(MODES)
+    modes: ClassVar[frozenset[str]] = frozenset(MODES)
 
     def applies(self, context: RunContext) -> bool:
         return context.request.mode in self.modes
@@ -265,7 +266,7 @@ class IdentityAndCollectionStage(WorkflowStage):
         context.write_artifact('papers', 'papers.json', archive)
         context.report['collection_statistics'] = archive.get('collection', archive).get('statistics', {})
 
-    def _prepare_input(self, context: RunContext) -> Tuple[JSONObject, Optional[JSONObject]]:
+    def _prepare_input(self, context: RunContext) -> tuple[JSONObject, JSONObject | None]:
         request, report = context.request, context.report
         query, saved, selection = request.query, request.saved, request.selected_author
         if saved is not None and (_is_pdf_report(saved) or 'collection' in saved):
@@ -446,10 +447,10 @@ class PaperSearchWorkflow:
         collector: Any = None,
         pdf_resolver: Any = None,
         downloader: Any = None,
-        progress: Optional[Callable[..., None]] = None,
+        progress: Callable[..., None] | None = None,
         collection_config: Any = DEFAULT_COLLECTION,
         matching_config: Any = DEFAULT_MATCHING,
-        stages: Optional[Sequence[WorkflowStage]] = None,
+        stages: Sequence[WorkflowStage] | None = None,
         storage: StorageConfig = DEFAULT_STORAGE,
     ) -> None:
         self.resolver = resolver
@@ -464,7 +465,7 @@ class PaperSearchWorkflow:
         self.storage = storage
 
     @property
-    def stages(self) -> List[WorkflowStage]:
+    def stages(self) -> list[WorkflowStage]:
         """Injected stages, or the default pipeline over the configured services (read at run time)."""
         if self._stages is not None:
             return self._stages
@@ -474,7 +475,7 @@ class PaperSearchWorkflow:
             DownloadStage(self.downloader),
         ]
 
-    def _progress(self, stage: str, completed: Optional[int] = None, total: Optional[int] = None) -> None:
+    def _progress(self, stage: str, completed: int | None = None, total: int | None = None) -> None:
         self.current_stage = stage
         if self.progress:
             self.progress(stage, completed, total)
@@ -496,14 +497,14 @@ class PaperSearchWorkflow:
 
     def run(
         self,
-        query: Optional[ProfessorQuery] = None,
-        saved: Optional[JSONObject] = None,
+        query: ProfessorQuery | None = None,
+        saved: JSONObject | None = None,
         output_dir: Any = 'output',
         mode: str = 'full',
-        selected_author: Optional[str] = None,
+        selected_author: str | None = None,
         include_needs_review: bool = False,
-        maximum_pdf_papers: Optional[int] = None,
-        maximum_downloads: Optional[int] = None,
+        maximum_pdf_papers: int | None = None,
+        maximum_downloads: int | None = None,
         resume_dir: Any = None,
     ) -> JSONObject:
         if mode not in MODES:

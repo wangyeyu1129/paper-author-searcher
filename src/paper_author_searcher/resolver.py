@@ -4,7 +4,7 @@ import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from itertools import combinations
-from typing import Any, Dict, List
+from typing import Any
 
 from .config import DEFAULT_MATCHING
 from .identity import IdentityLink, compare_identity, names_may_match
@@ -32,10 +32,10 @@ class ProfileSignals:
     department: float
     research: float
     university_status: str
-    affiliations: List[str]
-    topics: List[str]
-    links: List[IdentityLink]
-    anchors: List[AnchorEvidence]
+    affiliations: list[str]
+    topics: list[str]
+    links: list[IdentityLink]
+    anchors: list[AnchorEvidence]
     orcid_conflict: bool
 
 
@@ -161,7 +161,7 @@ class ProfessorResolver:
         return records, errors
 
     def _group_candidates(self, records):
-        groups: List[Any] = []
+        groups: list[Any] = []
         for candidate in records:
             matching_group = None
             for group in groups:
@@ -389,8 +389,8 @@ class ProfessorResolver:
             university = query.university
         if school_ok and confidence >= self.config.resolved_confidence:
             status = ResolutionStatus.RESOLVED
-        author_ids: Dict[str, Any] = {}
-        author_id_aliases: Dict[str, Any] = {}
+        author_ids: dict[str, Any] = {}
+        author_id_aliases: dict[str, Any] = {}
         matched_affiliations = []
         universities = [query.university, *query.university_aliases]
         for affiliation in signals.affiliations:

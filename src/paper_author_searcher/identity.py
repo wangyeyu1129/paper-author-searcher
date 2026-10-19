@@ -1,7 +1,6 @@
 """Cross-source identity evidence, separate from query ranking."""
 
 from dataclasses import dataclass, field
-from typing import List, Set, Tuple
 
 from .config import DEFAULT_MATCHING, MatchingConfig
 from .matching import (
@@ -21,7 +20,7 @@ class IdentityLink:
     matched: bool = False
     shared_orcid: bool = False
     shared_dois: int = 0
-    evidence: List[str] = field(default_factory=list)
+    evidence: list[str] = field(default_factory=list)
     reason: str = 'Insufficient shared identity evidence'
     split_profile: bool = False
     conflict: bool = False
@@ -95,7 +94,7 @@ def compare_identity(
 
 def _shared_context(
     left: AuthorCandidate, right: AuthorCandidate, config: MatchingConfig
-) -> Tuple[Set[str], Set[str], float]:
+) -> tuple[set[str], set[str], float]:
     shared_coauthors = set(map(normalize, left.coauthors)) & set(map(normalize, right.coauthors))
     shared_coauthors.difference_update(map(normalize, [left.name, right.name, *left.aliases, *right.aliases]))
     shared_topics = set(map(normalize, left.topics)) & set(map(normalize, right.topics))
@@ -149,7 +148,7 @@ def split_profile_link(
 
 def link_evidence(
     left: AuthorCandidate, right: AuthorCandidate, config: MatchingConfig = DEFAULT_MATCHING
-) -> List[str]:
+) -> list[str]:
     return compare_identity(left, right, config).evidence
 
 

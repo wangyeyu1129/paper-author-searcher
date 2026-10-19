@@ -2,8 +2,9 @@
 
 import logging
 import threading
+from collections.abc import Callable, Iterable, Mapping, Sequence
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Sequence, Tuple
+from typing import Any
 
 from .config import DEFAULT_COLLECTION, DEFAULT_DEDUPLICATION, DeduplicationConfig, RawMetadataPolicy
 from .logging_config import log_isolated_failure
@@ -35,9 +36,9 @@ class PaperCollector:
     def __init__(
         self,
         providers: Iterable[PaperProvider],
-        ownership_validator: Optional[PaperOwnershipValidator] = None,
+        ownership_validator: PaperOwnershipValidator | None = None,
         deduplication: DeduplicationConfig = DEFAULT_DEDUPLICATION,
-        concurrency: Optional[Mapping[str, int]] = None,
+        concurrency: Mapping[str, int] | None = None,
         raw_metadata: str = RawMetadataPolicy.FULL,
     ) -> None:
         self.providers = list(providers)
@@ -53,8 +54,8 @@ class PaperCollector:
             return provider.collect(author_id)
 
     def _select_ids(
-        self, profile: ProfessorProfile, selected_author: Optional[Tuple[str, str]]
-    ) -> Tuple[Dict[str, List[str]], str]:
+        self, profile: ProfessorProfile, selected_author: tuple[str, str] | None
+    ) -> tuple[dict[str, list[str]], str]:
         if selected_author is not None:
             source, author_id = selected_author
             known_ids = profile.author_id_aliases.get(source, [])
@@ -78,8 +79,8 @@ class PaperCollector:
     def collect(
         self,
         profile: ProfessorProfile,
-        selected_author: Optional[Tuple[str, str]] = None,
-        progress: Optional[Callable[..., None]] = None,
+        selected_author: tuple[str, str] | None = None,
+        progress: Callable[..., None] | None = None,
     ) -> PaperCollectionResult:
         selected, confirmation = self._select_ids(profile, selected_author)
         available = {provider.name: provider for provider in self.providers}

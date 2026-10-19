@@ -80,7 +80,7 @@
 
 ## 转换与评估命令
 
-以下命令在项目根目录执行，不请求 API、不下载 PDF，也不会覆盖已有输出。使用虚拟环境，或把 `.venv/bin/python` 换为已安装本项目的 Python 3.8+。
+以下命令在项目根目录执行，不请求 API、不下载 PDF，也不会覆盖已有输出。使用虚拟环境，或把 `.venv/bin/python` 换为已安装本项目的 Python 3.10+。
 
 ```bash
 PYTHONPATH=src .venv/bin/python -m scripts.ground_truth.export_truth \

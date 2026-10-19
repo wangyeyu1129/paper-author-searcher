@@ -5,9 +5,10 @@ Library classes receive their collaborators; only this module decides which impl
 ``ServiceContainer`` for a ready workflow, so wiring is never duplicated per entry point.
 """
 
+from collections.abc import Callable, Mapping
 from dataclasses import dataclass, fields, replace
 from functools import cached_property
-from typing import Any, Callable, ClassVar, Dict, List, Mapping, Optional, Tuple
+from typing import Any, ClassVar
 
 from .config import CollectionConfig, DownloadConfig, PDFConfig
 from .http import HttpClient
@@ -35,19 +36,19 @@ class RunOptions:
     """Per-run choices layered over ``Settings``; ``None`` means "use the configured value"."""
 
     mode: str = FULL_MODE
-    timeout: Optional[float] = None
-    retries: Optional[int] = None
-    max_pages: Optional[int] = None
-    page_size: Optional[int] = None
-    max_file_mb: Optional[float] = None
-    unpaywall_email: Optional[str] = None
-    bibliography_urls: Tuple[str, ...] = ()
-    ambiguity_policy: Optional[str] = None
+    timeout: float | None = None
+    retries: int | None = None
+    max_pages: int | None = None
+    page_size: int | None = None
+    max_file_mb: float | None = None
+    unpaywall_email: str | None = None
+    bibliography_urls: tuple[str, ...] = ()
+    ambiguity_policy: str | None = None
     llm_adjudication: bool = False
-    max_cost_usd: Optional[float] = None
+    max_cost_usd: float | None = None
     cost_ledger: str = DEFAULT_COST_LEDGER
-    http_cache_dir: Optional[str] = None
-    http_cache_mode: Optional[str] = None
+    http_cache_dir: str | None = None
+    http_cache_mode: str | None = None
     verbose: bool = False
 
     # Attribute names some entry points use for the same option.
@@ -56,7 +57,7 @@ class RunOptions:
     @classmethod
     def from_namespace(cls, namespace: Any) -> 'RunOptions':
         """Build from any object with matching attributes (argparse namespace, benchmark RunSettings)."""
-        values: Dict[str, Any] = {}
+        values: dict[str, Any] = {}
         for item in fields(cls):
             for name in (item.name, cls.ALIASES.get(item.name)):
                 if name and hasattr(namespace, name):
@@ -75,8 +76,8 @@ class ServiceContainer:
     def __init__(
         self,
         settings: Settings,
-        options: Optional[RunOptions] = None,
-        adjudicator_factory: Optional[Callable[[], Any]] = None,
+        options: RunOptions | None = None,
+        adjudicator_factory: Callable[[], Any] | None = None,
     ) -> None:
         self.settings = settings
         self.options = options or RunOptions()
@@ -99,7 +100,7 @@ class ServiceContainer:
     # Identity ----------------------------------------------------------------------------------------------------
 
     @cached_property
-    def identity_providers(self) -> List[Any]:
+    def identity_providers(self) -> list[Any]:
         return IDENTITY_SOURCES.create(self.settings.sources.identity_sources, self)
 
     @cached_property
@@ -129,7 +130,7 @@ class ServiceContainer:
     @cached_property
     def collection_config(self) -> CollectionConfig:
         options, config = self.options, self.settings.collection
-        changes: Dict[str, Any] = {}
+        changes: dict[str, Any] = {}
         if options.max_pages is not None:
             changes['maximum_pages'] = options.max_pages
         if options.page_size is not None:
@@ -139,7 +140,7 @@ class ServiceContainer:
         return replace(config, **changes)
 
     @cached_property
-    def paper_providers(self) -> List[Any]:
+    def paper_providers(self) -> list[Any]:
         """One collector per enabled identity source that has a registered paper source."""
         return [
             PAPER_SOURCES.factory(provider.name)(self, provider)
@@ -175,7 +176,7 @@ class ServiceContainer:
         return PublicResourceRequests(self.http_client, self.pdf_config)
 
     @cached_property
-    def pdf_providers(self) -> List[Any]:
+    def pdf_providers(self) -> list[Any]:
         return PDF_SOURCES.create(self.pdf_config.sources, self)
 
     @cached_property
@@ -201,7 +202,7 @@ class ServiceContainer:
 
     # Pipeline ----------------------------------------------------------------------------------------------------
 
-    def workflow(self, progress: Optional[Callable] = None) -> PaperSearchWorkflow:
+    def workflow(self, progress: Callable | None = None) -> PaperSearchWorkflow:
         return PaperSearchWorkflow(
             resolver=self.resolver,
             collector=self.collector,

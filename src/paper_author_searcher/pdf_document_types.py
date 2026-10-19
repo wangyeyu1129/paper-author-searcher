@@ -1,7 +1,8 @@
 """Classify document form independently of its association with a paper."""
 
 import re
-from typing import Any, List, Mapping, Optional, Sequence, Tuple
+from collections.abc import Mapping, Sequence
+from typing import Any
 
 from .config import DEFAULT_DOWNLOAD, DownloadConfig
 from .pdf_front_matter import front_matter
@@ -14,9 +15,9 @@ def classify_document(
     first_page_text: str,
     page_count: int,
     page_size: Sequence[float],
-    version_type: Optional[str] = None,
+    version_type: str | None = None,
     config: DownloadConfig = DEFAULT_DOWNLOAD,
-) -> Tuple[str, List[str]]:
+) -> tuple[str, list[str]]:
     title = str(metadata.get('/Title') or '')
     subject = str(metadata.get('/Subject') or '')
     creator = str(metadata.get('/Creator') or '')

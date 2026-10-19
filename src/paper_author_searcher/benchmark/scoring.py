@@ -1,9 +1,10 @@
 """Score each person with the existing evaluator, then aggregate by stratum."""
 
+from collections.abc import Mapping
 from copy import deepcopy
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Dict, List, Mapping, Optional, Tuple
+from typing import Any
 
 from paper_author_searcher.evaluation_matching import GroundTruth, GroundTruthMatcher
 from paper_author_searcher.jsonio import read_json
@@ -17,7 +18,7 @@ OVERALL = ('overall', 'all')
 RESOLVED_CONFIRMATIONS = frozenset({'resolver_resolved', 'manual_author_id'})
 
 
-def identity_resolution(collection: Optional[dict]) -> dict:
+def identity_resolution(collection: dict | None) -> dict:
     """1/1 when the system committed to an identity it confirmed itself; 0/1 when it stopped or only collected
     competing profiles. Measured per person, so the stratum macro is the share of people resolved."""
     inner = (collection or {}).get('collection') or {}
@@ -27,22 +28,22 @@ def identity_resolution(collection: Optional[dict]) -> dict:
 
 # Metrics the benchmark computes itself rather than reading from PerformanceEvaluator.
 BENCHMARK_METRICS = {'identity_resolution_rate': identity_resolution}
-EMPTY_COLLECTION: Dict[str, Any] = {'collection': {'all_papers': [], 'sources': []}}
+EMPTY_COLLECTION: dict[str, Any] = {'collection': {'all_papers': [], 'sources': []}}
 
 
-def truth_paths(settings: BenchmarkSettings, person_id: str) -> Tuple[Path, Path]:
+def truth_paths(settings: BenchmarkSettings, person_id: str) -> tuple[Path, Path]:
     """(human-reviewed, pending) truth files for one person."""
     return settings.paths.truth / (person_id + '.json'), settings.paths.truth / (person_id + '.pending.json')
 
 
-def load_truth(settings: BenchmarkSettings, person_id: str) -> Optional[dict]:
+def load_truth(settings: BenchmarkSettings, person_id: str) -> dict | None:
     for path in truth_paths(settings, person_id):
         if path.exists():
             return read_json(path)
     return None
 
 
-def scope_to_window(collection: dict, truth: dict, window: Tuple[int, int]) -> dict:
+def scope_to_window(collection: dict, truth: dict, window: tuple[int, int]) -> dict:
     """Judge only output inside the truth window; outside it, keep entries that match a truth publication.
 
     Without this, a closed-world score would count every verified paper from other years as a false positive.
@@ -94,9 +95,9 @@ class PersonScore:
     strata: Mapping[str, str]
     truth_state: str
     run_status: str
-    metrics: Dict[str, dict] = field(default_factory=dict)
+    metrics: dict[str, dict] = field(default_factory=dict)
     positives: int = 0
-    notes: List[str] = field(default_factory=list)
+    notes: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict:
         return {
@@ -111,11 +112,11 @@ class PersonScore:
 
 
 class PersonScorer:
-    def __init__(self, settings: BenchmarkSettings, evaluator: Optional[PerformanceEvaluator] = None) -> None:
+    def __init__(self, settings: BenchmarkSettings, evaluator: PerformanceEvaluator | None = None) -> None:
         self.settings = settings
         self.evaluator = evaluator or PerformanceEvaluator()
 
-    def score(self, person: BenchmarkPerson, run_root: Path, index_entry: Optional[dict]) -> PersonScore:
+    def score(self, person: BenchmarkPerson, run_root: Path, index_entry: dict | None) -> PersonScore:
         truth = load_truth(self.settings, person.person_id)
         if truth is None:
             return PersonScore(
@@ -177,7 +178,7 @@ class PersonScorer:
         return PersonScore(person.person_id, person.strata, state, _status(index_entry), metrics, positives, notes)
 
 
-def _status(entry: Optional[dict]) -> str:
+def _status(entry: dict | None) -> str:
     return (entry or {}).get('status', 'not_run')
 
 
@@ -185,8 +186,8 @@ def _unavailable() -> dict:
     return {'numerator': 0, 'denominator': 0, 'rate': None, 'available': False}
 
 
-def aggregate(scores: List[PersonScore], settings: BenchmarkSettings) -> Dict[Tuple[str, str], dict]:
-    strata: Dict[Tuple[str, str], List[PersonScore]] = {OVERALL: list(scores)}
+def aggregate(scores: list[PersonScore], settings: BenchmarkSettings) -> dict[tuple[str, str], dict]:
+    strata: dict[tuple[str, str], list[PersonScore]] = {OVERALL: list(scores)}
     for dimension, values in settings.dimensions.items():
         for value in values:
             strata[(dimension, value)] = [score for score in scores if score.strata.get(dimension) == value]

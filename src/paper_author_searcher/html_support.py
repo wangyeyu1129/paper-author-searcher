@@ -2,10 +2,11 @@
 
 import codecs
 import re
+from collections.abc import Mapping, Sequence
 from html.parser import HTMLParser
-from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple
+from typing import Any
 
-BOMS: Tuple[Tuple[bytes, str], ...] = (
+BOMS: tuple[tuple[bytes, str], ...] = (
     (codecs.BOM_UTF8, 'utf-8'),
     (codecs.BOM_UTF32_LE, 'utf-32-le'),
     (codecs.BOM_UTF32_BE, 'utf-32-be'),
@@ -17,7 +18,7 @@ _META_CHARSET = re.compile(rb'<meta[^>]+charset\s*=\s*["\']?\s*([\w.:-]+)', re.I
 META_SCAN_BYTES = 2048
 
 
-def _known(encoding: Optional[str]) -> Optional[str]:
+def _known(encoding: str | None) -> str | None:
     if not encoding:
         return None
     try:
@@ -26,7 +27,7 @@ def _known(encoding: Optional[str]) -> Optional[str]:
         return None
 
 
-def html_encoding(prefix: bytes, content_type: Optional[str] = None) -> str:
+def html_encoding(prefix: bytes, content_type: str | None = None) -> str:
     """BOM, then the Content-Type charset, then <meta charset>, then UTF-8 (the HTML default for the web)."""
     for bom, encoding in BOMS:
         if prefix.startswith(bom):
@@ -40,7 +41,7 @@ def html_encoding(prefix: bytes, content_type: Optional[str] = None) -> str:
     return found or 'utf-8'
 
 
-def decode_html(prefix: bytes, headers: Optional[Mapping[str, str]] = None) -> str:
+def decode_html(prefix: bytes, headers: Mapping[str, str] | None = None) -> str:
     """Decode a page prefix in its declared encoding; undecodable bytes become U+FFFD rather than failing."""
     content_type = None
     for name, value in (headers or {}).items():
@@ -79,15 +80,15 @@ class LinkExtractor(HTMLParser):
         self.include_link_elements = include_link_elements
         self.capture_json_ld = capture_json_ld
         self.trailing_context = trailing_context
-        self.links: List[Dict[str, Any]] = []
-        self.scripts: List[str] = []
+        self.links: list[dict[str, Any]] = []
+        self.scripts: list[str] = []
         self.heading = ''
         self._in_heading = False
-        self._current: Optional[Dict[str, Any]] = None
-        self._trailing: Optional[Dict[str, Any]] = None
-        self._script: Optional[str] = None
+        self._current: dict[str, Any] | None = None
+        self._trailing: dict[str, Any] | None = None
+        self._script: str | None = None
 
-    def handle_starttag(self, tag: str, attrs: List[Tuple[str, Optional[str]]]) -> None:
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         tag = tag.lower()
         attributes = dict(attrs)
         if tag in self.heading_tags:

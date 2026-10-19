@@ -4,8 +4,8 @@ import argparse
 import json
 import logging
 import math
+from collections.abc import Sequence
 from pathlib import Path
-from typing import Optional, Sequence
 
 from .composition import RunOptions, ServiceContainer
 from .config import AMBIGUITY_POLICIES, AmbiguityPolicy
@@ -118,11 +118,11 @@ def _validate(parser, args):
         parser.error('--retries must be nonnegative')
 
 
-def build_container(args, settings: Optional[Settings] = None) -> ServiceContainer:
+def build_container(args, settings: Settings | None = None) -> ServiceContainer:
     return ServiceContainer(settings or load_settings(args), RunOptions.from_namespace(args))
 
 
-def build_workflow(args, settings: Optional[Settings] = None):
+def build_workflow(args, settings: Settings | None = None):
     return build_container(args, settings).workflow()
 
 
@@ -230,7 +230,7 @@ def run_arguments(parser, args):
     return 0 if report['run_status'] == RunStatus.COMPLETED else 2
 
 
-def main(argv: Optional[Sequence[str]] = None) -> int:
+def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description='Resolve a professor, collect papers and obtain public PDFs')
     parser.add_argument('--name')
     parser.add_argument('--university')

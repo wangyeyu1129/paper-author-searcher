@@ -1,6 +1,6 @@
 """Source adapters for identity metadata. No PDFs or publication bodies."""
 
-from typing import List, Protocol
+from typing import Protocol
 
 from .config import DEFAULT_MATCHING, DEFAULT_SOURCES
 from .http import SourceError
@@ -11,7 +11,7 @@ from .models import AuthorCandidate, ProfessorQuery
 class AuthorProvider(Protocol):
     name: str
 
-    def search(self, query: ProfessorQuery) -> List[AuthorCandidate]: ...
+    def search(self, query: ProfessorQuery) -> list[AuthorCandidate]: ...
 
 
 def _display_names(items):

@@ -1,7 +1,5 @@
 """Keep source completeness separate from obtaining a confirmed complete paper."""
 
-from typing import Optional, Tuple
-
 from .json_types import JSONList, JSONObject
 from .status import FormatStatus, IdentityStatus, OwnershipStatus, PDFValidationStatus, ProviderStatus
 
@@ -17,7 +15,7 @@ def paper_search_complete(providers: JSONList) -> bool:
     return bool(providers) and all(provider_search_complete(provider) for provider in providers)
 
 
-def search_satisfaction(paper: JSONObject, file_integrity_confirmed: bool) -> Tuple[Optional[bool], str]:
+def search_satisfaction(paper: JSONObject, file_integrity_confirmed: bool) -> tuple[bool | None, str]:
     """A URL probe or a trusted domain cannot satisfy the full-paper requirement."""
     if paper.get('ownership_status') != OwnershipStatus.VERIFIED:
         return False, 'paper_ownership_not_verified'

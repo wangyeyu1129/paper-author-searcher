@@ -3,9 +3,10 @@
 import argparse
 import hashlib
 import logging
+from collections.abc import Sequence
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Optional, Sequence
+from typing import Any
 
 from .config import DEFAULT_MATCHING, DEFAULT_PDF
 from .html_support import decode_response
@@ -91,7 +92,7 @@ def prepare_reference(pages: JSONList, professor_name: str, client: Any) -> JSON
     }
 
 
-def main(argv: Optional[Sequence[str]] = None) -> int:
+def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description='Prepare publisher metadata references for human ground truth review')
     parser.add_argument('--pages', type=Path, required=True, help='JSON object with pages=[{url,context}]')
     parser.add_argument('--name', required=True)

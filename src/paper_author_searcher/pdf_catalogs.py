@@ -1,7 +1,7 @@
 """Discover explicit article pages in configurable scholarly journal catalogs."""
 
 import re
-from typing import Any, Dict, List
+from typing import Any
 from urllib.parse import urljoin, urlsplit
 
 from .config import DEFAULT_PDF
@@ -111,7 +111,7 @@ class JournalCatalogPDFProvider(LandingPagePDFProvider):
 CATALOG_CONTEXT_CHARACTERS = 180
 
 
-def catalog_links(html: str) -> List[Dict[str, Any]]:
+def catalog_links(html: str) -> list[dict[str, Any]]:
     """Article links of a journal catalog: title, the dt heading and the byline text that follows each link."""
     parser = LinkExtractor(heading_tags=('dt',), body_tags=('dd',), trailing_context=CATALOG_CONTEXT_CHARACTERS)
     parser.feed(html)

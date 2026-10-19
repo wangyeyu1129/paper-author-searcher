@@ -1,6 +1,6 @@
 """Discover deposited full-text and landing links from Crossref metadata."""
 
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 from urllib.parse import quote
 
 from .config import DEFAULT_PDF, PDFConfig
@@ -17,18 +17,18 @@ from .status import ProviderStatus
 class CrossrefPDFProvider(MetadataPDFProvider):
     name = 'crossref'
 
-    def __init__(self, client: Any, config: PDFConfig = DEFAULT_PDF, email: Optional[str] = None) -> None:
+    def __init__(self, client: Any, config: PDFConfig = DEFAULT_PDF, email: str | None = None) -> None:
         super().__init__(client)
         self.config = config
-        self.cache: Dict[str, Any] = {}
-        self.configuration_error: Optional[str] = None
+        self.cache: dict[str, Any] = {}
+        self.configuration_error: str | None = None
         try:
             self.email = validate_contact_email(email)
         except ValueError as exc:
             self.email = None
             self.configuration_error = str(exc)
 
-    def lookups(self, paper: JSONObject) -> List[str]:
+    def lookups(self, paper: JSONObject) -> list[str]:
         identifiers = [doi[len('doi:') :] for doi in sorted(paper_dois(paper))]
         if not identifiers and paper.get('title'):
             identifiers.append('title:' + paper['title'])
@@ -60,9 +60,9 @@ class CrossrefPDFProvider(MetadataPDFProvider):
         result.errors = [redact_contact(message, self.email) for message in result.errors]
         return result
 
-    def lookup(self, paper: JSONObject, identifier: str) -> Tuple[List[Any], List[Any]]:
+    def lookup(self, paper: JSONObject, identifier: str) -> tuple[list[Any], list[Any]]:
         url = self.config.crossref_url + '/works'
-        params: Dict[str, Any] = {'mailto': self.email}
+        params: dict[str, Any] = {'mailto': self.email}
         search = identifier.startswith('title:')
         if search:
             params.update({'query.title': paper['title'], 'rows': self.config.crossref_search_results})
@@ -86,7 +86,7 @@ class CrossrefPDFProvider(MetadataPDFProvider):
             pages.extend(landing)
         return candidates, pages
 
-    def _locations(self, paper: JSONObject, work: JSONObject, metadata_url: str) -> Tuple[List[Any], List[Any]]:
+    def _locations(self, paper: JSONObject, work: JSONObject, metadata_url: str) -> tuple[list[Any], list[Any]]:
         titles = work.get('title') or []
         if not isinstance(titles, list) or any(not isinstance(title, str) for title in titles):
             raise SourceError('Crossref titles must be a list of strings', error_type='malformed_response')
@@ -141,7 +141,7 @@ class CrossrefPDFProvider(MetadataPDFProvider):
         return candidates, pages
 
     @staticmethod
-    def _year(work: JSONObject) -> Optional[int]:
+    def _year(work: JSONObject) -> int | None:
         for field in ('published', 'published-print', 'published-online', 'issued'):
             date = work.get(field) or {}
             if not isinstance(date, dict):

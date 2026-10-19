@@ -2,7 +2,7 @@
 
 import threading
 import time
-from typing import Callable, Dict, Hashable, Optional
+from collections.abc import Callable, Hashable
 
 
 class RequestPacer:
@@ -23,10 +23,10 @@ class RequestPacer:
         self.interval = interval
         self._clock = clock
         self._sleep = sleep
-        self._next: Dict[Optional[Hashable], float] = {}
+        self._next: dict[Hashable | None, float] = {}
         self._lock = threading.Lock()
 
-    def wait(self, key: Optional[Hashable] = None) -> float:
+    def wait(self, key: Hashable | None = None) -> float:
         """Block until this caller may start a request for ``key``; return the seconds waited."""
         with self._lock:
             now = self._clock()

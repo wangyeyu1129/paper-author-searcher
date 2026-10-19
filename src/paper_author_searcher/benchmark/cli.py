@@ -6,7 +6,6 @@ import subprocess
 from dataclasses import replace
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import List, Optional
 
 from paper_author_searcher.composition import RunOptions, ServiceContainer
 from paper_author_searcher.http import HttpClient, SourceError
@@ -39,7 +38,7 @@ def _context(args):
     return settings, roster, registry, warnings
 
 
-def _code_version() -> Optional[str]:
+def _code_version() -> str | None:
     try:
         return subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True, text=True, check=True).stdout.strip()
     except (OSError, subprocess.CalledProcessError):
@@ -184,7 +183,7 @@ def command_run(args) -> int:
     return 0 if RunStatus.FAILED not in statuses else 2
 
 
-def score_run(settings: BenchmarkSettings, roster: Roster, run_id: str, person_ids: List[str]) -> dict:
+def score_run(settings: BenchmarkSettings, roster: Roster, run_id: str, person_ids: list[str]) -> dict:
     index = load_index(settings, run_id)
     scorer = PersonScorer(settings)
     run_root = settings.paths.runs / run_id

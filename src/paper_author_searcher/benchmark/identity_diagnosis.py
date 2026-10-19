@@ -4,9 +4,10 @@ This is evaluation-only tooling. It reads truth to label failure modes (split pr
 retrieved) and must never feed back into the search system's decisions.
 """
 
+from collections.abc import Callable, Iterable
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Any, Callable, Dict, Iterable, List, Optional, Set, Tuple
+from typing import Any
 
 from paper_author_searcher.config import DEFAULT_MATCHING
 from paper_author_searcher.http import SourceError
@@ -32,13 +33,13 @@ class Diagnosis(str, Enum):
 
 @dataclass
 class CandidateEvidence:
-    author_ids: Dict[str, List[str]]
+    author_ids: dict[str, list[str]]
     match_score: float
     status: str
     university_status: str
-    truth_hits: Set[str] = field(default_factory=set)
+    truth_hits: set[str] = field(default_factory=set)
     window_works: int = 0
-    errors: List[str] = field(default_factory=list)
+    errors: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict:
         return {
@@ -56,7 +57,7 @@ class TruthIndex:
     """DOI / arXiv / normalized-title lookup over truth publications, for diagnosis only."""
 
     def __init__(self, truth: dict) -> None:
-        self.keys: Dict[Tuple[str, str], str] = {}
+        self.keys: dict[tuple[str, str], str] = {}
         for paper in truth.get('papers') or []:
             proposed = paper.get('ownership') == 'uncertain' and paper.get('proposed_ownership') == 'belongs'
             if paper.get('ownership') != 'belongs' and not proposed:
@@ -72,14 +73,14 @@ class TruthIndex:
                     self.keys[('title', normalize(description['title']))] = identifier
         self.size = len(set(self.keys.values()))
 
-    def match(self, work: dict) -> Optional[str]:
+    def match(self, work: dict) -> str | None:
         for key in work_keys(work):
             if key in self.keys:
                 return self.keys[key]
         return None
 
 
-def work_keys(work: dict) -> Iterable[Tuple[str, str]]:
+def work_keys(work: dict) -> Iterable[tuple[str, str]]:
     if work.get('doi'):
         yield 'doi', canonical_doi(work['doi'])
     if work.get('arxiv'):
@@ -91,24 +92,22 @@ def work_keys(work: dict) -> Iterable[Tuple[str, str]]:
 class WorkLister:
     """Lists an author profile's works in a year window (OpenAlex and Semantic Scholar)."""
 
-    def __init__(
-        self, client: Any, openalex_url: str, semantic_scholar_url: str, api_keys: Optional[dict] = None
-    ) -> None:
+    def __init__(self, client: Any, openalex_url: str, semantic_scholar_url: str, api_keys: dict | None = None) -> None:
         self.client = client
         self.openalex_url = openalex_url.rstrip('/')
         self.semantic_scholar_url = semantic_scholar_url.rstrip('/')
         self.api_keys = api_keys or {}
 
-    def works(self, source: str, author_id: str, start: int, end: int) -> List[dict]:
+    def works(self, source: str, author_id: str, start: int, end: int) -> list[dict]:
         if source == 'openalex':
             return self._openalex(author_id, start, end)
         if source == 'semantic_scholar':
             return self._semantic_scholar(author_id, start, end)
         return []
 
-    def _openalex(self, author_id: str, start: int, end: int) -> List[dict]:
-        works: List[dict] = []
-        cursor: Optional[str] = '*'
+    def _openalex(self, author_id: str, start: int, end: int) -> list[dict]:
+        works: list[dict] = []
+        cursor: str | None = '*'
         while cursor:
             data = self.client.get(
                 self.openalex_url + '/works',
@@ -125,7 +124,7 @@ class WorkLister:
             cursor = (data.get('meta') or {}).get('next_cursor') if data.get('results') else None
         return works
 
-    def _semantic_scholar(self, author_id: str, start: int, end: int) -> List[dict]:
+    def _semantic_scholar(self, author_id: str, start: int, end: int) -> list[dict]:
         headers = {'x-api-key': self.api_keys['semantic_scholar']} if self.api_keys.get('semantic_scholar') else None
         data = self.client.get(
             f'{self.semantic_scholar_url}/author/{author_id}/papers',
@@ -166,9 +165,9 @@ class IdentityDiagnoser:
     def diagnose(
         self,
         person: BenchmarkPerson,
-        truth: Optional[dict],
-        window: Tuple[int, int],
-        selected_ids: Optional[Dict[str, List[str]]],
+        truth: dict | None,
+        window: tuple[int, int],
+        selected_ids: dict[str, list[str]] | None,
         run_status: str,
     ) -> dict:
         profiles, _groups, errors = self.rank(person.search_input.to_query())
@@ -216,8 +215,8 @@ class IdentityDiagnoser:
     @staticmethod
     def _label(
         index: TruthIndex,
-        evidence: List[CandidateEvidence],
-        selected_ids: Optional[Dict[str, List[str]]],
+        evidence: list[CandidateEvidence],
+        selected_ids: dict[str, list[str]] | None,
         run_status: str,
         failed: bool = False,
     ) -> Diagnosis:
@@ -251,7 +250,7 @@ def is_inconclusive(diagnosis: dict) -> bool:
     return failed and not diagnosis.get('truth_found_in_any_candidate')
 
 
-def markdown(diagnoses: List[dict]) -> str:
+def markdown(diagnoses: list[dict]) -> str:
     lines = [
         '| Person | Run | Diagnosis | Truth | Found in any candidate | Truth-bearing candidates | Margin |',
         '|---|---|---|---:|---:|---:|---:|',
@@ -261,7 +260,7 @@ def markdown(diagnoses: List[dict]) -> str:
             '| {person_id} | {run_status} | {diagnosis} | {truth_publications} | '
             '{truth_found_in_any_candidate} | {truth_bearing_candidates} | {top_score_margin} |'.format(**item)
         )
-    counts: Dict[str, int] = {}
+    counts: dict[str, int] = {}
     for item in diagnoses:
         counts[item['diagnosis']] = counts.get(item['diagnosis'], 0) + 1
     lines += ['', 'Counts: ' + ', '.join(f'{key}={value}' for key, value in sorted(counts.items()))]

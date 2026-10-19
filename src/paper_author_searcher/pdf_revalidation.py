@@ -3,9 +3,10 @@
 import argparse
 import logging
 from collections import Counter
+from collections.abc import Sequence
 from dataclasses import asdict
 from pathlib import Path
-from typing import Any, Optional, Sequence
+from typing import Any
 
 from .json_types import JSONObject
 from .jsonio import read_json, write_json
@@ -18,7 +19,7 @@ from .status import FormatStatus, PDFValidationStatus
 logger = logging.getLogger(__name__)
 
 
-def _selected_candidate(paper: JSONObject, saved: JSONObject) -> Optional[JSONObject]:
+def _selected_candidate(paper: JSONObject, saved: JSONObject) -> JSONObject | None:
     saved_urls = {saved.get('pdf_url'), saved.get('final_url')} - {None, ''}
     for candidate in paper.get('pdf_candidates') or []:
         if saved_urls.intersection({candidate.get('url'), candidate.get('final_url')}):
@@ -98,7 +99,7 @@ def revalidate(
     }
 
 
-def main(argv: Optional[Sequence[str]] = None) -> int:
+def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description='Revalidate existing PDF contents without network calls or file changes'
     )

@@ -2,10 +2,11 @@
 
 import argparse
 import logging
+from collections.abc import Sequence
 from copy import deepcopy
 from dataclasses import asdict
 from pathlib import Path
-from typing import Any, Optional, Sequence
+from typing import Any
 
 from .composition import RunOptions, ServiceContainer
 from .config import DEFAULT_DEDUPLICATION, DeduplicationConfig
@@ -64,7 +65,7 @@ def collect_candidate(
     }
 
 
-def main(argv: Optional[Sequence[str]] = None) -> int:
+def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description='Collect competing candidate records separately without confirming identity'
     )

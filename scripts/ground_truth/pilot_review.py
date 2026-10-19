@@ -154,7 +154,7 @@ def write_csv(path, rows):
         for row in rows:
             serialized = {}
             for key, value in row.items():
-                serialized[key] = json.dumps(value, ensure_ascii=False) if isinstance(value, (list, dict)) else value
+                serialized[key] = json.dumps(value, ensure_ascii=False) if isinstance(value, list | dict) else value
             writer.writerow(serialized)
 
 

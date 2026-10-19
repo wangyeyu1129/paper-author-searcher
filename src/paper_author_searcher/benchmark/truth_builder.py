@@ -2,9 +2,10 @@
 
 import hashlib
 import json
+from collections.abc import Iterable, Sequence
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
+from typing import Any
 
 from paper_author_searcher.config import DEFAULT_MATCHING
 from paper_author_searcher.evaluation_matching import GroundTruth, bibliographic_name_agrees
@@ -36,13 +37,13 @@ class _UnionFind:
         self.parent[self.find(left)] = self.find(right)
 
 
-def _identifier_keys(record: TruthRecord) -> List[Tuple[str, str]]:
+def _identifier_keys(record: TruthRecord) -> list[tuple[str, str]]:
     keys = [('doi', canonical_doi(doi)) for doi in [record.doi, *record.related_dois] if doi]
     keys.extend((namespace, value) for namespace, value in record.external_ids.items())
     return keys
 
 
-def _formal_first(records: Sequence[TruthRecord]) -> List[TruthRecord]:
+def _formal_first(records: Sequence[TruthRecord]) -> list[TruthRecord]:
     return sorted(
         records, key=lambda record: (record.work_type in PREPRINT_TYPES, -len(record.authors), record.year or 9999)
     )
@@ -56,7 +57,7 @@ class CrossrefAcceptance:
         self.family_name = normalize(family_name)
         self.year_tolerance = year_tolerance
 
-    def accept(self, record: TruthRecord) -> Optional[dict]:
+    def accept(self, record: TruthRecord) -> dict | None:
         key = title_key(record.title)
         for candidate in (self.lookups.get(key) or {}).get('candidates') or []:
             if normalize(candidate.get('title') or '') != key or not candidate.get('doi'):
@@ -77,7 +78,7 @@ class ArxivAcceptance:
         self.family_name = normalize(family_name)
         self.year_tolerance = year_tolerance
 
-    def accept(self, record: TruthRecord) -> Optional[dict]:
+    def accept(self, record: TruthRecord) -> dict | None:
         key = title_key(record.title)
         for candidate in (self.lookups.get(key) or {}).get('candidates') or []:
             if normalize(candidate.get('title') or '') != key or not candidate.get('arxiv'):
@@ -160,9 +161,9 @@ class TruthBuilder:
         GroundTruth.from_dict(truth)
         return truth
 
-    def _enrich(self, person: BenchmarkPerson, records: List[TruthRecord], snapshot_dir: Path) -> Dict[int, dict]:
+    def _enrich(self, person: BenchmarkPerson, records: list[TruthRecord], snapshot_dir: Path) -> dict[int, dict]:
         family = person.search_input.name.split()[-1]
-        provenance: Dict[int, dict] = {}
+        provenance: dict[int, dict] = {}
         arxiv_path = snapshot_dir / ARXIV_SNAPSHOT
         if arxiv_path.exists():
             with arxiv_path.open(encoding='utf-8') as handle:
@@ -200,10 +201,10 @@ class TruthBuilder:
                 )
         return provenance
 
-    def _group(self, records: List[TruthRecord]) -> List[List[TruthRecord]]:
+    def _group(self, records: list[TruthRecord]) -> list[list[TruthRecord]]:
         union = _UnionFind(len(records))
-        owners: Dict[Tuple[str, str], int] = {}
-        titles: Dict[str, List[int]] = {}
+        owners: dict[tuple[str, str], int] = {}
+        titles: dict[str, list[int]] = {}
         tolerance = self.settings.version_grouping_year_tolerance
         for index, record in enumerate(records):
             for identifier in _identifier_keys(record):
@@ -219,12 +220,12 @@ class TruthBuilder:
                 if record.year is None or other_year is None or abs(record.year - other_year) <= tolerance:
                     union.union(index, other)
             titles.setdefault(title_key, []).append(index)
-        grouped: Dict[int, List[TruthRecord]] = {}
+        grouped: dict[int, list[TruthRecord]] = {}
         for index, record in enumerate(records):
             grouped.setdefault(union.find(index), []).append(record)
         return list(grouped.values())
 
-    def _exclusion(self, group: List[TruthRecord], start: int, end: int) -> Optional[str]:
+    def _exclusion(self, group: list[TruthRecord], start: int, end: int) -> str | None:
         year = _publication_year(group)
         if year is None:
             return 'missing_year'
@@ -234,20 +235,20 @@ class TruthBuilder:
             return 'excluded_publication_type'
         return None
 
-    def _entry(self, person: BenchmarkPerson, group: List[TruthRecord], identifier_provenance: Dict[int, dict]) -> dict:
+    def _entry(self, person: BenchmarkPerson, group: list[TruthRecord], identifier_provenance: dict[int, dict]) -> dict:
         ordered = _formal_first(group)
         main = ordered[0]
         authors = max((record.authors for record in group), key=len)
         dois = sorted(
             {canonical_doi(doi)[len('doi:') :] for record in group for doi in [record.doi, *record.related_dois] if doi}
         )
-        external: Dict[str, str] = {}
+        external: dict[str, str] = {}
         for record in ordered:
             for namespace, value in record.external_ids.items():
                 external.setdefault(namespace, value)
         keys = sorted('{}:{}'.format(*key) for record in group for key in _identifier_keys(record))
         seed = '|'.join(keys) or normalize(main.title) + '|' + str(_publication_year(group))
-        entry: Dict[str, Any] = {
+        entry: dict[str, Any] = {
             'evaluation_id': '{}:{}'.format(person.person_id, hashlib.sha256(seed.encode('utf-8')).hexdigest()[:12]),
             'ownership': 'uncertain',
             'proposed_ownership': 'belongs',
@@ -297,7 +298,7 @@ class TruthBuilder:
         return entry
 
 
-def _publication_year(group: Iterable[TruthRecord]) -> Optional[int]:
+def _publication_year(group: Iterable[TruthRecord]) -> int | None:
     group = list(group)
     formal = [record.year for record in group if record.year and record.work_type not in PREPRINT_TYPES]
     years = formal or [record.year for record in group if record.year]
@@ -313,8 +314,8 @@ def _target_in_byline(name: str, authors: Sequence[str]) -> bool:
     )
 
 
-def _count(values: Iterable[str]) -> Dict[str, int]:
-    counts: Dict[str, int] = {}
+def _count(values: Iterable[str]) -> dict[str, int]:
+    counts: dict[str, int] = {}
     for value in values:
         counts[value] = counts.get(value, 0) + 1
     return counts

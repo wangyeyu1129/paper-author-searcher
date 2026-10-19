@@ -2,7 +2,7 @@ import json
 import threading
 import unittest
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-from typing import ClassVar, List
+from typing import ClassVar
 from unittest.mock import patch
 from urllib.error import HTTPError
 from urllib.request import Request
@@ -13,7 +13,7 @@ from paper_author_searcher.http_transport import KeepAliveTransport
 
 class Handler(BaseHTTPRequestHandler):
     protocol_version = 'HTTP/1.1'  # keep-alive
-    seen: ClassVar[List[tuple]] = []
+    seen: ClassVar[list[tuple]] = []
     other_port = 0
 
     def log_message(self, *args):
@@ -129,9 +129,10 @@ class TransportTests(unittest.TestCase):
 
     def test_configured_proxy_falls_back_to_urllib(self):
         transport = KeepAliveTransport(proxies={'http': 'http://proxy.invalid:3128'})
-        with patch('paper_author_searcher.http_transport.proxy_bypass', return_value=False), patch(
-            'paper_author_searcher.http_transport.urlopen', return_value='proxied'
-        ) as opener:
+        with (
+            patch('paper_author_searcher.http_transport.proxy_bypass', return_value=False),
+            patch('paper_author_searcher.http_transport.urlopen', return_value='proxied') as opener,
+        ):
             self.assertEqual(transport.open(Request(self.base + '/json'), timeout=1), 'proxied')
         opener.assert_called_once()
 

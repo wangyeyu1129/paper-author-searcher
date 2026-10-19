@@ -11,7 +11,7 @@ from copy import deepcopy
 from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
-from typing import Any, Dict, List, Optional, Union
+from typing import Any
 
 from .config import DEFAULT_DOWNLOAD, DEFAULT_STORAGE
 from .jsonio import COMPACT_SEPARATORS
@@ -36,7 +36,7 @@ IDENTITY_FOLDERS = {IdentityStatus.NEEDS_REVIEW: REVIEW_FOLDER, IdentityStatus.R
 
 
 def paper_key(paper):
-    identity: Union[Optional[str], List[Any]]
+    identity: str | None | list[Any]
     if paper.get('doi'):
         identity = canonical_doi(paper['doi'])
     elif paper.get('source') and paper.get('source_paper_id'):
@@ -112,8 +112,8 @@ class PDFDownloader:
             raise ValueError('Manifest must be in the PDF directory or its parent')
         previous = self._load_manifest(root, manifest_path)
         journal = ManifestJournal(journal_path(manifest_path))
-        previous_by_key: Dict[str, Any] = {}
-        known_files: Dict[str, Any] = {}
+        previous_by_key: dict[str, Any] = {}
+        known_files: dict[str, Any] = {}
         for entry in previous.get('papers', []):
             previous_by_key.setdefault(entry['paper_key'], []).append(entry)
             if entry.get('sha256') and entry.get('local_filename'):
@@ -127,7 +127,7 @@ class PDFDownloader:
         journal.discard()
         complete = False
         try:
-            for index, (paper, record) in enumerate(zip(papers, results)):
+            for index, (paper, record) in enumerate(zip(papers, results, strict=True)):
                 candidates = self._eligible_candidates(paper, record, include_needs_review)
                 if not candidates:
                     continue
@@ -427,7 +427,7 @@ class PDFDownloader:
         return destination.relative_to(root).as_posix()
 
     def _organize_confirmed_files(self, root, results, retained):
-        references: Dict[str, Any] = {}
+        references: dict[str, Any] = {}
         for record in results:
             if record.local_filename:
                 references.setdefault(record.local_filename, []).append(record)

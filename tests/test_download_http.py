@@ -112,9 +112,10 @@ class StreamTests(unittest.TestCase):
     def test_rate_limit_retries_then_downloads(self):
         opener = Mock()
         opener.open.side_effect = [HTTPError(URL, 429, 'limited', {'Retry-After': '3'}, None), Response(b'%PDF-1.7')]
-        with patch('paper_author_searcher.http.secure_download_opener', return_value=opener), patch(
-            'paper_author_searcher.http.time.sleep'
-        ) as sleep:
+        with (
+            patch('paper_author_searcher.http.secure_download_opener', return_value=opener),
+            patch('paper_author_searcher.http.time.sleep') as sleep,
+        ):
             receipt = HttpClient(retries=1).stream_pdf(URL, self.destination, DEFAULT_DOWNLOAD)
         self.assertEqual(receipt.file_size, 8)
         self.assertEqual(sleep.call_args[0][0], 3)
@@ -122,9 +123,10 @@ class StreamTests(unittest.TestCase):
     def test_long_server_cooldown_is_not_truncated_into_an_early_retry(self):
         opener = Mock()
         opener.open.side_effect = HTTPError(URL, 429, 'limited', {'Retry-After': '999'}, None)
-        with patch('paper_author_searcher.http.secure_download_opener', return_value=opener), patch(
-            'paper_author_searcher.http.time.sleep'
-        ) as sleep:
+        with (
+            patch('paper_author_searcher.http.secure_download_opener', return_value=opener),
+            patch('paper_author_searcher.http.time.sleep') as sleep,
+        ):
             with self.assertRaises(SourceError) as caught:
                 HttpClient(retries=1).stream_pdf(URL, self.destination, DEFAULT_DOWNLOAD)
         self.assertEqual(caught.exception.retry_after, 999)
@@ -136,8 +138,9 @@ class StreamTests(unittest.TestCase):
         interrupted = Response(b'%PDF-1.7' + b'x' * 1000)
         interrupted.read = Mock(side_effect=[b'%PDF-incomplete', URLError('interrupted')])
         opener.open.side_effect = [interrupted, Response(b'%PDF-1.7')]
-        with patch('paper_author_searcher.http.secure_download_opener', return_value=opener), patch(
-            'paper_author_searcher.http.time.sleep'
+        with (
+            patch('paper_author_searcher.http.secure_download_opener', return_value=opener),
+            patch('paper_author_searcher.http.time.sleep'),
         ):
             receipt = HttpClient(retries=1).stream_pdf(URL, self.destination, DEFAULT_DOWNLOAD)
         self.assertEqual(receipt.file_size, 8)

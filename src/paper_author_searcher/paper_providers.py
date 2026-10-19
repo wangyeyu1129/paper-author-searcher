@@ -3,7 +3,7 @@
 import logging
 import xml.etree.ElementTree as ET
 from abc import ABC, abstractmethod
-from typing import Any, ClassVar, List, Protocol, Tuple
+from typing import Any, ClassVar, Protocol
 
 from .config import DEFAULT_COLLECTION, CollectionConfig
 from .http import SourceError
@@ -66,7 +66,7 @@ class PagedPaperProvider(ABC):
     config: CollectionConfig
 
     @abstractmethod
-    def _fetch_page(self, author_id: str, token: Any) -> Tuple[List[Any], Any]:
+    def _fetch_page(self, author_id: str, token: Any) -> tuple[list[Any], Any]:
         """Return one page of raw records and the next token (``None`` when there are no more pages)."""
 
     @abstractmethod

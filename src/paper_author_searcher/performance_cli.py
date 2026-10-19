@@ -2,8 +2,8 @@
 
 import argparse
 import logging
+from collections.abc import Sequence
 from pathlib import Path
-from typing import Optional, Sequence
 
 from .jsonio import read_json, write_json
 from .logging_config import add_logging_arguments, configure_from_arguments
@@ -12,7 +12,7 @@ from .performance_evaluation import PerformanceEvaluator, compare_performance
 logger = logging.getLogger(__name__)
 
 
-def main(argv: Optional[Sequence[str]] = None) -> int:
+def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description='Evaluate discovery, ownership, PDF availability and actual downloads')
     parser.add_argument('--collection', type=Path, required=True)
     parser.add_argument('--ground-truth', type=Path, required=True)

@@ -2,10 +2,11 @@
 
 import csv
 import hashlib
+from collections.abc import Sequence
 from copy import deepcopy
 from datetime import date
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence, Tuple
+from typing import Any
 
 from paper_author_searcher.evaluation_matching import LABELS, GroundTruth, GroundTruthMatcher
 from paper_author_searcher.matching import canonical_doi, normalize
@@ -41,11 +42,11 @@ LIST_SEPARATOR = '; '
 def system_suggestions(
     collection: dict,
     truth: dict,
-    window: Tuple[int, int],
+    window: tuple[int, int],
     run_id: str,
     limit: int,
     statuses: Sequence[str] = (OwnershipStatus.VERIFIED,),
-) -> List[dict]:
+) -> list[dict]:
     """Papers the search system collected in the window that match no truth entry: leads for completing the list.
 
     They are review aids only; a lead enters truth solely when the reviewer confirms it from an independent source.
@@ -67,7 +68,7 @@ def system_suggestions(
         if not key or key in seen:
             continue
         seen.add(key)
-        external: Dict[str, Any] = {}
+        external: dict[str, Any] = {}
         for record in records:
             for namespace, value in (record.get('external_ids') or {}).items():
                 if namespace.lower() == 'arxiv' and value:
@@ -99,7 +100,7 @@ def system_suggestions(
     return rows[:limit]
 
 
-def export_review(truth: dict, path: Path, suggestions: Optional[List[dict]] = None) -> int:
+def export_review(truth: dict, path: Path, suggestions: list[dict] | None = None) -> int:
     with Path(path).open('w', encoding='utf-8-sig', newline='') as handle:
         writer = csv.DictWriter(handle, COLUMNS)
         writer.writeheader()
@@ -131,11 +132,11 @@ def export_review(truth: dict, path: Path, suggestions: Optional[List[dict]] = N
     return len(truth['papers']) + len(suggestions or [])
 
 
-def _split(value: str) -> List[str]:
+def _split(value: str) -> list[str]:
     return [item.strip() for item in (value or '').split(LIST_SEPARATOR.strip()) if item.strip()]
 
 
-def _added_entry(person_id: str, row: Dict[str, str], decision: str = 'belongs') -> dict:
+def _added_entry(person_id: str, row: dict[str, str], decision: str = 'belongs') -> dict:
     """A paper the reviewer found that no source listed: the main reason the list can be called complete."""
     title = (row.get('title') or '').strip()
     if not title:
@@ -145,7 +146,7 @@ def _added_entry(person_id: str, row: Dict[str, str], decision: str = 'belongs')
     if suggested and decision == 'belongs' and not note:
         # Keeps truth independent of the system: a lead counts only with the reviewer's own evidence.
         raise ValueError(f'System suggestion "{title}" needs a reviewer_note naming the independent evidence')
-    entry: Dict[str, Any] = {
+    entry: dict[str, Any] = {
         'title': title,
         'year': parse_year(row.get('year')),
         'authors': _split(row.get('authors', '')),
@@ -171,7 +172,7 @@ def _added_entry(person_id: str, row: Dict[str, str], decision: str = 'belongs')
     return entry
 
 
-def _merge_alias(target: dict, row: Dict[str, str]) -> None:
+def _merge_alias(target: dict, row: dict[str, str]) -> None:
     """A lead that is another version of an existing publication: keep its identifiers on that entry."""
     dois = [doi for doi in (clean_doi(value) for value in _split(row.get('dois', ''))) if doi]
     if dois:
@@ -193,7 +194,7 @@ def import_review(
     path: Path,
     reviewer: str,
     complete_positive_list: bool,
-    reviewed_at: Optional[str] = None,
+    reviewed_at: str | None = None,
     allow_pending: bool = False,
     review_state: str = AnnotationState.HUMAN_REVIEWED,
 ) -> dict:

@@ -2,8 +2,9 @@
 
 import threading
 import time
+from collections.abc import Callable, Iterable
 from functools import partial
-from typing import Any, Callable, Dict, Iterable, List, Optional
+from typing import Any
 from urllib.parse import quote
 
 from .config import DEFAULT_PDF, DEFAULT_SOURCES, PDFConfig, SourceConfig
@@ -19,7 +20,7 @@ class SemanticScholarRequests:
     def __init__(
         self,
         client: Any,
-        api_key: Optional[str] = None,
+        api_key: str | None = None,
         config: PDFConfig = DEFAULT_PDF,
         sources: SourceConfig = DEFAULT_SOURCES,
     ) -> None:
@@ -27,16 +28,16 @@ class SemanticScholarRequests:
         self.api_key = api_key
         self.config = config
         self.sources = sources
-        self.cache: Dict[str, Any] = {}
-        self.origins: Dict[str, str] = {}
-        self.batch_errors: Dict[str, str] = {}
+        self.cache: dict[str, Any] = {}
+        self.origins: dict[str, str] = {}
+        self.batch_errors: dict[str, str] = {}
         self._lock = threading.RLock()
         self.pacer = RequestPacer(config.semantic_scholar_request_interval)
         self.cooldown_until = 0.0
-        self.deferred_error: Optional[SourceError] = None
-        self.blocked_error: Optional[SourceError] = None
+        self.deferred_error: SourceError | None = None
+        self.blocked_error: SourceError | None = None
         self.failure_streak = 0
-        self.events: List[JSONObject] = []
+        self.events: list[JSONObject] = []
         self.statistics = {
             'batch_requests': 0,
             'individual_requests': 0,
@@ -104,7 +105,7 @@ class SemanticScholarRequests:
             self.cooldown_until = time.monotonic() + wait
             self.deferred_error = exc
 
-    def _headers(self) -> Optional[Dict[str, str]]:
+    def _headers(self) -> dict[str, str] | None:
         return {'x-api-key': self.api_key} if self.api_key else None
 
     def prefetch(self, identifiers: Iterable[str]) -> None:
@@ -133,7 +134,7 @@ class SemanticScholarRequests:
                     raise SourceError(
                         'Semantic Scholar batch response contains an invalid item', error_type='malformed_response'
                     )
-                for identifier, work in zip(batch, response):
+                for identifier, work in zip(batch, response, strict=True):
                     self.cache[identifier] = work
                     self.origins[identifier] = 'batch'
             except (SourceError, ValueError, TypeError) as exc:

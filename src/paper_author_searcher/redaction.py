@@ -8,7 +8,7 @@ in a URL. ``SourceError`` messages and the package's log records pass through ``
 import logging
 import re
 import threading
-from typing import Iterable, Optional, Set
+from collections.abc import Iterable
 from urllib.parse import quote, quote_plus
 
 MASK = '[redacted]'
@@ -22,11 +22,11 @@ _PARAMETER = re.compile(
 # Shorter values would mask ordinary words; real keys and email addresses are longer.
 MINIMUM_SECRET_LENGTH = 6
 
-_secrets: Set[str] = set()
+_secrets: set[str] = set()
 _lock = threading.Lock()
 
 
-def register_secrets(values: Iterable[Optional[str]]) -> None:
+def register_secrets(values: Iterable[str | None]) -> None:
     """Mask these exact values (and their URL encodings) from now on."""
     with _lock:
         for value in values:

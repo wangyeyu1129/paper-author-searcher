@@ -1,9 +1,9 @@
 """Live capture of truth inputs into dated local snapshots; building truth afterwards is offline."""
 
 import time
+from collections.abc import Callable
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Callable, Dict, List, Optional
 
 from paper_author_searcher.http import HttpClient, SourceError
 from paper_author_searcher.jsonio import read_json, write_json
@@ -36,7 +36,7 @@ class OrcidFetcher:
         self.settings = settings.sources
         self.client = client
 
-    def fetch(self, orcid: str, destination: Path) -> Dict[str, object]:
+    def fetch(self, orcid: str, destination: Path) -> dict[str, object]:
         base = '{}/{}'.format(self.settings.orcid_api_url.rstrip('/'), orcid)
         summary = self.client.get(base + '/works')
         codes = []
@@ -70,12 +70,12 @@ class OrcidFetcher:
 class CrossrefLookup:
     """Record Crossref candidates for DOI-less titles; acceptance is decided later, offline."""
 
-    def __init__(self, settings: BenchmarkSettings, client: HttpClient, contact: Optional[str] = None) -> None:
+    def __init__(self, settings: BenchmarkSettings, client: HttpClient, contact: str | None = None) -> None:
         self.settings = settings.sources
         self.client = client
         self.contact = contact
 
-    def lookup(self, titles: Dict[str, Optional[int]], destination: Path) -> Dict[str, object]:
+    def lookup(self, titles: dict[str, int | None], destination: Path) -> dict[str, object]:
         path = destination / CROSSREF_SNAPSHOT
         snapshot = read_json(path) if path.exists() else {'lookups': {}}
         params_base = {'rows': self.settings.crossref_rows, 'select': 'DOI,title,author,issued,type,container-title'}
@@ -127,7 +127,7 @@ class ArxivLookup:
         self.client = client
         self.sleep = sleep
 
-    def lookup(self, titles: Dict[str, Optional[int]], destination: Path) -> Dict[str, object]:
+    def lookup(self, titles: dict[str, int | None], destination: Path) -> dict[str, object]:
         path = destination / ARXIV_SNAPSHOT
         snapshot = read_json(path) if path.exists() else {'lookups': {}}
         fetched, failed = 0, 0
@@ -172,8 +172,8 @@ class SnapshotCollector:
         settings: BenchmarkSettings,
         registry: TruthSourceRegistry,
         orcid: OrcidFetcher,
-        crossref: Optional[CrossrefLookup],
-        arxiv: Optional[ArxivLookup] = None,
+        crossref: CrossrefLookup | None,
+        arxiv: ArxivLookup | None = None,
     ) -> None:
         self.settings = settings
         self.registry = registry
@@ -181,16 +181,16 @@ class SnapshotCollector:
         self.crossref = crossref
         self.arxiv = arxiv
 
-    def collect(self, person: BenchmarkPerson) -> Dict[str, object]:
+    def collect(self, person: BenchmarkPerson) -> dict[str, object]:
         destination = self.settings.paths.snapshots / person.person_id
         destination.mkdir(parents=True, exist_ok=True)
-        summary: Dict[str, object] = {'person_id': person.person_id}
+        summary: dict[str, object] = {'person_id': person.person_id}
         for spec in person.truth_sources:
             if spec.kind == 'orcid':
                 summary.update(self.orcid.fetch(spec.locator, destination))
         start, end = person.window(self.settings)
-        without_doi: Dict[str, Optional[int]] = {}
-        without_arxiv: Dict[str, Optional[int]] = {}
+        without_doi: dict[str, int | None] = {}
+        without_arxiv: dict[str, int | None] = {}
         for spec in person.truth_sources:
             for record in self.registry.get(spec.kind).load(person, spec, destination):
                 if record.year is not None and not start - 1 <= record.year <= end + 1:
@@ -206,7 +206,7 @@ class SnapshotCollector:
         return summary
 
 
-def missing_snapshots(person: BenchmarkPerson, snapshot_dir: Path) -> List[str]:
+def missing_snapshots(person: BenchmarkPerson, snapshot_dir: Path) -> list[str]:
     expected = [
         orcid_snapshot_name(spec.locator) if spec.kind == 'orcid' else spec.locator for spec in person.truth_sources
     ]

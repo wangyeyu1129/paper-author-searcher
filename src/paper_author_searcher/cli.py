@@ -3,8 +3,8 @@
 import argparse
 import json
 import logging
+from collections.abc import Sequence
 from pathlib import Path
-from typing import Optional, Sequence, Tuple
 
 from .json_types import JSONList, JSONObject
 from .logging_config import add_logging_arguments, configure_from_arguments
@@ -91,7 +91,7 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def _selected_profile(result: ResolutionResult, selection: str) -> Tuple[ProfessorProfile, Tuple[str, str]]:
+def _selected_profile(result: ResolutionResult, selection: str) -> tuple[ProfessorProfile, tuple[str, str]]:
     if ':' not in selection:
         raise IdentityConfirmationRequired('Use SOURCE:AUTHOR_ID for --select-author')
     source, author_id = selection.split(':', 1)
@@ -120,11 +120,11 @@ def _candidate_summaries(result: ResolutionResult) -> JSONList:
 
 def _collect_output(
     result: ResolutionResult,
-    selected_author: Optional[str],
+    selected_author: str | None,
     output: JSONObject,
     collector: PaperCollector,
     academic_only: bool = False,
-    ownership_statuses: Optional[Sequence[str]] = None,
+    ownership_statuses: Sequence[str] | None = None,
 ) -> int:
     try:
         profile = result.profile
@@ -152,7 +152,7 @@ def _collect_output(
     return REVIEW_EXIT_CODE
 
 
-def _write_output(output: JSONObject, path: Optional[Path]) -> None:
+def _write_output(output: JSONObject, path: Path | None) -> None:
     serialized = json.dumps(output, ensure_ascii=False, indent=2)
     if path:
         path.write_text(serialized + '\n', encoding='utf-8')
@@ -174,7 +174,7 @@ def _refresh_collection(saved: JSONObject, collector: PaperCollector) -> PaperCo
     return collector.collect(profile, selected_author=selection)
 
 
-def main(argv: Optional[Sequence[str]] = None) -> int:
+def main(argv: Sequence[str] | None = None) -> int:
     parser = build_parser()
     add_logging_arguments(parser)
     args = parser.parse_args(argv)

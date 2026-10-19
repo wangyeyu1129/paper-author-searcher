@@ -4,7 +4,7 @@ import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from copy import deepcopy
 from dataclasses import asdict
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 from urllib.parse import urldefrag
 
 from .config import DEFAULT_PDF
@@ -28,12 +28,12 @@ class PDFResolver:
     probe statistics are reported. Build the full source set with ``composition.ServiceContainer``.
     """
 
-    def __init__(self, providers, validator, requests: Optional[PublicResourceRequests] = None, config=DEFAULT_PDF):
+    def __init__(self, providers, validator, requests: PublicResourceRequests | None = None, config=DEFAULT_PDF):
         self.providers = list(providers)
         self.validator = validator
         self.resource_requests = requests
         self.config = config
-        self.preparation_errors: Dict[str, Any] = {}
+        self.preparation_errors: dict[str, Any] = {}
 
     def resolve(self, saved_result, include_needs_review=False, maximum_papers=None, progress=None):
         if maximum_papers is not None and maximum_papers < 1:
@@ -54,7 +54,7 @@ class PDFResolver:
         if maximum_papers is not None:
             selected = selected[:maximum_papers]
         self._prepare_providers(selected)
-        jobs: List[Tuple[Dict[str, Any], PaperPDFResult]] = []
+        jobs: list[tuple[dict[str, Any], PaperPDFResult]] = []
         for index, paper in enumerate(papers):
             result = PaperPDFResult(
                 index,
@@ -190,7 +190,7 @@ class PDFResolver:
 
     def _merge_urls(self, candidates):
         merged = {}
-        versions: Dict[str, Any] = {}
+        versions: dict[str, Any] = {}
         for candidate in candidates:
             key = urldefrag(candidate.url)[0]
             versions.setdefault(key, set())
@@ -221,7 +221,7 @@ class PDFResolver:
             return len(self.config.version_preference)
 
     def _statistics(self, papers):
-        counts: Dict[str, Any] = {
+        counts: dict[str, Any] = {
             'total_papers': len(papers),
             'processed_papers': 0,
             'valid_pdf_papers': 0,
@@ -238,7 +238,7 @@ class PDFResolver:
             PDFValidationStatus.SKIPPED_OWNERSHIP: 'skipped_ownership_papers',
             PDFValidationStatus.NOT_PROCESSED: 'not_processed_papers',
         }
-        sources: Dict[str, Any] = {}
+        sources: dict[str, Any] = {}
         verified_urls = set()
         for paper in papers:
             counts[status_metrics[paper.validation_status]] += 1

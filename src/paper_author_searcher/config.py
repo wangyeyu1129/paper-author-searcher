@@ -1,7 +1,6 @@
 """Injectable defaults; matching policy is independent of source adapters."""
 
 from dataclasses import dataclass
-from typing import Optional, Tuple
 
 from .status import StrEnum
 
@@ -46,7 +45,7 @@ class MatchingConfig:
     # Size-aware guard: shared coauthors / the smaller coauthor list. Five shared names mean little between two
     # profiles with hundreds of collaborators each (large consortia); 0 disables the guard.
     split_profile_coauthor_overlap: float = 0.1
-    school_stop_words: Tuple[str, ...] = (
+    school_stop_words: tuple[str, ...] = (
         'university',
         'of',
         'the',
@@ -68,7 +67,7 @@ class HttpConfig:
     html_preview_bytes: int = 1000
     maximum_retry_delay: float = 5
     retry_backoff_base: float = 2
-    retry_statuses: Tuple[int, ...] = (429, 500, 502, 503, 504)
+    retry_statuses: tuple[int, ...] = (429, 500, 502, 503, 504)
     user_agent: str = 'paper-author-searcher/0.1'
 
 
@@ -85,7 +84,7 @@ class SourceConfig:
     institution_scoped_search: bool = True
     institution_limit: int = 2
     # Enabled identity sources, in order (names registered in source_catalog.IDENTITY_SOURCES).
-    identity_sources: Tuple[str, ...] = ('openalex', 'semantic_scholar', 'dblp')
+    identity_sources: tuple[str, ...] = ('openalex', 'semantic_scholar', 'dblp')
 
 
 @dataclass(frozen=True)
@@ -122,7 +121,7 @@ class RawMetadataPolicy(StrEnum):
 class CollectionConfig:
     openalex_page_size: int = 100
     semantic_scholar_page_size: int = 100
-    maximum_pages: Optional[int] = None
+    maximum_pages: int | None = None
     semantic_scholar_author_identity: bool = True
     expand_truncated_openalex_authors: bool = True
     # "stop": an unconfirmed identity halts collection. "collect_contenders": collect the close, school-compatible
@@ -131,7 +130,7 @@ class CollectionConfig:
     maximum_contenders: int = 3
     # Author IDs of one source paged at once (a merged profile can hold many IDs per source). Semantic Scholar
     # and DBLP keep to one: their unpaced listing APIs answer bursts with 429s. Unlisted sources get one.
-    source_concurrency: Tuple[Tuple[str, int], ...] = (('openalex', 4), ('semantic_scholar', 1), ('dblp', 1))
+    source_concurrency: tuple[tuple[str, int], ...] = (('openalex', 4), ('semantic_scholar', 1), ('dblp', 1))
     # How much of each raw API payload papers.json keeps (see raw_metadata.py).
     raw_metadata: str = RawMetadataPolicy.FULL
 
@@ -164,10 +163,10 @@ class OwnershipConfig:
     minimum_known_coauthors: int = 2
     institution_similarity: float = 0.95
     maximum_coauthor_authors: int = 50
-    paper_orcid_scopes: Tuple[str, ...] = ('paper_authorship',)
+    paper_orcid_scopes: tuple[str, ...] = ('paper_authorship',)
     # Copied from the source's author profile onto every paper of that author ID: no per-paper evidence.
-    author_level_orcid_scopes: Tuple[str, ...] = ('resolved_author', 'author_profile')
-    nonstandard_types: Tuple[str, ...] = (
+    author_level_orcid_scopes: tuple[str, ...] = ('resolved_author', 'author_profile')
+    nonstandard_types: tuple[str, ...] = (
         'proceedings',
         'peer_review',
         'paratext',
@@ -175,7 +174,7 @@ class OwnershipConfig:
         'reference_entry',
         'editorial',
     )
-    nonstandard_title_prefixes: Tuple[str, ...] = (
+    nonstandard_title_prefixes: tuple[str, ...] = (
         'peer review',
         'reviewer report',
         'decision letter',
@@ -230,7 +229,7 @@ class PDFConfig:
     embed_full_metadata: bool = False
     # Enabled PDF sources, in lookup order (names registered in source_catalog.PDF_SOURCES). Later sources
     # see the landing pages earlier ones found.
-    sources: Tuple[str, ...] = (
+    sources: tuple[str, ...] = (
         'existing_metadata',
         'openalex',
         'semantic_scholar',
@@ -240,11 +239,11 @@ class PDFConfig:
         'journal_catalog',
         'public_pages',
     )
-    bibliography_urls: Tuple[str, ...] = ()
-    journal_catalogs: Tuple[Tuple[str, str], ...] = (
+    bibliography_urls: tuple[str, ...] = ()
+    journal_catalogs: tuple[tuple[str, str], ...] = (
         ('Journal of Machine Learning Research', 'https://jmlr.org/papers/'),
     )
-    version_preference: Tuple[str, ...] = (
+    version_preference: tuple[str, ...] = (
         'published_version',
         'accepted_manuscript',
         'preprint',
@@ -301,7 +300,7 @@ class DownloadConfig:
     chunk_bytes: int = 64 * 1024
     maximum_transfer_seconds: float = 300
     maximum_redirects: int = DEFAULT_PDF.maximum_redirects
-    allowed_ports: Tuple[int, ...] = (80, 443)
+    allowed_ports: tuple[int, ...] = (80, 443)
     filename_bytes: int = 180
     filename_hash_characters: int = 16
     parser_timeout: float = 30

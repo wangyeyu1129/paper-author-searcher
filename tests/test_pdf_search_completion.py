@@ -238,10 +238,13 @@ class TransportTests(unittest.TestCase):
     def test_each_real_http_retry_error_is_counted_separately(self):
         error = HTTPError('https://api.example.edu', 429, 'limited', {'Retry-After': '0'}, None)
         client = HttpClient(retries=1)
-        with patch(
-            'paper_author_searcher.http_transport.KeepAliveTransport.open',
-            side_effect=[error, Response(b'{}', 'application/json')],
-        ), patch('paper_author_searcher.http.time.sleep'):
+        with (
+            patch(
+                'paper_author_searcher.http_transport.KeepAliveTransport.open',
+                side_effect=[error, Response(b'{}', 'application/json')],
+            ),
+            patch('paper_author_searcher.http.time.sleep'),
+        ):
             client.get('https://api.example.edu/paper')
         stats = client.transport_statistics['metadata_get']
         self.assertEqual(stats['operation_attempts'], 2)

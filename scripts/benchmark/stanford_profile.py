@@ -33,7 +33,7 @@ def authors(line):
     # "Krishnan, S. R., Bochenek, M. A., Langer, R." -> ["S. R. Krishnan", ...]
     parts = [part.strip() for part in line.split(',')]
     names = []
-    for family, given in zip(parts[0::2], parts[1::2]):
+    for family, given in zip(parts[0::2], parts[1::2], strict=False):
         names.append((given + ' ' + family).strip())
     return names
 

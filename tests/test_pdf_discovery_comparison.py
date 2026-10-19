@@ -98,8 +98,11 @@ class ComparisonTests(unittest.TestCase):
             identity_status='needs_review',
             validation_status='needs_review',
         )
-        with tempfile.TemporaryDirectory() as directory, patch(
-            'paper_author_searcher.pdf_discovery_comparison._check_file', return_value=(True, 'verified checksum')
+        with (
+            tempfile.TemporaryDirectory() as directory,
+            patch(
+                'paper_author_searcher.pdf_discovery_comparison._check_file', return_value=(True, 'verified checksum')
+            ),
         ):
             root = self.write_run(Path(directory), 'run', [paper()], [entry])
             value = summarize_runs([root])
@@ -135,8 +138,11 @@ class ComparisonTests(unittest.TestCase):
             validation_status='needs_review',
             document_type='poster',
         )
-        with tempfile.TemporaryDirectory() as directory, patch(
-            'paper_author_searcher.pdf_discovery_comparison._check_file', return_value=(True, 'verified checksum')
+        with (
+            tempfile.TemporaryDirectory() as directory,
+            patch(
+                'paper_author_searcher.pdf_discovery_comparison._check_file', return_value=(True, 'verified checksum')
+            ),
         ):
             root = self.write_run(Path(directory), 'run', [paper()], [entry])
             value = summarize_runs([root])

@@ -214,13 +214,17 @@ class BenchmarkTests(unittest.TestCase):
             root = Path(directory)
             archive = {'papers': [target()]}
             settings = Settings(credentials=Credentials(unpaywall_email='private@example.test'))
-            with patch(
-                'paper_author_searcher.pdf_validation_benchmark.benchmark_inputs', return_value=(archive, 1)
-            ), patch(
-                'paper_author_searcher.pdf_validation_benchmark.summarize_runs',
-                return_value={'runs': [{'statistics': {}}]},
-            ), patch('paper_author_searcher.pdf_validation_benchmark.ServiceContainer') as container, patch(
-                'paper_author_searcher.pdf_validation_benchmark.compare_runs', return_value={'before': {}, 'after': {}}
+            with (
+                patch('paper_author_searcher.pdf_validation_benchmark.benchmark_inputs', return_value=(archive, 1)),
+                patch(
+                    'paper_author_searcher.pdf_validation_benchmark.summarize_runs',
+                    return_value={'runs': [{'statistics': {}}]},
+                ),
+                patch('paper_author_searcher.pdf_validation_benchmark.ServiceContainer') as container,
+                patch(
+                    'paper_author_searcher.pdf_validation_benchmark.compare_runs',
+                    return_value={'before': {}, 'after': {}},
+                ),
             ):
                 workflow = container.return_value.workflow.return_value
                 workflow.run.return_value = {'run_status': 'partial', 'output_directory': str(root)}

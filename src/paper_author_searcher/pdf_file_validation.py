@@ -9,7 +9,7 @@ import sys
 import unicodedata
 from dataclasses import asdict
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any
 
 from .config import DEFAULT_DOWNLOAD, DownloadConfig
 from .http import has_pdf_signature
@@ -176,7 +176,7 @@ def inspect_pdf(path, paper, config=DEFAULT_DOWNLOAD):
             result.page_count = len(reader.pages)
             if not 0 < result.page_count <= config.maximum_pages:
                 raise ValueError('PDF page count is outside the configured limit')
-            metadata: Dict[str, Any] = reader.metadata or {}
+            metadata: dict[str, Any] = reader.metadata or {}
             title = str(metadata.get('/Title') or '')[: config.maximum_extracted_characters]
             author = str(metadata.get('/Author') or '')[: config.maximum_extracted_characters]
             if title:

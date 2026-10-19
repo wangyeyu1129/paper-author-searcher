@@ -14,10 +14,12 @@ import argparse
 import json
 import os
 import re
+import types
 import typing
+from collections.abc import Mapping
 from dataclasses import dataclass, field, fields, replace
 from pathlib import Path
-from typing import Any, ClassVar, Dict, Mapping, Optional, Tuple, Union
+from typing import Any, ClassVar, Union
 
 from .config import (
     DEFAULT_ANCHORS,
@@ -52,7 +54,7 @@ _FALSE = frozenset({'0', 'false', 'no', 'off'})
 _NONE = frozenset({'', 'none', 'null'})
 
 
-def validate_contact_email(value: Optional[str]) -> Optional[str]:
+def validate_contact_email(value: str | None) -> str | None:
     """Return a stripped contact email, ``None`` when unset, or raise ``ValueError`` when malformed."""
     if value is None or not value.strip():
         return None
@@ -66,10 +68,10 @@ def validate_contact_email(value: Optional[str]) -> Optional[str]:
 class Credentials:
     """API keys and contact emails. ``repr`` hides every value; ``describe`` reports only presence."""
 
-    openalex_api_key: Optional[str] = field(default=None, repr=False)
-    semantic_scholar_api_key: Optional[str] = field(default=None, repr=False)
-    unpaywall_email: Optional[str] = field(default=None, repr=False)
-    crossref_email: Optional[str] = field(default=None, repr=False)
+    openalex_api_key: str | None = field(default=None, repr=False)
+    semantic_scholar_api_key: str | None = field(default=None, repr=False)
+    unpaywall_email: str | None = field(default=None, repr=False)
+    crossref_email: str | None = field(default=None, repr=False)
 
     ENVIRONMENT: ClassVar[Mapping[str, str]] = {
         'openalex_api_key': 'OPENALEX_API_KEY',
@@ -79,12 +81,12 @@ class Credentials:
     }
 
     @classmethod
-    def from_environment(cls, environ: Optional[Mapping[str, str]] = None) -> 'Credentials':
+    def from_environment(cls, environ: Mapping[str, str] | None = None) -> 'Credentials':
         environ = os.environ if environ is None else environ
         values = {name: (environ.get(variable) or '').strip() or None for name, variable in cls.ENVIRONMENT.items()}
         return cls(**values)
 
-    def describe(self) -> Dict[str, str]:
+    def describe(self) -> dict[str, str]:
         return {item.name: 'set' if getattr(self, item.name) else 'unset' for item in fields(self)}
 
 
@@ -107,7 +109,7 @@ class Settings:
     SECRET_SECTIONS: ClassVar[frozenset] = frozenset({'credentials'})
 
     @classmethod
-    def load(cls, path: Optional[Union[str, Path]] = None, environ: Optional[Mapping[str, str]] = None) -> 'Settings':
+    def load(cls, path: str | Path | None = None, environ: Mapping[str, str] | None = None) -> 'Settings':
         """Defaults, then the settings file, then ``PAPER_SEARCH__`` overrides, then credentials."""
         environ = os.environ if environ is None else environ
         path = path or environ.get(SETTINGS_FILE_VARIABLE) or None
@@ -134,9 +136,9 @@ class Settings:
         changes = {name: _apply_section(getattr(self, name), name, values) for name, values in data.items()}
         return replace(self, **changes)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Effective configuration for logs and run reports; credentials appear only as set/unset."""
-        result: Dict[str, Any] = {}
+        result: dict[str, Any] = {}
         for item in fields(self):
             section = getattr(self, item.name)
             if item.name in self.SECRET_SECTIONS:
@@ -154,8 +156,8 @@ def _read_json(path: Path) -> Mapping[str, Any]:
     return data
 
 
-def _environment_overrides(environ: Mapping[str, str]) -> Dict[str, Dict[str, str]]:
-    overrides: Dict[str, Dict[str, str]] = {}
+def _environment_overrides(environ: Mapping[str, str]) -> dict[str, dict[str, str]]:
+    overrides: dict[str, dict[str, str]] = {}
     for variable, value in environ.items():
         if not variable.startswith(OVERRIDE_PREFIX):
             continue
@@ -183,18 +185,18 @@ def _apply_section(section: Any, name: str, values: Mapping[str, Any]) -> Any:
 
 def _coerce(value: Any, annotation: Any) -> Any:
     """Convert JSON values or environment strings to ``annotation`` (scalars, Optional, Tuple, nested Tuple)."""
-    origin = getattr(annotation, '__origin__', None)
-    arguments = getattr(annotation, '__args__', ())
-    if origin is Union:
+    origin = typing.get_origin(annotation)
+    arguments = typing.get_args(annotation)
+    if origin in (Union, types.UnionType):  # Optional[X] and X | None
         options = [option for option in arguments if option is not type(None)]
         if value is None or (isinstance(value, str) and value.strip().lower() in _NONE):
             return None
         return _coerce(value, options[0])
-    if origin in (tuple, Tuple):
+    if origin is tuple:
         if isinstance(value, str):
             text = value.strip()
             value = json.loads(text) if text.startswith('[') else [item.strip() for item in text.split(',') if item]
-        if not isinstance(value, (list, tuple)):
+        if not isinstance(value, list | tuple):
             raise ValueError(f'expected a list, got {value!r}')
         item_type = arguments[0] if arguments else Any
         return tuple(_coerce(item, item_type) for item in value)

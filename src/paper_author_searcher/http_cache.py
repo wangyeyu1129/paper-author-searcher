@@ -3,9 +3,10 @@
 import hashlib
 import json
 import xml.etree.ElementTree as ET
+from collections.abc import Iterable
 from enum import Enum
 from pathlib import Path
-from typing import Any, Dict, Iterable, Optional, Union
+from typing import Any
 from urllib.parse import urlencode
 
 from .http import SourceError
@@ -39,7 +40,7 @@ class CachingHttpClient(HttpClientDecorator):
         self.ignored_parameters = frozenset(name.lower() for name in ignored_parameters)
         self.statistics = {'hits': 0, 'misses': 0, 'stored': 0}
 
-    def key(self, url: str, params: Optional[dict], xml: bool) -> str:
+    def key(self, url: str, params: dict | None, xml: bool) -> str:
         public = sorted(
             (name, str(value))
             for name, value in (params or {}).items()
@@ -51,8 +52,8 @@ class CachingHttpClient(HttpClientDecorator):
     def get(
         self,
         url: str,
-        params: Optional[Dict[str, Any]] = None,
-        headers: Optional[Dict[str, str]] = None,
+        params: dict[str, Any] | None = None,
+        headers: dict[str, str] | None = None,
         xml: bool = False,
     ) -> Any:
         key = self.key(url, params, xml)
@@ -79,7 +80,7 @@ class CachingHttpClient(HttpClientDecorator):
         return body
 
 
-def cached_client(client: Any, directory: Optional[Union[str, Path]], mode: Optional[str]) -> Any:
+def cached_client(client: Any, directory: str | Path | None, mode: str | None) -> Any:
     """Return the client unchanged when no cache directory is configured."""
     if not directory:
         return client

@@ -6,7 +6,6 @@ import typing
 from collections import Counter
 from copy import deepcopy
 from pathlib import Path
-from typing import Dict, Optional, Set, Tuple
 
 from .evaluation import Evaluator
 from .evaluation_matching import MATCHING_RULES_VERSION, GroundTruth, GroundTruthMatcher
@@ -24,14 +23,14 @@ def rate(numerator: int, denominator: int) -> JSONObject:
     }
 
 
-def _papers(saved: Optional[JSONObject]) -> JSONList:
+def _papers(saved: JSONObject | None) -> JSONList:
     if saved is None:
         return []
     collection = saved.get('collection', saved)
     return collection.get('all_papers', collection.get('papers')) or []
 
 
-def _stage_scope(saved: Optional[JSONObject]) -> Optional[JSONObject]:
+def _stage_scope(saved: JSONObject | None) -> JSONObject | None:
     if saved is None:
         return None
     if not isinstance(saved, dict) or not isinstance(saved.get('papers'), list):
@@ -49,7 +48,7 @@ def _stage_scope(saved: Optional[JSONObject]) -> Optional[JSONObject]:
     return {'processed_publications': len(set(identities)), 'fingerprint': digest}
 
 
-def _association(paper: JSONObject, matcher: GroundTruthMatcher) -> Optional[str]:
+def _association(paper: JSONObject, matcher: GroundTruthMatcher) -> str | None:
     metadata = paper.get('paper_metadata') or paper
     matches = [matcher.match(record) for record in metadata.get('records') or [metadata]]
     identities = {match.evaluation_id for match in matches if match.evaluation_id}
@@ -67,7 +66,7 @@ def _confirmed_url(paper: JSONObject) -> bool:
     )
 
 
-def _check_file(paper: JSONObject, manifest: Optional[JSONObject], manifest_path: Optional[Path]) -> Tuple[bool, str]:
+def _check_file(paper: JSONObject, manifest: JSONObject | None, manifest_path: Path | None) -> tuple[bool, str]:
     if manifest_path is None or manifest is None:
         return False, 'Manifest path not supplied; file existence and checksum were not checked'
     if not paper.get('local_filename') or not paper.get('sha256'):
@@ -98,9 +97,9 @@ class PerformanceEvaluator:
         self,
         collection: JSONObject,
         truth_data: JSONObject,
-        pdf_report: Optional[JSONObject] = None,
-        manifest: Optional[JSONObject] = None,
-        manifest_path: Optional[Path] = None,
+        pdf_report: JSONObject | None = None,
+        manifest: JSONObject | None = None,
+        manifest_path: Path | None = None,
         reference_only: bool = False,
     ) -> JSONObject:
         GroundTruth.from_dict(truth_data)
@@ -144,7 +143,7 @@ class PerformanceEvaluator:
         negatives = {paper['evaluation_id'] for paper in truth.papers if paper['ownership'] == 'not_belongs'}
         matcher = GroundTruthMatcher(truth)
         baseline = Evaluator().evaluate(collection, truth)
-        statuses: Dict[str, Set[str]] = {status: set() for status in OwnershipStatus.values()}
+        statuses: dict[str, set[str]] = {status: set() for status in OwnershipStatus.values()}
         for paper in _papers(collection):
             for record in paper.get('records') or [paper]:
                 identity = matcher.match(record).evaluation_id

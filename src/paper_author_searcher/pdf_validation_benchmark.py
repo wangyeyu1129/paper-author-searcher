@@ -3,8 +3,8 @@
 import argparse
 import logging
 import math
+from collections.abc import Callable, Sequence
 from pathlib import Path
-from typing import Callable, Optional, Sequence, Tuple
 
 from .composition import RunOptions, ServiceContainer
 from .json_types import JSONObject
@@ -19,7 +19,7 @@ from .status import OwnershipStatus, RunStatus
 logger = logging.getLogger(__name__)
 
 
-def benchmark_inputs(baseline_directory: Path) -> Tuple[JSONObject, int]:
+def benchmark_inputs(baseline_directory: Path) -> tuple[JSONObject, int]:
     root = Path(baseline_directory)
     selected = _cohort(read_json(root / 'pdf_urls.json'))
     archive = read_json(root / 'papers.json')
@@ -43,9 +43,9 @@ def run_benchmark(
     output_directory: Path,
     timeout: float,
     retries: int,
-    progress: Optional[Callable[..., None]] = None,
-    settings: Optional[Settings] = None,
-) -> Tuple[Path, JSONObject]:
+    progress: Callable[..., None] | None = None,
+    settings: Settings | None = None,
+) -> tuple[Path, JSONObject]:
     settings = settings or load_settings()
     if not math.isfinite(timeout) or timeout <= 0 or retries < 0:
         raise ValueError('Timeout must be finite and positive; retries must be nonnegative')
@@ -74,7 +74,7 @@ def run_benchmark(
     return root, comparison
 
 
-def main(argv: Optional[Sequence[str]] = None) -> int:
+def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--baseline-run', type=Path, required=True)
     parser.add_argument('--output-dir', type=Path, required=True)

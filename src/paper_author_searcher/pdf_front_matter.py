@@ -2,7 +2,7 @@
 
 import re
 import unicodedata
-from typing import List, Optional, Sequence, Set, Tuple
+from collections.abc import Sequence
 
 from .matching import normalize
 from .paper_authorship import byline_forms
@@ -26,7 +26,7 @@ def authors_present(authors: Sequence[str], regions: Sequence[str], author_metad
     if not authors:
         return False
     words = clean_byline(' '.join(front_matter(region) for region in regions) + ' ' + author_metadata).split()
-    used: Set[int] = set()
+    used: set[int] = set()
     for author in authors:
         match = _author_span(author, words, used)
         if match is None:
@@ -35,7 +35,7 @@ def authors_present(authors: Sequence[str], regions: Sequence[str], author_metad
     return True
 
 
-def _author_span(author: str, words: Sequence[str], used: Set[int]) -> Optional[Tuple[int, int]]:
+def _author_span(author: str, words: Sequence[str], used: set[int]) -> tuple[int, int] | None:
     for form in byline_forms(author):
         length = len(normalize(form).split())
         if length < 2:
@@ -82,7 +82,7 @@ def metadata_title_kind(title: str, expected: str) -> str:
     return 'conflicting'
 
 
-def publication_years(text: str) -> List[int]:
+def publication_years(text: str) -> list[int]:
     patterns = (
         r'(?i)\b(?:published|copyright|©)\s*[:\s]*(\d{4})\b',
         r'(?i)\bproceedings\b[^\n]{0,180}\b((?:19|20)\d{2})\b',
