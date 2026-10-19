@@ -1,0 +1,783 @@
+{
+  "lookups": {
+    "axbench steering llms even simple baselines outperform sparse autoencoders": {
+      "title": "AXBENCH: Steering LLMs? Even Simple Baselines Outperform Sparse Autoencoders",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1101/2024.09.16.613342",
+          "title": "Deep learning-based predictions of gene perturbation effects do not yet outperform simple linear baselines",
+          "year": 2024,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Ahlmann-Eltze",
+            "Huber",
+            "Anders"
+          ]
+        },
+        {
+          "doi": "10.1038/s41592-025-02772-6",
+          "title": "Deep-learning-based gene perturbation effect prediction does not yet outperform simple linear baselines",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "Nature Methods",
+          "family_names": [
+            "Ahlmann-Eltze",
+            "Huber",
+            "Anders"
+          ]
+        },
+        {
+          "doi": "10.52202/085713-5301",
+          "title": "SAEMark: Steering Personalized Multilingual LLM Watermarks with Sparse Autoencoders",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "Yu",
+            "Jiang",
+            "Gu",
+            "Wang",
+            "Wen",
+            "Zhang",
+            "Ye"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/2025.emnlp-main.641",
+          "title": "Breaking Bad Tokens: Detoxification of LLMs Using Sparse Autoencoders",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+          "family_names": [
+            "Goyal",
+            "Rathi",
+            "Yeh",
+            "Wang",
+            "Chen",
+            "Sundaram"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/2026.findings-eacl.40",
+          "title": "Denoising Concept Vectors with Sparse Autoencoders for Improved Language Model Steering",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Findings of the Association for Computational Linguistics: EACL 2026",
+          "family_names": [
+            "Zhao",
+            "Wu",
+            "Yang",
+            "Shen",
+            "Liu",
+            "Du"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T17:55:55.364197+00:00"
+    },
+    "backpack language models": {
+      "title": "Backpack Language Models",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.18653/v1/2023.blackboxnlp-1.8",
+          "title": "Character-Level Chinese Backpack Language Models",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 6th BlackboxNLP Workshop: Analyzing and Interpreting Neural Networks for NLP",
+          "family_names": [
+            "Sun",
+            "Hewitt"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/2023.acl-long.506",
+          "title": "Backpack Language Models",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+          "family_names": [
+            "Hewitt",
+            "Thickstun",
+            "Manning",
+            "Liang"
+          ]
+        },
+        {
+          "doi": "10.5040/9781350971332",
+          "title": "Human Backpack",
+          "year": 2018,
+          "type": "other",
+          "container": "Human Backpack",
+          "family_names": []
+        },
+        {
+          "doi": "10.7208/chicago/9780226439020.003.0000",
+          "title": "Backpack Ambassadors",
+          "year": 2017,
+          "type": "book-chapter",
+          "container": "Backpack Ambassadors",
+          "family_names": []
+        },
+        {
+          "doi": "10.58680/la201323843",
+          "title": "The Family Backpack Project: Responding to Dual-Language Texts through Family Journals",
+          "year": 2013,
+          "type": "journal-article",
+          "container": "Language Arts",
+          "family_names": [
+            "Rowe",
+            "Fain"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T17:55:55.616556+00:00"
+    },
+    "direct preference optimization your language model is secretly a reward model": {
+      "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.52202/075280-2338",
+          "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 36",
+          "family_names": [
+            "Rafailov",
+            "Sharma",
+            "Mitchell",
+            "Manning",
+            "Ermon",
+            "Finn"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/2026.acl-long.788",
+          "title": "Your Reasoning Model is Secretly a Reward Model - Optimization-Free Verification from Experience",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+          "family_names": [
+            "Liang",
+            "Li",
+            "Zhou",
+            "Song",
+            "Yu",
+            "Du",
+            "Mi",
+            "Yu"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/2025.acl-long.954",
+          "title": "IPO: Your Language Model is Secretly a Preference Classifier",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+          "family_names": [
+            "Garg",
+            "Singh",
+            "Singh",
+            "Chopra"
+          ]
+        },
+        {
+          "doi": "10.36227/techrxiv.175427207.75884899/v1",
+          "title": "Maximizing Scalable AI: Efficient Language Model Adaptation Using Fine-Tuning, Direct Preference Optimization, and Online Reinforcement",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Scott-Emuakpor"
+          ]
+        },
+        {
+          "doi": "10.1109/cvpr52734.2025.02193",
+          "title": "Boost Your Human Image Generation Model via Direct Preference Optimization",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Na",
+            "Kim",
+            "Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T17:55:55.998871+00:00"
+    },
+    "grokking of hierarchical structure in vanilla transformers": {
+      "title": "Grokking of Hierarchical Structure in Vanilla Transformers",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.18653/v1/2023.acl-short.38",
+          "title": "Grokking of Hierarchical Structure in Vanilla Transformers",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)",
+          "family_names": [
+            "Murty",
+            "Sharma",
+            "Andreas",
+            "Manning"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.6888418",
+          "title": "Weight Decay as a Necessary Condition for Grokking: Hierarchical Structure Learning in Group Multiplication Tasks",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Hung"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.7331940",
+          "title": "Scaffold, Not Seed -Except One: Positional Encoding and the Emergent Group Representations of Grokking Transformers",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Claude",
+            "Luo"
+          ]
+        },
+        {
+          "doi": "10.3390/electronics14214256",
+          "title": "Improving the Downstream Performance of Mixture-of-Experts Transformers via Weak Vanilla Transformers",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "Electronics",
+          "family_names": [
+            "Lu",
+            "Zhao",
+            "Qin",
+            "Liu"
+          ]
+        },
+        {
+          "doi": "10.36227/techrxiv.174970284.43190754/v1",
+          "title": "Summarizing Smarter: RAG vs Vanilla in Modern Transformers An Empirical Study on Retrieval-Augmented Generation Methods",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Sanadhya"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T17:55:57.397791+00:00"
+    },
+    "high accuracy transition based constituency parsing": {
+      "title": "High-Accuracy Transition-Based Constituency Parsing",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1162/tacl_a_00255",
+          "title": "Unlexicalized Transition-based Discontinuous Constituency Parsing",
+          "year": 2019,
+          "type": "journal-article",
+          "container": "Transactions of the Association for Computational Linguistics",
+          "family_names": [
+            "Coavoux",
+            "Crabbé",
+            "Cohen"
+          ]
+        },
+        {
+          "doi": "10.70675/8bb6891eza6f9z4466z8da9zfab12af43750",
+          "title": "Discontinuous constituency parsing of morphologically rich languages",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Coavoux"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/w19-1202",
+          "title": "Transition-based DRS Parsing Using Stack-LSTMs",
+          "year": 2019,
+          "type": "proceedings-article",
+          "container": "Proceedings of the IWCS Shared Task on Semantic Parsing",
+          "family_names": [
+            "Evang"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/2025.findings-acl.557",
+          "title": "Span-based Semantic Role Labeling as Lexicalized Constituency Tree Parsing",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Findings of the Association for Computational Linguistics: ACL 2025",
+          "family_names": [
+            "Hou",
+            "Li"
+          ]
+        },
+        {
+          "doi": "10.1109/itaic.2019.8785583",
+          "title": "A Rich-label Constituency Tree for Constituency Parsing",
+          "year": 2019,
+          "type": "proceedings-article",
+          "container": "2019 IEEE 8th Joint International Information Technology and Artificial Intelligence Conference (ITAIC)",
+          "family_names": [
+            "Yufeng",
+            "Fenglu"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T17:55:57.690092+00:00"
+    },
+    "mini but mighty efficient multilingual pretraining with linguistically informed data selection": {
+      "title": "Mini But Mighty: Efficient Multilingual Pretraining with Linguistically-Informed Data Selection",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.18653/v1/2023.findings-eacl.93",
+          "title": "Mini But Mighty: Efficient Multilingual Pretraining with Linguistically-Informed Data Selection",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "Findings of the Association for Computational Linguistics: EACL 2023",
+          "family_names": [
+            "Ogunremi",
+            "Jurafsky",
+            "Manning"
+          ]
+        },
+        {
+          "doi": "10.52202/085713-2109",
+          "title": "Enhancing Multilingual LLM Pretraining with Model-Based Data Selection",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "Messmer",
+            "Sabolčec",
+            "Jaggi"
+          ]
+        },
+        {
+          "doi": "10.52202/079017-3453",
+          "title": "MATES: Model-Aware Data Selection for Efficient Pretraining with Data Influence Models",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 37",
+          "family_names": [
+            "Yu",
+            "Das",
+            "Xiong"
+          ]
+        },
+        {
+          "doi": "10.52202/085713-5176",
+          "title": "Group-Level Data Selection for Efficient Pretraining",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "Yu",
+            "Peng",
+            "Lei",
+            "Overwijk",
+            "Yih",
+            "Xiong"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.6557134",
+          "title": "PI-M3AE: A Self-Supervised Pretraining Framework with Physics-Informed Multi-Dimensional Masking for Label-Efficient Landslide Detection",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Zhang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T17:55:57.923509+00:00"
+    },
+    "predicting narratives of climate obstruction in social media advertising": {
+      "title": "Predicting Narratives of Climate Obstruction in Social Media Advertising",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.18653/v1/2024.findings-acl.330",
+          "title": "Predicting Narratives of Climate Obstruction in Social Media Advertising",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Findings of the Association for Computational Linguistics ACL 2024",
+          "family_names": [
+            "Rowlands",
+            "Morio",
+            "Tanner",
+            "Manning"
+          ]
+        },
+        {
+          "doi": "10.21203/rs.3.rs-1760493/v1",
+          "title": "Climate Obstruction and Facebook Advertising: How a Sample of Climate Obstruction Organizations Use social media to Disseminate Discourses of Delay",
+          "year": 2022,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Mckie",
+            "Holder",
+            "Mirza",
+            "Carbone",
+            "Ngo-Lee"
+          ]
+        },
+        {
+          "doi": "10.1007/s10584-023-03494-4",
+          "title": "Climate obstruction and Facebook advertising: how a sample of climate obstruction organizations use social media to disseminate discourses of delay",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "Climatic Change",
+          "family_names": [
+            "Holder",
+            "Mirza",
+            "Namson-Ngo-Lee",
+            "Carbone",
+            "McKie"
+          ]
+        },
+        {
+          "doi": "10.1093/oso/9780197787144.003.0006",
+          "title": "Steering the Climate Discourse",
+          "year": 2025,
+          "type": "book-chapter",
+          "container": "Climate Obstruction",
+          "family_names": [
+            "Aronczyk",
+            "Boykoff",
+            "Coan",
+            "Lahsen",
+            "Morris",
+            "Russill"
+          ]
+        },
+        {
+          "doi": "10.4324/9781003746096-16",
+          "title": "Social Media Narratives of Climate Migration",
+          "year": 2026,
+          "type": "book-chapter",
+          "container": "Climate Change, Behaviour and Economics",
+          "family_names": [
+            "Wąsiewicz"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T17:55:59.386871+00:00"
+    },
+    "reportparse a unified nlp tool for extracting document structure and semantics of corporate sustainability reporting": {
+      "title": "ReportParse: A Unified NLP Tool for Extracting Document Structure and Semantics of Corporate Sustainability Reporting",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.24963/ijcai.2024/1024",
+          "title": "ReportParse: A Unified NLP Tool for Extracting Document Structure and Semantics of Corporate Sustainability Reporting",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Proceedings of the Thirty-ThirdInternational Joint Conference on Artificial Intelligence",
+          "family_names": [
+            "Morio",
+            "In",
+            "Yoon",
+            "Rowlands",
+            "Manning"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.4736435",
+          "title": "European corporate sustainability reporting - The Financial Materiality Compass as an auxiliary tool",
+          "year": 2024,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Bannier",
+            "Flach"
+          ]
+        },
+        {
+          "doi": "10.1142/9789819822409_0016",
+          "title": "Sustainability and Corporate Social Reporting",
+          "year": 2026,
+          "type": "book-chapter",
+          "container": "Financial and Sustainability Reporting",
+          "family_names": []
+        },
+        {
+          "doi": "10.51415/10321/5871",
+          "title": "Sustainability Reporting (SR) in Sub-Saharan Africa (SSA) : a corporate governance and ownership structure perspective",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Blay"
+          ]
+        },
+        {
+          "doi": "10.1109/ccece.2006.277719",
+          "title": "Extracting Document Semantics for Semantic Header",
+          "year": 2006,
+          "type": "proceedings-article",
+          "container": "2006 Canadian Conference on Electrical and Computer Engineering",
+          "family_names": [
+            "Wang",
+            "Desai"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T17:56:00.765681+00:00"
+    },
+    "sneaking syntax into transformer language models with tree regularization": {
+      "title": "Sneaking Syntax into Transformer Language Models with Tree Regularization",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.18653/v1/2025.naacl-long.407",
+          "title": "Sneaking Syntax into Transformer Language Models with Tree Regularization",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)",
+          "family_names": [
+            "Nandi",
+            "Manning",
+            "Murty"
+          ]
+        },
+        {
+          "doi": "10.3389/frai.2022.796788",
+          "title": "Schrödinger's tree—On syntax and neural language models",
+          "year": 2022,
+          "type": "journal-article",
+          "container": "Frontiers in Artificial Intelligence",
+          "family_names": [
+            "Kulmizev",
+            "Nivre"
+          ]
+        },
+        {
+          "doi": "10.5715/jnlp.28.682",
+          "title": "Syntax-based Transformer for Neural Machine Translation",
+          "year": 2021,
+          "type": "journal-article",
+          "container": "Journal of Natural Language Processing",
+          "family_names": [
+            "Ma"
+          ]
+        },
+        {
+          "doi": "10.1108/s0092-4563(2006)0000035005",
+          "title": "TREE GROWTH AND LANGUAGE TYPOLOGIES",
+          "year": null,
+          "type": "book-chapter",
+          "container": "Syntax and Semantics",
+          "family_names": []
+        },
+        {
+          "doi": "10.20944/preprints202312.1673.v1",
+          "title": "Advanced Language Understanding with Syntax-Enhanced Transformer",
+          "year": 2023,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Rine",
+            "Patel",
+            "Steve"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T17:56:01.009450+00:00"
+    },
+    "statistical uncertainty in word embeddings glove v": {
+      "title": "Statistical Uncertainty in Word Embeddings: GloVe-V",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.18653/v1/2024.emnlp-main.510",
+          "title": "Statistical Uncertainty in Word Embeddings: GloVe-V",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing",
+          "family_names": [
+            "Vallebueno",
+            "Handan-Nader",
+            "Manning",
+            "Ho"
+          ]
+        },
+        {
+          "doi": "10.7717/peerjcs.1976/table-4",
+          "title": "Table 4: Evaluation accuracy with word embeddings with glove and without it for drug review dataset for both Model A-B.",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.7287/peerj-cs.668v0.1/reviews/1",
+          "title": "Peer Review #1 of \"An automated method to enrich consumer health vocabularies using GloVe word embeddings and an auxiliary lexical resource (v0.1)\"",
+          "year": 2021,
+          "type": "peer-review",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.46328/ijonest.83",
+          "title": "WOVe:  Incorporating Word Order in GloVe Word Embeddings",
+          "year": 2022,
+          "type": "journal-article",
+          "container": "International Journal on Engineering, Science and Technology",
+          "family_names": [
+            "Ibrahim",
+            "Gauch",
+            "Gerth",
+            "Cox"
+          ]
+        },
+        {
+          "doi": "10.7717/peerj-cs.384/table-5",
+          "title": "Table 5: Comparison between coverage and performance with the BiLSTM-CRF model using the GloVe Common Crawl and Pyysalo PM + PMC word embeddings.",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        }
+      ],
+      "fetched_at": "2026-10-18T17:56:02.611595+00:00"
+    },
+    "universal dependencies for sindhi": {
+      "title": "Universal Dependencies for Sindhi",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.18653/v1/w19-8008",
+          "title": "Universal Dependencies for Mbyá Guaraní",
+          "year": 2019,
+          "type": "proceedings-article",
+          "container": "Proceedings of the Third Workshop on Universal Dependencies (UDW, SyntaxFest 2019)",
+          "family_names": [
+            "Thomas"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/w19-8003",
+          "title": "Developing Universal Dependencies for Wolof",
+          "year": 2019,
+          "type": "proceedings-article",
+          "container": "Proceedings of the Third Workshop on Universal Dependencies (UDW, SyntaxFest 2019)",
+          "family_names": [
+            "Dione"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/w18-6010",
+          "title": "Investigating NP-Chunking with Universal Dependencies for English",
+          "year": 2018,
+          "type": "proceedings-article",
+          "container": "Proceedings of the Second Workshop on Universal Dependencies (UDW 2018)",
+          "family_names": [
+            "Lacroix"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/w19-8007",
+          "title": "Nested Coordination in Universal Dependencies",
+          "year": 2019,
+          "type": "proceedings-article",
+          "container": "Proceedings of the Third Workshop on Universal Dependencies (UDW, SyntaxFest 2019)",
+          "family_names": [
+            "Przepiórkowski",
+            "Patejuk"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/w18-6011",
+          "title": "Marrying Universal Dependencies and Universal Morphology",
+          "year": 2018,
+          "type": "proceedings-article",
+          "container": "Proceedings of the Second Workshop on Universal Dependencies (UDW 2018)",
+          "family_names": [
+            "McCarthy",
+            "Silfverberg",
+            "Cotterell",
+            "Hulden",
+            "Yarowsky"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T17:56:02.975627+00:00"
+    },
+    "pyvene a library for understanding and improving pytorch models via interventions": {
+      "title": "pyvene: A Library for Understanding and Improving PyTorch Models via Interventions",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.18653/v1/2024.naacl-demo.16",
+          "title": "pyvene: A Library for Understanding and Improving PyTorch Models via Interventions",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 3: System Demonstrations)",
+          "family_names": [
+            "Wu",
+            "Geiger",
+            "Arora",
+            "Huang",
+            "Wang",
+            "Goodman",
+            "Manning",
+            "Potts"
+          ]
+        },
+        {
+          "doi": "10.1007/978-1-4842-4258-2_6",
+          "title": "Fine-Tuning Deep Learning Models Using PyTorch",
+          "year": 2019,
+          "type": "book-chapter",
+          "container": "PyTorch Recipes",
+          "family_names": [
+            "Mishra"
+          ]
+        },
+        {
+          "doi": "10.1007/978-1-4842-8925-9_6",
+          "title": "Fine-Tuning Deep Learning Models Using PyTorch",
+          "year": 2022,
+          "type": "book-chapter",
+          "container": "PyTorch Recipes",
+          "family_names": [
+            "Mishra"
+          ]
+        },
+        {
+          "doi": "10.64898/2026.03.10.710885",
+          "title": "torch-projectors: A High-Performance Differentiable Projection Library for PyTorch",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Tegunov"
+          ]
+        },
+        {
+          "doi": "10.1007/978-1-4842-8925-9_5",
+          "title": "Supervised Learning Using PyTorch",
+          "year": 2022,
+          "type": "book-chapter",
+          "container": "PyTorch Recipes",
+          "family_names": [
+            "Mishra"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T17:56:04.467391+00:00"
+    }
+  }
+}

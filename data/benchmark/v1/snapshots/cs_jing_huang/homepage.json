@@ -1,0 +1,124 @@
+{
+ "snapshot_schema_version": 1,
+ "source_url": "https://explanare.github.io/",
+ "captured_at": "2026-10-18",
+ "captured_by": "Assistant transcription of the public page; pending human review",
+ "scope_note": "2020-2025 entries of the homepage research list (grouped by topic; may be selected work only).",
+ "transcription_notes": [],
+ "entries": [
+  {
+   "title": "Blackbox Model Provenance via Palimpsestic Membership Inference",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2025",
+   "authors": [
+    "Rohith Kuditipudi",
+    "Jing Huang",
+    "Sally Zhu",
+    "Diyi Yang",
+    "Christopher Potts",
+    "Percy Liang"
+   ]
+  },
+  {
+   "title": "Demystifying Verbatim Memorization in Large Language Models",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "EMNLP 2024",
+   "authors": [
+    "Jing Huang",
+    "Diyi Yang",
+    "Christopher Potts"
+   ]
+  },
+  {
+   "title": "Internal Causal Mechanisms Robustly Predict Language Model Out-of-Distribution Behaviors",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICML 2025",
+   "authors": [
+    "Jing Huang",
+    "Junyi Tao",
+    "Thomas Icard",
+    "Diyi Yang",
+    "Christopher Potts"
+   ]
+  },
+  {
+   "title": "Causal Abstraction: A Theoretical Foundation for Mechanistic Interpretability",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "JMLR 2025",
+   "authors": [
+    "Atticus Geiger",
+    "Duligur Ibeling",
+    "Amir Zur",
+    "Maheep Chaudhary",
+    "Sonakshi Chauhan",
+    "Jing Huang",
+    "Aryaman Arora",
+    "Zhengxuan Wu",
+    "Noah Goodman",
+    "Christopher Potts",
+    "Thomas Icard"
+   ]
+  },
+  {
+   "title": "RAVEL: Evaluating Interpretability Methods on Disentangling Language Model Representations",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ACL 2024",
+   "authors": [
+    "Jing Huang",
+    "Zhengxuan Wu",
+    "Christopher Potts",
+    "Mor Geva",
+    "Atticus Geiger"
+   ]
+  },
+  {
+   "title": "Rigorously Assessing Natural Language Explanations of Neurons",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "BlackboxNLP 2023",
+   "authors": [
+    "Jing Huang",
+    "Atticus Geiger",
+    "Karel D'Oosterlinck",
+    "Zhengxuan Wu",
+    "Christopher Potts"
+   ]
+  },
+  {
+   "title": "AxBench: Steering LLMs? Even Simple Baselines Outperform Sparse Autoencoders",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICML 2025",
+   "authors": [
+    "Zhengxuan Wu",
+    "Aryaman Arora",
+    "Atticus Geiger",
+    "Zheng Wang",
+    "Jing Huang",
+    "Dan Jurafsky",
+    "Christopher D Manning",
+    "Christopher Potts"
+   ]
+  },
+  {
+   "title": "HyperDAS: Towards Automating Mechanistic Interpretability with Hypernetworks",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICLR 2025",
+   "authors": [
+    "Jiuding Sun",
+    "Jing Huang",
+    "Sidharth Baskaran",
+    "Karel D'Oosterlinck",
+    "Christopher Potts",
+    "Michael Sklar",
+    "Atticus Geiger"
+   ]
+  }
+ ]
+}

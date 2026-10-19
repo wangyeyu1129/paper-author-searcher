@@ -1,0 +1,3776 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "cs_huan_zhang",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Huan Zhang",
+      "university": "University of Illinois Urbana-Champaign"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.405332+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://www.huan-zhang.com/",
+        "records": 57
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "cs_huan_zhang:b5f5ddf49f63",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "An Efficient Adversarial Attack for Tree Ensembles",
+      "year": 2020,
+      "authors": [
+        "Chong Zhang",
+        "Huan Zhang",
+        "Cho-Jui Hsieh"
+      ],
+      "listed_venue": "NeurIPS 2020",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 51 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2010.11598"
+      },
+      "metadata_aliases": [
+        {
+          "title": "An Efficient Adversarial Attack for Tree Ensembles",
+          "year": 2019,
+          "authors": [
+            "Chong Zhang",
+            "Huan Zhang",
+            "Cho-Jui Hsieh"
+          ]
+        },
+        {
+          "title": "An Efficient Adversarial Attack for Tree Ensembles",
+          "year": 2021,
+          "authors": [
+            "Chong Zhang",
+            "Huan Zhang",
+            "Cho-Jui Hsieh"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2010.11598",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "An Efficient Adversarial Attack for Tree Ensembles",
+          "arxiv_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:5408d02a20a0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Automatic Perturbation Analysis for Scalable Certified Robustness and Beyond",
+      "year": 2020,
+      "authors": [
+        "Kaidi Xu",
+        "Zhouxing Shi",
+        "Huan Zhang",
+        "Yihan Wang",
+        "Minlie Huang",
+        "Kai-Wei Chang",
+        "Bhavya Kailkhura",
+        "Xue Lin",
+        "Cho-Jui Hsieh"
+      ],
+      "listed_venue": "NeurIPS 2020",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 50 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2002.12920"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Automatic Perturbation Analysis for Scalable Certified Robustness and Beyond",
+          "year": 2019,
+          "authors": [
+            "Kaidi Xu",
+            "Zhouxing Shi",
+            "Huan Zhang",
+            "Yihan Wang",
+            "Minlie Huang",
+            "Kai-Wei Chang",
+            "Bhavya Kailkhura",
+            "Xue Lin",
+            "Cho-Jui Hsieh"
+          ]
+        },
+        {
+          "title": "Automatic Perturbation Analysis for Scalable Certified Robustness and Beyond",
+          "year": 2021,
+          "authors": [
+            "Kaidi Xu",
+            "Zhouxing Shi",
+            "Huan Zhang",
+            "Yihan Wang",
+            "Minlie Huang",
+            "Kai-Wei Chang",
+            "Bhavya Kailkhura",
+            "Xue Lin",
+            "Cho-Jui Hsieh"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2002.12920",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Automatic Perturbation Analysis for Scalable Certified Robustness and Beyond",
+          "arxiv_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:f74c3a6faaea",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "MACER: Attack-free and Scalable Robust Training via Maximizing Certified Radius",
+      "year": 2020,
+      "authors": [
+        "Runtian Zhai",
+        "Chen Dan",
+        "Di He",
+        "Huan Zhang",
+        "Boqing Gong",
+        "Pradeep Ravikumar",
+        "Cho-Jui Hsieh",
+        "Liwei Wang"
+      ],
+      "listed_venue": "ICLR 2020",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 56 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2001.02378"
+      },
+      "metadata_aliases": [
+        {
+          "title": "MACER: Attack-free and Scalable Robust Training via Maximizing Certified Radius",
+          "year": 2019,
+          "authors": [
+            "Runtian Zhai",
+            "Chen Dan",
+            "Di He",
+            "Huan Zhang",
+            "Boqing Gong",
+            "Pradeep Ravikumar",
+            "Cho-Jui Hsieh",
+            "Liwei Wang"
+          ]
+        },
+        {
+          "title": "MACER: Attack-free and Scalable Robust Training via Maximizing Certified Radius",
+          "year": 2021,
+          "authors": [
+            "Runtian Zhai",
+            "Chen Dan",
+            "Di He",
+            "Huan Zhang",
+            "Boqing Gong",
+            "Pradeep Ravikumar",
+            "Cho-Jui Hsieh",
+            "Liwei Wang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2001.02378",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "MACER: Attack-free and Scalable Robust Training via Maximizing Certified Radius",
+          "arxiv_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:4831659f403e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "On ℓp-norm Robustness of Ensemble Decision Stumps and Trees",
+      "year": 2020,
+      "authors": [
+        "Yihan Wang",
+        "Huan Zhang",
+        "Hongge Chen",
+        "Duane Boning",
+        "Cho-Jui Hsieh"
+      ],
+      "listed_venue": "ICML 2020",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 53 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "On ℓp-norm Robustness of Ensemble Decision Stumps and Trees",
+          "year": 2019,
+          "authors": [
+            "Yihan Wang",
+            "Huan Zhang",
+            "Hongge Chen",
+            "Duane Boning",
+            "Cho-Jui Hsieh"
+          ]
+        },
+        {
+          "title": "On ℓp-norm Robustness of Ensemble Decision Stumps and Trees",
+          "year": 2021,
+          "authors": [
+            "Yihan Wang",
+            "Huan Zhang",
+            "Hongge Chen",
+            "Duane Boning",
+            "Cho-Jui Hsieh"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:d36c543cfba4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Reducing Sentiment Bias in Language Models via Counterfactual Evaluation",
+      "year": 2020,
+      "authors": [
+        "Po-Sen Huang",
+        "Huan Zhang",
+        "Ray Jiang",
+        "Robert Stanforth",
+        "Johannes Welbl",
+        "Jack Rae",
+        "Vishal Maini",
+        "Dani Yogatama",
+        "Pushmeet Kohli"
+      ],
+      "listed_venue": "Findings of EMNLP 2020",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 52 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2020.findings-emnlp.7"
+      ],
+      "external_ids": {
+        "arxiv": "1911.03064"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Reducing Sentiment Bias in Language Models via Counterfactual Evaluation",
+          "year": 2019,
+          "authors": [
+            "Po-Sen Huang",
+            "Huan Zhang",
+            "Ray Jiang",
+            "Robert Stanforth",
+            "Johannes Welbl",
+            "Jack Rae",
+            "Vishal Maini",
+            "Dani Yogatama",
+            "Pushmeet Kohli"
+          ]
+        },
+        {
+          "title": "Reducing Sentiment Bias in Language Models via Counterfactual Evaluation",
+          "year": 2021,
+          "authors": [
+            "Po-Sen Huang",
+            "Huan Zhang",
+            "Ray Jiang",
+            "Robert Stanforth",
+            "Johannes Welbl",
+            "Jack Rae",
+            "Vishal Maini",
+            "Dani Yogatama",
+            "Pushmeet Kohli"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "1911.03064",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Reducing Sentiment Bias in Language Models via Counterfactual Evaluation",
+          "arxiv_year": 2019,
+          "doi": "10.18653/v1/2020.findings-emnlp.7",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Reducing Sentiment Bias in Language Models via Counterfactual Evaluation",
+          "crossref_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:1460a1fc1d7f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Robust Deep Reinforcement Learning against Adversarial Perturbations on State Observations",
+      "year": 2020,
+      "authors": [
+        "Huan Zhang",
+        "Hongge Chen",
+        "Chaowei Xiao",
+        "Bo Li",
+        "Duane Boning",
+        "Cho-Jui Hsieh"
+      ],
+      "listed_venue": "NeurIPS 2020",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 49 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2003.08938"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Robust Deep Reinforcement Learning against Adversarial Perturbations on State Observations",
+          "year": 2019,
+          "authors": [
+            "Huan Zhang",
+            "Hongge Chen",
+            "Chaowei Xiao",
+            "Bo Li",
+            "Duane Boning",
+            "Cho-Jui Hsieh"
+          ]
+        },
+        {
+          "title": "Robust Deep Reinforcement Learning against Adversarial Perturbations on State Observations",
+          "year": 2021,
+          "authors": [
+            "Huan Zhang",
+            "Hongge Chen",
+            "Chaowei Xiao",
+            "Bo Li",
+            "Duane Boning",
+            "Cho-Jui Hsieh"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2003.08938",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Robust Deep Reinforcement Learning against Adversarial Perturbations on State Observations",
+          "arxiv_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:51d67cc1d72b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Robustness Verification for Transformers",
+      "year": 2020,
+      "authors": [
+        "Zhouxing Shi",
+        "Huan Zhang",
+        "Kai-Wei Chang",
+        "Minlie Huang",
+        "Cho-Jui Hsieh"
+      ],
+      "listed_venue": "ICLR 2020",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 55 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2002.06622"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Robustness Verification for Transformers",
+          "year": 2019,
+          "authors": [
+            "Zhouxing Shi",
+            "Huan Zhang",
+            "Kai-Wei Chang",
+            "Minlie Huang",
+            "Cho-Jui Hsieh"
+          ]
+        },
+        {
+          "title": "Robustness Verification for Transformers",
+          "year": 2021,
+          "authors": [
+            "Zhouxing Shi",
+            "Huan Zhang",
+            "Kai-Wei Chang",
+            "Minlie Huang",
+            "Cho-Jui Hsieh"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2002.06622",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Robustness Verification for Transformers",
+          "arxiv_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:b147e907c83f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Seq2Sick: Evaluating the Robustness of Sequence-to-Sequence Models with Adversarial Examples",
+      "year": 2020,
+      "authors": [
+        "Minhao Cheng",
+        "Jinfeng Yi",
+        "Huan Zhang",
+        "Pin-Yu Chen",
+        "Cho-Jui Hsieh"
+      ],
+      "listed_venue": "AAAI 2020",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 57 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1609/aaai.v34i04.5767"
+      ],
+      "external_ids": {
+        "arxiv": "1803.01128"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Seq2Sick: Evaluating the Robustness of Sequence-to-Sequence Models with Adversarial Examples",
+          "year": 2019,
+          "authors": [
+            "Minhao Cheng",
+            "Jinfeng Yi",
+            "Huan Zhang",
+            "Pin-Yu Chen",
+            "Cho-Jui Hsieh"
+          ]
+        },
+        {
+          "title": "Seq2Sick: Evaluating the Robustness of Sequence-to-Sequence Models with Adversarial Examples",
+          "year": 2021,
+          "authors": [
+            "Minhao Cheng",
+            "Jinfeng Yi",
+            "Huan Zhang",
+            "Pin-Yu Chen",
+            "Cho-Jui Hsieh"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "1803.01128",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Seq2Sick: Evaluating the Robustness of Sequence-to-Sequence Models with Adversarial Examples",
+          "arxiv_year": 2018,
+          "doi": "10.1609/aaai.v34i04.5767",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Seq2Sick: Evaluating the Robustness of Sequence-to-Sequence Models with Adversarial Examples",
+          "crossref_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:da794460a3be",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Towards Stable and Efficient Training of Verifiably Robust Neural Networks",
+      "year": 2020,
+      "authors": [
+        "Huan Zhang",
+        "Hongge Chen",
+        "Chaowei Xiao",
+        "Sven Gowal",
+        "Robert Stanforth",
+        "Bo Li",
+        "Duane Boning",
+        "Cho-Jui Hsieh"
+      ],
+      "listed_venue": "ICLR 2020",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 54 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "1906.06316"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Towards Stable and Efficient Training of Verifiably Robust Neural Networks",
+          "year": 2019,
+          "authors": [
+            "Huan Zhang",
+            "Hongge Chen",
+            "Chaowei Xiao",
+            "Sven Gowal",
+            "Robert Stanforth",
+            "Bo Li",
+            "Duane Boning",
+            "Cho-Jui Hsieh"
+          ]
+        },
+        {
+          "title": "Towards Stable and Efficient Training of Verifiably Robust Neural Networks",
+          "year": 2021,
+          "authors": [
+            "Huan Zhang",
+            "Hongge Chen",
+            "Chaowei Xiao",
+            "Sven Gowal",
+            "Robert Stanforth",
+            "Bo Li",
+            "Duane Boning",
+            "Cho-Jui Hsieh"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "1906.06316",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Towards Stable and Efficient Training of Verifiably Robust Neural Networks",
+          "arxiv_year": 2019
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:4fe59add6323",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Beta-CROWN: Efficient Bound Propagation with Per-neuron Split Constraints for Complete and Incomplete Neural Network Verification",
+      "year": 2021,
+      "authors": [
+        "Shiqi Wang",
+        "Huan Zhang",
+        "Kaidi Xu",
+        "Xue Lin",
+        "Suman Jana",
+        "Cho-Jui Hsieh",
+        "Zico Kolter"
+      ],
+      "listed_venue": "NeurIPS 2021",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 42 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Beta-CROWN: Efficient Bound Propagation with Per-neuron Split Constraints for Complete and Incomplete Neural Network Verification",
+          "year": 2020,
+          "authors": [
+            "Shiqi Wang",
+            "Huan Zhang",
+            "Kaidi Xu",
+            "Xue Lin",
+            "Suman Jana",
+            "Cho-Jui Hsieh",
+            "Zico Kolter"
+          ]
+        },
+        {
+          "title": "Beta-CROWN: Efficient Bound Propagation with Per-neuron Split Constraints for Complete and Incomplete Neural Network Verification",
+          "year": 2022,
+          "authors": [
+            "Shiqi Wang",
+            "Huan Zhang",
+            "Kaidi Xu",
+            "Xue Lin",
+            "Suman Jana",
+            "Cho-Jui Hsieh",
+            "Zico Kolter"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:5f76206edc4d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Double Perturbation: On the Robustness of Robustness and Counterfactual Bias Evaluation",
+      "year": 2021,
+      "authors": [
+        "Chong Zhang",
+        "Jieyu Zhao",
+        "Huan Zhang",
+        "Kai-Wei Chang",
+        "Cho-Jui Hsieh"
+      ],
+      "listed_venue": "NAACL 2021",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 46 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2021.naacl-main.305"
+      ],
+      "external_ids": {
+        "arxiv": "2104.05232"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Double Perturbation: On the Robustness of Robustness and Counterfactual Bias Evaluation",
+          "year": 2020,
+          "authors": [
+            "Chong Zhang",
+            "Jieyu Zhao",
+            "Huan Zhang",
+            "Kai-Wei Chang",
+            "Cho-Jui Hsieh"
+          ]
+        },
+        {
+          "title": "Double Perturbation: On the Robustness of Robustness and Counterfactual Bias Evaluation",
+          "year": 2022,
+          "authors": [
+            "Chong Zhang",
+            "Jieyu Zhao",
+            "Huan Zhang",
+            "Kai-Wei Chang",
+            "Cho-Jui Hsieh"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2104.05232",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Double Perturbation: On the Robustness of Robustness and Counterfactual Bias Evaluation",
+          "arxiv_year": 2021,
+          "doi": "10.18653/v1/2021.naacl-main.305",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Double Perturbation: On the Robustness of Robustness and Counterfactual Bias Evaluation",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:9fd8713bda5a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Fast and Complete: Enabling Complete Neural Network Verification with Rapid and Massively Parallel Incomplete Verifiers",
+      "year": 2021,
+      "authors": [
+        "Kaidi Xu",
+        "Huan Zhang",
+        "Shiqi Wang",
+        "Yihan Wang",
+        "Suman Jana",
+        "Xue Lin",
+        "Cho-Jui Hsieh"
+      ],
+      "listed_venue": "ICLR 2021",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 48 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2011.13824"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Fast and Complete: Enabling Complete Neural Network Verification with Rapid and Massively Parallel Incomplete Verifiers",
+          "year": 2020,
+          "authors": [
+            "Kaidi Xu",
+            "Huan Zhang",
+            "Shiqi Wang",
+            "Yihan Wang",
+            "Suman Jana",
+            "Xue Lin",
+            "Cho-Jui Hsieh"
+          ]
+        },
+        {
+          "title": "Fast and Complete: Enabling Complete Neural Network Verification with Rapid and Massively Parallel Incomplete Verifiers",
+          "year": 2022,
+          "authors": [
+            "Kaidi Xu",
+            "Huan Zhang",
+            "Shiqi Wang",
+            "Yihan Wang",
+            "Suman Jana",
+            "Xue Lin",
+            "Cho-Jui Hsieh"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2011.13824",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Fast and Complete: Enabling Complete Neural Network Verification with Rapid and Massively Parallel Incomplete Verifiers",
+          "arxiv_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:7e5ba88485b4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Fast Certified Robust Training via Better Initialization and Shorter Warmup",
+      "year": 2021,
+      "authors": [
+        "Zhouxing Shi",
+        "Yihan Wang",
+        "Huan Zhang",
+        "Jinfeng Yi",
+        "Cho-Jui Hsieh"
+      ],
+      "listed_venue": "NeurIPS 2021",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 45 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Fast Certified Robust Training via Better Initialization and Shorter Warmup",
+          "year": 2020,
+          "authors": [
+            "Zhouxing Shi",
+            "Yihan Wang",
+            "Huan Zhang",
+            "Jinfeng Yi",
+            "Cho-Jui Hsieh"
+          ]
+        },
+        {
+          "title": "Fast Certified Robust Training via Better Initialization and Shorter Warmup",
+          "year": 2022,
+          "authors": [
+            "Zhouxing Shi",
+            "Yihan Wang",
+            "Huan Zhang",
+            "Jinfeng Yi",
+            "Cho-Jui Hsieh"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:2f0b13eb43ad",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Robust Reinforcement Learning on State Observations with Learned Optimal Adversary",
+      "year": 2021,
+      "authors": [
+        "Huan Zhang",
+        "Hongge Chen",
+        "Duane Boning",
+        "Cho-Jui Hsieh"
+      ],
+      "listed_venue": "ICLR 2021",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 47 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2101.08452"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Robust Reinforcement Learning on State Observations with Learned Optimal Adversary",
+          "year": 2020,
+          "authors": [
+            "Huan Zhang",
+            "Hongge Chen",
+            "Duane Boning",
+            "Cho-Jui Hsieh"
+          ]
+        },
+        {
+          "title": "Robust Reinforcement Learning on State Observations with Learned Optimal Adversary",
+          "year": 2022,
+          "authors": [
+            "Huan Zhang",
+            "Hongge Chen",
+            "Duane Boning",
+            "Cho-Jui Hsieh"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2101.08452",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Robust Reinforcement Learning on State Observations with Learned Optimal Adversary",
+          "arxiv_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:ab8a6f3c4c34",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Robustness between the worst and average case",
+      "year": 2021,
+      "authors": [
+        "Leslie Rice",
+        "Anna Bair",
+        "Huan Zhang",
+        "Zico Kolter"
+      ],
+      "listed_venue": "NeurIPS 2021",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 44 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Robustness between the worst and average case",
+          "year": 2020,
+          "authors": [
+            "Leslie Rice",
+            "Anna Bair",
+            "Huan Zhang",
+            "Zico Kolter"
+          ]
+        },
+        {
+          "title": "Robustness between the worst and average case",
+          "year": 2022,
+          "authors": [
+            "Leslie Rice",
+            "Anna Bair",
+            "Huan Zhang",
+            "Zico Kolter"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:59d9322e211b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Training Certifiably Robust Neural Networks with Efficient Local Lipschitz Bounds",
+      "year": 2021,
+      "authors": [
+        "Yujia Huang",
+        "Huan Zhang",
+        "Yuanyuan Shi",
+        "Zico Kolter",
+        "Anima Anandkumar"
+      ],
+      "listed_venue": "NeurIPS 2021",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 43 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2111.01395"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Training Certifiably Robust Neural Networks with Efficient Local Lipschitz Bounds",
+          "year": 2020,
+          "authors": [
+            "Yujia Huang",
+            "Huan Zhang",
+            "Yuanyuan Shi",
+            "Zico Kolter",
+            "Anima Anandkumar"
+          ]
+        },
+        {
+          "title": "Training Certifiably Robust Neural Networks with Efficient Local Lipschitz Bounds",
+          "year": 2022,
+          "authors": [
+            "Yujia Huang",
+            "Huan Zhang",
+            "Yuanyuan Shi",
+            "Zico Kolter",
+            "Anima Anandkumar"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2111.01395",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Training Certifiably Robust Neural Networks with Efficient Local Lipschitz Bounds",
+          "arxiv_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:c73fdd8a25da",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A Branch and Bound Framework for Stronger Adversarial Attacks of ReLU Networks",
+      "year": 2022,
+      "authors": [
+        "Huan Zhang",
+        "Shiqi Wang",
+        "Kaidi Xu",
+        "Yihan Wang",
+        "Suman Jana",
+        "Cho-Jui Hsieh",
+        "Zico Kolter"
+      ],
+      "listed_venue": "ICML 2022",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 38 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "A Branch and Bound Framework for Stronger Adversarial Attacks of ReLU Networks",
+          "year": 2021,
+          "authors": [
+            "Huan Zhang",
+            "Shiqi Wang",
+            "Kaidi Xu",
+            "Yihan Wang",
+            "Suman Jana",
+            "Cho-Jui Hsieh",
+            "Zico Kolter"
+          ]
+        },
+        {
+          "title": "A Branch and Bound Framework for Stronger Adversarial Attacks of ReLU Networks",
+          "year": 2023,
+          "authors": [
+            "Huan Zhang",
+            "Shiqi Wang",
+            "Kaidi Xu",
+            "Yihan Wang",
+            "Suman Jana",
+            "Cho-Jui Hsieh",
+            "Zico Kolter"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:60684d09cf19",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Are AlphaZero-like Agents Robust to Adversarial Perturbations?",
+      "year": 2022,
+      "authors": [
+        "Li-Cheng Lan",
+        "Huan Zhang",
+        "Ti-Rong Wu",
+        "Meng-Yu Tsai",
+        "I-Chen Wu",
+        "Cho-Jui Hsieh"
+      ],
+      "listed_venue": "NeurIPS 2022",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 35 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/068431-0816"
+      ],
+      "external_ids": {
+        "arxiv": "2211.03769"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Are AlphaZero-like Agents Robust to Adversarial Perturbations?",
+          "year": 2021,
+          "authors": [
+            "Li-Cheng Lan",
+            "Huan Zhang",
+            "Ti-Rong Wu",
+            "Meng-Yu Tsai",
+            "I-Chen Wu",
+            "Cho-Jui Hsieh"
+          ]
+        },
+        {
+          "title": "Are AlphaZero-like Agents Robust to Adversarial Perturbations?",
+          "year": 2023,
+          "authors": [
+            "Li-Cheng Lan",
+            "Huan Zhang",
+            "Ti-Rong Wu",
+            "Meng-Yu Tsai",
+            "I-Chen Wu",
+            "Cho-Jui Hsieh"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2211.03769",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Are AlphaZero-like Agents Robust to Adversarial Perturbations?",
+          "arxiv_year": 2022,
+          "doi": "10.52202/068431-0816",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Are AlphaZero-Like Agents Robust to Adversarial Perturbations?",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:4bf6c608f785",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "COPA: Certifying Robust Policies for Offline Reinforcement Learning against Poisoning Attacks",
+      "year": 2022,
+      "authors": [
+        "Fan Wu",
+        "Linyi Li",
+        "Huan Zhang",
+        "Bhavya Kailkhura",
+        "Krishnaram Kenthapadi",
+        "Ding Zhao",
+        "Bo Li"
+      ],
+      "listed_venue": "ICLR 2022",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 41 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2203.08398"
+      },
+      "metadata_aliases": [
+        {
+          "title": "COPA: Certifying Robust Policies for Offline Reinforcement Learning against Poisoning Attacks",
+          "year": 2021,
+          "authors": [
+            "Fan Wu",
+            "Linyi Li",
+            "Huan Zhang",
+            "Bhavya Kailkhura",
+            "Krishnaram Kenthapadi",
+            "Ding Zhao",
+            "Bo Li"
+          ]
+        },
+        {
+          "title": "COPA: Certifying Robust Policies for Offline Reinforcement Learning against Poisoning Attacks",
+          "year": 2023,
+          "authors": [
+            "Fan Wu",
+            "Linyi Li",
+            "Huan Zhang",
+            "Bhavya Kailkhura",
+            "Krishnaram Kenthapadi",
+            "Ding Zhao",
+            "Bo Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2203.08398",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "COPA: Certifying Robust Policies for Offline Reinforcement Learning against Poisoning Attacks",
+          "arxiv_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:9c3ce5b2338d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Efficiently Computing Local Lipschitz Constants of Neural Networks via Bound Propagation",
+      "year": 2022,
+      "authors": [
+        "Zhouxing Shi",
+        "Yihan Wang",
+        "Huan Zhang",
+        "Zico Kolter",
+        "Cho-Jui Hsieh"
+      ],
+      "listed_venue": "NeurIPS 2022",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 36 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/068431-0171"
+      ],
+      "external_ids": {
+        "arxiv": "2210.07394"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Efficiently Computing Local Lipschitz Constants of Neural Networks via Bound Propagation",
+          "year": 2021,
+          "authors": [
+            "Zhouxing Shi",
+            "Yihan Wang",
+            "Huan Zhang",
+            "Zico Kolter",
+            "Cho-Jui Hsieh"
+          ]
+        },
+        {
+          "title": "Efficiently Computing Local Lipschitz Constants of Neural Networks via Bound Propagation",
+          "year": 2023,
+          "authors": [
+            "Zhouxing Shi",
+            "Yihan Wang",
+            "Huan Zhang",
+            "Zico Kolter",
+            "Cho-Jui Hsieh"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2210.07394",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Efficiently Computing Local Lipschitz Constants of Neural Networks via Bound Propagation",
+          "arxiv_year": 2022,
+          "doi": "10.52202/068431-0171",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Efficiently Computing Local Lipschitz Constants of Neural Networks Via Bound Propagation",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:b9808e392c76",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "General Cutting Planes for Bound-Propagation-Based Neural Network Verification",
+      "year": 2022,
+      "authors": [
+        "Huan Zhang",
+        "Shiqi Wang",
+        "Kaidi Xu",
+        "Linyi Li",
+        "Bo Li",
+        "Suman Jana",
+        "Cho-Jui Hsieh",
+        "Zico Kolter"
+      ],
+      "listed_venue": "NeurIPS 2022",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 34 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/068431-0121"
+      ],
+      "external_ids": {
+        "arxiv": "2208.05740"
+      },
+      "metadata_aliases": [
+        {
+          "title": "General Cutting Planes for Bound-Propagation-Based Neural Network Verification",
+          "year": 2021,
+          "authors": [
+            "Huan Zhang",
+            "Shiqi Wang",
+            "Kaidi Xu",
+            "Linyi Li",
+            "Bo Li",
+            "Suman Jana",
+            "Cho-Jui Hsieh",
+            "Zico Kolter"
+          ]
+        },
+        {
+          "title": "General Cutting Planes for Bound-Propagation-Based Neural Network Verification",
+          "year": 2023,
+          "authors": [
+            "Huan Zhang",
+            "Shiqi Wang",
+            "Kaidi Xu",
+            "Linyi Li",
+            "Bo Li",
+            "Suman Jana",
+            "Cho-Jui Hsieh",
+            "Zico Kolter"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2208.05740",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "General Cutting Planes for Bound-Propagation-Based Neural Network Verification",
+          "arxiv_year": 2022,
+          "doi": "10.52202/068431-0121",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "General Cutting Planes for Bound-Propagation-Based Neural Network Verification",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:1f4b392e3243",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Linearity Grafting: Relaxed Neuron Pruning Helps Certifiable Robustness",
+      "year": 2022,
+      "authors": [
+        "Tianlong Chen",
+        "Huan Zhang",
+        "Zhenyu Zhang",
+        "Shiyu Chang",
+        "Sijia Liu",
+        "Pin-Yu Chen",
+        "Zhangyang Wang"
+      ],
+      "listed_venue": "ICML 2022",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 39 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2206.07839"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Linearity Grafting: Relaxed Neuron Pruning Helps Certifiable Robustness",
+          "year": 2021,
+          "authors": [
+            "Tianlong Chen",
+            "Huan Zhang",
+            "Zhenyu Zhang",
+            "Shiyu Chang",
+            "Sijia Liu",
+            "Pin-Yu Chen",
+            "Zhangyang Wang"
+          ]
+        },
+        {
+          "title": "Linearity Grafting: Relaxed Neuron Pruning Helps Certifiable Robustness",
+          "year": 2023,
+          "authors": [
+            "Tianlong Chen",
+            "Huan Zhang",
+            "Zhenyu Zhang",
+            "Shiyu Chang",
+            "Sijia Liu",
+            "Pin-Yu Chen",
+            "Zhangyang Wang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2206.07839",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Linearity Grafting: Relaxed Neuron Pruning Helps Certifiable Robustness",
+          "arxiv_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:55db817f121d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "ViP: Unified Certified Detection and Recovery for Patch Attack with Vision Transformers",
+      "year": 2022,
+      "authors": [
+        "Junbo Li",
+        "Huan Zhang",
+        "Cihang Xie"
+      ],
+      "listed_venue": "ECCV 2022",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 40 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/978-3-031-19806-9_33"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "ViP: Unified Certified Detection and Recovery for Patch Attack with Vision Transformers",
+          "year": 2021,
+          "authors": [
+            "Junbo Li",
+            "Huan Zhang",
+            "Cihang Xie"
+          ]
+        },
+        {
+          "title": "ViP: Unified Certified Detection and Recovery for Patch Attack with Vision Transformers",
+          "year": 2023,
+          "authors": [
+            "Junbo Li",
+            "Huan Zhang",
+            "Cihang Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1007/978-3-031-19806-9_33",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "ViP: Unified Certified Detection and Recovery for Patch Attack with Vision Transformers",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:8f42a63c40a6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "δ-SAM: Sharpness-Aware Minimization with Dynamic Reweighting",
+      "year": 2022,
+      "authors": [
+        "Wenxuan Zhou",
+        "Fangyu Liu",
+        "Huan Zhang",
+        "Muhao Chen"
+      ],
+      "listed_venue": "Findings of EMNLP 2022",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 37 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "δ-SAM: Sharpness-Aware Minimization with Dynamic Reweighting",
+          "year": 2021,
+          "authors": [
+            "Wenxuan Zhou",
+            "Fangyu Liu",
+            "Huan Zhang",
+            "Muhao Chen"
+          ]
+        },
+        {
+          "title": "δ-SAM: Sharpness-Aware Minimization with Dynamic Reweighting",
+          "year": 2023,
+          "authors": [
+            "Wenxuan Zhou",
+            "Fangyu Liu",
+            "Huan Zhang",
+            "Muhao Chen"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:5156b38bd297",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Can Agents Run Relay Race with Strangers? Generalization of RL to Out-of-Distribution Trajectories",
+      "year": 2023,
+      "authors": [
+        "Li-Cheng Lan",
+        "Huan Zhang",
+        "Cho-Jui Hsieh"
+      ],
+      "listed_venue": "ICLR 2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 32 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2304.13424"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Can Agents Run Relay Race with Strangers? Generalization of RL to Out-of-Distribution Trajectories",
+          "year": 2022,
+          "authors": [
+            "Li-Cheng Lan",
+            "Huan Zhang",
+            "Cho-Jui Hsieh"
+          ]
+        },
+        {
+          "title": "Can Agents Run Relay Race with Strangers? Generalization of RL to Out-of-Distribution Trajectories",
+          "year": 2024,
+          "authors": [
+            "Li-Cheng Lan",
+            "Huan Zhang",
+            "Cho-Jui Hsieh"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2304.13424",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Can Agents Run Relay Race with Strangers? Generalization of RL to Out-of-Distribution Trajectories",
+          "arxiv_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:f3637812a6d7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "DiffSmooth: Certifiably Robust Learning via Diffusion Models and Local Smoothing",
+      "year": 2023,
+      "authors": [
+        "Jiawei Zhang",
+        "Zhongzhu Chen",
+        "Huan Zhang",
+        "Chaowei Xiao",
+        "Bo Li"
+      ],
+      "listed_venue": "USENIX Security 2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 31 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2308.14333"
+      },
+      "metadata_aliases": [
+        {
+          "title": "DiffSmooth: Certifiably Robust Learning via Diffusion Models and Local Smoothing",
+          "year": 2022,
+          "authors": [
+            "Jiawei Zhang",
+            "Zhongzhu Chen",
+            "Huan Zhang",
+            "Chaowei Xiao",
+            "Bo Li"
+          ]
+        },
+        {
+          "title": "DiffSmooth: Certifiably Robust Learning via Diffusion Models and Local Smoothing",
+          "year": 2024,
+          "authors": [
+            "Jiawei Zhang",
+            "Zhongzhu Chen",
+            "Huan Zhang",
+            "Chaowei Xiao",
+            "Bo Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2308.14333",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "DiffSmooth: Certifiably Robust Learning via Diffusion Models and Local Smoothing",
+          "arxiv_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:f2c10c4af146",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "On the Robustness of Safe Reinforcement Learning under Observational Perturbations",
+      "year": 2023,
+      "authors": [
+        "Zuxin Liu",
+        "Zijian Guo",
+        "Zhepeng Cen",
+        "Huan Zhang",
+        "Jie Tan",
+        "Bo Li",
+        "Ding Zhao"
+      ],
+      "listed_venue": "ICLR 2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 33 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2205.14691"
+      },
+      "metadata_aliases": [
+        {
+          "title": "On the Robustness of Safe Reinforcement Learning under Observational Perturbations",
+          "year": 2022,
+          "authors": [
+            "Zuxin Liu",
+            "Zijian Guo",
+            "Zhepeng Cen",
+            "Huan Zhang",
+            "Jie Tan",
+            "Bo Li",
+            "Ding Zhao"
+          ]
+        },
+        {
+          "title": "On the Robustness of Safe Reinforcement Learning under Observational Perturbations",
+          "year": 2024,
+          "authors": [
+            "Zuxin Liu",
+            "Zijian Guo",
+            "Zhepeng Cen",
+            "Huan Zhang",
+            "Jie Tan",
+            "Bo Li",
+            "Ding Zhao"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2205.14691",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "On the Robustness of Safe Reinforcement Learning under Observational Perturbations",
+          "arxiv_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:ae8ba9563e68",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Provably Bounding Neural Network Preimages",
+      "year": 2023,
+      "authors": [
+        "Suhas Kotha",
+        "Christopher Brix",
+        "Zico Kolter",
+        "Krishnamurthy Dvijotham",
+        "Huan Zhang"
+      ],
+      "listed_venue": "NeurIPS 2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 29 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/075280-3518"
+      ],
+      "external_ids": {
+        "arxiv": "2302.01404"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Provably Bounding Neural Network Preimages",
+          "year": 2022,
+          "authors": [
+            "Suhas Kotha",
+            "Christopher Brix",
+            "Zico Kolter",
+            "Krishnamurthy Dvijotham",
+            "Huan Zhang"
+          ]
+        },
+        {
+          "title": "Provably Bounding Neural Network Preimages",
+          "year": 2024,
+          "authors": [
+            "Suhas Kotha",
+            "Christopher Brix",
+            "Zico Kolter",
+            "Krishnamurthy Dvijotham",
+            "Huan Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2302.01404",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Provably Bounding Neural Network Preimages",
+          "arxiv_year": 2023,
+          "doi": "10.52202/075280-3518",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Provably Bounding Neural Network Preimages",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:ccea7c296a59",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Robust Mixture-of-Expert Training for Convolutional Neural Networks",
+      "year": 2023,
+      "authors": [
+        "Yihua Zhang",
+        "Ruisi Cai",
+        "Tianlong Chen",
+        "Guanhua Zhang",
+        "Huan Zhang",
+        "Pin-Yu Chen",
+        "Shiyu Chang",
+        "Zhangyang Wang",
+        "Sijia Liu"
+      ],
+      "listed_venue": "ICCV 2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 30 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/iccv51070.2023.00015"
+      ],
+      "external_ids": {
+        "arxiv": "2308.10110"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Robust Mixture-of-Expert Training for Convolutional Neural Networks",
+          "year": 2022,
+          "authors": [
+            "Yihua Zhang",
+            "Ruisi Cai",
+            "Tianlong Chen",
+            "Guanhua Zhang",
+            "Huan Zhang",
+            "Pin-Yu Chen",
+            "Shiyu Chang",
+            "Zhangyang Wang",
+            "Sijia Liu"
+          ]
+        },
+        {
+          "title": "Robust Mixture-of-Expert Training for Convolutional Neural Networks",
+          "year": 2024,
+          "authors": [
+            "Yihua Zhang",
+            "Ruisi Cai",
+            "Tianlong Chen",
+            "Guanhua Zhang",
+            "Huan Zhang",
+            "Pin-Yu Chen",
+            "Shiyu Chang",
+            "Zhangyang Wang",
+            "Sijia Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2308.10110",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Robust Mixture-of-Expert Training for Convolutional Neural Networks",
+          "arxiv_year": 2023,
+          "doi": "10.1109/iccv51070.2023.00015",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Robust Mixture-of-Expert Training for Convolutional Neural Networks",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:f956aa0d87fc",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "COLD-Attack: Jailbreaking LLMs with Stealthiness and Controllability",
+      "year": 2024,
+      "authors": [
+        "Xingang Guo",
+        "Fangxu Yu",
+        "Huan Zhang",
+        "Lianhui Qin",
+        "Bin Hu"
+      ],
+      "listed_venue": "ICML 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 26 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2402.08679"
+      },
+      "metadata_aliases": [
+        {
+          "title": "COLD-Attack: Jailbreaking LLMs with Stealthiness and Controllability",
+          "year": 2023,
+          "authors": [
+            "Xingang Guo",
+            "Fangxu Yu",
+            "Huan Zhang",
+            "Lianhui Qin",
+            "Bin Hu"
+          ]
+        },
+        {
+          "title": "COLD-Attack: Jailbreaking LLMs with Stealthiness and Controllability",
+          "year": 2025,
+          "authors": [
+            "Xingang Guo",
+            "Fangxu Yu",
+            "Huan Zhang",
+            "Lianhui Qin",
+            "Bin Hu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2402.08679",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "COLD-Attack: Jailbreaking LLMs with Stealthiness and Controllability",
+          "arxiv_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:2f27bf7be700",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Fine-grained Local Sensitivity Analysis of Standard Dot-Product Self-Attention",
+      "year": 2024,
+      "authors": [
+        "Aaron J Havens",
+        "Alexandre Araujo",
+        "Huan Zhang",
+        "Bin Hu"
+      ],
+      "listed_venue": "ICML 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 27 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Fine-grained Local Sensitivity Analysis of Standard Dot-Product Self-Attention",
+          "year": 2023,
+          "authors": [
+            "Aaron J Havens",
+            "Alexandre Araujo",
+            "Huan Zhang",
+            "Bin Hu"
+          ]
+        },
+        {
+          "title": "Fine-grained Local Sensitivity Analysis of Standard Dot-Product Self-Attention",
+          "year": 2025,
+          "authors": [
+            "Aaron J Havens",
+            "Alexandre Araujo",
+            "Huan Zhang",
+            "Bin Hu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:456ca3c118aa",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Lyapunov-stable Neural Control for State and Output Feedback: A Novel Formulation for Efficient Synthesis and Verification",
+      "year": 2024,
+      "authors": [
+        "Lujie Yang",
+        "Hongkai Dai",
+        "Zhouxing Shi",
+        "Cho-Jui Hsieh",
+        "Russ Tedrake",
+        "Huan Zhang"
+      ],
+      "listed_venue": "ICML 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 25 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Lyapunov-stable Neural Control for State and Output Feedback: A Novel Formulation for Efficient Synthesis and Verification",
+          "year": 2023,
+          "authors": [
+            "Lujie Yang",
+            "Hongkai Dai",
+            "Zhouxing Shi",
+            "Cho-Jui Hsieh",
+            "Russ Tedrake",
+            "Huan Zhang"
+          ]
+        },
+        {
+          "title": "Lyapunov-stable Neural Control for State and Output Feedback: A Novel Formulation for Efficient Synthesis and Verification",
+          "year": 2025,
+          "authors": [
+            "Lujie Yang",
+            "Hongkai Dai",
+            "Zhouxing Shi",
+            "Cho-Jui Hsieh",
+            "Russ Tedrake",
+            "Huan Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:59538249189c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "NN4SysBench: Characterizing Neural Network Verification for Computer Systems",
+      "year": 2024,
+      "authors": [
+        "Shuyi Lin",
+        "Haoyu He",
+        "Tianhao Wei",
+        "Kaidi Xu",
+        "Huan Zhang",
+        "Gagandeep Singh",
+        "Changliu Liu",
+        "Cheng Tan"
+      ],
+      "listed_venue": "NeurIPS 2024 Datasets and Benchmarks",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 24 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/079017-2900"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "NN4SysBench: Characterizing Neural Network Verification for Computer Systems",
+          "year": 2023,
+          "authors": [
+            "Shuyi Lin",
+            "Haoyu He",
+            "Tianhao Wei",
+            "Kaidi Xu",
+            "Huan Zhang",
+            "Gagandeep Singh",
+            "Changliu Liu",
+            "Cheng Tan"
+          ]
+        },
+        {
+          "title": "NN4SysBench: Characterizing Neural Network Verification for Computer Systems",
+          "year": 2025,
+          "authors": [
+            "Shuyi Lin",
+            "Haoyu He",
+            "Tianhao Wei",
+            "Kaidi Xu",
+            "Huan Zhang",
+            "Gagandeep Singh",
+            "Changliu Liu",
+            "Cheng Tan"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/079017-2900",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "NN4SysBench: Characterizing Neural Network Verification for Computer Systems",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:75ea224db0b0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Regularizing Hidden States Enables Learning Generalizable Reward Model for LLMs",
+      "year": 2024,
+      "authors": [
+        "Rui Yang",
+        "Ruomeng Ding",
+        "Yong Lin",
+        "Huan Zhang",
+        "Tong Zhang"
+      ],
+      "listed_venue": "NeurIPS 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 23 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/079017-1990"
+      ],
+      "external_ids": {
+        "arxiv": "2406.10216"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Regularizing Hidden States Enables Learning Generalizable Reward Model for LLMs",
+          "year": 2023,
+          "authors": [
+            "Rui Yang",
+            "Ruomeng Ding",
+            "Yong Lin",
+            "Huan Zhang",
+            "Tong Zhang"
+          ]
+        },
+        {
+          "title": "Regularizing Hidden States Enables Learning Generalizable Reward Model for LLMs",
+          "year": 2025,
+          "authors": [
+            "Rui Yang",
+            "Ruomeng Ding",
+            "Yong Lin",
+            "Huan Zhang",
+            "Tong Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2406.10216",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Regularizing Hidden States Enables Learning Generalizable Reward Model for LLMs",
+          "arxiv_year": 2024,
+          "doi": "10.52202/079017-1990",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Regularizing Hidden States Enables Learning Generalizable Reward Model for LLMs",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:9718cbe51f8d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Scalable Neural Network Verification with Branch-and-bound Inferred Cutting Planes",
+      "year": 2024,
+      "authors": [
+        "Duo Zhou",
+        "Christopher Brix",
+        "Grani A. Hanasusanto",
+        "Huan Zhang"
+      ],
+      "listed_venue": "NeurIPS 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 21 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/079017-0923"
+      ],
+      "external_ids": {
+        "arxiv": "2501.00200"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Scalable Neural Network Verification with Branch-and-bound Inferred Cutting Planes",
+          "year": 2023,
+          "authors": [
+            "Duo Zhou",
+            "Christopher Brix",
+            "Grani A. Hanasusanto",
+            "Huan Zhang"
+          ]
+        },
+        {
+          "title": "Scalable Neural Network Verification with Branch-and-bound Inferred Cutting Planes",
+          "year": 2025,
+          "authors": [
+            "Duo Zhou",
+            "Christopher Brix",
+            "Grani A. Hanasusanto",
+            "Huan Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2501.00200",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Scalable Neural Network Verification with Branch-and-bound Inferred Cutting Planes",
+          "arxiv_year": 2024,
+          "doi": "10.52202/079017-0923",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Scalable Neural Network Verification with Branch-and-bound Inferred Cutting Planes",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:0fb5f35b0fdb",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "TrustLLM: Trustworthiness in Large Language Models",
+      "year": 2024,
+      "authors": [],
+      "listed_venue": "ICML 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 28 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "byline_unavailable_in_sources"
+      ],
+      "external_ids": {
+        "arxiv": "2401.05561"
+      },
+      "identifier_provenance": [
+        {
+          "arxiv": "2401.05561",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "TrustLLM: Trustworthiness in Large Language Models",
+          "arxiv_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:930896cb3fff",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Verified Safe Reinforcement Learning for Neural Network Dynamic Models",
+      "year": 2024,
+      "authors": [
+        "Junlin Wu",
+        "Huan Zhang",
+        "Yevgeniy Vorobeychik"
+      ],
+      "listed_venue": "NeurIPS 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 22 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/079017-3740"
+      ],
+      "external_ids": {
+        "arxiv": "2405.15994"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Verified Safe Reinforcement Learning for Neural Network Dynamic Models",
+          "year": 2023,
+          "authors": [
+            "Junlin Wu",
+            "Huan Zhang",
+            "Yevgeniy Vorobeychik"
+          ]
+        },
+        {
+          "title": "Verified Safe Reinforcement Learning for Neural Network Dynamic Models",
+          "year": 2025,
+          "authors": [
+            "Junlin Wu",
+            "Huan Zhang",
+            "Yevgeniy Vorobeychik"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2405.15994",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Verified Safe Reinforcement Learning for Neural Network Dynamic Models",
+          "arxiv_year": 2024,
+          "doi": "10.52202/079017-3740",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Verified Safe Reinforcement Learning  for Neural Network Dynamic Models",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:31200781f31c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Abstract Rendering: Certified Rendering Under 3D Semantic Uncertainty",
+      "year": 2025,
+      "authors": [
+        "Yangge Li",
+        "Chenxi Ji",
+        "Xiangru Zhong",
+        "Huan Zhang",
+        "Sayan Mitra"
+      ],
+      "listed_venue": "NeurIPS 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 2 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/085713-3513"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Abstract Rendering: Certified Rendering Under 3D Semantic Uncertainty",
+          "year": 2024,
+          "authors": [
+            "Yangge Li",
+            "Chenxi Ji",
+            "Xiangru Zhong",
+            "Huan Zhang",
+            "Sayan Mitra"
+          ]
+        },
+        {
+          "title": "Abstract Rendering: Certified Rendering Under 3D Semantic Uncertainty",
+          "year": 2026,
+          "authors": [
+            "Yangge Li",
+            "Chenxi Ji",
+            "Xiangru Zhong",
+            "Huan Zhang",
+            "Sayan Mitra"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/085713-3513",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Abstract Rendering:  Certified Rendering Under 3D Semantic Uncertainty",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:35f8151ed028",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "AlphaOne: Reasoning Models Thinking Slow and Fast at Test Time",
+      "year": 2025,
+      "authors": [
+        "Junyu Zhang",
+        "Runpei Dong",
+        "Han Wang",
+        "Xuying Ning",
+        "Haoran Geng",
+        "Peihao Li",
+        "Xialin He",
+        "Yutong Bai",
+        "Jitendra Malik",
+        "Saurabh Gupta",
+        "Huan Zhang"
+      ],
+      "listed_venue": "EMNLP 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 9 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2025.emnlp-main.570"
+      ],
+      "external_ids": {
+        "arxiv": "2505.24863"
+      },
+      "metadata_aliases": [
+        {
+          "title": "AlphaOne: Reasoning Models Thinking Slow and Fast at Test Time",
+          "year": 2024,
+          "authors": [
+            "Junyu Zhang",
+            "Runpei Dong",
+            "Han Wang",
+            "Xuying Ning",
+            "Haoran Geng",
+            "Peihao Li",
+            "Xialin He",
+            "Yutong Bai",
+            "Jitendra Malik",
+            "Saurabh Gupta",
+            "Huan Zhang"
+          ]
+        },
+        {
+          "title": "AlphaOne: Reasoning Models Thinking Slow and Fast at Test Time",
+          "year": 2026,
+          "authors": [
+            "Junyu Zhang",
+            "Runpei Dong",
+            "Han Wang",
+            "Xuying Ning",
+            "Haoran Geng",
+            "Peihao Li",
+            "Xialin He",
+            "Yutong Bai",
+            "Jitendra Malik",
+            "Saurabh Gupta",
+            "Huan Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2505.24863",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "AlphaOne: Reasoning Models Thinking Slow and Fast at Test Time",
+          "arxiv_year": 2025,
+          "doi": "10.18653/v1/2025.emnlp-main.570",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "AlphaOne: Reasoning Models Thinking Slow and Fast at Test Time",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:6a249a13e0e9",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "BaB-ND: Long-Horizon Motion Planning with Branch-and-Bound and Neural Dynamics",
+      "year": 2025,
+      "authors": [
+        "Keyi Shen",
+        "Jiangwei Yu",
+        "Jose Barreiros",
+        "Huan Zhang",
+        "Yunzhu Li"
+      ],
+      "listed_venue": "ICLR 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 17 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2412.09584"
+      },
+      "metadata_aliases": [
+        {
+          "title": "BaB-ND: Long-Horizon Motion Planning with Branch-and-Bound and Neural Dynamics",
+          "year": 2024,
+          "authors": [
+            "Keyi Shen",
+            "Jiangwei Yu",
+            "Jose Barreiros",
+            "Huan Zhang",
+            "Yunzhu Li"
+          ]
+        },
+        {
+          "title": "BaB-ND: Long-Horizon Motion Planning with Branch-and-Bound and Neural Dynamics",
+          "year": 2026,
+          "authors": [
+            "Keyi Shen",
+            "Jiangwei Yu",
+            "Jose Barreiros",
+            "Huan Zhang",
+            "Yunzhu Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2412.09584",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "BaB-ND: Long-Horizon Motion Planning with Branch-and-Bound and Neural Dynamics",
+          "arxiv_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:68ac96ad93ab",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Causal Composition Diffusion Model for Closed-loop Traffic Generation",
+      "year": 2025,
+      "authors": [
+        "Haohong Lin",
+        "Xin Huang",
+        "Tung Phan-Minh",
+        "David S Hayden",
+        "Huan Zhang",
+        "Ding Zhao",
+        "Siddhartha Srinivasa",
+        "Eric M Wolff",
+        "Hongge Chen"
+      ],
+      "listed_venue": "CVPR 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 16 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/cvpr52734.2025.02565"
+      ],
+      "external_ids": {
+        "arxiv": "2412.17920"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Causal Composition Diffusion Model for Closed-loop Traffic Generation",
+          "year": 2024,
+          "authors": [
+            "Haohong Lin",
+            "Xin Huang",
+            "Tung Phan-Minh",
+            "David S Hayden",
+            "Huan Zhang",
+            "Ding Zhao",
+            "Siddhartha Srinivasa",
+            "Eric M Wolff",
+            "Hongge Chen"
+          ]
+        },
+        {
+          "title": "Causal Composition Diffusion Model for Closed-loop Traffic Generation",
+          "year": 2026,
+          "authors": [
+            "Haohong Lin",
+            "Xin Huang",
+            "Tung Phan-Minh",
+            "David S Hayden",
+            "Huan Zhang",
+            "Ding Zhao",
+            "Siddhartha Srinivasa",
+            "Eric M Wolff",
+            "Hongge Chen"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2412.17920",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Causal Composition Diffusion Model for Closed-loop Traffic Generation",
+          "arxiv_year": 2024,
+          "doi": "10.1109/cvpr52734.2025.02565",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Causal Composition Diffusion Model for Closed-loop Traffic Generation",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:c58787b64036",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Clip-and-Verify: Linear Constraint-Driven Domain Clipping for Accelerating Neural Network Verification",
+      "year": 2025,
+      "authors": [
+        "Duo Zhou",
+        "Jorge Chavez",
+        "Hesun Chen",
+        "Grani A. Hanasusanto",
+        "Huan Zhang"
+      ],
+      "listed_venue": "NeurIPS 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 4 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/085713-5815"
+      ],
+      "external_ids": {
+        "arxiv": "2512.11087"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Clip-and-Verify: Linear Constraint-Driven Domain Clipping for Accelerating Neural Network Verification",
+          "year": 2024,
+          "authors": [
+            "Duo Zhou",
+            "Jorge Chavez",
+            "Hesun Chen",
+            "Grani A. Hanasusanto",
+            "Huan Zhang"
+          ]
+        },
+        {
+          "title": "Clip-and-Verify: Linear Constraint-Driven Domain Clipping for Accelerating Neural Network Verification",
+          "year": 2026,
+          "authors": [
+            "Duo Zhou",
+            "Jorge Chavez",
+            "Hesun Chen",
+            "Grani A. Hanasusanto",
+            "Huan Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2512.11087",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Clip-and-Verify: Linear Constraint-Driven Domain Clipping for Accelerating Neural Network Verification",
+          "arxiv_year": 2025,
+          "doi": "10.52202/085713-5815",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Clip-and-Verify: Linear Constraint-Driven Domain Clipping for Accelerating Neural Network Verification",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:7b70b9f90098",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "CodeDiffuser: Attention-Enhanced Diffusion Policy via VLM-Generated Code for Instruction Ambiguity",
+      "year": 2025,
+      "authors": [
+        "Guang Yin",
+        "Yitong Li",
+        "Yixuan Wang",
+        "Dale McConachie",
+        "Paarth Shah",
+        "Kunimatsu Hashimoto",
+        "Huan Zhang",
+        "Katherine Liu",
+        "Yunzhu Li"
+      ],
+      "listed_venue": "RSS 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 8 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.15607/rss.2025.xxi.072"
+      ],
+      "external_ids": {
+        "arxiv": "2506.16652"
+      },
+      "metadata_aliases": [
+        {
+          "title": "CodeDiffuser: Attention-Enhanced Diffusion Policy via VLM-Generated Code for Instruction Ambiguity",
+          "year": 2024,
+          "authors": [
+            "Guang Yin",
+            "Yitong Li",
+            "Yixuan Wang",
+            "Dale McConachie",
+            "Paarth Shah",
+            "Kunimatsu Hashimoto",
+            "Huan Zhang",
+            "Katherine Liu",
+            "Yunzhu Li"
+          ]
+        },
+        {
+          "title": "CodeDiffuser: Attention-Enhanced Diffusion Policy via VLM-Generated Code for Instruction Ambiguity",
+          "year": 2026,
+          "authors": [
+            "Guang Yin",
+            "Yitong Li",
+            "Yixuan Wang",
+            "Dale McConachie",
+            "Paarth Shah",
+            "Kunimatsu Hashimoto",
+            "Huan Zhang",
+            "Katherine Liu",
+            "Yunzhu Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2506.16652",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "CodeDiffuser: Attention-Enhanced Diffusion Policy via VLM-Generated Code for Instruction Ambiguity",
+          "arxiv_year": 2025,
+          "doi": "10.15607/rss.2025.xxi.072",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "CodeDiffuser: Attention-Enhanced Diffusion Policy via VLM-Generated Code for Instruction Ambiguity",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:251818708b0a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "DynaMath: A Dynamic Visual Benchmark for Evaluating Mathematical Reasoning Robustness of Vision Language Models",
+      "year": 2025,
+      "authors": [
+        "Chengke Zou",
+        "Xingang Guo",
+        "Rui Yang",
+        "Junyu Zhang",
+        "Bin Hu",
+        "Huan Zhang"
+      ],
+      "listed_venue": "ICLR 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 18 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "DynaMath: A Dynamic Visual Benchmark for Evaluating Mathematical Reasoning Robustness of Vision Language Models",
+          "year": 2024,
+          "authors": [
+            "Chengke Zou",
+            "Xingang Guo",
+            "Rui Yang",
+            "Junyu Zhang",
+            "Bin Hu",
+            "Huan Zhang"
+          ]
+        },
+        {
+          "title": "DynaMath: A Dynamic Visual Benchmark for Evaluating Mathematical Reasoning Robustness of Vision Language Models",
+          "year": 2026,
+          "authors": [
+            "Chengke Zou",
+            "Xingang Guo",
+            "Rui Yang",
+            "Junyu Zhang",
+            "Bin Hu",
+            "Huan Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:94848dcb2681",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "EmbodiedBench: Comprehensive Benchmarking Multi-modal Large Language Models for Vision-Driven Embodied Agents",
+      "year": 2025,
+      "authors": [
+        "Rui Yang",
+        "Hanyang Chen",
+        "Junyu Zhang",
+        "Mark Zhao",
+        "Cheng Qian",
+        "Kangrui Wang",
+        "Qineng Wang",
+        "Teja Venkat Koripella",
+        "Marziyeh Movahedi",
+        "Manling Li",
+        "Heng Ji",
+        "Huan Zhang",
+        "Tong Zhang"
+      ],
+      "listed_venue": "ICML 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 11 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2502.09560"
+      },
+      "metadata_aliases": [
+        {
+          "title": "EmbodiedBench: Comprehensive Benchmarking Multi-modal Large Language Models for Vision-Driven Embodied Agents",
+          "year": 2024,
+          "authors": [
+            "Rui Yang",
+            "Hanyang Chen",
+            "Junyu Zhang",
+            "Mark Zhao",
+            "Cheng Qian",
+            "Kangrui Wang",
+            "Qineng Wang",
+            "Teja Venkat Koripella",
+            "Marziyeh Movahedi",
+            "Manling Li",
+            "Heng Ji",
+            "Huan Zhang",
+            "Tong Zhang"
+          ]
+        },
+        {
+          "title": "EmbodiedBench: Comprehensive Benchmarking Multi-modal Large Language Models for Vision-Driven Embodied Agents",
+          "year": 2026,
+          "authors": [
+            "Rui Yang",
+            "Hanyang Chen",
+            "Junyu Zhang",
+            "Mark Zhao",
+            "Cheng Qian",
+            "Kangrui Wang",
+            "Qineng Wang",
+            "Teja Venkat Koripella",
+            "Marziyeh Movahedi",
+            "Manling Li",
+            "Heng Ji",
+            "Huan Zhang",
+            "Tong Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2502.09560",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "EmbodiedBench: Comprehensive Benchmarking Multi-modal Large Language Models for Vision-Driven Embodied Agents",
+          "arxiv_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:b8922522d495",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "GUI-Actor: Coordinate-Free Visual Grounding for GUI Agents",
+      "year": 2025,
+      "authors": [
+        "Qianhui Wu",
+        "Kanzhi Cheng",
+        "Rui Yang",
+        "Chaoyun Zhang",
+        "Jianwei Yang",
+        "Huiqiang Jiang",
+        "Jian Mu",
+        "Baolin Peng",
+        "Bo Qiao",
+        "Reuben Tan",
+        "Si Qin",
+        "Lars Liden",
+        "Qingwei Lin",
+        "Huan Zhang",
+        "Tong Zhang",
+        "Jianbing Zhang",
+        "Dongmei Zhang",
+        "Jianfeng Gao"
+      ],
+      "listed_venue": "NeurIPS 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 6 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/085713-0508"
+      ],
+      "external_ids": {
+        "arxiv": "2506.03143"
+      },
+      "metadata_aliases": [
+        {
+          "title": "GUI-Actor: Coordinate-Free Visual Grounding for GUI Agents",
+          "year": 2024,
+          "authors": [
+            "Qianhui Wu",
+            "Kanzhi Cheng",
+            "Rui Yang",
+            "Chaoyun Zhang",
+            "Jianwei Yang",
+            "Huiqiang Jiang",
+            "Jian Mu",
+            "Baolin Peng",
+            "Bo Qiao",
+            "Reuben Tan",
+            "Si Qin",
+            "Lars Liden",
+            "Qingwei Lin",
+            "Huan Zhang",
+            "Tong Zhang",
+            "Jianbing Zhang",
+            "Dongmei Zhang",
+            "Jianfeng Gao"
+          ]
+        },
+        {
+          "title": "GUI-Actor: Coordinate-Free Visual Grounding for GUI Agents",
+          "year": 2026,
+          "authors": [
+            "Qianhui Wu",
+            "Kanzhi Cheng",
+            "Rui Yang",
+            "Chaoyun Zhang",
+            "Jianwei Yang",
+            "Huiqiang Jiang",
+            "Jian Mu",
+            "Baolin Peng",
+            "Bo Qiao",
+            "Reuben Tan",
+            "Si Qin",
+            "Lars Liden",
+            "Qingwei Lin",
+            "Huan Zhang",
+            "Tong Zhang",
+            "Jianbing Zhang",
+            "Dongmei Zhang",
+            "Jianfeng Gao"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2506.03143",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "GUI-Actor: Coordinate-Free Visual Grounding for GUI Agents",
+          "arxiv_year": 2025,
+          "doi": "10.52202/085713-0508",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "GUI-Actor: Coordinate-Free Visual Grounding for GUI Agents",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:c05d01d4b983",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Improving Data Efficiency for LLM Reinforcement Fine-tuning Through Difficulty-targeted Online Data Selection and Rollout Replay",
+      "year": 2025,
+      "authors": [
+        "Yifan Sun",
+        "Jingyan Shen",
+        "Yibin Wang",
+        "Tianyu Chen",
+        "Zhendong Wang",
+        "Mingyuan Zhou",
+        "Huan Zhang"
+      ],
+      "listed_venue": "NeurIPS 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 3 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/085713-5770"
+      ],
+      "external_ids": {
+        "arxiv": "2506.05316"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Improving Data Efficiency for LLM Reinforcement Fine-tuning Through Difficulty-targeted Online Data Selection and Rollout Replay",
+          "year": 2024,
+          "authors": [
+            "Yifan Sun",
+            "Jingyan Shen",
+            "Yibin Wang",
+            "Tianyu Chen",
+            "Zhendong Wang",
+            "Mingyuan Zhou",
+            "Huan Zhang"
+          ]
+        },
+        {
+          "title": "Improving Data Efficiency for LLM Reinforcement Fine-tuning Through Difficulty-targeted Online Data Selection and Rollout Replay",
+          "year": 2026,
+          "authors": [
+            "Yifan Sun",
+            "Jingyan Shen",
+            "Yibin Wang",
+            "Tianyu Chen",
+            "Zhendong Wang",
+            "Mingyuan Zhou",
+            "Huan Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2506.05316",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Improving Data Efficiency for LLM Reinforcement Fine-tuning Through Difficulty-targeted Online Data Selection and Rollout Replay",
+          "arxiv_year": 2025,
+          "doi": "10.52202/085713-5770",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Improving Data Efficiency for LLM Reinforcement Fine-tuning Through Difficulty-targeted Online Data Selection and Rollout Replay",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:027cba1187a9",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Neural Contraction Metrics with Formal Guarantees for Discrete-Time Nonlinear Dynamical Systems",
+      "year": 2025,
+      "authors": [
+        "Haoyu Li",
+        "Xiangru Zhong",
+        "Bin Hu",
+        "Huan Zhang"
+      ],
+      "listed_venue": "L4DC 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 13 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2504.17102"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Neural Contraction Metrics with Formal Guarantees for Discrete-Time Nonlinear Dynamical Systems",
+          "year": 2024,
+          "authors": [
+            "Haoyu Li",
+            "Xiangru Zhong",
+            "Bin Hu",
+            "Huan Zhang"
+          ]
+        },
+        {
+          "title": "Neural Contraction Metrics with Formal Guarantees for Discrete-Time Nonlinear Dynamical Systems",
+          "year": 2026,
+          "authors": [
+            "Haoyu Li",
+            "Xiangru Zhong",
+            "Bin Hu",
+            "Huan Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2504.17102",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Neural Contraction Metrics with Formal Guarantees for Discrete-Time Nonlinear Dynamical Systems",
+          "arxiv_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:18715f3c1e21",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Neural Network Verification with Branch-and-Bound for General Nonlinearities",
+      "year": 2025,
+      "authors": [
+        "Zhouxing Shi",
+        "Qirui Jin",
+        "Zico Kolter",
+        "Suman Jana",
+        "Cho-Jui Hsieh",
+        "Huan Zhang"
+      ],
+      "listed_venue": "TACAS 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 19 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/978-3-031-90643-5_17"
+      ],
+      "external_ids": {
+        "arxiv": "2405.21063"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Neural Network Verification with Branch-and-Bound for General Nonlinearities",
+          "year": 2024,
+          "authors": [
+            "Zhouxing Shi",
+            "Qirui Jin",
+            "Zico Kolter",
+            "Suman Jana",
+            "Cho-Jui Hsieh",
+            "Huan Zhang"
+          ]
+        },
+        {
+          "title": "Neural Network Verification with Branch-and-Bound for General Nonlinearities",
+          "year": 2026,
+          "authors": [
+            "Zhouxing Shi",
+            "Qirui Jin",
+            "Zico Kolter",
+            "Suman Jana",
+            "Cho-Jui Hsieh",
+            "Huan Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2405.21063",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Neural Network Verification with Branch-and-Bound for General Nonlinearities",
+          "arxiv_year": 2024,
+          "doi": "10.1007/978-3-031-90643-5_17",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Neural Network Verification with Branch-and-Bound for General Nonlinearities",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:294047c6d140",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Reachability for Nonsmooth Systems with Lexicographic Jacobians",
+      "year": 2025,
+      "authors": [
+        "Chenxi Ji",
+        "Huan Zhang",
+        "Sayan Mitra"
+      ],
+      "listed_venue": "TACAS 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 20 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/978-3-031-90653-4_18"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Reachability for Nonsmooth Systems with Lexicographic Jacobians",
+          "year": 2024,
+          "authors": [
+            "Chenxi Ji",
+            "Huan Zhang",
+            "Sayan Mitra"
+          ]
+        },
+        {
+          "title": "Reachability for Nonsmooth Systems with Lexicographic Jacobians",
+          "year": 2026,
+          "authors": [
+            "Chenxi Ji",
+            "Huan Zhang",
+            "Sayan Mitra"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1007/978-3-031-90653-4_18",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Reachability for Nonsmooth Systems with Lexicographic Jacobians",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:078035544c41",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "SDP-CROWN: Efficient Bound Propagation for Neural Network Verification with Tightness of Semidefinite Programming",
+      "year": 2025,
+      "authors": [
+        "Hong-Ming Chiu",
+        "Hao Chen",
+        "Huan Zhang",
+        "Richard Y. Zhang"
+      ],
+      "listed_venue": "ICML 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 12 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2506.06665"
+      },
+      "metadata_aliases": [
+        {
+          "title": "SDP-CROWN: Efficient Bound Propagation for Neural Network Verification with Tightness of Semidefinite Programming",
+          "year": 2024,
+          "authors": [
+            "Hong-Ming Chiu",
+            "Hao Chen",
+            "Huan Zhang",
+            "Richard Y. Zhang"
+          ]
+        },
+        {
+          "title": "SDP-CROWN: Efficient Bound Propagation for Neural Network Verification with Tightness of Semidefinite Programming",
+          "year": 2026,
+          "authors": [
+            "Hong-Ming Chiu",
+            "Hao Chen",
+            "Huan Zhang",
+            "Richard Y. Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2506.06665",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "SDP-CROWN: Efficient Bound Propagation for Neural Network Verification with Tightness of Semidefinite Programming",
+          "arxiv_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:a29fd1ae66c4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Stealthy Backdoor Attack in Self-Supervised Learning Vision Encoders for Large Vision Language Models",
+      "year": 2025,
+      "authors": [
+        "Zhaoyi Liu",
+        "Huan Zhang"
+      ],
+      "listed_venue": "CVPR 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 15 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/cvpr52734.2025.02333"
+      ],
+      "external_ids": {
+        "arxiv": "2502.18290"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Stealthy Backdoor Attack in Self-Supervised Learning Vision Encoders for Large Vision Language Models",
+          "year": 2024,
+          "authors": [
+            "Zhaoyi Liu",
+            "Huan Zhang"
+          ]
+        },
+        {
+          "title": "Stealthy Backdoor Attack in Self-Supervised Learning Vision Encoders for Large Vision Language Models",
+          "year": 2026,
+          "authors": [
+            "Zhaoyi Liu",
+            "Huan Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2502.18290",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Stealthy Backdoor Attack in Self-Supervised Learning Vision Encoders for Large Vision Language Models",
+          "arxiv_year": 2025,
+          "doi": "10.1109/cvpr52734.2025.02333",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Stealthy Backdoor Attack in Self-Supervised Learning Vision Encoders for Large Vision Language Models",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:338d68a6eb2d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Steering Away from Harm: An Adaptive Approach to Defending Vision Language Model Against Jailbreaks",
+      "year": 2025,
+      "authors": [
+        "Han Wang",
+        "Gang Wang",
+        "Huan Zhang"
+      ],
+      "listed_venue": "CVPR 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 14 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/cvpr52734.2025.02787"
+      ],
+      "external_ids": {
+        "arxiv": "2411.16721"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Steering Away from Harm: An Adaptive Approach to Defending Vision Language Model Against Jailbreaks",
+          "year": 2024,
+          "authors": [
+            "Han Wang",
+            "Gang Wang",
+            "Huan Zhang"
+          ]
+        },
+        {
+          "title": "Steering Away from Harm: An Adaptive Approach to Defending Vision Language Model Against Jailbreaks",
+          "year": 2026,
+          "authors": [
+            "Han Wang",
+            "Gang Wang",
+            "Huan Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2411.16721",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Steering Away from Harm: An Adaptive Approach to Defending Vision Language Model Against Jailbreaks",
+          "arxiv_year": 2024,
+          "doi": "10.1109/cvpr52734.2025.02787",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Steering Away from Harm: An Adaptive Approach to Defending Vision Language Model Against Jailbreaks",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:74492ee7dbf6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The Emperor's New Clothes in Benchmarking? A Rigorous Examination of Mitigation Strategies for LLM Benchmark Data Contamination",
+      "year": 2025,
+      "authors": [
+        "Yifan Sun",
+        "Han Wang",
+        "Dongbai Li",
+        "Gang Wang",
+        "Huan Zhang"
+      ],
+      "listed_venue": "ICML 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 10 captured 2026-10-17"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "The Emperor's New Clothes in Benchmarking? A Rigorous Examination of Mitigation Strategies for LLM Benchmark Data Contamination",
+          "year": 2024,
+          "authors": [
+            "Yifan Sun",
+            "Han Wang",
+            "Dongbai Li",
+            "Gang Wang",
+            "Huan Zhang"
+          ]
+        },
+        {
+          "title": "The Emperor's New Clothes in Benchmarking? A Rigorous Examination of Mitigation Strategies for LLM Benchmark Data Contamination",
+          "year": 2026,
+          "authors": [
+            "Yifan Sun",
+            "Han Wang",
+            "Dongbai Li",
+            "Gang Wang",
+            "Huan Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:a93ceedb1bf9",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Toward Engineering AGI: Benchmarking the Engineering Design Capabilities of LLMs",
+      "year": 2025,
+      "authors": [],
+      "listed_venue": "NeurIPS 2025 Datasets and Benchmarks",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 7 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "byline_unavailable_in_sources"
+      ],
+      "external_ids": {
+        "arxiv": "2509.16204"
+      },
+      "identifier_provenance": [
+        {
+          "arxiv": "2509.16204",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Toward Engineering AGI: Benchmarking the Engineering Design Capabilities of LLMs",
+          "arxiv_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:4efa0eed009b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Training-Free Bayesianization for Low-Rank Adapters of Large Language Models",
+      "year": 2025,
+      "authors": [
+        "Haizhou Shi",
+        "Yibin Wang",
+        "Ligong Han",
+        "Huan Zhang",
+        "Hao Wang"
+      ],
+      "listed_venue": "NeurIPS 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 5 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/085713-1391"
+      ],
+      "external_ids": {
+        "arxiv": "2412.05723"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Training-Free Bayesianization for Low-Rank Adapters of Large Language Models",
+          "year": 2024,
+          "authors": [
+            "Haizhou Shi",
+            "Yibin Wang",
+            "Ligong Han",
+            "Huan Zhang",
+            "Hao Wang"
+          ]
+        },
+        {
+          "title": "Training-Free Bayesianization for Low-Rank Adapters of Large Language Models",
+          "year": 2026,
+          "authors": [
+            "Haizhou Shi",
+            "Yibin Wang",
+            "Ligong Han",
+            "Huan Zhang",
+            "Hao Wang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2412.05723",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Training-Free Bayesianization for Low-Rank Adapters of Large Language Models",
+          "arxiv_year": 2024,
+          "doi": "10.52202/085713-1391",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Training-Free Bayesianization for Low-Rank Adapters of Large Language Models",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_huan_zhang:5e225d80b4ce",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Two-Stage Learning of Stabilizing Neural Controllers via Zubov Sampling and Iterative Domain Expansion",
+      "year": 2025,
+      "authors": [
+        "Haoyu Li",
+        "Xiangru Zhong",
+        "Bin Hu",
+        "Huan Zhang"
+      ],
+      "listed_venue": "NeurIPS 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.huan-zhang.com/ entry 1 captured 2026-10-17"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/085713-2480"
+      ],
+      "external_ids": {
+        "arxiv": "2506.01356"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Two-Stage Learning of Stabilizing Neural Controllers via Zubov Sampling and Iterative Domain Expansion",
+          "year": 2024,
+          "authors": [
+            "Haoyu Li",
+            "Xiangru Zhong",
+            "Bin Hu",
+            "Huan Zhang"
+          ]
+        },
+        {
+          "title": "Two-Stage Learning of Stabilizing Neural Controllers via Zubov Sampling and Iterative Domain Expansion",
+          "year": 2026,
+          "authors": [
+            "Haoyu Li",
+            "Xiangru Zhong",
+            "Bin Hu",
+            "Huan Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2506.01356",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Two-Stage Learning of Stabilizing Neural Controllers via Zubov Sampling and Iterative Domain Expansion",
+          "arxiv_year": 2025,
+          "doi": "10.52202/085713-2480",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Two‑Stage Learning of Stabilizing Neural Controllers via Zubov Sampling and Iterative Domain Expansion",
+          "crossref_year": 2025
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

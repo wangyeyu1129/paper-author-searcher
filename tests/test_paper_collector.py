@@ -1,6 +1,8 @@
 import io
 import json
 import tempfile
+import threading
+import time
 import unittest
 import xml.etree.ElementTree as ET
 from contextlib import redirect_stdout
@@ -14,12 +16,16 @@ from paper_author_searcher.config import CollectionConfig
 from paper_author_searcher.http import SourceError
 from paper_author_searcher.models import AuthorCandidate, PaperRecord, PaperSourceResult
 from paper_author_searcher.paper_collector import (
-    PaperCollector, IdentityConfirmationRequired, deduplicate_papers,
+    IdentityConfirmationRequired,
+    PaperCollector,
+    deduplicate_papers,
 )
 from paper_author_searcher.paper_providers import (
-    OpenAlexPaperProvider, SemanticScholarPaperProvider, DBLPPaperProvider,
+    DBLPPaperProvider,
+    OpenAlexPaperProvider,
+    SemanticScholarPaperProvider,
 )
-from paper_author_searcher.providers import OpenAlexProvider, SemanticScholarProvider, DBLPProvider
+from paper_author_searcher.providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
 from test_resolver import Provider
 
 
@@ -31,8 +37,7 @@ class Client:
     def get(self, url, params=None, headers=None, xml=False):
         self.calls.append((url, params, headers, xml))
         if params and params.get('fields') == SemanticScholarPaperProvider.AUTHOR_FIELDS:
-            return {'authorId': url.rsplit('/', 1)[-1], 'name': 'Alex Morgan',
-                    'externalIds': {}, 'affiliations': []}
+            return {'authorId': url.rsplit('/', 1)[-1], 'name': 'Alex Morgan', 'externalIds': {}, 'affiliations': []}
         response = next(self.responses)
         if isinstance(response, Exception):
             raise response
@@ -41,26 +46,43 @@ class Client:
 
 def paper(source='openalex', paper_id='paper', doi=None, title='A sample study', year=2024):
     return PaperRecord(
-        title=title, authors=['Alex Morgan', 'Jane Smith'], year=year,
-        doi=doi, venue='Example Journal', abstract=None, source=source,
-        source_paper_id=paper_id, source_author_id='author', paper_url=None,
+        title=title,
+        authors=['Alex Morgan', 'Jane Smith'],
+        year=year,
+        doi=doi,
+        venue='Example Journal',
+        abstract=None,
+        source=source,
+        source_paper_id=paper_id,
+        source_author_id='author',
+        paper_url=None,
     )
 
 
 def openalex_work(paper_id, author_id='author'):
     return {
-        'id': paper_id, 'title': 'Study ' + paper_id, 'publication_year': 2024,
-        'authorships': [{
-            'author': {'id': 'https://openalex.org/' + author_id, 'display_name': 'Alex Morgan'},
-        }],
+        'id': paper_id,
+        'title': 'Study ' + paper_id,
+        'publication_year': 2024,
+        'authorships': [
+            {
+                'author': {'id': 'https://openalex.org/' + author_id, 'display_name': 'Alex Morgan'},
+            }
+        ],
         'abstract_inverted_index': {'sample': [1], 'A': [0]},
     }
 
 
 def profile(status='resolved', aliases=None):
-    result = ProfessorResolver([Provider([
-        AuthorCandidate('openalex', 'author', 'Alex Morgan', ['Example University']),
-    ])]).resolve(ProfessorQuery('Alex Morgan', 'Example University'))
+    result = ProfessorResolver(
+        [
+            Provider(
+                [
+                    AuthorCandidate('openalex', 'author', 'Alex Morgan', ['Example University']),
+                ]
+            )
+        ]
+    ).resolve(ProfessorQuery('Alex Morgan', 'Example University'))
     result.profile.status = status
     if aliases:
         result.profile.author_id_aliases = aliases
@@ -69,10 +91,12 @@ def profile(status='resolved', aliases=None):
 
 class PaperProviderTests(unittest.TestCase):
     def test_openalex_all_cursor_pages(self):
-        client = Client([
-            {'results': [openalex_work('first')], 'meta': {'next_cursor': 'second'}},
-            {'results': [openalex_work('second')], 'meta': {'next_cursor': None}},
-        ])
+        client = Client(
+            [
+                {'results': [openalex_work('first')], 'meta': {'next_cursor': 'second'}},
+                {'results': [openalex_work('second')], 'meta': {'next_cursor': None}},
+            ]
+        )
         adapter = OpenAlexPaperProvider(OpenAlexProvider(client=client))
         result = adapter.collect('author')
         self.assertTrue(result.complete)
@@ -83,36 +107,44 @@ class PaperProviderTests(unittest.TestCase):
         self.assertNotIn('search', client.calls[0][1])
 
     def test_failed_later_page_keeps_earlier_papers(self):
-        client = Client([
-            {'results': [openalex_work('first')], 'meta': {'next_cursor': 'second'}},
-            SourceError('HTTP 429'),
-        ])
+        client = Client(
+            [
+                {'results': [openalex_work('first')], 'meta': {'next_cursor': 'second'}},
+                SourceError('HTTP 429'),
+            ]
+        )
         result = OpenAlexPaperProvider(OpenAlexProvider(client=client)).collect('author')
         self.assertFalse(result.complete)
         self.assertEqual(len(result.papers), 1)
         self.assertEqual(result.error, 'HTTP 429')
 
     def test_same_name_wrong_author_id_rejected(self):
-        client = Client([
-            {'results': [openalex_work('wrong', 'namesake')], 'meta': {'next_cursor': None}},
-        ])
+        client = Client(
+            [
+                {'results': [openalex_work('wrong', 'namesake')], 'meta': {'next_cursor': None}},
+            ]
+        )
         result = OpenAlexPaperProvider(OpenAlexProvider(client=client)).collect('author')
         self.assertTrue(result.pagination_complete)
         self.assertEqual(len(result.papers), 1)
         self.assertIn('Target Author ID absent from authorship metadata', result.papers[0].attribution_evidence)
 
     def test_repeated_cursor_is_incomplete(self):
-        client = Client([
-            {'results': [openalex_work('first')], 'meta': {'next_cursor': '*'}},
-        ])
+        client = Client(
+            [
+                {'results': [openalex_work('first')], 'meta': {'next_cursor': '*'}},
+            ]
+        )
         result = OpenAlexPaperProvider(OpenAlexProvider(client=client)).collect('author')
         self.assertFalse(result.complete)
         self.assertIn('repeated', result.error)
 
     def test_configured_page_limit_marks_incomplete(self):
-        client = Client([
-            {'results': [openalex_work('first')], 'meta': {'next_cursor': 'next'}},
-        ])
+        client = Client(
+            [
+                {'results': [openalex_work('first')], 'meta': {'next_cursor': 'next'}},
+            ]
+        )
         config = CollectionConfig(maximum_pages=1)
         result = OpenAlexPaperProvider(OpenAlexProvider(client=client), config).collect('author')
         self.assertFalse(result.complete)
@@ -125,15 +157,19 @@ class PaperProviderTests(unittest.TestCase):
 
     def test_semantic_scholar_all_offsets_and_membership(self):
         first = {
-            'paperId': 'first', 'title': 'First study', 'year': 2024,
+            'paperId': 'first',
+            'title': 'First study',
+            'year': 2024,
             'authors': [{'authorId': 'author', 'name': 'Alex Morgan'}],
             'externalIds': {'DOI': '10.example/ABC'},
         }
         second = dict(first, paperId='second', title='Second study')
-        client = Client([
-            {'offset': 0, 'next': 1, 'data': [first]},
-            {'offset': 1, 'data': [second]},
-        ])
+        client = Client(
+            [
+                {'offset': 0, 'next': 1, 'data': [first]},
+                {'offset': 1, 'data': [second]},
+            ]
+        )
         adapter = SemanticScholarPaperProvider(SemanticScholarProvider(client=client))
         result = adapter.collect('author')
         self.assertTrue(result.complete)
@@ -143,16 +179,27 @@ class PaperProviderTests(unittest.TestCase):
         self.assertIn('/author/author/papers', client.calls[0][0])
 
     def test_semantic_scholar_missing_author_id_rejected(self):
-        client = Client([{'offset': 0, 'data': [{
-            'paperId': 'first', 'title': 'First study', 'authors': [{'name': 'Alex Morgan'}],
-        }]}])
+        client = Client(
+            [
+                {
+                    'offset': 0,
+                    'data': [
+                        {
+                            'paperId': 'first',
+                            'title': 'First study',
+                            'authors': [{'name': 'Alex Morgan'}],
+                        }
+                    ],
+                }
+            ]
+        )
         result = SemanticScholarPaperProvider(SemanticScholarProvider(client=client)).collect('author')
         self.assertTrue(result.pagination_complete)
         self.assertEqual(len(result.papers), 1)
         self.assertEqual(result.papers[0].ownership_status, 'needs_review')
 
     def test_dblp_explicit_pid_and_editor_exclusion(self):
-        root = ET.fromstring('''
+        root = ET.fromstring("""
             <dblpperson pid="example/author" n="2">
                 <r><article key="journal/first">
                     <author pid="example/author">Alex Morgan</author>
@@ -163,7 +210,7 @@ class PaperProviderTests(unittest.TestCase):
                     <editor pid="example/author">Alex Morgan</editor><title>Edited volume</title>
                 </proceedings></r>
             </dblpperson>
-        ''')
+        """)
         result = DBLPPaperProvider(DBLPProvider(client=Client([root]))).collect('example/author')
         self.assertEqual(len(result.papers), 2)
         self.assertEqual(result.papers[0].source_author_id, 'example/author')
@@ -185,8 +232,10 @@ class PaperProviderTests(unittest.TestCase):
 
 class PaperDeduplicationTests(unittest.TestCase):
     def test_doi_normalization_preserves_provenance(self):
-        records = [paper(doi='https://doi.org/10.example/ABC'),
-                   paper(source='semantic_scholar', paper_id='other', doi='10.example/abc')]
+        records = [
+            paper(doi='https://doi.org/10.example/ABC'),
+            paper(source='semantic_scholar', paper_id='other', doi='10.example/abc'),
+        ]
         papers = deduplicate_papers(records)
         self.assertEqual(len(papers), 1)
         self.assertEqual(len(papers[0].records), 2)
@@ -201,16 +250,21 @@ class PaperDeduplicationTests(unittest.TestCase):
             [paper(), paper(paper_id='second', year=2025)],
             [paper(), replace(paper(paper_id='second'), venue='Other Journal')],
             [paper(), replace(paper(paper_id='second'), authors=['Someone Else'])],
-            [replace(paper(), publication_type='preprint'),
-             replace(paper(paper_id='second'), publication_type='article')],
+            [
+                replace(paper(), publication_type='preprint'),
+                replace(paper(paper_id='second'), publication_type='article'),
+            ],
         ]
         for records in cases:
             with self.subTest(records=records):
                 self.assertEqual(len(deduplicate_papers(records)), 2)
 
     def test_doi_less_bridge_does_not_merge_conflicting_dois(self):
-        records = [paper(doi='10.example/a'), paper(source='dblp'),
-                   paper(source='semantic_scholar', doi='10.example/b')]
+        records = [
+            paper(doi='10.example/a'),
+            paper(source='dblp'),
+            paper(source='semantic_scholar', doi='10.example/b'),
+        ]
         self.assertEqual(len(deduplicate_papers(records)), 2)
 
 
@@ -223,7 +277,9 @@ class FakeProvider:
     def collect(self, author_id):
         self.ids.append(author_id)
         return PaperSourceResult(
-            source=self.name, author_id=author_id, complete=True,
+            source=self.name,
+            author_id=author_id,
+            complete=True,
             papers=[replace(paper(), source_author_id=author_id)],
         )
 
@@ -260,8 +316,10 @@ class PaperCollectionTests(unittest.TestCase):
     def test_missing_source_id_and_failure_do_not_erase_other_source(self):
         class Broken:
             name = 'dblp'
+
             def collect(self, author_id):
                 raise SourceError('Network failure')
+
         candidate = profile().profile
         candidate.author_ids['dblp'] = 'example/author'
         result = PaperCollector([FakeProvider(), Broken()]).collect(candidate)
@@ -276,22 +334,31 @@ class PaperCollectionTests(unittest.TestCase):
         collection = PaperCollector([FakeProvider()]).collect(resolver_result.profile)
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / 'result.json'
-            with patch('paper_author_searcher.cli.ProfessorResolver') as resolver:
+            with patch('paper_author_searcher.composition.ProfessorResolver') as resolver:
                 resolver.return_value.resolve.return_value = resolver_result
-                with patch('paper_author_searcher.cli.PaperCollector') as collector:
+                with patch('paper_author_searcher.composition.PaperCollector') as collector:
                     collector.return_value.collect.return_value = collection
                     with redirect_stdout(io.StringIO()):
-                        code = main(['--name', 'Alex Morgan', '--university', 'Example University',
-                                     '--collect-papers', '--output', str(output)])
+                        code = main(
+                            [
+                                '--name',
+                                'Alex Morgan',
+                                '--university',
+                                'Example University',
+                                '--collect-papers',
+                                '--output',
+                                str(output),
+                            ]
+                        )
             self.assertEqual(code, 0)
             data = json.loads(output.read_text(encoding='utf-8'))
             self.assertEqual(data['collection']['paper_count'], 1)
             self.assertTrue(data['collection']['complete'])
 
     def test_cli_ambiguous_returns_candidates_without_collecting(self):
-        with patch('paper_author_searcher.cli.ProfessorResolver') as resolver:
+        with patch('paper_author_searcher.composition.ProfessorResolver') as resolver:
             resolver.return_value.resolve.return_value = profile('ambiguous')
-            with patch('paper_author_searcher.cli.PaperCollector') as collector:
+            with patch('paper_author_searcher.composition.PaperCollector') as collector:
                 collector.return_value.collect.side_effect = IdentityConfirmationRequired('Select identity')
                 output = io.StringIO()
                 with redirect_stdout(output):
@@ -302,19 +369,28 @@ class PaperCollectionTests(unittest.TestCase):
     def test_cli_manual_selection_uses_exact_id(self):
         resolver_result = profile('ambiguous')
         collection = PaperCollector([FakeProvider()]).collect(
-            resolver_result.profile, ('openalex', 'author'),
+            resolver_result.profile,
+            ('openalex', 'author'),
         )
-        with patch('paper_author_searcher.cli.ProfessorResolver') as resolver:
+        with patch('paper_author_searcher.composition.ProfessorResolver') as resolver:
             resolver.return_value.resolve.return_value = resolver_result
-            with patch('paper_author_searcher.cli.PaperCollector') as collector:
+            with patch('paper_author_searcher.composition.PaperCollector') as collector:
                 collector.return_value.collect.return_value = collection
                 with redirect_stdout(io.StringIO()):
-                    code = main([
-                        '--name', 'Alex Morgan', '--university', 'Example University',
-                        '--collect-papers', '--select-author', 'openalex:author',
-                    ])
+                    code = main(
+                        [
+                            '--name',
+                            'Alex Morgan',
+                            '--university',
+                            'Example University',
+                            '--collect-papers',
+                            '--select-author',
+                            'openalex:author',
+                        ]
+                    )
                 collector.return_value.collect.assert_called_once_with(
-                    resolver_result.profile, selected_author=('openalex', 'author'),
+                    resolver_result.profile,
+                    selected_author=('openalex', 'author'),
                 )
         self.assertEqual(code, 0)
 
@@ -322,14 +398,20 @@ class PaperCollectionTests(unittest.TestCase):
         resolver_result = profile()
         collection = PaperCollector([FakeProvider()]).collect(resolver_result.profile)
         collection.complete = False
-        with patch('paper_author_searcher.cli.ProfessorResolver') as resolver:
+        with patch('paper_author_searcher.composition.ProfessorResolver') as resolver:
             resolver.return_value.resolve.return_value = resolver_result
-            with patch('paper_author_searcher.cli.PaperCollector') as collector:
+            with patch('paper_author_searcher.composition.PaperCollector') as collector:
                 collector.return_value.collect.return_value = collection
                 with redirect_stdout(io.StringIO()):
-                    code = main([
-                        '--name', 'Alex Morgan', '--university', 'Example University', '--collect-papers',
-                    ])
+                    code = main(
+                        [
+                            '--name',
+                            'Alex Morgan',
+                            '--university',
+                            'Example University',
+                            '--collect-papers',
+                        ]
+                    )
         self.assertEqual(code, 2)
 
 
@@ -346,7 +428,8 @@ class ConservativeMetadataTests(unittest.TestCase):
 
     def test_semantic_scholar_later_failure_keeps_first_page(self):
         item = {
-            'paperId': 'first', 'title': 'Study',
+            'paperId': 'first',
+            'title': 'Study',
             'authors': [{'authorId': 'author', 'name': 'Alex Morgan'}],
         }
         client = Client([{'offset': 0, 'next': 1, 'data': [item]}, SourceError('HTTP 503')])
@@ -357,9 +440,50 @@ class ConservativeMetadataTests(unittest.TestCase):
     def test_missing_source_id_is_coverage_gap(self):
         class Missing:
             name = 'dblp'
+
             def collect(self, author_id):
                 raise AssertionError('Must not invent an Author ID')
+
         result = PaperCollector([FakeProvider(), Missing()]).collect(profile().profile)
         self.assertFalse(result.complete)
         self.assertEqual(len(result.papers), 1)
         self.assertIn('No confirmed Author ID', result.sources[0].error)
+
+
+class SlowSource:
+    def __init__(self, name):
+        self.name = name
+        self.active = 0
+        self.peak = 0
+        self.lock = threading.Lock()
+
+    def collect(self, author_id):
+        with self.lock:
+            self.active += 1
+            self.peak = max(self.peak, self.active)
+        time.sleep(0.05)
+        with self.lock:
+            self.active -= 1
+        return PaperSourceResult(source=self.name, author_id=author_id, complete=True, papers=[])
+
+
+class CollectionConcurrencyTests(unittest.TestCase):
+    def test_author_ids_page_concurrently_within_each_source_limit(self):
+        openalex, semantic = SlowSource('openalex'), SlowSource('semantic_scholar')
+        aliases = {'openalex': [f'A{i}' for i in range(6)], 'semantic_scholar': ['S1', 'S2', 'S3']}
+        target = profile(aliases=aliases).profile
+        target.author_ids = {source: ids[0] for source, ids in aliases.items()}
+        collector = PaperCollector([openalex, semantic], concurrency={'openalex': 3, 'semantic_scholar': 1})
+        result = collector.collect(target)
+        self.assertEqual(openalex.peak, 3)
+        self.assertEqual(semantic.peak, 1)
+        self.assertEqual(
+            [(source.source, source.author_id) for source in result.sources],
+            sorted((source, author) for source, ids in aliases.items() for author in ids),
+        )
+
+    def test_invalid_limit_is_rejected(self):
+        from paper_author_searcher.config import CollectionConfig
+
+        with self.assertRaises(ValueError):
+            CollectionConfig(source_concurrency=(('openalex', 0),))

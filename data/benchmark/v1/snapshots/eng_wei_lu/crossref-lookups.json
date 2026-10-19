@@ -1,0 +1,394 @@
+{
+  "lookups": {
+    "a collection of reviews from nature journals": {
+      "title": "A Collection of Reviews from Nature Journals",
+      "year": null,
+      "candidates": [
+        {
+          "doi": "10.1142/9789814287005",
+          "title": "Nanoscience and Technology",
+          "year": 2009,
+          "type": "edited-book",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1142/7439",
+          "title": "Nanoscience and Technology",
+          "year": 2009,
+          "type": "edited-book",
+          "container": "",
+          "family_names": [
+            "Rodgers"
+          ]
+        },
+        {
+          "doi": "10.1142/9789814287005_fmatter",
+          "title": "FRONT MATTER",
+          "year": 2009,
+          "type": "other",
+          "container": "Nanoscience and Technology",
+          "family_names": [
+            "Rodgers"
+          ]
+        },
+        {
+          "doi": "10.1142/9789814287005_0007",
+          "title": "Solid-state nanopores",
+          "year": 2009,
+          "type": "book-chapter",
+          "container": "Nanoscience and Technology",
+          "family_names": [
+            "DEKKER"
+          ]
+        },
+        {
+          "doi": "10.1108/aa.2010.03330bae.001",
+          "title": "Nanoscience and Technology: A Collection of Reviews from Nature Journals",
+          "year": 2010,
+          "type": "journal-article",
+          "container": "Assembly Automation",
+          "family_names": [
+            "Rinaldi"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T19:11:17.518825+00:00"
+    },
+    "a nanowire based very high frequency electromechanical resonator": {
+      "title": "A Nanowire-Based Very-High-Frequency Electromechanical Resonator",
+      "year": null,
+      "candidates": [
+        {
+          "doi": "10.1063/1.1601311",
+          "title": "Nanowire-based very-high-frequency electromechanical resonator",
+          "year": 2003,
+          "type": "journal-article",
+          "container": "Applied Physics Letters",
+          "family_names": [
+            "Husain",
+            "Hone",
+            "Postma",
+            "Huang",
+            "Drake",
+            "Barbic",
+            "Scherer",
+            "Roukes"
+          ]
+        },
+        {
+          "doi": "10.1021/nl0706695",
+          "title": "Very High Frequency Silicon Nanowire Electromechanical Resonators",
+          "year": 2007,
+          "type": "journal-article",
+          "container": "Nano Letters",
+          "family_names": [
+            "Feng",
+            "He",
+            "Yang",
+            "Roukes"
+          ]
+        },
+        {
+          "doi": "10.1109/freq.2004.1418519",
+          "title": "Self-aligned lateral field excitation film acoustic resonator with very large electromechanical coupling",
+          "year": null,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 2004 IEEE International Frequency Control Symposium and Exposition, 2004.",
+          "family_names": [
+            "Wei Pang"
+          ]
+        },
+        {
+          "doi": "10.1109/icept67137.2025.11157425",
+          "title": "ScAlN-based coupled BAW/SAW resonator with high frequency and high electromechanical coupling coefficient",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 26th International Conference on Electronic Packaging Technology (ICEPT)",
+          "family_names": [
+            "Wu",
+            "Lu",
+            "Zhang",
+            "Xu",
+            "Dou",
+            "Yu"
+          ]
+        },
+        {
+          "doi": "10.1038/s41598-026-75911-4",
+          "title": "A strain-aware electromechanical framework for III-nitride axial nanowire heterostructures toward an energy-efficient high-frequency tunnel FET",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Scientific Reports",
+          "family_names": [
+            "Khodabakhsh",
+            "Amini"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T19:11:19.109518+00:00"
+    },
+    "bulk switching memristor based compute in memory module for deep neural network training": {
+      "title": "Bulk-Switching Memristor-based Compute-In-Memory Module for Deep Neural Network Training",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1002/adma.202305465",
+          "title": "Bulk‐Switching Memristor‐Based Compute‐In‐Memory Module for Deep Neural Network Training",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "Advanced Materials",
+          "family_names": [
+            "Wu",
+            "Wang",
+            "Wang",
+            "Wang",
+            "Ayyagari",
+            "Krishnan",
+            "Chudzik",
+            "Lu"
+          ]
+        },
+        {
+          "doi": "10.1145/3357526.3357552",
+          "title": "CIMAT",
+          "year": 2019,
+          "type": "proceedings-article",
+          "container": "Proceedings of the International Symposium on Memory Systems",
+          "family_names": [
+            "Jiang",
+            "Peng",
+            "Huang",
+            "Yu"
+          ]
+        },
+        {
+          "doi": "10.14711/thesis-991013426672103412",
+          "title": "Compute-in-memory based neural network accelerator : a design perspective",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "He"
+          ]
+        },
+        {
+          "doi": "10.70675/6e1199d8z5998z46e3z9082z49b78a47d92c",
+          "title": "Memory Saving Strategies for Deep Neural Network Training",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Shilova"
+          ]
+        },
+        {
+          "doi": "10.1109/isqed54688.2022.9806206",
+          "title": "Memristor-based Deep Spiking Neural Network with a Computing-In-Memory Architecture",
+          "year": 2022,
+          "type": "proceedings-article",
+          "container": "2022 23rd International Symposium on Quality Electronic Design (ISQED)",
+          "family_names": [
+            "Nowshin",
+            "Yi"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T19:11:20.607375+00:00"
+    },
+    "powergan a machine learning approach for power side channel attack on compute in memory accelerators": {
+      "title": "PowerGAN: A Machine Learning Approach for Power Side-Channel Attack on Compute-in-Memory Accelerators",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1002/aisy.202300313",
+          "title": "PowerGAN: A Machine Learning Approach for Power Side‐Channel Attack on Compute‐in‐Memory Accelerators",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "Advanced Intelligent Systems",
+          "family_names": [
+            "Wang",
+            "Wu",
+            "Park",
+            "Yoo",
+            "Wang",
+            "Eshraghian",
+            "Lu"
+          ]
+        },
+        {
+          "doi": "10.23919/date69613.2026.11539618",
+          "title": "Late Breaking Results: Practical Power Side-Channel Attack on Analog Compute-in-Memory Macro",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "2026 Design, Automation &amp;amp; Test in Europe Conference (DATE)",
+          "family_names": [
+            "Wilhelmstätter",
+            "Stark",
+            "Upadhyaya",
+            "Gay",
+            "Polian",
+            "Ortmanns"
+          ]
+        },
+        {
+          "doi": "10.17760/d20620616",
+          "title": "Advanced deep learning-assisted side-channel attack framework and transfer learning",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Zhang"
+          ]
+        },
+        {
+          "doi": "10.1109/sds57574.2022.10062906",
+          "title": "Side Channel Attack using Machine Learning",
+          "year": 2022,
+          "type": "proceedings-article",
+          "container": "2022 Ninth International Conference on Software Defined Systems (SDS)",
+          "family_names": [
+            "Amrouche",
+            "Boubchir",
+            "Yahiaoui"
+          ]
+        },
+        {
+          "doi": "10.1109/host68814.2026.11604627",
+          "title": "Talking Traces: Audio Reconstruction Power Side-Channel Attack on Neural Network FPGA Accelerators",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "2026 IEEE International Symposium on Hardware Oriented Security and Trust (HOST)",
+          "family_names": [
+            "Reibold",
+            "Meyers",
+            "Tahoori"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T19:11:22.051379+00:00"
+    },
+    "rram fabric for neuromorphic and reconfigurable compute in memory systems": {
+      "title": "RRAM Fabric for Neuromorphic and Reconfigurable Compute-In-Memory Systems",
+      "year": null,
+      "candidates": [
+        {
+          "doi": "10.1109/cicc.2018.8357066",
+          "title": "RRAM fabric for neuromorphic and reconfigurable compute-in-memory systems",
+          "year": 2018,
+          "type": "proceedings-article",
+          "container": "2018 IEEE Custom Integrated Circuits Conference (CICC)",
+          "family_names": [
+            "Zidan",
+            "Lu"
+          ]
+        },
+        {
+          "doi": "10.1109/cicc.2019.8780185",
+          "title": "RRAM fabric for neuromorphic and reconfigurable compute-in-memory systems",
+          "year": 2019,
+          "type": "proceedings-article",
+          "container": "2019 IEEE Custom Integrated Circuits Conference (CICC)",
+          "family_names": [
+            "Zidan",
+            "Lu"
+          ]
+        },
+        {
+          "doi": "10.29363/nanoge.neumatdecas.2023.002",
+          "title": "Recent Progresses of RRAM Compute-in-Memory Prototype Chips",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "Proceedings of the Neuromorphic Materials, Devices, Circuits and Systems",
+          "family_names": [
+            "Yu"
+          ]
+        },
+        {
+          "doi": "10.1201/9781003338215-10",
+          "title": "RRAM Fabric for Neuromorphic Computing Applications",
+          "year": 2022,
+          "type": "book-chapter",
+          "container": "From Artificial Intelligence to Brain Intelligence",
+          "family_names": [
+            "Lu"
+          ]
+        },
+        {
+          "doi": "10.1109/nice61972.2024.10548860",
+          "title": "Compute-in-Memory with 6T-RRAM Memristive Circuit for Next-Gen Neuromorphic Hardware",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 Neuro Inspired Computational Elements Conference (NICE)",
+          "family_names": [
+            "Bai",
+            "Jiang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T19:11:23.480356+00:00"
+    },
+    "rram based reconfigurable computing": {
+      "title": "RRAM-Based Reconfigurable Computing",
+      "year": null,
+      "candidates": [
+        {
+          "doi": "10.1109/iccad.2017.8203822",
+          "title": "RRAM-based reconfigurable in-memory computing architecture with hybrid routing",
+          "year": 2017,
+          "type": "proceedings-article",
+          "container": "2017 IEEE/ACM International Conference on Computer-Aided Design (ICCAD)",
+          "family_names": [
+            "Zha",
+            "Li"
+          ]
+        },
+        {
+          "doi": "10.1109/jiot.2026.3662511/mm1",
+          "title": "RRAM: A Reconfigurable Request-Rate-Aware Multi-DNN Accelerator Based on FPGA_supp1-3662511.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Huang"
+          ]
+        },
+        {
+          "doi": "10.1109/access.2023.3294675",
+          "title": "A Hybrid SRAM/RRAM In-Memory Computing Architecture Based on a Reconfigurable SRAM Sense Amplifier",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "IEEE Access",
+          "family_names": [
+            "Nemati",
+            "Eslami",
+            "Moaiyeri"
+          ]
+        },
+        {
+          "doi": "10.1109/iccd.2018.00034",
+          "title": "R-Accelerator: A Reconfigurable Accelerator with RRAM Based Logic Contraction and Resource Optimization for Application Specific Computing",
+          "year": 2018,
+          "type": "proceedings-article",
+          "container": "2018 IEEE 36th International Conference on Computer Design (ICCD)",
+          "family_names": [
+            "Chen",
+            "Zhou",
+            "Gu"
+          ]
+        },
+        {
+          "doi": "10.70675/1cf79608z3789z4025z8efcz817e8621bdd9",
+          "title": "In-memory computing based on CMOS-RRAM hybrid architectures",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Esmanhotto"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T19:11:23.722495+00:00"
+    }
+  }
+}

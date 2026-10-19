@@ -1,0 +1,64 @@
+{
+  "lookups": {
+    "in silico medicine advances the development of sickle cell disease therapies": {
+      "title": "In Silico Medicine Advances the Development of Sickle Cell Disease Therapies",
+      "year": 2020,
+      "candidates": [
+        {
+          "doi": "10.1036/1097-8542.br0701201",
+          "title": "Emerging therapies for sickle cell disease",
+          "year": null,
+          "type": "dataset",
+          "container": "AccessScience",
+          "family_names": []
+        },
+        {
+          "doi": "10.3389/fmed.2022.1055540",
+          "title": "Development of curative therapies for sickle cell disease",
+          "year": 2022,
+          "type": "journal-article",
+          "container": "Frontiers in Medicine",
+          "family_names": [
+            "Tanhehco",
+            "Nathu",
+            "Vasovic"
+          ]
+        },
+        {
+          "doi": "10.5772/intechopen.1015332",
+          "title": "Public Health Program Development for Sickle Cell Disease",
+          "year": 2026,
+          "type": "book-chapter",
+          "container": "Advances in Sickle Cell Disease",
+          "family_names": [
+            "Pendharkar",
+            "Nirmal",
+            "Nayyar"
+          ]
+        },
+        {
+          "doi": "10.1016/j.ctim.2020.102327",
+          "title": "Review/overview of pain in sickle cell disease",
+          "year": 2020,
+          "type": "journal-article",
+          "container": "Complementary Therapies in Medicine",
+          "family_names": [
+            "Ballas",
+            "Darbari"
+          ]
+        },
+        {
+          "doi": "10.1007/978-3-319-62328-3_4",
+          "title": "Risk-Based Therapies for Sickle Cell Disease",
+          "year": 2017,
+          "type": "book-chapter",
+          "container": "Sickle Cell Disease and Hematopoietic Stem Cell Transplantation",
+          "family_names": [
+            "Meier"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T19:15:53.624783+00:00"
+    }
+  }
+}

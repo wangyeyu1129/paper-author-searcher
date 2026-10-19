@@ -1,25 +1,31 @@
 """Author-ID scoped metadata adapters; reuse resolver clients and configuration."""
-from typing import Protocol
-import xml.etree.ElementTree as ET
 
-from .config import DEFAULT_COLLECTION
+import logging
+import xml.etree.ElementTree as ET
+from abc import ABC, abstractmethod
+from typing import Any, ClassVar, Protocol
+
+from .config import DEFAULT_COLLECTION, CollectionConfig
 from .http import SourceError
+from .logging_config import log_isolated_failure
 from .matching import canonical_doi
 from .models import PaperRecord, PaperSourceResult
 from .paper_authorship import canonical_author_id, target_membership
-from .providers import OpenAlexProvider, SemanticScholarProvider, DBLPProvider
+from .providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
+
+logger = logging.getLogger(__name__)
 
 
 class PaperProvider(Protocol):
-    name: str
+    @property
+    def name(self) -> str: ...
 
-    def collect(self, author_id: str) -> PaperSourceResult:
-        ...
+    def collect(self, author_id: str) -> PaperSourceResult: ...
 
 
 def doi_value(value):
     if value:
-        return canonical_doi(value)[len('doi:'):]
+        return canonical_doi(value)[len('doi:') :]
     return None
 
 
@@ -49,8 +55,24 @@ def reconstruct_abstract(index):
     return ' '.join(words[position] for position in sorted(words))
 
 
-class PagedPaperProvider:
-    """Keep prior pages when a later page fails, and detect stalled pagination."""
+class PagedPaperProvider(ABC):
+    """Template method for paginated sources: keep prior pages when a later page fails, detect stalled paging.
+
+    Subclasses supply the source ``name``, the ``initial_token`` and the two hooks below.
+    """
+
+    name: ClassVar[str]
+    initial_token: ClassVar[Any]
+    config: CollectionConfig
+
+    @abstractmethod
+    def _fetch_page(self, author_id: str, token: Any) -> tuple[list[Any], Any]:
+        """Return one page of raw records and the next token (``None`` when there are no more pages)."""
+
+    @abstractmethod
+    def _parse_paper(self, item: Any, author_id: str) -> PaperRecord:
+        """Convert one raw record into a ``PaperRecord``; raise to reject it."""
+
     def collect(self, author_id):
         result = PaperSourceResult(source=self.name, author_id=author_id)
         token = self.initial_token
@@ -59,9 +81,9 @@ class PagedPaperProvider:
             while token is not None:
                 if token in visited:
                     raise SourceError('Pagination token repeated; results are incomplete')
-                if self.config.maximum_pages is not None:
-                    if result.pages_fetched >= self.config.maximum_pages:
-                        raise SourceError('Configured page limit reached; results are incomplete')
+                limit = self.config.maximum_pages
+                if limit is not None and result.pages_fetched >= limit:
+                    raise SourceError('Configured page limit reached; results are incomplete')
                 visited.add(token)
                 records, next_token = self._fetch_page(author_id, token)
                 result.pages_fetched += 1
@@ -72,6 +94,7 @@ class PagedPaperProvider:
             result.pagination_complete = True
             result.complete = not result.rejected_records and not result.metadata_errors
         except Exception as exc:
+            log_isolated_failure(logger, '%s paper collection failed for author %s: %s', self.name, author_id, exc)
             result.error = str(exc)
         return result
 
@@ -90,11 +113,13 @@ class PagedPaperProvider:
                 for error in paper.metadata_errors:
                     result.metadata_errors.append({'paper_id': paper.source_paper_id, 'error': error})
             except Exception as exc:
-                result.rejected_records.append({
-                    'paper_id': (item.get('id') or item.get('paperId')) if isinstance(item, dict) else None,
-                    'reason': str(exc),
-                    'raw_metadata': item,
-                })
+                result.rejected_records.append(
+                    {
+                        'paper_id': (item.get('id') or item.get('paperId')) if isinstance(item, dict) else None,
+                        'reason': str(exc),
+                        'raw_metadata': item,
+                    }
+                )
 
 
 class OpenAlexPaperProvider(PagedPaperProvider):
@@ -105,18 +130,21 @@ class OpenAlexPaperProvider(PagedPaperProvider):
         'abstract_inverted_index,type,ids,is_authors_truncated'
     )
 
-    def __init__(self, provider=None, config=DEFAULT_COLLECTION):
-        self.provider = provider or OpenAlexProvider()
+    def __init__(self, provider: OpenAlexProvider, config=DEFAULT_COLLECTION):
+        self.provider = provider
         self.config = config
 
     def _fetch_page(self, author_id, token):
-        data = self.provider.client.get(self.provider.base_url + '/works', {
-            'filter': 'authorships.author.id:' + author_id,
-            'cursor': token,
-            'per-page': self.config.openalex_page_size,
-            'select': self.FIELDS,
-            'api_key': self.provider.api_key,
-        })
+        data = self.provider.client.get(
+            self.provider.base_url + '/works',
+            {
+                'filter': 'authorships.author.id:' + author_id,
+                'cursor': token,
+                'per-page': self.config.openalex_page_size,
+                'select': self.FIELDS,
+                'api_key': self.provider.api_key,
+            },
+        )
         if not isinstance(data.get('results'), list) or 'next_cursor' not in data.get('meta', {}):
             raise SourceError('Malformed OpenAlex pagination response')
         return data['results'], data['meta']['next_cursor']
@@ -130,17 +158,22 @@ class OpenAlexPaperProvider(PagedPaperProvider):
             name = authorship.get('raw_author_name') or author.get('display_name')
             if name:
                 authors.append(name)
-            details.append({
-                'name': author.get('display_name'), 'raw_author_name': authorship.get('raw_author_name'),
-                'author_id': author.get('id'), 'orcid': author.get('orcid'),
-                'orcid_scope': 'resolved_author', 'role': 'author',
-                'author_position': authorship.get('author_position'),
-                'is_corresponding': authorship.get('is_corresponding'),
-                'institutions': authorship.get('institutions') or [],
-                'affiliations': authorship.get('affiliations') or [],
-                'affiliation_scope': 'paper_authorship',
-                'raw_affiliation_strings': authorship.get('raw_affiliation_strings') or [],
-            })
+            details.append(
+                {
+                    'name': author.get('display_name'),
+                    'raw_author_name': authorship.get('raw_author_name'),
+                    'author_id': author.get('id'),
+                    'orcid': author.get('orcid'),
+                    'orcid_scope': 'resolved_author',
+                    'role': 'author',
+                    'author_position': authorship.get('author_position'),
+                    'is_corresponding': authorship.get('is_corresponding'),
+                    'institutions': authorship.get('institutions') or [],
+                    'affiliations': authorship.get('affiliations') or [],
+                    'affiliation_scope': 'paper_authorship',
+                    'raw_affiliation_strings': authorship.get('raw_affiliation_strings') or [],
+                }
+            )
         location = item.get('primary_location') or {}
         venue = (location.get('source') or {}).get('display_name')
         complete = None
@@ -153,16 +186,23 @@ class OpenAlexPaperProvider(PagedPaperProvider):
         if item.get('id'):
             external_ids.setdefault('openalex', item['id'])
         return PaperRecord(
-            title=item.get('title') or '', authors=authors,
-            year=parse_year(item.get('publication_year')), doi=doi_value(item.get('doi')),
-            venue=venue, abstract=reconstruct_abstract(item.get('abstract_inverted_index')),
-            source=self.name, source_paper_id=item.get('id') or '',
+            title=item.get('title') or '',
+            authors=authors,
+            year=parse_year(item.get('publication_year')),
+            doi=doi_value(item.get('doi')),
+            venue=venue,
+            abstract=reconstruct_abstract(item.get('abstract_inverted_index')),
+            source=self.name,
+            source_paper_id=item.get('id') or '',
             source_author_id=author_id,
             paper_url=location.get('landing_page_url') or item.get('doi') or item.get('id'),
             publication_type=item.get('type'),
-            author_details=details, authors_complete=complete,
+            author_details=details,
+            authors_complete=complete,
             target_author_present=target_membership(self.name, author_id, details, complete),
-            external_ids=external_ids, raw_metadata=item, metadata_errors=errors,
+            external_ids=external_ids,
+            raw_metadata=item,
+            metadata_errors=errors,
         )
 
     def _expand_authors(self, item):
@@ -190,6 +230,7 @@ class OpenAlexPaperProvider(PagedPaperProvider):
             values['_list_response'] = item
             return values, []
         except Exception as exc:
+            log_isolated_failure(logger, 'OpenAlex authorship expansion failed: %s', exc)
             return item, ['OpenAlex authorship expansion failed: ' + str(exc)]
 
 
@@ -199,8 +240,8 @@ class SemanticScholarPaperProvider(PagedPaperProvider):
     FIELDS = 'title,authors,year,externalIds,venue,abstract,url,publicationTypes,openAccessPdf'
     AUTHOR_FIELDS = 'name,externalIds,affiliations'
 
-    def __init__(self, provider=None, config=DEFAULT_COLLECTION):
-        self.provider = provider or SemanticScholarProvider()
+    def __init__(self, provider: SemanticScholarProvider, config=DEFAULT_COLLECTION):
+        self.provider = provider
         self.config = config
 
     def collect(self, author_id):
@@ -210,12 +251,16 @@ class SemanticScholarPaperProvider(PagedPaperProvider):
         try:
             metadata = self.provider.client.get(
                 self.provider.base_url + '/author/' + author_id,
-                {'fields': self.AUTHOR_FIELDS}, self._headers(),
+                {'fields': self.AUTHOR_FIELDS},
+                self._headers(),
             )
             if str(metadata.get('authorId')) != str(author_id):
                 raise SourceError('Author identity metadata ID mismatch')
             self._attach_identity(result.papers, author_id, metadata)
         except Exception as exc:
+            log_isolated_failure(
+                logger, 'Semantic Scholar identity enrichment failed for author %s: %s', author_id, exc
+            )
             error = 'Semantic Scholar author identity enrichment failed: ' + str(exc)
             result.metadata_errors.append({'author_id': author_id, 'error': error})
             for paper in result.papers:
@@ -261,9 +306,8 @@ class SemanticScholarPaperProvider(PagedPaperProvider):
         if not isinstance(data.get('data'), list) or data.get('offset') != token:
             raise SourceError('Malformed Semantic Scholar pagination response')
         next_token = data.get('next')
-        if next_token is not None:
-            if not isinstance(next_token, int) or next_token <= token:
-                raise SourceError('Invalid Semantic Scholar continuation offset')
+        if next_token is not None and (not isinstance(next_token, int) or next_token <= token):
+            raise SourceError('Invalid Semantic Scholar continuation offset')
         return data['data'], next_token
 
     def _parse_paper(self, item, author_id):
@@ -275,26 +319,38 @@ class SemanticScholarPaperProvider(PagedPaperProvider):
         for author in item.get('authors') or []:
             external = author.get('externalIds') or {}
             orcids = self._orcids(external)
-            details.append({
-                'name': author.get('name'), 'author_id': author.get('authorId'),
-                'orcid': orcids[0] if len(orcids) == 1 else None, 'orcids': orcids,
-                'external_ids': external, 'orcid_scope': 'author_profile',
-                'profile_affiliations': author.get('affiliations') or [],
-                'role': 'author',
-            })
+            details.append(
+                {
+                    'name': author.get('name'),
+                    'author_id': author.get('authorId'),
+                    'orcid': orcids[0] if len(orcids) == 1 else None,
+                    'orcids': orcids,
+                    'external_ids': external,
+                    'orcid_scope': 'author_profile',
+                    'profile_affiliations': author.get('affiliations') or [],
+                    'role': 'author',
+                }
+            )
         external_ids = {}
         for key, value in (item.get('externalIds') or {}).items():
             if value is not None:
                 external_ids[key.lower()] = str(value)
         types = item.get('publicationTypes') or []
         return PaperRecord(
-            title=item.get('title') or '', authors=authors, year=parse_year(item.get('year')),
+            title=item.get('title') or '',
+            authors=authors,
+            year=parse_year(item.get('year')),
             doi=doi_value((item.get('externalIds') or {}).get('DOI')),
-            venue=item.get('venue') or None, abstract=item.get('abstract'),
-            source=self.name, source_paper_id=item.get('paperId') or '',
-            source_author_id=author_id, paper_url=item.get('url'),
+            venue=item.get('venue') or None,
+            abstract=item.get('abstract'),
+            source=self.name,
+            source_paper_id=item.get('paperId') or '',
+            source_author_id=author_id,
+            paper_url=item.get('url'),
             publication_type=','.join(sorted(types)) or None,
-            author_details=details, external_ids=external_ids, raw_metadata=item,
+            author_details=details,
+            external_ids=external_ids,
+            raw_metadata=item,
             target_author_present=target_membership(self.name, author_id, details),
         )
 
@@ -302,20 +358,24 @@ class SemanticScholarPaperProvider(PagedPaperProvider):
 class DBLPPaperProvider:
     name = 'dblp'
 
-    def __init__(self, provider=None):
-        self.provider = provider or DBLPProvider()
+    def __init__(self, provider: DBLPProvider):
+        self.provider = provider
 
     def collect(self, author_id):
         result = PaperSourceResult(source=self.name, author_id=author_id)
         try:
             root = self.provider.client.get(
-                self.provider.base_url + '/pid/' + author_id + '.xml', xml=True,
+                self.provider.base_url + '/pid/' + author_id + '.xml',
+                xml=True,
             )
             if root.tag != 'dblpperson' or root.get('pid') != author_id:
-                result.rejected_records.append({
-                    'paper_id': None, 'reason': 'Bibliography PID mismatch',
-                    'raw_metadata': {'xml': ET.tostring(root, encoding='unicode')},
-                })
+                result.rejected_records.append(
+                    {
+                        'paper_id': None,
+                        'reason': 'Bibliography PID mismatch',
+                        'raw_metadata': {'xml': ET.tostring(root, encoding='unicode')},
+                    }
+                )
                 raise SourceError('DBLP bibliography PID is missing or does not match target')
             result.pages_fetched = 1
             for container in root.findall('r'):
@@ -326,6 +386,7 @@ class DBLPPaperProvider:
             result.pagination_complete = True
             result.complete = not result.rejected_records
         except Exception as exc:
+            log_isolated_failure(logger, '%s paper collection failed for author %s: %s', self.name, author_id, exc)
             result.error = str(exc)
         return result
 
@@ -333,10 +394,13 @@ class DBLPPaperProvider:
         result.records_received += 1
         record = next(iter(container), None)
         if record is None:
-            result.rejected_records.append({
-                'paper_id': None, 'reason': 'Empty DBLP record',
-                'raw_metadata': {'xml': ET.tostring(container, encoding='unicode')},
-            })
+            result.rejected_records.append(
+                {
+                    'paper_id': None,
+                    'reason': 'Empty DBLP record',
+                    'raw_metadata': {'xml': ET.tostring(container, encoding='unicode')},
+                }
+            )
             return
         authors = []
         verified = False
@@ -356,16 +420,26 @@ class DBLPPaperProvider:
         paper_id = record.get('key')
         venue = text_content(record, 'journal') or text_content(record, 'booktitle')
         editor_only = not record.findall('author') and bool(record.findall('editor'))
-        result.papers.append(PaperRecord(
-            title=title or '', authors=authors, year=parse_year(text_content(record, 'year')),
-            doi=doi, venue=venue, abstract=None, source=self.name,
-            source_paper_id=paper_id or '', source_author_id=author_id,
-            paper_url=references[0] if references else self.provider.base_url + '/rec/' + (paper_id or ''),
-            publication_type=record.tag,
-            author_details=[{'name': author.text, 'author_id': author.get('pid'), 'role': 'author'}
-                            for author in record.findall('author')],
-            external_ids={'dblp': paper_id or ''},
-            raw_metadata={'xml': ET.tostring(record, encoding='unicode')},
-            target_author_present=False if editor_only else True if verified else None,
-            attribution_evidence=[] if verified else ['Target PID absent from author metadata'],
-        ))
+        result.papers.append(
+            PaperRecord(
+                title=title or '',
+                authors=authors,
+                year=parse_year(text_content(record, 'year')),
+                doi=doi,
+                venue=venue,
+                abstract=None,
+                source=self.name,
+                source_paper_id=paper_id or '',
+                source_author_id=author_id,
+                paper_url=references[0] if references else self.provider.base_url + '/rec/' + (paper_id or ''),
+                publication_type=record.tag,
+                author_details=[
+                    {'name': author.text, 'author_id': author.get('pid'), 'role': 'author'}
+                    for author in record.findall('author')
+                ],
+                external_ids={'dblp': paper_id or ''},
+                raw_metadata={'xml': ET.tostring(record, encoding='unicode')},
+                target_author_present=False if editor_only else True if verified else None,
+                attribution_evidence=[] if verified else ['Target PID absent from author metadata'],
+            )
+        )

@@ -1,0 +1,382 @@
+{
+  "lookups": {
+    "artificial intelligence in molecular biology": {
+      "title": "Artificial intelligence in molecular biology",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1016/b978-0-444-87137-4.50036-9",
+          "title": "Pattern Recognition and Artificial Intelligence in Molecular Biology",
+          "year": 1988,
+          "type": "book-chapter",
+          "container": "Machine Intelligence and Pattern Recognition",
+          "family_names": []
+        },
+        {
+          "doi": "10.1016/b978-0-443-33980-6.00011-2",
+          "title": "Artificial intelligence (AI) applications",
+          "year": 2026,
+          "type": "book-chapter",
+          "container": "Fundamentals of Molecular Structural Biology",
+          "family_names": [
+            "Pal"
+          ]
+        },
+        {
+          "doi": "10.1016/j.jmb.2022.167712",
+          "title": "Editorial: Artificial Intelligence, machine learning and the changing landscape of molecular biology",
+          "year": 2022,
+          "type": "journal-article",
+          "container": "Journal of Molecular Biology",
+          "family_names": [
+            "Zou",
+            "Li",
+            "Plevritis"
+          ]
+        },
+        {
+          "doi": "10.1016/j.jmb.2025.169002",
+          "title": "Emerging Artificial Intelligence Methodologies in Computational Biology",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "Journal of Molecular Biology",
+          "family_names": [
+            "Le",
+            "Nguyen"
+          ]
+        },
+        {
+          "doi": "10.1007/978-3-031-90450-9_1",
+          "title": "Fundamentals of Molecular Biology",
+          "year": 2025,
+          "type": "book-chapter",
+          "container": "Artificial Intelligence for Molecular Biology",
+          "family_names": [
+            "Nabeel Asim",
+            "Ahmed",
+            "Dengel"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:23:02.613134+00:00"
+    },
+    "dart eval a comprehensive dna language model evaluation benchmark on regulatory dna": {
+      "title": "DART-Eval: A Comprehensive DNA Language Model Evaluation Benchmark on Regulatory DNA",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.52202/079017-1981",
+          "title": "DART-Eval: A Comprehensive DNA Language Model Evaluation Benchmark on Regulatory DNA",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 37",
+          "family_names": [
+            "Patel",
+            "Singhal",
+            "Wang",
+            "Pampari",
+            "Kasowski",
+            "Kundaje"
+          ]
+        },
+        {
+          "doi": "10.1101/2025.10.30.25339130",
+          "title": "MAX-EVAL-11: A Comprehensive Benchmark for Evaluating Large Language Models on Full-Spectrum ICD-11 Medical Coding",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Singh",
+            "Deshwal",
+            "Dube",
+            "Sharma"
+          ]
+        },
+        {
+          "doi": "10.64898/2026.07.16.738979",
+          "title": "CASCADE recovers promoter-associated regulatory motifs from cell-type-resolved DNA language-model attributions",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Farghadan",
+            "Schmitz",
+            "Jackson",
+            "Pickering"
+          ]
+        },
+        {
+          "doi": "10.1101/2025.07.23.666402",
+          "title": "Using the DNA language model, GROVER, to parse effects of sequence, chromatin and regulatory features on genome stability",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Joubert",
+            "Sanabria",
+            "Poetsch"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/2024.findings-acl.462",
+          "title": "E-EVAL: A Comprehensive Chinese K-12 Education Evaluation Benchmark for Large Language Models",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Findings of the Association for Computational Linguistics ACL 2024",
+          "family_names": [
+            "Hou",
+            "Ao",
+            "Wu",
+            "Kong",
+            "Zheng",
+            "Tang",
+            "Li",
+            "Hu",
+            "Xu",
+            "Ni",
+            "Yang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:23:04.512008+00:00"
+    },
+    "deep learning guided design of cell type specific aav promoters": {
+      "title": "Deep learning guided design of cell type-specific AAV promoters",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.64898/2026.01.13.699371",
+          "title": "Deep learning-guided design of cell type-specific AAV promoters",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Wang",
+            "Deng",
+            "Nair",
+            "Ren",
+            "Li",
+            "Tijerina",
+            "Prakhar",
+            "Luo",
+            "Nnebe",
+            "Kim",
+            "Zhou",
+            "Shah",
+            "Davis",
+            "Mahajan",
+            "Qiao",
+            "Zhou",
+            "Zhang",
+            "Xue",
+            "Goldberg",
+            "Wei",
+            "Kundaje",
+            "Chang",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1021/acssynbio.2c00027.s001",
+          "title": "Bioinformatic Design of Dendritic Cell-Specific Synthetic Promoters",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1093/nar/gkad930",
+          "title": "Design and deep learning of synthetic B-cell-specific promoters",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "Nucleic Acids Research",
+          "family_names": [
+            "Fu",
+            "He",
+            "Wu",
+            "Zhao"
+          ]
+        },
+        {
+          "doi": "10.1101/2023.12.27.573416",
+          "title": "Species-specific design of artificial promoters by transfer-learning based generative deep-learning model",
+          "year": 2023,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Xia",
+            "Du",
+            "Liu",
+            "Guo",
+            "Huo"
+          ]
+        },
+        {
+          "doi": "10.1007/978-1-4939-7223-4_10",
+          "title": "Constructing Strong Cell Type-Specific Promoters Through Informed Design",
+          "year": 2017,
+          "type": "book-chapter",
+          "container": "Methods in Molecular Biology",
+          "family_names": [
+            "Brown",
+            "James"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:23:04.772854+00:00"
+    },
+    "genome wide interaction study with smoking for colorectal cancer risk identifies novel genetic loci related to tumor suppression inflammation and immune response": {
+      "title": "Genome-wide interaction study with smoking for colorectal cancer risk identifies novel genetic loci related to tumor suppression, inflammation and immune response",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.7287/peerj.3618v0.2/reviews/2",
+          "title": "Peer Review #2 of \"Genome-wide association study identifies novel type II diabetes risk loci in Jordan subpopulations (v0.2)\"",
+          "year": 2017,
+          "type": "peer-review",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.7287/peerj.3618v0.2/reviews/1",
+          "title": "Peer Review #1 of \"Genome-wide association study identifies novel type II diabetes risk loci in Jordan subpopulations (v0.2)\"",
+          "year": 2017,
+          "type": "peer-review",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.7287/peerj.3618v0.1/reviews/1",
+          "title": "Peer Review #1 of \"Genome-wide association study identifies novel type II diabetes risk loci in Jordan subpopulations (v0.1)\"",
+          "year": 2017,
+          "type": "peer-review",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.7287/peerj.3618v0.1/reviews/2",
+          "title": "Peer Review #2 of \"Genome-wide association study identifies novel type II diabetes risk loci in Jordan subpopulations (v0.1)\"",
+          "year": 2017,
+          "type": "peer-review",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.2147/jir.s338724",
+          "title": "A Genome-Wide Association Study Identifies Novel Risk Loci for Sarcopenia in a Taiwanese Population",
+          "year": 2021,
+          "type": "journal-article",
+          "container": "Journal of Inflammation Research",
+          "family_names": [
+            "Wu",
+            "Chen"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:23:06.674582+00:00"
+    },
+    "somatic hypermutation informed vocabulary encoder representations": {
+      "title": "Somatic Hypermutation Informed Vocabulary Encoder Representations",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1007/springerreference_98477",
+          "title": "Hypermutation (somatic hypermutation)",
+          "year": null,
+          "type": "reference-entry",
+          "container": "SpringerReference",
+          "family_names": []
+        },
+        {
+          "doi": "10.1007/springerreference_39736",
+          "title": "Somatic hypermutation",
+          "year": null,
+          "type": "reference-entry",
+          "container": "SpringerReference",
+          "family_names": []
+        },
+        {
+          "doi": "10.1007/springerreference_36815",
+          "title": "Somatic Hypermutation",
+          "year": null,
+          "type": "reference-entry",
+          "container": "SpringerReference",
+          "family_names": []
+        },
+        {
+          "doi": "10.1007/springerreference_33004",
+          "title": "Somatic Hypermutation",
+          "year": null,
+          "type": "reference-entry",
+          "container": "SpringerReference",
+          "family_names": []
+        },
+        {
+          "doi": "10.1002/0471684228.egp06021",
+          "title": "Hypermutation (Somatic Hypermutation)",
+          "year": 2004,
+          "type": "other",
+          "container": "Encyclopedic Dictionary of Genetics, Genomics and Proteomics",
+          "family_names": []
+        }
+      ],
+      "fetched_at": "2026-10-18T18:23:08.787633+00:00"
+    },
+    "tartarus a benchmarking platform for realistic and practical inverse molecular design": {
+      "title": "TARTARUS: A Benchmarking Platform for Realistic And Practical Inverse Molecular Design",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.52202/075280-0145",
+          "title": "Tartarus: A Benchmarking Platform for Realistic And Practical Inverse Molecular Design",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 36",
+          "family_names": [
+            "Nigam",
+            "Pollice",
+            "Tom",
+            "Jorner",
+            "Willes",
+            "Thiede",
+            "Kundaje",
+            "Aspuru-Guzik"
+          ]
+        },
+        {
+          "doi": "10.1039/d4dd00395k/v3/review2",
+          "title": "Review for \"Benchmarking Study of Deep Generative Models for Inverse Polymer Design\"",
+          "year": 2025,
+          "type": "peer-review",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1039/d4dd00395k/v1/review1",
+          "title": "Review for \"Benchmarking Study of Deep Generative Models for Inverse Polymer Design\"",
+          "year": 2024,
+          "type": "peer-review",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1039/d4dd00395k/v2/review1",
+          "title": "Review for \"Benchmarking Study of Deep Generative Models for Inverse Polymer Design\"",
+          "year": 2024,
+          "type": "peer-review",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1039/d4dd00395k/v2/review2",
+          "title": "Review for \"Benchmarking Study of Deep Generative Models for Inverse Polymer Design\"",
+          "year": 2025,
+          "type": "peer-review",
+          "container": "",
+          "family_names": []
+        }
+      ],
+      "fetched_at": "2026-10-18T18:23:09.345023+00:00"
+    }
+  }
+}

@@ -11,15 +11,27 @@ from pdf_fixtures import HAS_PYPDF, make_pdf
 
 
 def target():
-    return {'title': 'Reusable methods for synthetic research', 'doi': '10.1234/example',
-            'authors': ['Alex Example', 'Taylor Researcher'], 'year': 2020}
+    return {
+        'title': 'Reusable methods for synthetic research',
+        'doi': '10.1234/example',
+        'authors': ['Alex Example', 'Taylor Researcher'],
+        'year': 2020,
+    }
 
 
 class ContentIdentityTests(unittest.TestCase):
     def publisher_candidate(self):
-        return {'identity_status': 'verified', 'validation_status': 'verified', 'provenance': [{
-            'title': target()['title'], 'metadata_year': '2020',
-            'metadata_authors': ['Alex Example', 'Taylor Researcher']}]}
+        return {
+            'identity_status': 'verified',
+            'validation_status': 'verified',
+            'provenance': [
+                {
+                    'title': target()['title'],
+                    'metadata_year': '2020',
+                    'metadata_authors': ['Alex Example', 'Taylor Researcher'],
+                }
+            ],
+        }
 
     def test_confirmed_publisher_bylines_can_corroborate_exact_pdf_title(self):
         saved = dict(target(), authors=['Alex M. Example', 'Taylor Researcher'])
@@ -31,8 +43,12 @@ class ContentIdentityTests(unittest.TestCase):
         self.assertEqual(saved['authors'][0], 'Alex M. Example')
 
     def test_publisher_alternatives_need_title_year_and_full_byline_agreement(self):
-        for changes in ({'metadata_year': '2021'}, {'title': 'Other research'},
-                        {'metadata_authors': ['Unrelated Author']}, {'doi': '10.9999/conflict'}):
+        for changes in (
+            {'metadata_year': '2021'},
+            {'title': 'Other research'},
+            {'metadata_authors': ['Unrelated Author']},
+            {'doi': '10.9999/conflict'},
+        ):
             candidate = self.publisher_candidate()
             candidate['provenance'][0].update(changes)
             self.assertEqual(validation_target(target(), candidate)['publisher_author_variants'], [])
@@ -47,8 +63,7 @@ class ContentIdentityTests(unittest.TestCase):
 
     def test_unicode_doi_delimiters_are_not_part_of_identifier(self):
         saved = target()
-        identity, dois, evidence = content_identity(saved, [saved['title']], [],
-                                                   '⟨10.1234/example⟩', '')
+        identity, dois, evidence = content_identity(saved, [saved['title']], [], '⟨10.1234/example⟩', '')
         self.assertEqual(identity, 'verified')
         self.assertEqual(dois, ['10.1234/example'])
 
@@ -65,8 +80,9 @@ class ContentIdentityTests(unittest.TestCase):
 
     def test_title_substring_in_different_metadata_title_does_not_verify(self):
         saved = target()
-        identity, dois, evidence = content_identity(saved, ['Review of ' + saved['title']],
-                                                   [saved['title']], saved['doi'], '')
+        identity, dois, evidence = content_identity(
+            saved, ['Review of ' + saved['title']], [saved['title']], saved['doi'], ''
+        )
         self.assertEqual(identity, 'needs_review')
 
 
@@ -125,10 +141,13 @@ class PDFParsingTests(unittest.TestCase):
         self.assertEqual(self.validate(body).format_status, 'invalid')
 
     def test_page_and_decompressed_content_limits(self):
-        self.assertEqual(self.validate(make_pdf(pages=2), config=replace(DEFAULT_DOWNLOAD, maximum_pages=1)).format_status,
-                         'invalid')
-        self.assertEqual(self.validate(make_pdf(), config=replace(DEFAULT_DOWNLOAD, maximum_page_content_bytes=8)).format_status,
-                         'invalid')
+        self.assertEqual(
+            self.validate(make_pdf(pages=2), config=replace(DEFAULT_DOWNLOAD, maximum_pages=1)).format_status, 'invalid'
+        )
+        self.assertEqual(
+            self.validate(make_pdf(), config=replace(DEFAULT_DOWNLOAD, maximum_page_content_bytes=8)).format_status,
+            'invalid',
+        )
 
     def test_javascript_is_observed_but_never_executed(self):
         result = self.validate(make_pdf(javascript='throw new Error("must never execute");'))

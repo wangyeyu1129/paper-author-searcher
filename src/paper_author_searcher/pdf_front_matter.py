@@ -1,30 +1,32 @@
 """Recover typographic text without fuzzy title or weaker author thresholds."""
+
 import re
 import unicodedata
+from collections.abc import Sequence
 
 from .matching import normalize
 from .paper_authorship import byline_forms
 from .paper_deduplication import author_signatures_match
 
 
-def front_matter(text):
+def front_matter(text: str) -> str:
     # Keep bylines out of the abstract, main text and reference list.
     boundary = re.search(r'(?im)^\s*(?:abstract\b|(?:\d+\.?\s+)?introduction\b|references\b)', text)
-    return text[:boundary.start()] if boundary else text
+    return text[: boundary.start()] if boundary else text
 
 
-def clean_byline(text):
+def clean_byline(text: str) -> str:
     text = unicodedata.normalize('NFKD', text)
     text = re.sub(r'(?<=[^\W\d_])\d+(?:\s*,\s*\d+)*', '', text)
     text = re.sub(r'[†‡∗*]', ' ', text)
     return normalize(text)
 
 
-def authors_present(authors, regions, author_metadata):
+def authors_present(authors: Sequence[str], regions: Sequence[str], author_metadata: str) -> bool:
     if not authors:
         return False
     words = clean_byline(' '.join(front_matter(region) for region in regions) + ' ' + author_metadata).split()
-    used = set()
+    used: set[int] = set()
     for author in authors:
         match = _author_span(author, words, used)
         if match is None:
@@ -33,7 +35,7 @@ def authors_present(authors, regions, author_metadata):
     return True
 
 
-def _author_span(author, words, used):
+def _author_span(author: str, words: Sequence[str], used: set[int]) -> tuple[int, int] | None:
     for form in byline_forms(author):
         length = len(normalize(form).split())
         if length < 2:
@@ -49,7 +51,7 @@ def _author_span(author, words, used):
     return None
 
 
-def title_in_region(title, region, compact=True):
+def title_in_region(title: str, region: str, compact: bool = True) -> bool:
     expected = normalize(title)
     if not expected:
         return False
@@ -67,7 +69,7 @@ def title_in_region(title, region, compact=True):
     return False
 
 
-def metadata_title_kind(title, expected):
+def metadata_title_kind(title: str, expected: str) -> str:
     title = title.strip()
     if not title or re.search(r'\.(?:dvi|tex|ps|eps|pdf|pptx?)\s*$', title, re.I):
         return 'technical'
@@ -80,9 +82,11 @@ def metadata_title_kind(title, expected):
     return 'conflicting'
 
 
-def publication_years(text):
-    patterns = (r'(?i)\b(?:published|copyright|©)\s*[:\s]*(\d{4})\b',
-                r'(?i)\bproceedings\b[^\n]{0,180}\b((?:19|20)\d{2})\b')
+def publication_years(text: str) -> list[int]:
+    patterns = (
+        r'(?i)\b(?:published|copyright|©)\s*[:\s]*(\d{4})\b',
+        r'(?i)\bproceedings\b[^\n]{0,180}\b((?:19|20)\d{2})\b',
+    )
     years = set()
     for pattern in patterns:
         years.update(re.findall(pattern, text))

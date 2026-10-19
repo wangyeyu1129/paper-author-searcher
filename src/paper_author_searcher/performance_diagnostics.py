@@ -1,20 +1,35 @@
 """Explain abstention and access failures without changing validation decisions."""
+
 import re
+import typing
 from collections import Counter
 
-from .config import DEFAULT_OWNERSHIP
+from .config import DEFAULT_OWNERSHIP, OwnershipConfig
+from .json_types import JSONList, JSONObject
 from .paper_authorship import canonical_author_id
+from .status import (
+    AccessStatus,
+    DownloadStatus,
+    FormatStatus,
+    IdentityStatus,
+    OwnershipStatus,
+    PDFValidationStatus,
+    ProviderStatus,
+    StageStatus,
+)
 
 
-def workflow_outcomes(report):
-    reused = {item.get('stage') for item in report.get('stages') or [] if item.get('status') == 'reused'}
-    counts = Counter()
+def workflow_outcomes(report: JSONObject) -> JSONObject:
+    reused = {item.get('stage') for item in report.get('stages') or [] if item.get('status') == StageStatus.REUSED}
+    counts: typing.Counter[str] = Counter()
     for error in report.get('errors') or []:
         text = str(error.get('error') or '').lower()
         stage = error.get('stage')
         if stage in reused:
             category = 'historical_source_issue'
-        elif any(value in text for value in ('timed out', 'timeout', 'certificate verify', 'name resolution', 'nodename')):
+        elif any(
+            value in text for value in ('timed out', 'timeout', 'certificate verify', 'name resolution', 'nodename')
+        ):
             category = 'network_failure'
         elif re.search(r'http\s+(?:401|403|429|5\d\d)\b', text) or 'expected json' in text:
             category = 'source_unavailable'
@@ -27,48 +42,62 @@ def workflow_outcomes(report):
         error['category'] = category
         counts[category] += 1
     warnings = Counter(item.get('code', 'warning') for item in report.get('warnings') or [])
-    request_outcomes = Counter()
+    request_outcomes: typing.Counter[str] = Counter()
     for observation in (report.get('errors') or []) + (report.get('warnings') or []):
         context = observation.get('request_context') or {}
         if context.get('outcome'):
             request_outcomes[context['outcome']] += 1
     decisions = Counter(item.get('category', 'candidate_filtered') for item in report.get('candidate_decisions') or [])
     download = report.get('download_statistics') or {}
-    return {'error_observation_counts': dict(counts), 'warning_observation_counts': dict(warnings),
-            'request_outcome_observation_counts': dict(request_outcomes),
-            'candidate_decision_counts': dict(decisions),
-            'failed_download_papers': download.get('failed_papers', 0),
-            'rejected_content_papers': download.get('rejected_content_papers', 0),
-            'non_full_document_papers': download.get('non_full_document_papers', 0),
-            'count_note': 'Per-paper observations can repeat cached/deferred causes. '
-                          'Actual logical request failures are in provider_request_statistics.events.'}
+    return {
+        'error_observation_counts': dict(counts),
+        'warning_observation_counts': dict(warnings),
+        'request_outcome_observation_counts': dict(request_outcomes),
+        'candidate_decision_counts': dict(decisions),
+        'failed_download_papers': download.get('failed_papers', 0),
+        'rejected_content_papers': download.get('rejected_content_papers', 0),
+        'non_full_document_papers': download.get('non_full_document_papers', 0),
+        'count_note': 'Per-paper observations can repeat cached/deferred causes. '
+        'Actual logical request failures are in provider_request_statistics.events.',
+    }
 
 
-def pdf_failure_reasons(paper):
+def pdf_failure_reasons(paper: JSONObject) -> list[str]:
     reasons = set()
     status = paper.get('validation_status')
     download = paper.get('download_status', '')
-    if status == 'not_processed' or download == 'skipped_limit':
+    if status == PDFValidationStatus.NOT_PROCESSED or download == 'skipped_limit':
         reasons.add('not_processed_limit')
-    if status == 'skipped_ownership' or download == 'skipped_ownership':
+    if status == PDFValidationStatus.SKIPPED_OWNERSHIP or download == DownloadStatus.SKIPPED_OWNERSHIP:
         reasons.add('ownership_not_eligible')
     providers = paper.get('providers') or []
-    if any(provider.get('status') == 'error' or provider.get('status') == 'partial' and provider.get('errors')
-           for provider in providers):
+    if any(
+        provider.get('status') == ProviderStatus.ERROR
+        or (provider.get('status') == ProviderStatus.PARTIAL and provider.get('errors'))
+        for provider in providers
+    ):
         reasons.add('source_query_failed')
-    if any(provider.get('status') == 'partial' for provider in providers):
+    if any(provider.get('status') == ProviderStatus.PARTIAL for provider in providers):
         reasons.add('search_incomplete')
-    if any(provider.get('status') == 'disabled' for provider in providers):
+    if any(provider.get('status') == ProviderStatus.DISABLED for provider in providers):
         reasons.add('provider_not_configured')
     for provider in providers:
         for diagnostic in provider.get('diagnostics') or []:
             kind = diagnostic.get('error_type')
             if kind == 'not_found':
-                reasons.add('url_not_found' if diagnostic.get('context') == 'public_resource' else 'metadata_record_not_found')
+                reasons.add(
+                    'url_not_found' if diagnostic.get('context') == 'public_resource' else 'metadata_record_not_found'
+                )
             elif kind == 'source_deferred':
                 reasons.add('source_temporarily_deferred')
-            elif kind in ('rate_limited', 'timeout', 'network_error', 'server_error', 'access_restricted',
-                          'authentication_required'):
+            elif kind in (
+                'rate_limited',
+                'timeout',
+                'network_error',
+                'server_error',
+                'access_restricted',
+                'authentication_required',
+            ):
                 reasons.add(kind)
             elif kind in ('malformed_response', 'invalid_content_type', 'empty_response'):
                 reasons.add('invalid_metadata_response')
@@ -91,13 +120,13 @@ def pdf_failure_reasons(paper):
             reasons.add('rate_limited')
         elif code is not None and 500 <= code <= 599:
             reasons.add('server_error')
-        if candidate.get('identity_status') in ('conflicting', 'rejected'):
+        if candidate.get('identity_status') in (IdentityStatus.CONFLICTING, IdentityStatus.REJECTED):
             reasons.add('source_identity_mismatch')
         if candidate.get('content_type') in ('text/html', 'application/xhtml+xml'):
             reasons.add('not_pdf_response')
-        if candidate.get('access_status') == 'unreachable' and code is None:
+        if candidate.get('access_status') == AccessStatus.UNREACHABLE and code is None:
             reasons.add('network_error')
-        if candidate.get('pdf_signature_confirmed') and candidate.get('identity_status') == 'unverified':
+        if candidate.get('pdf_signature_confirmed') and candidate.get('identity_status') == IdentityStatus.UNVERIFIED:
             reasons.add('insufficient_pdf_identity_evidence')
     text = ' '.join(messages).lower()
     for code, label in ((403, 'access_restricted'), (429, 'rate_limited')):
@@ -109,41 +138,50 @@ def pdf_failure_reasons(paper):
         reasons.add('network_error')
     if 'http 302' in text or 'redirect' in text:
         reasons.add('redirect_failure')
-    if paper.get('identity_status') == 'rejected':
+    if paper.get('identity_status') == IdentityStatus.REJECTED:
         reasons.add('downloaded_paper_identity_mismatch')
-    elif paper.get('format_status') == 'valid' and paper.get('identity_status') == 'needs_review':
+    elif (
+        paper.get('format_status') == FormatStatus.VALID and paper.get('identity_status') == IdentityStatus.NEEDS_REVIEW
+    ):
         reasons.add('downloaded_paper_identity_unconfirmed')
-    if paper.get('format_status') in ('invalid', 'unverified'):
+    if paper.get('format_status') in (FormatStatus.INVALID, FormatStatus.UNVERIFIED):
         reasons.add('downloaded_pdf_format_unconfirmed')
-    if download == 'failed':
+    if download == DownloadStatus.FAILED:
         reasons.add('download_failed')
     if paper.get('document_type') in ('poster', 'slides', 'supplementary_material'):
         reasons.add('non_full_text_document')
-    if status in ('not_found', 'unverified') and not candidates:
-        incomplete = reasons.intersection({'source_query_failed', 'provider_not_configured', 'network_error', 'search_incomplete'})
+    if status in (PDFValidationStatus.NOT_FOUND, PDFValidationStatus.UNVERIFIED) and not candidates:
+        incomplete = reasons.intersection(
+            {'source_query_failed', 'provider_not_configured', 'network_error', 'search_incomplete'}
+        )
         reasons.add('search_incomplete' if incomplete else 'no_public_pdf_found_in_queried_sources')
-    if status == 'unverified' and candidates and not reasons:
+    if status == PDFValidationStatus.UNVERIFIED and candidates and not reasons:
         reasons.add('pdf_or_identity_unconfirmed')
     return sorted(reasons)
 
 
-def review_reasons(paper, config=DEFAULT_OWNERSHIP):
-    if paper.get('ownership_status') != 'needs_review':
+def review_reasons(paper: JSONObject, config: OwnershipConfig = DEFAULT_OWNERSHIP) -> list[str]:
+    if paper.get('ownership_status') != OwnershipStatus.NEEDS_REVIEW:
         return []
     reasons = set()
     records = [paper] + (paper.get('records') or [])
     for record in records:
         details = record.get('author_details') or []
         expected = canonical_author_id(record.get('source'), record.get('source_author_id'))
-        target = [author for author in details
-                  if expected and canonical_author_id(record.get('source'), author.get('author_id')) == expected]
+        target = [
+            author
+            for author in details
+            if expected and canonical_author_id(record.get('source'), author.get('author_id')) == expected
+        ]
         evidence = ' '.join(record.get('ownership_evidence') or [])
         if not details:
             reasons.add('missing_paper_author_details')
         elif not target:
             reasons.add('missing_or_conflicting_target_author_id')
         if target:
-            if not any(author.get('institutions') and author.get('affiliation_scope') != 'author_profile' for author in target):
+            if not any(
+                author.get('institutions') and author.get('affiliation_scope') != 'author_profile' for author in target
+            ):
                 reasons.add('missing_paper_level_affiliation')
             if not any(author.get('orcid') or author.get('orcids') for author in target):
                 reasons.add('missing_target_orcid')
@@ -168,15 +206,26 @@ def review_reasons(paper, config=DEFAULT_OWNERSHIP):
     return sorted(reasons)
 
 
-def ownership_diagnostics(papers):
-    counts = Counter()
+def ownership_diagnostics(papers: JSONList) -> JSONObject:
+    counts: typing.Counter[str] = Counter()
     entries = []
     for index, paper in enumerate(papers):
-        if paper.get('ownership_status') != 'needs_review':
+        if paper.get('ownership_status') != OwnershipStatus.NEEDS_REVIEW:
             continue
         reasons = review_reasons(paper)
         counts.update(reasons)
-        entries.append({'entry_index': index, 'title': paper.get('title'), 'doi': paper.get('doi'),
-                        'reason_codes': reasons, 'ownership_evidence': paper.get('ownership_evidence') or []})
-    return {'needs_review_entries': len(entries), 'reason_counts': dict(counts), 'papers': entries,
-            'count_note': 'Reason categories overlap; these are observed evidence gaps, not new ownership decisions.'}
+        entries.append(
+            {
+                'entry_index': index,
+                'title': paper.get('title'),
+                'doi': paper.get('doi'),
+                'reason_codes': reasons,
+                'ownership_evidence': paper.get('ownership_evidence') or [],
+            }
+        )
+    return {
+        'needs_review_entries': len(entries),
+        'reason_counts': dict(counts),
+        'papers': entries,
+        'count_note': 'Reason categories overlap; these are observed evidence gaps, not new ownership decisions.',
+    }

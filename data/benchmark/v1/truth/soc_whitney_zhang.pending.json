@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "soc_whitney_zhang",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Whitney Zhang",
+      "university": "Massachusetts Institute of Technology"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.925074+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "mit_profile.json",
+        "url": "https://economics.mit.edu/people/phd-students/whitney-zhang",
+        "records": 3
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "soc_whitney_zhang:5fa4f2d3bf4e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Improving commuting zones using the Louvain community detection algorithm",
+      "year": 2022,
+      "authors": [
+        "Whitney Zhang"
+      ],
+      "listed_venue": "Economics Letters 219",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://economics.mit.edu/people/phd-students/whitney-zhang entry 3 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.2139/ssrn.3885325"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Improving commuting zones using the Louvain community detection algorithm",
+          "year": 2021,
+          "authors": [
+            "Whitney Zhang"
+          ]
+        },
+        {
+          "title": "Improving commuting zones using the Louvain community detection algorithm",
+          "year": 2023,
+          "authors": [
+            "Whitney Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.2139/ssrn.3885325",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Improving Commuting Zones Using the Louvain Community Detection Algorithm",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_whitney_zhang:f8e3b069f2e7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Experimental Evidence on the Productivity Effects of Generative Artificial Intelligence",
+      "year": 2023,
+      "authors": [
+        "Shakked Noy",
+        "Whitney Zhang"
+      ],
+      "listed_venue": "Science 381(6654)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://economics.mit.edu/people/phd-students/whitney-zhang entry 2 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.2139/ssrn.4375283"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Experimental Evidence on the Productivity Effects of Generative Artificial Intelligence",
+          "year": 2022,
+          "authors": [
+            "Shakked Noy",
+            "Whitney Zhang"
+          ]
+        },
+        {
+          "title": "Experimental Evidence on the Productivity Effects of Generative Artificial Intelligence",
+          "year": 2024,
+          "authors": [
+            "Shakked Noy",
+            "Whitney Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.2139/ssrn.4375283",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Experimental Evidence on the Productivity Effects of Generative Artificial Intelligence",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_whitney_zhang:6afd2fa757fd",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Interpreting TSLS Estimators in Information Provision Experiments",
+      "year": 2025,
+      "authors": [
+        "Vod Vilfort",
+        "Whitney Zhang"
+      ],
+      "listed_venue": "American Economic Review: Insights 7(3)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://economics.mit.edu/people/phd-students/whitney-zhang entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1257/aeri.20240353"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Interpreting TSLS Estimators in Information Provision Experiments",
+          "year": 2024,
+          "authors": [
+            "Vod Vilfort",
+            "Whitney Zhang"
+          ]
+        },
+        {
+          "title": "Interpreting TSLS Estimators in Information Provision Experiments",
+          "year": 2026,
+          "authors": [
+            "Vod Vilfort",
+            "Whitney Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1257/aeri.20240353",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Interpreting TSLS Estimators in Information Provision Experiments",
+          "crossref_year": 2025
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

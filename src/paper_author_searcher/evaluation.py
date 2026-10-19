@@ -1,9 +1,12 @@
 """Offline evaluation of identity, retrieval, ownership and deduplication."""
+
 from dataclasses import asdict
+from typing import Any
 
-from .evaluation_matching import GroundTruth, GroundTruthMatcher, stable_identifiers, metadata_key
+from .evaluation_matching import GroundTruth, GroundTruthMatcher, metadata_key, stable_identifiers
+from .status import OwnershipStatus, ResolutionStatus
 
-STATUSES = ('verified', 'needs_review', 'rejected')
+STATUSES = (OwnershipStatus.VERIFIED, OwnershipStatus.NEEDS_REVIEW, OwnershipStatus.REJECTED)
 
 
 def _ratio(numerator, denominator):
@@ -20,8 +23,12 @@ def _metrics(positive, negative, total_positive):
     recall = _ratio(true_positives, total_positive)
     f1 = _ratio(2 * true_positives, 2 * true_positives + false_positives + false_negatives)
     return {
-        'true_positives': true_positives, 'false_positives': false_positives,
-        'false_negatives': false_negatives, 'precision': precision, 'recall': recall, 'f1': f1,
+        'true_positives': true_positives,
+        'false_positives': false_positives,
+        'false_negatives': false_negatives,
+        'precision': precision,
+        'recall': recall,
+        'f1': f1,
     }
 
 
@@ -30,18 +37,33 @@ def _choose_two(count):
 
 
 def _paper_summary(paper, index):
-    fields = ('title', 'year', 'authors', 'doi', 'source', 'source_paper_id', 'source_author_id',
-              'ownership_status', 'ownership_evidence', 'deduplication_evidence', 'related_versions')
+    fields = (
+        'title',
+        'year',
+        'authors',
+        'doi',
+        'source',
+        'source_paper_id',
+        'source_author_id',
+        'ownership_status',
+        'ownership_evidence',
+        'deduplication_evidence',
+        'related_versions',
+    )
     summary = {key: paper.get(key) for key in fields}
     summary['entry_index'] = index
     summary['source_records'] = []
     for record in paper.get('records') or [paper]:
-        summary['source_records'].append({
-            'source': record.get('source'), 'paper_id': record.get('source_paper_id'),
-            'author_id': record.get('source_author_id'), 'doi': record.get('doi'),
-            'ownership_status': record.get('ownership_status'),
-            'ownership_evidence': record.get('ownership_evidence') or [],
-        })
+        summary['source_records'].append(
+            {
+                'source': record.get('source'),
+                'paper_id': record.get('source_paper_id'),
+                'author_id': record.get('source_author_id'),
+                'doi': record.get('doi'),
+                'ownership_status': record.get('ownership_status'),
+                'ownership_evidence': record.get('ownership_evidence') or [],
+            }
+        )
     return summary
 
 
@@ -69,7 +91,7 @@ class Evaluator:
         explicit_negative_count = len(negatives)
         inferred_negatives = {entry['inferred_negative'] for entry in matches if entry['inferred_negative']}
         negatives.update(inferred_negatives)
-        sets = {status: set() for status in STATUSES}
+        sets: dict[str, set[str]] = {status: set() for status in STATUSES}
         for entry in matches:
             sets[entry['status']].update(entry['judged_ids'])
         all_ids = set().union(*sets.values())
@@ -83,8 +105,8 @@ class Evaluator:
             )
         false_positives = self._false_positives(matches, negatives)
         missing_candidates = positives - all_ids
-        missing_verified = positives - sets['verified']
-        conflicts = []
+        missing_verified = positives - sets[OwnershipStatus.VERIFIED]
+        conflicts: list[dict[str, Any]] = []
         for evaluation_id in all_ids:
             statuses = [status for status in STATUSES if evaluation_id in sets[status]]
             if len(statuses) > 1:
@@ -94,21 +116,26 @@ class Evaluator:
             'metric_scope': 'unique_adjudicated_ground_truth_publications',
             'complete_positive_list': ground_truth.complete_positive_list,
             'ground_truth': {
-                'positive_publications': len(positives), 'negative_publications': explicit_negative_count,
+                'positive_publications': len(positives),
+                'negative_publications': explicit_negative_count,
                 'closed_world_inferred_negatives': len(inferred_negatives),
                 'uncertain_publications': len(ground_truth.papers) - len(positives) - explicit_negative_count,
                 'metadata': ground_truth.metadata,
             },
-            'ownership': status_metrics['verified'],
+            'ownership': status_metrics[OwnershipStatus.VERIFIED],
             'all_candidates': _metrics(all_ids & positives, all_ids & negatives, len(positives)),
             'by_status': status_metrics,
-            'rejection_precision': _ratio(len(sets['rejected'] & negatives),
-                                         len(sets['rejected'] & (positives | negatives))),
+            'rejection_precision': _ratio(
+                len(sets[OwnershipStatus.REJECTED] & negatives),
+                len(sets[OwnershipStatus.REJECTED] & (positives | negatives)),
+            ),
             'deduplication': self._deduplication(matches),
             'false_positives': false_positives,
             'false_negatives': {
                 'all_candidates': self._false_negatives(missing_candidates, matches, matcher, 'all_candidates'),
-                'verified': self._false_negatives(missing_verified, matches, matcher, 'verified'),
+                OwnershipStatus.VERIFIED: self._false_negatives(
+                    missing_verified, matches, matcher, OwnershipStatus.VERIFIED
+                ),
             },
             'manual_confirmation': review,
             'judgment_coverage': {
@@ -121,9 +148,9 @@ class Evaluator:
             'professor_resolver': self._evaluate_professor(saved_result, ground_truth.professor),
             'retrieval': {
                 'available': True,
-                'complete': collection.get('complete'), 'sources': sources,
-                'unparsed_records': sum(len(source.get('rejected_records') or [])
-                                       for source in sources),
+                'complete': collection.get('complete'),
+                'sources': sources,
+                'unparsed_records': sum(len(source.get('rejected_records') or []) for source in sources),
             },
             'notes': [
                 'No ownership or deduplication rules were rerun or tuned.',
@@ -140,9 +167,14 @@ class Evaluator:
         return {
             'schema_version': 1,
             'professor_resolver': self._evaluate_professor(saved_result, ground_truth.professor),
-            'ownership': None, 'all_candidates': None, 'by_status': {},
-            'deduplication': None, 'judgment_coverage': None,
-            'false_positives': [], 'false_negatives': {}, 'manual_confirmation': [],
+            'ownership': None,
+            'all_candidates': None,
+            'by_status': {},
+            'deduplication': None,
+            'judgment_coverage': None,
+            'false_positives': [],
+            'false_negatives': {},
+            'manual_confirmation': [],
             'retrieval': {'available': False},
             'notes': ['No collection supplied; publication metrics were not evaluated.'],
         }
@@ -156,7 +188,7 @@ class Evaluator:
             records = paper.get('records') or [paper]
             if not isinstance(records, list) or not all(isinstance(record, dict) for record in records):
                 raise ValueError('Paper records must be a list of objects')
-            status = paper.get('ownership_status', 'needs_review')
+            status = paper.get('ownership_status', OwnershipStatus.NEEDS_REVIEW)
             if status not in STATUSES:
                 raise ValueError('Unknown ownership_status: ' + str(status))
             summary = _paper_summary(paper, index)
@@ -170,45 +202,65 @@ class Evaluator:
                     judged_ids.add(match.evaluation_id)
                 else:
                     concerns.append(match.decision)
-                record_matches.append({
-                    'record_index': record_index, 'source': record.get('source'),
-                    'paper_id': record.get('source_paper_id'), 'author_id': record.get('source_author_id'),
-                    'match': asdict(match),
-                })
+                record_matches.append(
+                    {
+                        'record_index': record_index,
+                        'source': record.get('source'),
+                        'paper_id': record.get('source_paper_id'),
+                        'author_id': record.get('source_author_id'),
+                        'match': asdict(match),
+                    }
+                )
             # Closed-world evaluation may count well-identified absent publications as false positives.
             inferred_negative = None
-            if not judged_ids and matcher.truth.complete_positive_list:
-                if all(record['match']['decision'] == 'unmatched' for record in record_matches):
-                    keys = stable_identifiers(paper)
-                    description = metadata_key(paper)
-                    if keys or description is not None:
-                        inferred_negative = 'absent:' + repr(sorted(keys) or description)
+            all_unmatched = all(record['match']['decision'] == 'unmatched' for record in record_matches)
+            if not judged_ids and matcher.truth.complete_positive_list and all_unmatched:
+                keys = stable_identifiers(paper)
+                description = metadata_key(paper)
+                if keys or description is not None:
+                    inferred_negative = 'absent:' + repr(sorted(keys) or description)
             if inferred_negative:
                 judged_ids.add(inferred_negative)
             entry = {
-                'summary': summary, 'status': status, 'records': record_matches,
-                'judged_ids': judged_ids, 'inferred_negative': inferred_negative,
+                'summary': summary,
+                'status': status,
+                'records': record_matches,
+                'judged_ids': judged_ids,
+                'inferred_negative': inferred_negative,
             }
             entries.append(entry)
-            if status == 'needs_review' or concerns:
-                review.append({
-                    **summary, 'reasons': sorted(set(concerns + (['Ownership validator abstained'] if status == 'needs_review' else []))),
-                    'ground_truth_matches': record_matches,
-                })
+            if status == OwnershipStatus.NEEDS_REVIEW or concerns:
+                review.append(
+                    {
+                        **summary,
+                        'reasons': sorted(
+                            set(
+                                concerns
+                                + (['Ownership validator abstained'] if status == OwnershipStatus.NEEDS_REVIEW else [])
+                            )
+                        ),
+                        'ground_truth_matches': record_matches,
+                    }
+                )
         return entries, review
 
     @staticmethod
     def _false_positives(entries, negatives):
         output = []
         for entry in entries:
-            if entry['status'] != 'verified':
+            if entry['status'] != OwnershipStatus.VERIFIED:
                 continue
             wrong = entry['judged_ids'] & negatives
             if entry['inferred_negative']:
                 wrong.add(entry['inferred_negative'])
             if wrong:
-                output.append({**entry['summary'], 'negative_evaluation_ids': sorted(wrong),
-                               'ground_truth_matches': entry['records']})
+                output.append(
+                    {
+                        **entry['summary'],
+                        'negative_evaluation_ids': sorted(wrong),
+                        'ground_truth_matches': entry['records'],
+                    }
+                )
         return output
 
     @staticmethod
@@ -224,25 +276,29 @@ class Evaluator:
                     if evaluation_id in record['match']['candidates'] and record['match']['evaluation_id'] is None:
                         unresolved.append({'entry_index': entry['summary']['entry_index'], **record})
             reason = 'No confirmed retrieval match'
-            if retrieved and scope == 'verified':
+            if retrieved and scope == OwnershipStatus.VERIFIED:
                 reason = 'Retrieved but not classified verified'
-            output.append({
-                'evaluation_id': evaluation_id,
-                'ground_truth': matcher.by_id[evaluation_id],
-                'reason': reason, 'retrieved_entries': retrieved, 'unresolved_matches': unresolved,
-            })
+            output.append(
+                {
+                    'evaluation_id': evaluation_id,
+                    'ground_truth': matcher.by_id[evaluation_id],
+                    'reason': reason,
+                    'retrieved_entries': retrieved,
+                    'unresolved_matches': unresolved,
+                }
+            )
         return output
 
     @staticmethod
     def _deduplication(entries):
-        locations = {}
+        locations: dict[str, Any] = {}
         true_pairs = 0
         false_pairs = 0
         wrong_merges = []
         assessed = 0
         total_records = 0
         for entry_index, entry in enumerate(entries):
-            counts = {}
+            counts: dict[str, Any] = {}
             for record in entry['records']:
                 total_records += 1
                 evaluation_id = record['match']['evaluation_id']
@@ -254,16 +310,22 @@ class Evaluator:
             true_pairs += sum(_choose_two(count) for count in counts.values())
             false_pairs += _choose_two(sum(counts.values())) - sum(_choose_two(count) for count in counts.values())
             if len(counts) > 1:
-                wrong_merges.append({**entry['summary'], 'ground_truth_ids': sorted(counts),
-                                     'ground_truth_matches': entry['records']})
+                wrong_merges.append(
+                    {**entry['summary'], 'ground_truth_ids': sorted(counts), 'ground_truth_matches': entry['records']}
+                )
         missing_pairs = 0
         missed_duplicates = []
         for evaluation_id, groups in sorted(locations.items()):
             count = sum(len(records) for records in groups.values())
             missing_pairs += _choose_two(count) - sum(_choose_two(len(records)) for records in groups.values())
             if len(groups) > 1:
-                missed_duplicates.append({'evaluation_id': evaluation_id, 'entry_indices': sorted(groups),
-                                          'source_records': [record for records in groups.values() for record in records]})
+                missed_duplicates.append(
+                    {
+                        'evaluation_id': evaluation_id,
+                        'entry_indices': sorted(groups),
+                        'source_records': [record for records in groups.values() for record in records],
+                    }
+                )
         denominator = 2 * true_pairs + false_pairs + missing_pairs
         return {
             'true_duplicate_pairs_merged': true_pairs,
@@ -272,9 +334,11 @@ class Evaluator:
             'pairwise_precision': _ratio(true_pairs, true_pairs + false_pairs),
             'pairwise_recall': _ratio(true_pairs, true_pairs + missing_pairs),
             'pairwise_f1': _ratio(2 * true_pairs, denominator),
-            'assessed_records': assessed, 'total_retained_records': total_records,
+            'assessed_records': assessed,
+            'total_retained_records': total_records,
             'annotation_coverage': _ratio(assessed, total_records),
-            'incorrect_merges': wrong_merges, 'missed_duplicates': missed_duplicates,
+            'incorrect_merges': wrong_merges,
+            'missed_duplicates': missed_duplicates,
         }
 
     @staticmethod
@@ -305,7 +369,7 @@ class Evaluator:
         elif orcid_agreement is True and not total_observed:
             confirmed = True
         candidates = saved.get('candidates') or [profile]
-        candidate_ids = {}
+        candidate_ids: dict[str, Any] = {}
         for candidate in candidates:
             for source, ids in (candidate.get('author_id_aliases') or {}).items():
                 candidate_ids.setdefault(source, set()).update(ids)
@@ -313,15 +377,17 @@ class Evaluator:
                 candidate_ids.setdefault(source, set()).add(author_id)
         candidate_correct = sum(len(candidate_ids.get(source, set()) & ids) for source, ids in expected.items())
         return {
-            'available': True, 'status': profile.get('status'),
+            'available': True,
+            'status': profile.get('status'),
             'expected_author_ids': {source: sorted(ids) for source, ids in expected.items()},
             'observed_author_ids': {source: sorted(ids) for source, ids in observed.items()},
-            'matched_ids': correct, 'unmatched_ids': extra,
+            'matched_ids': correct,
+            'unmatched_ids': extra,
             'author_id_recall': _ratio(correct, total_expected),
             'author_id_precision': _ratio(correct, total_observed) if exhaustive else None,
             'top_identity_confirmed': confirmed,
             'orcid_agreement': orcid_agreement,
             'candidate_author_id_recall': _ratio(candidate_correct, total_expected),
-            'auto_accepted_correct': confirmed if profile.get('status') == 'resolved' else None,
+            'auto_accepted_correct': confirmed if profile.get('status') == ResolutionStatus.RESOLVED else None,
             'evidence': profile.get('evidence') or [],
         }

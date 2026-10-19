@@ -3,7 +3,10 @@ import xml.etree.ElementTree as ET
 
 from paper_author_searcher import ProfessorQuery
 from paper_author_searcher.providers import (
-    DBLPProvider, OpenAlexProvider, SemanticScholarProvider, SourceError,
+    DBLPProvider,
+    OpenAlexProvider,
+    SemanticScholarProvider,
+    SourceError,
 )
 
 
@@ -14,6 +17,9 @@ class Client:
 
     def get(self, url, params=None, headers=None, xml=False):
         self.calls.append((url, params, headers, xml))
+        if url.endswith('/institutions'):
+            # Institution lookup for scoped author search; fixtures that queue responses do not model it.
+            return {'results': []}
         return next(self.responses)
 
 
@@ -30,16 +36,48 @@ class ProviderTests(unittest.TestCase):
     def setUp(self):
         self.query = ProfessorQuery('Alex Morgan', 'Example University')
 
+    def test_openalex_adds_institution_scoped_namesakes(self):
+        famous = {'id': 'https://openalex.org/A1', 'display_name': 'Alex Morgan', 'affiliations': []}
+        local = {
+            'id': 'https://openalex.org/A2',
+            'display_name': 'Alex Morgan',
+            'last_known_institutions': [{'display_name': 'Example University'}],
+        }
+
+        class ScopedClient(Client):
+            def get(self, url, params=None, headers=None, xml=False):
+                self.calls.append((url, params, headers, xml))
+                if url.endswith('/institutions'):
+                    return {
+                        'results': [
+                            {'id': 'https://openalex.org/I9', 'display_name': 'Example University'},
+                            {'id': 'https://openalex.org/I8', 'display_name': 'Other College'},
+                        ]
+                    }
+                if url.endswith('/authors'):
+                    return {'results': [local] if 'filter' in params else [famous]}
+                return {'results': []}
+
+        client = ScopedClient([])
+        candidates = OpenAlexProvider(client).search(self.query)
+        self.assertEqual(sorted(candidate.author_id for candidate in candidates), ['A1', 'A2'])
+        scoped_call = next(call for call in client.calls if call[0].endswith('/authors') and 'filter' in call[1])
+        self.assertEqual(scoped_call[1]['filter'], 'affiliations.institution.id:I9')
+        works = [call[1]['filter'] for call in client.calls if call[0].endswith('/works')]
+        self.assertEqual(works[0], 'authorships.author.id:A2')
+
     def test_openalex(self):
         author = {
             'id': 'https://openalex.org/fixture-author',
             'display_name': 'Alex Morgan',
             'last_known_institutions': [{'display_name': 'Example University'}],
             'affiliations': [{'institution': {'display_name': 'Western University'}}],
-            'topics': [{
-                'display_name': 'Biodiversity',
-                'field': {'display_name': 'Ecology'},
-            }],
+            'topics': [
+                {
+                    'display_name': 'Biodiversity',
+                    'field': {'display_name': 'Ecology'},
+                }
+            ],
         }
         client = Client([{'results': [author]}])
         record = OpenAlexProvider(client, enrich_limit=0).search(self.query)[0]
@@ -53,10 +91,12 @@ class ProviderTests(unittest.TestCase):
             'name': 'Alex Morgan',
             'affiliations': [],
             'externalIds': {'ORCID': 'fixture-orcid'},
-            'papers': [{
-                'title': 'Biodiversity',
-                'externalIds': {'DOI': '10.example/ABC'},
-            }],
+            'papers': [
+                {
+                    'title': 'Biodiversity',
+                    'externalIds': {'DOI': '10.example/ABC'},
+                }
+            ],
         }
         client = Client([{'data': [author]}])
         record = SemanticScholarProvider(client).search(self.query)[0]
@@ -68,7 +108,7 @@ class ProviderTests(unittest.TestCase):
             'author': 'Alex E. Morgan',
             'url': 'https://dblp.org/pid/example/author',
         }
-        root = ET.fromstring('''
+        root = ET.fromstring("""
             <dblpperson>
                 <person>
                     <author>Alex E. Morgan</author>
@@ -80,7 +120,7 @@ class ProviderTests(unittest.TestCase):
                     <ee>https://doi.org/10.example/ABC</ee>
                 </article></r>
             </dblpperson>
-        ''')
+        """)
         client = Client([{'result': {'hits': {'hit': {'info': info}}}}, root])
         record = DBLPProvider(client).search(self.query)[0]
         self.assertEqual(record.author_id, 'example/author')

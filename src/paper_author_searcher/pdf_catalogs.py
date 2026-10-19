@@ -1,69 +1,33 @@
 """Discover explicit article pages in configurable scholarly journal catalogs."""
+
 import re
-from html.parser import HTMLParser
+from typing import Any
 from urllib.parse import urljoin, urlsplit
 
 from .config import DEFAULT_PDF
-from .http import HttpClient, SourceError
+from .html_support import LinkExtractor, decode_response
+from .http import SourceError
 from .matching import normalize
 from .models import PDFProviderResult
 from .pdf_identity import source_records
 from .pdf_providers import LandingPagePDFProvider, openalex_locations
-
-
-class CatalogLinks(HTMLParser):
-    def __init__(self):
-        super().__init__(convert_charrefs=True)
-        self.links = []
-        self.current = None
-        self.trailing = None
-        self.heading = ''
-        self.in_heading = False
-
-    def handle_starttag(self, tag, attrs):
-        tag = tag.lower()
-        if tag == 'dt':
-            self.heading = ''
-            self.in_heading = True
-        elif tag == 'dd':
-            # HTML permits omitting </dt>; a definition body starts the byline.
-            self.in_heading = False
-        if tag == 'a':
-            self.trailing = None
-            self.current = {'url': dict(attrs).get('href'), 'title': '', 'context': '', 'heading': self.heading}
-
-    def handle_data(self, text):
-        if self.in_heading:
-            self.heading += text
-        if self.current is not None:
-            self.current['title'] += text
-        elif self.trailing is not None and len(self.trailing['context']) < 180:
-            self.trailing['context'] += text
-
-    def handle_endtag(self, tag):
-        if tag.lower() == 'dt':
-            self.in_heading = False
-        if tag.lower() != 'a' or self.current is None:
-            return
-        if self.current['url']:
-            self.links.append(self.current)
-            self.trailing = self.current
-        self.current = None
+from .status import ProviderStatus
 
 
 class JournalCatalogPDFProvider(LandingPagePDFProvider):
     """Catalog title selects a landing page; its citation metadata binds the PDF."""
+
     name = 'journal_catalog'
 
-    def __init__(self, client=None, config=DEFAULT_PDF):
-        super().__init__(client or HttpClient(), config)
+    def __init__(self, client, config=DEFAULT_PDF):
+        super().__init__(client, config)
         self.cache = {}
 
     def find(self, paper):
         venues = self._venues(paper)
         catalogs = [url for venue, url in self.config.journal_catalogs if normalize(venue) in venues]
         if not catalogs or paper.get('year') is None:
-            return PDFProviderResult(self.name, status='not_applicable')
+            return PDFProviderResult(self.name, status=ProviderStatus.NOT_APPLICABLE)
         result = PDFProviderResult(self.name)
         for catalog in catalogs:
             try:
@@ -82,9 +46,9 @@ class JournalCatalogPDFProvider(LandingPagePDFProvider):
                             candidate.provenance[0]['volume_url'] = volume
                         result.candidates.extend(candidates)
             except (SourceError, ValueError, TypeError) as exc:
-                result.errors.append('{}: {}'.format(catalog, exc))
+                result.errors.append(f'{catalog}: {exc}')
         if result.errors:
-            result.status = 'partial' if result.candidates else 'error'
+            result.status = ProviderStatus.PARTIAL if result.candidates else ProviderStatus.ERROR
         return result
 
     @staticmethod
@@ -117,19 +81,19 @@ class JournalCatalogPDFProvider(LandingPagePDFProvider):
                 raise saved
             return saved
         try:
-            response = self.client.probe(url, self.config.preview_bytes,
-                                         self.config.catalog_preview_bytes, self.config.maximum_redirects)
+            response = self.client.probe(
+                url, self.config.preview_bytes, self.config.catalog_preview_bytes, self.config.maximum_redirects
+            )
             if response.content_type not in ('text/html', 'application/xhtml+xml'):
                 raise SourceError('Catalog did not return HTML')
             if len(response.prefix) >= self.config.catalog_preview_bytes:
                 raise SourceError('Catalog exceeds preview limit; lookup is incomplete')
-            parser = CatalogLinks()
-            parser.feed(response.prefix.decode('utf-8', errors='replace'))
-            for link in parser.links:
+            links = catalog_links(decode_response(response))
+            for link in links:
                 # Directory redirects can add a trailing slash before relative links.
                 link['url'] = urljoin(response.url, link['url'])
-            self.cache[url] = parser.links
-            return parser.links
+            self.cache[url] = links
+            return links
         except (SourceError, ValueError, TypeError) as exc:
             self.cache[url] = exc
             raise
@@ -142,3 +106,16 @@ class JournalCatalogPDFProvider(LandingPagePDFProvider):
         if urlsplit(target).scheme not in ('http', 'https'):
             return None
         return target
+
+
+CATALOG_CONTEXT_CHARACTERS = 180
+
+
+def catalog_links(html: str) -> list[dict[str, Any]]:
+    """Article links of a journal catalog: title, the dt heading and the byline text that follows each link."""
+    parser = LinkExtractor(heading_tags=('dt',), body_tags=('dd',), trailing_context=CATALOG_CONTEXT_CHARACTERS)
+    parser.feed(html)
+    return [
+        {'url': link['href'], 'title': link['text'], 'context': link['context'], 'heading': link['heading']}
+        for link in parser.links
+    ]

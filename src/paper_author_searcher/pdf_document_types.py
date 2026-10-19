@@ -1,20 +1,31 @@
 """Classify document form independently of its association with a paper."""
+
 import re
+from collections.abc import Mapping, Sequence
+from typing import Any
 
-from .config import DEFAULT_DOWNLOAD
+from .config import DEFAULT_DOWNLOAD, DownloadConfig
 from .pdf_front_matter import front_matter
-
 
 NON_FULL_DOCUMENTS = {'poster', 'slides', 'supplementary_material'}
 
 
-def classify_document(metadata, first_page_text, page_count, page_size, version_type=None, config=DEFAULT_DOWNLOAD):
+def classify_document(
+    metadata: Mapping[str, Any],
+    first_page_text: str,
+    page_count: int,
+    page_size: Sequence[float],
+    version_type: str | None = None,
+    config: DownloadConfig = DEFAULT_DOWNLOAD,
+) -> tuple[str, list[str]]:
     title = str(metadata.get('/Title') or '')
     subject = str(metadata.get('/Subject') or '')
     creator = str(metadata.get('/Creator') or '')
-    heading = front_matter('\n'.join(first_page_text.splitlines()[:config.title_lines]))
+    heading = front_matter('\n'.join(first_page_text.splitlines()[: config.title_lines]))
     explicit = title + '\n' + subject + '\n' + heading
-    if re.search(r'(?im)^\s*(?:supplementary (?:material|information)|supporting information|supplement to)\b', explicit):
+    if re.search(
+        r'(?im)^\s*(?:supplementary (?:material|information)|supporting information|supplement to)\b', explicit
+    ):
         return 'supplementary_material', ['Explicit supplementary/supporting-material heading in the PDF']
     oversized = max(page_size) >= config.poster_minimum_edge_points
     if page_count == 1 and oversized and re.search(r'(?i)\bposter\b|[_-]poster', title + ' ' + subject):
@@ -33,5 +44,7 @@ def classify_document(metadata, first_page_text, page_count, page_size, version_
     if article_structure and version_type == 'preprint':
         return 'preprint', ['Article front matter and independently supplied preprint version metadata agree']
     if article_structure:
-        return 'full_text', ['Article front matter and document structure agree; publication version retained separately']
+        return 'full_text', [
+            'Article front matter and document structure agree; publication version retained separately'
+        ]
     return 'unknown', ['Document form lacks sufficient explicit evidence; page count/domain alone is not proof']

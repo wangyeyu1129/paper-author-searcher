@@ -1,0 +1,62 @@
+name: Benchmark
+
+# Live, network-heavy run of the search system over every benchmark person, scored per stratum.
+on:
+  push:
+    branches: [main]
+    paths: ["src/**", "data/benchmark/**", ".github/workflows/benchmark.yml"]
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      release:
+        description: "Treat 'not certifiable' (provisional truth) as a failure"
+        type: boolean
+        default: false
+      mode:
+        description: "Workflow mode (metadata, pdf-urls, full); empty uses the config"
+        required: false
+        default: ""
+
+concurrency:
+  group: benchmark
+  cancel-in-progress: false
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 350
+    env:
+      OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+      SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
+      UNPAYWALL_EMAIL: ${{ secrets.UNPAYWALL_EMAIL }}
+      CROSSREF_MAILTO: ${{ secrets.CROSSREF_MAILTO }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e '.[download]'
+      - name: Run search system for every person
+        run: |
+          MODE_ARG=""
+          if [ -n "${{ inputs.mode }}" ]; then MODE_ARG="--mode ${{ inputs.mode }}"; fi
+          paper-benchmark run --run-id "${{ github.run_id }}" --label "${{ github.sha }}" $MODE_ARG || true
+      - name: Score by stratum and apply the release gate
+        run: |
+          set +e
+          paper-benchmark score --run-id "${{ github.run_id }}" --enforce-gate
+          code=$?
+          set -e
+          if [ "$code" = "3" ] && [ "${{ inputs.release }}" != "true" ]; then
+            echo "::warning::Thresholds met on provisional truth only; human review is required to certify."
+            exit 0
+          fi
+          exit $code
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: benchmark-${{ github.run_id }}
+          path: |
+            reports/benchmark/${{ github.run_id }}.*
+            output/benchmark/runs/${{ github.run_id }}/index.json

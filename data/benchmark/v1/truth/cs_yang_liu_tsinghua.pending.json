@@ -1,0 +1,5013 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "cs_yang_liu_tsinghua",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Yang Liu",
+      "university": "Tsinghua University"
+    },
+    "scope": {
+      "year_start": 2024,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.336542+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "publications.json",
+        "url": "https://nlp.csai.tsinghua.edu.cn/~ly/pub.html",
+        "records": 69
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:c629152db6d5",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "3D Structure Prediction of Atomic Systems with Flow-based Direct Preference Optimization",
+      "year": 2024,
+      "authors": [
+        "Rui Jiao",
+        "Xiangzhe Kong",
+        "Wenbing Huang",
+        "Yang Liu"
+      ],
+      "listed_venue": "NeurIPS 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 60 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/079017-3497"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "3D Structure Prediction of Atomic Systems with Flow-based Direct Preference Optimization",
+          "year": 2023,
+          "authors": [
+            "Rui Jiao",
+            "Xiangzhe Kong",
+            "Wenbing Huang",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "3D Structure Prediction of Atomic Systems with Flow-based Direct Preference Optimization",
+          "year": 2025,
+          "authors": [
+            "Rui Jiao",
+            "Xiangzhe Kong",
+            "Wenbing Huang",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/079017-3497",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "3D Structure Prediction of Atomic Systems with Flow-based Direct Preference Optimization",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:6b2f00d953d3",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A Dynamic LLM-Powered Agent Network for Task-Oriented Agent Collaboration",
+      "year": 2024,
+      "authors": [
+        "Zijun Liu",
+        "Yanzhe Zhang",
+        "Peng Li",
+        "Yang Liu",
+        "Diyi Yang"
+      ],
+      "listed_venue": "COLM 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 57 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2310.02170"
+      },
+      "metadata_aliases": [
+        {
+          "title": "A Dynamic LLM-Powered Agent Network for Task-Oriented Agent Collaboration",
+          "year": 2023,
+          "authors": [
+            "Zijun Liu",
+            "Yanzhe Zhang",
+            "Peng Li",
+            "Yang Liu",
+            "Diyi Yang"
+          ]
+        },
+        {
+          "title": "A Dynamic LLM-Powered Agent Network for Task-Oriented Agent Collaboration",
+          "year": 2025,
+          "authors": [
+            "Zijun Liu",
+            "Yanzhe Zhang",
+            "Peng Li",
+            "Yang Liu",
+            "Diyi Yang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2310.02170",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "A Dynamic LLM-Powered Agent Network for Task-Oriented Agent Collaboration",
+          "arxiv_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:eb8e5326b506",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Agent Hospital: A Simulacrum of Hospital with Evolvable Medical Agents",
+      "year": 2024,
+      "authors": [
+        "Junkai Li",
+        "Yunghwei Lai",
+        "Weitao Li",
+        "Jingyi Ren",
+        "Meng Zhang",
+        "Xinhui Kang",
+        "Siyu Wang",
+        "Peng Li",
+        "Ya-Qin Zhang",
+        "Weizhi Ma",
+        "Yang Liu"
+      ],
+      "listed_venue": "arXiv:2405.02957",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 65 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "external_ids": {
+        "arxiv": "2405.02957"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Agent Hospital: A Simulacrum of Hospital with Evolvable Medical Agents",
+          "year": 2023,
+          "authors": [
+            "Junkai Li",
+            "Yunghwei Lai",
+            "Weitao Li",
+            "Jingyi Ren",
+            "Meng Zhang",
+            "Xinhui Kang",
+            "Siyu Wang",
+            "Peng Li",
+            "Ya-Qin Zhang",
+            "Weizhi Ma",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Agent Hospital: A Simulacrum of Hospital with Evolvable Medical Agents",
+          "year": 2025,
+          "authors": [
+            "Junkai Li",
+            "Yunghwei Lai",
+            "Weitao Li",
+            "Jingyi Ren",
+            "Meng Zhang",
+            "Xinhui Kang",
+            "Siyu Wang",
+            "Peng Li",
+            "Ya-Qin Zhang",
+            "Weizhi Ma",
+            "Yang Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:d8df6a8412ca",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "AIGS: Generating Science from AI-Powered Automated Falsification",
+      "year": 2024,
+      "authors": [
+        "Zijun Liu",
+        "Kaiming Liu",
+        "Yiqi Zhu",
+        "Xuanyu Lei",
+        "Zonghan Yang",
+        "Zhenhe Zhang",
+        "Peng Li",
+        "Yang Liu"
+      ],
+      "listed_venue": "arXiv:2411.11910",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 69 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "external_ids": {
+        "arxiv": "2411.11910"
+      },
+      "metadata_aliases": [
+        {
+          "title": "AIGS: Generating Science from AI-Powered Automated Falsification",
+          "year": 2023,
+          "authors": [
+            "Zijun Liu",
+            "Kaiming Liu",
+            "Yiqi Zhu",
+            "Xuanyu Lei",
+            "Zonghan Yang",
+            "Zhenhe Zhang",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "AIGS: Generating Science from AI-Powered Automated Falsification",
+          "year": 2025,
+          "authors": [
+            "Zijun Liu",
+            "Kaiming Liu",
+            "Yiqi Zhu",
+            "Xuanyu Lei",
+            "Zonghan Yang",
+            "Zhenhe Zhang",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:e2652729e5d0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Black-box Prompt Tuning with Subspace Learning",
+      "year": 2024,
+      "authors": [
+        "Yuanhang Zheng",
+        "Zhixing Tan",
+        "Peng Li",
+        "Yang Liu"
+      ],
+      "listed_venue": "IEEE/ACM Transactions on Audio, Speech and Language Processing",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 62 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/taslp.2024.3407519"
+      ],
+      "external_ids": {
+        "arxiv": "2305.03518"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Black-box Prompt Tuning with Subspace Learning",
+          "year": 2023,
+          "authors": [
+            "Yuanhang Zheng",
+            "Zhixing Tan",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Black-box Prompt Tuning with Subspace Learning",
+          "year": 2025,
+          "authors": [
+            "Yuanhang Zheng",
+            "Zhixing Tan",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2305.03518",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Black-box Prompt Tuning with Subspace Learning",
+          "arxiv_year": 2023,
+          "doi": "10.1109/taslp.2024.3407519",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Black-Box Prompt Tuning With Subspace Learning",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:d9ea02c89a24",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Browse and Concentrate: Comprehending Multimodal Content via Prior-LLM Context Fusion",
+      "year": 2024,
+      "authors": [
+        "Ziyue Wang",
+        "Chi Chen",
+        "Yiqi Zhu",
+        "Fuwen Luo",
+        "Peng Li",
+        "Ming Yan",
+        "Ji Zhang",
+        "Fei Huang",
+        "Maosong Sun",
+        "Yang Liu"
+      ],
+      "listed_venue": "ACL 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 48 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2024.acl-long.605"
+      ],
+      "external_ids": {
+        "arxiv": "2402.12195"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Browse and Concentrate: Comprehending Multimodal Content via Prior-LLM Context Fusion",
+          "year": 2023,
+          "authors": [
+            "Ziyue Wang",
+            "Chi Chen",
+            "Yiqi Zhu",
+            "Fuwen Luo",
+            "Peng Li",
+            "Ming Yan",
+            "Ji Zhang",
+            "Fei Huang",
+            "Maosong Sun",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Browse and Concentrate: Comprehending Multimodal Content via Prior-LLM Context Fusion",
+          "year": 2025,
+          "authors": [
+            "Ziyue Wang",
+            "Chi Chen",
+            "Yiqi Zhu",
+            "Fuwen Luo",
+            "Peng Li",
+            "Ming Yan",
+            "Ji Zhang",
+            "Fei Huang",
+            "Maosong Sun",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2402.12195",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Browse and Concentrate: Comprehending Multimodal Content via prior-LLM Context Fusion",
+          "arxiv_year": 2024,
+          "doi": "10.18653/v1/2024.acl-long.605",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Browse and Concentrate: Comprehending Multimodal Content via Prior-LLM Context Fusion",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:09c318c49b0a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Budget-Constrained Tool Learning with Planning",
+      "year": 2024,
+      "authors": [
+        "Yuanhang Zheng",
+        "Peng Li",
+        "Ming Yan",
+        "Ji Zhang",
+        "Fei Huang",
+        "Yang Liu"
+      ],
+      "listed_venue": "Findings of the Association for Computational Linguistics: ACL 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 55 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2024.findings-acl.536"
+      ],
+      "external_ids": {
+        "arxiv": "2402.15960"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Budget-Constrained Tool Learning with Planning",
+          "year": 2023,
+          "authors": [
+            "Yuanhang Zheng",
+            "Peng Li",
+            "Ming Yan",
+            "Ji Zhang",
+            "Fei Huang",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Budget-Constrained Tool Learning with Planning",
+          "year": 2025,
+          "authors": [
+            "Yuanhang Zheng",
+            "Peng Li",
+            "Ming Yan",
+            "Ji Zhang",
+            "Fei Huang",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2402.15960",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Budget-Constrained Tool Learning with Planning",
+          "arxiv_year": 2024,
+          "doi": "10.18653/v1/2024.findings-acl.536",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Budget-Constrained Tool Learning with Planning",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:0e9bbcc5fd1e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Can Vision-Language Models Think from a First-Person Perspective?",
+      "year": 2024,
+      "authors": [
+        "Sijie Cheng",
+        "Zhicheng Guo",
+        "Jingwen Wu",
+        "Kechen Fang",
+        "Peng Li",
+        "Huaping Liu",
+        "Yang Liu"
+      ],
+      "listed_venue": "CVPR 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 42 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Can Vision-Language Models Think from a First-Person Perspective?",
+          "year": 2023,
+          "authors": [
+            "Sijie Cheng",
+            "Zhicheng Guo",
+            "Jingwen Wu",
+            "Kechen Fang",
+            "Peng Li",
+            "Huaping Liu",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Can Vision-Language Models Think from a First-Person Perspective?",
+          "year": 2025,
+          "authors": [
+            "Sijie Cheng",
+            "Zhicheng Guo",
+            "Jingwen Wu",
+            "Kechen Fang",
+            "Peng Li",
+            "Huaping Liu",
+            "Yang Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:3a8992b8725b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Citation-Enhanced Generation for LLM-based Chatbots",
+      "year": 2024,
+      "authors": [
+        "Weitao Li",
+        "Junkai Li",
+        "Weizhi Ma",
+        "Yang Liu"
+      ],
+      "listed_venue": "ACL 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 49 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2024.acl-long.79"
+      ],
+      "external_ids": {
+        "arxiv": "2402.16063"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Citation-Enhanced Generation for LLM-based Chatbots",
+          "year": 2023,
+          "authors": [
+            "Weitao Li",
+            "Junkai Li",
+            "Weizhi Ma",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Citation-Enhanced Generation for LLM-based Chatbots",
+          "year": 2025,
+          "authors": [
+            "Weitao Li",
+            "Junkai Li",
+            "Weizhi Ma",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2402.16063",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Citation-Enhanced Generation for LLM-based Chatbots",
+          "arxiv_year": 2024,
+          "doi": "10.18653/v1/2024.acl-long.79",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Citation-Enhanced Generation for LLM-based Chatbots",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:71a2bc9eac63",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "CODIS: Benchmarking Context-Dependent Visual Comprehension for Multimodal Large Language Models",
+      "year": 2024,
+      "authors": [
+        "Fuwen Luo",
+        "Chi Chen",
+        "Zihao Wan",
+        "Zhaolu Kang",
+        "Qidong Yan",
+        "Yingjie Li",
+        "Xiaolong Wang",
+        "Siyu Wang",
+        "Ziyue Wang",
+        "Xiaoyue Mi",
+        "Peng Li",
+        "Ning Ma",
+        "Maosong Sun",
+        "Yang Liu"
+      ],
+      "listed_venue": "ACL 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 50 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2024.acl-long.573"
+      ],
+      "external_ids": {
+        "arxiv": "2402.13607"
+      },
+      "metadata_aliases": [
+        {
+          "title": "CODIS: Benchmarking Context-Dependent Visual Comprehension for Multimodal Large Language Models",
+          "year": 2023,
+          "authors": [
+            "Fuwen Luo",
+            "Chi Chen",
+            "Zihao Wan",
+            "Zhaolu Kang",
+            "Qidong Yan",
+            "Yingjie Li",
+            "Xiaolong Wang",
+            "Siyu Wang",
+            "Ziyue Wang",
+            "Xiaoyue Mi",
+            "Peng Li",
+            "Ning Ma",
+            "Maosong Sun",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "CODIS: Benchmarking Context-Dependent Visual Comprehension for Multimodal Large Language Models",
+          "year": 2025,
+          "authors": [
+            "Fuwen Luo",
+            "Chi Chen",
+            "Zihao Wan",
+            "Zhaolu Kang",
+            "Qidong Yan",
+            "Yingjie Li",
+            "Xiaolong Wang",
+            "Siyu Wang",
+            "Ziyue Wang",
+            "Xiaoyue Mi",
+            "Peng Li",
+            "Ning Ma",
+            "Maosong Sun",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2402.13607",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "CODIS: Benchmarking Context-Dependent Visual Comprehension for Multimodal Large Language Models",
+          "arxiv_year": 2024,
+          "doi": "10.18653/v1/2024.acl-long.573",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "CODIS: Benchmarking Context-dependent Visual Comprehension for Multimodal Large Language Models",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:2f844ef592ad",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "DEEM: Dynamic Experienced Expert Modeling for Stance Detection",
+      "year": 2024,
+      "authors": [
+        "Xiaolong Wang",
+        "Yile Wang",
+        "Sijie Cheng",
+        "Peng Li",
+        "Yang Liu"
+      ],
+      "listed_venue": "COLING 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 40 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.63317/2cpy9uhwmbn8"
+      ],
+      "external_ids": {
+        "arxiv": "2402.15264"
+      },
+      "metadata_aliases": [
+        {
+          "title": "DEEM: Dynamic Experienced Expert Modeling for Stance Detection",
+          "year": 2023,
+          "authors": [
+            "Xiaolong Wang",
+            "Yile Wang",
+            "Sijie Cheng",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "DEEM: Dynamic Experienced Expert Modeling for Stance Detection",
+          "year": 2025,
+          "authors": [
+            "Xiaolong Wang",
+            "Yile Wang",
+            "Sijie Cheng",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2402.15264",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "DEEM: Dynamic Experienced Expert Modeling for Stance Detection",
+          "arxiv_year": 2024,
+          "doi": "10.63317/2cpy9uhwmbn8",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "DEEM: Dynamic Experienced Expert Modeling for Stance Detection",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:ed97e516f23b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Diffusion Glancing Transformer for Parallel Sequence-to-Sequence Learning",
+      "year": 2024,
+      "authors": [
+        "Lihua Qian",
+        "Mingxuan Wang",
+        "Yang Liu",
+        "Hao Zhou"
+      ],
+      "listed_venue": "NAACL 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 43 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2024.naacl-long.271"
+      ],
+      "external_ids": {
+        "arxiv": "2212.10240"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Diffusion Glancing Transformer for Parallel Sequence-to-Sequence Learning",
+          "year": 2023,
+          "authors": [
+            "Lihua Qian",
+            "Mingxuan Wang",
+            "Yang Liu",
+            "Hao Zhou"
+          ]
+        },
+        {
+          "title": "Diffusion Glancing Transformer for Parallel Sequence-to-Sequence Learning",
+          "year": 2025,
+          "authors": [
+            "Lihua Qian",
+            "Mingxuan Wang",
+            "Yang Liu",
+            "Hao Zhou"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2212.10240",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Diffusion Glancing Transformer for Parallel Sequence to Sequence Learning",
+          "arxiv_year": 2022,
+          "doi": "10.18653/v1/2024.naacl-long.271",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Diffusion Glancing Transformer for Parallel Sequence-to-Sequence Learning",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:8e74fcefdf8d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Enabling Weak LLMs to Judge Response Reliability via Meta Ranking",
+      "year": 2024,
+      "authors": [
+        "Zijun Liu",
+        "Boqun Kou",
+        "Peng Li",
+        "Ming Yan",
+        "Ji Zhang",
+        "Fei Huang",
+        "Yang Liu"
+      ],
+      "listed_venue": "arXiv:2402.12146",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 63 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "external_ids": {
+        "arxiv": "2402.12146"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Enabling Weak LLMs to Judge Response Reliability via Meta Ranking",
+          "year": 2023,
+          "authors": [
+            "Zijun Liu",
+            "Boqun Kou",
+            "Peng Li",
+            "Ming Yan",
+            "Ji Zhang",
+            "Fei Huang",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Enabling Weak LLMs to Judge Response Reliability via Meta Ranking",
+          "year": 2025,
+          "authors": [
+            "Zijun Liu",
+            "Boqun Kou",
+            "Peng Li",
+            "Ming Yan",
+            "Ji Zhang",
+            "Fei Huang",
+            "Yang Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:7360f46320fe",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Enhancing Multilingual Capabilities of Large Language Models through Self-Distillation from Resource-Rich Languages",
+      "year": 2024,
+      "authors": [
+        "Yuanchi Zhang",
+        "Yile Wang",
+        "Zijun Liu",
+        "Shuo Wang",
+        "Xiaolong Wang",
+        "Peng Li",
+        "Maosong Sun",
+        "Yang Liu"
+      ],
+      "listed_venue": "ACL 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 47 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2024.acl-long.603"
+      ],
+      "external_ids": {
+        "arxiv": "2402.12204"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Enhancing Multilingual Capabilities of Large Language Models through Self-Distillation from Resource-Rich Languages",
+          "year": 2023,
+          "authors": [
+            "Yuanchi Zhang",
+            "Yile Wang",
+            "Zijun Liu",
+            "Shuo Wang",
+            "Xiaolong Wang",
+            "Peng Li",
+            "Maosong Sun",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Enhancing Multilingual Capabilities of Large Language Models through Self-Distillation from Resource-Rich Languages",
+          "year": 2025,
+          "authors": [
+            "Yuanchi Zhang",
+            "Yile Wang",
+            "Zijun Liu",
+            "Shuo Wang",
+            "Xiaolong Wang",
+            "Peng Li",
+            "Maosong Sun",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2402.12204",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Enhancing Multilingual Capabilities of Large Language Models through Self-Distillation from Resource-Rich Languages",
+          "arxiv_year": 2024,
+          "doi": "10.18653/v1/2024.acl-long.603",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Enhancing Multilingual Capabilities of Large Language Models through Self-Distillation from Resource-Rich Languages",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:73e5d17c095c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Equivariant Diffusion for Crystal Structure Prediction",
+      "year": 2024,
+      "authors": [
+        "Peijia Lin",
+        "Pin Chen",
+        "Rui Jiao",
+        "Qing Mo",
+        "Cen Jianhuan",
+        "Wenbing Huang",
+        "Yang Liu",
+        "Dan Huang",
+        "Yutong Lu"
+      ],
+      "listed_venue": "ICML 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 46 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2512.07289"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Equivariant Diffusion for Crystal Structure Prediction",
+          "year": 2023,
+          "authors": [
+            "Peijia Lin",
+            "Pin Chen",
+            "Rui Jiao",
+            "Qing Mo",
+            "Cen Jianhuan",
+            "Wenbing Huang",
+            "Yang Liu",
+            "Dan Huang",
+            "Yutong Lu"
+          ]
+        },
+        {
+          "title": "Equivariant Diffusion for Crystal Structure Prediction",
+          "year": 2025,
+          "authors": [
+            "Peijia Lin",
+            "Pin Chen",
+            "Rui Jiao",
+            "Qing Mo",
+            "Cen Jianhuan",
+            "Wenbing Huang",
+            "Yang Liu",
+            "Dan Huang",
+            "Yutong Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2512.07289",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Equivariant Diffusion for Crystal Structure Prediction",
+          "arxiv_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:672adee2769f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Evolution of Future Medical AI Models: From Task-Specific, Disease Centric to Universal Health",
+      "year": 2024,
+      "authors": [
+        "Weizhi Ma",
+        "Bin Sheng",
+        "Yang Liu",
+        "Jing Qian",
+        "Xiaoxuan Liu",
+        "Jingshan Li",
+        "David Ouyang",
+        "Haibo Wang",
+        "Atanasov Atanas",
+        "Pearse Keane",
+        "Wei-ying Ma",
+        "Yih Chung Tham",
+        "Tien Wong"
+      ],
+      "listed_venue": "NEJM AI",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 61 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1056/aip2400289"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Evolution of Future Medical AI Models: From Task-Specific, Disease Centric to Universal Health",
+          "year": 2023,
+          "authors": [
+            "Weizhi Ma",
+            "Bin Sheng",
+            "Yang Liu",
+            "Jing Qian",
+            "Xiaoxuan Liu",
+            "Jingshan Li",
+            "David Ouyang",
+            "Haibo Wang",
+            "Atanasov Atanas",
+            "Pearse Keane",
+            "Wei-ying Ma",
+            "Yih Chung Tham",
+            "Tien Wong"
+          ]
+        },
+        {
+          "title": "Evolution of Future Medical AI Models: From Task-Specific, Disease Centric to Universal Health",
+          "year": 2025,
+          "authors": [
+            "Weizhi Ma",
+            "Bin Sheng",
+            "Yang Liu",
+            "Jing Qian",
+            "Xiaoxuan Liu",
+            "Jingshan Li",
+            "David Ouyang",
+            "Haibo Wang",
+            "Atanasov Atanas",
+            "Pearse Keane",
+            "Wei-ying Ma",
+            "Yih Chung Tham",
+            "Tien Wong"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1056/aip2400289",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Evolution of Future Medical AI Models — From Task-Specific, Disease-Centric to Universal Health",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:078733bf23ef",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Force-Guided Bridge Matching for Full-Atom Time-Coarsened Dynamics of Peptides",
+      "year": 2024,
+      "authors": [
+        "Ziyang Yu",
+        "Wenbing Huang",
+        "Yang Liu"
+      ],
+      "listed_venue": "arXiv:2408.15126",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 68 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "external_ids": {
+        "arxiv": "2408.15126"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Force-Guided Bridge Matching for Full-Atom Time-Coarsened Dynamics of Peptides",
+          "year": 2023,
+          "authors": [
+            "Ziyang Yu",
+            "Wenbing Huang",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Force-Guided Bridge Matching for Full-Atom Time-Coarsened Dynamics of Peptides",
+          "year": 2025,
+          "authors": [
+            "Ziyang Yu",
+            "Wenbing Huang",
+            "Yang Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:ecc27cb80688",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Full-Atom Peptide Design with Geometric Latent Diffusion",
+      "year": 2024,
+      "authors": [
+        "Xiangzhe Kong",
+        "Wenbing Huang",
+        "Yang Liu"
+      ],
+      "listed_venue": "NeurIPS 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 59 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/079017-2379"
+      ],
+      "external_ids": {
+        "arxiv": "2402.13555"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Full-Atom Peptide Design with Geometric Latent Diffusion",
+          "year": 2023,
+          "authors": [
+            "Xiangzhe Kong",
+            "Wenbing Huang",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Full-Atom Peptide Design with Geometric Latent Diffusion",
+          "year": 2025,
+          "authors": [
+            "Xiangzhe Kong",
+            "Wenbing Huang",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2402.13555",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Full-Atom Peptide Design with Geometric Latent Diffusion",
+          "arxiv_year": 2024,
+          "doi": "10.52202/079017-2379",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Full-Atom Peptide Design with Geometric Latent Diffusion",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:62562c040ec2",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Generalist Equivariant Transformer Towards 3D Molecular Interaction Learning",
+      "year": 2024,
+      "authors": [
+        "Xiangzhe Kong",
+        "Wenbing Huang",
+        "Yang Liu"
+      ],
+      "listed_venue": "ICML 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 45 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2306.01474"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Generalist Equivariant Transformer Towards 3D Molecular Interaction Learning",
+          "year": 2023,
+          "authors": [
+            "Xiangzhe Kong",
+            "Wenbing Huang",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Generalist Equivariant Transformer Towards 3D Molecular Interaction Learning",
+          "year": 2025,
+          "authors": [
+            "Xiangzhe Kong",
+            "Wenbing Huang",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2306.01474",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Generalist Equivariant Transformer Towards 3D Molecular Interaction Learning",
+          "arxiv_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:f55b391dc5a5",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Jointly Modeling Spatio-Temporal Features of Tactile Signals for Action Classification",
+      "year": 2024,
+      "authors": [
+        "Jimmy Lin",
+        "Junkai Li",
+        "Jiasi Gao",
+        "Weizhi Ma",
+        "Yang Liu"
+      ],
+      "listed_venue": "AAAI 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 38 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1609/aaai.v38i12.29288"
+      ],
+      "external_ids": {
+        "arxiv": "2404.15279"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Jointly Modeling Spatio-Temporal Features of Tactile Signals for Action Classification",
+          "year": 2023,
+          "authors": [
+            "Jimmy Lin",
+            "Junkai Li",
+            "Jiasi Gao",
+            "Weizhi Ma",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Jointly Modeling Spatio-Temporal Features of Tactile Signals for Action Classification",
+          "year": 2025,
+          "authors": [
+            "Jimmy Lin",
+            "Junkai Li",
+            "Jiasi Gao",
+            "Weizhi Ma",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2404.15279",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Jointly Modeling Spatio-Temporal Features of Tactile Signals for Action Classification",
+          "arxiv_year": 2024,
+          "doi": "10.1609/aaai.v38i12.29288",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Jointly Modeling Spatio-Temporal Features of Tactile Signals for Action Classification",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:58560e36851a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Model Composition for Multimodal Large Language Models",
+      "year": 2024,
+      "authors": [
+        "Chi Chen",
+        "Yiyang Du",
+        "Zheng Fang",
+        "Ziyue Wang",
+        "Fuwen Luo",
+        "Peng Li",
+        "Ming Yan",
+        "Ji Zhang",
+        "Fei Huang",
+        "Maosong Sun",
+        "Yang Liu"
+      ],
+      "listed_venue": "ACL 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 51 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2402.12750"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Model Composition for Multimodal Large Language Models",
+          "year": 2023,
+          "authors": [
+            "Chi Chen",
+            "Yiyang Du",
+            "Zheng Fang",
+            "Ziyue Wang",
+            "Fuwen Luo",
+            "Peng Li",
+            "Ming Yan",
+            "Ji Zhang",
+            "Fei Huang",
+            "Maosong Sun",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Model Composition for Multimodal Large Language Models",
+          "year": 2025,
+          "authors": [
+            "Chi Chen",
+            "Yiyang Du",
+            "Zheng Fang",
+            "Ziyue Wang",
+            "Fuwen Luo",
+            "Peng Li",
+            "Ming Yan",
+            "Ji Zhang",
+            "Fei Huang",
+            "Maosong Sun",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2402.12750",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Model Composition for Multimodal Large Language Models",
+          "arxiv_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:7167b12a875d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "OMGEval: An Open Multilingual Generative Evaluation Benchmark for Large Language Models",
+      "year": 2024,
+      "authors": [
+        "Yang Liu",
+        "Meng Xu",
+        "Shuo Wang",
+        "Liner Yang",
+        "Haoyu Wang",
+        "Zhenghao Liu",
+        "Cunliang Kong",
+        "Yun Chen",
+        "Yang Liu",
+        "Maosong Sun",
+        "Erhong Yang"
+      ],
+      "listed_venue": "arXiv:2402.13524",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 64 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "external_ids": {
+        "arxiv": "2402.13524"
+      },
+      "metadata_aliases": [
+        {
+          "title": "OMGEval: An Open Multilingual Generative Evaluation Benchmark for Large Language Models",
+          "year": 2023,
+          "authors": [
+            "Yang Liu",
+            "Meng Xu",
+            "Shuo Wang",
+            "Liner Yang",
+            "Haoyu Wang",
+            "Zhenghao Liu",
+            "Cunliang Kong",
+            "Yun Chen",
+            "Yang Liu",
+            "Maosong Sun",
+            "Erhong Yang"
+          ]
+        },
+        {
+          "title": "OMGEval: An Open Multilingual Generative Evaluation Benchmark for Large Language Models",
+          "year": 2025,
+          "authors": [
+            "Yang Liu",
+            "Meng Xu",
+            "Shuo Wang",
+            "Liner Yang",
+            "Haoyu Wang",
+            "Zhenghao Liu",
+            "Cunliang Kong",
+            "Yun Chen",
+            "Yang Liu",
+            "Maosong Sun",
+            "Erhong Yang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:29dcffdd7261",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "OpenChat: Advancing Open-source Language Models with Mixed-Quality Data",
+      "year": 2024,
+      "authors": [
+        "Guan Wang",
+        "Sijie Cheng",
+        "Xianyuan Zhan",
+        "Xiangang Li",
+        "Sen Song",
+        "Yang Liu"
+      ],
+      "listed_venue": "ICLR 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 35 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2309.11235"
+      },
+      "metadata_aliases": [
+        {
+          "title": "OpenChat: Advancing Open-source Language Models with Mixed-Quality Data",
+          "year": 2023,
+          "authors": [
+            "Guan Wang",
+            "Sijie Cheng",
+            "Xianyuan Zhan",
+            "Xiangang Li",
+            "Sen Song",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "OpenChat: Advancing Open-source Language Models with Mixed-Quality Data",
+          "year": 2025,
+          "authors": [
+            "Guan Wang",
+            "Sijie Cheng",
+            "Xianyuan Zhan",
+            "Xiangang Li",
+            "Sen Song",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2309.11235",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "OpenChat: Advancing Open-source Language Models with Mixed-Quality Data",
+          "arxiv_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:98424be06f2d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "PANDA: Preference Adaptation for Enhancing Domain-Specific Abilities of LLMs",
+      "year": 2024,
+      "authors": [
+        "An Liu",
+        "Zonghan Yang",
+        "Zhenhe Zhang",
+        "Qingyuan Hu",
+        "Peng Li",
+        "Ming Yan",
+        "Ji Zhang",
+        "Fei Huang",
+        "Yang Liu"
+      ],
+      "listed_venue": "Findings of the Association for Computational Linguistics: ACL 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 54 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2024.findings-acl.651"
+      ],
+      "external_ids": {
+        "arxiv": "2402.12835"
+      },
+      "metadata_aliases": [
+        {
+          "title": "PANDA: Preference Adaptation for Enhancing Domain-Specific Abilities of LLMs",
+          "year": 2023,
+          "authors": [
+            "An Liu",
+            "Zonghan Yang",
+            "Zhenhe Zhang",
+            "Qingyuan Hu",
+            "Peng Li",
+            "Ming Yan",
+            "Ji Zhang",
+            "Fei Huang",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "PANDA: Preference Adaptation for Enhancing Domain-Specific Abilities of LLMs",
+          "year": 2025,
+          "authors": [
+            "An Liu",
+            "Zonghan Yang",
+            "Zhenhe Zhang",
+            "Qingyuan Hu",
+            "Peng Li",
+            "Ming Yan",
+            "Ji Zhang",
+            "Fei Huang",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2402.12835",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "PANDA: Preference Adaptation for Enhancing Domain-Specific Abilities of LLMs",
+          "arxiv_year": 2024,
+          "doi": "10.18653/v1/2024.findings-acl.651",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "PANDA: Preference Adaptation for Enhancing Domain-Specific Abilities of LLMs",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:5de409e3b41d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Personal LLM Agents: Insights and Survey about the Capability, Efficiency and Security",
+      "year": 2024,
+      "authors": [
+        "Yuanchun Li",
+        "Hao Wen",
+        "Weijun Wang",
+        "Xiangyu Li",
+        "Yizhen Yuan",
+        "Guohong Liu",
+        "Jiacheng Liu",
+        "Wenxing Xu",
+        "Xiang Wang",
+        "Yi Sun",
+        "Rui Kong",
+        "Yile Wang",
+        "Hanfei Geng",
+        "Jian Luan",
+        "Xuefeng Jin",
+        "Zilong Ye",
+        "Guanjing Xiong",
+        "Fan Zhang",
+        "Xiang Li",
+        "Mengwei Xu",
+        "Zhijun Li",
+        "Peng Li",
+        "Yang Liu",
+        "Ya-Qin Zhang",
+        "Yunxin Liu"
+      ],
+      "listed_venue": "arXiv:2401.05459",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 66 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "external_ids": {
+        "arxiv": "2401.05459"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Personal LLM Agents: Insights and Survey about the Capability, Efficiency and Security",
+          "year": 2023,
+          "authors": [
+            "Yuanchun Li",
+            "Hao Wen",
+            "Weijun Wang",
+            "Xiangyu Li",
+            "Yizhen Yuan",
+            "Guohong Liu",
+            "Jiacheng Liu",
+            "Wenxing Xu",
+            "Xiang Wang",
+            "Yi Sun",
+            "Rui Kong",
+            "Yile Wang",
+            "Hanfei Geng",
+            "Jian Luan",
+            "Xuefeng Jin",
+            "Zilong Ye",
+            "Guanjing Xiong",
+            "Fan Zhang",
+            "Xiang Li",
+            "Mengwei Xu",
+            "Zhijun Li",
+            "Peng Li",
+            "Yang Liu",
+            "Ya-Qin Zhang",
+            "Yunxin Liu"
+          ]
+        },
+        {
+          "title": "Personal LLM Agents: Insights and Survey about the Capability, Efficiency and Security",
+          "year": 2025,
+          "authors": [
+            "Yuanchun Li",
+            "Hao Wen",
+            "Weijun Wang",
+            "Xiangyu Li",
+            "Yizhen Yuan",
+            "Guohong Liu",
+            "Jiacheng Liu",
+            "Wenxing Xu",
+            "Xiang Wang",
+            "Yi Sun",
+            "Rui Kong",
+            "Yile Wang",
+            "Hanfei Geng",
+            "Jian Luan",
+            "Xuefeng Jin",
+            "Zilong Ye",
+            "Guanjing Xiong",
+            "Fan Zhang",
+            "Xiang Li",
+            "Mengwei Xu",
+            "Zhijun Li",
+            "Peng Li",
+            "Yang Liu",
+            "Ya-Qin Zhang",
+            "Yunxin Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:f8d84c3f8c36",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Pluggable Neural Machine Translation Models via Memory-augmented Adapters",
+      "year": 2024,
+      "authors": [
+        "Yuzhuang Xu",
+        "Shuo Wang",
+        "Peng Li",
+        "Xuebo Liu",
+        "Xiaolong Wang",
+        "Weidong Liu",
+        "Yang Liu"
+      ],
+      "listed_venue": "COLING 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 39 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.63317/2i4qtjgurks3"
+      ],
+      "external_ids": {
+        "arxiv": "2307.06029"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Pluggable Neural Machine Translation Models via Memory-augmented Adapters",
+          "year": 2023,
+          "authors": [
+            "Yuzhuang Xu",
+            "Shuo Wang",
+            "Peng Li",
+            "Xuebo Liu",
+            "Xiaolong Wang",
+            "Weidong Liu",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Pluggable Neural Machine Translation Models via Memory-augmented Adapters",
+          "year": 2025,
+          "authors": [
+            "Yuzhuang Xu",
+            "Shuo Wang",
+            "Peng Li",
+            "Xuebo Liu",
+            "Xiaolong Wang",
+            "Weidong Liu",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2307.06029",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Pluggable Neural Machine Translation Models via Memory-augmented Adapters",
+          "arxiv_year": 2023,
+          "doi": "10.63317/2i4qtjgurks3",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Pluggable Neural Machine Translation Models via Memory-augmented Adapters",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:e8e87960f56f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "ReAct Meets ActRe: When Language Agents Enjoy Training Data Autonomy",
+      "year": 2024,
+      "authors": [
+        "Zonghan Yang",
+        "Peng Li",
+        "Ming Yan",
+        "Ji Zhang",
+        "Fei Huang",
+        "Yang Liu"
+      ],
+      "listed_venue": "COLM 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 56 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2403.14589"
+      },
+      "metadata_aliases": [
+        {
+          "title": "ReAct Meets ActRe: When Language Agents Enjoy Training Data Autonomy",
+          "year": 2023,
+          "authors": [
+            "Zonghan Yang",
+            "Peng Li",
+            "Ming Yan",
+            "Ji Zhang",
+            "Fei Huang",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "ReAct Meets ActRe: When Language Agents Enjoy Training Data Autonomy",
+          "year": 2025,
+          "authors": [
+            "Zonghan Yang",
+            "Peng Li",
+            "Ming Yan",
+            "Ji Zhang",
+            "Fei Huang",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2403.14589",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "ReAct Meets ActRe: When Language Agents Enjoy Training Data Autonomy",
+          "arxiv_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:eba617afde66",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Reasoning in Conversation: Solving Subjective Tasks through Dialogue Simulation for Large Language Models",
+      "year": 2024,
+      "authors": [
+        "Xiaolong Wang",
+        "Yile Wang",
+        "Yuanchi Zhang",
+        "Fuwen Luo",
+        "Peng Li",
+        "Maosong Sun",
+        "Yang Liu"
+      ],
+      "listed_venue": "ACL 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 52 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2024.acl-long.844"
+      ],
+      "external_ids": {
+        "arxiv": "2402.17226"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Reasoning in Conversation: Solving Subjective Tasks through Dialogue Simulation for Large Language Models",
+          "year": 2023,
+          "authors": [
+            "Xiaolong Wang",
+            "Yile Wang",
+            "Yuanchi Zhang",
+            "Fuwen Luo",
+            "Peng Li",
+            "Maosong Sun",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Reasoning in Conversation: Solving Subjective Tasks through Dialogue Simulation for Large Language Models",
+          "year": 2025,
+          "authors": [
+            "Xiaolong Wang",
+            "Yile Wang",
+            "Yuanchi Zhang",
+            "Fuwen Luo",
+            "Peng Li",
+            "Maosong Sun",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2402.17226",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Reasoning in Conversation: Solving Subjective Tasks through Dialogue Simulation for Large Language Models",
+          "arxiv_year": 2024,
+          "doi": "10.18653/v1/2024.acl-long.844",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Reasoning in Conversation: Solving Subjective Tasks through Dialogue Simulation for Large Language Models",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:45931ae4d22b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Rigid Protein-Protein Docking via Equivariant Elliptic-Paraboloid Interface Prediction",
+      "year": 2024,
+      "authors": [
+        "Ziyang Yu",
+        "Wenbing Huang",
+        "Yang Liu"
+      ],
+      "listed_venue": "ICLR 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 37 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2401.08986"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Rigid Protein-Protein Docking via Equivariant Elliptic-Paraboloid Interface Prediction",
+          "year": 2023,
+          "authors": [
+            "Ziyang Yu",
+            "Wenbing Huang",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Rigid Protein-Protein Docking via Equivariant Elliptic-Paraboloid Interface Prediction",
+          "year": 2025,
+          "authors": [
+            "Ziyang Yu",
+            "Wenbing Huang",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2401.08986",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Rigid Protein-Protein Docking via Equivariant Elliptic-Paraboloid Interface Prediction",
+          "arxiv_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:ee3b37f2a895",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Space Group Constrained Crystal Generation",
+      "year": 2024,
+      "authors": [
+        "Rui Jiao",
+        "Wenbing Huang",
+        "Yu Liu",
+        "Deli Zhao",
+        "Yang Liu"
+      ],
+      "listed_venue": "ICLR 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 36 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2402.03992"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Space Group Constrained Crystal Generation",
+          "year": 2023,
+          "authors": [
+            "Rui Jiao",
+            "Wenbing Huang",
+            "Yu Liu",
+            "Deli Zhao",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Space Group Constrained Crystal Generation",
+          "year": 2025,
+          "authors": [
+            "Rui Jiao",
+            "Wenbing Huang",
+            "Yu Liu",
+            "Deli Zhao",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2402.03992",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Space Group Constrained Crystal Generation",
+          "arxiv_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:5e9f95787e70",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "StableToolBench: Towards Stable Large-Scale Benchmarking on Tool Learning of Large Language Models",
+      "year": 2024,
+      "authors": [
+        "Zhicheng Guo",
+        "Sijie Cheng",
+        "Hao Wang",
+        "Shihao Liang",
+        "Yujia Qin",
+        "Peng Li",
+        "Zhiyuan Liu",
+        "Maosong Sun",
+        "Yang Liu"
+      ],
+      "listed_venue": "Findings of the Association for Computational Linguistics: ACL 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 53 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2024.findings-acl.664"
+      ],
+      "external_ids": {
+        "arxiv": "2403.07714"
+      },
+      "metadata_aliases": [
+        {
+          "title": "StableToolBench: Towards Stable Large-Scale Benchmarking on Tool Learning of Large Language Models",
+          "year": 2023,
+          "authors": [
+            "Zhicheng Guo",
+            "Sijie Cheng",
+            "Hao Wang",
+            "Shihao Liang",
+            "Yujia Qin",
+            "Peng Li",
+            "Zhiyuan Liu",
+            "Maosong Sun",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "StableToolBench: Towards Stable Large-Scale Benchmarking on Tool Learning of Large Language Models",
+          "year": 2025,
+          "authors": [
+            "Zhicheng Guo",
+            "Sijie Cheng",
+            "Hao Wang",
+            "Shihao Liang",
+            "Yujia Qin",
+            "Peng Li",
+            "Zhiyuan Liu",
+            "Maosong Sun",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2403.07714",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "StableToolBench: Towards Stable Large-Scale Benchmarking on Tool Learning of Large Language Models",
+          "arxiv_year": 2024,
+          "doi": "10.18653/v1/2024.findings-acl.664",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "StableToolBench: Towards Stable Large-Scale Benchmarking on Tool Learning of Large Language Models",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:fba568076631",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "ToolRerank: Adaptive and Hierarchy-Aware Reranking for Tool Retrieval",
+      "year": 2024,
+      "authors": [
+        "Yuanhang Zheng",
+        "Peng Li",
+        "Wei Liu",
+        "Yang Liu",
+        "Jian Luan",
+        "Bin Wang"
+      ],
+      "listed_venue": "COLING 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 41 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.63317/4tvzd3ndsygb"
+      ],
+      "external_ids": {
+        "arxiv": "2403.06551"
+      },
+      "metadata_aliases": [
+        {
+          "title": "ToolRerank: Adaptive and Hierarchy-Aware Reranking for Tool Retrieval",
+          "year": 2023,
+          "authors": [
+            "Yuanhang Zheng",
+            "Peng Li",
+            "Wei Liu",
+            "Yang Liu",
+            "Jian Luan",
+            "Bin Wang"
+          ]
+        },
+        {
+          "title": "ToolRerank: Adaptive and Hierarchy-Aware Reranking for Tool Retrieval",
+          "year": 2025,
+          "authors": [
+            "Yuanhang Zheng",
+            "Peng Li",
+            "Wei Liu",
+            "Yang Liu",
+            "Jian Luan",
+            "Bin Wang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2403.06551",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "ToolRerank: Adaptive and Hierarchy-Aware Reranking for Tool Retrieval",
+          "arxiv_year": 2024,
+          "doi": "10.63317/4tvzd3ndsygb",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "ToolRerank: Adaptive and Hierarchy-Aware Reranking for Tool Retrieval",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:9f741e203fd4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Topology-preserving Adversarial Training for Alleviating Natural Accuracy Degradation",
+      "year": 2024,
+      "authors": [
+        "Xiaoyue Mi",
+        "Fan Tang",
+        "Yepeng Weng",
+        "Danding Wang",
+        "Juan Cao",
+        "Sheng Tang",
+        "Peng Li",
+        "Yang Liu"
+      ],
+      "listed_venue": "BMVC 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 58 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2311.17607"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Topology-preserving Adversarial Training for Alleviating Natural Accuracy Degradation",
+          "year": 2023,
+          "authors": [
+            "Xiaoyue Mi",
+            "Fan Tang",
+            "Yepeng Weng",
+            "Danding Wang",
+            "Juan Cao",
+            "Sheng Tang",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Topology-preserving Adversarial Training for Alleviating Natural Accuracy Degradation",
+          "year": 2025,
+          "authors": [
+            "Xiaoyue Mi",
+            "Fan Tang",
+            "Yepeng Weng",
+            "Danding Wang",
+            "Juan Cao",
+            "Sheng Tang",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2311.17607",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Topology-preserving Adversarial Training for Alleviating Natural Accuracy Degradation",
+          "arxiv_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:fd10c85aabc7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Towards Unified Alignment Between Agents, Humans, and Environment",
+      "year": 2024,
+      "authors": [
+        "Zonghan Yang",
+        "An Liu",
+        "Zijun Liu",
+        "Kaiming Liu",
+        "Fangzhou Xiong",
+        "Yile Wang",
+        "Zeyuan Yang",
+        "Qingyuan Hu",
+        "Xinrui Chen",
+        "Zhenhe Zhang",
+        "Fuwen Luo",
+        "Zhicheng Guo",
+        "Peng Li",
+        "Yang Liu"
+      ],
+      "listed_venue": "ICML 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 44 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2402.07744"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Towards Unified Alignment Between Agents, Humans, and Environment",
+          "year": 2023,
+          "authors": [
+            "Zonghan Yang",
+            "An Liu",
+            "Zijun Liu",
+            "Kaiming Liu",
+            "Fangzhou Xiong",
+            "Yile Wang",
+            "Zeyuan Yang",
+            "Qingyuan Hu",
+            "Xinrui Chen",
+            "Zhenhe Zhang",
+            "Fuwen Luo",
+            "Zhicheng Guo",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Towards Unified Alignment Between Agents, Humans, and Environment",
+          "year": 2025,
+          "authors": [
+            "Zonghan Yang",
+            "An Liu",
+            "Zijun Liu",
+            "Kaiming Liu",
+            "Fangzhou Xiong",
+            "Yile Wang",
+            "Zeyuan Yang",
+            "Qingyuan Hu",
+            "Xinrui Chen",
+            "Zhenhe Zhang",
+            "Fuwen Luo",
+            "Zhicheng Guo",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2402.07744",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Towards Unified Alignment Between Agents, Humans, and Environment",
+          "arxiv_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:9db2ab7e1d5b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "VidEgoThink: Assessing Egocentric Video Understanding Capabilities for Embodied AI",
+      "year": 2024,
+      "authors": [
+        "Sijie Cheng",
+        "Kechen Fang",
+        "Yangyang Yu",
+        "Sicheng Zhou",
+        "Bohao Li",
+        "Ye Tian",
+        "Tingguang Li",
+        "Lei Han",
+        "Yang Liu"
+      ],
+      "listed_venue": "arXiv:2410.11623",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 67 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "external_ids": {
+        "arxiv": "2410.11623"
+      },
+      "metadata_aliases": [
+        {
+          "title": "VidEgoThink: Assessing Egocentric Video Understanding Capabilities for Embodied AI",
+          "year": 2023,
+          "authors": [
+            "Sijie Cheng",
+            "Kechen Fang",
+            "Yangyang Yu",
+            "Sicheng Zhou",
+            "Bohao Li",
+            "Ye Tian",
+            "Tingguang Li",
+            "Lei Han",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "VidEgoThink: Assessing Egocentric Video Understanding Capabilities for Embodied AI",
+          "year": 2025,
+          "authors": [
+            "Sijie Cheng",
+            "Kechen Fang",
+            "Yangyang Yu",
+            "Sicheng Zhou",
+            "Bohao Li",
+            "Ye Tian",
+            "Tingguang Li",
+            "Lei Han",
+            "Yang Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:032a55befd46",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A Survey of Geometric Graph Neural Networks: Data Structures, Models and Applications",
+      "year": 2025,
+      "authors": [
+        "Jiaqi Han",
+        "Jiacheng Cen",
+        "Liming Wu",
+        "Zongzhao Li",
+        "Xiangzhe Kong",
+        "Rui Jiao",
+        "Ziyang Yu",
+        "Tingyang Xu",
+        "Fandi Wu",
+        "Zihe Wang",
+        "Hongteng Xu",
+        "Zhewei Wei",
+        "Yang Liu",
+        "Yu Rong",
+        "Wenbing Huang"
+      ],
+      "listed_venue": "Frontiers of Computer Science",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 31 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/s11704-025-41426-w"
+      ],
+      "external_ids": {
+        "arxiv": "2403.00485"
+      },
+      "metadata_aliases": [
+        {
+          "title": "A Survey of Geometric Graph Neural Networks: Data Structures, Models and Applications",
+          "year": 2024,
+          "authors": [
+            "Jiaqi Han",
+            "Jiacheng Cen",
+            "Liming Wu",
+            "Zongzhao Li",
+            "Xiangzhe Kong",
+            "Rui Jiao",
+            "Ziyang Yu",
+            "Tingyang Xu",
+            "Fandi Wu",
+            "Zihe Wang",
+            "Hongteng Xu",
+            "Zhewei Wei",
+            "Yang Liu",
+            "Yu Rong",
+            "Wenbing Huang"
+          ]
+        },
+        {
+          "title": "A Survey of Geometric Graph Neural Networks: Data Structures, Models and Applications",
+          "year": 2026,
+          "authors": [
+            "Jiaqi Han",
+            "Jiacheng Cen",
+            "Liming Wu",
+            "Zongzhao Li",
+            "Xiangzhe Kong",
+            "Rui Jiao",
+            "Ziyang Yu",
+            "Tingyang Xu",
+            "Fandi Wu",
+            "Zihe Wang",
+            "Hongteng Xu",
+            "Zhewei Wei",
+            "Yang Liu",
+            "Yu Rong",
+            "Wenbing Huang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2403.00485",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "A Survey of Geometric Graph Neural Networks: Data Structures, Models and Applications",
+          "arxiv_year": 2024,
+          "doi": "10.1007/s11704-025-41426-w",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "A survey of geometric graph neural networks: data structures, models and applications",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:0ff9c86ea720",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "ActiView: Evaluating Active Perception Ability for Multimodal Large Language Models",
+      "year": 2025,
+      "authors": [
+        "Ziyue Wang",
+        "Chi Chen",
+        "Fuwen Luo",
+        "Yurui Dong",
+        "Yuanchi Zhang",
+        "Yuzhuang Xu",
+        "Xiaolong Wang",
+        "Peng Li",
+        "Yang Liu"
+      ],
+      "listed_venue": "ACL 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2025.acl-long.376"
+      ],
+      "external_ids": {
+        "arxiv": "2410.04659"
+      },
+      "metadata_aliases": [
+        {
+          "title": "ActiView: Evaluating Active Perception Ability for Multimodal Large Language Models",
+          "year": 2024,
+          "authors": [
+            "Ziyue Wang",
+            "Chi Chen",
+            "Fuwen Luo",
+            "Yurui Dong",
+            "Yuanchi Zhang",
+            "Yuzhuang Xu",
+            "Xiaolong Wang",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "ActiView: Evaluating Active Perception Ability for Multimodal Large Language Models",
+          "year": 2026,
+          "authors": [
+            "Ziyue Wang",
+            "Chi Chen",
+            "Fuwen Luo",
+            "Yurui Dong",
+            "Yuanchi Zhang",
+            "Yuzhuang Xu",
+            "Xiaolong Wang",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2410.04659",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "ActiView: Evaluating Active Perception Ability for Multimodal Large Language Models",
+          "arxiv_year": 2024,
+          "doi": "10.18653/v1/2025.acl-long.376",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "ActiView: Evaluating Active Perception Ability for Multimodal Large Language Models",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:96bf080cd80b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "AdaMMS: Model Merging for Heterogeneous Multimodal Large Language Models with Unsupervised Coefficient Optimization",
+      "year": 2025,
+      "authors": [
+        "Yiyang Du",
+        "Xiaochen Wang",
+        "Chi Chen",
+        "Jiabo Ye",
+        "Yiru Wang",
+        "Peng Li",
+        "Ming Yan",
+        "Ji Zhang",
+        "Fei Huang",
+        "Zhifang Sui",
+        "Maosong Sun",
+        "Yang Liu"
+      ],
+      "listed_venue": "CVPR 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 7 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/cvpr52734.2025.00879"
+      ],
+      "external_ids": {
+        "arxiv": "2503.23733"
+      },
+      "metadata_aliases": [
+        {
+          "title": "AdaMMS: Model Merging for Heterogeneous Multimodal Large Language Models with Unsupervised Coefficient Optimization",
+          "year": 2024,
+          "authors": [
+            "Yiyang Du",
+            "Xiaochen Wang",
+            "Chi Chen",
+            "Jiabo Ye",
+            "Yiru Wang",
+            "Peng Li",
+            "Ming Yan",
+            "Ji Zhang",
+            "Fei Huang",
+            "Zhifang Sui",
+            "Maosong Sun",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "AdaMMS: Model Merging for Heterogeneous Multimodal Large Language Models with Unsupervised Coefficient Optimization",
+          "year": 2026,
+          "authors": [
+            "Yiyang Du",
+            "Xiaochen Wang",
+            "Chi Chen",
+            "Jiabo Ye",
+            "Yiru Wang",
+            "Peng Li",
+            "Ming Yan",
+            "Ji Zhang",
+            "Fei Huang",
+            "Zhifang Sui",
+            "Maosong Sun",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2503.23733",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "AdaMMS: Model Merging for Heterogeneous Multimodal Large Language Models with Unsupervised Coefficient Optimization",
+          "arxiv_year": 2025,
+          "doi": "10.1109/cvpr52734.2025.00879",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "AdaMMS: Model Merging for Heterogeneous Multimodal Large Language Models with Unsupervised Coefficient Optimization",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:a988c3bb2a6d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Advancing Language Multi-Agent Learning with Credit Re-Assignment for Interactive Environment Generalization",
+      "year": 2025,
+      "authors": [
+        "Zhitao He",
+        "Zijun Liu",
+        "Peng Li",
+        "Yi R. Fung",
+        "Ming Yan",
+        "Ji Zhang",
+        "Fei Huang",
+        "Yang Liu"
+      ],
+      "listed_venue": "COLM 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 17 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2502.14496"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Advancing Language Multi-Agent Learning with Credit Re-Assignment for Interactive Environment Generalization",
+          "year": 2024,
+          "authors": [
+            "Zhitao He",
+            "Zijun Liu",
+            "Peng Li",
+            "Yi R. Fung",
+            "Ming Yan",
+            "Ji Zhang",
+            "Fei Huang",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Advancing Language Multi-Agent Learning with Credit Re-Assignment for Interactive Environment Generalization",
+          "year": 2026,
+          "authors": [
+            "Zhitao He",
+            "Zijun Liu",
+            "Peng Li",
+            "Yi R. Fung",
+            "Ming Yan",
+            "Ji Zhang",
+            "Fei Huang",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2502.14496",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Advancing Language Multi-Agent Learning with Credit Re-Assignment for Interactive Environment Generalization",
+          "arxiv_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:21ac72368c09",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Adversarial Robust Memory-Based Continual Learner",
+      "year": 2025,
+      "authors": [
+        "Xiaoyue Mi",
+        "Fan Tang",
+        "Zonghan Yang",
+        "Danding Wang",
+        "Juan Cao",
+        "Peng Li",
+        "Yang Liu"
+      ],
+      "listed_venue": "ICCV 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 13 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/iccv51701.2025.00060"
+      ],
+      "external_ids": {
+        "arxiv": "2311.17608"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Adversarial Robust Memory-Based Continual Learner",
+          "year": 2024,
+          "authors": [
+            "Xiaoyue Mi",
+            "Fan Tang",
+            "Zonghan Yang",
+            "Danding Wang",
+            "Juan Cao",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Adversarial Robust Memory-Based Continual Learner",
+          "year": 2026,
+          "authors": [
+            "Xiaoyue Mi",
+            "Fan Tang",
+            "Zonghan Yang",
+            "Danding Wang",
+            "Juan Cao",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2311.17608",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Adversarial Robust Memory-Based Continual Learner",
+          "arxiv_year": 2023,
+          "doi": "10.1109/iccv51701.2025.00060",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Adversarial Robust Memory-Based Continual Learner",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:ccecd55088fb",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Beyond the Surface: Enhancing LLM-as-a-Judge Alignment with Human via Internal Representations",
+      "year": 2025,
+      "authors": [
+        "Peng Lai",
+        "Jianjie Zheng",
+        "Sijie Cheng",
+        "Yun Chen",
+        "Peng Li",
+        "Yang Liu",
+        "Guanhua Chen"
+      ],
+      "listed_venue": "NeurIPS 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 22 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/085713-3122"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Beyond the Surface: Enhancing LLM-as-a-Judge Alignment with Human via Internal Representations",
+          "year": 2024,
+          "authors": [
+            "Peng Lai",
+            "Jianjie Zheng",
+            "Sijie Cheng",
+            "Yun Chen",
+            "Peng Li",
+            "Yang Liu",
+            "Guanhua Chen"
+          ]
+        },
+        {
+          "title": "Beyond the Surface: Enhancing LLM-as-a-Judge Alignment with Human via Internal Representations",
+          "year": 2026,
+          "authors": [
+            "Peng Lai",
+            "Jianjie Zheng",
+            "Sijie Cheng",
+            "Yun Chen",
+            "Peng Li",
+            "Yang Liu",
+            "Guanhua Chen"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/085713-3122",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Beyond the Surface: Enhancing LLM-as-a-Judge Alignment with Human via Internal Representations",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:4a7293fe0c7e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Bridging Vision, Language, and Mathematics: Pictographic Character Reconstruction with Bézier Curves",
+      "year": 2025,
+      "authors": [
+        "Zihao Wan",
+        "Pau Tong Lin Xu",
+        "Fuwen Luo",
+        "Ziyue Wang",
+        "Peng Li",
+        "Yang Liu"
+      ],
+      "listed_venue": "NeurIPS 2025 Workshop MATH-AI",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 27 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Bridging Vision, Language, and Mathematics: Pictographic Character Reconstruction with Bézier Curves",
+          "year": 2024,
+          "authors": [
+            "Zihao Wan",
+            "Pau Tong Lin Xu",
+            "Fuwen Luo",
+            "Ziyue Wang",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Bridging Vision, Language, and Mathematics: Pictographic Character Reconstruction with Bézier Curves",
+          "year": 2026,
+          "authors": [
+            "Zihao Wan",
+            "Pau Tong Lin Xu",
+            "Fuwen Luo",
+            "Ziyue Wang",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:bb098c605a79",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "CoSpace: Benchmarking Continuous Space Perception Ability for Vision-Language Models",
+      "year": 2025,
+      "authors": [
+        "Yiqi Zhu",
+        "Ziyue Wang",
+        "Can Zhang",
+        "Peng Li",
+        "Yang Liu"
+      ],
+      "listed_venue": "CVPR 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 8 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/cvpr52734.2025.02753"
+      ],
+      "external_ids": {
+        "arxiv": "2503.14161"
+      },
+      "metadata_aliases": [
+        {
+          "title": "CoSpace: Benchmarking Continuous Space Perception Ability for Vision-Language Models",
+          "year": 2024,
+          "authors": [
+            "Yiqi Zhu",
+            "Ziyue Wang",
+            "Can Zhang",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "CoSpace: Benchmarking Continuous Space Perception Ability for Vision-Language Models",
+          "year": 2026,
+          "authors": [
+            "Yiqi Zhu",
+            "Ziyue Wang",
+            "Can Zhang",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2503.14161",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "CoSpace: Benchmarking Continuous Space Perception Ability for Vision-Language Models",
+          "arxiv_year": 2025,
+          "doi": "10.1109/cvpr52734.2025.02753",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "CoSpace: Benchmarking Continuous Space Perception Ability for Vision-Language Models",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:829479a319e9",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "CPSea: Large-scale Cyclic Peptide-protein Complex Dataset for Machine Learning in Cyclic Peptide Design",
+      "year": 2025,
+      "authors": [
+        "Ziyi Yang",
+        "Hanyuan Xie",
+        "Yinjun Jia",
+        "Xiangzhe Kong",
+        "Jiqing Zheng",
+        "Ziting Zhang",
+        "Yang Liu",
+        "Lei Liu",
+        "Yanyan Lan"
+      ],
+      "listed_venue": "NeurIPS 2025 (Datasets and Benchmarks Track)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 26 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/085713-1479"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "CPSea: Large-scale Cyclic Peptide-protein Complex Dataset for Machine Learning in Cyclic Peptide Design",
+          "year": 2024,
+          "authors": [
+            "Ziyi Yang",
+            "Hanyuan Xie",
+            "Yinjun Jia",
+            "Xiangzhe Kong",
+            "Jiqing Zheng",
+            "Ziting Zhang",
+            "Yang Liu",
+            "Lei Liu",
+            "Yanyan Lan"
+          ]
+        },
+        {
+          "title": "CPSea: Large-scale Cyclic Peptide-protein Complex Dataset for Machine Learning in Cyclic Peptide Design",
+          "year": 2026,
+          "authors": [
+            "Ziyi Yang",
+            "Hanyuan Xie",
+            "Yinjun Jia",
+            "Xiangzhe Kong",
+            "Jiqing Zheng",
+            "Ziting Zhang",
+            "Yang Liu",
+            "Lei Liu",
+            "Yanyan Lan"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/085713-1479",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "CPSea: Large-scale cyclic peptide-protein complex dataset for machine learning in cyclic peptide design",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:66bed2b8a875",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "DongbaMIE: A Multimodal Information Extraction Dataset for Evaluating Semantic Understanding of Dongba Pictograms",
+      "year": 2025,
+      "authors": [
+        "Xiaojun Bi",
+        "Shuo Li",
+        "Junyao Xing",
+        "Ziyue Wang",
+        "Fuwen Luo",
+        "Weizheng Qiao",
+        "Lu Han",
+        "Ziwei Sun",
+        "Peng Li",
+        "Yang Liu"
+      ],
+      "listed_venue": "EMNLP 2025 Findings",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 21 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2025.findings-emnlp.51"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "DongbaMIE: A Multimodal Information Extraction Dataset for Evaluating Semantic Understanding of Dongba Pictograms",
+          "year": 2024,
+          "authors": [
+            "Xiaojun Bi",
+            "Shuo Li",
+            "Junyao Xing",
+            "Ziyue Wang",
+            "Fuwen Luo",
+            "Weizheng Qiao",
+            "Lu Han",
+            "Ziwei Sun",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "DongbaMIE: A Multimodal Information Extraction Dataset for Evaluating Semantic Understanding of Dongba Pictograms",
+          "year": 2026,
+          "authors": [
+            "Xiaojun Bi",
+            "Shuo Li",
+            "Junyao Xing",
+            "Ziyue Wang",
+            "Fuwen Luo",
+            "Weizheng Qiao",
+            "Lu Han",
+            "Ziwei Sun",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.18653/v1/2025.findings-emnlp.51",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "DongbaMIE: A Multimodal Information Extraction Dataset for Evaluating Semantic Understanding of Dongba Pictograms",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:f2988de73a44",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Efficient Dynamic Clustering-Based Document Compression for Retrieval-Augmented-Generation",
+      "year": 2025,
+      "authors": [
+        "Weitao Li",
+        "Xiangyu Zhang",
+        "Kaiming Liu",
+        "Xuanyu Lei",
+        "Weizhi Ma",
+        "Yang Liu"
+      ],
+      "listed_venue": "EMNLP 2025 Findings",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 20 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2025.findings-emnlp.522"
+      ],
+      "external_ids": {
+        "arxiv": "2504.03165"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Efficient Dynamic Clustering-Based Document Compression for Retrieval-Augmented-Generation",
+          "year": 2024,
+          "authors": [
+            "Weitao Li",
+            "Xiangyu Zhang",
+            "Kaiming Liu",
+            "Xuanyu Lei",
+            "Weizhi Ma",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Efficient Dynamic Clustering-Based Document Compression for Retrieval-Augmented-Generation",
+          "year": 2026,
+          "authors": [
+            "Weitao Li",
+            "Xiangyu Zhang",
+            "Kaiming Liu",
+            "Xuanyu Lei",
+            "Weizhi Ma",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2504.03165",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Efficient Dynamic Clustering-Based Document Compression for Retrieval-Augmented-Generation",
+          "arxiv_year": 2025,
+          "doi": "10.18653/v1/2025.findings-emnlp.522",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Efficient Dynamic Clustering-Based Document Compression for Retrieval-Augmented-Generation",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:343c9d13fc4e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "FlowDesign: Improved Design of Antibody CDRs Through Flow Matching and Better Prior Distributions",
+      "year": 2025,
+      "authors": [
+        "Jun Wu",
+        "Xiangzhe Kong",
+        "Ningguan Sun",
+        "Jing Wei",
+        "Sisi Shan",
+        "Fuli Feng",
+        "Feng Wu",
+        "Jian Peng",
+        "Linqi Zhang",
+        "Yang Liu",
+        "Jianzhu Ma"
+      ],
+      "listed_venue": "Cell Systems",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 28 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2024.11.07.622422"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "FlowDesign: Improved Design of Antibody CDRs Through Flow Matching and Better Prior Distributions",
+          "year": 2024,
+          "authors": [
+            "Jun Wu",
+            "Xiangzhe Kong",
+            "Ningguan Sun",
+            "Jing Wei",
+            "Sisi Shan",
+            "Fuli Feng",
+            "Feng Wu",
+            "Jian Peng",
+            "Linqi Zhang",
+            "Yang Liu",
+            "Jianzhu Ma"
+          ]
+        },
+        {
+          "title": "FlowDesign: Improved Design of Antibody CDRs Through Flow Matching and Better Prior Distributions",
+          "year": 2026,
+          "authors": [
+            "Jun Wu",
+            "Xiangzhe Kong",
+            "Ningguan Sun",
+            "Jing Wei",
+            "Sisi Shan",
+            "Fuli Feng",
+            "Feng Wu",
+            "Jian Peng",
+            "Linqi Zhang",
+            "Yang Liu",
+            "Jianzhu Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2024.11.07.622422",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "FlowDesign: Improved Design of Antibody CDRs Through Flow Matching and Better Prior Distributions",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:1177deb7ef7d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "FormaRL: Enhancing Autoformalization with no Labeled Data",
+      "year": 2025,
+      "authors": [
+        "Yanxing Huang",
+        "Xinling Jin",
+        "Sijie Liang",
+        "Fuwen Luo",
+        "Peng Li",
+        "Yang Liu"
+      ],
+      "listed_venue": "COLM 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 16 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2508.18914"
+      },
+      "metadata_aliases": [
+        {
+          "title": "FormaRL: Enhancing Autoformalization with no Labeled Data",
+          "year": 2024,
+          "authors": [
+            "Yanxing Huang",
+            "Xinling Jin",
+            "Sijie Liang",
+            "Fuwen Luo",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "FormaRL: Enhancing Autoformalization with no Labeled Data",
+          "year": 2026,
+          "authors": [
+            "Yanxing Huang",
+            "Xinling Jin",
+            "Sijie Liang",
+            "Fuwen Luo",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2508.18914",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "FormaRL: Enhancing Autoformalization with no Labeled Data",
+          "arxiv_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:7e92b3930109",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "G2: Guided Generation for Enhanced Output Diversity in LLMs",
+      "year": 2025,
+      "authors": [
+        "Zhiwen Ruan",
+        "Yixia Li",
+        "Yefeng Liu",
+        "Yun Chen",
+        "Weihua Luo",
+        "Peng Li",
+        "Yang Liu",
+        "Guanhua Chen"
+      ],
+      "listed_venue": "EMNLP 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 19 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2025.emnlp-main.713"
+      ],
+      "external_ids": {
+        "arxiv": "2511.00432"
+      },
+      "metadata_aliases": [
+        {
+          "title": "G2: Guided Generation for Enhanced Output Diversity in LLMs",
+          "year": 2024,
+          "authors": [
+            "Zhiwen Ruan",
+            "Yixia Li",
+            "Yefeng Liu",
+            "Yun Chen",
+            "Weihua Luo",
+            "Peng Li",
+            "Yang Liu",
+            "Guanhua Chen"
+          ]
+        },
+        {
+          "title": "G2: Guided Generation for Enhanced Output Diversity in LLMs",
+          "year": 2026,
+          "authors": [
+            "Zhiwen Ruan",
+            "Yixia Li",
+            "Yefeng Liu",
+            "Yun Chen",
+            "Weihua Luo",
+            "Peng Li",
+            "Yang Liu",
+            "Guanhua Chen"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2511.00432",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "G2: Guided Generation for Enhanced Output Diversity in LLMs",
+          "arxiv_year": 2025,
+          "doi": "10.18653/v1/2025.emnlp-main.713",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "G2: Guided Generation for Enhanced Output Diversity in LLMs",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:0c01c6a6ea0d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "How Do Multimodal Large Language Models Handle Complex Multimodal Reasoning?",
+      "year": 2025,
+      "authors": [
+        "Ziyue Wang",
+        "Yurui Dong",
+        "Fuwen Luo",
+        "Minyuan Ruan",
+        "Zhili Cheng",
+        "Chi Chen",
+        "Peng Li",
+        "Yang Liu"
+      ],
+      "listed_venue": "Placing Them in An Extensible Escape Game. In Proceedings of ICCV 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 15 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "How Do Multimodal Large Language Models Handle Complex Multimodal Reasoning?",
+          "year": 2024,
+          "authors": [
+            "Ziyue Wang",
+            "Yurui Dong",
+            "Fuwen Luo",
+            "Minyuan Ruan",
+            "Zhili Cheng",
+            "Chi Chen",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "How Do Multimodal Large Language Models Handle Complex Multimodal Reasoning?",
+          "year": 2026,
+          "authors": [
+            "Ziyue Wang",
+            "Yurui Dong",
+            "Fuwen Luo",
+            "Minyuan Ruan",
+            "Zhili Cheng",
+            "Chi Chen",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:d2db04d6a1bb",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Large Language Model-based Biological Age Prediction in Large-scale Populations",
+      "year": 2025,
+      "authors": [
+        "Yanjun Li",
+        "Qi Huang",
+        "Jin Jiang",
+        "Xusheng Du1",
+        "Wenxin Xiang",
+        "Shiqi Zhang",
+        "Zean Pan",
+        "Liyuan Zhao",
+        "Yuyan Cui",
+        "Limei Ke",
+        "Bo Yin",
+        "Linfeng Liu",
+        "Guoqing Feng",
+        "Shouyi Yan",
+        "Liangcai Gao",
+        "Yang Liu",
+        "Yujuan Yuan",
+        "Yanying Guo",
+        "Yuqing Yang",
+        "Weizhi Ma",
+        "Yining Yang",
+        "Qian Di"
+      ],
+      "listed_venue": "Nature Medicine",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 29 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1038/s41591-025-03856-8"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Large Language Model-based Biological Age Prediction in Large-scale Populations",
+          "year": 2024,
+          "authors": [
+            "Yanjun Li",
+            "Qi Huang",
+            "Jin Jiang",
+            "Xusheng Du1",
+            "Wenxin Xiang",
+            "Shiqi Zhang",
+            "Zean Pan",
+            "Liyuan Zhao",
+            "Yuyan Cui",
+            "Limei Ke",
+            "Bo Yin",
+            "Linfeng Liu",
+            "Guoqing Feng",
+            "Shouyi Yan",
+            "Liangcai Gao",
+            "Yang Liu",
+            "Yujuan Yuan",
+            "Yanying Guo",
+            "Yuqing Yang",
+            "Weizhi Ma",
+            "Yining Yang",
+            "Qian Di"
+          ]
+        },
+        {
+          "title": "Large Language Model-based Biological Age Prediction in Large-scale Populations",
+          "year": 2026,
+          "authors": [
+            "Yanjun Li",
+            "Qi Huang",
+            "Jin Jiang",
+            "Xusheng Du1",
+            "Wenxin Xiang",
+            "Shiqi Zhang",
+            "Zean Pan",
+            "Liyuan Zhao",
+            "Yuyan Cui",
+            "Limei Ke",
+            "Bo Yin",
+            "Linfeng Liu",
+            "Guoqing Feng",
+            "Shouyi Yan",
+            "Liangcai Gao",
+            "Yang Liu",
+            "Yujuan Yuan",
+            "Yanying Guo",
+            "Yuqing Yang",
+            "Weizhi Ma",
+            "Yining Yang",
+            "Qian Di"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s41591-025-03856-8",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Large language model-based biological age prediction in large-scale populations",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:739139ff2293",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Latent Retrieval Augmented Generation of Cross-Domain Protein Binders",
+      "year": 2025,
+      "authors": [
+        "Zishen Zhang",
+        "Xiangzhe Kong",
+        "Wenbing Huang",
+        "Yang Liu"
+      ],
+      "listed_venue": "NeurIPS 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 25 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/085713-2514"
+      ],
+      "external_ids": {
+        "arxiv": "2510.10480"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Latent Retrieval Augmented Generation of Cross-Domain Protein Binders",
+          "year": 2024,
+          "authors": [
+            "Zishen Zhang",
+            "Xiangzhe Kong",
+            "Wenbing Huang",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Latent Retrieval Augmented Generation of Cross-Domain Protein Binders",
+          "year": 2026,
+          "authors": [
+            "Zishen Zhang",
+            "Xiangzhe Kong",
+            "Wenbing Huang",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2510.10480",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Latent Retrieval Augmented Generation of Cross-Domain Protein Binders",
+          "arxiv_year": 2025,
+          "doi": "10.52202/085713-2514",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Latent Retrieval Augmented Generation of Cross-Domain Protein Binders",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:f4c7189b02a3",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Learning 3D Anisotropic Noise Distributions Improves Molecular Force Fields",
+      "year": 2025,
+      "authors": [
+        "Xixian Liu",
+        "Rui Jiao",
+        "Zhiyuan Liu",
+        "Yurou Liu",
+        "Yang Liu",
+        "Ziheng Lu",
+        "Wenbing Huang",
+        "Yang Zhang",
+        "Yixin Cao"
+      ],
+      "listed_venue": "NeurIPS 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 24 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/085713-2091"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Learning 3D Anisotropic Noise Distributions Improves Molecular Force Fields",
+          "year": 2024,
+          "authors": [
+            "Xixian Liu",
+            "Rui Jiao",
+            "Zhiyuan Liu",
+            "Yurou Liu",
+            "Yang Liu",
+            "Ziheng Lu",
+            "Wenbing Huang",
+            "Yang Zhang",
+            "Yixin Cao"
+          ]
+        },
+        {
+          "title": "Learning 3D Anisotropic Noise Distributions Improves Molecular Force Fields",
+          "year": 2026,
+          "authors": [
+            "Xixian Liu",
+            "Rui Jiao",
+            "Zhiyuan Liu",
+            "Yurou Liu",
+            "Yang Liu",
+            "Ziheng Lu",
+            "Wenbing Huang",
+            "Yang Zhang",
+            "Yixin Cao"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/085713-2091",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Learning 3D Anisotropic Noise Distributions Improves Molecular Force Fields",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:082eeaa6085c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Leveraging Language-based Representations for Better Solving Symbol-related Problems with Large Language Models",
+      "year": 2025,
+      "authors": [
+        "Yile Wang",
+        "Sijie Cheng",
+        "Zixin Sun",
+        "Peng Li",
+        "Yang Liu"
+      ],
+      "listed_venue": "COLING 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 11 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Leveraging Language-based Representations for Better Solving Symbol-related Problems with Large Language Models",
+          "year": 2024,
+          "authors": [
+            "Yile Wang",
+            "Sijie Cheng",
+            "Zixin Sun",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Leveraging Language-based Representations for Better Solving Symbol-related Problems with Large Language Models",
+          "year": 2026,
+          "authors": [
+            "Yile Wang",
+            "Sijie Cheng",
+            "Zixin Sun",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:ce431985fc11",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "LVAgent: Long Video Understanding by Multi-Round Dynamical Collaboration of MLLM Agents",
+      "year": 2025,
+      "authors": [
+        "Boyu Chen",
+        "Zhengrong Yue",
+        "Siran Chen",
+        "Zikang Wang",
+        "Yang Liu",
+        "Peng Li",
+        "Yali Wang"
+      ],
+      "listed_venue": "ICCV 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 14 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/iccv51701.2025.01882"
+      ],
+      "external_ids": {
+        "arxiv": "2503.10200"
+      },
+      "metadata_aliases": [
+        {
+          "title": "LVAgent: Long Video Understanding by Multi-Round Dynamical Collaboration of MLLM Agents",
+          "year": 2024,
+          "authors": [
+            "Boyu Chen",
+            "Zhengrong Yue",
+            "Siran Chen",
+            "Zikang Wang",
+            "Yang Liu",
+            "Peng Li",
+            "Yali Wang"
+          ]
+        },
+        {
+          "title": "LVAgent: Long Video Understanding by Multi-Round Dynamical Collaboration of MLLM Agents",
+          "year": 2026,
+          "authors": [
+            "Boyu Chen",
+            "Zhengrong Yue",
+            "Siran Chen",
+            "Zikang Wang",
+            "Yang Liu",
+            "Peng Li",
+            "Yali Wang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2503.10200",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "LVAgent: Long Video Understanding by Multi-Round Dynamical Collaboration of MLLM Agents",
+          "arxiv_year": 2025,
+          "doi": "10.1109/iccv51701.2025.01882",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "LVAgent: Long Video Understanding by Multi-Round Dynamical Collaboration of MLLM Agents",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:0818935d4b5a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "MOF-BFN: Metal-Organic Frameworks Structure Prediction via Bayesian Flow Networks",
+      "year": 2025,
+      "authors": [
+        "Rui Jiao",
+        "Hanlin Wu",
+        "Wenbing Huang",
+        "Yuxuan Song",
+        "Yawen Ouyang",
+        "Yu Rong",
+        "Tingyang Xu",
+        "Pengju Wang",
+        "Hao Zhou",
+        "Wei-Ying Ma",
+        "Jingjing Liu",
+        "Yang Liu"
+      ],
+      "listed_venue": "NeurIPS 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 23 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/085713-5410"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "MOF-BFN: Metal-Organic Frameworks Structure Prediction via Bayesian Flow Networks",
+          "year": 2024,
+          "authors": [
+            "Rui Jiao",
+            "Hanlin Wu",
+            "Wenbing Huang",
+            "Yuxuan Song",
+            "Yawen Ouyang",
+            "Yu Rong",
+            "Tingyang Xu",
+            "Pengju Wang",
+            "Hao Zhou",
+            "Wei-Ying Ma",
+            "Jingjing Liu",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "MOF-BFN: Metal-Organic Frameworks Structure Prediction via Bayesian Flow Networks",
+          "year": 2026,
+          "authors": [
+            "Rui Jiao",
+            "Hanlin Wu",
+            "Wenbing Huang",
+            "Yuxuan Song",
+            "Yawen Ouyang",
+            "Yu Rong",
+            "Tingyang Xu",
+            "Pengju Wang",
+            "Hao Zhou",
+            "Wei-Ying Ma",
+            "Jingjing Liu",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/085713-5410",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "MOF-BFN: Metal-Organic Frameworks Structure Prediction via Bayesian Flow Networks",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:3d44768c6918",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "MUCAR: Benchmarking Multilingual Cross-Modal Ambiguity Resolution for Multimodal Large Language Models",
+      "year": 2025,
+      "authors": [
+        "Xiaolong Wang",
+        "Zhaolu Kang",
+        "Wangyuxuan Zhai",
+        "Xinyue Lou",
+        "Yunghwei Lai",
+        "Ziyue Wang",
+        "Yawen Wang",
+        "Kaiyu Huang",
+        "Yile Wang",
+        "Peng Li",
+        "Yang Liu"
+      ],
+      "listed_venue": "EMNLP 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 18 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2025.emnlp-main.760"
+      ],
+      "external_ids": {
+        "arxiv": "2506.17046"
+      },
+      "metadata_aliases": [
+        {
+          "title": "MUCAR: Benchmarking Multilingual Cross-Modal Ambiguity Resolution for Multimodal Large Language Models",
+          "year": 2024,
+          "authors": [
+            "Xiaolong Wang",
+            "Zhaolu Kang",
+            "Wangyuxuan Zhai",
+            "Xinyue Lou",
+            "Yunghwei Lai",
+            "Ziyue Wang",
+            "Yawen Wang",
+            "Kaiyu Huang",
+            "Yile Wang",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "MUCAR: Benchmarking Multilingual Cross-Modal Ambiguity Resolution for Multimodal Large Language Models",
+          "year": 2026,
+          "authors": [
+            "Xiaolong Wang",
+            "Zhaolu Kang",
+            "Wangyuxuan Zhai",
+            "Xinyue Lou",
+            "Yunghwei Lai",
+            "Ziyue Wang",
+            "Yawen Wang",
+            "Kaiyu Huang",
+            "Yile Wang",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2506.17046",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "MUCAR: Benchmarking Multilingual Cross-Modal Ambiguity Resolution for Multimodal Large Language Models",
+          "arxiv_year": 2025,
+          "doi": "10.18653/v1/2025.emnlp-main.760",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "MUCAR: Benchmarking Multilingual Cross-Modal Ambiguity Resolution for Multimodal Large Language Models",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:f9c683073a47",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Multimodal Context-Aware Translation of the Endangered Dongba Script",
+      "year": 2025,
+      "authors": [
+        "Xiaojun Bi",
+        "Shuo Li",
+        "Junyao Xing",
+        "Ziyue Wang",
+        "Fuwen Luo",
+        "Peng Li",
+        "Yang Liu"
+      ],
+      "listed_venue": "npj Heritage Science",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 34 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1038/s40494-025-02096-w"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Multimodal Context-Aware Translation of the Endangered Dongba Script",
+          "year": 2024,
+          "authors": [
+            "Xiaojun Bi",
+            "Shuo Li",
+            "Junyao Xing",
+            "Ziyue Wang",
+            "Fuwen Luo",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Multimodal Context-Aware Translation of the Endangered Dongba Script",
+          "year": 2026,
+          "authors": [
+            "Xiaojun Bi",
+            "Shuo Li",
+            "Junyao Xing",
+            "Ziyue Wang",
+            "Fuwen Luo",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s40494-025-02096-w",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Multimodal context-aware translation of the endangered dongba script",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:ced7f1d90665",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Peptide Design through Binding Interface Mimicry",
+      "year": 2025,
+      "authors": [
+        "Xiangzhe Kong",
+        "Rui Jiao",
+        "Haowei Lin",
+        "Ruihan Guo",
+        "Wenbing Huang",
+        "Wei-Ying Ma",
+        "Zihua Wang",
+        "Yang Liu",
+        "Jianzhu Ma"
+      ],
+      "listed_venue": "Nature Biomedical Engineering",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 32 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2025.01.21.634006"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Peptide Design through Binding Interface Mimicry",
+          "year": 2024,
+          "authors": [
+            "Xiangzhe Kong",
+            "Rui Jiao",
+            "Haowei Lin",
+            "Ruihan Guo",
+            "Wenbing Huang",
+            "Wei-Ying Ma",
+            "Zihua Wang",
+            "Yang Liu",
+            "Jianzhu Ma"
+          ]
+        },
+        {
+          "title": "Peptide Design through Binding Interface Mimicry",
+          "year": 2026,
+          "authors": [
+            "Xiangzhe Kong",
+            "Rui Jiao",
+            "Haowei Lin",
+            "Ruihan Guo",
+            "Wenbing Huang",
+            "Wei-Ying Ma",
+            "Zihua Wang",
+            "Yang Liu",
+            "Jianzhu Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2025.01.21.634006",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Peptide Design through Binding Interface Mimicry",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:68cb6ec8cd2e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Perspective Transition of Large Language Models for Solving Subjective Tasks",
+      "year": 2025,
+      "authors": [
+        "Xiaolong Wang",
+        "Yuanchi Zhang",
+        "Ziyue Wang",
+        "Yuzhuang Xu",
+        "Fuwen Luo",
+        "Yile Wang",
+        "Peng Li",
+        "Yang Liu"
+      ],
+      "listed_venue": "ACL 2025 Findings",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 3 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2025.findings-acl.502"
+      ],
+      "external_ids": {
+        "arxiv": "2501.09265"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Perspective Transition of Large Language Models for Solving Subjective Tasks",
+          "year": 2024,
+          "authors": [
+            "Xiaolong Wang",
+            "Yuanchi Zhang",
+            "Ziyue Wang",
+            "Yuzhuang Xu",
+            "Fuwen Luo",
+            "Yile Wang",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Perspective Transition of Large Language Models for Solving Subjective Tasks",
+          "year": 2026,
+          "authors": [
+            "Xiaolong Wang",
+            "Yuanchi Zhang",
+            "Ziyue Wang",
+            "Yuzhuang Xu",
+            "Fuwen Luo",
+            "Yile Wang",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2501.09265",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Perspective Transition of Large Language Models for Solving Subjective Tasks",
+          "arxiv_year": 2025,
+          "doi": "10.18653/v1/2025.findings-acl.502",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Perspective Transition of Large Language Models for Solving Subjective Tasks",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:087d90c8625c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Powder Diffraction Crystal Structure Determination Using Generative Models",
+      "year": 2025,
+      "authors": [
+        "Shifeng Jin",
+        "Qi Li",
+        "Rui Jiao",
+        "Liming Wu",
+        "Tiannian Zhu",
+        "Wenbing Huang",
+        "Yang Liu",
+        "Hongming Weng",
+        "Xiaolong Chen"
+      ],
+      "listed_venue": "Nature Communications",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 30 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.21203/rs.3.rs-5278807/v1"
+      ],
+      "external_ids": {
+        "arxiv": "2409.04727"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Powder Diffraction Crystal Structure Determination Using Generative Models",
+          "year": 2024,
+          "authors": [
+            "Shifeng Jin",
+            "Qi Li",
+            "Rui Jiao",
+            "Liming Wu",
+            "Tiannian Zhu",
+            "Wenbing Huang",
+            "Yang Liu",
+            "Hongming Weng",
+            "Xiaolong Chen"
+          ]
+        },
+        {
+          "title": "Powder Diffraction Crystal Structure Determination Using Generative Models",
+          "year": 2026,
+          "authors": [
+            "Shifeng Jin",
+            "Qi Li",
+            "Rui Jiao",
+            "Liming Wu",
+            "Tiannian Zhu",
+            "Wenbing Huang",
+            "Yang Liu",
+            "Hongming Weng",
+            "Xiaolong Chen"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2409.04727",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Powder Diffraction Crystal Structure Determination Using Generative Models",
+          "arxiv_year": 2024,
+          "doi": "10.21203/rs.3.rs-5278807/v1",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Powder Diffraction Crystal Structure Determination Using Generative Models",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:76b176b8bd03",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Privacy-preserving Prompt Tuning for Large Language Model Services",
+      "year": 2025,
+      "authors": [
+        "Yansong Li",
+        "Zhixing Tan",
+        "Yang Liu"
+      ],
+      "listed_venue": "IEEE Transactions on Audio, Speech and Language Processing",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 33 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Privacy-preserving Prompt Tuning for Large Language Model Services",
+          "year": 2024,
+          "authors": [
+            "Yansong Li",
+            "Zhixing Tan",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Privacy-preserving Prompt Tuning for Large Language Model Services",
+          "year": 2026,
+          "authors": [
+            "Yansong Li",
+            "Zhixing Tan",
+            "Yang Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:f52c23aff236",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Reflection on Rationale: An Iterative Self-Training Framework for Vision-Language Reasoning",
+      "year": 2025,
+      "authors": [
+        "Kanzhi Cheng",
+        "Yantao Li",
+        "Fangzhi Xu",
+        "Jianbing Zhang",
+        "Hao Zhou",
+        "Yang Liu"
+      ],
+      "listed_venue": "NAACL 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 9 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Reflection on Rationale: An Iterative Self-Training Framework for Vision-Language Reasoning",
+          "year": 2024,
+          "authors": [
+            "Kanzhi Cheng",
+            "Yantao Li",
+            "Fangzhi Xu",
+            "Jianbing Zhang",
+            "Hao Zhou",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Reflection on Rationale: An Iterative Self-Training Framework for Vision-Language Reasoning",
+          "year": 2026,
+          "authors": [
+            "Kanzhi Cheng",
+            "Yantao Li",
+            "Fangzhi Xu",
+            "Jianbing Zhang",
+            "Hao Zhou",
+            "Yang Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:8a9e8e1681fd",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Rethinking Long Context Generation from the Continual Learning Perspective",
+      "year": 2025,
+      "authors": [
+        "Zeyuan Yang",
+        "Fangzhou Xiong",
+        "Peng Li",
+        "Yang Liu"
+      ],
+      "listed_venue": "COLING 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 12 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Rethinking Long Context Generation from the Continual Learning Perspective",
+          "year": 2024,
+          "authors": [
+            "Zeyuan Yang",
+            "Fangzhou Xiong",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Rethinking Long Context Generation from the Continual Learning Perspective",
+          "year": 2026,
+          "authors": [
+            "Zeyuan Yang",
+            "Fangzhou Xiong",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:f1b056f04b09",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Scaffolding Coordinates to Promote Vision-Language Coordination in Large Multi-Modal Models",
+      "year": 2025,
+      "authors": [
+        "Xuanyu Lei",
+        "Zonghan Yang",
+        "Xinrui Chen",
+        "Peng Li",
+        "Yang Liu"
+      ],
+      "listed_venue": "COLING 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 10 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2402.12058"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Scaffolding Coordinates to Promote Vision-Language Coordination in Large Multi-Modal Models",
+          "year": 2024,
+          "authors": [
+            "Xuanyu Lei",
+            "Zonghan Yang",
+            "Xinrui Chen",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Scaffolding Coordinates to Promote Vision-Language Coordination in Large Multi-Modal Models",
+          "year": 2026,
+          "authors": [
+            "Xuanyu Lei",
+            "Zonghan Yang",
+            "Xinrui Chen",
+            "Peng Li",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2402.12058",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Scaffolding Coordinates to Promote Vision-Language Coordination in Large Multi-Modal Models",
+          "arxiv_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:aeec036434b1",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "StableToolBench-MirrorAPI: Modeling Tool Environments as Mirrors of 7,000+ Real-World APIs",
+      "year": 2025,
+      "authors": [
+        "Zhicheng Guo",
+        "Sijie Cheng",
+        "Yuchen Niu",
+        "Hao Wang",
+        "Sicheng Zhou",
+        "Wenbing Huang",
+        "Yang Liu"
+      ],
+      "listed_venue": "ACL 2025 Findings",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 2 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2025.findings-acl.273"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "StableToolBench-MirrorAPI: Modeling Tool Environments as Mirrors of 7,000+ Real-World APIs",
+          "year": 2024,
+          "authors": [
+            "Zhicheng Guo",
+            "Sijie Cheng",
+            "Yuchen Niu",
+            "Hao Wang",
+            "Sicheng Zhou",
+            "Wenbing Huang",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "StableToolBench-MirrorAPI: Modeling Tool Environments as Mirrors of 7,000+ Real-World APIs",
+          "year": 2026,
+          "authors": [
+            "Zhicheng Guo",
+            "Sijie Cheng",
+            "Yuchen Niu",
+            "Hao Wang",
+            "Sicheng Zhou",
+            "Wenbing Huang",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.18653/v1/2025.findings-acl.273",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "StableToolBench-MirrorAPI: Modeling Tool Environments as Mirrors of 7,000+ Real-World APIs",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:7bf2f914cefa",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "UniMoMo: Unified Generative Modeling of 3D Molecules for De Novo Binder Design",
+      "year": 2025,
+      "authors": [
+        "Xiangzhe Kong",
+        "Zishen Zhang",
+        "Ziting Zhang",
+        "Rui Jiao",
+        "Jianzhu Ma",
+        "Kai Liu",
+        "Wenbing Huang",
+        "Yang Liu"
+      ],
+      "listed_venue": "ICML 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 4 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2503.19300"
+      },
+      "metadata_aliases": [
+        {
+          "title": "UniMoMo: Unified Generative Modeling of 3D Molecules for De Novo Binder Design",
+          "year": 2024,
+          "authors": [
+            "Xiangzhe Kong",
+            "Zishen Zhang",
+            "Ziting Zhang",
+            "Rui Jiao",
+            "Jianzhu Ma",
+            "Kai Liu",
+            "Wenbing Huang",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "UniMoMo: Unified Generative Modeling of 3D Molecules for De Novo Binder Design",
+          "year": 2026,
+          "authors": [
+            "Xiangzhe Kong",
+            "Zishen Zhang",
+            "Ziting Zhang",
+            "Rui Jiao",
+            "Jianzhu Ma",
+            "Kai Liu",
+            "Wenbing Huang",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2503.19300",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "UniMoMo: Unified Generative Modeling of 3D Molecules for De Novo Binder Design",
+          "arxiv_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:0ce005e9eb30",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "UniSim: A Unified Simulator for Time-Coarsened Dynamics of Biomolecules",
+      "year": 2025,
+      "authors": [
+        "Ziyang Yu",
+        "Wenbing Huang",
+        "Yang Liu"
+      ],
+      "listed_venue": "ICML 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 5 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "UniSim: A Unified Simulator for Time-Coarsened Dynamics of Biomolecules",
+          "year": 2024,
+          "authors": [
+            "Ziyang Yu",
+            "Wenbing Huang",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "UniSim: A Unified Simulator for Time-Coarsened Dynamics of Biomolecules",
+          "year": 2026,
+          "authors": [
+            "Ziyang Yu",
+            "Wenbing Huang",
+            "Yang Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yang_liu_tsinghua:e9d6e80c2e08",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Zero-Shot Cyclic Peptide Design via Composable Geometric Constraints",
+      "year": 2025,
+      "authors": [
+        "Dapeng Jiang",
+        "Xiangzhe Kong",
+        "Jiaqi Han",
+        "Mingyu Li",
+        "Rui Jiao",
+        "Wenbing Huang",
+        "Stefano Ermon",
+        "Jianzhu Ma",
+        "Yang Liu"
+      ],
+      "listed_venue": "ICML 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://nlp.csai.tsinghua.edu.cn/~ly/pub.html entry 6 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "external_ids": {
+        "arxiv": "2507.04225"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Zero-Shot Cyclic Peptide Design via Composable Geometric Constraints",
+          "year": 2024,
+          "authors": [
+            "Dapeng Jiang",
+            "Xiangzhe Kong",
+            "Jiaqi Han",
+            "Mingyu Li",
+            "Rui Jiao",
+            "Wenbing Huang",
+            "Stefano Ermon",
+            "Jianzhu Ma",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Zero-Shot Cyclic Peptide Design via Composable Geometric Constraints",
+          "year": 2026,
+          "authors": [
+            "Dapeng Jiang",
+            "Xiangzhe Kong",
+            "Jiaqi Han",
+            "Mingyu Li",
+            "Rui Jiao",
+            "Wenbing Huang",
+            "Stefano Ermon",
+            "Jianzhu Ma",
+            "Yang Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "arxiv": "2507.04225",
+          "method": "arxiv_title_lookup",
+          "arxiv_title": "Zero-Shot Cyclic Peptide Design via Composable Geometric Constraints",
+          "arxiv_year": 2025
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

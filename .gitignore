@@ -7,6 +7,9 @@ dist/
 .env
 .env.*
 !.env.example
-output/pdf/
-tmp/pdfs/
-output/integration/
+.DS_Store
+.coverage
+# Run artifacts (papers, PDFs, manifests, HTTP caches) are local; summaries live under reports/.
+output/
+tmp/
+.hypothesis/

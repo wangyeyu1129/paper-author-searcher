@@ -1,4 +1,5 @@
 """Opt-in live smoke check driven by user input, without fixed author IDs."""
+
 import argparse
 import json
 
@@ -7,7 +8,7 @@ from paper_author_searcher.cli import summary
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="Check live resolver output invariants")
+    parser = argparse.ArgumentParser(description='Check live resolver output invariants')
     parser.add_argument('--name', required=True)
     parser.add_argument('--university', required=True)
     parser.add_argument('--department')

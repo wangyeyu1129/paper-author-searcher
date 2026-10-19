@@ -8,23 +8,37 @@ from unittest.mock import Mock, patch
 from paper_author_searcher.http import SourceError, URLProbe
 from paper_author_searcher.models import PDFCandidate, PDFProviderResult
 from paper_author_searcher.pdf_cli import main
-from paper_author_searcher.pdf_providers import ExistingPDFProvider, LandingPagePDFProvider, OpenAlexPDFProvider
+from paper_author_searcher.pdf_providers import LandingPagePDFProvider, OpenAlexPDFProvider
 from paper_author_searcher.pdf_resolver import PDFResolver
 from paper_author_searcher.pdf_validation import PDFURLValidator
 
 
 def saved_collection():
-    return {'collection': {'papers': [
-        {'title': 'First study', 'doi': '10.1234/first', 'ownership_status': 'verified',
-         'ownership_evidence': ['Original author verification']},
-        {'title': 'Second study', 'doi': None, 'ownership_status': 'needs_review'},
-        {'title': 'Third study', 'doi': None, 'ownership_status': 'rejected'},
-    ]}}
+    return {
+        'collection': {
+            'papers': [
+                {
+                    'title': 'First study',
+                    'doi': '10.1234/first',
+                    'ownership_status': 'verified',
+                    'ownership_evidence': ['Original author verification'],
+                },
+                {'title': 'Second study', 'doi': None, 'ownership_status': 'needs_review'},
+                {'title': 'Third study', 'doi': None, 'ownership_status': 'rejected'},
+            ]
+        }
+    }
 
 
 def provider(name='public_api', url='https://repo.example.edu/paper.pdf', identity='verified', version='unknown'):
-    item = PDFCandidate(url, name, access_basis='Explicit OA PDF metadata', identity_status=identity,
-                        version_type=version, provenance=[{'provider': name, 'source_paper_id': 'test-paper-id'}])
+    item = PDFCandidate(
+        url,
+        name,
+        access_basis='Explicit OA PDF metadata',
+        identity_status=identity,
+        version_type=version,
+        provenance=[{'provider': name, 'source_paper_id': 'test-paper-id'}],
+    )
     result = Mock()
     result.name = name
     result.find.return_value = PDFProviderResult(name, candidates=[item])
@@ -69,7 +83,7 @@ class ResolverTests(unittest.TestCase):
         self.assertEqual(result.statistics['not_processed_papers'], 1)
         self.assertEqual(result.statistics['not_found_papers'], 0)
         with self.assertRaises(ValueError):
-            PDFResolver([]).resolve(saved_collection(), maximum_papers=0)
+            PDFResolver([], Mock()).resolve(saved_collection(), maximum_papers=0)
 
     def test_provider_failure_does_not_prevent_other_source_success(self):
         failed = provider('unavailable')
@@ -90,7 +104,9 @@ class ResolverTests(unittest.TestCase):
 
     def test_non_pdf_candidates_are_retained_but_not_counted_valid(self):
         client = Mock()
-        client.probe.return_value = URLProbe('https://repo.example.edu/page', 200, 'text/html', {}, b'<html>blocked</html>')
+        client.probe.return_value = URLProbe(
+            'https://repo.example.edu/page', 200, 'text/html', {}, b'<html>blocked</html>'
+        )
         result = PDFResolver([provider()], PDFURLValidator(client)).resolve(saved_collection())
         self.assertEqual(result.statistics['not_found_papers'], 1)
         self.assertEqual(len(result.papers[0].pdf_candidates), 1)
@@ -107,29 +123,38 @@ class ResolverTests(unittest.TestCase):
         self.assertEqual(result.statistics['distinct_verified_pdf_urls'], 1)
 
     def test_same_url_conflicting_metadata_blocks_automatic_selection(self):
-        result = PDFResolver([provider(), provider('second', identity='conflicting')], validator()).resolve(saved_collection())
+        result = PDFResolver([provider(), provider('second', identity='conflicting')], validator()).resolve(
+            saved_collection()
+        )
         self.assertEqual(result.statistics['valid_pdf_papers'], 0)
         self.assertEqual(result.papers[0].pdf_candidates[0].identity_status, 'conflicting')
         self.assertIsNone(result.papers[0].best_pdf_url)
 
     def test_all_versions_preserved_and_published_preferred(self):
-        sources = [provider('arxiv', 'https://repo.example.edu/preprint', version='preprint'),
-                   provider('openalex', 'https://repo.example.edu/published', version='published_version')]
+        sources = [
+            provider('arxiv', 'https://repo.example.edu/preprint', version='preprint'),
+            provider('openalex', 'https://repo.example.edu/published', version='published_version'),
+        ]
         result = PDFResolver(sources, validator()).resolve(saved_collection())
         self.assertEqual(len(result.papers[0].pdf_candidates), 2)
         self.assertEqual(result.papers[0].version_type, 'published_version')
         self.assertEqual(result.papers[0].best_pdf_url, 'https://repo.example.edu/published')
 
     def test_fragment_dedup_preserves_query_parameter_variants(self):
-        sources = [provider('one', 'https://repo.example.edu/paper?version=1'),
-                   provider('two', 'https://repo.example.edu/paper?version=1#page=2'),
-                   provider('three', 'https://repo.example.edu/paper?version=2')]
+        sources = [
+            provider('one', 'https://repo.example.edu/paper?version=1'),
+            provider('two', 'https://repo.example.edu/paper?version=1#page=2'),
+            provider('three', 'https://repo.example.edu/paper?version=2'),
+        ]
         result = PDFResolver(sources, validator()).resolve(saved_collection())
         self.assertEqual(len(result.papers[0].pdf_candidates), 2)
 
     def test_version_conflict_remains_unknown_after_third_source(self):
-        sources = [provider('one', version='preprint'), provider('two', version='published_version'),
-                   provider('three', version='published_version')]
+        sources = [
+            provider('one', version='preprint'),
+            provider('two', version='published_version'),
+            provider('three', version='published_version'),
+        ]
         result = PDFResolver(sources, validator()).resolve(saved_collection())
         self.assertEqual(result.papers[0].version_type, 'unknown')
         self.assertEqual(len(result.papers[0].pdf_candidates[0].provenance), 3)
@@ -144,19 +169,31 @@ class ResolverTests(unittest.TestCase):
         result = PDFResolver([], validator()).resolve(saved_collection())
         self.assertEqual(result.statistics['not_found_papers'], 1)
         self.assertEqual(result.papers[0].pdf_candidates, [])
-        self.assertEqual(PDFResolver([]).resolve({'papers': []}).statistics['total_papers'], 0)
+        self.assertEqual(PDFResolver([], Mock()).resolve({'papers': []}).statistics['total_papers'], 0)
 
     def test_invalid_collection_rejected(self):
         for saved in ({'collection': []}, {}, {'papers': ['not an object']}):
             with self.assertRaises(ValueError):
-                PDFResolver([]).resolve(saved)
+                PDFResolver([], Mock()).resolve(saved)
 
     def test_new_api_oa_landing_metadata_available_to_page_provider(self):
-        saved = {'papers': [{'title': 'First study', 'doi': '10.1234/first', 'ownership_status': 'verified',
-                             'records': [{'source': 'openalex', 'source_paper_id': 'W101'}]}]}
+        saved = {
+            'papers': [
+                {
+                    'title': 'First study',
+                    'doi': '10.1234/first',
+                    'ownership_status': 'verified',
+                    'records': [{'source': 'openalex', 'source_paper_id': 'W101'}],
+                }
+            ]
+        }
         client = Mock()
-        client.get.return_value = {'id': 'W101', 'title': 'First study', 'doi': '10.1234/first',
-                                   'locations': [{'is_oa': True, 'landing_page_url': 'https://repo.example.edu/page'}]}
+        client.get.return_value = {
+            'id': 'W101',
+            'title': 'First study',
+            'doi': '10.1234/first',
+            'locations': [{'is_oa': True, 'landing_page_url': 'https://repo.example.edu/page'}],
+        }
         html = b'<meta name="citation_doi" content="10.1234/first"><meta name="citation_pdf_url" content="/a.pdf">'
 
         def probe(url, *args, **kwargs):
@@ -165,8 +202,9 @@ class ResolverTests(unittest.TestCase):
             return URLProbe(url, 200, 'application/pdf', {}, b'%PDF-1.7')
 
         client.probe.side_effect = probe
-        result = PDFResolver([OpenAlexPDFProvider(client), LandingPagePDFProvider(client)],
-                             PDFURLValidator(client)).resolve(saved)
+        result = PDFResolver(
+            [OpenAlexPDFProvider(client), LandingPagePDFProvider(client)], PDFURLValidator(client)
+        ).resolve(saved)
         self.assertEqual(result.statistics['valid_pdf_papers'], 1)
         self.assertEqual(result.papers[0].best_pdf_url, 'https://repo.example.edu/a.pdf')
         self.assertNotIn('_pdf_landing_pages', saved['papers'][0])
@@ -178,9 +216,20 @@ class ResolverTests(unittest.TestCase):
         self.assertEqual(result['papers'][0]['pdf_candidates'][0]['bytes_read'], 8)
 
     def test_download_metadata_preserved_in_new_url_reports(self):
-        saved = {'papers': [{'title': 'First study', 'doi': '10.1234/first', 'ownership_status': 'verified',
-                             'authors': ['Alex Example'], 'year': 2020, 'source': 'openalex',
-                             'source_paper_id': 'W101', 'external_ids': {'doi': '10.1234/first'}}]}
+        saved = {
+            'papers': [
+                {
+                    'title': 'First study',
+                    'doi': '10.1234/first',
+                    'ownership_status': 'verified',
+                    'authors': ['Alex Example'],
+                    'year': 2020,
+                    'source': 'openalex',
+                    'source_paper_id': 'W101',
+                    'external_ids': {'doi': '10.1234/first'},
+                }
+            ]
+        }
         result = PDFResolver([], validator()).resolve(saved).to_dict()['papers'][0]
         for name in ('authors', 'year', 'source', 'source_paper_id', 'external_ids'):
             self.assertEqual(result[name], saved['papers'][0][name])
@@ -193,12 +242,12 @@ class CLITests(unittest.TestCase):
             output_path = Path(directory) / 'pdf_urls.json'
             input_path.write_text(json.dumps(saved_collection()), encoding='utf-8')
             resolver = PDFResolver([provider()], validator())
-            with patch('paper_author_searcher.pdf_cli.PDFResolver', return_value=resolver), patch('builtins.print'):
+            with patch('paper_author_searcher.composition.PDFResolver', return_value=resolver), patch('builtins.print'):
                 code = main(['--input', str(input_path), '--output', str(output_path), '--max-papers', '1'])
             self.assertEqual(code, 0)
             result = json.loads(output_path.read_text(encoding='utf-8'))
             self.assertEqual(result['statistics']['distinct_verified_pdf_urls'], 1)
-            self.assertEqual(set(path.suffix for path in Path(directory).iterdir()), {'.json'})
+            self.assertEqual({path.suffix for path in Path(directory).iterdir()}, {'.json'})
             self.assertEqual(json.loads(input_path.read_text(encoding='utf-8')), saved_collection())
 
     def test_cli_refuses_to_overwrite_input(self):
@@ -213,6 +262,6 @@ class CLITests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             input_path, output_path = Path(directory) / 'input.json', Path(directory) / 'output.json'
             input_path.write_text(json.dumps(saved_collection()), encoding='utf-8')
-            with patch('paper_author_searcher.pdf_cli.PDFResolver', return_value=resolver), patch('builtins.print'):
+            with patch('paper_author_searcher.composition.PDFResolver', return_value=resolver), patch('builtins.print'):
                 self.assertEqual(main(['--input', str(input_path), '--output', str(output_path)]), 2)
             self.assertTrue(output_path.exists())

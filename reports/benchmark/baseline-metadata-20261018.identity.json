@@ -1,0 +1,2666 @@
+{
+  "run_id": "baseline-metadata-20261018",
+  "people": [
+    {
+      "person_id": "cs_wei_wang_ucla",
+      "run_status": "identity_confirmation_required",
+      "diagnosis": "target_not_retrieved",
+      "truth_publications": 8,
+      "truth_found_in_any_candidate": 0,
+      "truth_bearing_candidates": 0,
+      "candidates_considered": 8,
+      "top_score_margin": 0.0,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5004969934"
+            ]
+          },
+          "match_score": 0.855,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 161,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5114376519"
+            ]
+          },
+          "match_score": 0.855,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "openalex:A5114376519 HTTP 401 from api.openalex.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100391662"
+            ]
+          },
+          "match_score": 0.855,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 95,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100391746"
+            ]
+          },
+          "match_score": 0.855,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 78,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100424784"
+            ]
+          },
+          "match_score": 0.745,
+          "status": "needs_review",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "openalex:A5100424784 HTTP 401 from api.openalex.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2292153"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2158625298"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2296976632"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 70,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "cs_christopher_manning",
+      "run_status": "partial",
+      "diagnosis": "resolved_complete",
+      "truth_publications": 14,
+      "truth_found_in_any_candidate": 12,
+      "truth_bearing_candidates": 1,
+      "candidates_considered": 8,
+      "top_score_margin": 0.283,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5046006076"
+            ]
+          },
+          "match_score": 0.877,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 12,
+          "window_works": 84,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5045119735"
+            ]
+          },
+          "match_score": 0.594,
+          "status": "needs_review",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5146001480"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2055900210"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5088817276"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2132343592"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 2,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2259318161"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2262643040"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "cs_yang_liu_tsinghua",
+      "run_status": "identity_confirmation_required",
+      "diagnosis": "stuck_true_competitor",
+      "truth_publications": 69,
+      "truth_found_in_any_candidate": 1,
+      "truth_bearing_candidates": 1,
+      "candidates_considered": 8,
+      "top_score_margin": 0.007,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100356054"
+            ]
+          },
+          "match_score": 0.872,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 34,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5037025491"
+            ]
+          },
+          "match_score": 0.865,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 67,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100355638"
+            ]
+          },
+          "match_score": 0.865,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 146,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100355646"
+            ]
+          },
+          "match_score": 0.865,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 1,
+          "window_works": 127,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100355935"
+            ]
+          },
+          "match_score": 0.865,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 144,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100355964"
+            ]
+          },
+          "match_score": 0.865,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "openalex:A5100355964 HTTP 401 from api.openalex.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100355976"
+            ]
+          },
+          "match_score": 0.865,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 96,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100613640"
+            ]
+          },
+          "match_score": 0.865,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 109,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "cs_graham_neubig",
+      "run_status": "identity_confirmation_required",
+      "diagnosis": "stuck_split_profiles",
+      "truth_publications": 71,
+      "truth_found_in_any_candidate": 67,
+      "truth_bearing_candidates": 4,
+      "candidates_considered": 8,
+      "top_score_margin": 0.032,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5000692949"
+            ],
+            "semantic_scholar": [
+              "1700325"
+            ]
+          },
+          "match_score": 0.954,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 18,
+          "window_works": 58,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5130196242"
+            ],
+            "semantic_scholar": [
+              "2337795179"
+            ]
+          },
+          "match_score": 0.922,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 5,
+          "window_works": 46,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5068811427"
+            ]
+          },
+          "match_score": 0.875,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 57,
+          "window_works": 186,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5120493819"
+            ]
+          },
+          "match_score": 0.87,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 2,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5139839336"
+            ],
+            "semantic_scholar": [
+              "2315307439"
+            ]
+          },
+          "match_score": 0.87,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 13,
+          "window_works": 41,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5147005555"
+            ]
+          },
+          "match_score": 0.87,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5155336247"
+            ]
+          },
+          "match_score": 0.87,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 2,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5146701943"
+            ]
+          },
+          "match_score": 0.87,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "cs_huan_zhang",
+      "run_status": "identity_confirmation_required",
+      "diagnosis": "stuck_split_profiles",
+      "truth_publications": 57,
+      "truth_found_in_any_candidate": 23,
+      "truth_bearing_candidates": 3,
+      "candidates_considered": 8,
+      "top_score_margin": 0.0,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100356941"
+            ]
+          },
+          "match_score": 0.858,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 2,
+          "window_works": 67,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100356957"
+            ],
+            "semantic_scholar": [
+              "2146094325"
+            ]
+          },
+          "match_score": 0.858,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 2,
+          "errors": [
+            "openalex:A5100356957 HTTP 401 from api.openalex.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100356973"
+            ]
+          },
+          "match_score": 0.858,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 13,
+          "window_works": 99,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100356958"
+            ]
+          },
+          "match_score": 0.855,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 9,
+          "window_works": 123,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100356986"
+            ]
+          },
+          "match_score": 0.854,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "openalex:A5100356986 HTTP 401 from api.openalex.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2109067267"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 9,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2155138740"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 5,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "11666591"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 24,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "cs_kevin_ellis",
+      "run_status": "partial",
+      "diagnosis": "resolved_fragment",
+      "truth_publications": 30,
+      "truth_found_in_any_candidate": 27,
+      "truth_bearing_candidates": 3,
+      "candidates_considered": 8,
+      "top_score_margin": 0.4,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5009201646"
+            ],
+            "semantic_scholar": [
+              "145594432"
+            ]
+          },
+          "match_score": 0.95,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 27,
+          "window_works": 83,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5005940177"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5007722620"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5026289034"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5088384151"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5125026431"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 1,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2061144233"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2272443209"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 3,
+          "window_works": 9,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "cs_jing_huang",
+      "run_status": "partial",
+      "diagnosis": "target_not_retrieved",
+      "truth_publications": 8,
+      "truth_found_in_any_candidate": 0,
+      "truth_bearing_candidates": 0,
+      "candidates_considered": 1,
+      "top_score_margin": 0.494,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)",
+        "semantic_scholar": "HTTP 429 from api.semanticscholar.org"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5038183599"
+            ]
+          },
+          "match_score": 0.85,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 14,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "cs_julie_kallini",
+      "run_status": "partial",
+      "diagnosis": "resolved_complete",
+      "truth_publications": 6,
+      "truth_found_in_any_candidate": 5,
+      "truth_bearing_candidates": 1,
+      "candidates_considered": 1,
+      "top_score_margin": null,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)",
+        "semantic_scholar": "HTTP 429 from api.semanticscholar.org"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5019317146"
+            ]
+          },
+          "match_score": 0.87,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 5,
+          "window_works": 14,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "bio_feng_zhang",
+      "run_status": "partial",
+      "diagnosis": "resolved_complete",
+      "truth_publications": 12,
+      "truth_found_in_any_candidate": 12,
+      "truth_bearing_candidates": 1,
+      "candidates_considered": 8,
+      "top_score_margin": 0.303,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100401298"
+            ]
+          },
+          "match_score": 0.853,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 12,
+          "window_works": 65,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2158118819"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2218660256"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2283156524"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 4,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2292429774"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 15,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "143765174"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2041774579"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2108500274"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "bio_jennifer_doudna",
+      "run_status": "partial",
+      "diagnosis": "resolved_complete",
+      "truth_publications": 29,
+      "truth_found_in_any_candidate": 27,
+      "truth_bearing_candidates": 1,
+      "candidates_considered": 8,
+      "top_score_margin": 0.337,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5067184382"
+            ],
+            "semantic_scholar": [
+              "2246820227"
+            ]
+          },
+          "match_score": 0.87,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 27,
+          "window_works": 133,
+          "errors": [
+            "semantic_scholar:2246820227 HTTP 429 from api.semanticscholar.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2065313009"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2065313017"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2238630135"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2366766179"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 2,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2065313025"
+            ]
+          },
+          "match_score": 0.429,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2497505425"
+            ]
+          },
+          "match_score": 0.429,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "semantic_scholar:2497505425 HTTP 429 from api.semanticscholar.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2065313004"
+            ]
+          },
+          "match_score": 0.429,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "semantic_scholar:2065313004 HTTP 429 from api.semanticscholar.org"
+          ]
+        }
+      ]
+    },
+    {
+      "person_id": "bio_le_cong",
+      "run_status": "partial",
+      "diagnosis": "resolved_complete",
+      "truth_publications": 14,
+      "truth_found_in_any_candidate": 10,
+      "truth_bearing_candidates": 1,
+      "candidates_considered": 1,
+      "top_score_margin": 0.537,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)",
+        "semantic_scholar": "HTTP 429 from api.semanticscholar.org"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5080765172"
+            ]
+          },
+          "match_score": 0.87,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 10,
+          "window_works": 58,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "bio_anshul_kundaje",
+      "run_status": "identity_confirmation_required",
+      "diagnosis": "stuck_true_competitor",
+      "truth_publications": 59,
+      "truth_found_in_any_candidate": 2,
+      "truth_bearing_candidates": 1,
+      "candidates_considered": 5,
+      "top_score_margin": 0.08,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5083952534"
+            ],
+            "semantic_scholar": [
+              "2844479"
+            ]
+          },
+          "match_score": 0.95,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "openalex:A5083952534 HTTP 401 from api.openalex.org",
+            "semantic_scholar:2844479 HTTP 429 from api.semanticscholar.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5127832510"
+            ]
+          },
+          "match_score": 0.87,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "88796534"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2390729269"
+            ]
+          },
+          "match_score": 0.429,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 2,
+          "window_works": 3,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5150366677"
+            ]
+          },
+          "match_score": 0.416,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 2,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "bio_jia_liu",
+      "run_status": "identity_confirmation_required",
+      "diagnosis": "stuck_true_competitor",
+      "truth_publications": 24,
+      "truth_found_in_any_candidate": 24,
+      "truth_bearing_candidates": 1,
+      "candidates_considered": 8,
+      "top_score_margin": 0.02,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100409757"
+            ]
+          },
+          "match_score": 0.87,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 24,
+          "window_works": 90,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100409700"
+            ]
+          },
+          "match_score": 0.85,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 185,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5045575546"
+            ]
+          },
+          "match_score": 0.728,
+          "status": "needs_review",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "openalex:A5045575546 HTTP 401 from api.openalex.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5071127149"
+            ]
+          },
+          "match_score": 0.554,
+          "status": "needs_review",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "openalex:A5071127149 HTTP 401 from api.openalex.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2108772339"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2116493526"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 5,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2261065922"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 14,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2237404907"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "semantic_scholar:2237404907 HTTP 429 from api.semanticscholar.org"
+          ]
+        }
+      ]
+    },
+    {
+      "person_id": "bio_brian_hie",
+      "run_status": "partial",
+      "diagnosis": "resolved_complete",
+      "truth_publications": 27,
+      "truth_found_in_any_candidate": 23,
+      "truth_bearing_candidates": 1,
+      "candidates_considered": 1,
+      "top_score_margin": null,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)",
+        "semantic_scholar": "HTTP 429 from api.semanticscholar.org"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5021962955"
+            ]
+          },
+          "match_score": 0.87,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 23,
+          "window_works": 67,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "bio_zhiwei_xue",
+      "run_status": "identity_confirmation_required",
+      "diagnosis": "target_not_retrieved",
+      "truth_publications": 1,
+      "truth_found_in_any_candidate": 0,
+      "truth_bearing_candidates": 0,
+      "candidates_considered": 8,
+      "top_score_margin": 0.0,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "1410461207"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5123636426"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 5,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5136096970"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5147464362"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5157818953"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2266876527"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "semantic_scholar:2266876527 HTTP 429 from api.semanticscholar.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2343281773"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 2,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "24870541"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 8,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "bio_marena_trinidad",
+      "run_status": "partial",
+      "diagnosis": "resolved_complete",
+      "truth_publications": 4,
+      "truth_found_in_any_candidate": 4,
+      "truth_bearing_candidates": 1,
+      "candidates_considered": 1,
+      "top_score_margin": null,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5054486858"
+            ],
+            "semantic_scholar": [
+              "81913416"
+            ]
+          },
+          "match_score": 0.95,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 4,
+          "window_works": 109,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "eng_yi_cui",
+      "run_status": "identity_confirmation_required",
+      "diagnosis": "stuck_true_competitor",
+      "truth_publications": 33,
+      "truth_found_in_any_candidate": 33,
+      "truth_bearing_candidates": 1,
+      "candidates_considered": 8,
+      "top_score_margin": 0.037,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5071127149"
+            ]
+          },
+          "match_score": 0.89,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 33,
+          "window_works": 179,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5027168875"
+            ]
+          },
+          "match_score": 0.853,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 13,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100412257"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 42,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2275544256"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "1617814474"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "semantic_scholar:1617814474 HTTP 429 from api.semanticscholar.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "1824704587"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2115349917"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "35530484"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "eng_daniela_rus",
+      "run_status": "identity_confirmation_required",
+      "diagnosis": "stuck_true_competitor",
+      "truth_publications": 20,
+      "truth_found_in_any_candidate": 1,
+      "truth_bearing_candidates": 1,
+      "candidates_considered": 8,
+      "top_score_margin": 0.088,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5066830185"
+            ],
+            "semantic_scholar": [
+              "145944286"
+            ]
+          },
+          "match_score": 0.958,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "openalex:A5066830185 HTTP 401 from api.openalex.org",
+            "semantic_scholar:145944286 HTTP 429 from api.semanticscholar.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5155662933"
+            ]
+          },
+          "match_score": 0.87,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5109698316"
+            ]
+          },
+          "match_score": 0.87,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5147105766"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2064605577"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "semantic_scholar:2064605577 HTTP 429 from api.semanticscholar.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2136540502"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "semantic_scholar:2136540502 HTTP 429 from api.semanticscholar.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2180400226"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 1,
+          "window_works": 10,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2217487221"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "semantic_scholar:2217487221 HTTP 429 from api.semanticscholar.org"
+          ]
+        }
+      ]
+    },
+    {
+      "person_id": "eng_wei_lu",
+      "run_status": "identity_confirmation_required",
+      "diagnosis": "stuck_split_profiles",
+      "truth_publications": 10,
+      "truth_found_in_any_candidate": 10,
+      "truth_bearing_candidates": 2,
+      "candidates_considered": 7,
+      "top_score_margin": 0.006,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)",
+        "semantic_scholar": "HTTP 429 from api.semanticscholar.org"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5066881061"
+            ]
+          },
+          "match_score": 0.883,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 9,
+          "window_works": 83,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5029510744"
+            ]
+          },
+          "match_score": 0.877,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 1,
+          "window_works": 16,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100752450"
+            ]
+          },
+          "match_score": 0.857,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 59,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5045807606"
+            ]
+          },
+          "match_score": 0.857,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 39,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5043020231"
+            ]
+          },
+          "match_score": 0.857,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 104,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100770898"
+            ]
+          },
+          "match_score": 0.857,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 53,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5109470831"
+            ]
+          },
+          "match_score": 0.855,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 55,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "eng_sindy_tang",
+      "run_status": "partial",
+      "diagnosis": "resolved_complete",
+      "truth_publications": 14,
+      "truth_found_in_any_candidate": 13,
+      "truth_bearing_candidates": 1,
+      "candidates_considered": 1,
+      "top_score_margin": null,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)",
+        "semantic_scholar": "HTTP 429 from api.semanticscholar.org"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5019601221"
+            ]
+          },
+          "match_score": 0.874,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 13,
+          "window_works": 19,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "eng_lu_lu",
+      "run_status": "partial",
+      "diagnosis": "resolved_complete",
+      "truth_publications": 60,
+      "truth_found_in_any_candidate": 59,
+      "truth_bearing_candidates": 1,
+      "candidates_considered": 4,
+      "top_score_margin": 0.166,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)",
+        "semantic_scholar": "HTTP 429 from api.semanticscholar.org"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5100366029"
+            ]
+          },
+          "match_score": 0.87,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 59,
+          "window_works": 115,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5020581776"
+            ]
+          },
+          "match_score": 0.704,
+          "status": "needs_review",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "openalex:A5020581776 HTTP 401 from api.openalex.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5086448660"
+            ]
+          },
+          "match_score": 0.694,
+          "status": "needs_review",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "openalex:A5086448660 HTTP 401 from api.openalex.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5059550095"
+            ]
+          },
+          "match_score": 0.674,
+          "status": "needs_review",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "openalex:A5059550095 HTTP 401 from api.openalex.org"
+          ]
+        }
+      ]
+    },
+    {
+      "person_id": "eng_siddharth_krishnan",
+      "run_status": "partial",
+      "diagnosis": "resolved_complete",
+      "truth_publications": 7,
+      "truth_found_in_any_candidate": 7,
+      "truth_bearing_candidates": 1,
+      "candidates_considered": 1,
+      "top_score_margin": 0.514,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)",
+        "semantic_scholar": "HTTP 429 from api.semanticscholar.org"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5051281660"
+            ]
+          },
+          "match_score": 0.87,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 7,
+          "window_works": 19,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "eng_min_zhu",
+      "run_status": "partial",
+      "diagnosis": "target_not_retrieved",
+      "truth_publications": 8,
+      "truth_found_in_any_candidate": 0,
+      "truth_bearing_candidates": 0,
+      "candidates_considered": 1,
+      "top_score_margin": 0.5,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)",
+        "semantic_scholar": "HTTP 429 from api.semanticscholar.org"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5067517357"
+            ]
+          },
+          "match_score": 0.858,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "openalex:A5067517357 HTTP 401 from api.openalex.org"
+          ]
+        }
+      ]
+    },
+    {
+      "person_id": "eng_jonathan_lee",
+      "run_status": "partial",
+      "diagnosis": "target_not_retrieved",
+      "truth_publications": 1,
+      "truth_found_in_any_candidate": 0,
+      "truth_bearing_candidates": 0,
+      "candidates_considered": 8,
+      "top_score_margin": 0.263,
+      "source_errors": {
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)",
+        "openalex": "HTTP 429 from api.openalex.org"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "openalex": [
+              "A5049869511"
+            ]
+          },
+          "match_score": 0.853,
+          "status": "resolved",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "openalex:A5049869511 HTTP 429 from api.openalex.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "openalex": [
+              "A5045551635"
+            ]
+          },
+          "match_score": 0.59,
+          "status": "needs_review",
+          "university_status": "matched",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "openalex:A5045551635 HTTP 429 from api.openalex.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2108851723"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "48174016"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2108852086"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 6,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2108851880"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2108851836"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "145640237"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "soc_raj_chetty",
+      "run_status": "identity_confirmation_required",
+      "diagnosis": "stuck_split_profiles",
+      "truth_publications": 8,
+      "truth_found_in_any_candidate": 3,
+      "truth_bearing_candidates": 2,
+      "candidates_considered": 8,
+      "top_score_margin": 0.0,
+      "source_errors": {
+        "openalex": "HTTP 429 from api.openalex.org",
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2238574533"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 1,
+          "window_works": 6,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2255439107"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2260866077"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2262728570"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "semantic_scholar:2262728570 HTTP 429 from api.semanticscholar.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2313834242"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 2,
+          "window_works": 5,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2372141252"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2411237542"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2411602316"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "soc_yu_xie",
+      "run_status": "identity_confirmation_required",
+      "diagnosis": "target_not_retrieved",
+      "truth_publications": 25,
+      "truth_found_in_any_candidate": 0,
+      "truth_bearing_candidates": 0,
+      "candidates_considered": 8,
+      "top_score_margin": 0.017,
+      "source_errors": {
+        "openalex": "HTTP 429 from api.openalex.org",
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "145442263"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2118595607"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 4,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2118596129"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 7,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2158039825"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 65,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2384915"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 3,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2459236805"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "65731331"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 25,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2349789259"
+            ]
+          },
+          "match_score": 0.471,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "semantic_scholar:2349789259 HTTP 429 from api.semanticscholar.org"
+          ]
+        }
+      ]
+    },
+    {
+      "person_id": "soc_xiang_zhou",
+      "run_status": "identity_confirmation_required",
+      "diagnosis": "target_not_retrieved",
+      "truth_publications": 12,
+      "truth_found_in_any_candidate": 0,
+      "truth_bearing_candidates": 0,
+      "candidates_considered": 0,
+      "top_score_margin": null,
+      "source_errors": {
+        "openalex": "HTTP 429 from api.openalex.org",
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)",
+        "semantic_scholar": "HTTP 429 from api.semanticscholar.org"
+      },
+      "candidates": []
+    },
+    {
+      "person_id": "soc_christian_wolf",
+      "run_status": "partial",
+      "diagnosis": "target_not_retrieved",
+      "truth_publications": 15,
+      "truth_found_in_any_candidate": 0,
+      "truth_bearing_candidates": 0,
+      "candidates_considered": 8,
+      "top_score_margin": 0.102,
+      "source_errors": {
+        "openalex": "HTTP 429 from api.openalex.org",
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2073417812"
+            ]
+          },
+          "match_score": 0.531,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "143864250"
+            ]
+          },
+          "match_score": 0.429,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "145476154"
+            ]
+          },
+          "match_score": 0.429,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "153368724"
+            ]
+          },
+          "match_score": 0.429,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2073418088"
+            ]
+          },
+          "match_score": 0.429,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2073418386"
+            ]
+          },
+          "match_score": 0.429,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2073418519"
+            ]
+          },
+          "match_score": 0.429,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 2,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2073418715"
+            ]
+          },
+          "match_score": 0.429,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "soc_daniel_chen",
+      "run_status": "partial",
+      "diagnosis": "target_not_retrieved",
+      "truth_publications": 2,
+      "truth_found_in_any_candidate": 0,
+      "truth_bearing_candidates": 0,
+      "candidates_considered": 8,
+      "top_score_margin": 0.017,
+      "source_errors": {
+        "openalex": "HTTP 429 from api.openalex.org",
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)"
+      },
+      "candidates": [
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2113596312"
+            ]
+          },
+          "match_score": 0.55,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 3,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "1400264504"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 1,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2023785969"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 4,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2329727717"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 6,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2004690854"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 18,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "47514452"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": [
+            "semantic_scholar:47514452 HTTP 429 from api.semanticscholar.org"
+          ]
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "145618263"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 0,
+          "errors": []
+        },
+        {
+          "author_ids": {
+            "semantic_scholar": [
+              "2249715320"
+            ]
+          },
+          "match_score": 0.533,
+          "status": "needs_review",
+          "university_status": "unknown",
+          "truth_hits": 0,
+          "window_works": 5,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "person_id": "soc_nina_roussille",
+      "run_status": "partial",
+      "diagnosis": "target_not_retrieved",
+      "truth_publications": 4,
+      "truth_found_in_any_candidate": 0,
+      "truth_bearing_candidates": 0,
+      "candidates_considered": 0,
+      "top_score_margin": null,
+      "source_errors": {
+        "openalex": "HTTP 429 from api.openalex.org",
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)",
+        "semantic_scholar": "HTTP 429 from api.semanticscholar.org"
+      },
+      "candidates": []
+    },
+    {
+      "person_id": "soc_whitney_zhang",
+      "run_status": "partial",
+      "diagnosis": "target_not_retrieved",
+      "truth_publications": 3,
+      "truth_found_in_any_candidate": 0,
+      "truth_bearing_candidates": 0,
+      "candidates_considered": 0,
+      "top_score_margin": null,
+      "source_errors": {
+        "openalex": "HTTP 429 from api.openalex.org",
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)",
+        "semantic_scholar": "HTTP 429 from api.semanticscholar.org"
+      },
+      "candidates": []
+    },
+    {
+      "person_id": "soc_shakked_noy",
+      "run_status": "partial",
+      "diagnosis": "target_not_retrieved",
+      "truth_publications": 3,
+      "truth_found_in_any_candidate": 0,
+      "truth_bearing_candidates": 0,
+      "candidates_considered": 0,
+      "top_score_margin": null,
+      "source_errors": {
+        "openalex": "HTTP 429 from api.openalex.org",
+        "dblp": "https://dblp.org/search/author/api HTTP 202 Content-Type text/html; charset=utf-8: expected JSON (HTML anti-bot/interstitial response)",
+        "semantic_scholar": "HTTP 429 from api.semanticscholar.org"
+      },
+      "candidates": []
+    }
+  ]
+}

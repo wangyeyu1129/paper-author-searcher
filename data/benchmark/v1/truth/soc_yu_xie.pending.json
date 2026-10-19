@@ -1,0 +1,1431 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "soc_yu_xie",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Yu Xie",
+      "university": "Princeton University"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2023,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.914945+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "princeton_site.json",
+        "url": "https://yuxie.scholar.princeton.edu/publications",
+        "records": 25
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "soc_yu_xie:42f8cde4dceb",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Do Mass Media Shape Public Opinion Toward China? Quantitative Evidence on New York Times With Deep Learning",
+      "year": 2020,
+      "authors": [
+        "Junming Huang",
+        "Gavin Cook",
+        "Yu Xie"
+      ],
+      "listed_venue": "SocArXiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 20 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.31235/osf.io/c7fhp"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Do Mass Media Shape Public Opinion Toward China? Quantitative Evidence on New York Times With Deep Learning",
+          "year": 2019,
+          "authors": [
+            "Junming Huang",
+            "Gavin Cook",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "Do Mass Media Shape Public Opinion Toward China? Quantitative Evidence on New York Times With Deep Learning",
+          "year": 2021,
+          "authors": [
+            "Junming Huang",
+            "Gavin Cook",
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.31235/osf.io/c7fhp",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Do Mass Media Shape Public Opinion toward China? Quantitative Evidence on New York Times with Deep Learning",
+          "crossref_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:b1c124aef97a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Heterogeneous Treatment Effects in the Presence of Self-Selection: A Propensity Score Perspective",
+      "year": 2020,
+      "authors": [
+        "Xiang Zhou",
+        "Yu Xie"
+      ],
+      "listed_venue": "Sociological Methodology 50 (1): 350-85",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 21 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1177/0081175019862593"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Heterogeneous Treatment Effects in the Presence of Self-Selection: A Propensity Score Perspective",
+          "year": 2019,
+          "authors": [
+            "Xiang Zhou",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "Heterogeneous Treatment Effects in the Presence of Self-Selection: A Propensity Score Perspective",
+          "year": 2021,
+          "authors": [
+            "Xiang Zhou",
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1177/0081175019862593",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Heterogeneous Treatment Effects in the Presence of Self-Selection: A Propensity Score Perspective",
+          "crossref_year": 2019
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:a816b68f26b5",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Heterogeneous Treatment Effects on Children's Cognitive/Non-Cognitive Skills: A Reevaluation of an Influential Early Childhood Intervention",
+      "year": 2020,
+      "authors": [
+        "Yu Xie",
+        "Christopher Near",
+        "Hongwei Xu",
+        "Xi Song"
+      ],
+      "listed_venue": "Social Science Research 86: 102389",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 24 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.ssresearch.2019.102389"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Heterogeneous Treatment Effects on Children's Cognitive/Non-Cognitive Skills: A Reevaluation of an Influential Early Childhood Intervention",
+          "year": 2019,
+          "authors": [
+            "Yu Xie",
+            "Christopher Near",
+            "Hongwei Xu",
+            "Xi Song"
+          ]
+        },
+        {
+          "title": "Heterogeneous Treatment Effects on Children's Cognitive/Non-Cognitive Skills: A Reevaluation of an Influential Early Childhood Intervention",
+          "year": 2021,
+          "authors": [
+            "Yu Xie",
+            "Christopher Near",
+            "Hongwei Xu",
+            "Xi Song"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.ssresearch.2019.102389",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Heterogeneous treatment effects on Children's cognitive/non-cognitive skills: A reevaluation of an influential early childhood intervention",
+          "crossref_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:590ead3d81ea",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Long-Term Decline in Intergenerational Mobility in the United States since the 1850s",
+      "year": 2020,
+      "authors": [
+        "Xi Song",
+        "Catherine Massey",
+        "Karen Rolf",
+        "Joseph Ferrie",
+        "Jonathan Rothbaum",
+        "Yu Xie"
+      ],
+      "listed_venue": "Proceedings of the National Academy of Sciences 117 (1): 251-58",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 25 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1073/pnas.1905094116"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Long-Term Decline in Intergenerational Mobility in the United States since the 1850s",
+          "year": 2019,
+          "authors": [
+            "Xi Song",
+            "Catherine Massey",
+            "Karen Rolf",
+            "Joseph Ferrie",
+            "Jonathan Rothbaum",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "Long-Term Decline in Intergenerational Mobility in the United States since the 1850s",
+          "year": 2021,
+          "authors": [
+            "Xi Song",
+            "Catherine Massey",
+            "Karen Rolf",
+            "Joseph Ferrie",
+            "Jonathan Rothbaum",
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1073/pnas.1905094116",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Long-term decline in intergenerational mobility in the United States since the 1850s",
+          "crossref_year": 2019
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:b61af967955a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Social Inequality in Child Educational Development in China",
+      "year": 2020,
+      "authors": [
+        "Airan Liu",
+        "Wangyang Li",
+        "Yu Xie"
+      ],
+      "listed_venue": "Chinese Journal of Sociology 6 (2): 219-38",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 23 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1177/2057150x20912157"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Social Inequality in Child Educational Development in China",
+          "year": 2019,
+          "authors": [
+            "Airan Liu",
+            "Wangyang Li",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "Social Inequality in Child Educational Development in China",
+          "year": 2021,
+          "authors": [
+            "Airan Liu",
+            "Wangyang Li",
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1177/2057150x20912157",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Social inequality in child educational development in China",
+          "crossref_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:4ca1eb651b9e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The Influence of Family Background on Educational Expectations: A Comparative Study",
+      "year": 2020,
+      "authors": [
+        "Wangyang Li",
+        "Yu Xie"
+      ],
+      "listed_venue": "Chinese Sociological Review 52 (3): 269-94",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 22 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1080/21620555.2020.1738917"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "The Influence of Family Background on Educational Expectations: A Comparative Study",
+          "year": 2019,
+          "authors": [
+            "Wangyang Li",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "The Influence of Family Background on Educational Expectations: A Comparative Study",
+          "year": 2021,
+          "authors": [
+            "Wangyang Li",
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1080/21620555.2020.1738917",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "The influence of family background on educational expectations: a comparative study",
+          "crossref_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:f7b56b5c53a1",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A New Methodological Framework for Studying Status Exchange in Marriage",
+      "year": 2021,
+      "authors": [
+        "Yu Xie",
+        "Hao Dong"
+      ],
+      "listed_venue": "American Journal of Sociology 126 (5): 1179-1219",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 18 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1086/713927"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A New Methodological Framework for Studying Status Exchange in Marriage",
+          "year": 2020,
+          "authors": [
+            "Yu Xie",
+            "Hao Dong"
+          ]
+        },
+        {
+          "title": "A New Methodological Framework for Studying Status Exchange in Marriage",
+          "year": 2022,
+          "authors": [
+            "Yu Xie",
+            "Hao Dong"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1086/713927",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "A New Methodological Framework for Studying Status Exchange in Marriage",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:ea613428ad88",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Belief in Science and Attitudes Toward COVID-19: A Demographic Standardization Approach to China–US Comparison, 2020",
+      "year": 2021,
+      "authors": [
+        "Yue Qian",
+        "Yongai Jin",
+        "Yu Xie"
+      ],
+      "listed_venue": "China CDC Weekly 3 (30): 645",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 17 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.46234/ccdcw2021.157"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Belief in Science and Attitudes Toward COVID-19: A Demographic Standardization Approach to China–US Comparison, 2020",
+          "year": 2020,
+          "authors": [
+            "Yue Qian",
+            "Yongai Jin",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "Belief in Science and Attitudes Toward COVID-19: A Demographic Standardization Approach to China–US Comparison, 2020",
+          "year": 2022,
+          "authors": [
+            "Yue Qian",
+            "Yongai Jin",
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.46234/ccdcw2021.157",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Belief in Science and Attitudes Toward COVID-19: A Demographic Standardization Approach to China–US Comparison, 2020",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:6f38e7c0c371",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Between Reality and Perception: The Mediating Effects of Mass Media on Public Opinion Toward China",
+      "year": 2021,
+      "authors": [
+        "Junming Huang",
+        "Gavin Cook",
+        "Yu Xie"
+      ],
+      "listed_venue": "Chinese Sociological Review 53 (5): 431-50",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 14 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1080/21620555.2021.1980720"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Between Reality and Perception: The Mediating Effects of Mass Media on Public Opinion Toward China",
+          "year": 2020,
+          "authors": [
+            "Junming Huang",
+            "Gavin Cook",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "Between Reality and Perception: The Mediating Effects of Mass Media on Public Opinion Toward China",
+          "year": 2022,
+          "authors": [
+            "Junming Huang",
+            "Gavin Cook",
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1080/21620555.2021.1980720",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Between reality and perception: the mediating effects of mass media on public opinion toward China",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:e43047c29e41",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Heterogeneous Returns to College over the Life Course",
+      "year": 2021,
+      "authors": [
+        "Siwei Cheng",
+        "Jennie Brand",
+        "Xiang Zhou",
+        "Yu Xie",
+        "Michael Hout"
+      ],
+      "listed_venue": "Science Advances 7 (51): eabg7641",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 13 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1126/sciadv.abg7641"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Heterogeneous Returns to College over the Life Course",
+          "year": 2020,
+          "authors": [
+            "Siwei Cheng",
+            "Jennie Brand",
+            "Xiang Zhou",
+            "Yu Xie",
+            "Michael Hout"
+          ]
+        },
+        {
+          "title": "Heterogeneous Returns to College over the Life Course",
+          "year": 2022,
+          "authors": [
+            "Siwei Cheng",
+            "Jennie Brand",
+            "Xiang Zhou",
+            "Yu Xie",
+            "Michael Hout"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1126/sciadv.abg7641",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Heterogeneous returns to college over the life course",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:924f6fa09654",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Large-Scale Quantitative Evidence of Media Impact on Public Opinion Toward China",
+      "year": 2021,
+      "authors": [
+        "Junming Huang",
+        "Gavin Cook",
+        "Yu Xie"
+      ],
+      "listed_venue": "Humanities and Social Sciences Communications 8 (1): 1-8",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 16 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1057/s41599-021-00846-2"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Large-Scale Quantitative Evidence of Media Impact on Public Opinion Toward China",
+          "year": 2020,
+          "authors": [
+            "Junming Huang",
+            "Gavin Cook",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "Large-Scale Quantitative Evidence of Media Impact on Public Opinion Toward China",
+          "year": 2022,
+          "authors": [
+            "Junming Huang",
+            "Gavin Cook",
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1057/s41599-021-00846-2",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Large-scale quantitative evidence of media impact on public opinion toward China",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:be6789441851",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Recent Trends in the Chinese Family",
+      "year": 2021,
+      "authors": [
+        "Jia Yu",
+        "Yu Xie"
+      ],
+      "listed_venue": "Demographic Research 44: 595-608",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 19 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Recent Trends in the Chinese Family",
+          "year": 2020,
+          "authors": [
+            "Jia Yu",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "Recent Trends in the Chinese Family",
+          "year": 2022,
+          "authors": [
+            "Jia Yu",
+            "Yu Xie"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:2b2201feb2dd",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Social-Demographic Correlates of Mindset in China",
+      "year": 2021,
+      "authors": [
+        "Qing Huang",
+        "Yu Xie"
+      ],
+      "listed_venue": "Chinese Journal of Sociology 7 (4): 497-513",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 15 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1177/2057150x211041908"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Social-Demographic Correlates of Mindset in China",
+          "year": 2020,
+          "authors": [
+            "Qing Huang",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "Social-Demographic Correlates of Mindset in China",
+          "year": 2022,
+          "authors": [
+            "Qing Huang",
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1177/2057150x211041908",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Social-demographic correlates of mindset in China",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:2a3ccf1f1a06",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "职业特征如何影响性别间的收入差距",
+      "year": 2021,
+      "authors": [
+        "Yichun Yang",
+        "Yu Xie"
+      ],
+      "listed_venue": "社会杂志 41 (3): 143-76",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 12 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "职业特征如何影响性别间的收入差距",
+          "year": 2020,
+          "authors": [
+            "Yichun Yang",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "职业特征如何影响性别间的收入差距",
+          "year": 2022,
+          "authors": [
+            "Yichun Yang",
+            "Yu Xie"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:a1e19db4dcb7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A Bamboo Ceiling in the Classroom?",
+      "year": 2022,
+      "authors": [
+        "Yu Xie"
+      ],
+      "listed_venue": "Proceedings of the National Academy of Sciences 119 (22): e2203850119",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 6 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1073/pnas.2203850119"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A Bamboo Ceiling in the Classroom?",
+          "year": 2021,
+          "authors": [
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "A Bamboo Ceiling in the Classroom?",
+          "year": 2023,
+          "authors": [
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1073/pnas.2203850119",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "A bamboo ceiling in the classroom?",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:675441dbf5ca",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Americans' Attitudes Toward the US–China Trade War",
+      "year": 2022,
+      "authors": [
+        "Yongai Jin",
+        "Shawn Dorius",
+        "Yu Xie"
+      ],
+      "listed_venue": "Journal of Contemporary China 31 (133): 17-37",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 10 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1080/10670564.2021.1926089"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Americans' Attitudes Toward the US–China Trade War",
+          "year": 2021,
+          "authors": [
+            "Yongai Jin",
+            "Shawn Dorius",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "Americans' Attitudes Toward the US–China Trade War",
+          "year": 2023,
+          "authors": [
+            "Yongai Jin",
+            "Shawn Dorius",
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1080/10670564.2021.1926089",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Americans’ Attitudes toward the US–China Trade War",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:d704551db87a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Global Attitudes Toward China: Trends and Correlates",
+      "year": 2022,
+      "authors": [
+        "Yu Xie",
+        "Yongai Jin"
+      ],
+      "listed_venue": "Journal of Contemporary China 31 (133): 1-16",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 11 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1080/10670564.2021.1926088"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Global Attitudes Toward China: Trends and Correlates",
+          "year": 2021,
+          "authors": [
+            "Yu Xie",
+            "Yongai Jin"
+          ]
+        },
+        {
+          "title": "Global Attitudes Toward China: Trends and Correlates",
+          "year": 2023,
+          "authors": [
+            "Yu Xie",
+            "Yongai Jin"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1080/10670564.2021.1926088",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Global Attitudes toward China: Trends and Correlates",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:16e9e8ce23c6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Is There a Chinese Pattern of the Second Demographic Transition?",
+      "year": 2022,
+      "authors": [
+        "Jia Yu",
+        "Yu Xie"
+      ],
+      "listed_venue": "China Population and Development Studies 6 (3): 237-66",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 4 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/s42379-022-00113-0"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Is There a Chinese Pattern of the Second Demographic Transition?",
+          "year": 2021,
+          "authors": [
+            "Jia Yu",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "Is There a Chinese Pattern of the Second Demographic Transition?",
+          "year": 2023,
+          "authors": [
+            "Jia Yu",
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1007/s42379-022-00113-0",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Is there a Chinese pattern of the second demographic transition?",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:b8edbb87f1a9",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Sexuality in China: A Review and New Findings",
+      "year": 2022,
+      "authors": [
+        "Jia Yu",
+        "Weixiang Luo",
+        "Yu Xie"
+      ],
+      "listed_venue": "Chinese Journal of Sociology 8 (3): 293-329",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 5 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1177/2057150x221114599"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Sexuality in China: A Review and New Findings",
+          "year": 2021,
+          "authors": [
+            "Jia Yu",
+            "Weixiang Luo",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "Sexuality in China: A Review and New Findings",
+          "year": 2023,
+          "authors": [
+            "Jia Yu",
+            "Weixiang Luo",
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1177/2057150x221114599",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Sexuality in China: A review and new findings",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:eb1da7cc167e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The Effect of Land Expropriation on Local Political Trust in China",
+      "year": 2022,
+      "authors": [
+        "Xiaohang Zhao",
+        "Yu Xie"
+      ],
+      "listed_venue": "Land Use Policy 114: 105966",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 7 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.landusepol.2021.105966"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "The Effect of Land Expropriation on Local Political Trust in China",
+          "year": 2021,
+          "authors": [
+            "Xiaohang Zhao",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "The Effect of Land Expropriation on Local Political Trust in China",
+          "year": 2023,
+          "authors": [
+            "Xiaohang Zhao",
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.landusepol.2021.105966",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "The effect of land expropriation on local political trust in China",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:e0df9d98ab74",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The Impact of COVID-19 on Americans' Attitudes Toward China: Does Local Incidence Rate Matter?",
+      "year": 2022,
+      "authors": [
+        "Qian He",
+        "Ziye Zhang",
+        "Yu Xie"
+      ],
+      "listed_venue": "Social Psychology Quarterly 85 (1): 84-107",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 8 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.31235/osf.io/9ubna"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "The Impact of COVID-19 on Americans' Attitudes Toward China: Does Local Incidence Rate Matter?",
+          "year": 2021,
+          "authors": [
+            "Qian He",
+            "Ziye Zhang",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "The Impact of COVID-19 on Americans' Attitudes Toward China: Does Local Incidence Rate Matter?",
+          "year": 2023,
+          "authors": [
+            "Qian He",
+            "Ziye Zhang",
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.31235/osf.io/9ubna",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "The Impact of COVID-19 on Americans’ Attitudes toward China: Does Local Incidence Rate Matter?",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:f5dc98f0bcfd",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The Moral Filter of Patriotic Prejudice: How Americans View Chinese in the COVID-19 Era",
+      "year": 2022,
+      "authors": [
+        "Qian He",
+        "Yu Xie"
+      ],
+      "listed_venue": "Proceedings of the National Academy of Sciences 119 (47): e2212183119",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 3 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1073/pnas.2212183119"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "The Moral Filter of Patriotic Prejudice: How Americans View Chinese in the COVID-19 Era",
+          "year": 2021,
+          "authors": [
+            "Qian He",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "The Moral Filter of Patriotic Prejudice: How Americans View Chinese in the COVID-19 Era",
+          "year": 2023,
+          "authors": [
+            "Qian He",
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1073/pnas.2212183119",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "The moral filter of patriotic prejudice: How Americans view Chinese in the COVID-19 era",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:5b0c9d0f192a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Trends in Social Mobility in Postrevolution China",
+      "year": 2022,
+      "authors": [
+        "Yu Xie",
+        "Hao Dong",
+        "Xiang Zhou",
+        "Xi Song"
+      ],
+      "listed_venue": "Proceedings of the National Academy of Sciences 119 (7): e2117471119",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 9 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1073/pnas.2117471119"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Trends in Social Mobility in Postrevolution China",
+          "year": 2021,
+          "authors": [
+            "Yu Xie",
+            "Hao Dong",
+            "Xiang Zhou",
+            "Xi Song"
+          ]
+        },
+        {
+          "title": "Trends in Social Mobility in Postrevolution China",
+          "year": 2023,
+          "authors": [
+            "Yu Xie",
+            "Hao Dong",
+            "Xiang Zhou",
+            "Xi Song"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1073/pnas.2117471119",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Trends in social mobility in postrevolution China",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:0479d29203d4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Caught in the Crossfire: Fears of Chinese–American Scientists",
+      "year": 2023,
+      "authors": [
+        "Yu Xie",
+        "Xihong Lin",
+        "Ju Li",
+        "Qian He",
+        "Junming Huang"
+      ],
+      "listed_venue": "Proceedings of the National Academy of Sciences 120 (27)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1073/pnas.2216248120"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Caught in the Crossfire: Fears of Chinese–American Scientists",
+          "year": 2022,
+          "authors": [
+            "Yu Xie",
+            "Xihong Lin",
+            "Ju Li",
+            "Qian He",
+            "Junming Huang"
+          ]
+        },
+        {
+          "title": "Caught in the Crossfire: Fears of Chinese–American Scientists",
+          "year": 2024,
+          "authors": [
+            "Yu Xie",
+            "Xihong Lin",
+            "Ju Li",
+            "Qian He",
+            "Junming Huang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_yu_xie:eeee8cbbefa6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Trends in Educational Assortative Marriage in China Over the Past Century",
+      "year": 2023,
+      "authors": [
+        "Hao Dong",
+        "Yu Xie"
+      ],
+      "listed_venue": "Demography 60 (1): 123–145",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://yuxie.scholar.princeton.edu/publications entry 2 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.31235/osf.io/dr6ew"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Trends in Educational Assortative Marriage in China Over the Past Century",
+          "year": 2022,
+          "authors": [
+            "Hao Dong",
+            "Yu Xie"
+          ]
+        },
+        {
+          "title": "Trends in Educational Assortative Marriage in China Over the Past Century",
+          "year": 2024,
+          "authors": [
+            "Hao Dong",
+            "Yu Xie"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.31235/osf.io/dr6ew",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Trends in Educational Assortative Marriage in China Over the Past Century",
+          "crossref_year": 2022
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

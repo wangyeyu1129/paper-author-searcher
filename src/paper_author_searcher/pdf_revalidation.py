@@ -1,16 +1,25 @@
 """Offline, checksum-checked content revalidation without altering saved files."""
+
 import argparse
+import logging
 from collections import Counter
+from collections.abc import Sequence
 from dataclasses import asdict
 from pathlib import Path
+from typing import Any
 
+from .json_types import JSONObject
+from .jsonio import read_json, write_json
+from .logging_config import add_logging_arguments, configure_from_arguments
 from .pdf_downloader import paper_key
 from .pdf_file_validation import PDFFileValidator, validation_target
 from .performance_evaluation import _check_file
-from .workflow import read_json, write_json
+from .status import FormatStatus, PDFValidationStatus
+
+logger = logging.getLogger(__name__)
 
 
-def _selected_candidate(paper, saved):
+def _selected_candidate(paper: JSONObject, saved: JSONObject) -> JSONObject | None:
     saved_urls = {saved.get('pdf_url'), saved.get('final_url')} - {None, ''}
     for candidate in paper.get('pdf_candidates') or []:
         if saved_urls.intersection({candidate.get('url'), candidate.get('final_url')}):
@@ -18,7 +27,9 @@ def _selected_candidate(paper, saved):
     return None
 
 
-def revalidate(manifest_path, pdf_report_path, only_needs_review=False, validator=None):
+def revalidate(
+    manifest_path: Path, pdf_report_path: Path, only_needs_review: bool = False, validator: Any = None
+) -> JSONObject:
     manifest_path = Path(manifest_path)
     manifest = read_json(manifest_path)
     pdf_report = read_json(pdf_report_path)
@@ -28,14 +39,20 @@ def revalidate(manifest_path, pdf_report_path, only_needs_review=False, validato
     validator = validator or PDFFileValidator()
     entries = []
     for saved in manifest['papers']:
-        if not saved.get('local_filename') or saved.get('format_status') != 'valid':
+        if not saved.get('local_filename') or saved.get('format_status') != FormatStatus.VALID:
             continue
-        if only_needs_review and saved.get('validation_status') != 'needs_review':
+        if only_needs_review and saved.get('validation_status') != PDFValidationStatus.NEEDS_REVIEW:
             continue
         key = paper_key(saved)
-        entry = {'paper_key': key, 'title': saved.get('title'), 'local_filename': saved['local_filename'],
-                 'ownership_status': saved.get('ownership_status'), 'sha256': saved.get('sha256'),
-                 'before': saved.get('validation') or {}, 'before_status': saved.get('validation_status')}
+        entry = {
+            'paper_key': key,
+            'title': saved.get('title'),
+            'local_filename': saved['local_filename'],
+            'ownership_status': saved.get('ownership_status'),
+            'sha256': saved.get('sha256'),
+            'before': saved.get('validation') or {},
+            'before_status': saved.get('validation_status'),
+        }
         entries.append(entry)
         exists, evidence = _check_file(saved, manifest, manifest_path)
         entry['file_integrity_confirmed'] = exists
@@ -55,30 +72,44 @@ def revalidate(manifest_path, pdf_report_path, only_needs_review=False, validato
     full_text_confirmed = 0
     for entry in entries:
         after = entry.get('after') or {}
-        if after.get('validation_status') == 'verified':
-            if entry['before_status'] != 'verified':
+        if after.get('validation_status') == PDFValidationStatus.VERIFIED:
+            if entry['before_status'] != PDFValidationStatus.VERIFIED:
                 newly_verified.append(entry['paper_key'])
             if after.get('document_type') in ('full_text', 'preprint'):
                 full_text_confirmed += 1
-        elif entry['before_status'] == 'verified':
+        elif entry['before_status'] == PDFValidationStatus.VERIFIED:
             regressions.append(entry['paper_key'])
-    return {'report_type': 'offline_pdf_content_revalidation', 'manifest_path': str(manifest_path.resolve()),
-            'pdf_report_path': str(Path(pdf_report_path).resolve()), 'only_needs_review': only_needs_review,
-            'statistics': {'selected_files': len(entries), 'validation_status_counts': dict(counts),
-                           'before_validation_status_counts': dict(before_counts),
-                           'document_type_counts': dict(types), 'full_text_confirmed_files': full_text_confirmed,
-                           'newly_verified_paper_keys': newly_verified, 'regressed_paper_keys': regressions}, 'papers': entries,
-            'scope_note': 'Current local content parsing with original metadata and verified URL bindings; '
-                          'no new API queries, downloads, ownership changes or manual ground-truth labels.'}
+    return {
+        'report_type': 'offline_pdf_content_revalidation',
+        'manifest_path': str(manifest_path.resolve()),
+        'pdf_report_path': str(Path(pdf_report_path).resolve()),
+        'only_needs_review': only_needs_review,
+        'statistics': {
+            'selected_files': len(entries),
+            'validation_status_counts': dict(counts),
+            'before_validation_status_counts': dict(before_counts),
+            'document_type_counts': dict(types),
+            'full_text_confirmed_files': full_text_confirmed,
+            'newly_verified_paper_keys': newly_verified,
+            'regressed_paper_keys': regressions,
+        },
+        'papers': entries,
+        'scope_note': 'Current local content parsing with original metadata and verified URL bindings; '
+        'no new API queries, downloads, ownership changes or manual ground-truth labels.',
+    }
 
 
-def main(argv=None):
-    parser = argparse.ArgumentParser(description='Revalidate existing PDF contents without network calls or file changes')
+def main(argv: Sequence[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description='Revalidate existing PDF contents without network calls or file changes'
+    )
     parser.add_argument('--manifest', type=Path, required=True)
     parser.add_argument('--pdf-report', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--only-needs-review', action='store_true')
+    add_logging_arguments(parser)
     args = parser.parse_args(argv)
+    configure_from_arguments(args)
     if args.output.resolve() in {args.manifest.resolve(), args.pdf_report.resolve()}:
         parser.error('Output must differ from saved inputs')
     try:
@@ -88,9 +119,15 @@ def main(argv=None):
         parser.error(str(exc))
     statistics = result['statistics']
     counts = statistics['validation_status_counts']
-    print('Checked files: {}; verified={}; needs_review={}; not_evaluated={}; confirmed full text={}'.format(
-        statistics['selected_files'], counts.get('verified', 0), counts.get('needs_review', 0),
-        counts.get('not_evaluated', 0), statistics['full_text_confirmed_files']))
+    print(
+        'Checked files: {}; verified={}; needs_review={}; not_evaluated={}; confirmed full text={}'.format(
+            statistics['selected_files'],
+            counts.get(PDFValidationStatus.VERIFIED, 0),
+            counts.get(PDFValidationStatus.NEEDS_REVIEW, 0),
+            counts.get('not_evaluated', 0),
+            statistics['full_text_confirmed_files'],
+        )
+    )
     return 0
 
 

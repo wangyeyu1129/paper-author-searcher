@@ -1,20 +1,29 @@
 """Independent public metadata providers; no paywall or login workarounds."""
-import os
-import time
+
+from abc import ABC, abstractmethod
 from html.parser import HTMLParser
+from typing import Any, ClassVar
 from urllib.parse import quote, urljoin
 
 from .config import DEFAULT_PDF, DEFAULT_SOURCES
-from .http import HttpClient, SourceError
+from .html_support import decode_response
+from .http import SourceError
 from .matching import normalize
 from .models import PDFCandidate, PDFProviderResult
-from .pdf_settings import contact_email, redact_contact
-from .pdf_source_requests import SemanticScholarRequests
+from .pacing import RequestPacer
 from .pdf_identity import (
-    arxiv_id, arxiv_ids, metadata_identity, paper_dois, paper_ids,
-    same_arxiv_version, source_records,
+    arxiv_id,
+    arxiv_ids,
+    metadata_identity,
+    paper_dois,
+    paper_ids,
+    same_arxiv_version,
+    source_records,
 )
-
+from .pdf_settings import redact_contact
+from .pdf_source_requests import SemanticScholarRequests
+from .settings import validate_contact_email
+from .status import IdentityStatus, ProviderStatus
 
 VERSION_TYPES = {
     'publishedVersion': 'published_version',
@@ -46,16 +55,25 @@ def make_candidate(url, source, identity, metadata, access_basis, version=None, 
         raise SourceError('Malformed PDF URL: expected a string')
     version_type = VERSION_TYPES.get(version, 'unknown')
     return PDFCandidate(
-        url=url, source=source, identity_status=identity[0], identity_evidence=identity[1],
-        access_basis=access_basis, version_type=version_type,
-        license=license, provenance=[dict(metadata, provider=source, version_type=version_type)],
+        url=url,
+        source=source,
+        identity_status=identity[0],
+        identity_evidence=identity[1],
+        access_basis=access_basis,
+        version_type=version_type,
+        license=license,
+        provenance=[dict(metadata, provider=source, version_type=version_type)],
     )
 
 
 def openalex_candidates(paper, work, provider, metadata_url=None):
     locations = openalex_locations(work)
     identity = metadata_identity(
-        paper, 'openalex', work.get('id'), work.get('doi'), work.get('title'),
+        paper,
+        'openalex',
+        work.get('id'),
+        work.get('doi'),
+        work.get('title'),
         work.get('publication_year'),
     )
     candidates = []
@@ -63,18 +81,29 @@ def openalex_candidates(paper, work, provider, metadata_url=None):
         if location.get('is_oa') is not True or not location.get('pdf_url'):
             continue
         provenance = {
-            'database': 'openalex', 'source_paper_id': work.get('id'),
-            'doi': work.get('doi'), 'metadata_url': metadata_url,
-            'metadata_title': work.get('title'), 'metadata_year': work.get('publication_year'),
-            'location_id': location.get('id'), 'is_oa': location.get('is_oa'),
+            'database': 'openalex',
+            'source_paper_id': work.get('id'),
+            'doi': work.get('doi'),
+            'metadata_url': metadata_url,
+            'metadata_title': work.get('title'),
+            'metadata_year': work.get('publication_year'),
+            'location_id': location.get('id'),
+            'is_oa': location.get('is_oa'),
             'landing_page_url': location.get('landing_page_url'),
-            'version': location.get('version'), 'license': location.get('license'),
+            'version': location.get('version'),
+            'license': location.get('license'),
         }
-        candidates.append(make_candidate(
-            location['pdf_url'], provider, identity, provenance,
-            'OpenAlex location explicitly marked is_oa=true',
-            location.get('version'), location.get('license'),
-        ))
+        candidates.append(
+            make_candidate(
+                location['pdf_url'],
+                provider,
+                identity,
+                provenance,
+                'OpenAlex location explicitly marked is_oa=true',
+                location.get('version'),
+                location.get('license'),
+            )
+        )
     return candidates
 
 
@@ -93,19 +122,35 @@ def semantic_candidates(paper, work, provider, metadata_url=None):
     if not all(isinstance(author, dict) for author in authors):
         raise SourceError('Malformed Semantic Scholar author list', error_type='malformed_response')
     identity = metadata_identity(
-        paper, 'semantic_scholar', work.get('paperId'), external_ids.get('DOI'),
-        work.get('title'), work.get('year'),
+        paper,
+        'semantic_scholar',
+        work.get('paperId'),
+        external_ids.get('DOI'),
+        work.get('title'),
+        work.get('year'),
         [author.get('name', '') for author in authors],
     )
     provenance = {
-        'database': 'semantic_scholar', 'source_paper_id': work.get('paperId'),
-        'doi': external_ids.get('DOI'), 'metadata_url': metadata_url,
-        'metadata_title': work.get('title'), 'metadata_year': work.get('year'),
+        'database': 'semantic_scholar',
+        'source_paper_id': work.get('paperId'),
+        'doi': external_ids.get('DOI'),
+        'metadata_url': metadata_url,
+        'metadata_title': work.get('title'),
+        'metadata_year': work.get('year'),
         'metadata_authors': [author.get('name', '') for author in authors],
-        'oa_status': location.get('status'), 'license': location.get('license'),
+        'oa_status': location.get('status'),
+        'license': location.get('license'),
     }
-    return [make_candidate(location['url'], provider, identity, provenance,
-                           'Semantic Scholar openAccessPdf metadata', license=location.get('license'))]
+    return [
+        make_candidate(
+            location['url'],
+            provider,
+            identity,
+            provenance,
+            'Semantic Scholar openAccessPdf metadata',
+            license=location.get('license'),
+        )
+    ]
 
 
 def openalex_landing_pages(work):
@@ -115,9 +160,17 @@ def openalex_landing_pages(work):
         if location.get('is_oa') is not True:
             urls.append(location.get('pdf_url'))
         for url in dict.fromkeys(value for value in urls if value):
-            pages.append(dict(location, database='openalex', source_paper_id=work.get('id'),
-                              title=work.get('title'), doi=work.get('doi'), landing_page_url=url,
-                              supplied_location=dict(location)))
+            pages.append(
+                dict(
+                    location,
+                    database='openalex',
+                    source_paper_id=work.get('id'),
+                    title=work.get('title'),
+                    doi=work.get('doi'),
+                    landing_page_url=url,
+                    supplied_location=dict(location),
+                )
+            )
     return pages
 
 
@@ -137,52 +190,71 @@ class ExistingPDFProvider:
             except (SourceError, ValueError, TypeError) as exc:
                 result.errors.append(str(exc))
         if result.errors:
-            result.status = 'partial'
+            result.status = ProviderStatus.PARTIAL
         return result
 
 
-class MetadataPDFProvider:
-    """Small shared loop: each metadata lookup fails independently."""
-    def __init__(self, client=None, sources=DEFAULT_SOURCES):
-        self.client = client or HttpClient()
+class MetadataPDFProvider(ABC):
+    """Template method for metadata APIs: each identifier lookup fails independently of the others."""
+
+    name: ClassVar[str]
+
+    @abstractmethod
+    def lookups(self, paper: dict) -> list[str]:
+        """Identifiers this source can be queried with for ``paper`` (empty: not applicable)."""
+
+    @abstractmethod
+    def lookup(self, paper: dict, identifier: str) -> tuple[list[Any], list[Any]]:
+        """Return ``(pdf_candidates, landing_pages)`` for one identifier."""
+
+    def __init__(self, client, sources=DEFAULT_SOURCES):
+        self.client = client
         self.sources = sources
 
     def find(self, paper):
         result = PDFProviderResult(self.name)
         lookups = self.lookups(paper)
         if not lookups:
-            result.status = 'not_applicable'
+            result.status = ProviderStatus.NOT_APPLICABLE
             return result
         for identifier in lookups:
             try:
                 candidates, landing_pages = self.lookup(paper, identifier)
                 result.candidates.extend(candidates)
                 result.landing_pages.extend(landing_pages)
-                result.diagnostics.append({'identifier': identifier, 'status': 'ok'})
+                result.diagnostics.append({'identifier': identifier, 'status': ProviderStatus.OK})
             except (SourceError, ValueError, TypeError) as exc:
                 if getattr(exc, 'error_type', None) == 'source_deferred':
                     result.warnings.append({'code': 'source_deferred', 'incomplete': True, 'identifier': identifier})
                 elif getattr(exc, 'status_code', None) != 404:
-                    result.errors.append('{}: {}'.format(identifier, exc))
-                result.diagnostics.append({
-                    'identifier': identifier, 'status': 'error',
-                    'status_code': getattr(exc, 'status_code', None),
-                    'error_type': getattr(exc, 'error_type', 'malformed_response'),
-                    'retry_after': getattr(exc, 'retry_after', None),
-                    'request_context': getattr(exc, 'request_context', {}),
-                })
+                    result.errors.append(f'{identifier}: {exc}')
+                result.diagnostics.append(
+                    {
+                        'identifier': identifier,
+                        'status': ProviderStatus.ERROR,
+                        'status_code': getattr(exc, 'status_code', None),
+                        'error_type': getattr(exc, 'error_type', 'malformed_response'),
+                        'retry_after': getattr(exc, 'retry_after', None),
+                        'request_context': getattr(exc, 'request_context', {}),
+                    }
+                )
         if result.diagnostics and all(item.get('status_code') == 404 for item in result.diagnostics):
-            result.status = 'not_found'
+            result.status = ProviderStatus.NOT_FOUND
         if result.warnings:
-            result.status = 'partial'
+            result.status = ProviderStatus.PARTIAL
         if result.errors:
-            failures = [item for item in result.diagnostics if item.get('status') == 'error'
-                        and item.get('error_type') != 'not_found']
+            failures = [
+                item
+                for item in result.diagnostics
+                if item.get('status') == ProviderStatus.ERROR and item.get('error_type') != 'not_found'
+            ]
             if failures:
-                succeeded = any(item.get('status') == 'ok' for item in result.diagnostics)
-                result.status = 'partial' if succeeded else 'error'
+                succeeded = any(item.get('status') == ProviderStatus.OK for item in result.diagnostics)
+                result.status = ProviderStatus.PARTIAL if succeeded else ProviderStatus.ERROR
             else:
-                result.status = 'ok' if result.candidates or result.landing_pages else 'not_found'
+                result.status = (
+                    ProviderStatus.OK if result.candidates or result.landing_pages else ProviderStatus.NOT_FOUND
+                )
         return result
 
 
@@ -190,15 +262,15 @@ class OpenAlexPDFProvider(MetadataPDFProvider):
     name = 'openalex'
     fields = 'id,doi,title,publication_year,primary_location,best_oa_location,locations'
 
-    def __init__(self, client=None, sources=DEFAULT_SOURCES, api_key=None):
+    def __init__(self, client, sources=DEFAULT_SOURCES, api_key=None):
         super().__init__(client, sources)
-        self.api_key = api_key or os.getenv('OPENALEX_API_KEY')
+        self.api_key = api_key
 
     def lookups(self, paper):
         identifiers = paper_ids(paper, self.name)
         if identifiers:
             return identifiers
-        return ['https://doi.org/' + doi[len('doi:'):] for doi in sorted(paper_dois(paper))]
+        return ['https://doi.org/' + doi[len('doi:') :] for doi in sorted(paper_dois(paper))]
 
     def lookup(self, paper, identifier):
         url = self.sources.openalex_url + '/works/' + quote(identifier, safe=':/')
@@ -219,9 +291,9 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
     name = 'semantic_scholar'
     fields = SemanticScholarRequests.fields
 
-    def __init__(self, client=None, sources=DEFAULT_SOURCES, api_key=None, config=DEFAULT_PDF):
+    def __init__(self, client, sources=DEFAULT_SOURCES, api_key=None, config=DEFAULT_PDF):
         super().__init__(client, sources)
-        self.api_key = api_key or os.getenv('SEMANTIC_SCHOLAR_API_KEY')
+        self.api_key = api_key
         self.config = config
         self.requests = SemanticScholarRequests(self.client, self.api_key, config, sources)
 
@@ -244,8 +316,11 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
         self.requests.prefetch(identifiers)
 
     def request_statistics(self):
-        return dict(self.requests.statistics, events=list(self.requests.events),
-                    scope='logical calls; HTTP retries are not included')
+        return dict(
+            self.requests.statistics,
+            events=list(self.requests.events),
+            scope='logical calls; HTTP retries are not included',
+        )
 
     def find(self, paper):
         result = super().find(paper)
@@ -255,7 +330,7 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
         if not self.lookups(paper) or not_indexed:
             self._search_title(paper, result)
         if result.errors and result.diagnostics and all(item.get('status_code') == 404 for item in result.diagnostics):
-            result.status = 'not_found'
+            result.status = ProviderStatus.NOT_FOUND
         return result
 
     def _search_title(self, paper, result):
@@ -265,32 +340,40 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
             works = self.requests.search(paper['title'])
             for work in works:
                 if normalize(work.get('title') or '') == normalize(paper['title']):
-                    result.candidates.extend(semantic_candidates(paper, work, self.name,
-                                                                self.sources.semantic_scholar_url + '/paper/search'))
-            failed = any(item.get('status') == 'error' and item.get('error_type') != 'not_found'
-                         for item in result.diagnostics)
-            result.status = 'partial' if failed else 'ok'
-            result.diagnostics.append({'lookup_method': 'title_search', 'status': 'ok'})
+                    result.candidates.extend(
+                        semantic_candidates(paper, work, self.name, self.sources.semantic_scholar_url + '/paper/search')
+                    )
+            failed = any(
+                item.get('status') == ProviderStatus.ERROR and item.get('error_type') != 'not_found'
+                for item in result.diagnostics
+            )
+            result.status = ProviderStatus.PARTIAL if failed else ProviderStatus.OK
+            result.diagnostics.append({'lookup_method': 'title_search', 'status': ProviderStatus.OK})
         except (SourceError, ValueError, TypeError) as exc:
             if getattr(exc, 'error_type', None) == 'source_deferred':
-                result.status = 'partial'
+                result.status = ProviderStatus.PARTIAL
                 result.warnings.append({'code': 'source_deferred', 'incomplete': True, 'lookup_method': 'title_search'})
             elif getattr(exc, 'status_code', None) == 404:
-                result.status = 'not_found'
+                result.status = ProviderStatus.NOT_FOUND
             else:
-                result.status = 'error'
+                result.status = ProviderStatus.ERROR
                 result.errors.append('Title search: ' + str(exc))
-            result.diagnostics.append({'lookup_method': 'title_search', 'status': 'error',
-                                       'status_code': getattr(exc, 'status_code', None),
-                                       'error_type': getattr(exc, 'error_type', 'malformed_response'),
-                                       'retry_after': getattr(exc, 'retry_after', None),
-                                       'request_context': getattr(exc, 'request_context', {})})
+            result.diagnostics.append(
+                {
+                    'lookup_method': 'title_search',
+                    'status': ProviderStatus.ERROR,
+                    'status_code': getattr(exc, 'status_code', None),
+                    'error_type': getattr(exc, 'error_type', 'malformed_response'),
+                    'retry_after': getattr(exc, 'retry_after', None),
+                    'request_context': getattr(exc, 'request_context', {}),
+                }
+            )
 
     def lookups(self, paper):
         identifiers = paper_ids(paper, self.name)
         if identifiers:
             return identifiers
-        identifiers = ['DOI:' + doi[len('doi:'):] for doi in sorted(paper_dois(paper))]
+        identifiers = ['DOI:' + doi[len('doi:') :] for doi in sorted(paper_dois(paper))]
         identifiers.extend('ARXIV:' + value for value in arxiv_ids(paper))
         return identifiers
 
@@ -305,28 +388,29 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
 class UnpaywallPDFProvider(MetadataPDFProvider):
     name = 'unpaywall'
 
-    def __init__(self, client=None, email=None, config=DEFAULT_PDF):
+    def __init__(self, client, email=None, config=DEFAULT_PDF):
         super().__init__(client)
         self.config = config
         self.configuration_error = None
         try:
-            self.email = contact_email(email, config.unpaywall_email_environment)
+            self.email = validate_contact_email(email)
         except ValueError as exc:
             self.email = None
             self.configuration_error = str(exc)
 
     def find(self, paper):
         if self.configuration_error:
-            return PDFProviderResult(self.name, status='disabled', errors=[self.configuration_error])
+            return PDFProviderResult(self.name, status=ProviderStatus.DISABLED, errors=[self.configuration_error])
         if not self.email:
-            return PDFProviderResult(self.name, status='disabled',
-                                     errors=['Unpaywall requires a real contact email'])
+            return PDFProviderResult(
+                self.name, status=ProviderStatus.DISABLED, errors=['Unpaywall requires a real contact email']
+            )
         result = super().find(paper)
         result.errors = [redact_contact(message, self.email) for message in result.errors]
         return result
 
     def lookups(self, paper):
-        return [doi[len('doi:'):] for doi in sorted(paper_dois(paper))]
+        return [doi[len('doi:') :] for doi in sorted(paper_dois(paper))]
 
     def lookup(self, paper, identifier):
         url = self.config.unpaywall_url + '/' + quote(identifier, safe='/')
@@ -342,22 +426,42 @@ class UnpaywallPDFProvider(MetadataPDFProvider):
             locations.append(work['best_oa_location'])
         if any(not isinstance(location, dict) for location in locations):
             raise SourceError('Unpaywall OA locations must contain objects', error_type='malformed_response')
-        candidates = []
+        candidates: list[Any] = []
         landing_pages = []
         if work.get('is_oa') is not True:
             return candidates, []
         for location in locations:
             if location.get('url_for_landing_page'):
-                landing_pages.append(dict(location, landing_page_url=location['url_for_landing_page'],
-                                          database=self.name, doi=work.get('doi'), title=work.get('title'), is_oa=True))
+                landing_pages.append(
+                    dict(
+                        location,
+                        landing_page_url=location['url_for_landing_page'],
+                        database=self.name,
+                        doi=work.get('doi'),
+                        title=work.get('title'),
+                        is_oa=True,
+                    )
+                )
             if not location.get('url_for_pdf'):
                 continue
-            provenance = {'metadata_url': url, 'doi': work.get('doi'), 'metadata_title': work.get('title'),
-                          'host_type': location.get('host_type'), 'version': location.get('version')}
-            candidates.append(make_candidate(
-                location['url_for_pdf'], self.name, identity, provenance,
-                'Unpaywall OA location url_for_pdf', location.get('version'), location.get('license'),
-            ))
+            provenance = {
+                'metadata_url': url,
+                'doi': work.get('doi'),
+                'metadata_title': work.get('title'),
+                'host_type': location.get('host_type'),
+                'version': location.get('version'),
+            }
+            candidates.append(
+                make_candidate(
+                    location['url_for_pdf'],
+                    self.name,
+                    identity,
+                    provenance,
+                    'Unpaywall OA location url_for_pdf',
+                    location.get('version'),
+                    location.get('license'),
+                )
+            )
         return candidates, landing_pages
 
 
@@ -366,16 +470,16 @@ class ArxivPDFProvider:
     atom = '{http://www.w3.org/2005/Atom}'
     arxiv = '{http://arxiv.org/schemas/atom}'
 
-    def __init__(self, client=None, config=DEFAULT_PDF):
-        self.client = client or HttpClient()
+    def __init__(self, client, config=DEFAULT_PDF):
+        self.client = client
         self.config = config
-        self.last_request = None
+        self.pacer = RequestPacer(config.arxiv_request_interval)
 
     def find(self, paper):
         identifiers = arxiv_ids(paper)
         search = not identifiers and self.config.arxiv_title_search and bool(paper.get('title'))
         if not identifiers and not search:
-            return PDFProviderResult(self.name, status='not_applicable')
+            return PDFProviderResult(self.name, status=ProviderStatus.NOT_APPLICABLE)
         result = PDFProviderResult(self.name)
         try:
             self._wait_for_interval()
@@ -392,16 +496,12 @@ class ArxivPDFProvider:
                     continue
                 result.candidates.extend(self._entry_candidates(paper, identifiers, entry, search))
         except (SourceError, ValueError, TypeError) as exc:
-            result.status = 'error'
+            result.status = ProviderStatus.ERROR
             result.errors.append(str(exc))
         return result
 
     def _wait_for_interval(self):
-        if self.last_request is not None:
-            remaining = self.config.arxiv_request_interval - (time.monotonic() - self.last_request)
-            if remaining > 0:
-                time.sleep(remaining)
-        self.last_request = time.monotonic()
+        self.pacer.wait()
 
     def _entry_candidates(self, paper, requested, entry, search=False):
         identifier = arxiv_id(entry.findtext(self.atom + 'id'))
@@ -410,22 +510,33 @@ class ArxivPDFProvider:
         title = ' '.join((entry.findtext(self.atom + 'title') or '').split())
         doi = entry.findtext(self.arxiv + 'doi')
         # A supplied arXiv ID identifies a version even when the journal DOI is absent.
-        bound_paper = dict(paper, records=list(source_records(paper)) + [
-            {'source': 'arxiv', 'source_paper_id': identifier},
-        ])
+        bound_paper = dict(
+            paper,
+            records=[*list(source_records(paper)), {'source': 'arxiv', 'source_paper_id': identifier}],
+        )
         published = entry.findtext(self.atom + 'published') or ''
         authors = [author.findtext(self.atom + 'name') or '' for author in entry.findall(self.atom + 'author')]
-        identity = metadata_identity(paper if search else bound_paper, self.name, identifier, doi, title,
-                                     published[:4], authors)
+        identity = metadata_identity(
+            paper if search else bound_paper, self.name, identifier, doi, title, published[:4], authors
+        )
         candidates = []
         for link in entry.findall(self.atom + 'link'):
             if link.get('type') != 'application/pdf' or not link.get('href'):
                 continue
             candidate = make_candidate(
-                link.get('href'), self.name, identity,
-                {'source_paper_id': identifier, 'metadata_url': self.config.arxiv_url,
-                 'doi': doi, 'metadata_title': title, 'metadata_year': published[:4],
-                 'metadata_authors': authors, 'requested_ids': requested}, 'arXiv API PDF link',
+                link.get('href'),
+                self.name,
+                identity,
+                {
+                    'source_paper_id': identifier,
+                    'metadata_url': self.config.arxiv_url,
+                    'doi': doi,
+                    'metadata_title': title,
+                    'metadata_year': published[:4],
+                    'metadata_authors': authors,
+                    'requested_ids': requested,
+                },
+                'arXiv API PDF link',
             )
             candidate.version_type = 'preprint'
             candidate.provenance[0]['version_type'] = 'preprint'
@@ -446,19 +557,25 @@ class CitationMetadata(HTMLParser):
         content = attributes.get('content')
         if name.startswith('citation_') and content:
             self.values.setdefault(name, []).append(content)
-        aliases = {'dc.title': 'citation_title', 'dc.creator': 'citation_author',
-                   'dc.date': 'citation_date', 'dc.date.issued': 'citation_date',
-                   'prism.doi': 'citation_doi', 'eprints.document_url': 'citation_pdf_url'}
+        aliases = {
+            'dc.title': 'citation_title',
+            'dc.creator': 'citation_author',
+            'dc.date': 'citation_date',
+            'dc.date.issued': 'citation_date',
+            'prism.doi': 'citation_doi',
+            'eprints.document_url': 'citation_pdf_url',
+        }
         if name in aliases and content:
             self.values.setdefault(aliases[name], []).append(content)
 
 
 class LandingPagePDFProvider:
     """Read explicit scholarly citation_pdf_url, never arbitrary page hyperlinks."""
+
     name = 'landing_page'
 
-    def __init__(self, client=None, config=DEFAULT_PDF):
-        self.client = client or HttpClient()
+    def __init__(self, client, config=DEFAULT_PDF):
+        self.client = client
         self.config = config
 
     def find(self, paper):
@@ -466,19 +583,19 @@ class LandingPagePDFProvider:
         pages = self._pages(paper)
         urls = list(pages)
         if not urls:
-            result.status = 'not_applicable'
+            result.status = ProviderStatus.NOT_APPLICABLE
             return result
         for url in urls:
             try:
                 result.candidates.extend(self._lookup(paper, url, pages[url]))
             except (SourceError, ValueError, TypeError) as exc:
-                result.errors.append('{}: {}'.format(url, exc))
+                result.errors.append(f'{url}: {exc}')
         if result.errors:
-            result.status = 'partial' if len(result.errors) < len(urls) else 'error'
+            result.status = ProviderStatus.PARTIAL if len(result.errors) < len(urls) else ProviderStatus.ERROR
         return result
 
     def _pages(self, paper):
-        pages = {}
+        pages: dict[str, Any] = {}
         for record in source_records(paper):
             if record.get('paper_url'):
                 pages.setdefault(record['paper_url'], [])
@@ -492,19 +609,20 @@ class LandingPagePDFProvider:
         return pages
 
     def _lookup(self, paper, url, bindings):
-        response = self.client.probe(url, self.config.preview_bytes,
-                                     self.config.html_metadata_bytes, self.config.maximum_redirects)
+        response = self.client.probe(
+            url, self.config.preview_bytes, self.config.html_metadata_bytes, self.config.maximum_redirects
+        )
         return self._response_candidates(paper, response, bindings)
 
     def _response_candidates(self, paper, response, bindings):
         if not 200 <= response.status < 300:
-            raise SourceError('Landing page HTTP {}'.format(response.status))
+            raise SourceError(f'Landing page HTTP {response.status}')
         if response.content_type not in ('text/html', 'application/xhtml+xml'):
             if response.prefix.lstrip().startswith(b'%PDF-'):
                 return self._direct_pdf(paper, response, bindings)
             return []
         parser = CitationMetadata()
-        parser.feed(response.prefix.decode('utf-8', errors='replace'))
+        parser.feed(decode_response(response))
         values = parser.values
         pdf_urls = values.get('citation_pdf_url', [])
         if not pdf_urls:
@@ -513,20 +631,30 @@ class LandingPagePDFProvider:
         doi = self._single(values, 'citation_doi')
         date = self._single(values, 'citation_publication_date') or self._single(values, 'citation_date')
         year = date[:4] if date and date[:4].isdigit() else None
-        identity = metadata_identity(paper, self.name, doi=doi, title=title, year=year,
-                                     authors=values.get('citation_author'))
+        identity = metadata_identity(
+            paper, self.name, doi=doi, title=title, year=year, authors=values.get('citation_author')
+        )
         for key in ('citation_title', 'citation_doi'):
             if len(set(values.get(key, []))) > 1:
-                identity = ('unverified', ['Landing page contains multiple paper identities'])
+                identity = (IdentityStatus.UNVERIFIED, ['Landing page contains multiple paper identities'])
         candidates = []
         for pdf_url in pdf_urls:
-            candidates.append(make_candidate(
-                urljoin(response.url, pdf_url), self.name, identity,
-                {'metadata_url': response.url, 'doi': doi, 'title': title,
-                 'metadata_year': year, 'metadata_authors': values.get('citation_author', []),
-                 'metadata_bytes_read': len(response.prefix)},
-                'Public scholarly page explicitly supplies citation_pdf_url',
-            ))
+            candidates.append(
+                make_candidate(
+                    urljoin(response.url, pdf_url),
+                    self.name,
+                    identity,
+                    {
+                        'metadata_url': response.url,
+                        'doi': doi,
+                        'title': title,
+                        'metadata_year': year,
+                        'metadata_authors': values.get('citation_author', []),
+                        'metadata_bytes_read': len(response.prefix),
+                    },
+                    'Public scholarly page explicitly supplies citation_pdf_url',
+                )
+            )
         return candidates
 
     def _direct_pdf(self, paper, response, bindings):
@@ -534,14 +662,20 @@ class LandingPagePDFProvider:
         for binding in bindings:
             if binding.get('is_oa') is not True:
                 continue
-            identity = metadata_identity(paper, binding['database'], binding.get('source_paper_id'),
-                                         binding.get('doi'), binding.get('title'))
-            candidates.append(make_candidate(
-                response.url, self.name, identity,
-                dict(binding, metadata_url=binding['landing_page_url']),
-                'OpenAlex OA landing location returned an actual PDF signature',
-                binding.get('version'), binding.get('license'),
-            ))
+            identity = metadata_identity(
+                paper, binding['database'], binding.get('source_paper_id'), binding.get('doi'), binding.get('title')
+            )
+            candidates.append(
+                make_candidate(
+                    response.url,
+                    self.name,
+                    identity,
+                    dict(binding, metadata_url=binding['landing_page_url']),
+                    'OpenAlex OA landing location returned an actual PDF signature',
+                    binding.get('version'),
+                    binding.get('license'),
+                )
+            )
         return candidates
 
     def _single(self, values, key):

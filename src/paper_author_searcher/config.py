@@ -1,6 +1,8 @@
 """Injectable defaults; matching policy is independent of source adapters."""
+
 from dataclasses import dataclass
-from typing import Optional, Tuple
+
+from .status import StrEnum
 
 
 @dataclass(frozen=True)
@@ -9,7 +11,7 @@ class MatchingConfig:
     shared_school: float = 0.95
     matched_school: float = 0.8
     resolved_confidence: float = 0.8
-    ambiguity_margin: float = 0.10
+    ambiguity_margin: float = 0.03  # calibrated 2026-10-18: holdout coverage 33% -> 45%, purity 100%
     review_cap: float = 0.69
     confidence_cap: float = 0.99
     confidence_precision: int = 3
@@ -31,13 +33,30 @@ class MatchingConfig:
     doi_coverage_bonus: float = 0.04
     doi_coverage_target: int = 10
     contextual_link_bonus: float = 0.01
-    school_stop_words: Tuple[str, ...] = (
-        "university", "of", "the", "at", "universite", "universität",
+    # Independent identity anchors (caller-supplied ORCID or papers the person is known to have written).
+    anchor_bonus: float = 0.15
+    orcid_conflict_penalty: float = 0.30
+    # Optional LLM adjudication of close contests is accepted only at or above this stated confidence.
+    adjudication_minimum_confidence: float = 0.8
+    # Same-source split profiles (one person indexed under several IDs) merge only on strong shared context.
+    merge_split_profiles: bool = True
+    split_profile_coauthors: int = 5
+    split_profile_topics: int = 2
+    # Size-aware guard: shared coauthors / the smaller coauthor list. Five shared names mean little between two
+    # profiles with hundreds of collaborators each (large consortia); 0 disables the guard.
+    split_profile_coauthor_overlap: float = 0.1
+    school_stop_words: tuple[str, ...] = (
+        'university',
+        'of',
+        'the',
+        'at',
+        'universite',
+        'universität',
     )
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         if self.doi_coverage_target <= 0:
-            raise ValueError("doi_coverage_target must be positive")
+            raise ValueError('doi_coverage_target must be positive')
 
 
 @dataclass(frozen=True)
@@ -48,41 +67,88 @@ class HttpConfig:
     html_preview_bytes: int = 1000
     maximum_retry_delay: float = 5
     retry_backoff_base: float = 2
-    retry_statuses: Tuple[int, ...] = (429, 500, 502, 503, 504)
-    user_agent: str = "paper-author-searcher/0.1"
+    retry_statuses: tuple[int, ...] = (429, 500, 502, 503, 504)
+    user_agent: str = 'paper-author-searcher/0.1'
 
 
 @dataclass(frozen=True)
 class SourceConfig:
-    openalex_url: str = "https://api.openalex.org"
-    semantic_scholar_url: str = "https://api.semanticscholar.org/graph/v1"
-    dblp_url: str = "https://dblp.org"
+    openalex_url: str = 'https://api.openalex.org'
+    semantic_scholar_url: str = 'https://api.semanticscholar.org/graph/v1'
+    dblp_url: str = 'https://dblp.org'
     author_limit: int = 25
     dblp_author_limit: int = 10
     enrichment_limit: int = 8
     works_limit: int = 50
+    # Name-only search returns the 25 most prominent namesakes; for common names the target is often absent.
+    institution_scoped_search: bool = True
+    institution_limit: int = 2
+    # Enabled identity sources, in order (names registered in source_catalog.IDENTITY_SOURCES).
+    identity_sources: tuple[str, ...] = ('openalex', 'semantic_scholar', 'dblp')
+
+
+@dataclass(frozen=True)
+class AnchorConfig:
+    """Limits for turning caller hints (ORCID, homepage, known papers) into author-ID anchors."""
+
+    maximum_anchor_papers: int = 15
+    homepage_bytes: int = 2_000_000
+    maximum_redirects: int = 5
+    title_search_results: int = 3
 
 
 DEFAULT_MATCHING = MatchingConfig()
+DEFAULT_ANCHORS = AnchorConfig()
 DEFAULT_HTTP = HttpConfig()
 DEFAULT_SOURCES = SourceConfig()
+
+
+class AmbiguityPolicy(StrEnum):
+    STOP = 'stop'
+    COLLECT_CONTENDERS = 'collect_contenders'
+
+
+AMBIGUITY_POLICIES = AmbiguityPolicy.values()
+
+
+class RawMetadataPolicy(StrEnum):
+    FULL = 'full'  # everything the source returned (audit, reanalysis)
+    MINIMAL = 'minimal'  # only fields later stages read
+    NONE = 'none'
 
 
 @dataclass(frozen=True)
 class CollectionConfig:
     openalex_page_size: int = 100
     semantic_scholar_page_size: int = 100
-    maximum_pages: Optional[int] = None
+    maximum_pages: int | None = None
     semantic_scholar_author_identity: bool = True
     expand_truncated_openalex_authors: bool = True
+    # "stop": an unconfirmed identity halts collection. "collect_contenders": collect the close, school-compatible
+    # contenders instead; nothing they yield can be verified, it is all routed to review.
+    ambiguity_policy: str = 'stop'
+    maximum_contenders: int = 3
+    # Author IDs of one source paged at once (a merged profile can hold many IDs per source). Semantic Scholar
+    # and DBLP keep to one: their unpaced listing APIs answer bursts with 429s. Unlisted sources get one.
+    source_concurrency: tuple[tuple[str, int], ...] = (('openalex', 4), ('semantic_scholar', 1), ('dblp', 1))
+    # How much of each raw API payload papers.json keeps (see raw_metadata.py).
+    raw_metadata: str = RawMetadataPolicy.FULL
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
+        if self.ambiguity_policy not in AMBIGUITY_POLICIES:
+            raise ValueError(f'ambiguity_policy must be one of {AMBIGUITY_POLICIES}')
+        if self.maximum_contenders < 1:
+            raise ValueError('maximum_contenders must be positive')
+        if self.raw_metadata not in RawMetadataPolicy.values():
+            raise ValueError(f'raw_metadata must be one of {RawMetadataPolicy.values()}')
+        if any(limit < 1 for _, limit in self.source_concurrency):
+            raise ValueError('source_concurrency limits must be positive')
         if not 1 <= self.openalex_page_size <= 200:
-            raise ValueError("openalex_page_size must be between 1 and 200")
+            raise ValueError('openalex_page_size must be between 1 and 200')
         if not 1 <= self.semantic_scholar_page_size <= 1000:
-            raise ValueError("semantic_scholar_page_size must be between 1 and 1000")
+            raise ValueError('semantic_scholar_page_size must be between 1 and 1000')
         if self.maximum_pages is not None and self.maximum_pages < 1:
-            raise ValueError("maximum_pages must be positive or None")
+            raise ValueError('maximum_pages must be positive or None')
 
 
 DEFAULT_COLLECTION = CollectionConfig()
@@ -97,13 +163,22 @@ class OwnershipConfig:
     minimum_known_coauthors: int = 2
     institution_similarity: float = 0.95
     maximum_coauthor_authors: int = 50
-    paper_orcid_scopes: Tuple[str, ...] = ('paper_authorship',)
-    nonstandard_types: Tuple[str, ...] = (
-        'proceedings', 'peer_review', 'paratext', 'supplementary_materials',
-        'reference_entry', 'editorial',
+    paper_orcid_scopes: tuple[str, ...] = ('paper_authorship',)
+    # Copied from the source's author profile onto every paper of that author ID: no per-paper evidence.
+    author_level_orcid_scopes: tuple[str, ...] = ('resolved_author', 'author_profile')
+    nonstandard_types: tuple[str, ...] = (
+        'proceedings',
+        'peer_review',
+        'paratext',
+        'supplementary_materials',
+        'reference_entry',
+        'editorial',
     )
-    nonstandard_title_prefixes: Tuple[str, ...] = (
-        'peer review', 'reviewer report', 'decision letter', 'author response',
+    nonstandard_title_prefixes: tuple[str, ...] = (
+        'peer review',
+        'reviewer report',
+        'decision letter',
+        'author response',
         'proceedings of',
     )
 
@@ -123,9 +198,7 @@ DEFAULT_DEDUPLICATION = DeduplicationConfig()
 @dataclass(frozen=True)
 class PDFConfig:
     unpaywall_url: str = 'https://api.unpaywall.org/v2'
-    unpaywall_email_environment: str = 'UNPAYWALL_EMAIL'
     crossref_url: str = 'https://api.crossref.org'
-    crossref_email_environment: str = 'CROSSREF_MAILTO'
     crossref_search_results: int = 5
     semantic_scholar_batch_size: int = 100
     semantic_scholar_request_interval: float = 1.0
@@ -149,15 +222,36 @@ class PDFConfig:
     public_page_cache_bytes: int = 8 * 1024 * 1024
     source_maximum_cooldown: float = 900.0
     redirect_failure_budget: int = 3
-    bibliography_urls: Tuple[str, ...] = ()
-    journal_catalogs: Tuple[Tuple[str, str], ...] = (
+    # Papers resolved concurrently; each source still paces its own hosts.
+    lookup_workers: int = 4
+    # Full collected records live in papers.json; reports keep a bibliographic view plus entry_index.
+    # True embeds the full record (self-contained but duplicated) in the PDF report and manifest.
+    embed_full_metadata: bool = False
+    # Enabled PDF sources, in lookup order (names registered in source_catalog.PDF_SOURCES). Later sources
+    # see the landing pages earlier ones found.
+    sources: tuple[str, ...] = (
+        'existing_metadata',
+        'openalex',
+        'semantic_scholar',
+        'crossref',
+        'unpaywall',
+        'arxiv',
+        'journal_catalog',
+        'public_pages',
+    )
+    bibliography_urls: tuple[str, ...] = ()
+    journal_catalogs: tuple[tuple[str, str], ...] = (
         ('Journal of Machine Learning Research', 'https://jmlr.org/papers/'),
     )
-    version_preference: Tuple[str, ...] = (
-        'published_version', 'accepted_manuscript', 'preprint', 'submitted_manuscript', 'unknown',
+    version_preference: tuple[str, ...] = (
+        'published_version',
+        'accepted_manuscript',
+        'preprint',
+        'submitted_manuscript',
+        'unknown',
     )
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         if self.preview_bytes < 5 or self.html_metadata_bytes < self.preview_bytes:
             raise ValueError('PDF preview must fit the signature and HTML limit must cover the preview')
         if self.maximum_redirects < 0 or self.arxiv_request_interval < 0:
@@ -168,15 +262,32 @@ class PDFConfig:
             raise ValueError('Semantic Scholar batch size must be between 1 and 500')
         if self.semantic_scholar_request_interval < 0 or self.semantic_scholar_cooldown < 0:
             raise ValueError('Semantic Scholar request intervals must be nonnegative')
-        if min(self.crossref_search_results, self.semantic_scholar_search_results,
-               self.linked_page_limit, self.public_page_cache_entries, self.redirect_failure_budget) < 1:
+        if (
+            min(
+                self.crossref_search_results,
+                self.semantic_scholar_search_results,
+                self.linked_page_limit,
+                self.public_page_cache_entries,
+                self.redirect_failure_budget,
+            )
+            < 1
+        ):
             raise ValueError('Discovery and cache limits must be positive')
+        if self.lookup_workers < 1:
+            raise ValueError('lookup_workers must be positive')
         if self.public_page_maximum_bytes < self.html_metadata_bytes:
             raise ValueError('Public page maximum must cover the initial metadata preview')
         if self.public_page_cache_bytes < self.public_page_maximum_bytes:
             raise ValueError('Page cache must accommodate at least one maximum-size response')
-        if min(self.public_page_request_interval, self.public_page_cooldown,
-               self.public_page_cache_seconds, self.source_maximum_cooldown) < 0:
+        if (
+            min(
+                self.public_page_request_interval,
+                self.public_page_cooldown,
+                self.public_page_cache_seconds,
+                self.source_maximum_cooldown,
+            )
+            < 0
+        ):
             raise ValueError('Scheduling and cache intervals must be nonnegative')
 
 
@@ -189,7 +300,7 @@ class DownloadConfig:
     chunk_bytes: int = 64 * 1024
     maximum_transfer_seconds: float = 300
     maximum_redirects: int = DEFAULT_PDF.maximum_redirects
-    allowed_ports: Tuple[int, ...] = (80, 443)
+    allowed_ports: tuple[int, ...] = (80, 443)
     filename_bytes: int = 180
     filename_hash_characters: int = 16
     parser_timeout: float = 30
@@ -204,7 +315,7 @@ class DownloadConfig:
     poster_minimum_edge_points: float = 1000
     slide_minimum_aspect_ratio: float = 1.2
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         if self.maximum_file_bytes < 1024 or self.chunk_bytes < 1024:
             raise ValueError('Download and chunk limits must be at least 1024 bytes')
         if self.filename_bytes < 64 or not 8 <= self.filename_hash_characters <= 64:
@@ -213,12 +324,36 @@ class DownloadConfig:
             raise ValueError('Redirect and port policy is invalid')
         if any(not 1 <= port <= 65535 for port in self.allowed_ports):
             raise ValueError('Invalid allowed port')
-        limits = (self.maximum_transfer_seconds, self.parser_timeout, self.parser_memory_bytes, self.maximum_pages,
-                  self.maximum_page_content_bytes, self.identity_pages, self.title_lines,
-                  self.maximum_extracted_characters, self.minimum_title_words_without_doi,
-                  self.footer_scan_bytes, self.poster_minimum_edge_points, self.slide_minimum_aspect_ratio)
+        limits = (
+            self.maximum_transfer_seconds,
+            self.parser_timeout,
+            self.parser_memory_bytes,
+            self.maximum_pages,
+            self.maximum_page_content_bytes,
+            self.identity_pages,
+            self.title_lines,
+            self.maximum_extracted_characters,
+            self.minimum_title_words_without_doi,
+            self.footer_scan_bytes,
+            self.poster_minimum_edge_points,
+            self.slide_minimum_aspect_ratio,
+        )
         if any(limit <= 0 for limit in limits):
             raise ValueError('Parsing limits must be positive')
 
 
 DEFAULT_DOWNLOAD = DownloadConfig()
+
+
+@dataclass(frozen=True)
+class StorageConfig:
+    """How run artifacts are written."""
+
+    # papers.json, pdf_urls.json, professor.json and the manifest are machine-read: write them without
+    # indentation. report.json stays indented for people.
+    compact_artifacts: bool = True
+    # Share repeated strings when loading checkpoints: ~1/3 less memory, ~1.6x load time.
+    intern_strings: bool = False
+
+
+DEFAULT_STORAGE = StorageConfig()

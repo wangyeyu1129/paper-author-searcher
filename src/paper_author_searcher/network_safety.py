@@ -1,9 +1,13 @@
 """DNS-checked, pinned public connections with normal TLS hostname verification."""
+
 import ipaddress
 import socket
 from http.client import HTTPConnection, HTTPSConnection
 from urllib.parse import urlsplit
 from urllib.request import HTTPHandler, HTTPSHandler, ProxyHandler, build_opener
+
+# urllib's sentinel meaning "use the socket module's global default timeout".
+DEFAULT_SOCKET_TIMEOUT = getattr(socket, '_GLOBAL_DEFAULT_TIMEOUT', None)
 
 
 def is_public_address(value):
@@ -17,9 +21,7 @@ def is_public_address(value):
     if translated is not None and not is_public_address(str(translated)):
         return False
     teredo = getattr(address, 'teredo', None)
-    if teredo is not None and not all(is_public_address(str(endpoint)) for endpoint in teredo):
-        return False
-    return True
+    return not (teredo is not None and not all(is_public_address(str(endpoint)) for endpoint in teredo))
 
 
 def public_addresses(url, allowed_ports):
@@ -40,18 +42,19 @@ def pinned_connection(connection_type, addresses):
     def create_connection(host, **kwargs):
         connection = connection_type(host, **kwargs)
 
-        def connect_address(destination, timeout=socket._GLOBAL_DEFAULT_TIMEOUT, source_address=None):
+        def connect_address(destination, timeout=DEFAULT_SOCKET_TIMEOUT, source_address=None):
             last_error = None
             for address in addresses:
                 try:
                     return socket.create_connection((address, destination[1]), timeout, source_address)
                 except OSError as exc:
                     last_error = exc
-            raise last_error
+            raise last_error or OSError('No public address available for ' + str(destination[0]))
 
         # HTTPConnection still sends the original Host; HTTPSConnection retains its SNI/TLS checks.
         connection._create_connection = connect_address
         return connection
+
     return create_connection
 
 
@@ -72,11 +75,16 @@ class PublicHTTPSHandler(HTTPSHandler):
 
     def https_open(self, request):
         addresses = public_addresses(request.full_url, self.allowed_ports)
-        return self.do_open(pinned_connection(HTTPSConnection, addresses), request,
-                            context=self._context, check_hostname=self._check_hostname)
+        return self.do_open(
+            pinned_connection(HTTPSConnection, addresses),
+            request,
+            context=getattr(self, '_context', None),
+            check_hostname=getattr(self, '_check_hostname', None),
+        )
 
 
 def secure_download_opener(redirect_handler, allowed_ports):
     # Environmental proxies would resolve/tunnel destinations outside the checked connection path.
-    return build_opener(ProxyHandler({}), PublicHTTPHandler(allowed_ports),
-                        PublicHTTPSHandler(allowed_ports), redirect_handler)
+    return build_opener(
+        ProxyHandler({}), PublicHTTPHandler(allowed_ports), PublicHTTPSHandler(allowed_ports), redirect_handler
+    )

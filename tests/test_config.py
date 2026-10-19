@@ -1,23 +1,28 @@
 """Configuration injection must change policy without source-code edits."""
+
 import unittest
 from dataclasses import replace
 from unittest.mock import patch
 
 from paper_author_searcher import AuthorCandidate, ProfessorQuery, ProfessorResolver
-from paper_author_searcher.config import MatchingConfig, SourceConfig, HttpConfig
-from paper_author_searcher.identity import linked
+from paper_author_searcher.composition import ServiceContainer
+from paper_author_searcher.config import HttpConfig, MatchingConfig, SourceConfig
 from paper_author_searcher.http import HttpClient, SourceError
-from paper_author_searcher.providers import OpenAlexProvider, SemanticScholarProvider, DBLPProvider
-from test_resolver import Provider
-from test_providers import Client
+from paper_author_searcher.identity import linked
+from paper_author_searcher.providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
+from paper_author_searcher.settings import Settings
 from test_http import Response
+from test_providers import Client
+from test_resolver import Provider
 
 
 class ConfigurationTests(unittest.TestCase):
     def test_resolver_uses_injected_threshold(self):
-        provider = Provider([
-            AuthorCandidate('custom', '1', 'Jane Smith', ['Example University']),
-        ])
+        provider = Provider(
+            [
+                AuthorCandidate('custom', '1', 'Jane Smith', ['Example University']),
+            ]
+        )
         query = ProfessorQuery('Jane Smith', 'Example University')
         strict = replace(MatchingConfig(), resolved_confidence=0.95)
         default_result = ProfessorResolver([provider]).resolve(query)
@@ -57,11 +62,13 @@ class ConfigurationTests(unittest.TestCase):
     def test_http_response_limit_is_injectable(self):
         config = replace(HttpConfig(), response_limit=2)
         response = Response(b'{"a":1}', 'application/json')
-        with patch('paper_author_searcher.http.urlopen', return_value=response):
+        with patch('paper_author_searcher.http_transport.KeepAliveTransport.open', return_value=response):
             with self.assertRaisesRegex(SourceError, 'size limit'):
                 HttpClient(config=config).get('https://example.test')
 
-    def test_default_providers_share_resolver_matching_policy(self):
+    def test_composed_providers_share_resolver_matching_policy(self):
         config = replace(MatchingConfig(), compatible_name=0.95)
-        resolver = ProfessorResolver(config=config)
+        resolver = ServiceContainer(replace(Settings(), matching=config)).resolver
+        self.assertIs(resolver.config, config)
         self.assertIs(resolver.providers[0].matching_config, config)
+        self.assertIs(resolver.anchor_finder.matching, config)

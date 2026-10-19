@@ -1,14 +1,17 @@
 """Exact work grouping plus explicit links between probable related versions."""
+
+from collections.abc import Sequence
 from dataclasses import asdict
 from itertools import combinations
+from typing import Any
 
-from .config import DEFAULT_DEDUPLICATION
-from .matching import canonical_doi, normalize, name_similarity
-from .models import Paper
+from .config import DEFAULT_DEDUPLICATION, DeduplicationConfig
+from .matching import canonical_doi, name_similarity, normalize
+from .models import Paper, PaperRecord
 from .paper_types import classify_record, publication_form
 
 
-def author_signatures_match(left, right, config=DEFAULT_DEDUPLICATION):
+def author_signatures_match(left: str, right: str, config: DeduplicationConfig = DEFAULT_DEDUPLICATION) -> bool:
     if name_similarity(left, right) >= config.author_similarity:
         return True
     if not config.allow_author_initials:
@@ -24,7 +27,7 @@ def author_signatures_match(left, right, config=DEFAULT_DEDUPLICATION):
     middle_left, middle_right = left_words[1:-1], right_words[1:-1]
     if len(middle_left) != len(middle_right):
         return False
-    for first, second in zip(middle_left, middle_right):
+    for first, second in zip(middle_left, middle_right, strict=True):
         if first == second:
             continue
         if first[0] != second[0] or min(len(first), len(second)) != 1:
@@ -32,7 +35,7 @@ def author_signatures_match(left, right, config=DEFAULT_DEDUPLICATION):
     return True
 
 
-def shared_authors(left, right, config=DEFAULT_DEDUPLICATION):
+def shared_authors(left: PaperRecord, right: PaperRecord, config: DeduplicationConfig = DEFAULT_DEDUPLICATION) -> int:
     used = set()
     count = 0
     for author in left.authors:
@@ -46,7 +49,7 @@ def shared_authors(left, right, config=DEFAULT_DEDUPLICATION):
     return count
 
 
-def _metadata_agrees(left, right, config):
+def _metadata_agrees(left: PaperRecord, right: PaperRecord, config: DeduplicationConfig) -> bool:
     if not left.title or normalize(left.title) != normalize(right.title):
         return False
     if left.year is None or left.year != right.year:
@@ -58,7 +61,7 @@ def _metadata_agrees(left, right, config):
     return count / total >= config.author_overlap
 
 
-def _stable_ids(record):
+def _stable_ids(record: PaperRecord) -> set[tuple[str, str]]:
     ids = set()
     if record.source_paper_id:
         ids.add(('source:' + record.source, record.source_paper_id))
@@ -72,7 +75,9 @@ def _stable_ids(record):
     return ids
 
 
-def duplicate_evidence(left, right, config=DEFAULT_DEDUPLICATION):
+def duplicate_evidence(
+    left: PaperRecord, right: PaperRecord, config: DeduplicationConfig = DEFAULT_DEDUPLICATION
+) -> list[str]:
     shared = _stable_ids(left) & _stable_ids(right)
     conflicting_dois = left.doi and right.doi and canonical_doi(left.doi) != canonical_doi(right.doi)
     if conflicting_dois:
@@ -87,20 +92,23 @@ def duplicate_evidence(left, right, config=DEFAULT_DEDUPLICATION):
     left_form, right_form = publication_form(left), publication_form(right)
     if left_form != 'unknown' and right_form != 'unknown' and left_form != right_form:
         return []
-    if left.venue and right.venue:
-        if normalize(left.venue) != normalize(right.venue):
-            return []
+    if left.venue and right.venue and normalize(left.venue) != normalize(right.venue):
+        return []
     if not left.venue and not right.venue:
         return []
     return ['Matching normalized title, year, compatible authors and publication metadata']
 
 
-def deduplicate_papers(records, config=DEFAULT_DEDUPLICATION):
-    groups = []
-    index = {}
+def deduplicate_papers(
+    records: Sequence[PaperRecord], config: DeduplicationConfig = DEFAULT_DEDUPLICATION
+) -> list[Paper]:
+    groups: list[list[PaperRecord]] = []
+    # Evidence of every pair in a group, gathered while deciding joins (each pair is compared exactly once).
+    group_evidence: list[set[str]] = []
+    index: dict[tuple[Any, ...], set[int]] = {}
     for record in records:
         classify_record(record)
-        keys = list(_stable_ids(record))
+        keys: list[tuple[Any, ...]] = list(_stable_ids(record))
         if record.title:
             keys.append(('title-year', normalize(record.title), record.year))
         candidates = set()
@@ -108,33 +116,36 @@ def deduplicate_papers(records, config=DEFAULT_DEDUPLICATION):
             candidates.update(index.get(key, set()))
         selected = None
         for group_index in sorted(candidates):
-            if all(duplicate_evidence(record, other, config) for other in groups[group_index]):
+            found = _evidence_with_every_member(record, groups[group_index], config)
+            if found is not None:
                 selected = group_index
+                group_evidence[group_index].update(found)
                 break
         if selected is None:
             selected = len(groups)
             groups.append([])
+            group_evidence.append(set())
         groups[selected].append(record)
         for key in keys:
             index.setdefault(key, set()).add(selected)
     papers = []
-    for group in groups:
+    for group, evidence in zip(groups, group_evidence, strict=True):
         values = asdict(group[0])
-        evidence = set()
-        for left, right in combinations(group, 2):
-            evidence.update(duplicate_evidence(left, right, config))
         for record in group[1:]:
-            for key in ('doi', 'abstract', 'venue', 'paper_url', 'year'):
-                if not values[key]:
-                    values[key] = getattr(record, key)
+            for name in ('doi', 'abstract', 'venue', 'paper_url', 'year'):
+                if not values[name]:
+                    values[name] = getattr(record, name)
         if values['doi']:
-            values['doi'] = canonical_doi(values['doi'])[len('doi:'):]
+            values['doi'] = canonical_doi(values['doi'])[len('doi:') :]
         values.update(_combine_authorship_metadata(group))
         categories = {record.paper_type for record in group} - {'unknown'}
-        values['type_evidence'] = sorted({
-            '{}:{}: {}'.format(record.source, record.source_paper_id, message)
-            for record in group for message in record.type_evidence
-        })
+        values['type_evidence'] = sorted(
+            {
+                f'{record.source}:{record.source_paper_id}: {message}'
+                for record in group
+                for message in record.type_evidence
+            }
+        )
         if categories == {'research_paper', 'review'}:
             values['paper_type'] = 'review'
         elif len(categories) == 1:
@@ -147,18 +158,35 @@ def deduplicate_papers(records, config=DEFAULT_DEDUPLICATION):
     return papers
 
 
-def _combine_authorship_metadata(group):
+def _evidence_with_every_member(
+    record: PaperRecord, group: Sequence[PaperRecord], config: DeduplicationConfig
+) -> set[str] | None:
+    """Complete link: the union of duplicate evidence with each member, or ``None`` if any member is not one."""
+    found: set[str] = set()
+    for other in group:
+        evidence = duplicate_evidence(record, other, config)
+        if not evidence:
+            return None
+        found.update(evidence)
+    return found
+
+
+def _combine_authorship_metadata(group: Sequence[PaperRecord]) -> dict[str, Any]:
     details = []
     source_ids = []
-    external_values = {}
+    external_values: dict[str, Any] = {}
     errors = set()
     for record in group:
-        source_ids.append({
-            'source': record.source, 'paper_id': record.source_paper_id,
-            'author_id': record.source_author_id, 'external_ids': dict(record.external_ids),
-            'target_author_present': record.target_author_present,
-            'authors_complete': record.authors_complete,
-        })
+        source_ids.append(
+            {
+                'source': record.source,
+                'paper_id': record.source_paper_id,
+                'author_id': record.source_author_id,
+                'external_ids': dict(record.external_ids),
+                'target_author_present': record.target_author_present,
+                'authors_complete': record.authors_complete,
+            }
+        )
         for author in record.author_details:
             values = dict(author)
             values['source'] = record.source
@@ -183,15 +211,17 @@ def _combine_authorship_metadata(group):
     elif any(record.authors_complete is False for record in group):
         completeness = False
     return {
-        'author_details': details, 'external_ids': external_ids,
-        'target_author_present': present, 'source_identifiers': source_ids,
+        'author_details': details,
+        'external_ids': external_ids,
+        'target_author_present': present,
+        'source_identifiers': source_ids,
         'authors_complete': completeness,
         'metadata_errors': sorted(errors),
     }
 
 
-def _link_related_versions(papers, config):
-    titles = {}
+def _link_related_versions(papers: list[Paper], config: DeduplicationConfig) -> None:
+    titles: dict[str, Any] = {}
     for paper in papers:
         titles.setdefault(normalize(paper.title), []).append(paper)
     for candidates in titles.values():
@@ -203,11 +233,18 @@ def _link_related_versions(papers, config):
             if count / total < config.author_overlap:
                 continue
             # Related research is not proof that these are the same publication/version.
-            reason = 'Possible related version: same normalized title and compatible authors; identity of the research is unconfirmed'
+            reason = (
+                'Possible related version: same normalized title and compatible authors; '
+                'identity of the research is unconfirmed'
+            )
             for paper, related in ((left, right), (right, left)):
                 identifiers = []
                 for record in related.records:
-                    identifiers.append({
-                        'source': record.source, 'paper_id': record.source_paper_id, 'doi': record.doi,
-                    })
+                    identifiers.append(
+                        {
+                            'source': record.source,
+                            'paper_id': record.source_paper_id,
+                            'doi': record.doi,
+                        }
+                    )
                 paper.related_versions.append({'identifiers': identifiers, 'evidence': reason})

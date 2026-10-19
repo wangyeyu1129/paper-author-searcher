@@ -1,61 +1,106 @@
 """Synthetic annotations exercise the workflow, never label real professors."""
-import json
-import io
+
 import csv
+import io
+import json
 import tempfile
 import unittest
+from contextlib import redirect_stderr, redirect_stdout
 from copy import deepcopy
-from contextlib import redirect_stdout, redirect_stderr
 from pathlib import Path
 
 from scripts.ground_truth.build_candidates import build_candidates
-from scripts.ground_truth.export_truth import export_truth
-from scripts.ground_truth.evaluate_pilot import evaluate_pilot, prepare_audit, match_publication
-from scripts.ground_truth.pilot_review import select_pilot, relationship_suggestions, prepare_review
-from paper_author_searcher.evaluation_matching import GroundTruth, GroundTruthMatcher
-from paper_author_searcher.evaluation_cli import main as evaluation_main
-from paper_author_searcher.performance_evaluation import PerformanceEvaluator
-from scripts.ground_truth.export_truth import main as export_main
+from scripts.ground_truth.evaluate_pilot import evaluate_pilot, match_publication, prepare_audit
 from scripts.ground_truth.evaluate_pilot import main as pilot_main
+from scripts.ground_truth.export_truth import export_truth
+from scripts.ground_truth.export_truth import main as export_main
+from scripts.ground_truth.pilot_review import prepare_review, relationship_suggestions, select_pilot
+
+from paper_author_searcher.evaluation_cli import main as evaluation_main
+from paper_author_searcher.evaluation_matching import GroundTruth, GroundTruthMatcher
+from paper_author_searcher.performance_evaluation import PerformanceEvaluator
 
 
 def dataset(count=1):
-    scope = {'dataset_id': 'synthetic_pilot', 'year_start': 2020, 'year_end': 2022,
-             'professors': [{'professor_id': 'test_professor', 'name': 'Pat Researcher', 'university': 'Test University',
-                             'bibliography_url': 'https://university.example.edu/publications',
-                             'dblp_reference_url': 'https://index.example.edu/person', 'identity_risks': []}],
-             'core_publication_types': ['conference_paper', 'journal_article', 'review'],
-             'extended_publication_types': ['preprint', 'workshop_paper', 'book_chapter'],
-             'excluded_publication_types': ['poster', 'slides', 'other']}
+    scope = {
+        'dataset_id': 'synthetic_pilot',
+        'year_start': 2020,
+        'year_end': 2022,
+        'professors': [
+            {
+                'professor_id': 'test_professor',
+                'name': 'Pat Researcher',
+                'university': 'Test University',
+                'bibliography_url': 'https://university.example.edu/publications',
+                'dblp_reference_url': 'https://index.example.edu/person',
+                'identity_risks': [],
+            }
+        ],
+        'core_publication_types': ['conference_paper', 'journal_article', 'review'],
+        'extended_publication_types': ['preprint', 'workshop_paper', 'book_chapter'],
+        'excluded_publication_types': ['poster', 'slides', 'other'],
+    }
     records = []
     for number in range(count):
-        records.append({'reference_id': 'reference{}'.format(number), 'professor_id': 'test_professor',
-                        'source_id': 'independent_directory', 'source_url': 'https://university.example.edu/publications',
-                        'collection_method': 'independent_public_bibliography',
-                        'metadata': {'title': 'Reliable research {}'.format(number), 'authors': ['Pat Researcher', 'Sam Scientist'],
-                                     'year': 2021, 'doi': '10.1234/research{}'.format(number),
-                                     'venue': 'Test Conference', 'publication_type': 'conference_paper'},
-                        'extra': {'publication_identity_url': 'https://publisher.example.edu/record/{}'.format(number)}})
+        records.append(
+            {
+                'reference_id': f'reference{number}',
+                'professor_id': 'test_professor',
+                'source_id': 'independent_directory',
+                'source_url': 'https://university.example.edu/publications',
+                'collection_method': 'independent_public_bibliography',
+                'metadata': {
+                    'title': f'Reliable research {number}',
+                    'authors': ['Pat Researcher', 'Sam Scientist'],
+                    'year': 2021,
+                    'doi': f'10.1234/research{number}',
+                    'venue': 'Test Conference',
+                    'publication_type': 'conference_paper',
+                },
+                'extra': {'publication_identity_url': f'https://publisher.example.edu/record/{number}'},
+            }
+        )
     return build_candidates(scope, {'source_scope': 'independent_official_references', 'records': records})
 
 
 def review_rows(value):
     rows = []
     for number, paper in enumerate(value['papers']):
-        rows.append({'candidate_id': paper['candidate_id'], 'professor_id': paper['professor_id'], 'title': paper['title'],
-                     'authors_json': json.dumps(paper['authors']), 'review_status': 'confirmed',
-                     'ownership': 'belongs', 'inclusion_decision': 'include', 'canonical_group_id': 'work{}'.format(number),
-                     'reviewer': 'Synthetic human', 'reviewed_at': '2026-10-11T18:00:00+00:00',
-                     'evidence_urls_json': json.dumps(['https://university.example.edu/publications', 'https://publisher.example.edu/record']),
-                     'identity_checked': 'true', 'metadata_checked': 'true', 'type_checked': 'true', 'version_checked': 'true'})
+        rows.append(
+            {
+                'candidate_id': paper['candidate_id'],
+                'professor_id': paper['professor_id'],
+                'title': paper['title'],
+                'authors_json': json.dumps(paper['authors']),
+                'review_status': 'confirmed',
+                'ownership': 'belongs',
+                'inclusion_decision': 'include',
+                'canonical_group_id': f'work{number}',
+                'reviewer': 'Synthetic human',
+                'reviewed_at': '2026-10-11T18:00:00+00:00',
+                'evidence_urls_json': json.dumps(
+                    ['https://university.example.edu/publications', 'https://publisher.example.edu/record']
+                ),
+                'identity_checked': 'true',
+                'metadata_checked': 'true',
+                'type_checked': 'true',
+                'version_checked': 'true',
+            }
+        )
     return rows
 
 
 def coverage():
-    return {'approved': True, 'reviewer': 'Synthetic human', 'reviewed_at': '2026-10-11T18:00:00+00:00',
-            'evidence_urls': ['https://university.example.edu/publications', 'https://publisher.example.edu/directory'],
-            'sources': [{'source_id': 'independent_directory', 'human_checked': True}],
-            'additional_venue_audit_complete': True, 'identity_conflicts_resolved': True, 'omissions': []}
+    return {
+        'approved': True,
+        'reviewer': 'Synthetic human',
+        'reviewed_at': '2026-10-11T18:00:00+00:00',
+        'evidence_urls': ['https://university.example.edu/publications', 'https://publisher.example.edu/directory'],
+        'sources': [{'source_id': 'independent_directory', 'human_checked': True}],
+        'additional_venue_audit_complete': True,
+        'identity_conflicts_resolved': True,
+        'omissions': [],
+    }
 
 
 def truth(count=1):
@@ -64,7 +109,9 @@ def truth(count=1):
 
 
 def retrieved(paper, status='verified'):
-    return {key: deepcopy(paper.get(key)) for key in ('title', 'authors', 'year', 'doi', 'venue', 'publication_type')}, status
+    return {
+        key: deepcopy(paper.get(key)) for key in ('title', 'authors', 'year', 'doi', 'venue', 'publication_type')
+    }, status
 
 
 def result(value, statuses=None):
@@ -79,10 +126,14 @@ def result(value, statuses=None):
 def annotate_audit(audit, decision='not_belongs'):
     reviewed = deepcopy(audit)
     for index, row in enumerate(reviewed['papers']):
-        row.update(decision=decision, canonical_group_id='negative{}'.format(index), reviewer='Synthetic auditor',
-                   reviewed_at='2026-10-11T19:00:00+00:00',
-                   evidence_urls=['https://publisher.example.edu/record', 'https://university.example.edu/identity'],
-                   notes='Synthetic independent byline and publication-scope check')
+        row.update(
+            decision=decision,
+            canonical_group_id=f'negative{index}',
+            reviewer='Synthetic auditor',
+            reviewed_at='2026-10-11T19:00:00+00:00',
+            evidence_urls=['https://publisher.example.edu/record', 'https://university.example.edu/identity'],
+            notes='Synthetic independent byline and publication-scope check',
+        )
     return reviewed
 
 
@@ -98,7 +149,9 @@ class PilotPreparationTests(unittest.TestCase):
     def test_explicit_preprint_link_supports_changed_title_and_year_without_merge(self):
         papers = deepcopy(dataset(2)['papers'])
         papers[1].update(title='A different preprint title', year=2019, publication_type='preprint')
-        papers[1]['reference_evidence'][0]['extra']['linked_from_reference_ids'] = [papers[0]['reference_evidence'][0]['reference_id']]
+        papers[1]['reference_evidence'][0]['extra']['linked_from_reference_ids'] = [
+            papers[0]['reference_evidence'][0]['reference_id']
+        ]
         suggestions = relationship_suggestions(papers)
         self.assertEqual(suggestions[0]['suggested_relation'], 'possible_preprint_of')
         self.assertEqual(suggestions[0]['review_status'], 'candidate')
@@ -112,15 +165,22 @@ class PilotPreparationTests(unittest.TestCase):
 
     def test_prepare_creates_annotations_and_preserves_snapshot(self):
         value = dataset()
-        inv = {'bibliography_sources': [{'source_id': 'independent_directory',
-                                       'url': 'https://publisher.example.edu/directory', 'fetch_status': 'html_observed'}]}
+        inv = {
+            'bibliography_sources': [
+                {
+                    'source_id': 'independent_directory',
+                    'url': 'https://publisher.example.edu/directory',
+                    'fetch_status': 'html_observed',
+                }
+            ]
+        }
         with tempfile.TemporaryDirectory() as temp:
-            summary = prepare_review(value, 'test_professor', inv, {'possible_omissions': []}, Path(temp)/'pilot')
+            summary = prepare_review(value, 'test_professor', inv, {'possible_omissions': []}, Path(temp) / 'pilot')
             self.assertEqual(summary['candidates'], 1)
-            self.assertTrue((Path(temp)/'pilot/checklist.csv').exists())
-            self.assertFalse(json.loads((Path(temp)/'pilot/coverage_review.template.json').read_text())['approved'])
+            self.assertTrue((Path(temp) / 'pilot/checklist.csv').exists())
+            self.assertFalse(json.loads((Path(temp) / 'pilot/coverage_review.template.json').read_text())['approved'])
             with self.assertRaisesRegex(ValueError, 'overwrite'):
-                prepare_review(value, 'test_professor', inv, {}, Path(temp)/'pilot')
+                prepare_review(value, 'test_professor', inv, {}, Path(temp) / 'pilot')
 
 
 class HumanExportTests(unittest.TestCase):
@@ -194,9 +254,13 @@ class HumanExportTests(unittest.TestCase):
         value['papers'][1].update(publication_type='preprint', year=2019, doi=None)
         rows = review_rows(value)
         rows[1]['inclusion_decision'] = 'exclude'
-        relation = {'candidate_ids': json.dumps([paper['candidate_id'] for paper in value['papers']]),
-                    'human_relation': 'preprint_of', 'reviewer': coverage()['reviewer'],
-                    'reviewed_at': coverage()['reviewed_at'], 'evidence_urls': json.dumps(coverage()['evidence_urls'])}
+        relation = {
+            'candidate_ids': json.dumps([paper['candidate_id'] for paper in value['papers']]),
+            'human_relation': 'preprint_of',
+            'reviewer': coverage()['reviewer'],
+            'reviewed_at': coverage()['reviewed_at'],
+            'evidence_urls': json.dumps(coverage()['evidence_urls']),
+        }
         output = export_truth(value, rows, coverage(), relationships=[relation])
         self.assertEqual(len(output['preprint_relations']), 1)
         relation['human_relation'] = ''
@@ -204,9 +268,14 @@ class HumanExportTests(unittest.TestCase):
 
     def test_alias_requires_explicit_human_identity_and_year_explanation(self):
         value = dataset()
-        entry = {'evaluation_id': 'test_professor:work0', 'metadata': {'title': 'Alternate title', 'authors': ['Pat Researcher', 'Sam Scientist'], 'year': 2020},
-                 'reviewer': 'Synthetic human', 'reviewed_at': '2026-10-11T18:00:00Z',
-                 'evidence_urls': coverage()['evidence_urls'], 'same_publication': True}
+        entry = {
+            'evaluation_id': 'test_professor:work0',
+            'metadata': {'title': 'Alternate title', 'authors': ['Pat Researcher', 'Sam Scientist'], 'year': 2020},
+            'reviewer': 'Synthetic human',
+            'reviewed_at': '2026-10-11T18:00:00Z',
+            'evidence_urls': coverage()['evidence_urls'],
+            'same_publication': True,
+        }
         with self.assertRaisesRegex(ValueError, 'year alias'):
             export_truth(value, review_rows(value), coverage(), {'metadata_aliases': [entry]})
         entry['year_difference_reason'] = 'Checked online versus issue publication dates'
@@ -224,32 +293,54 @@ class PilotEvaluationTests(unittest.TestCase):
     def test_legacy_cli_does_not_bypass_pilot_review_gate(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            (root/'truth.json').write_text(json.dumps(export_truth(dataset(), [], {'approved': False})), encoding='utf-8')
-            (root/'result.json').write_text(json.dumps({'papers': []}), encoding='utf-8')
+            (root / 'truth.json').write_text(
+                json.dumps(export_truth(dataset(), [], {'approved': False})), encoding='utf-8'
+            )
+            (root / 'result.json').write_text(json.dumps({'papers': []}), encoding='utf-8')
             with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
-                evaluation_main(['--result', str(root/'result.json'), '--ground-truth', str(root/'truth.json')])
+                evaluation_main(['--result', str(root / 'result.json'), '--ground-truth', str(root / 'truth.json')])
 
     def test_offline_export_and_evaluation_cli_round_trip(self):
         value = dataset()
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            (root/'candidates.json').write_text(json.dumps(value), encoding='utf-8')
+            (root / 'candidates.json').write_text(json.dumps(value), encoding='utf-8')
             rows = review_rows(value)
-            with (root/'annotations.csv').open('w', encoding='utf-8-sig', newline='') as handle:
+            with (root / 'annotations.csv').open('w', encoding='utf-8-sig', newline='') as handle:
                 writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
                 writer.writeheader()
                 writer.writerows(rows)
-            (root/'coverage.json').write_text(json.dumps(coverage()), encoding='utf-8')
+            (root / 'coverage.json').write_text(json.dumps(coverage()), encoding='utf-8')
             with redirect_stdout(io.StringIO()):
-                export_main(['--candidates', str(root/'candidates.json'), '--annotations', str(root/'annotations.csv'),
-                             '--coverage', str(root/'coverage.json'), '--output', str(root/'truth.json')])
-                reference = json.loads((root/'truth.json').read_text())
-                (root/'result.json').write_text(json.dumps(result(reference)), encoding='utf-8')
-                pilot_main(['--result', str(root/'result.json'), '--truth', str(root/'truth.json'),
-                            '--audit-output', str(root/'audit.json'), '--output', str(root/'evaluation.json')])
-            report = json.loads((root/'evaluation.json').read_text())
+                export_main(
+                    [
+                        '--candidates',
+                        str(root / 'candidates.json'),
+                        '--annotations',
+                        str(root / 'annotations.csv'),
+                        '--coverage',
+                        str(root / 'coverage.json'),
+                        '--output',
+                        str(root / 'truth.json'),
+                    ]
+                )
+                reference = json.loads((root / 'truth.json').read_text())
+                (root / 'result.json').write_text(json.dumps(result(reference)), encoding='utf-8')
+                pilot_main(
+                    [
+                        '--result',
+                        str(root / 'result.json'),
+                        '--truth',
+                        str(root / 'truth.json'),
+                        '--audit-output',
+                        str(root / 'audit.json'),
+                        '--output',
+                        str(root / 'evaluation.json'),
+                    ]
+                )
+            report = json.loads((root / 'evaluation.json').read_text())
             self.assertEqual(report['formal_metrics']['ownership_f1'], 1)
-            self.assertEqual(json.loads((root/'audit.json').read_text())['papers'], [])
+            self.assertEqual(json.loads((root / 'audit.json').read_text())['papers'], [])
 
     def test_metrics_separate_discovery_and_verified_recall(self):
         reference = truth(3)
@@ -258,7 +349,7 @@ class PilotEvaluationTests(unittest.TestCase):
         metrics = report['formal_metrics']
         self.assertEqual(metrics['paper_discovery_recall'], 1)
         self.assertEqual(metrics['ownership_precision'], 1)
-        self.assertAlmostEqual(metrics['ownership_recall'], 1/3)
+        self.assertAlmostEqual(metrics['ownership_recall'], 1 / 3)
         self.assertAlmostEqual(metrics['ownership_f1'], 0.5)
 
     def test_duplicates_do_not_inflate_true_positives(self):
@@ -269,7 +360,16 @@ class PilotEvaluationTests(unittest.TestCase):
 
     def test_unmatched_records_are_not_automatic_false_positives(self):
         reference = truth()
-        saved = {'papers': [{'title': 'An unjudged record', 'year': 2021, 'authors': ['Other Author'], 'ownership_status': 'verified'}]}
+        saved = {
+            'papers': [
+                {
+                    'title': 'An unjudged record',
+                    'year': 2021,
+                    'authors': ['Other Author'],
+                    'ownership_status': 'verified',
+                }
+            ]
+        }
         report = evaluate_pilot(saved, reference)
         self.assertIsNone(report['formal_metrics'])
         audit = prepare_audit(saved, reference)
@@ -279,13 +379,15 @@ class PilotEvaluationTests(unittest.TestCase):
     def test_independent_negative_audit_yields_correct_precision_f1(self):
         reference = truth(2)
         saved = result(reference, ['verified', 'needs_review'])
-        saved['papers'].append({'title': 'A different identity', 'year': 2021, 'authors': ['Other Author'], 'ownership_status': 'verified'})
+        saved['papers'].append(
+            {'title': 'A different identity', 'year': 2021, 'authors': ['Other Author'], 'ownership_status': 'verified'}
+        )
         audit = annotate_audit(prepare_audit(saved, reference))
         metrics = evaluate_pilot(saved, reference, audit)['formal_metrics']
         self.assertEqual(metrics['paper_discovery_recall'], 1)
-        self.assertEqual(metrics['ownership_precision'], .5)
-        self.assertEqual(metrics['ownership_recall'], .5)
-        self.assertEqual(metrics['ownership_f1'], .5)
+        self.assertEqual(metrics['ownership_precision'], 0.5)
+        self.assertEqual(metrics['ownership_recall'], 0.5)
+        self.assertEqual(metrics['ownership_f1'], 0.5)
 
     def test_stale_or_mutated_audit_rejected(self):
         reference = truth()
@@ -348,11 +450,18 @@ class PilotEvaluationTests(unittest.TestCase):
         preprint.update(publication_type='preprint', year=2019, doi=None, external_ids={'arxiv': 'synthetic-preprint'})
         rows = review_rows(value)
         rows[1]['inclusion_decision'] = 'exclude'
-        relation = {'formal_evaluation_id': 'test_professor:work0', 'preprint_candidate_id': preprint['candidate_id'],
-                    'reviewer': coverage()['reviewer'], 'reviewed_at': coverage()['reviewed_at'], 'evidence_urls': coverage()['evidence_urls']}
+        relation = {
+            'formal_evaluation_id': 'test_professor:work0',
+            'preprint_candidate_id': preprint['candidate_id'],
+            'reviewer': coverage()['reviewer'],
+            'reviewed_at': coverage()['reviewed_at'],
+            'evidence_urls': coverage()['evidence_urls'],
+        }
         reference = export_truth(value, rows, coverage(), {'preprint_relations': [relation]})
         matcher = GroundTruthMatcher(GroundTruth.from_dict(reference))
-        match = match_publication({'source': 'arxiv', 'external_ids': {'arxiv': 'synthetic-preprint'}}, reference, matcher)
+        match = match_publication(
+            {'source': 'arxiv', 'external_ids': {'arxiv': 'synthetic-preprint'}}, reference, matcher
+        )
         self.assertEqual(match.decision, 'related_preprint')
         self.assertIsNone(match.evaluation_id)
         self.assertEqual(len(reference['papers']), 1)

@@ -1,26 +1,31 @@
 import unittest
+from http.client import IncompleteRead
 from unittest.mock import Mock, patch
 from urllib.error import HTTPError, URLError
 from urllib.request import Request
-from http.client import IncompleteRead
 
 from paper_author_searcher.config import PDFConfig
 from paper_author_searcher.http import HttpClient, PublicRedirectHandler, SourceError, URLProbe
 from paper_author_searcher.models import PDFCandidate
 from paper_author_searcher.pdf_validation import PDFURLValidator
 
-
 URL = 'https://repository.example.edu/paper.pdf'
 
 
 def candidate(identity='verified'):
-    return PDFCandidate(URL, 'repository', identity_status=identity,
-                        access_basis='Explicit public metadata PDF link')
+    return PDFCandidate(URL, 'repository', identity_status=identity, access_basis='Explicit public metadata PDF link')
 
 
 class ValidationTests(unittest.TestCase):
-    def validate(self, body=b'%PDF-1.7\n', content_type='application/pdf', status=200,
-                 identity='verified', headers=None, final_url=URL):
+    def validate(
+        self,
+        body=b'%PDF-1.7\n',
+        content_type='application/pdf',
+        status=200,
+        identity='verified',
+        headers=None,
+        final_url=URL,
+    ):
         client = Mock()
         client.probe.return_value = URLProbe(final_url, status, content_type, headers or {}, body)
         item = PDFURLValidator(client).validate(candidate(identity))
@@ -59,10 +64,12 @@ class ValidationTests(unittest.TestCase):
         self.assertEqual(PDFURLValidator(client).validate(item).validation_status, 'unverified')
 
     def test_partial_response_must_start_at_zero(self):
-        self.assertEqual(self.validate(status=206, headers={'Content-Range': 'bytes 100-108/900'}).validation_status,
-                         'unverified')
-        self.assertEqual(self.validate(status=206, headers={'Content-Range': 'bytes 0-8/900'}).validation_status,
-                         'verified')
+        self.assertEqual(
+            self.validate(status=206, headers={'Content-Range': 'bytes 100-108/900'}).validation_status, 'unverified'
+        )
+        self.assertEqual(
+            self.validate(status=206, headers={'Content-Range': 'bytes 0-8/900'}).validation_status, 'verified'
+        )
 
     def test_error_statuses_never_count_as_verified(self):
         for status in (403, 404, 429, 500, 503):
@@ -80,8 +87,9 @@ class ValidationTests(unittest.TestCase):
 
     def test_redirect_to_different_arxiv_paper_is_blocked(self):
         client = Mock()
-        client.probe.return_value = URLProbe('https://arxiv.org/pdf/2401.00002', 200,
-                                            'application/pdf', {}, b'%PDF-1.7')
+        client.probe.return_value = URLProbe(
+            'https://arxiv.org/pdf/2401.00002', 200, 'application/pdf', {}, b'%PDF-1.7'
+        )
         item = candidate()
         item.url = 'https://arxiv.org/pdf/2401.00001'
         self.assertEqual(PDFURLValidator(client).validate(item).validation_status, 'invalid')
@@ -93,8 +101,9 @@ class ValidationTests(unittest.TestCase):
 
     def test_pdf_must_not_conflict_with_saved_arxiv_identifier(self):
         client = Mock()
-        client.probe.return_value = URLProbe('https://arxiv.org/pdf/2401.00002', 200,
-                                            'application/pdf', {}, b'%PDF-1.7')
+        client.probe.return_value = URLProbe(
+            'https://arxiv.org/pdf/2401.00002', 200, 'application/pdf', {}, b'%PDF-1.7'
+        )
         item = candidate()
         item.url = client.probe.return_value.url
         paper = {'records': [{'external_ids': {'arxiv': '2401.00001'}}]}
@@ -102,8 +111,9 @@ class ValidationTests(unittest.TestCase):
 
     def test_different_versions_of_same_arxiv_work_are_retained(self):
         client = Mock()
-        client.probe.return_value = URLProbe('https://arxiv.org/pdf/2401.00001v1', 200,
-                                            'application/pdf', {}, b'%PDF-1.7')
+        client.probe.return_value = URLProbe(
+            'https://arxiv.org/pdf/2401.00001v1', 200, 'application/pdf', {}, b'%PDF-1.7'
+        )
         item = candidate()
         item.url = client.probe.return_value.url
         paper = {'records': [{'external_ids': {'arxiv': '2401.00001v2'}}]}
@@ -159,8 +169,10 @@ class ProbeTests(unittest.TestCase):
     def test_http_rate_limit_retries_bounded(self):
         opener = Mock()
         opener.open.side_effect = [HTTPError(URL, 429, 'limit', {'Retry-After': '3'}, None), Response()]
-        with patch('paper_author_searcher.http.secure_download_opener', return_value=opener), \
-                patch('paper_author_searcher.http.time.sleep') as sleep:
+        with (
+            patch('paper_author_searcher.http.secure_download_opener', return_value=opener),
+            patch('paper_author_searcher.http.time.sleep') as sleep,
+        ):
             self.assertEqual(HttpClient(retries=1).probe(URL).status, 200)
         self.assertEqual(sleep.call_args[0][0], 3)
         self.assertEqual(opener.open.call_count, 2)
@@ -168,8 +180,10 @@ class ProbeTests(unittest.TestCase):
     def test_network_errors_retry_then_keep_error(self):
         opener = Mock()
         opener.open.side_effect = URLError('timed out')
-        with patch('paper_author_searcher.http.secure_download_opener', return_value=opener), \
-                patch('paper_author_searcher.http.time.sleep'):
+        with (
+            patch('paper_author_searcher.http.secure_download_opener', return_value=opener),
+            patch('paper_author_searcher.http.time.sleep'),
+        ):
             with self.assertRaises(SourceError):
                 HttpClient(retries=1).probe(URL)
         self.assertEqual(opener.open.call_count, 2)
@@ -196,8 +210,13 @@ class ProbeTests(unittest.TestCase):
                 HttpClient(retries=0).probe(URL)
 
     def test_nonpublic_urls_and_redirects_refused(self):
-        urls = ['file:///tmp/paper.pdf', 'https://localhost/paper', 'http://127.0.0.1/paper',
-                'https://user:password@example.edu/file', 'http://[::1]/file']
+        urls = [
+            'file:///tmp/paper.pdf',
+            'https://localhost/paper',
+            'http://127.0.0.1/paper',
+            'https://user:password@example.edu/file',
+            'http://[::1]/file',
+        ]
         for url in urls:
             with self.assertRaises(SourceError):
                 HttpClient().probe(url)

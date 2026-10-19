@@ -1,19 +1,22 @@
 """Pure comparison helpers shared by the resolver and source adapters."""
+
 import re
 import unicodedata
+from collections.abc import Callable, Iterable, Sequence
 from difflib import SequenceMatcher
-from typing import Callable, Iterable
+from functools import lru_cache
+from typing import Any
 
-from .config import DEFAULT_MATCHING
+from .config import DEFAULT_MATCHING, MatchingConfig
 
 
 def normalize(value: str) -> str:
-    decomposed = unicodedata.normalize("NFKD", value).casefold()
+    decomposed = unicodedata.normalize('NFKD', value).casefold()
     characters = []
     for character in decomposed:
         if not unicodedata.combining(character):
             characters.append(character)
-    return " ".join(re.findall(r"[^\W_]+", "".join(characters)))
+    return ' '.join(re.findall(r'[^\W_]+', ''.join(characters)))
 
 
 def best_similarity(left: Iterable[str], right: Iterable[str], compare: Callable) -> float:
@@ -25,12 +28,12 @@ def best_similarity(left: Iterable[str], right: Iterable[str], compare: Callable
     return best
 
 
-def _compatible_middle_names(left, right):
+def _compatible_middle_names(left: Sequence[str], right: Sequence[str]) -> bool:
     if not left or not right:
         return True
     if len(left) != len(right):
         return False
-    for left_name, right_name in zip(left, right):
+    for left_name, right_name in zip(left, right, strict=True):
         if left_name == right_name:
             continue
         same_initial = left_name[0] == right_name[0]
@@ -40,9 +43,10 @@ def _compatible_middle_names(left, right):
     return True
 
 
-def name_similarity(left: str, right: str, config=DEFAULT_MATCHING) -> float:
+@lru_cache(maxsize=200_000)
+def name_similarity(left: str, right: str, config: MatchingConfig = DEFAULT_MATCHING) -> float:
     left_words = normalize(left).split()
-    right_words = normalize(re.sub(r"\s+\d{4}$", "", right)).split()
+    right_words = normalize(re.sub(r'\s+\d{4}$', '', right)).split()
     if not left_words or not right_words:
         return 0.0
     if sorted(left_words) == sorted(right_words):
@@ -62,10 +66,40 @@ def name_similarity(left: str, right: str, config=DEFAULT_MATCHING) -> float:
         if same_initial and contains_initial:
             return config.initial_similarity
 
-    return SequenceMatcher(None, " ".join(left_words), " ".join(right_words)).ratio()
+    return SequenceMatcher(None, ' '.join(left_words), ' '.join(right_words)).ratio()
 
 
-def institution_similarity(left: str, right: str, config=DEFAULT_MATCHING) -> float:
+@lru_cache(maxsize=200_000)
+def name_similarity_upper_bound(left: str, right: str, config: MatchingConfig = DEFAULT_MATCHING) -> float:
+    """Never below ``name_similarity(left, right)``, at linear cost.
+
+    Mirrors ``name_similarity`` rule for rule and replaces only the closing ``SequenceMatcher.ratio()`` (quadratic)
+    with ``quick_ratio()``, which difflib guarantees is an upper bound of it. Lets grouping rule out a pair of
+    incompatible names without the fuzzy comparison.
+    """
+    left_words = normalize(left).split()
+    right_words = normalize(re.sub(r'\s+\d{4}$', '', right)).split()
+    if not left_words or not right_words:
+        return 0.0
+    if sorted(left_words) == sorted(right_words):
+        return 1.0
+    has_full_names = len(left_words) >= 2 and len(right_words) >= 2
+    if has_full_names and left_words[-1] == right_words[-1]:
+        first_left = left_words[0]
+        first_right = right_words[0]
+        if first_left == first_right:
+            if _compatible_middle_names(left_words[1:-1], right_words[1:-1]):
+                return config.middle_name_similarity
+            return 0.0
+        same_initial = first_left[0] == first_right[0]
+        contains_initial = len(first_left) == 1 or len(first_right) == 1
+        if same_initial and contains_initial:
+            return config.initial_similarity
+    return SequenceMatcher(None, ' '.join(left_words), ' '.join(right_words)).quick_ratio()
+
+
+@lru_cache(maxsize=200_000)
+def institution_similarity(left: str, right: str, config: MatchingConfig = DEFAULT_MATCHING) -> float:
     left_name = normalize(left)
     right_name = normalize(right)
     if left_name == right_name:
@@ -83,20 +117,52 @@ def research_similarity(left: str, right: str) -> float:
     return SequenceMatcher(None, normalize(left), normalize(right)).ratio()
 
 
-def canonical_orcid(value):
+def canonical_orcid(value: str | None) -> str | None:
     if value:
-        return value.rstrip("/").rsplit("/", 1)[-1]
+        return value.rstrip('/').rsplit('/', 1)[-1]
     return None
 
 
 def canonical_doi(value: str) -> str:
     value = value.strip().lower()
     prefixes = (
-        "https://doi.org/", "http://doi.org/", "http://dx.doi.org/",
-        "https://dx.doi.org/", "doi:",
+        'https://doi.org/',
+        'http://doi.org/',
+        'http://dx.doi.org/',
+        'https://dx.doi.org/',
+        'doi:',
     )
     for prefix in prefixes:
         if value.startswith(prefix):
-            value = value[len(prefix):]
+            value = value[len(prefix) :]
             break
-    return "doi:" + value
+    return 'doi:' + value
+
+
+# Process-wide memo caches of the pure similarity functions (bounded LRU). A long-running service reports them
+# as metrics and may clear them, e.g. after changing matching configuration.
+SIMILARITY_CACHES = {
+    'name_similarity': name_similarity,
+    'name_similarity_upper_bound': name_similarity_upper_bound,
+    'institution_similarity': institution_similarity,
+}
+
+
+def similarity_cache_statistics() -> dict[str, dict[str, Any]]:
+    statistics: dict[str, dict[str, Any]] = {}
+    for name, function in SIMILARITY_CACHES.items():
+        info = function.cache_info()
+        lookups = info.hits + info.misses
+        statistics[name] = {
+            'hits': info.hits,
+            'misses': info.misses,
+            'entries': info.currsize,
+            'capacity': info.maxsize,
+            'hit_rate': round(info.hits / lookups, 4) if lookups else None,
+        }
+    return statistics
+
+
+def clear_similarity_caches() -> None:
+    for function in SIMILARITY_CACHES.values():
+        function.cache_clear()

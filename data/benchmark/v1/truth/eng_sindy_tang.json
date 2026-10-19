@@ -1,0 +1,1628 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "assistant_reviewed",
+    "reviewer": "Claude (AI review requested by the user, 2026-10-18)",
+    "reviewed_at": "2026-10-18",
+    "person_id": "eng_sindy_tang",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Sindy Tang",
+      "university": "Stanford University"
+    },
+    "scope": {
+      "year_start": 2024,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.882325+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "stanford_profile.json",
+        "url": "https://profiles.stanford.edu/sindy-tang?tab=publications",
+        "records": 14
+      },
+      {
+        "kind": "orcid",
+        "locator": "0000-0003-1465-2432",
+        "url": "https://orcid.org/0000-0003-1465-2432",
+        "records": 54
+      }
+    ],
+    "excluded_counts": {
+      "outside_year_window": 42
+    },
+    "review_progress": {
+      "decided": 18,
+      "pending": 0
+    }
+  },
+  "papers": [
+    {
+      "evaluation_id": "eng_sindy_tang:7029a0ea1f4a",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Can artificial intelligence (AI) replace oral food challenge?",
+      "year": 2024,
+      "authors": [
+        "S. K. Tang",
+        "N. Castaño",
+        "K. C. Nadeau",
+        "S. J. Galli"
+      ],
+      "listed_venue": "The Journal of allergy and clinical immunology",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 195745099",
+        "Public list https://profiles.stanford.edu/sindy-tang?tab=publications entry 3 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1016/j.jaci.2024.01.008"
+      ],
+      "external_ids": {
+        "pubmed": "38262500",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/38262500"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Can artificial intelligence (AI) replace oral food challenge?",
+          "year": 2023,
+          "authors": [
+            "S. K. Tang",
+            "N. Castaño",
+            "K. C. Nadeau",
+            "S. J. Galli"
+          ]
+        },
+        {
+          "title": "Can artificial intelligence (AI) replace oral food challenge?",
+          "year": 2025,
+          "authors": [
+            "S. K. Tang",
+            "N. Castaño",
+            "K. C. Nadeau",
+            "S. J. Galli"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sindy_tang:8985e3cec8c2",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Combining avidin with CD63 improves basophil activation test accuracy in classifying peanut allergy",
+      "year": 2024,
+      "authors": [
+        "Nicolas Castaño",
+        "Kaiser Chua",
+        "Abhinav Kaushik",
+        "Sungu Kim",
+        "Seth C. Cordts",
+        "Ceena D. Nafarzadegan",
+        "Grady H. Hofmann",
+        "Hana Seastedt",
+        "Jackson P. Schuetz",
+        "Diane Dunham",
+        "Ella S. Parsons",
+        "Mindy Tsai",
+        "Shu Cao",
+        "Manisha Desai",
+        "Sayantani B. Sindher",
+        "R. Sharon Chinthrajah",
+        "Stephen J. Galli",
+        "Kari C. Nadeau",
+        "Sindy K. Y. Tang"
+      ],
+      "listed_venue": "Allergy",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 195745092"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1111/all.15930"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Combining avidin with CD63 improves basophil activation test accuracy in classifying peanut allergy",
+          "year": 2023,
+          "authors": [
+            "Nicolas Castaño",
+            "Kaiser Chua",
+            "Abhinav Kaushik",
+            "Sungu Kim",
+            "Seth C. Cordts",
+            "Ceena D. Nafarzadegan",
+            "Grady H. Hofmann",
+            "Hana Seastedt",
+            "Jackson P. Schuetz",
+            "Diane Dunham",
+            "Ella S. Parsons",
+            "Mindy Tsai",
+            "Shu Cao",
+            "Manisha Desai",
+            "Sayantani B. Sindher",
+            "R. Sharon Chinthrajah",
+            "Stephen J. Galli",
+            "Kari C. Nadeau",
+            "Sindy K. Y. Tang"
+          ]
+        },
+        {
+          "title": "Combining avidin with CD63 improves basophil activation test accuracy in classifying peanut allergy",
+          "year": 2025,
+          "authors": [
+            "Nicolas Castaño",
+            "Kaiser Chua",
+            "Abhinav Kaushik",
+            "Sungu Kim",
+            "Seth C. Cordts",
+            "Ceena D. Nafarzadegan",
+            "Grady H. Hofmann",
+            "Hana Seastedt",
+            "Jackson P. Schuetz",
+            "Diane Dunham",
+            "Ella S. Parsons",
+            "Mindy Tsai",
+            "Shu Cao",
+            "Manisha Desai",
+            "Sayantani B. Sindher",
+            "R. Sharon Chinthrajah",
+            "Stephen J. Galli",
+            "Kari C. Nadeau",
+            "Sindy K. Y. Tang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sindy_tang:591e0993878b",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Microdissection tools to generate organoids for modeling the tumor immune microenvironment",
+      "year": 2024,
+      "authors": [
+        "S. C. Cordts",
+        "K. Yuki",
+        "M. F. Henao Echeverri",
+        "B. Narasimhan",
+        "C. J. Kuo",
+        "S. K. Tang"
+      ],
+      "listed_venue": "Microsystems & nanoengineering",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 195745028",
+        "Public list https://profiles.stanford.edu/sindy-tang?tab=publications entry 2 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1038/s41378-024-00756-8"
+      ],
+      "external_ids": {
+        "pubmed": "39251611",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/39251611"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Microdissection tools to generate organoids for modeling the tumor immune microenvironment",
+          "year": 2023,
+          "authors": [
+            "S. C. Cordts",
+            "K. Yuki",
+            "M. F. Henao Echeverri",
+            "B. Narasimhan",
+            "C. J. Kuo",
+            "S. K. Tang"
+          ]
+        },
+        {
+          "title": "Microdissection tools to generate organoids for modeling the tumor immune microenvironment",
+          "year": 2025,
+          "authors": [
+            "S. C. Cordts",
+            "K. Yuki",
+            "M. F. Henao Echeverri",
+            "B. Narasimhan",
+            "C. J. Kuo",
+            "S. K. Tang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sindy_tang:973e21c4e01a",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Parallelized Immunomagnetic Isolation of Basophils Directly from Whole Blood",
+      "year": 2024,
+      "authors": [
+        "J. Myles",
+        "N. Castaño",
+        "S. Kim",
+        "Z. Zhu",
+        "S. K. Tang"
+      ],
+      "listed_venue": "Advanced nanobiomed research",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 195745051",
+        "Public list https://profiles.stanford.edu/sindy-tang?tab=publications entry 14 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1002/anbr.202300122"
+      ],
+      "external_ids": {
+        "pubmed": "39005942",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/39005942"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Parallelized Immunomagnetic Isolation of Basophils Directly from Whole Blood",
+          "year": 2023,
+          "authors": [
+            "J. Myles",
+            "N. Castaño",
+            "S. Kim",
+            "Z. Zhu",
+            "S. K. Tang"
+          ]
+        },
+        {
+          "title": "Parallelized Immunomagnetic Isolation of Basophils Directly from Whole Blood",
+          "year": 2025,
+          "authors": [
+            "J. Myles",
+            "N. Castaño",
+            "S. Kim",
+            "Z. Zhu",
+            "S. K. Tang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sindy_tang:48db68c0efa3",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Physical Forces in Regeneration of Cells and Tissues",
+      "year": 2024,
+      "authors": [
+        "S. K. Tang",
+        "W. F. Marshall"
+      ],
+      "listed_venue": "Cold Spring Harbor perspectives in biology",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 195744866",
+        "Public list https://profiles.stanford.edu/sindy-tang?tab=publications entry 11 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1101/cshperspect.a041527"
+      ],
+      "external_ids": {
+        "pubmed": "38806241",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/38806241"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Physical Forces in Regeneration of Cells and Tissues",
+          "year": 2025,
+          "authors": [
+            "Sindy K.Y. Tang",
+            "Wallace F. Marshall"
+          ]
+        },
+        {
+          "title": "Physical Forces in Regeneration of Cells and Tissues",
+          "year": 2023,
+          "authors": [
+            "S. K. Tang",
+            "W. F. Marshall"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sindy_tang:bd92892549e2",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "SMORES: a simple microfluidic operating room for the examination and surgery of Stentor coeruleus",
+      "year": 2024,
+      "authors": [
+        "K. S. Zhang",
+        "R. Rodriguez",
+        "S. K. Tang"
+      ],
+      "listed_venue": "Scientific reports",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 195745039",
+        "Public list https://profiles.stanford.edu/sindy-tang?tab=publications entry 12 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1038/s41598-024-59286-y"
+      ],
+      "external_ids": {
+        "pubmed": "38622246",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/38622246"
+      },
+      "metadata_aliases": [
+        {
+          "title": "SMORES: a simple microfluidic operating room for the examination and surgery of Stentor coeruleus",
+          "year": 2023,
+          "authors": [
+            "K. S. Zhang",
+            "R. Rodriguez",
+            "S. K. Tang"
+          ]
+        },
+        {
+          "title": "SMORES: a simple microfluidic operating room for the examination and surgery of Stentor coeruleus",
+          "year": 2025,
+          "authors": [
+            "K. S. Zhang",
+            "R. Rodriguez",
+            "S. K. Tang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sindy_tang:d4509684d3a8",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "title": "SMORES: A Simple Microfluidic Operating Room for the Examination and Surgery ofStentor coeruleus",
+      "year": 2024,
+      "authors": [
+        "K. S. Zhang",
+        "R. Rodriguez",
+        "S. K. Tang"
+      ],
+      "listed_venue": "bioRxiv : the preprint server for biology",
+      "work_types": [
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://profiles.stanford.edu/sindy-tang?tab=publications entry 13 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1101/2024.02.05.578956"
+      ],
+      "external_ids": {
+        "pubmed": "38370688",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/38370688"
+      },
+      "metadata_aliases": [
+        {
+          "title": "SMORES: A Simple Microfluidic Operating Room for the Examination and Surgery ofStentor coeruleus",
+          "year": 2023,
+          "authors": [
+            "K. S. Zhang",
+            "R. Rodriguez",
+            "S. K. Tang"
+          ]
+        },
+        {
+          "title": "SMORES: A Simple Microfluidic Operating Room for the Examination and Surgery ofStentor coeruleus",
+          "year": 2025,
+          "authors": [
+            "K. S. Zhang",
+            "R. Rodriguez",
+            "S. K. Tang"
+          ]
+        }
+      ],
+      "reviewer_note": "bioRxiv version of row 5"
+    },
+    {
+      "evaluation_id": "eng_sindy_tang:6df380b898b1",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "A hand-operated microfluidic sample preparation-to-analysis workflow for simplifying the basophil activation test",
+      "year": 2025,
+      "authors": [
+        "N. Castano",
+        "K. Chua",
+        "A. Nguyen",
+        "W. Marshall",
+        "G. H. Hofmann",
+        "J. Lee",
+        "M. Tsai",
+        "S. B. Sindher",
+        "K. C. Nadeau",
+        "R. S. Chinthrajah",
+        "S. J. Galli",
+        "S. K. Tang"
+      ],
+      "listed_venue": "Lab on a chip",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 195744874",
+        "Public list https://profiles.stanford.edu/sindy-tang?tab=publications entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1039/d5lc00037h"
+      ],
+      "external_ids": {
+        "pubmed": "40600291",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/40600291"
+      },
+      "metadata_aliases": [
+        {
+          "title": "A hand-operated microfluidic sample preparation-to-analysis workflow for simplifying the basophil activation test",
+          "year": 2024,
+          "authors": [
+            "N. Castano",
+            "K. Chua",
+            "A. Nguyen",
+            "W. Marshall",
+            "G. H. Hofmann",
+            "J. Lee",
+            "M. Tsai",
+            "S. B. Sindher",
+            "K. C. Nadeau",
+            "R. S. Chinthrajah",
+            "S. J. Galli",
+            "S. K. Tang"
+          ]
+        },
+        {
+          "title": "A hand-operated microfluidic sample preparation-to-analysis workflow for simplifying the basophil activation test",
+          "year": 2026,
+          "authors": [
+            "N. Castano",
+            "K. Chua",
+            "A. Nguyen",
+            "W. Marshall",
+            "G. H. Hofmann",
+            "J. Lee",
+            "M. Tsai",
+            "S. B. Sindher",
+            "K. C. Nadeau",
+            "R. S. Chinthrajah",
+            "S. J. Galli",
+            "S. K. Tang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sindy_tang:705f5019afe9",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "A lung tumor-on-a-chip model recapitulates the effect of hypoxia on radiotherapy response and FDG-PET imaging",
+      "year": 2025,
+      "authors": [
+        "R. Nasiri",
+        "M. Kurosu Jalil",
+        "V. Ibanez Gaspar",
+        "A. S. Flores Perez",
+        "H. T. Nguyen",
+        "S. Khan",
+        "S. K. Tang",
+        "Y. P. Yang",
+        "G. Pratx"
+      ],
+      "listed_venue": "Lab on a chip",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 195744872",
+        "Public list https://profiles.stanford.edu/sindy-tang?tab=publications entry 7 captured 2026-10-18",
+        "Public list https://profiles.stanford.edu/sindy-tang?tab=publications entry 8 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_3_source_records"
+      ],
+      "dois": [
+        "10.1039/d5lc00373c",
+        "10.1101/2025.07.23.666453"
+      ],
+      "external_ids": {
+        "pubmed": "40762641",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/40762641"
+      },
+      "metadata_aliases": [
+        {
+          "title": "A lung tumor-on-a-chip model recapitulates the effect of hypoxia on radiotherapy response and FDG-PET imaging",
+          "year": 2024,
+          "authors": [
+            "R. Nasiri",
+            "M. Kurosu Jalil",
+            "V. Ibanez Gaspar",
+            "A. S. Flores Perez",
+            "H. T. Nguyen",
+            "S. Khan",
+            "S. K. Tang",
+            "Y. P. Yang",
+            "G. Pratx"
+          ]
+        },
+        {
+          "title": "A lung tumor-on-a-chip model recapitulates the effect of hypoxia on radiotherapy response and FDG-PET imaging",
+          "year": 2026,
+          "authors": [
+            "R. Nasiri",
+            "M. Kurosu Jalil",
+            "V. Ibanez Gaspar",
+            "A. S. Flores Perez",
+            "H. T. Nguyen",
+            "S. Khan",
+            "S. K. Tang",
+            "Y. P. Yang",
+            "G. Pratx"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sindy_tang:66fed696b203",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "A role for the Stentor syntaxin protein in post-wound cell survival",
+      "year": 2025,
+      "authors": [
+        "A. V. Nadkarni",
+        "U. Diaz",
+        "K. S. Zhang",
+        "S. K. Tang",
+        "W. F. Marshall"
+      ],
+      "listed_venue": "bioRxiv : the preprint server for biology",
+      "work_types": [
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://profiles.stanford.edu/sindy-tang?tab=publications entry 4 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "dois": [
+        "10.1101/2025.11.04.686591"
+      ],
+      "external_ids": {
+        "pubmed": "41279493",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/41279493"
+      },
+      "metadata_aliases": [
+        {
+          "title": "A role for the Stentor syntaxin protein in post-wound cell survival",
+          "year": 2024,
+          "authors": [
+            "A. V. Nadkarni",
+            "U. Diaz",
+            "K. S. Zhang",
+            "S. K. Tang",
+            "W. F. Marshall"
+          ]
+        },
+        {
+          "title": "A role for the Stentor syntaxin protein in post-wound cell survival",
+          "year": 2026,
+          "authors": [
+            "A. V. Nadkarni",
+            "U. Diaz",
+            "K. S. Zhang",
+            "S. K. Tang",
+            "W. F. Marshall"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sindy_tang:03ed5f961054",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Characterization of 3D printed micro-blades for cutting tissue-embedding material",
+      "year": 2025,
+      "authors": [
+        "S. Koppaka",
+        "D. Doan",
+        "W. Cai",
+        "W. Gu",
+        "S. K. Tang"
+      ],
+      "listed_venue": "Extreme Mechanics Letters",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 195744869",
+        "Public list https://profiles.stanford.edu/sindy-tang?tab=publications entry 10 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1016/j.eml.2024.102288"
+      ],
+      "external_ids": {
+        "pubmed": "39867729",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/39867729"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Characterization of 3D printed micro-blades for cutting tissue-embedding material",
+          "year": 2024,
+          "authors": [
+            "S. Koppaka",
+            "D. Doan",
+            "W. Cai",
+            "W. Gu",
+            "S. K. Tang"
+          ]
+        },
+        {
+          "title": "Characterization of 3D printed micro-blades for cutting tissue-embedding material",
+          "year": 2026,
+          "authors": [
+            "S. Koppaka",
+            "D. Doan",
+            "W. Cai",
+            "W. Gu",
+            "S. K. Tang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sindy_tang:551465533721",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Characterization of cellular wound resistance in the giant ciliate Stentor coeruleus",
+      "year": 2025,
+      "authors": [
+        "R. Paul",
+        "A. V. Nadkarni",
+        "J. Sipkova",
+        "J. E. Sato",
+        "K. S. Zhang",
+        "V. Barone",
+        "W. F. Marshall",
+        "S. K. Tang"
+      ],
+      "listed_venue": "Soft matter",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 195745021",
+        "Public list https://profiles.stanford.edu/sindy-tang?tab=publications entry 5 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records",
+        "version_identifiers_added_in_review"
+      ],
+      "dois": [
+        "10.1039/d5sm00643k",
+        "10.1101/2025.06.23.661154"
+      ],
+      "external_ids": {
+        "pubmed": "41090415",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/41090415"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Characterization of cellular wound resistance in the giant ciliate\n                    <i>Stentor coeruleus</i>",
+          "year": 2025,
+          "authors": [
+            "Rajorshi Paul",
+            "Ambika V. Nadkarni",
+            "Jana Sipkova",
+            "Justine E. Sato",
+            "Kevin S. Zhang",
+            "Vanessa Barone",
+            "Wallace F. Marshall",
+            "Sindy K. Y. Tang"
+          ]
+        },
+        {
+          "title": "Characterization of cellular wound resistance in the giant ciliate Stentor coeruleus",
+          "year": 2024,
+          "authors": [
+            "R. Paul",
+            "A. V. Nadkarni",
+            "J. Sipkova",
+            "J. E. Sato",
+            "K. S. Zhang",
+            "V. Barone",
+            "W. F. Marshall",
+            "S. K. Tang"
+          ]
+        },
+        {
+          "title": "Characterization of cellular wound resistance in the giant ciliate Stentor coeruleus",
+          "year": 2026,
+          "authors": [
+            "R. Paul",
+            "A. V. Nadkarni",
+            "J. Sipkova",
+            "J. E. Sato",
+            "K. S. Zhang",
+            "V. Barone",
+            "W. F. Marshall",
+            "S. K. Tang"
+          ]
+        },
+        {
+          "title": "Characterization of cellular wound resistance in the giant ciliate Stentor coeruleus",
+          "year": 2025,
+          "authors": [
+            "Rajorshi Paul",
+            "Ambika V. Nadkarni",
+            "Jana Sipkova",
+            "J. E. Sato",
+            "Kevin S. Zhang",
+            "Vanessa Barone",
+            "Wallace F. Marshall",
+            "Sindy K. Y. Tang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sindy_tang:a00dc0f648f2",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Environmental monitoring for Ascaris egg remediation: a critical review",
+      "year": 2025,
+      "authors": [
+        "N. I. Strong",
+        "J. T. Andraka",
+        "S. G. Woo",
+        "S. H. Abbadi",
+        "A. J. Lewis",
+        "S. K. Tang",
+        "S. P. Luby",
+        "C. S. Criddle"
+      ],
+      "listed_venue": "Environmental science and pollution research international",
+      "work_types": [
+        "journal_article",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 195744850",
+        "Public list https://profiles.stanford.edu/sindy-tang?tab=publications entry 9 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1007/s11356-025-36343-1"
+      ],
+      "external_ids": {
+        "pubmed": "40175664",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/40175664"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Environmental monitoring for Ascaris egg remediation: a critical review",
+          "year": 2024,
+          "authors": [
+            "N. I. Strong",
+            "J. T. Andraka",
+            "S. G. Woo",
+            "S. H. Abbadi",
+            "A. J. Lewis",
+            "S. K. Tang",
+            "S. P. Luby",
+            "C. S. Criddle"
+          ]
+        },
+        {
+          "title": "Environmental monitoring for Ascaris egg remediation: a critical review",
+          "year": 2026,
+          "authors": [
+            "N. I. Strong",
+            "J. T. Andraka",
+            "S. G. Woo",
+            "S. H. Abbadi",
+            "A. J. Lewis",
+            "S. K. Tang",
+            "S. P. Luby",
+            "C. S. Criddle"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sindy_tang:cd491558d6f8",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "title": "Geometrical compartmentalization of trigger waves",
+      "year": 2025,
+      "authors": [
+        "Z. Li",
+        "K. S. Zhang",
+        "Y. Chen",
+        "S. K. Tang",
+        "J. E. Ferrell"
+      ],
+      "listed_venue": "Proceedings of the National Academy of Sciences of the United States of America",
+      "work_types": [
+        "dataset",
+        "unknown"
+      ],
+      "truth_sources": [
+        "manual",
+        "orcid"
+      ],
+      "annotation_evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 195744829",
+        "Public list https://profiles.stanford.edu/sindy-tang?tab=publications entry 6 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1073/pnas.2512872122",
+        "10.25740/qm955pf6906"
+      ],
+      "external_ids": {
+        "pubmed": "41037632",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/41037632"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Geometrical compartmentalization of trigger waves",
+          "year": 2024,
+          "authors": [
+            "Z. Li",
+            "K. S. Zhang",
+            "Y. Chen",
+            "S. K. Tang",
+            "J. E. Ferrell"
+          ]
+        },
+        {
+          "title": "Geometrical compartmentalization of trigger waves",
+          "year": 2026,
+          "authors": [
+            "Z. Li",
+            "K. S. Zhang",
+            "Y. Chen",
+            "S. K. Tang",
+            "J. E. Ferrell"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Label-free, machine-learning assisted impedance assessment of basophil activation",
+      "year": 2025,
+      "authors": [
+        "Sungu Kim",
+        "Leon Hannes Kloker",
+        "Wonjun Lee",
+        "Nicolas Castaño",
+        "Chien-yi Chang",
+        "Sindy K.Y. Tang"
+      ],
+      "listed_venue": "Sensors and Actuators B Chemical",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref author list names the researcher (Sindy K.Y. Tang) with her basophil-test coauthors"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.snb.2025.138818"
+      ],
+      "evaluation_id": "eng_sindy_tang:added-493ef6b587",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref author list names the researcher (Sindy K.Y. Tang) with her basophil-test coauthors"
+    },
+    {
+      "title": "Evaluation of a method to simplify sample preparation for basophil activation tests",
+      "year": 2025,
+      "authors": [
+        "Nicolas Castano",
+        "An Nguyen",
+        "Nathan Cai",
+        "Jonathan Lee",
+        "Wyeth Marshall",
+        "Kaiser Chua",
+        "Grady Hofmann",
+        "Daniel Somen",
+        "Shu Cao",
+        "Mindy Tsai",
+        "Manisha Desai",
+        "Sayantani Sindher",
+        "R. Sharon Chinthrajah",
+        "Stephen Galli",
+        "Kari Nadeau",
+        "Sindy Tang"
+      ],
+      "listed_venue": "Journal of Allergy and Clinical Immunology",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Journal supplement abstract, not a full publication"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.jaci.2024.12.144"
+      ],
+      "evaluation_id": "eng_sindy_tang:added-bfe02ae53f",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Journal supplement abstract, not a full publication"
+    },
+    {
+      "title": "A multi-tiered μDicer with hierarchical blades achieves protein-preserving microdissection down to 10 μm",
+      "year": 2025,
+      "authors": [
+        "Annatoma Arif",
+        "Rashmi Kumar",
+        "Yumi Kwon",
+        "Ramon Rodriguez",
+        "Seth C. Cordts",
+        "Saisneha Koppaka",
+        "Ying Zhu",
+        "Ljiljana Paša-Tolić",
+        "Sindy K. Y. Tang"
+      ],
+      "listed_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref author list names the researcher (Sindy K. Y. Tang), microdissection line of work with Cordts/Arif"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.64898/2025.12.12.694048"
+      ],
+      "evaluation_id": "eng_sindy_tang:added-b29539c3a1",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref author list names the researcher (Sindy K. Y. Tang), microdissection line of work with Cordts/Arif"
+    },
+    {
+      "title": "3D PRINTED µDICER FOR UNIFORM TISSUE MICRODISSECTION",
+      "year": 2024,
+      "authors": [
+        "Annatoma Arif",
+        "Saisneha Koppaka",
+        "Seth Cordts",
+        "Sindy Tang"
+      ],
+      "listed_venue": "2024 MicroTAS Book of Abstracts",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: MicroTAS book-of-abstracts entry"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.70477/szjs5618"
+      ],
+      "evaluation_id": "eng_sindy_tang:added-f6788057ee",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "MicroTAS book-of-abstracts entry"
+    }
+  ],
+  "excluded": [
+    {
+      "reason": "outside_year_window",
+      "title": "Fabrication of a silicon μDicer for uniform microdissection of tissue samples",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352110"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Exponential magnetophoretic gradient for the direct isolation of basophils from whole blood in a microfluidic system",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352039"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Transcription polymerase–catalyzed emergence of novel RNA replicons",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352154"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "The living interface between synthetic biology and biomaterial design",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352088"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Microfluidic Surgery in Single Cells and Multicellular Systems",
+      "year": 2022,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352104"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Fomite Transmission, Physicochemical Origin of Virus–Surface Interactions, and Disinfection Strategies for Enveloped Viruses with Applications to SARS-CoV-2",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352177"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Strategic placement of an obstacle suppresses droplet break up in the hopper flow of a microfluidic soft crystal",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352124"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Microfluidic guillotine reveals multiple timescales and mechanical modes of wound response in Stentor coeruleus",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352140"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Internal flow inside droplets within a concentrated emulsion during droplet rearrangement",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352294"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Toward a Droplet-Based Single-Cell Radiometric Assay",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352371"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Microfluidic methods for precision diagnostics in food allergy",
+      "year": 2020,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352144"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Microfluidics-Coupled Radioluminescence Microscopy for <i>In Vitro</i> Radiotracer Kinetic Studies",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352166"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Effect of volume fraction on droplet break-up in an emulsion flowing through a microfluidic constriction",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352185"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Modified Micro‐Emulsion Synthesis of Highly Dispersed Al/PVDF Composites with Enhanced Combustion Properties",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352193"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Timescale and spatial distribution of local plastic events in a two-dimensional microfluidic crystal",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352196"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Amphiphilic nanoparticles suppress droplet break-up in a concentrated emulsion flowing through a narrow constriction",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352336"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Using machine learning to discover shape descriptors for predicting emulsion stability in a microfluidic channel",
+      "year": 2019,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352201"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Spatiotemporal periodicity of dislocation dynamics in a two-dimensional microfluidic crystal flowing in a tapered channel",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352405"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Cytoplasmic self-organization established by internal lipid membranes in the interplay with either actin or microtubules",
+      "year": 2018,
+      "work_types": [
+        "preprint"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352262"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Cell learning",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352271"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Programming self-organizing multicellular structures with synthetic cell-cell signaling",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352279"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Phenotyping antibiotic resistance with single-cell resolution for the detection of heteroresistance",
+      "year": 2018,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352284"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Encapsulation of Single Nanoparticle in Fast-Evaporating Micro-droplets Prevents Particle Agglomeration in Nanocomposites",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352308"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Microfluidic guillotine for single-cell wound repair studies",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352330"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Time-varying droplet configuration determines break-up probability of drops within a concentrated emulsion",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352315"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Methods to coalesce fluorinated Pickering emulsions",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352324"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Self-repairing cells: How single cells heal membrane ruptures and restore lost structures",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352359"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Quantitative detection of cells expressing BlaC using droplet-based microfluidics for use in the diagnosis of tuberculosis",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352442"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "High-Efficiency and High-Throughput On-Chip Exchange of the Continuous Phase in Droplet Microfluidic Systems",
+      "year": 2017,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352385"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Internal flow in droplets within a concentrated emulsion flowing in a microchannel",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352398"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Confinement and viscosity ratio effect on droplet break-up in a concentrated emulsion flowing through a narrow constriction",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352415"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Low energy emulsion-based fermentation enabling accelerated methane mass transfer and growth of poly(3-hydroxybutyrate)-accumulating methanotrophs",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352435"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Surface-functionalizable amphiphilic nanoparticles for pickering emulsions with designer fluid–fluid interfaces",
+      "year": 2016,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352426"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Optofluidic ultrahigh-throughput detection of fluorescent drops",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352460"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Fluorinated Pickering Emulsions with Nonadsorbing Interfaces for Droplet-based Enzymatic Assays",
+      "year": 2015,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352449"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Fluorinated Pickering Emulsions Impede Interfacial Transport and Form Rigid Interface for the Growth of Anchorage-Dependent Cells",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352471"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Fabrication of 3D Micro-Blades for the Cutting of Biological Structures in a Microfluidic Guillotine",
+      "year": 2021,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 99104975"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Label-free, machine-learning assisted impedance assessment of basophil activation",
+      "year": 2026,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 195744836"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Time capsule: an autonomous sensor and recorder based on diffusion–reaction",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352480"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Review and analysis of performance metrics of droplet microfluidics systems",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352500"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Break-up of droplets in a concentrated emulsion flowing through a narrow constriction",
+      "year": 2014,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352512"
+      ]
+    },
+    {
+      "reason": "outside_year_window",
+      "title": "Characterization of sensitivity and specificity in leaky droplet-based assays",
+      "year": 2012,
+      "work_types": [
+        "journal_article"
+      ],
+      "evidence": [
+        "ORCID 0000-0003-1465-2432 put-code 116352542"
+      ]
+    }
+  ],
+  "professor": {
+    "orcid": "0000-0003-1465-2432",
+    "author_ids": {},
+    "author_ids_complete": false
+  }
+}

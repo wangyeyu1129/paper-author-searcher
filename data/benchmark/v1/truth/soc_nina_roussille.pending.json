@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "soc_nina_roussille",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Nina Roussille",
+      "university": "Massachusetts Institute of Technology"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.923641+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "cv.json",
+        "url": "https://economics.mit.edu/sites/default/files/2025-01/Nina_Resume_Jan2025.pdf",
+        "records": 4
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "soc_nina_roussille:392c358de04e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Asymmetric Peer Effects at Work: The Effect of White Coworkers on Black Women's careers",
+      "year": 2024,
+      "authors": [
+        "Elizabeth Linos",
+        "Sanaz Mobasseri",
+        "Nina Roussille"
+      ],
+      "listed_venue": "Management Science (accepted)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://economics.mit.edu/sites/default/files/2025-01/Nina_Resume_Jan2025.pdf entry 4 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Asymmetric Peer Effects at Work: The Effect of White Coworkers on Black Women's careers",
+          "year": 2023,
+          "authors": [
+            "Elizabeth Linos",
+            "Sanaz Mobasseri",
+            "Nina Roussille"
+          ]
+        },
+        {
+          "title": "Asymmetric Peer Effects at Work: The Effect of White Coworkers on Black Women's careers",
+          "year": 2025,
+          "authors": [
+            "Elizabeth Linos",
+            "Sanaz Mobasseri",
+            "Nina Roussille"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_nina_roussille:218673e534f7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Biased Beliefs about Outside Options",
+      "year": 2024,
+      "authors": [
+        "Simon Jäger",
+        "Christopher Roth",
+        "Nina Roussille",
+        "Benjamin Schoefer"
+      ],
+      "listed_venue": "Quarterly Journal of Economics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://economics.mit.edu/sites/default/files/2025-01/Nina_Resume_Jan2025.pdf entry 2 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Biased Beliefs about Outside Options",
+          "year": 2023,
+          "authors": [
+            "Simon Jäger",
+            "Christopher Roth",
+            "Nina Roussille",
+            "Benjamin Schoefer"
+          ]
+        },
+        {
+          "title": "Biased Beliefs about Outside Options",
+          "year": 2025,
+          "authors": [
+            "Simon Jäger",
+            "Christopher Roth",
+            "Nina Roussille",
+            "Benjamin Schoefer"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_nina_roussille:13320598c06b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Bidding for Talent: Equilibrium Wage Dispersion on a High-Wage Online Job Board",
+      "year": 2024,
+      "authors": [
+        "Nina Roussille",
+        "Benjamin Scuderi"
+      ],
+      "listed_venue": "Revise and Resubmit, American Economic Review",
+      "work_types": [
+        "working_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://economics.mit.edu/sites/default/files/2025-01/Nina_Resume_Jan2025.pdf entry 3 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Bidding for Talent: Equilibrium Wage Dispersion on a High-Wage Online Job Board",
+          "year": 2023,
+          "authors": [
+            "Nina Roussille",
+            "Benjamin Scuderi"
+          ]
+        },
+        {
+          "title": "Bidding for Talent: Equilibrium Wage Dispersion on a High-Wage Online Job Board",
+          "year": 2025,
+          "authors": [
+            "Nina Roussille",
+            "Benjamin Scuderi"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_nina_roussille:f95ec21816df",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The Central Role Of The Ask Gap In Gender Pay Inequality",
+      "year": 2024,
+      "authors": [
+        "Nina Roussille"
+      ],
+      "listed_venue": "Quarterly Journal of Economics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://economics.mit.edu/sites/default/files/2025-01/Nina_Resume_Jan2025.pdf entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "The Central Role Of The Ask Gap In Gender Pay Inequality",
+          "year": 2023,
+          "authors": [
+            "Nina Roussille"
+          ]
+        },
+        {
+          "title": "The Central Role Of The Ask Gap In Gender Pay Inequality",
+          "year": 2025,
+          "authors": [
+            "Nina Roussille"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

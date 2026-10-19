@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "soc_shakked_noy",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Shakked Noy",
+      "university": "Massachusetts Institute of Technology"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.926303+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "mit_profile.json",
+        "url": "https://economics.mit.edu/people/phd-students/shakked-noy",
+        "records": 3
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "soc_shakked_noy:75070055eb3c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The Effects of Neighborhood and Workplace Income Comparisons on Subjective Wellbeing",
+      "year": 2021,
+      "authors": [
+        "Shakked Noy",
+        "Isabelle Sin"
+      ],
+      "listed_venue": "Journal of Economic Behavior and Organization 185",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://economics.mit.edu/people/phd-students/shakked-noy entry 3 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "The Effects of Neighborhood and Workplace Income Comparisons on Subjective Wellbeing",
+          "year": 2020,
+          "authors": [
+            "Shakked Noy",
+            "Isabelle Sin"
+          ]
+        },
+        {
+          "title": "The Effects of Neighborhood and Workplace Income Comparisons on Subjective Wellbeing",
+          "year": 2022,
+          "authors": [
+            "Shakked Noy",
+            "Isabelle Sin"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_shakked_noy:30f27de80356",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The German Model of Industrial Relations: Balancing Flexibility and Collective Action",
+      "year": 2022,
+      "authors": [
+        "Simon Jäger",
+        "Shakked Noy",
+        "Benjamin Schoefer"
+      ],
+      "listed_venue": "Journal of Economic Perspectives 36(4)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://economics.mit.edu/people/phd-students/shakked-noy entry 2 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3386/w30377"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "The German Model of Industrial Relations: Balancing Flexibility and Collective Action",
+          "year": 2021,
+          "authors": [
+            "Simon Jäger",
+            "Shakked Noy",
+            "Benjamin Schoefer"
+          ]
+        },
+        {
+          "title": "The German Model of Industrial Relations: Balancing Flexibility and Collective Action",
+          "year": 2023,
+          "authors": [
+            "Simon Jäger",
+            "Shakked Noy",
+            "Benjamin Schoefer"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3386/w30377",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "The German Model of Industrial Relations: Balancing Flexibility and Collective Action",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_shakked_noy:f8e3b069f2e7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Experimental Evidence on the Productivity Effects of Generative Artificial Intelligence",
+      "year": 2023,
+      "authors": [
+        "Shakked Noy",
+        "Whitney Zhang"
+      ],
+      "listed_venue": "Science 381(6654)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://economics.mit.edu/people/phd-students/shakked-noy entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.2139/ssrn.4375283"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Experimental Evidence on the Productivity Effects of Generative Artificial Intelligence",
+          "year": 2022,
+          "authors": [
+            "Shakked Noy",
+            "Whitney Zhang"
+          ]
+        },
+        {
+          "title": "Experimental Evidence on the Productivity Effects of Generative Artificial Intelligence",
+          "year": 2024,
+          "authors": [
+            "Shakked Noy",
+            "Whitney Zhang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.2139/ssrn.4375283",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Experimental Evidence on the Productivity Effects of Generative Artificial Intelligence",
+          "crossref_year": 2023
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

@@ -1,0 +1,28 @@
+{
+  "lookups": {
+    "caspedia database a functional classification system for class 2 crispr cas enzymes": {
+      "title": "CasPEDIA Database: a functional classification system for class 2 CRISPR-Cas enzymes",
+      "year": 2023,
+      "candidates": [],
+      "fetched_at": "2026-10-18T19:01:47.481196+00:00"
+    },
+    "rna language models predict mutations that improve rna function": {
+      "title": "RNA language models predict mutations that improve RNA function",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-18T19:01:54.042661+00:00"
+    },
+    "rapid dna unwinding accelerates genome editing by engineered crispr cas9": {
+      "title": "Rapid DNA unwinding accelerates genome editing by engineered CRISPR-Cas9",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-18T19:02:00.721180+00:00"
+    },
+    "rapid two step target capture ensures efficient crispr cas9 guided genome editing": {
+      "title": "Rapid two-step target capture ensures efficient CRISPR-Cas9-guided genome editing",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-18T19:02:07.470208+00:00"
+    }
+  }
+}

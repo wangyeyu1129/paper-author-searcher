@@ -1,8 +1,8 @@
 # Paper Author Searcher
 
-Python >= 3.8 的论文检索工具，接入 OpenAlex、Semantic Scholar 和 DBLP，支持教授身份确认、论文收集、归属验证、去重、公开 PDF 检索与下载，以及离线评估。元数据与 URL 阶段无第三方依赖；PDF 解析需要安装 `download` extra。
+Python >= 3.10 的论文检索工具，接入 OpenAlex、Semantic Scholar 和 DBLP，支持教授身份确认、论文收集、归属验证、去重、公开 PDF 检索与下载，以及离线评估。元数据与 URL 阶段无第三方依赖；PDF 解析需要安装 `download` extra。
 
-真实场景指标、人工标注格式、未获取 PDF 的原因和全量运行命令见 [性能评估](docs/performance.md)，本轮实际检索和优化前后对照见 [测试报告](reports/performance/comparison.md)。
+真实场景指标、人工标注格式、未获取 PDF 的原因和全量运行命令见 [性能评估](docs/performance.md)，本轮实际检索和优化前后对照见 [测试报告](reports/performance/comparison.md)。代码重构中每项性能、内存改动的测量与取舍见 [优化记录](docs/optimization.md)。`output/` 下的运行产物（论文、PDF、manifest、HTTP 缓存）只保存在本地、不进入版本库，结论摘要在 `reports/`。
 
 人工待确认的参考论文与分层审核队列见 [审核清单](reports/performance/ground_truth_review.md)。人工选择 Author ID 不替代逐篇归属验证；作者档案 ORCID 不单独作为论文归属正面证据。
 
@@ -18,12 +18,18 @@ PYTHONPATH=src python3 -m paper_author_searcher.cli \
 可选参数：`--department`、可重复的 `--research` 和 `--university-alias`。也可 `python3 -m pip install -e .` 后使用 `professor-resolve`。
 
 ```python
-from paper_author_searcher import ProfessorQuery, ProfessorResolver
-result = ProfessorResolver().resolve(ProfessorQuery(
+from paper_author_searcher import ProfessorQuery
+from paper_author_searcher.composition import RunOptions, ServiceContainer
+from paper_author_searcher.settings import Settings
+
+container = ServiceContainer(Settings.load(), RunOptions(mode='metadata'))
+result = container.resolver.resolve(ProfessorQuery(
     name='Andrew Ng', university='Stanford University',
     research_interests=['machine learning']))
 print(result.to_dict())
 ```
+
+服务之间的依赖全部由 `composition.ServiceContainer`（组合根）注入：库中的类不自行构造 HTTP 客户端、数据源或子服务，缺失某阶段所需服务时会明确报错（`MissingStageService`），不会悄悄回退到默认实现。测试中可直接向构造函数传入替身。
 
 ## 结构与迁移配置
 
@@ -63,6 +69,38 @@ DBLP 使用 `/search/author/api?q=...&format=json` 和 `/pid/<id>.xml`。检查 
 OpenAlex 默认搜索 25 个候选，并为最多 8 个姓名兼容候选查询每人最多 50 篇高引用论文的 DOI、authorships、topics；Semantic Scholar 使用返回论文的 DOI、共同作者和标题；DBLP 使用作者 XML。只请求身份所需元数据，不请求全文。候选数及 enrichment 上限可通过 provider 构造参数调整。采样与搜索截断可能遗漏验证证据，重复记录仍可能导致 ambiguous。
 
 若 Python 缺少系统 CA 配置，且 `/etc/ssl/cert.pem` 包含可信 CA，可设置 `SSL_CERT_FILE=/etc/ssl/cert.pem`。
+
+## 配置
+
+所有可调参数集中在 `paper_author_searcher.settings.Settings`（各分区即 `config.py` 中的 dataclass：`matching`、`anchors`、`http`、`sources`、`collection`、`ownership`、`deduplication`、`pdf`、`download`）。优先级从低到高：
+
+1. 代码默认值；
+2. JSON 配置文件：`--settings path.json` 或 `$PAPER_SEARCH_SETTINGS`，例如 `{"http": {"timeout": 30}, "collection": {"maximum_contenders": 5}}`；
+3. 环境变量覆盖：`PAPER_SEARCH__<分区>__<字段>`，例如 `PAPER_SEARCH__HTTP__TIMEOUT=30`、`PAPER_SEARCH__HTTP__RETRY_STATUSES=429,503`。
+
+值会按字段类型转换，并重新执行各分区自身的校验；未知分区或字段直接报错，不会被静默忽略。命令行参数（如 `--timeout`）仍优先于以上三层。
+
+凭据只从环境变量读取（`OPENALEX_API_KEY`、`SEMANTIC_SCHOLAR_API_KEY`、`UNPAYWALL_EMAIL`、`CROSSREF_MAILTO`），配置文件中出现 `credentials` 会被拒绝；`repr` 与 `Settings.to_dict()` 只显示 set/unset，不输出值。只有 `settings.py`（和日志引导）读取环境，有架构测试保证。
+
+## 数据源注册表
+
+数据源按名字注册在 `source_catalog.py`（`IDENTITY_SOURCES`、`PAPER_SOURCES`、`PDF_SOURCES`），由配置决定启用哪些、按什么顺序：
+
+```json
+{"sources": {"identity_sources": ["openalex", "semantic_scholar"]},
+ "pdf": {"sources": ["existing_metadata", "openalex", "arxiv", "public_pages"]}}
+```
+
+新增数据源：写好适配器，在 `source_catalog.py` 用 `@PDF_SOURCES.register('name')` 注册工厂函数，再把名字加入配置即可，无需改动 Resolver / Collector / Workflow。配置中出现未注册的名字会在构建时直接报错。
+
+## 日志
+
+命令结果写到 stdout，诊断信息（进度、重试、限流、预算拒绝、被隔离的来源失败）通过 `logging` 写到 stderr，管道输出不会被污染。所有命令都支持：
+
+- `--log-level {DEBUG,INFO,WARNING,ERROR}`，默认读 `$PAPER_SEARCH_LOG_LEVEL`，否则为 `INFO`；`DEBUG` 时被隔离的失败会附带 traceback。
+- `--log-format {text,json}`，默认读 `$PAPER_SEARCH_LOG_FORMAT`；`json` 每行一个对象，便于日志采集。
+
+作为库嵌入时，包只挂 `NullHandler`，由宿主应用决定日志配置。
 
 ## 测试
 
@@ -230,7 +268,7 @@ PYTHONPATH=src python3 -m paper_author_searcher.pdf_cli \
 新增独立 `PDFDownloader`、`PDFFileValidator` 和下载 CLI。只读取已有 PDF Resolver JSON，不重新解析教授身份或检索论文。默认要求 ownership=verified，且候选的 URL 验证与元数据身份状态均为 verified；`--include-needs-review` 仅放行待审核的论文归属，不能放行未经验证的 URL。rejected 论文始终跳过，原有归属状态不改变。
 
 ```bash
-# 在当前 Python 环境安装下载阶段的可选依赖；仍兼容 Python 3.8
+# 在当前 Python 环境安装下载阶段的可选依赖
 python3 -m pip install -e '.[download]'
 
 python3 -m paper_author_searcher.download_cli \
@@ -243,7 +281,7 @@ python3 -m paper_author_searcher.download_cli \
   --include-needs-review
 ```
 
-已安装项目时也可运行 `pdf-download`。使用本项目 `.venv` 时，将 `python3` 替换为 `.venv/bin/python`；当前环境需要的可信 CA 配置可继续使用 `SSL_CERT_FILE=/etc/ssl/cert.pem`。下载依赖限定为支持 Python 3.8 的 `pypdf>=5.9,<6`，原有其他阶段不必安装此可选依赖。
+已安装项目时也可运行 `pdf-download`。使用本项目 `.venv` 时，将 `python3` 替换为 `.venv/bin/python`；当前环境需要的可信 CA 配置可继续使用 `SSL_CERT_FILE=/etc/ssl/cert.pem`。下载依赖固定为 `pypdf>=5.9,<6`，原有其他阶段不必安装此可选依赖。
 
 HTTP 流式写入临时 `.part` 文件，默认限制单文件 50 MiB，逐块计算 SHA-256，核对实际大小和完整响应。重定向和 DNS 结果逐一检查，禁止本地/内网目标、凭据 URL 与非配置端口；连接固定到已经检查的公网 IP，同时保留原主机名的 TLS 验证。下载器不使用环境代理，不处理登录或验证码。
 
@@ -289,3 +327,11 @@ PDF 内容验证、文档类型识别、来源冷却和相同范围复测见 [do
 Aarti Singh 的 37 条记录已整理为 [试点审核包](data/ground_truth/aarti_singh_pilot_v1/README.md)。逐论文审核、版本关联、完整性检查、转换 Ground Truth 和独立核查 Agent 未匹配记录的命令见 [试点评估指南](docs/ground_truth_pilot.md)；人工审核未完成时工具不输出正式 Precision/Recall。
 
 最新 [v2 分组审核页](data/ground_truth/aarti_singh_pilot_v2/review/grouped_review.md) 保留原 37 条并追加两条独立出版来源支持的期刊候选，以出版物为单位展示证据和疑点。按组填写人工决定、转换为现有 Ground Truth 格式的步骤见 [分组审核指南](docs/ground_truth_grouped_review.md)。
+
+## 分层评测集与上线门槛
+
+`paper-benchmark` 对 32 位按 资历 × 领域 × 姓名类型 分层的研究者运行完整检索，逐层报告召回率、精度和全文获取率，并按 [配置](data/benchmark/v1/benchmark.json) 中的门槛（当前每层 verified 召回 ≥ 80%、精度 ≥ 95%）判定能否上线。真值来自研究者本人或实验室维护的书目，人工审核前的分数只是 provisional。用法、指标口径与审核流程见 [docs/benchmark.md](docs/benchmark.md)，数据集见 [data/benchmark/v1](data/benchmark/v1/README.md)。
+
+## 身份解析增强
+
+针对同名与档案拆分：机构限定检索、同来源拆分档案合并、ORCID / 主页 / 已知论文锚点（`--orcid`、`--homepage`、`--known-paper`）、歧义时收集竞争档案供审核（`--ambiguity-policy collect_contenders`，不会产生 verified）、可选的 Claude 裁决（`--llm-adjudication`），以及评测用的诊断与离线校准（`paper-benchmark diagnose-identity`、`calibrate`）。说明见 [docs/identity_resolution.md](docs/identity_resolution.md)。

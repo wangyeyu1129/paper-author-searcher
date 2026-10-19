@@ -1,0 +1,147 @@
+{
+  "lookups": {
+    "axbench steering llms even simple baselines outperform sparse autoencoders": {
+      "title": "AxBench: Steering LLMs? Even Simple Baselines Outperform Sparse Autoencoders",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2501.17148",
+          "title": "AxBench: Steering LLMs? Even Simple Baselines Outperform Sparse Autoencoders",
+          "year": 2025,
+          "authors": [
+            "Zhengxuan Wu",
+            "Aryaman Arora",
+            "Atticus Geiger",
+            "Zheng Wang",
+            "Jing Huang",
+            "Dan Jurafsky",
+            "Christopher D. Manning",
+            "Christopher Potts"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:08:27.295034+00:00"
+    },
+    "blackbox model provenance via palimpsestic membership inference": {
+      "title": "Blackbox Model Provenance via Palimpsestic Membership Inference",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2510.19796",
+          "title": "Blackbox Model Provenance via Palimpsestic Membership Inference",
+          "year": 2025,
+          "authors": [
+            "Rohith Kuditipudi",
+            "Jing Huang",
+            "Sally Zhu",
+            "Diyi Yang",
+            "Christopher Potts",
+            "Percy Liang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:08:30.654725+00:00"
+    },
+    "causal abstraction a theoretical foundation for mechanistic interpretability": {
+      "title": "Causal Abstraction: A Theoretical Foundation for Mechanistic Interpretability",
+      "year": 2025,
+      "candidates": [],
+      "fetched_at": "2026-10-18T18:08:34.044111+00:00"
+    },
+    "demystifying verbatim memorization in large language models": {
+      "title": "Demystifying Verbatim Memorization in Large Language Models",
+      "year": 2024,
+      "candidates": [
+        {
+          "arxiv": "2407.17817",
+          "title": "Demystifying Verbatim Memorization in Large Language Models",
+          "year": 2024,
+          "authors": [
+            "Jing Huang",
+            "Diyi Yang",
+            "Christopher Potts"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:08:37.427296+00:00"
+    },
+    "hyperdas towards automating mechanistic interpretability with hypernetworks": {
+      "title": "HyperDAS: Towards Automating Mechanistic Interpretability with Hypernetworks",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2503.10894",
+          "title": "HyperDAS: Towards Automating Mechanistic Interpretability with Hypernetworks",
+          "year": 2025,
+          "authors": [
+            "Jiuding Sun",
+            "Jing Huang",
+            "Sidharth Baskaran",
+            "Karel D'Oosterlinck",
+            "Christopher Potts",
+            "Michael Sklar",
+            "Atticus Geiger"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:08:40.752151+00:00"
+    },
+    "internal causal mechanisms robustly predict language model out of distribution behaviors": {
+      "title": "Internal Causal Mechanisms Robustly Predict Language Model Out-of-Distribution Behaviors",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2505.11770",
+          "title": "Internal Causal Mechanisms Robustly Predict Language Model Out-of-Distribution Behaviors",
+          "year": 2025,
+          "authors": [
+            "Jing Huang",
+            "Junyi Tao",
+            "Thomas Icard",
+            "Diyi Yang",
+            "Christopher Potts"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:08:44.074242+00:00"
+    },
+    "ravel evaluating interpretability methods on disentangling language model representations": {
+      "title": "RAVEL: Evaluating Interpretability Methods on Disentangling Language Model Representations",
+      "year": 2024,
+      "candidates": [
+        {
+          "arxiv": "2402.17700",
+          "title": "RAVEL: Evaluating Interpretability Methods on Disentangling Language Model Representations",
+          "year": 2024,
+          "authors": [
+            "Jing Huang",
+            "Zhengxuan Wu",
+            "Christopher Potts",
+            "Mor Geva",
+            "Atticus Geiger"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:08:47.491688+00:00"
+    },
+    "rigorously assessing natural language explanations of neurons": {
+      "title": "Rigorously Assessing Natural Language Explanations of Neurons",
+      "year": 2023,
+      "candidates": [
+        {
+          "arxiv": "2309.10312",
+          "title": "Rigorously Assessing Natural Language Explanations of Neurons",
+          "year": 2023,
+          "authors": [
+            "Jing Huang",
+            "Atticus Geiger",
+            "Karel D'Oosterlinck",
+            "Zhengxuan Wu",
+            "Christopher Potts"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:08:50.912009+00:00"
+    }
+  }
+}

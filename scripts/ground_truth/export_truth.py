@@ -1,4 +1,5 @@
 """Convert explicit human annotations into version-aware Evaluation Ground Truth."""
+
 import argparse
 import csv
 import json
@@ -6,10 +7,11 @@ from collections import defaultdict
 from copy import deepcopy
 from pathlib import Path
 
-from paper_author_searcher.evaluation_matching import GroundTruth
-from paper_author_searcher.matching import canonical_doi
 from scripts.ground_truth.build_candidates import read_json, write_json
 from scripts.ground_truth.review_candidates import _date, _evidence, validate_reviews
+
+from paper_author_searcher.evaluation_matching import GroundTruth
+from paper_author_searcher.matching import canonical_doi
 
 
 def human_attestation(value):
@@ -44,14 +46,21 @@ def completeness_reasons(reviewed, coverage, requirements=None):
         by_id[paper['candidate_id']] = paper
         for alias in paper.get('candidate_ids', []):
             by_id[alias] = paper
-    included_groups = {paper['human_review'].get('canonical_group_id') for paper in reviewed['papers']
-                       if paper.get('inclusion_decision') == 'include'}
+    included_groups = {
+        paper['human_review'].get('canonical_group_id')
+        for paper in reviewed['papers']
+        if paper.get('inclusion_decision') == 'include'
+    }
     scope = reviewed.get('scope')
     if scope:
         for paper in reviewed['papers']:
-            excluded_positive = (paper.get('review_status') == 'confirmed' and paper['ownership'] == 'belongs'
-                                 and paper['in_scope'] and paper['publication_type'] in scope['core_publication_types']
-                                 and paper['inclusion_decision'] == 'exclude')
+            excluded_positive = (
+                paper.get('review_status') == 'confirmed'
+                and paper['ownership'] == 'belongs'
+                and paper['in_scope']
+                and paper['publication_type'] in scope['core_publication_types']
+                and paper['inclusion_decision'] == 'exclude'
+            )
             if excluded_positive and paper['human_review'].get('canonical_group_id') not in included_groups:
                 reasons.append('An in-scope owned core publication was excluded without a retained canonical group')
     for omission in coverage.get('omissions', []):
@@ -68,9 +77,15 @@ def completeness_reasons(reviewed, coverage, requirements=None):
                 reasons.append('A supported omission must link to its actual new reference identity')
         elif decision == 'not_target_author':
             paper = by_id.get(omission.get('covered_candidate_id'))
-            if (not paper or paper['review_status'] != 'confirmed' or paper['ownership'] != 'not_belongs'
-                    or (supported and paper['candidate_id'] != supported and supported not in paper.get('candidate_ids', []))
-                    or not omission.get('human_notes', '').strip()):
+            if (
+                not paper
+                or paper['review_status'] != 'confirmed'
+                or paper['ownership'] != 'not_belongs'
+                or (
+                    supported and paper['candidate_id'] != supported and supported not in paper.get('candidate_ids', [])
+                )
+                or not omission.get('human_notes', '').strip()
+            ):
                 reasons.append('A not-target-author omission requires an explicitly adjudicated negative identity')
         elif decision != 'out_of_scope' or not omission.get('human_notes', '').strip():
             reasons.append('Possible missing publication is unresolved')
@@ -104,10 +119,12 @@ def _canonical_paper(group_id, members):
             selected['external_ids'][namespace] = identifier
         # Each member's corrected metadata was explicitly checked in the human CSV.
         if member != members[0]:
-            selected['metadata_aliases'].append({key: deepcopy(member.get(key))
-                                                 for key in ('title', 'authors', 'year', 'venue')})
-    selected['source_records'] = list({(item['source'], item['paper_id']): item
-                                      for item in selected['source_records']}.values())
+            selected['metadata_aliases'].append(
+                {key: deepcopy(member.get(key)) for key in ('title', 'authors', 'year', 'venue')}
+            )
+    selected['source_records'] = list(
+        {(item['source'], item['paper_id']): item for item in selected['source_records']}.values()
+    )
     selected['annotation_evidence'] = sorted(set(selected['annotation_evidence']))
     return selected
 
@@ -123,7 +140,10 @@ def _matching_annotations(truth, reviewed, annotations):
             raise ValueError('Metadata alias requires an existing evaluation_id and metadata')
         if not alias.get('title') or not alias.get('authors') or not isinstance(alias.get('year'), int):
             raise ValueError('Metadata aliases need a checked title, year and complete author list')
-        if item.get('same_publication') is not True or alias.get('publication_type', target['publication_type']) != target['publication_type']:
+        if (
+            item.get('same_publication') is not True
+            or alias.get('publication_type', target['publication_type']) != target['publication_type']
+        ):
             raise ValueError('Metadata aliases require explicit same-publication approval; versions stay separate')
         if alias.get('year') != target['year'] and not item.get('year_difference_reason', '').strip():
             raise ValueError('Publication-year alias needs an explicit human explanation')
@@ -154,8 +174,11 @@ def approved_relationships(rows, truth, reviewed):
         relation = row.get('human_relation', '').strip()
         if not relation:
             continue
-        approval = {'reviewer': row.get('reviewer'), 'reviewed_at': row.get('reviewed_at'),
-                    'evidence_urls': json.loads(row.get('evidence_urls') or '[]')}
+        approval = {
+            'reviewer': row.get('reviewer'),
+            'reviewed_at': row.get('reviewed_at'),
+            'evidence_urls': json.loads(row.get('evidence_urls') or '[]'),
+        }
         human_attestation(approval)
         ids = json.loads(row['candidate_ids'])
         if len(ids) != 2 or len(set(ids)) != 2 or any(key not in candidates for key in ids):
@@ -175,12 +198,19 @@ def approved_relationships(rows, truth, reviewed):
             if len(preprints) != 1 or same_group:
                 raise ValueError('Preprint relationship must preserve two separate publication identities')
             preprint = preprints[0]
-            formal_id = next((formal_by_candidate[key] for key in ids if key != preprint['candidate_id']
-                              and key in formal_by_candidate), None)
+            formal_id = next(
+                (
+                    formal_by_candidate[key]
+                    for key in ids
+                    if key != preprint['candidate_id'] and key in formal_by_candidate
+                ),
+                None,
+            )
             if not formal_id:
                 raise ValueError('Preprint relation needs an included formal reference identity')
-            relations.append(dict(approval, formal_evaluation_id=formal_id,
-                                  preprint_candidate_id=preprint['candidate_id']))
+            relations.append(
+                dict(approval, formal_evaluation_id=formal_id, preprint_candidate_id=preprint['candidate_id'])
+            )
         else:
             raise ValueError('Human relation must be same_publication, distinct_publications, unrelated or preprint_of')
     return relations
@@ -205,9 +235,14 @@ def export_truth(dataset, rows, coverage, annotations=None, relationships=None):
     retained_exclusions = []
     for paper in excluded:
         group = paper['human_review'].get('canonical_group_id')
-        duplicate = (paper['review_status'] == 'confirmed' and paper['ownership'] == 'belongs'
-                     and paper['in_scope'] and paper['publication_type'] in scope['core_publication_types']
-                     and group in groups and groups[group][0]['ownership'] == 'belongs')
+        duplicate = (
+            paper['review_status'] == 'confirmed'
+            and paper['ownership'] == 'belongs'
+            and paper['in_scope']
+            and paper['publication_type'] in scope['core_publication_types']
+            and group in groups
+            and groups[group][0]['ownership'] == 'belongs'
+        )
         if duplicate:
             groups[group].append(paper)
         else:
@@ -218,17 +253,30 @@ def export_truth(dataset, rows, coverage, annotations=None, relationships=None):
         human_attestation(coverage)
         if reasons:
             raise ValueError('Cannot approve completeness: ' + '; '.join(reasons))
-    truth = {'schema_version': 1, 'professor': {'name': professor['name'], 'university': professor['university'],
-                                              'author_ids': {}, 'author_ids_complete': False},
-             'complete_positive_list': not reasons,
-             'metadata': {'annotation_state': 'human_reviewed' if not reasons else 'review_incomplete',
-                          'reviewer': coverage.get('reviewer'), 'reviewed_at': coverage.get('reviewed_at'),
-                          'dataset_id': dataset['dataset_id'], 'scope': deepcopy(scope),
-                          'formal_evaluation_ready': not reasons, 'pending_reasons': reasons,
-                          'review_requirements': deepcopy(dataset.get('review_requirements', {})),
-                          'coverage_review': deepcopy(coverage), 'candidate_review_count': len(reviewed['papers'])},
-             'papers': [_canonical_paper(key, members) for key, members in sorted(groups.items())],
-             'excluded_or_pending_records': retained_exclusions}
+    truth = {
+        'schema_version': 1,
+        'professor': {
+            'name': professor['name'],
+            'university': professor['university'],
+            'author_ids': {},
+            'author_ids_complete': False,
+        },
+        'complete_positive_list': not reasons,
+        'metadata': {
+            'annotation_state': 'human_reviewed' if not reasons else 'review_incomplete',
+            'reviewer': coverage.get('reviewer'),
+            'reviewed_at': coverage.get('reviewed_at'),
+            'dataset_id': dataset['dataset_id'],
+            'scope': deepcopy(scope),
+            'formal_evaluation_ready': not reasons,
+            'pending_reasons': reasons,
+            'review_requirements': deepcopy(dataset.get('review_requirements', {})),
+            'coverage_review': deepcopy(coverage),
+            'candidate_review_count': len(reviewed['papers']),
+        },
+        'papers': [_canonical_paper(key, members) for key, members in sorted(groups.items())],
+        'excluded_or_pending_records': retained_exclusions,
+    }
     matching = deepcopy(annotations or {})
     matching.setdefault('preprint_relations', []).extend(approved_relationships(relationships or [], truth, reviewed))
     _matching_annotations(truth, reviewed, matching)
@@ -255,8 +303,11 @@ def main(argv=None):
         write_json(args.output, truth)
     except (OSError, KeyError, TypeError, ValueError) as exc:
         parser.error(str(exc))
-    print('Human publications: {}; formal evaluation ready: {}'.format(
-        len(truth['papers']), truth['metadata']['formal_evaluation_ready']))
+    print(
+        'Human publications: {}; formal evaluation ready: {}'.format(
+            len(truth['papers']), truth['metadata']['formal_evaluation_ready']
+        )
+    )
     return 0
 
 

@@ -1,0 +1,131 @@
+{
+  "lookups": {
+    "computational approaches for understanding semantic constraints on two termed coordination structures": {
+      "title": "Computational Approaches for Understanding Semantic Constraints on Two-termed Coordination Structures",
+      "year": 2022,
+      "candidates": [
+        {
+          "doi": "10.1007/978-3-031-16270-1_6",
+          "title": "Computational Approaches for Understanding Semantic Constraints on Two-termed Coordination Structures",
+          "year": 2022,
+          "type": "book-chapter",
+          "container": "Lecture Notes in Computer Science",
+          "family_names": [
+            "Kallini",
+            "Fellbaum"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/2021.findings-emnlp.335",
+          "title": "A Corpus-based Syntactic Analysis of Two-termed Unlike Coordination",
+          "year": 2021,
+          "type": "proceedings-article",
+          "container": "Findings of the Association for Computational Linguistics: EMNLP 2021",
+          "family_names": [
+            "Kallini",
+            "Fellbaum"
+          ]
+        },
+        {
+          "doi": "10.70675/e34f7f67z1341z4e64za368z58db079c194f",
+          "title": "Theoretical, empirical and computational approaches to agreement with coordination structures",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "An"
+          ]
+        },
+        {
+          "doi": "10.1007/978-3-030-77198-0_6",
+          "title": "Computational Assessment of Semantic Novelty in Texts",
+          "year": 2021,
+          "type": "book-chapter",
+          "container": "Understanding Complex Systems",
+          "family_names": [
+            "Doboli"
+          ]
+        },
+        {
+          "doi": "10.1093/oso/9780199652624.003.0019",
+          "title": "Coordination, Understanding, and Semantic Requirements",
+          "year": 2020,
+          "type": "book-chapter",
+          "container": "Metaphysics, Meaning, and Modality",
+          "family_names": [
+            "Bonardi"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:08:51.217999+00:00"
+    },
+    "mrt5 dynamic token merging for efficient byte level language models": {
+      "title": "MrT5: Dynamic Token Merging for Efficient Byte-level Language Models",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.2139/ssrn.7535758",
+          "title": "The Tokenization Trap: Domain-Adaptive Byte-Pair Encoding Restores Language-like Token Statistics for Protein and Genome Language Models",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Horiuchi"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/2025.findings-emnlp.387",
+          "title": "AdaptMerge: Inference Time Adaptive Visual and Language-Guided Token Merging for Efficient Large Multimodal Models",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Findings of the Association for Computational Linguistics: EMNLP 2025",
+          "family_names": [
+            "Islam",
+            "Rochan"
+          ]
+        },
+        {
+          "doi": "10.21203/rs.3.rs-11124879/v1",
+          "title": "Efficient Long-Context Reasoning in Large Language Models: Hierarchical Token Compression with Sparse Attention and Dynamic Memory Management",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Satpute",
+            "Jadhav",
+            "Bharati",
+            "Kshirsagar"
+          ]
+        },
+        {
+          "doi": "10.1109/icip61757.2026.11630301",
+          "title": "Towards Efficient Vision State Space Models via Token Merging",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "2026 IEEE International Conference on Image Processing (ICIP)",
+          "family_names": [
+            "Park",
+            "Son",
+            "Kim"
+          ]
+        },
+        {
+          "doi": "10.1145/3774904.3792197",
+          "title": "Byte-token Enhanced Language Models for Temporal Point Processes Analysis",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Proceedings of the ACM Web Conference 2026",
+          "family_names": [
+            "Kong",
+            "Zhang",
+            "Liu",
+            "Tong",
+            "Liu",
+            "Zhou"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-18T18:08:51.532755+00:00"
+    }
+  }
+}

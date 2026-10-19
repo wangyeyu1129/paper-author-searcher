@@ -1,0 +1,548 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "eng_min_zhu",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Min Zhu",
+      "university": "Yale University"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.907789+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "group_publications.json",
+        "url": "https://lugroup.yale.edu/publications/",
+        "records": 8
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "eng_min_zhu:64d7af015402",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A comprehensive study of non-adaptive and residual-based adaptive sampling for physics-informed neural networks",
+      "year": 2023,
+      "authors": [
+        "C. Wu",
+        "M. Zhu",
+        "Q. Tan",
+        "Y. Kartha",
+        "L. Lu"
+      ],
+      "listed_venue": "Computer Methods in Applied Mechanics and Engineering",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://lugroup.yale.edu/publications/ entry 8 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.cma.2022.115671"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A comprehensive study of non-adaptive and residual-based adaptive sampling for physics-informed neural networks",
+          "year": 2022,
+          "authors": [
+            "C. Wu",
+            "M. Zhu",
+            "Q. Tan",
+            "Y. Kartha",
+            "L. Lu"
+          ]
+        },
+        {
+          "title": "A comprehensive study of non-adaptive and residual-based adaptive sampling for physics-informed neural networks",
+          "year": 2024,
+          "authors": [
+            "C. Wu",
+            "M. Zhu",
+            "Q. Tan",
+            "Y. Kartha",
+            "L. Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.cma.2022.115671",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "A comprehensive study of non-adaptive and residual-based adaptive sampling for physics-informed neural networks",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_min_zhu:e8975dcd4f6a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Fourier-DeepONet: Fourier-enhanced deep operator networks for full waveform inversion with improved accuracy, generalizability, and robustness",
+      "year": 2023,
+      "authors": [
+        "M. Zhu",
+        "S. Feng",
+        "Y. Lin",
+        "L. Lu"
+      ],
+      "listed_venue": "Computer Methods in Applied Mechanics and Engineering",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://lugroup.yale.edu/publications/ entry 6 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.2139/ssrn.4461079"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Fourier-DeepONet: Fourier-enhanced deep operator networks for full waveform inversion with improved accuracy, generalizability, and robustness",
+          "year": 2022,
+          "authors": [
+            "M. Zhu",
+            "S. Feng",
+            "Y. Lin",
+            "L. Lu"
+          ]
+        },
+        {
+          "title": "Fourier-DeepONet: Fourier-enhanced deep operator networks for full waveform inversion with improved accuracy, generalizability, and robustness",
+          "year": 2024,
+          "authors": [
+            "M. Zhu",
+            "S. Feng",
+            "Y. Lin",
+            "L. Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.2139/ssrn.4461079",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Fourier-Deeponet: Fourier-Enhanced Deep Operator Networks for Full Waveform Inversion with Improved Accuracy, Generalizability, and Robustness",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_min_zhu:0c7607738ff8",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Reliable extrapolation of deep neural operators informed by physics or sparse observations",
+      "year": 2023,
+      "authors": [
+        "M. Zhu",
+        "H. Zhang",
+        "A. Jiao",
+        "G. E. Karniadakis",
+        "L. Lu"
+      ],
+      "listed_venue": "Computer Methods in Applied Mechanics and Engineering",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://lugroup.yale.edu/publications/ entry 7 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.2139/ssrn.4376056"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Reliable extrapolation of deep neural operators informed by physics or sparse observations",
+          "year": 2022,
+          "authors": [
+            "M. Zhu",
+            "H. Zhang",
+            "A. Jiao",
+            "G. E. Karniadakis",
+            "L. Lu"
+          ]
+        },
+        {
+          "title": "Reliable extrapolation of deep neural operators informed by physics or sparse observations",
+          "year": 2024,
+          "authors": [
+            "M. Zhu",
+            "H. Zhang",
+            "A. Jiao",
+            "G. E. Karniadakis",
+            "L. Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.2139/ssrn.4376056",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Reliable Extrapolation of Deep Neural Operators Informed by Physics or Sparse Observations",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_min_zhu:624ae277e9d0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Efficient and generalizable nested Fourier-DeepONet for three-dimensional geological carbon sequestration",
+      "year": 2024,
+      "authors": [
+        "J. E. Lee",
+        "M. Zhu",
+        "Z. Xi",
+        "K. Wang",
+        "Y. O. Yuan",
+        "L. Lu"
+      ],
+      "listed_venue": "Engineering Applications of Computational Fluid Mechanics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://lugroup.yale.edu/publications/ entry 3 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1080/19942060.2024.2435457"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Efficient and generalizable nested Fourier-DeepONet for three-dimensional geological carbon sequestration",
+          "year": 2023,
+          "authors": [
+            "J. E. Lee",
+            "M. Zhu",
+            "Z. Xi",
+            "K. Wang",
+            "Y. O. Yuan",
+            "L. Lu"
+          ]
+        },
+        {
+          "title": "Efficient and generalizable nested Fourier-DeepONet for three-dimensional geological carbon sequestration",
+          "year": 2025,
+          "authors": [
+            "J. E. Lee",
+            "M. Zhu",
+            "Z. Xi",
+            "K. Wang",
+            "Y. O. Yuan",
+            "L. Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1080/19942060.2024.2435457",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Efficient and generalizable nested Fourier-DeepONet for three-dimensional geological carbon sequestration",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_min_zhu:ec00fdb86423",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Fourier-MIONet: Fourier-enhanced multiple-input neural operators for multiphase modeling of geological carbon sequestration",
+      "year": 2024,
+      "authors": [
+        "Z. Jiang",
+        "M. Zhu",
+        "L. Lu"
+      ],
+      "listed_venue": "Reliability Engineering & System Safety",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://lugroup.yale.edu/publications/ entry 4 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.2139/ssrn.4408632"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Fourier-MIONet: Fourier-enhanced multiple-input neural operators for multiphase modeling of geological carbon sequestration",
+          "year": 2023,
+          "authors": [
+            "Z. Jiang",
+            "M. Zhu",
+            "L. Lu"
+          ]
+        },
+        {
+          "title": "Fourier-MIONet: Fourier-enhanced multiple-input neural operators for multiphase modeling of geological carbon sequestration",
+          "year": 2025,
+          "authors": [
+            "Z. Jiang",
+            "M. Zhu",
+            "L. Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.2139/ssrn.4408632",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Fourier-Mionet: Fourier-Enhanced Multiple-Input Neural Operators for Multiphase Modeling of Geological Carbon Sequestration",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_min_zhu:8cf4cf06d515",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Multi-resolution partial differential equations preserved learning framework for spatiotemporal dynamics",
+      "year": 2024,
+      "authors": [
+        "X. Liu",
+        "M. Zhu",
+        "L. Lu",
+        "H. Sun",
+        "J. Wang"
+      ],
+      "listed_venue": "Communications Physics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://lugroup.yale.edu/publications/ entry 5 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1038/s42005-024-01521-z"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Multi-resolution partial differential equations preserved learning framework for spatiotemporal dynamics",
+          "year": 2023,
+          "authors": [
+            "X. Liu",
+            "M. Zhu",
+            "L. Lu",
+            "H. Sun",
+            "J. Wang"
+          ]
+        },
+        {
+          "title": "Multi-resolution partial differential equations preserved learning framework for spatiotemporal dynamics",
+          "year": 2025,
+          "authors": [
+            "X. Liu",
+            "M. Zhu",
+            "L. Lu",
+            "H. Sun",
+            "J. Wang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s42005-024-01521-z",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Multi-resolution partial differential equations preserved learning framework for spatiotemporal dynamics",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_min_zhu:53f9a29ff2ba",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Neural topology optimization via active learning for efficient channel design in turbulent mass transfer",
+      "year": 2025,
+      "authors": [
+        "C. Kou",
+        "Y. Yin",
+        "M. Zhu",
+        "S. Jia",
+        "Y. Luo",
+        "X. Yuan",
+        "L. Lu"
+      ],
+      "listed_venue": "Advanced Science",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://lugroup.yale.edu/publications/ entry 2 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1002/advs.202508386"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Neural topology optimization via active learning for efficient channel design in turbulent mass transfer",
+          "year": 2024,
+          "authors": [
+            "C. Kou",
+            "Y. Yin",
+            "M. Zhu",
+            "S. Jia",
+            "Y. Luo",
+            "X. Yuan",
+            "L. Lu"
+          ]
+        },
+        {
+          "title": "Neural topology optimization via active learning for efficient channel design in turbulent mass transfer",
+          "year": 2026,
+          "authors": [
+            "C. Kou",
+            "Y. Yin",
+            "M. Zhu",
+            "S. Jia",
+            "Y. Luo",
+            "X. Yuan",
+            "L. Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1002/advs.202508386",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Neural Topology Optimization Via Active Learning for Efficient Channel Design in Turbulent Mass Transfer",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_min_zhu:e7f6172703f0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "PI-MFM: Physics-informed multimodal foundation model for solving partial differential equations",
+      "year": 2025,
+      "authors": [
+        "M. Zhu",
+        "J. Sun",
+        "Z. Zhang",
+        "H. Schaeffer",
+        "L. Lu"
+      ],
+      "listed_venue": "arXiv 2025",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://lugroup.yale.edu/publications/ entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "external_ids": {
+        "arxiv": "2512.23056"
+      },
+      "metadata_aliases": [
+        {
+          "title": "PI-MFM: Physics-informed multimodal foundation model for solving partial differential equations",
+          "year": 2024,
+          "authors": [
+            "M. Zhu",
+            "J. Sun",
+            "Z. Zhang",
+            "H. Schaeffer",
+            "L. Lu"
+          ]
+        },
+        {
+          "title": "PI-MFM: Physics-informed multimodal foundation model for solving partial differential equations",
+          "year": 2026,
+          "authors": [
+            "M. Zhu",
+            "J. Sun",
+            "Z. Zhang",
+            "H. Schaeffer",
+            "L. Lu"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

@@ -1,14 +1,22 @@
 """Synthetic PDF data for tests, independent of any professor or real paper."""
-import io
-import importlib.util
 
+import importlib.util
+import io
 
 HAS_PYPDF = importlib.util.find_spec('pypdf') is not None
 
 
-def make_pdf(title='Reusable methods for synthetic research', doi='10.1234/example',
-             authors='Alex Example; Taylor Researcher', pages=1, javascript=None,
-             metadata_title=None, creator=None, text_lines=None, page_size=(612, 792)):
+def make_pdf(
+    title='Reusable methods for synthetic research',
+    doi='10.1234/example',
+    authors='Alex Example; Taylor Researcher',
+    pages=1,
+    javascript=None,
+    metadata_title=None,
+    creator=None,
+    text_lines=None,
+    page_size=(612, 792),
+):
     from pypdf import PdfWriter
     from pypdf.generic import DecodedStreamObject, DictionaryObject, NameObject
 
@@ -21,18 +29,28 @@ def make_pdf(title='Reusable methods for synthetic research', doi='10.1234/examp
         lines.append('DOI: ' + doi)
     if text_lines is not None:
         lines = text_lines
-    for index in range(pages):
+    for _ in range(pages):
         page = writer.add_blank_page(width=page_size[0], height=page_size[1])
-        font = DictionaryObject({NameObject('/Type'): NameObject('/Font'),
-                                 NameObject('/Subtype'): NameObject('/Type1'),
-                                 NameObject('/BaseFont'): NameObject('/Helvetica')})
-        page[NameObject('/Resources')] = DictionaryObject({NameObject('/Font'): DictionaryObject({
-            NameObject('/F1'): writer._add_object(font),
-        })})
+        font = DictionaryObject(
+            {
+                NameObject('/Type'): NameObject('/Font'),
+                NameObject('/Subtype'): NameObject('/Type1'),
+                NameObject('/BaseFont'): NameObject('/Helvetica'),
+            }
+        )
+        page[NameObject('/Resources')] = DictionaryObject(
+            {
+                NameObject('/Font'): DictionaryObject(
+                    {
+                        NameObject('/F1'): writer._add_object(font),
+                    }
+                )
+            }
+        )
         commands = ['BT /F1 12 Tf 50 750 Td']
         for line in lines:
             escaped = line.replace('\\', '\\\\').replace('(', '\\(').replace(')', '\\)')
-            commands.append('({}) Tj 0 -20 Td'.format(escaped))
+            commands.append(f'({escaped}) Tj 0 -20 Td')
         commands.append('ET')
         stream = DecodedStreamObject()
         stream.set_data('\n'.join(commands).encode('latin-1'))

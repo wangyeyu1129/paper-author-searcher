@@ -7,14 +7,14 @@ from urllib.error import HTTPError
 
 from paper_author_searcher.config import DEFAULT_PDF
 from paper_author_searcher.http import HttpClient, SourceError, URLProbe
+from paper_author_searcher.models import PDFFileValidation
 from paper_author_searcher.pdf_downloader import PDFDownloader
 from paper_author_searcher.pdf_public_pages import PublicPagePDFProvider
 from paper_author_searcher.pdf_resource_requests import PublicResourceRequests
 from paper_author_searcher.pdf_search_diagnostics import _resource_statistics, solely_deferred
 from paper_author_searcher.pdf_search_status import paper_search_complete, search_satisfaction
-from paper_author_searcher.models import PDFFileValidation
 from test_http import Response
-from test_pdf_downloader import target, fake_client
+from test_pdf_downloader import fake_client, target
 
 
 class RedirectingClient(HttpClient):
@@ -108,8 +108,13 @@ class RoutingTests(unittest.TestCase):
 
 class CompletionTests(unittest.TestCase):
     def full_paper(self, **overrides):
-        paper = dict(target(), format_status='valid', identity_status='verified',
-                     validation_status='verified', document_type='full_text')
+        paper = dict(
+            target(),
+            format_status='valid',
+            identity_status='verified',
+            validation_status='verified',
+            document_type='full_text',
+        )
         paper.update(overrides)
         return paper
 
@@ -140,23 +145,41 @@ class CompletionTests(unittest.TestCase):
     def test_downloader_saves_satisfaction_separately_from_run_completion(self):
         validator = Mock()
         validator.validate.return_value = PDFFileValidation(
-            format_status='valid', identity_status='verified', validation_status='verified', document_type='preprint')
+            format_status='valid', identity_status='verified', validation_status='verified', document_type='preprint'
+        )
         with tempfile.TemporaryDirectory() as directory:
             manifest = PDFDownloader(fake_client(), validator).download({'papers': [target()]}, Path(directory))
         self.assertTrue(manifest['papers'][0]['search_sufficiently_satisfied'])
         self.assertEqual(manifest['statistics']['search_sufficiently_satisfied_papers'], 1)
 
     def test_budget_exhaustion_is_not_solely_deferral(self):
-        paper = {'providers': [{'source': 'public_pages', 'status': 'partial', 'warnings': [
-            {'code': 'source_deferred', 'incomplete': True}, {'code': 'linked_page_limit', 'incomplete': True}]}]}
+        paper = {
+            'providers': [
+                {
+                    'source': 'public_pages',
+                    'status': 'partial',
+                    'warnings': [
+                        {'code': 'source_deferred', 'incomplete': True},
+                        {'code': 'linked_page_limit', 'incomplete': True},
+                    ],
+                }
+            ]
+        }
         self.assertFalse(solely_deferred(paper))
         paper['providers'][0]['warnings'].pop()
         self.assertTrue(solely_deferred(paper))
 
     def test_legacy_deferred_events_are_excluded_from_request_failure_count(self):
-        value = _resource_statistics({'requests': 10, 'cooldown_skips': 5, 'events': [
-            {'host': 'mirror.example.edu', 'error_type': 'rate_limited', 'status_code': 429},
-            {'host': 'mirror.example.edu', 'error_type': 'source_deferred', 'status_code': 429}]})
+        value = _resource_statistics(
+            {
+                'requests': 10,
+                'cooldown_skips': 5,
+                'events': [
+                    {'host': 'mirror.example.edu', 'error_type': 'rate_limited', 'status_code': 429},
+                    {'host': 'mirror.example.edu', 'error_type': 'source_deferred', 'status_code': 429},
+                ],
+            }
+        )
         self.assertEqual(value['terminal_request_failures'], 1)
         self.assertEqual(value['terminal_429_failures'], 1)
         self.assertEqual(value['recorded_redirect_deferrals'], 1)
@@ -167,15 +190,23 @@ class BudgetTests(unittest.TestCase):
     def test_cooling_child_does_not_consume_network_budget(self):
         title = target()['title']
         main = 'https://repo.example.edu/index'
-        html = ('<a href="https://cold.example.edu/article">' + title + '</a>'
-                '<a href="https://good.example.edu/article">' + title + '</a>').encode()
+        html = (
+            '<a href="https://cold.example.edu/article">' + title + '</a>'
+            '<a href="https://good.example.edu/article">' + title + '</a>'
+        ).encode()
         client = Mock()
-        client.probe.side_effect = [URLProbe(main, 200, 'text/html', {}, html),
-                                    URLProbe('https://good.example.edu/article', 200, 'application/pdf', {}, b'%PDF-')]
+        client.probe.side_effect = [
+            URLProbe(main, 200, 'text/html', {}, html),
+            URLProbe('https://good.example.edu/article', 200, 'application/pdf', {}, b'%PDF-'),
+        ]
         config = replace(DEFAULT_PDF, public_page_request_interval=0, linked_page_limit=1)
         requests = PublicResourceRequests(client, config)
-        requests.hosts['cold.example.edu'] = {'last': None, 'until': 100,
-                                             'failures': 1, 'error': SourceError('HTTP 429', 429)}
+        requests.hosts['cold.example.edu'] = {
+            'last': None,
+            'until': 100,
+            'failures': 1,
+            'error': SourceError('HTTP 429', 429),
+        }
         with patch('paper_author_searcher.pdf_resource_requests.time.monotonic', return_value=0):
             result = PublicPagePDFProvider(requests, config).find(dict(target(), paper_url=main))
         self.assertEqual(client.probe.call_count, 2)
@@ -189,9 +220,11 @@ class BudgetTests(unittest.TestCase):
         html = ('<a href="/child">' + title + '</a>').encode()
         other = ('<a href="/other_child">' + title + '</a>').encode()
         client = Mock()
-        client.probe.side_effect = [URLProbe(first, 200, 'text/html', {}, html),
-                                    URLProbe('https://repo.example.edu/child', 200, 'text/html', {}, b'complete'),
-                                    URLProbe(second, 200, 'text/html', {}, other)]
+        client.probe.side_effect = [
+            URLProbe(first, 200, 'text/html', {}, html),
+            URLProbe('https://repo.example.edu/child', 200, 'text/html', {}, b'complete'),
+            URLProbe(second, 200, 'text/html', {}, other),
+        ]
         config = replace(DEFAULT_PDF, public_page_request_interval=0, linked_page_limit=1)
         provider = PublicPagePDFProvider(client, config)
         with patch.object(provider, '_pages', return_value={first: [], second: []}):
@@ -205,8 +238,13 @@ class TransportTests(unittest.TestCase):
     def test_each_real_http_retry_error_is_counted_separately(self):
         error = HTTPError('https://api.example.edu', 429, 'limited', {'Retry-After': '0'}, None)
         client = HttpClient(retries=1)
-        with patch('paper_author_searcher.http.urlopen', side_effect=[error, Response(b'{}', 'application/json')]), patch(
-                'paper_author_searcher.http.time.sleep'):
+        with (
+            patch(
+                'paper_author_searcher.http_transport.KeepAliveTransport.open',
+                side_effect=[error, Response(b'{}', 'application/json')],
+            ),
+            patch('paper_author_searcher.http.time.sleep'),
+        ):
             client.get('https://api.example.edu/paper')
         stats = client.transport_statistics['metadata_get']
         self.assertEqual(stats['operation_attempts'], 2)
@@ -215,8 +253,10 @@ class TransportTests(unittest.TestCase):
 
     def test_redirect_guard_error_does_not_count_as_an_http_429_response(self):
         client = HttpClient(retries=1)
-        with patch('paper_author_searcher.http.urlopen', side_effect=SourceError(
-                'destination cooling', 429, error_type='source_deferred')):
+        with patch(
+            'paper_author_searcher.http_transport.KeepAliveTransport.open',
+            side_effect=SourceError('destination cooling', 429, error_type='source_deferred'),
+        ):
             with self.assertRaises(SourceError):
                 client.get('https://gateway.example.edu/paper')
         stats = client.transport_statistics['metadata_get']

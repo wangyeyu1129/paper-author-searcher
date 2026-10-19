@@ -1,0 +1,2289 @@
+{
+  "dataset_id": "stratified_researchers_v1",
+  "run_id": "baseline-metadata-20261018",
+  "scored_at": "2026-10-18T18:09:37.516757+00:00",
+  "run_settings": {
+    "mode": "full",
+    "timeout": 15,
+    "retries": 2,
+    "max_pages": null,
+    "page_size": null,
+    "max_pdf_papers": null,
+    "max_downloads": null,
+    "max_file_mb": null,
+    "include_needs_review": false,
+    "unpaywall_email": false,
+    "bibliography_url": [],
+    "verbose": false
+  },
+  "run_metadata": {
+    "code_version": "c592bc6e0f0f7b94628d8c5df51e179ebafdb02b",
+    "label": "baseline before Phase 1"
+  },
+  "gate": {
+    "status": "failed",
+    "exit_code": 1,
+    "reasons": [
+      "22 of 22 stratum checks failed",
+      "32 people are scored against provisional (not human-reviewed) truth"
+    ],
+    "failed_checks": [
+      {
+        "stratum": "field=biomedicine",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.27530902207626345,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=biomedicine",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.547962648556876,
+        "minimum": 0.95,
+        "worst_person_rate": 0.07894736842105263,
+        "people_with_rate": 4,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=computer_science",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.17916666666666667,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=computer_science",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.7166666666666667,
+        "minimum": 0.95,
+        "worst_person_rate": 0.6,
+        "people_with_rate": 2,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=engineering",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.14077380952380952,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=engineering",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.8642857142857143,
+        "minimum": 0.95,
+        "worst_person_rate": 0.8285714285714286,
+        "people_with_rate": 2,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=social_science",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.3,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=social_science",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.37816764132553604,
+        "minimum": 0.95,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 4,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "name_profile=common_chinese",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.1373511904761905,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 16,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "name_profile=common_chinese",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.7761904761904762,
+        "minimum": 0.95,
+        "worst_person_rate": 0.5,
+        "people_with_rate": 3,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "name_profile=other",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.31027355865717937,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 16,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "name_profile=other",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.5042060547625536,
+        "minimum": 0.95,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 9,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "overall=all",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.22381237456668493,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 32,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "overall=all",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.5722021601195343,
+        "minimum": 0.95,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 12,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=assistant_professor",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.22337962962962965,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=assistant_professor",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.5103686635944701,
+        "minimum": 0.95,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 4,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=established_faculty",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.2613095238095238,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=established_faculty",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.6024691358024691,
+        "minimum": 0.95,
+        "worst_person_rate": 0.4074074074074074,
+        "people_with_rate": 3,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=phd_student",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.40625,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=phd_student",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.5043859649122807,
+        "minimum": 0.95,
+        "worst_person_rate": 0.07894736842105263,
+        "people_with_rate": 4,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=renowned_senior",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.004310344827586207,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=renowned_senior",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 0.95,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 1,
+        "passed": false,
+        "reason": "only 1 people with a rate; need 2"
+      }
+    ],
+    "checks": [
+      {
+        "stratum": "field=biomedicine",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.27530902207626345,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=biomedicine",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.547962648556876,
+        "minimum": 0.95,
+        "worst_person_rate": 0.07894736842105263,
+        "people_with_rate": 4,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=computer_science",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.17916666666666667,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=computer_science",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.7166666666666667,
+        "minimum": 0.95,
+        "worst_person_rate": 0.6,
+        "people_with_rate": 2,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=engineering",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.14077380952380952,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=engineering",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.8642857142857143,
+        "minimum": 0.95,
+        "worst_person_rate": 0.8285714285714286,
+        "people_with_rate": 2,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=social_science",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.3,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=social_science",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.37816764132553604,
+        "minimum": 0.95,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 4,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "name_profile=common_chinese",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.1373511904761905,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 16,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "name_profile=common_chinese",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.7761904761904762,
+        "minimum": 0.95,
+        "worst_person_rate": 0.5,
+        "people_with_rate": 3,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "name_profile=other",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.31027355865717937,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 16,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "name_profile=other",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.5042060547625536,
+        "minimum": 0.95,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 9,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "overall=all",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.22381237456668493,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 32,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "overall=all",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.5722021601195343,
+        "minimum": 0.95,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 12,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=assistant_professor",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.22337962962962965,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=assistant_professor",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.5103686635944701,
+        "minimum": 0.95,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 4,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=established_faculty",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.2613095238095238,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=established_faculty",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.6024691358024691,
+        "minimum": 0.95,
+        "worst_person_rate": 0.4074074074074074,
+        "people_with_rate": 3,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=phd_student",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.40625,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=phd_student",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.5043859649122807,
+        "minimum": 0.95,
+        "worst_person_rate": 0.07894736842105263,
+        "people_with_rate": 4,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=renowned_senior",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.004310344827586207,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=renowned_senior",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 0.95,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 1,
+        "passed": false,
+        "reason": "only 1 people with a rate; need 2"
+      }
+    ]
+  },
+  "strata": [
+    {
+      "stratum": "overall=all",
+      "people": 32,
+      "metrics": {
+        "verified_paper_recall": {
+          "macro": 0.22381237456668493,
+          "micro": 0.16717325227963525,
+          "people_with_rate": 32,
+          "minimum": 0.0,
+          "numerator": 110,
+          "denominator": 658
+        },
+        "paper_discovery_recall": {
+          "macro": 0.30697209678890713,
+          "micro": 0.24468085106382978,
+          "people_with_rate": 32,
+          "minimum": 0.0,
+          "numerator": 161,
+          "denominator": 658
+        },
+        "author_match_precision": {
+          "macro": 0.5722021601195343,
+          "micro": 0.47413793103448276,
+          "people_with_rate": 12,
+          "minimum": 0.0,
+          "numerator": 110,
+          "denominator": 232
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0
+        }
+      },
+      "provisional_people": 32
+    },
+    {
+      "stratum": "seniority=renowned_senior",
+      "people": 8,
+      "metrics": {
+        "verified_paper_recall": {
+          "macro": 0.004310344827586207,
+          "micro": 0.006711409395973154,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 1,
+          "denominator": 149
+        },
+        "paper_discovery_recall": {
+          "macro": 0.004310344827586207,
+          "micro": 0.006711409395973154,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 1,
+          "denominator": 149
+        },
+        "author_match_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 1,
+          "minimum": 1.0,
+          "numerator": 1,
+          "denominator": 1
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0
+        }
+      },
+      "provisional_people": 8
+    },
+    {
+      "stratum": "seniority=established_faculty",
+      "people": 8,
+      "metrics": {
+        "verified_paper_recall": {
+          "macro": 0.2613095238095238,
+          "micro": 0.11363636363636363,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 30,
+          "denominator": 264
+        },
+        "paper_discovery_recall": {
+          "macro": 0.2779761904761905,
+          "micro": 0.12121212121212122,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 32,
+          "denominator": 264
+        },
+        "author_match_precision": {
+          "macro": 0.6024691358024691,
+          "micro": 0.5263157894736842,
+          "people_with_rate": 3,
+          "minimum": 0.4074074074074074,
+          "numerator": 30,
+          "denominator": 57
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0
+        }
+      },
+      "provisional_people": 8
+    },
+    {
+      "stratum": "seniority=assistant_professor",
+      "people": 8,
+      "metrics": {
+        "verified_paper_recall": {
+          "macro": 0.22337962962962965,
+          "micro": 0.3127962085308057,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 66,
+          "denominator": 211
+        },
+        "paper_discovery_recall": {
+          "macro": 0.5185185185185186,
+          "micro": 0.5402843601895735,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 114,
+          "denominator": 211
+        },
+        "author_match_precision": {
+          "macro": 0.5103686635944701,
+          "micro": 0.6111111111111112,
+          "people_with_rate": 4,
+          "minimum": 0.0,
+          "numerator": 66,
+          "denominator": 108
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0
+        }
+      },
+      "provisional_people": 8
+    },
+    {
+      "stratum": "seniority=phd_student",
+      "people": 8,
+      "metrics": {
+        "verified_paper_recall": {
+          "macro": 0.40625,
+          "micro": 0.38235294117647056,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 13,
+          "denominator": 34
+        },
+        "paper_discovery_recall": {
+          "macro": 0.4270833333333333,
+          "micro": 0.4117647058823529,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 14,
+          "denominator": 34
+        },
+        "author_match_precision": {
+          "macro": 0.5043859649122807,
+          "micro": 0.19696969696969696,
+          "people_with_rate": 4,
+          "minimum": 0.07894736842105263,
+          "numerator": 13,
+          "denominator": 66
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0
+        }
+      },
+      "provisional_people": 8
+    },
+    {
+      "stratum": "field=computer_science",
+      "people": 8,
+      "metrics": {
+        "verified_paper_recall": {
+          "macro": 0.17916666666666667,
+          "micro": 0.08745247148288973,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 23,
+          "denominator": 263
+        },
+        "paper_discovery_recall": {
+          "macro": 0.23333333333333334,
+          "micro": 0.12167300380228137,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 32,
+          "denominator": 263
+        },
+        "author_match_precision": {
+          "macro": 0.7166666666666667,
+          "micro": 0.6388888888888888,
+          "people_with_rate": 2,
+          "minimum": 0.6,
+          "numerator": 23,
+          "denominator": 36
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0
+        }
+      },
+      "provisional_people": 8
+    },
+    {
+      "stratum": "field=biomedicine",
+      "people": 8,
+      "metrics": {
+        "verified_paper_recall": {
+          "macro": 0.27530902207626345,
+          "micro": 0.19411764705882353,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 33,
+          "denominator": 170
+        },
+        "paper_discovery_recall": {
+          "macro": 0.28919791096515235,
+          "micro": 0.21176470588235294,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 36,
+          "denominator": 170
+        },
+        "author_match_precision": {
+          "macro": 0.547962648556876,
+          "micro": 0.36666666666666664,
+          "people_with_rate": 4,
+          "minimum": 0.07894736842105263,
+          "numerator": 33,
+          "denominator": 90
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0
+        }
+      },
+      "provisional_people": 8
+    },
+    {
+      "stratum": "field=engineering",
+      "people": 8,
+      "metrics": {
+        "verified_paper_recall": {
+          "macro": 0.14077380952380952,
+          "micro": 0.24836601307189543,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 38,
+          "denominator": 153
+        },
+        "paper_discovery_recall": {
+          "macro": 0.3261904761904762,
+          "micro": 0.48366013071895425,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 74,
+          "denominator": 153
+        },
+        "author_match_precision": {
+          "macro": 0.8642857142857143,
+          "micro": 0.8444444444444444,
+          "people_with_rate": 2,
+          "minimum": 0.8285714285714286,
+          "numerator": 38,
+          "denominator": 45
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0
+        }
+      },
+      "provisional_people": 8
+    },
+    {
+      "stratum": "field=social_science",
+      "people": 8,
+      "metrics": {
+        "verified_paper_recall": {
+          "macro": 0.3,
+          "micro": 0.2222222222222222,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 16,
+          "denominator": 72
+        },
+        "paper_discovery_recall": {
+          "macro": 0.37916666666666665,
+          "micro": 0.2638888888888889,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 19,
+          "denominator": 72
+        },
+        "author_match_precision": {
+          "macro": 0.37816764132553604,
+          "micro": 0.26229508196721313,
+          "people_with_rate": 4,
+          "minimum": 0.0,
+          "numerator": 16,
+          "denominator": 61
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0
+        }
+      },
+      "provisional_people": 8
+    },
+    {
+      "stratum": "name_profile=common_chinese",
+      "people": 16,
+      "metrics": {
+        "verified_paper_recall": {
+          "macro": 0.1373511904761905,
+          "micro": 0.12138728323699421,
+          "people_with_rate": 16,
+          "minimum": 0.0,
+          "numerator": 42,
+          "denominator": 346
+        },
+        "paper_discovery_recall": {
+          "macro": 0.19880952380952382,
+          "micro": 0.20809248554913296,
+          "people_with_rate": 16,
+          "minimum": 0.0,
+          "numerator": 72,
+          "denominator": 346
+        },
+        "author_match_precision": {
+          "macro": 0.7761904761904762,
+          "micro": 0.7241379310344828,
+          "people_with_rate": 3,
+          "minimum": 0.5,
+          "numerator": 42,
+          "denominator": 58
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0
+        }
+      },
+      "provisional_people": 16
+    },
+    {
+      "stratum": "name_profile=other",
+      "people": 16,
+      "metrics": {
+        "verified_paper_recall": {
+          "macro": 0.31027355865717937,
+          "micro": 0.21794871794871795,
+          "people_with_rate": 16,
+          "minimum": 0.0,
+          "numerator": 68,
+          "denominator": 312
+        },
+        "paper_discovery_recall": {
+          "macro": 0.41513466976829044,
+          "micro": 0.28525641025641024,
+          "people_with_rate": 16,
+          "minimum": 0.0,
+          "numerator": 89,
+          "denominator": 312
+        },
+        "author_match_precision": {
+          "macro": 0.5042060547625536,
+          "micro": 0.39080459770114945,
+          "people_with_rate": 9,
+          "minimum": 0.0,
+          "numerator": 68,
+          "denominator": 174
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0
+        }
+      },
+      "provisional_people": 16
+    }
+  ],
+  "people": [
+    {
+      "person_id": "cs_wei_wang_ucla",
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "computer_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "provisional",
+      "run_status": "identity_confirmation_required",
+      "truth_positives": 8,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 8,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 8,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 8,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound",
+        "Run produced no paper collection; every truth publication counts as missed"
+      ]
+    },
+    {
+      "person_id": "cs_christopher_manning",
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "computer_science",
+        "name_profile": "other"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 14,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 14,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 14,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 14,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    },
+    {
+      "person_id": "cs_yang_liu_tsinghua",
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "computer_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "provisional",
+      "run_status": "identity_confirmation_required",
+      "truth_positives": 69,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 69,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 69,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 69,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound",
+        "Run produced no paper collection; every truth publication counts as missed"
+      ]
+    },
+    {
+      "person_id": "cs_graham_neubig",
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "computer_science",
+        "name_profile": "other"
+      },
+      "truth_state": "provisional",
+      "run_status": "identity_confirmation_required",
+      "truth_positives": 71,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 71,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 71,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 71,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound",
+        "Run produced no paper collection; every truth publication counts as missed"
+      ]
+    },
+    {
+      "person_id": "cs_huan_zhang",
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "computer_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "provisional",
+      "run_status": "identity_confirmation_required",
+      "truth_positives": 57,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 57,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 57,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 57,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound",
+        "Run produced no paper collection; every truth publication counts as missed"
+      ]
+    },
+    {
+      "person_id": "cs_kevin_ellis",
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "computer_science",
+        "name_profile": "other"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 30,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 18,
+          "denominator": 30,
+          "rate": 0.6,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 26,
+          "denominator": 30,
+          "rate": 0.8666666666666667,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 18,
+          "denominator": 30,
+          "rate": 0.6,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 30,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    },
+    {
+      "person_id": "cs_jing_huang",
+      "strata": {
+        "seniority": "phd_student",
+        "field": "computer_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 8,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 8,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 8,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 8,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    },
+    {
+      "person_id": "cs_julie_kallini",
+      "strata": {
+        "seniority": "phd_student",
+        "field": "computer_science",
+        "name_profile": "other"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 6,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 5,
+          "denominator": 6,
+          "rate": 0.8333333333333334,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 6,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    },
+    {
+      "person_id": "bio_feng_zhang",
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "biomedicine",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 12,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 12,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 12,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 12,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    },
+    {
+      "person_id": "bio_jennifer_doudna",
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "biomedicine",
+        "name_profile": "other"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 29,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 1,
+          "denominator": 29,
+          "rate": 0.034482758620689655,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 1,
+          "denominator": 29,
+          "rate": 0.034482758620689655,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 29,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    },
+    {
+      "person_id": "bio_le_cong",
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "biomedicine",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 14,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 10,
+          "denominator": 14,
+          "rate": 0.7142857142857143,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 10,
+          "denominator": 14,
+          "rate": 0.7142857142857143,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 10,
+          "denominator": 20,
+          "rate": 0.5,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 14,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    },
+    {
+      "person_id": "bio_anshul_kundaje",
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "biomedicine",
+        "name_profile": "other"
+      },
+      "truth_state": "provisional",
+      "run_status": "identity_confirmation_required",
+      "truth_positives": 59,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 59,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 59,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 59,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound",
+        "Run produced no paper collection; every truth publication counts as missed"
+      ]
+    },
+    {
+      "person_id": "bio_jia_liu",
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "biomedicine",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "provisional",
+      "run_status": "identity_confirmation_required",
+      "truth_positives": 24,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 24,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 24,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 24,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound",
+        "Run produced no paper collection; every truth publication counts as missed"
+      ]
+    },
+    {
+      "person_id": "bio_brian_hie",
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "biomedicine",
+        "name_profile": "other"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 27,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 19,
+          "denominator": 27,
+          "rate": 0.7037037037037037,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 22,
+          "denominator": 27,
+          "rate": 0.8148148148148148,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 19,
+          "denominator": 31,
+          "rate": 0.6129032258064516,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 27,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    },
+    {
+      "person_id": "bio_zhiwei_xue",
+      "strata": {
+        "seniority": "phd_student",
+        "field": "biomedicine",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "provisional",
+      "run_status": "identity_confirmation_required",
+      "truth_positives": 1,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 1,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 1,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 1,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound",
+        "Run produced no paper collection; every truth publication counts as missed"
+      ]
+    },
+    {
+      "person_id": "bio_marena_trinidad",
+      "strata": {
+        "seniority": "phd_student",
+        "field": "biomedicine",
+        "name_profile": "other"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 4,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 3,
+          "denominator": 4,
+          "rate": 0.75,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 3,
+          "denominator": 4,
+          "rate": 0.75,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 3,
+          "denominator": 38,
+          "rate": 0.07894736842105263,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 4,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    },
+    {
+      "person_id": "eng_yi_cui",
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "engineering",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "provisional",
+      "run_status": "identity_confirmation_required",
+      "truth_positives": 33,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 33,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 33,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 33,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound",
+        "Run produced no paper collection; every truth publication counts as missed"
+      ]
+    },
+    {
+      "person_id": "eng_daniela_rus",
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "engineering",
+        "name_profile": "other"
+      },
+      "truth_state": "provisional",
+      "run_status": "identity_confirmation_required",
+      "truth_positives": 20,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 20,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 20,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 20,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound",
+        "Run produced no paper collection; every truth publication counts as missed"
+      ]
+    },
+    {
+      "person_id": "eng_wei_lu",
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "engineering",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "provisional",
+      "run_status": "identity_confirmation_required",
+      "truth_positives": 10,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 10,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 10,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 10,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound",
+        "Run produced no paper collection; every truth publication counts as missed"
+      ]
+    },
+    {
+      "person_id": "eng_sindy_tang",
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "engineering",
+        "name_profile": "other"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 14,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 9,
+          "denominator": 14,
+          "rate": 0.6428571428571429,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 9,
+          "denominator": 14,
+          "rate": 0.6428571428571429,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 9,
+          "denominator": 10,
+          "rate": 0.9,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 14,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    },
+    {
+      "person_id": "eng_lu_lu",
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "engineering",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 60,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 29,
+          "denominator": 60,
+          "rate": 0.48333333333333334,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 58,
+          "denominator": 60,
+          "rate": 0.9666666666666667,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 29,
+          "denominator": 35,
+          "rate": 0.8285714285714286,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 60,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    },
+    {
+      "person_id": "eng_siddharth_krishnan",
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "engineering",
+        "name_profile": "other"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 7,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 7,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 7,
+          "denominator": 7,
+          "rate": 1.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 7,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    },
+    {
+      "person_id": "eng_min_zhu",
+      "strata": {
+        "seniority": "phd_student",
+        "field": "engineering",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 8,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 8,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 8,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 8,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    },
+    {
+      "person_id": "eng_jonathan_lee",
+      "strata": {
+        "seniority": "phd_student",
+        "field": "engineering",
+        "name_profile": "other"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 1,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 1,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 1,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 1,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    },
+    {
+      "person_id": "soc_raj_chetty",
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "social_science",
+        "name_profile": "other"
+      },
+      "truth_state": "provisional",
+      "run_status": "identity_confirmation_required",
+      "truth_positives": 8,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 8,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 8,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 8,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound",
+        "Run produced no paper collection; every truth publication counts as missed"
+      ]
+    },
+    {
+      "person_id": "soc_yu_xie",
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "social_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "provisional",
+      "run_status": "identity_confirmation_required",
+      "truth_positives": 25,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 25,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 25,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 25,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound",
+        "Run produced no paper collection; every truth publication counts as missed"
+      ]
+    },
+    {
+      "person_id": "soc_xiang_zhou",
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "social_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "provisional",
+      "run_status": "identity_confirmation_required",
+      "truth_positives": 12,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 12,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 12,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 12,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound",
+        "Run produced no paper collection; every truth publication counts as missed"
+      ]
+    },
+    {
+      "person_id": "soc_christian_wolf",
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "social_science",
+        "name_profile": "other"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 15,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 11,
+          "denominator": 15,
+          "rate": 0.7333333333333333,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 13,
+          "denominator": 15,
+          "rate": 0.8666666666666667,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 11,
+          "denominator": 27,
+          "rate": 0.4074074074074074,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 15,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    },
+    {
+      "person_id": "soc_daniel_chen",
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "social_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 2,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    },
+    {
+      "person_id": "soc_nina_roussille",
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "social_science",
+        "name_profile": "other"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 4,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 4,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 0,
+          "denominator": 4,
+          "rate": 0.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 12,
+          "rate": 0.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 4,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    },
+    {
+      "person_id": "soc_whitney_zhang",
+      "strata": {
+        "seniority": "phd_student",
+        "field": "social_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 3,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    },
+    {
+      "person_id": "soc_shakked_noy",
+      "strata": {
+        "seniority": "phd_student",
+        "field": "social_science",
+        "name_profile": "other"
+      },
+      "truth_state": "provisional",
+      "run_status": "partial",
+      "truth_positives": 3,
+      "metrics": {
+        "verified_paper_recall": {
+          "numerator": 2,
+          "denominator": 3,
+          "rate": 0.6666666666666666,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 2,
+          "denominator": 3,
+          "rate": 0.6666666666666666,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 2,
+          "denominator": 19,
+          "rate": 0.10526315789473684,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Provisional truth: proposed labels, closed-world precision is a lower bound"
+      ]
+    }
+  ]
+}

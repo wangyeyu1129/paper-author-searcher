@@ -1,0 +1,831 @@
+{
+  "grid": {
+    "ambiguity_margin": [
+      0.03,
+      0.05,
+      0.1
+    ],
+    "merge_split_profiles": [
+      true,
+      false
+    ],
+    "split_profile_coauthors": [
+      3,
+      5,
+      8,
+      12
+    ],
+    "split_profile_topics": [
+      2,
+      5
+    ]
+  },
+  "minimum_purity": 0.95,
+  "purity_floor_met": true,
+  "baseline": {
+    "parameters": {
+      "ambiguity_margin": 0.1,
+      "merge_split_profiles": true,
+      "split_profile_coauthors": 3,
+      "split_profile_topics": 2
+    },
+    "tune": {
+      "people": 11,
+      "resolved": 6,
+      "resolved_coverage": 0.533724340175953,
+      "resolved_purity": 1.0
+    },
+    "holdout": {
+      "people": 9,
+      "resolved": 5,
+      "resolved_coverage": 0.5555555555555556,
+      "resolved_purity": 1.0
+    }
+  },
+  "recommended": {
+    "parameters": {
+      "ambiguity_margin": 0.03,
+      "merge_split_profiles": true,
+      "split_profile_coauthors": 5,
+      "split_profile_topics": 2
+    },
+    "tune": {
+      "people": 11,
+      "resolved": 8,
+      "resolved_coverage": 0.6979472140762464,
+      "resolved_purity": 1.0
+    },
+    "holdout": {
+      "people": 9,
+      "resolved": 7,
+      "resolved_coverage": 0.5555555555555556,
+      "resolved_purity": 1.0
+    }
+  },
+  "holdout_people": [
+    {
+      "person_id": "cs_yang_liu_tsinghua",
+      "status": "ambiguous_contenders",
+      "coverage": 0.0,
+      "purity": 0.0,
+      "selected": [
+        "openalex:A5037025491",
+        "openalex:A5100355638",
+        "openalex:A5100356054"
+      ]
+    },
+    {
+      "person_id": "cs_huan_zhang",
+      "status": "ambiguous_contenders",
+      "coverage": 0.625,
+      "purity": 0.5,
+      "selected": [
+        "openalex:A5100356941",
+        "openalex:A5100356957",
+        "openalex:A5100356973",
+        "semantic_scholar:2146094325"
+      ]
+    },
+    {
+      "person_id": "bio_jennifer_doudna",
+      "status": "resolved",
+      "coverage": 1.0,
+      "purity": 1.0,
+      "selected": [
+        "openalex:A5067184382",
+        "semantic_scholar:2246820227"
+      ]
+    },
+    {
+      "person_id": "bio_anshul_kundaje",
+      "status": "resolved",
+      "coverage": 0.0,
+      "purity": null,
+      "selected": [
+        "openalex:A5083952534",
+        "semantic_scholar:2844479"
+      ]
+    },
+    {
+      "person_id": "bio_brian_hie",
+      "status": "resolved",
+      "coverage": 1.0,
+      "purity": 1.0,
+      "selected": [
+        "openalex:A5021962955"
+      ]
+    },
+    {
+      "person_id": "bio_marena_trinidad",
+      "status": "resolved",
+      "coverage": 1.0,
+      "purity": 1.0,
+      "selected": [
+        "openalex:A5054486858",
+        "semantic_scholar:81913416"
+      ]
+    },
+    {
+      "person_id": "eng_daniela_rus",
+      "status": "resolved",
+      "coverage": 0.0,
+      "purity": null,
+      "selected": [
+        "openalex:A5066830185",
+        "semantic_scholar:145944286"
+      ]
+    },
+    {
+      "person_id": "eng_sindy_tang",
+      "status": "resolved",
+      "coverage": 1.0,
+      "purity": 1.0,
+      "selected": [
+        "openalex:A5019601221"
+      ]
+    },
+    {
+      "person_id": "eng_siddharth_krishnan",
+      "status": "resolved",
+      "coverage": 1.0,
+      "purity": 1.0,
+      "selected": [
+        "openalex:A5051281660"
+      ]
+    }
+  ],
+  "trials": [
+    {
+      "parameters": {
+        "ambiguity_margin": 0.03,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 3,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 8,
+        "resolved_coverage": 0.6295210166177908,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.03,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 3,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 8,
+        "resolved_coverage": 0.6295210166177908,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.03,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 5,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 8,
+        "resolved_coverage": 0.6979472140762464,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.03,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 5,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 8,
+        "resolved_coverage": 0.6979472140762464,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.03,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 8,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 8,
+        "resolved_coverage": 0.6979472140762464,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.03,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 8,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 8,
+        "resolved_coverage": 0.6979472140762464,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.03,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 12,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 8,
+        "resolved_coverage": 0.6979472140762464,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.03,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 12,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 8,
+        "resolved_coverage": 0.6979472140762464,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.03,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 3,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 8,
+        "resolved_coverage": 0.6422287390029325,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.03,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 3,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 8,
+        "resolved_coverage": 0.6422287390029325,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.03,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 5,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 8,
+        "resolved_coverage": 0.6422287390029325,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.03,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 5,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 8,
+        "resolved_coverage": 0.6422287390029325,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.03,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 8,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 8,
+        "resolved_coverage": 0.6422287390029325,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.03,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 8,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 8,
+        "resolved_coverage": 0.6422287390029325,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.03,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 12,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 8,
+        "resolved_coverage": 0.6422287390029325,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.03,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 12,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 8,
+        "resolved_coverage": 0.6422287390029325,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.05,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 3,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.05,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 3,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.05,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 5,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.05,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 5,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.05,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 8,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.05,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 8,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.05,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 12,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.05,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 12,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.05,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 3,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.05,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 3,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.05,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 5,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.05,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 5,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.05,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 8,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.05,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 8,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.05,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 12,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.05,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 12,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.1,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 3,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.1,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 3,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.1,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 5,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.1,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 5,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.1,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 8,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.1,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 8,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.1,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 12,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.1,
+        "merge_split_profiles": true,
+        "split_profile_coauthors": 12,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.1,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 3,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.1,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 3,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.1,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 5,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.1,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 5,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.1,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 8,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.1,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 8,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.1,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 12,
+        "split_profile_topics": 2
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    },
+    {
+      "parameters": {
+        "ambiguity_margin": 0.1,
+        "merge_split_profiles": false,
+        "split_profile_coauthors": 12,
+        "split_profile_topics": 5
+      },
+      "tune": {
+        "people": 11,
+        "resolved": 6,
+        "resolved_coverage": 0.533724340175953,
+        "resolved_purity": 1.0
+      }
+    }
+  ]
+}

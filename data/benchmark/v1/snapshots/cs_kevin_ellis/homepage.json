@@ -1,0 +1,408 @@
+{
+ "snapshot_schema_version": 1,
+ "source_url": "https://www.cs.cornell.edu/~ellisk/",
+ "captured_at": "2026-10-18",
+ "captured_by": "Assistant transcription of the public page; pending human review",
+ "scope_note": "2020-2025 entries of the homepage publication list; the page notes Google Scholar is most up to date.",
+ "transcription_notes": [],
+ "entries": [
+  {
+   "title": "PoE-World: Compositional World Modeling with Products of Programmatic Experts",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2025",
+   "authors": [
+    "Wasu Top Piriyakulkij",
+    "Yichao Liang",
+    "Hao Tang",
+    "Adrian Weller",
+    "Marta Kryven",
+    "Kevin Ellis"
+   ]
+  },
+  {
+   "title": "Position: Future Research and Challenges Remain Towards AI for Software Engineering",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICML 2025",
+   "authors": [
+    "Alex Gu",
+    "Naman Jain",
+    "Wen-Ding Li",
+    "Manish Shetty",
+    "Yijia Shao",
+    "Ziyang Li",
+    "Diyi Yang",
+    "Kevin Ellis",
+    "Koushik Sen",
+    "Armando Solar-Lezama"
+   ]
+  },
+  {
+   "title": "Cognitive Maps are Generative Programs",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "CogSci 2025",
+   "authors": [
+    "Marta Kryven",
+    "Cole Wyeth",
+    "Aidan Curtis",
+    "Kevin Ellis"
+   ]
+  },
+  {
+   "title": "LLM-Guided Probabilistic Program Induction for POMDP Model Estimation",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "CoRL 2025",
+   "authors": [
+    "Aidan Curtis",
+    "Hao Tang",
+    "Thiago Veloso",
+    "Kevin Ellis",
+    "Joshua Tenenbaum",
+    "Tomás Lozano-Pérez",
+    "Leslie Pack Kaelbling"
+   ]
+  },
+  {
+   "title": "Combining Induction and Transduction for Abstract Reasoning",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICLR 2025",
+   "authors": [
+    "Wen-Ding Li",
+    "Keya Hu",
+    "Carter Larsen",
+    "Yuqing Wu",
+    "Simon Alford",
+    "Caleb Woo",
+    "Spencer M. Dunn",
+    "Hao Tang",
+    "Michelangelo Naim",
+    "Dat Nguyen",
+    "Wei-Long Zheng",
+    "Zenna Tavares",
+    "Yewen Pu",
+    "Kevin Ellis"
+   ]
+  },
+  {
+   "title": "VisualPredicator: Learning Abstract World Models with Neuro-Symbolic Predicates for Robot Planning",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICLR 2025",
+   "authors": [
+    "Yichao Liang",
+    "Nishanth Kumar",
+    "Hao Tang",
+    "Adrian Weller",
+    "Joshua B. Tenenbaum",
+    "Tom Silver",
+    "João F. Henriques",
+    "Kevin Ellis"
+   ]
+  },
+  {
+   "title": "WorldCoder, a Model-Based LLM Agent: Building World Models by Writing Code and Interacting with the Environment",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2024",
+   "authors": [
+    "Hao Tang",
+    "Darren Key",
+    "Kevin Ellis"
+   ]
+  },
+  {
+   "title": "Doing Experiments and Revising Rules with Natural Language and Probabilistic Reasoning",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2024",
+   "authors": [
+    "Wasu Top Piriyakulkij",
+    "Cassidy Langenfeld",
+    "Tuan-Anh Le",
+    "Kevin Ellis"
+   ]
+  },
+  {
+   "title": "Is Programming by Example Solved by LLMs?",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2024",
+   "authors": [
+    "Wen-Ding Li",
+    "Kevin Ellis"
+   ]
+  },
+  {
+   "title": "Code Repair with LLMs gives an Exploration-Exploitation Tradeoff",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2024",
+   "authors": [
+    "Hao Tang",
+    "Keya Hu",
+    "Jin Peng Zhou",
+    "Sicheng Zhong",
+    "Wei-Long Zheng",
+    "Xujie Si",
+    "Kevin Ellis"
+   ]
+  },
+  {
+   "title": "Symbolic metaprogram search improves learning efficiency and explains rule learning in humans",
+   "year": 2024,
+   "type": "journal_article",
+   "venue": "Nature Communications 2024",
+   "authors": [
+    "Joshua S. Rule",
+    "Steven T. Piantadosi",
+    "Andrew Cropper",
+    "Kevin Ellis",
+    "Maxwell Nye",
+    "Joshua B. Tenenbaum"
+   ]
+  },
+  {
+   "title": "Rapid Motor Adaptation for Robotic Manipulator Arms",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "CVPR 2024",
+   "authors": [
+    "Yichao Liang",
+    "Kevin Ellis",
+    "João Henriques"
+   ]
+  },
+  {
+   "title": "Discovering quantum circuit components with program synthesis",
+   "year": 2024,
+   "type": "journal_article",
+   "venue": "Machine Learning: Science and Technology 2024",
+   "authors": [
+    "Leopoldo Sarra",
+    "Kevin Ellis",
+    "Florian Marquardt"
+   ]
+  },
+  {
+   "title": "Human-like Few-Shot Learning via Bayesian Reasoning over Natural Language",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2023",
+   "authors": [
+    "Kevin Ellis"
+   ]
+  },
+  {
+   "title": "LambdaBeam: Neural Program Search with Higher-Order Functions and Lambdas",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2023",
+   "authors": [
+    "Kensen Shi",
+    "Hanjun Dai",
+    "Wen-Ding Li",
+    "Kevin Ellis",
+    "Charles Sutton"
+   ]
+  },
+  {
+   "title": "Toward Trustworthy Neural Program Synthesis",
+   "year": 2023,
+   "type": "preprint",
+   "venue": "arXiv 2023",
+   "authors": [
+    "Wen-Ding Li",
+    "Darren Key",
+    "Kevin Ellis"
+   ]
+  },
+  {
+   "title": "From Perception to Programs: Regularize, Overparameterize, and Amortize",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "ICML 2023",
+   "authors": [
+    "Hao Tang",
+    "Kevin Ellis"
+   ]
+  },
+  {
+   "title": "Top-Down Synthesis For Library Learning",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "POPL 2023",
+   "authors": [
+    "Matthew Bowers",
+    "Theo X. Olausson",
+    "Catherine Wong",
+    "Gabriel Grand",
+    "Joshua B. Tenenbaum",
+    "Kevin Ellis",
+    "Armando Solar-Lezama"
+   ]
+  },
+  {
+   "title": "A language of thought for the mental representation of geometric shapes",
+   "year": 2023,
+   "type": "journal_article",
+   "venue": "Cognitive Psychology 2023",
+   "authors": [
+    "Mathias Sablé-Meyer",
+    "Kevin Ellis",
+    "Josh Tenenbaum",
+    "Stanislas Dehaene"
+   ]
+  },
+  {
+   "title": "Synthesizing theories of human language with Bayesian program induction",
+   "year": 2022,
+   "type": "journal_article",
+   "venue": "Nature Communications 2022",
+   "authors": [
+    "Kevin Ellis",
+    "Adam Albright",
+    "Armando Solar-Lezama",
+    "Joshua B. Tenenbaum",
+    "Timothy J. O'Donnell"
+   ]
+  },
+  {
+   "title": "CrossBeam: Learning to Search in Bottom-Up Program Synthesis",
+   "year": 2022,
+   "type": "conference_paper",
+   "venue": "ICLR 2022",
+   "authors": [
+    "Kensen Shi",
+    "Hanjun Dai",
+    "Kevin Ellis",
+    "Charles Sutton"
+   ]
+  },
+  {
+   "title": "Hybrid Memoised Wake-Sleep: Approximate Inference at the Discrete-Continuous Interface",
+   "year": 2022,
+   "type": "conference_paper",
+   "venue": "ICLR 2022",
+   "authors": [
+    "Tuan Anh Le",
+    "Katherine M. Collins",
+    "Luke Hewitt",
+    "Kevin Ellis",
+    "Siddharth N",
+    "Samuel J. Gershman",
+    "Joshua B. Tenenbaum"
+   ]
+  },
+  {
+   "title": "Scaling Neural Program Synthesis with Distribution-based Search",
+   "year": 2022,
+   "type": "conference_paper",
+   "venue": "AAAI 2022",
+   "authors": [
+    "Nathanaël Fijalkow",
+    "Guillaume Lagarde",
+    "Théo Matricon",
+    "Kevin Ellis",
+    "Pierre Ohlmann",
+    "Akarsh Potta"
+   ]
+  },
+  {
+   "title": "DreamCoder: Bootstrapping Inductive Program Synthesis with Wake-Sleep Library Learning",
+   "year": 2021,
+   "type": "conference_paper",
+   "venue": "PLDI 2021",
+   "authors": [
+    "Kevin Ellis",
+    "Catherine Wong",
+    "Maxwell Nye",
+    "Mathias Sablé-Meyer",
+    "Lucas Morales",
+    "Luke Hewitt",
+    "Luc Cary",
+    "Armando Solar-Lezama",
+    "Joshua B. Tenenbaum"
+   ]
+  },
+  {
+   "title": "Neurosymbolic Programming",
+   "year": 2021,
+   "type": "journal_article",
+   "venue": "Foundations and Trends in Programming Languages 2021",
+   "authors": [
+    "Swarat Chaudhuri",
+    "Kevin Ellis",
+    "Oleksandr Polozov",
+    "Rishabh Singh",
+    "Armando Solar-Lezama",
+    "Yisong Yue"
+   ]
+  },
+  {
+   "title": "Making sense of raw input",
+   "year": 2021,
+   "type": "journal_article",
+   "venue": "Artificial Intelligence 2021",
+   "authors": [
+    "Richard Evans",
+    "Matko Bošnjak",
+    "Lars Buesing",
+    "Kevin Ellis",
+    "David Pfau",
+    "Pushmeet Kohli",
+    "Marek Sergot"
+   ]
+  },
+  {
+   "title": "Leveraging natural language for program search and abstraction learning",
+   "year": 2021,
+   "type": "conference_paper",
+   "venue": "ICML 2021",
+   "authors": [
+    "Catherine Wong",
+    "Kevin Ellis",
+    "Josh Tenenbaum",
+    "Jacob Andreas"
+   ]
+  },
+  {
+   "title": "Phonological Interactions, Process Types, and Minimum Description Length Principles",
+   "year": 2021,
+   "type": "conference_paper",
+   "venue": "CogSci 2021",
+   "authors": [
+    "Christopher Yang",
+    "Kevin Ellis"
+   ]
+  },
+  {
+   "title": "Learning abstract structure for drawing by efficient motor program induction",
+   "year": 2020,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2020",
+   "authors": [
+    "Lucas Y. Tian",
+    "Kevin Ellis",
+    "Marta Kryven",
+    "Joshua B. Tenenbaum"
+   ]
+  },
+  {
+   "title": "Program Synthesis with Pragmatic Communication",
+   "year": 2020,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2020",
+   "authors": [
+    "Yewen Pu",
+    "Kevin Ellis",
+    "Marta Kryven",
+    "Joshua B. Tenenbaum",
+    "Armando Solar-Lezama"
+   ]
+  }
+ ]
+}

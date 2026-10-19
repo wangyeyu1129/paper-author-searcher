@@ -1,0 +1,527 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "soc_raj_chetty",
+    "dataset_id": "stratified_researchers_v1",
+    "search_input": {
+      "name": "Raj Chetty",
+      "university": "Harvard University"
+    },
+    "scope": {
+      "year_start": 2020,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-18T19:36:44.910951+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "papers.json",
+        "url": "https://rajchetty.com/papers-and-data-scrolling/",
+        "records": 8
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "soc_raj_chetty:f7ce72334317",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Income Segregation and Intergenerational Mobility Across Colleges in the United States",
+      "year": 2020,
+      "authors": [
+        "Raj Chetty",
+        "John N. Friedman",
+        "Emmanuel Saez",
+        "Nicholas Turner",
+        "Danny Yagan"
+      ],
+      "listed_venue": "Quarterly Journal of Economics 135(3)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://rajchetty.com/papers-and-data-scrolling/ entry 7 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1093/qje/qjaa005"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Income Segregation and Intergenerational Mobility Across Colleges in the United States",
+          "year": 2019,
+          "authors": [
+            "Raj Chetty",
+            "John N. Friedman",
+            "Emmanuel Saez",
+            "Nicholas Turner",
+            "Danny Yagan"
+          ]
+        },
+        {
+          "title": "Income Segregation and Intergenerational Mobility Across Colleges in the United States",
+          "year": 2021,
+          "authors": [
+            "Raj Chetty",
+            "John N. Friedman",
+            "Emmanuel Saez",
+            "Nicholas Turner",
+            "Danny Yagan"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1093/qje/qjaa005",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Income Segregation and Intergenerational Mobility Across Colleges in the United States*",
+          "crossref_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_raj_chetty:3b4162c984b5",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Race and Economic Opportunity in the United States: An Intergenerational Perspective",
+      "year": 2020,
+      "authors": [
+        "Raj Chetty",
+        "Nathaniel Hendren",
+        "Maggie R. Jones",
+        "Sonya R. Porter"
+      ],
+      "listed_venue": "Quarterly Journal of Economics 135(2)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://rajchetty.com/papers-and-data-scrolling/ entry 8 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1093/qje/qjz042"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Race and Economic Opportunity in the United States: An Intergenerational Perspective",
+          "year": 2019,
+          "authors": [
+            "Raj Chetty",
+            "Nathaniel Hendren",
+            "Maggie R. Jones",
+            "Sonya R. Porter"
+          ]
+        },
+        {
+          "title": "Race and Economic Opportunity in the United States: An Intergenerational Perspective",
+          "year": 2021,
+          "authors": [
+            "Raj Chetty",
+            "Nathaniel Hendren",
+            "Maggie R. Jones",
+            "Sonya R. Porter"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1093/qje/qjz042",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Race and Economic Opportunity in the United States: an Intergenerational Perspective*",
+          "crossref_year": 2019
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_raj_chetty:ec6026c1fc40",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Social Capital I: Measurement and Associations with Economic Mobility",
+      "year": 2022,
+      "authors": [
+        "Raj Chetty",
+        "Matthew O. Jackson",
+        "Theresa Kuchler",
+        "Johannes Stroebel"
+      ],
+      "listed_venue": "Nature 608(7921)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://rajchetty.com/papers-and-data-scrolling/ entry 6 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3386/w30313"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Social Capital I: Measurement and Associations with Economic Mobility",
+          "year": 2021,
+          "authors": [
+            "Raj Chetty",
+            "Matthew O. Jackson",
+            "Theresa Kuchler",
+            "Johannes Stroebel"
+          ]
+        },
+        {
+          "title": "Social Capital I: Measurement and Associations with Economic Mobility",
+          "year": 2023,
+          "authors": [
+            "Raj Chetty",
+            "Matthew O. Jackson",
+            "Theresa Kuchler",
+            "Johannes Stroebel"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3386/w30313",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Social Capital I: Measurement and Associations with Economic Mobility",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_raj_chetty:29bd7800b9e6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Social Capital II: Determinants of Economic Connectedness",
+      "year": 2022,
+      "authors": [
+        "Raj Chetty",
+        "Matthew O. Jackson",
+        "Theresa Kuchler",
+        "Johannes Stroebel"
+      ],
+      "listed_venue": "Nature 608(7921)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://rajchetty.com/papers-and-data-scrolling/ entry 5 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3386/w30314"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Social Capital II: Determinants of Economic Connectedness",
+          "year": 2021,
+          "authors": [
+            "Raj Chetty",
+            "Matthew O. Jackson",
+            "Theresa Kuchler",
+            "Johannes Stroebel"
+          ]
+        },
+        {
+          "title": "Social Capital II: Determinants of Economic Connectedness",
+          "year": 2023,
+          "authors": [
+            "Raj Chetty",
+            "Matthew O. Jackson",
+            "Theresa Kuchler",
+            "Johannes Stroebel"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3386/w30314",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Social Capital II: Determinants of Economic Connectedness",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_raj_chetty:489ee4b08391",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Creating Moves to Opportunity: Experimental Evidence on Barriers to Neighborhood Choice",
+      "year": 2024,
+      "authors": [
+        "Peter Bergman",
+        "Raj Chetty",
+        "Stefanie DeLuca",
+        "Nathaniel Hendren",
+        "Lawrence F. Katz",
+        "Christopher Palmer"
+      ],
+      "listed_venue": "American Economic Review 114(5)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://rajchetty.com/papers-and-data-scrolling/ entry 3 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1257/aer.20200407"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Creating Moves to Opportunity: Experimental Evidence on Barriers to Neighborhood Choice",
+          "year": 2023,
+          "authors": [
+            "Peter Bergman",
+            "Raj Chetty",
+            "Stefanie DeLuca",
+            "Nathaniel Hendren",
+            "Lawrence F. Katz",
+            "Christopher Palmer"
+          ]
+        },
+        {
+          "title": "Creating Moves to Opportunity: Experimental Evidence on Barriers to Neighborhood Choice",
+          "year": 2025,
+          "authors": [
+            "Peter Bergman",
+            "Raj Chetty",
+            "Stefanie DeLuca",
+            "Nathaniel Hendren",
+            "Lawrence F. Katz",
+            "Christopher Palmer"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1257/aer.20200407",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Creating Moves to Opportunity: Experimental Evidence on Barriers to Neighborhood Choice",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_raj_chetty:097072192aaf",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The Economic Impacts of COVID-19: Evidence from a New Public Database Built Using Private Sector Data",
+      "year": 2024,
+      "authors": [
+        "Raj Chetty",
+        "John Friedman",
+        "Nathaniel Hendren",
+        "Michael Stepner"
+      ],
+      "listed_venue": "Quarterly Journal of Economics 139(2)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://rajchetty.com/papers-and-data-scrolling/ entry 4 captured 2026-10-18"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "The Economic Impacts of COVID-19: Evidence from a New Public Database Built Using Private Sector Data",
+          "year": 2023,
+          "authors": [
+            "Raj Chetty",
+            "John Friedman",
+            "Nathaniel Hendren",
+            "Michael Stepner"
+          ]
+        },
+        {
+          "title": "The Economic Impacts of COVID-19: Evidence from a New Public Database Built Using Private Sector Data",
+          "year": 2025,
+          "authors": [
+            "Raj Chetty",
+            "John Friedman",
+            "Nathaniel Hendren",
+            "Michael Stepner"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_raj_chetty:8b7a59a4a096",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The Experimental Selection Correction Estimator: Using Experiments to Remove Biases in Observational Estimates",
+      "year": 2025,
+      "authors": [
+        "Susan Athey",
+        "Raj Chetty",
+        "Guido Imbens"
+      ],
+      "listed_venue": "NBER Working Paper 33817",
+      "work_types": [
+        "working_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://rajchetty.com/papers-and-data-scrolling/ entry 1 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3386/w33817"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "The Experimental Selection Correction Estimator: Using Experiments to Remove Biases in Observational Estimates",
+          "year": 2024,
+          "authors": [
+            "Susan Athey",
+            "Raj Chetty",
+            "Guido Imbens"
+          ]
+        },
+        {
+          "title": "The Experimental Selection Correction Estimator: Using Experiments to Remove Biases in Observational Estimates",
+          "year": 2026,
+          "authors": [
+            "Susan Athey",
+            "Raj Chetty",
+            "Guido Imbens"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3386/w33817",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "The Experimental Selection Correction Estimator: Using Experiments to Remove Biases in Observational Estimates",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_raj_chetty:98bebaba1fd2",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The Surrogate Index: Combining Short-Term Proxies to Estimate Long-Term Treatment Effects More Rapidly and Precisely",
+      "year": 2025,
+      "authors": [
+        "Susan Athey",
+        "Raj Chetty",
+        "Guido W. Imbens",
+        "Hyunseung Kang"
+      ],
+      "listed_venue": "Review of Economic Studies",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://rajchetty.com/papers-and-data-scrolling/ entry 2 captured 2026-10-18"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1093/restud/rdaf087"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "The Surrogate Index: Combining Short-Term Proxies to Estimate Long-Term Treatment Effects More Rapidly and Precisely",
+          "year": 2024,
+          "authors": [
+            "Susan Athey",
+            "Raj Chetty",
+            "Guido W. Imbens",
+            "Hyunseung Kang"
+          ]
+        },
+        {
+          "title": "The Surrogate Index: Combining Short-Term Proxies to Estimate Long-Term Treatment Effects More Rapidly and Precisely",
+          "year": 2026,
+          "authors": [
+            "Susan Athey",
+            "Raj Chetty",
+            "Guido W. Imbens",
+            "Hyunseung Kang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1093/restud/rdaf087",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "The Surrogate Index: Combining Short-Term Proxies to Estimate Long-Term Treatment Effects More Rapidly and Precisely",
+          "crossref_year": 2025
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

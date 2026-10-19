@@ -1,0 +1,959 @@
+{
+  "roster_schema_version": 1,
+  "dataset_id": "stratified_researchers_v1",
+  "metadata": {
+    "created": "2026-10-18",
+    "selection_policy": "Public researchers at QS top-100 universities, two per seniority x field cell, one of them with a common Chinese name. Only professional publication information is recorded.",
+    "window_policy": "Default 2020-2025. Renowned seniors and established faculty in CS, biomedicine and engineering use 2024-2025 to keep review size manageable; individual windows follow what the truth source covers.",
+    "split_policy": "Each seniority x field cell has one dev and one test person; the name profile assigned to dev alternates by cell.",
+    "hints_policy": "search_input.hints holds what a caller could plausibly supply (ORCID, the public page used as the truth source). Runs use them only with input_profile=with_hints; truth papers are never passed."
+  },
+  "people": [
+    {
+      "person_id": "cs_wei_wang_ucla",
+      "search_input": {
+        "name": "Wei Wang",
+        "university": "University of California, Los Angeles",
+        "department": "Computer Science",
+        "hints": {
+          "orcid": "0000-0002-8180-2886"
+        }
+      },
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "computer_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://web.cs.ucla.edu/~weiwang/chrolist.html"
+        },
+        {
+          "kind": "orcid",
+          "locator": "0000-0002-8180-2886",
+          "url": "https://orcid.org/0000-0002-8180-2886"
+        }
+      ],
+      "identity_evidence": [
+        "https://web.cs.ucla.edu/~weiwang/"
+      ],
+      "orcid": "0000-0002-8180-2886",
+      "year_start": 2024,
+      "year_end": 2025,
+      "notes": "Truth from the chronological publication list (2026-10-18) plus ORCID.",
+      "split": "test"
+    },
+    {
+      "person_id": "cs_christopher_manning",
+      "search_input": {
+        "name": "Christopher Manning",
+        "university": "Stanford University",
+        "department": "Computer Science",
+        "hints": {
+          "orcid": "0000-0001-6155-649X"
+        }
+      },
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "computer_science",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "orcid",
+          "locator": "0000-0001-6155-649X",
+          "url": "https://orcid.org/0000-0001-6155-649X"
+        }
+      ],
+      "identity_evidence": [
+        "https://nlp.stanford.edu/~manning/"
+      ],
+      "orcid": "0000-0001-6155-649X",
+      "year_start": 2024,
+      "year_end": 2025,
+      "notes": "Truth from ORCID only; many conference papers lack DOIs and may be missing.",
+      "split": "dev"
+    },
+    {
+      "person_id": "cs_yang_liu_tsinghua",
+      "search_input": {
+        "name": "Yang Liu",
+        "university": "Tsinghua University",
+        "department": "Computer Science and Technology",
+        "hints": {
+          "homepage": "https://nlp.csai.tsinghua.edu.cn/~ly/pub.html"
+        }
+      },
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "computer_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "publications.json",
+          "url": "https://nlp.csai.tsinghua.edu.cn/~ly/pub.html"
+        }
+      ],
+      "identity_evidence": [
+        "https://nlp.csai.tsinghua.edu.cn/~ly/"
+      ],
+      "year_start": 2024,
+      "year_end": 2025,
+      "split": "test"
+    },
+    {
+      "person_id": "cs_graham_neubig",
+      "search_input": {
+        "name": "Graham Neubig",
+        "university": "Carnegie Mellon University",
+        "department": "Language Technologies Institute",
+        "hints": {
+          "homepage": "https://www.phontron.com/publications"
+        }
+      },
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "computer_science",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "bibtex",
+          "locator": "publications.bib",
+          "url": "https://www.phontron.com/publications"
+        }
+      ],
+      "identity_evidence": [
+        "https://www.phontron.com/"
+      ],
+      "year_start": 2024,
+      "year_end": 2025,
+      "split": "dev"
+    },
+    {
+      "person_id": "cs_huan_zhang",
+      "search_input": {
+        "name": "Huan Zhang",
+        "university": "University of Illinois Urbana-Champaign",
+        "department": "Electrical and Computer Engineering",
+        "hints": {
+          "homepage": "https://www.huan-zhang.com/"
+        }
+      },
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "computer_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://www.huan-zhang.com/"
+        }
+      ],
+      "identity_evidence": [
+        "https://www.huan-zhang.com/"
+      ],
+      "split": "test"
+    },
+    {
+      "person_id": "cs_kevin_ellis",
+      "search_input": {
+        "name": "Kevin Ellis",
+        "university": "Cornell University",
+        "department": "Computer Science",
+        "hints": {
+          "homepage": "https://www.cs.cornell.edu/~ellisk/"
+        }
+      },
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "computer_science",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://www.cs.cornell.edu/~ellisk/"
+        }
+      ],
+      "identity_evidence": [
+        "https://www.cs.cornell.edu/~ellisk/"
+      ],
+      "split": "dev"
+    },
+    {
+      "person_id": "cs_jing_huang",
+      "search_input": {
+        "name": "Jing Huang",
+        "university": "Stanford University",
+        "department": "Computer Science",
+        "hints": {
+          "homepage": "https://explanare.github.io/"
+        }
+      },
+      "strata": {
+        "seniority": "phd_student",
+        "field": "computer_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://explanare.github.io/"
+        }
+      ],
+      "identity_evidence": [
+        "https://nlp.stanford.edu/people/",
+        "https://explanare.github.io/"
+      ],
+      "split": "test"
+    },
+    {
+      "person_id": "cs_julie_kallini",
+      "search_input": {
+        "name": "Julie Kallini",
+        "university": "Stanford University",
+        "department": "Computer Science",
+        "hints": {
+          "homepage": "https://juliekallini.com/papers/"
+        }
+      },
+      "strata": {
+        "seniority": "phd_student",
+        "field": "computer_science",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "bibtex",
+          "locator": "papers.bib",
+          "url": "https://juliekallini.com/papers/"
+        }
+      ],
+      "identity_evidence": [
+        "https://nlp.stanford.edu/people/",
+        "https://juliekallini.com/"
+      ],
+      "split": "dev"
+    },
+    {
+      "person_id": "bio_feng_zhang",
+      "search_input": {
+        "name": "Feng Zhang",
+        "university": "Massachusetts Institute of Technology",
+        "department": "Brain and Cognitive Sciences",
+        "hints": {
+          "homepage": "https://www.zlab.bio/publications"
+        }
+      },
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "biomedicine",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "lab_publications.json",
+          "url": "https://www.zlab.bio/publications"
+        }
+      ],
+      "identity_evidence": [
+        "https://www.zlab.bio/"
+      ],
+      "year_start": 2024,
+      "year_end": 2025,
+      "split": "dev"
+    },
+    {
+      "person_id": "bio_jennifer_doudna",
+      "search_input": {
+        "name": "Jennifer Doudna",
+        "university": "University of California, Berkeley",
+        "department": "Molecular and Cell Biology",
+        "hints": {
+          "orcid": "0000-0001-9161-999X",
+          "homepage": "https://doudnalab.org/publications/"
+        }
+      },
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "biomedicine",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "lab_publications.json",
+          "url": "https://doudnalab.org/publications/"
+        },
+        {
+          "kind": "orcid",
+          "locator": "0000-0001-9161-999X",
+          "url": "https://orcid.org/0000-0001-9161-999X"
+        }
+      ],
+      "identity_evidence": [
+        "https://doudnalab.org/people/"
+      ],
+      "orcid": "0000-0001-9161-999X",
+      "year_start": 2024,
+      "year_end": 2025,
+      "split": "test"
+    },
+    {
+      "person_id": "bio_le_cong",
+      "search_input": {
+        "name": "Le Cong",
+        "university": "Stanford University",
+        "department": "Pathology",
+        "hints": {
+          "orcid": "0000-0003-4725-8714"
+        }
+      },
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "biomedicine",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "orcid",
+          "locator": "0000-0003-4725-8714",
+          "url": "https://orcid.org/0000-0003-4725-8714"
+        }
+      ],
+      "identity_evidence": [
+        "https://biox.stanford.edu/node/8376"
+      ],
+      "orcid": "0000-0003-4725-8714",
+      "year_start": 2024,
+      "year_end": 2025,
+      "notes": "Associate Professor per 2026 sources; truth from ORCID only.",
+      "split": "dev"
+    },
+    {
+      "person_id": "bio_anshul_kundaje",
+      "search_input": {
+        "name": "Anshul Kundaje",
+        "university": "Stanford University",
+        "department": "Genetics",
+        "hints": {
+          "orcid": "0000-0003-3084-2287",
+          "homepage": "https://profiles.stanford.edu/anshul-kundaje?tab=publications"
+        }
+      },
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "biomedicine",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "stanford_profile.json",
+          "url": "https://profiles.stanford.edu/anshul-kundaje?tab=publications"
+        },
+        {
+          "kind": "orcid",
+          "locator": "0000-0003-3084-2287",
+          "url": "https://orcid.org/0000-0003-3084-2287"
+        }
+      ],
+      "identity_evidence": [
+        "https://profiles.stanford.edu/anshul-kundaje?tab=publications"
+      ],
+      "orcid": "0000-0003-3084-2287",
+      "year_start": 2024,
+      "year_end": 2025,
+      "split": "test"
+    },
+    {
+      "person_id": "bio_jia_liu",
+      "search_input": {
+        "name": "Jia Liu",
+        "university": "Harvard University",
+        "department": "Bioengineering",
+        "hints": {
+          "orcid": "0000-0003-2217-6982"
+        }
+      },
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "biomedicine",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "orcid",
+          "locator": "0000-0003-2217-6982",
+          "url": "https://orcid.org/0000-0003-2217-6982"
+        }
+      ],
+      "identity_evidence": [
+        "https://orcid.org/0000-0003-2217-6982"
+      ],
+      "orcid": "0000-0003-2217-6982",
+      "notes": "Rank from ORCID employment (Assistant Professor); confirm current title.",
+      "split": "dev"
+    },
+    {
+      "person_id": "bio_brian_hie",
+      "search_input": {
+        "name": "Brian Hie",
+        "university": "Stanford University",
+        "department": "Chemical Engineering",
+        "hints": {
+          "orcid": "0000-0003-3224-8142",
+          "homepage": "https://profiles.stanford.edu/brian-hie?tab=publications"
+        }
+      },
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "biomedicine",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "stanford_profile.json",
+          "url": "https://profiles.stanford.edu/brian-hie?tab=publications"
+        },
+        {
+          "kind": "orcid",
+          "locator": "0000-0003-3224-8142",
+          "url": "https://orcid.org/0000-0003-3224-8142"
+        }
+      ],
+      "identity_evidence": [
+        "https://profiles.stanford.edu/brian-hie?tab=publications"
+      ],
+      "orcid": "0000-0003-3224-8142",
+      "split": "test"
+    },
+    {
+      "person_id": "bio_zhiwei_xue",
+      "search_input": {
+        "name": "Zhiwei Xue",
+        "university": "University of California, Berkeley",
+        "department": "Molecular and Cell Biology",
+        "hints": {
+          "homepage": "https://doudnalab.org/publications/"
+        }
+      },
+      "strata": {
+        "seniority": "phd_student",
+        "field": "biomedicine",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "lab_publications.json",
+          "url": "https://doudnalab.org/publications/"
+        }
+      ],
+      "identity_evidence": [
+        "https://doudnalab.org/people/"
+      ],
+      "notes": "Listed as \"Wayne Xue\" on the lab page; publishes as Zhiwei Xue / Xue ZW.",
+      "split": "dev"
+    },
+    {
+      "person_id": "bio_marena_trinidad",
+      "search_input": {
+        "name": "Marena Trinidad",
+        "university": "University of California, Berkeley",
+        "department": "Molecular and Cell Biology",
+        "hints": {
+          "homepage": "https://doudnalab.org/publications/"
+        }
+      },
+      "strata": {
+        "seniority": "phd_student",
+        "field": "biomedicine",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "lab_publications.json",
+          "url": "https://doudnalab.org/publications/"
+        }
+      ],
+      "identity_evidence": [
+        "https://doudnalab.org/people/"
+      ],
+      "split": "test"
+    },
+    {
+      "person_id": "eng_yi_cui",
+      "search_input": {
+        "name": "Yi Cui",
+        "university": "Stanford University",
+        "department": "Materials Science and Engineering",
+        "hints": {
+          "homepage": "https://web.stanford.edu/group/cui_group/publications.htm"
+        }
+      },
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "engineering",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "group_publications.json",
+          "url": "https://web.stanford.edu/group/cui_group/publications.htm"
+        }
+      ],
+      "identity_evidence": [
+        "https://profiles.stanford.edu/yi-cui"
+      ],
+      "year_start": 2024,
+      "year_end": 2025,
+      "notes": "Stanford Profiles list stops at 2020; group page used.",
+      "split": "dev"
+    },
+    {
+      "person_id": "eng_daniela_rus",
+      "search_input": {
+        "name": "Daniela Rus",
+        "university": "Massachusetts Institute of Technology",
+        "department": "Electrical Engineering and Computer Science",
+        "hints": {
+          "orcid": "0000-0001-5473-3566"
+        }
+      },
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "engineering",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "orcid",
+          "locator": "0000-0001-5473-3566",
+          "url": "https://orcid.org/0000-0001-5473-3566"
+        }
+      ],
+      "identity_evidence": [
+        "https://orcid.org/0000-0001-5473-3566"
+      ],
+      "orcid": "0000-0001-5473-3566",
+      "year_start": 2024,
+      "year_end": 2025,
+      "notes": "Truth from ORCID only.",
+      "split": "test"
+    },
+    {
+      "person_id": "eng_wei_lu",
+      "search_input": {
+        "name": "Wei Lu",
+        "university": "University of Michigan",
+        "department": "Electrical Engineering and Computer Science",
+        "hints": {
+          "orcid": "0000-0003-4731-1976"
+        }
+      },
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "engineering",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "orcid",
+          "locator": "0000-0003-4731-1976",
+          "url": "https://orcid.org/0000-0003-4731-1976"
+        }
+      ],
+      "identity_evidence": [
+        "https://public.websites.umich.edu/~wluee/"
+      ],
+      "orcid": "0000-0003-4731-1976",
+      "year_start": 2024,
+      "year_end": 2025,
+      "notes": "Several Wei Lu faculty at Michigan; this ORCID lists Harvard/Rice/Tsinghua history matching the EECS professor.",
+      "split": "dev"
+    },
+    {
+      "person_id": "eng_sindy_tang",
+      "search_input": {
+        "name": "Sindy Tang",
+        "university": "Stanford University",
+        "department": "Mechanical Engineering",
+        "hints": {
+          "orcid": "0000-0003-1465-2432",
+          "homepage": "https://profiles.stanford.edu/sindy-tang?tab=publications"
+        }
+      },
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "engineering",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "stanford_profile.json",
+          "url": "https://profiles.stanford.edu/sindy-tang?tab=publications"
+        },
+        {
+          "kind": "orcid",
+          "locator": "0000-0003-1465-2432",
+          "url": "https://orcid.org/0000-0003-1465-2432"
+        }
+      ],
+      "identity_evidence": [
+        "https://profiles.stanford.edu/sindy-tang?tab=publications"
+      ],
+      "orcid": "0000-0003-1465-2432",
+      "year_start": 2024,
+      "year_end": 2025,
+      "split": "test"
+    },
+    {
+      "person_id": "eng_lu_lu",
+      "search_input": {
+        "name": "Lu Lu",
+        "university": "Yale University",
+        "department": "Statistics and Data Science",
+        "hints": {
+          "orcid": "0000-0002-5476-5768"
+        }
+      },
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "engineering",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "orcid",
+          "locator": "0000-0002-5476-5768",
+          "url": "https://orcid.org/0000-0002-5476-5768"
+        }
+      ],
+      "identity_evidence": [
+        "https://lugroup.yale.edu/people/"
+      ],
+      "orcid": "0000-0002-5476-5768",
+      "split": "dev"
+    },
+    {
+      "person_id": "eng_siddharth_krishnan",
+      "search_input": {
+        "name": "Siddharth Krishnan",
+        "university": "Stanford University",
+        "department": "Electrical Engineering",
+        "hints": {
+          "orcid": "0000-0001-8032-7043",
+          "homepage": "https://profiles.stanford.edu/siddharth-krishnan?tab=publications"
+        }
+      },
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "engineering",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "stanford_profile.json",
+          "url": "https://profiles.stanford.edu/siddharth-krishnan?tab=publications"
+        },
+        {
+          "kind": "orcid",
+          "locator": "0000-0001-8032-7043",
+          "url": "https://orcid.org/0000-0001-8032-7043"
+        }
+      ],
+      "identity_evidence": [
+        "https://profiles.stanford.edu/siddharth-krishnan?tab=publications"
+      ],
+      "orcid": "0000-0001-8032-7043",
+      "split": "test"
+    },
+    {
+      "person_id": "eng_min_zhu",
+      "search_input": {
+        "name": "Min Zhu",
+        "university": "Yale University",
+        "department": "Statistics and Data Science",
+        "hints": {
+          "homepage": "https://lugroup.yale.edu/publications/"
+        }
+      },
+      "strata": {
+        "seniority": "phd_student",
+        "field": "engineering",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "group_publications.json",
+          "url": "https://lugroup.yale.edu/publications/"
+        }
+      ],
+      "identity_evidence": [
+        "https://lugroup.yale.edu/people/"
+      ],
+      "split": "dev"
+    },
+    {
+      "person_id": "eng_jonathan_lee",
+      "search_input": {
+        "name": "Jonathan Lee",
+        "university": "Yale University",
+        "department": "Chemical and Environmental Engineering",
+        "hints": {
+          "homepage": "https://lugroup.yale.edu/publications/"
+        }
+      },
+      "strata": {
+        "seniority": "phd_student",
+        "field": "engineering",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "group_publications.json",
+          "url": "https://lugroup.yale.edu/publications/"
+        }
+      ],
+      "identity_evidence": [
+        "https://lugroup.yale.edu/people/"
+      ],
+      "split": "test"
+    },
+    {
+      "person_id": "soc_raj_chetty",
+      "search_input": {
+        "name": "Raj Chetty",
+        "university": "Harvard University",
+        "department": "Economics",
+        "hints": {
+          "homepage": "https://rajchetty.com/papers-and-data-scrolling/"
+        }
+      },
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "social_science",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "papers.json",
+          "url": "https://rajchetty.com/papers-and-data-scrolling/"
+        }
+      ],
+      "identity_evidence": [
+        "https://rajchetty.com/"
+      ],
+      "split": "dev"
+    },
+    {
+      "person_id": "soc_yu_xie",
+      "search_input": {
+        "name": "Yu Xie",
+        "university": "Princeton University",
+        "department": "Sociology",
+        "hints": {
+          "homepage": "https://yuxie.scholar.princeton.edu/publications"
+        }
+      },
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "social_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "princeton_site.json",
+          "url": "https://yuxie.scholar.princeton.edu/publications"
+        }
+      ],
+      "identity_evidence": [
+        "https://yuxie.scholar.princeton.edu/"
+      ],
+      "year_start": 2020,
+      "year_end": 2023,
+      "notes": "Faculty site lists nothing after 2023.",
+      "split": "test"
+    },
+    {
+      "person_id": "soc_xiang_zhou",
+      "search_input": {
+        "name": "Xiang Zhou",
+        "university": "Harvard University",
+        "department": "Sociology",
+        "hints": {
+          "homepage": "https://xzhou.scholars.harvard.edu/publications"
+        }
+      },
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "social_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "harvard_scholars.json",
+          "url": "https://xzhou.scholars.harvard.edu/publications"
+        }
+      ],
+      "identity_evidence": [
+        "https://xzhou.scholars.harvard.edu/"
+      ],
+      "split": "test"
+    },
+    {
+      "person_id": "soc_christian_wolf",
+      "search_input": {
+        "name": "Christian Wolf",
+        "university": "Massachusetts Institute of Technology",
+        "department": "Economics",
+        "hints": {
+          "homepage": "https://www.christiankwolf.com/research"
+        }
+      },
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "social_science",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "research.json",
+          "url": "https://www.christiankwolf.com/research"
+        }
+      ],
+      "identity_evidence": [
+        "https://www.christiankwolf.com/"
+      ],
+      "split": "dev"
+    },
+    {
+      "person_id": "soc_daniel_chen",
+      "search_input": {
+        "name": "Daniel Chen",
+        "university": "Princeton University",
+        "department": "Economics",
+        "hints": {
+          "homepage": "https://danieltchen.com"
+        }
+      },
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "social_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://danieltchen.com"
+        }
+      ],
+      "identity_evidence": [
+        "https://economics.princeton.edu/people/",
+        "https://danieltchen.com"
+      ],
+      "split": "test"
+    },
+    {
+      "person_id": "soc_nina_roussille",
+      "search_input": {
+        "name": "Nina Roussille",
+        "university": "Massachusetts Institute of Technology",
+        "department": "Economics"
+      },
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "social_science",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "cv.json",
+          "url": "https://economics.mit.edu/sites/default/files/2025-01/Nina_Resume_Jan2025.pdf"
+        }
+      ],
+      "identity_evidence": [
+        "https://economics.mit.edu/people/faculty/nina-roussille"
+      ],
+      "split": "dev"
+    },
+    {
+      "person_id": "soc_whitney_zhang",
+      "search_input": {
+        "name": "Whitney Zhang",
+        "university": "Massachusetts Institute of Technology",
+        "department": "Economics",
+        "hints": {
+          "homepage": "https://economics.mit.edu/people/phd-students/whitney-zhang"
+        }
+      },
+      "strata": {
+        "seniority": "phd_student",
+        "field": "social_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "mit_profile.json",
+          "url": "https://economics.mit.edu/people/phd-students/whitney-zhang"
+        }
+      ],
+      "identity_evidence": [
+        "https://economics.mit.edu/people/phd-students/whitney-zhang"
+      ],
+      "split": "test"
+    },
+    {
+      "person_id": "soc_shakked_noy",
+      "search_input": {
+        "name": "Shakked Noy",
+        "university": "Massachusetts Institute of Technology",
+        "department": "Economics",
+        "hints": {
+          "homepage": "https://economics.mit.edu/people/phd-students/shakked-noy"
+        }
+      },
+      "strata": {
+        "seniority": "phd_student",
+        "field": "social_science",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "mit_profile.json",
+          "url": "https://economics.mit.edu/people/phd-students/shakked-noy"
+        }
+      ],
+      "identity_evidence": [
+        "https://economics.mit.edu/people/phd-students/shakked-noy"
+      ],
+      "split": "dev"
+    }
+  ]
+}

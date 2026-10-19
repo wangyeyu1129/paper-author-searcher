@@ -1,34 +1,40 @@
 """Discover deposited full-text and landing links from Crossref metadata."""
+
+from typing import Any
 from urllib.parse import quote
 
-from .config import DEFAULT_PDF
+from .config import DEFAULT_PDF, PDFConfig
 from .http import SourceError
+from .json_types import JSONObject
+from .models import PDFProviderResult
 from .pdf_identity import metadata_identity, paper_dois
 from .pdf_providers import MetadataPDFProvider, make_candidate
-from .pdf_settings import contact_email, redact_contact
+from .pdf_settings import redact_contact
+from .settings import validate_contact_email
+from .status import ProviderStatus
 
 
 class CrossrefPDFProvider(MetadataPDFProvider):
     name = 'crossref'
 
-    def __init__(self, client=None, config=DEFAULT_PDF):
+    def __init__(self, client: Any, config: PDFConfig = DEFAULT_PDF, email: str | None = None) -> None:
         super().__init__(client)
         self.config = config
-        self.cache = {}
-        self.configuration_error = None
+        self.cache: dict[str, Any] = {}
+        self.configuration_error: str | None = None
         try:
-            self.email = contact_email(None, config.crossref_email_environment)
+            self.email = validate_contact_email(email)
         except ValueError as exc:
             self.email = None
             self.configuration_error = str(exc)
 
-    def lookups(self, paper):
-        identifiers = [doi[len('doi:'):] for doi in sorted(paper_dois(paper))]
+    def lookups(self, paper: JSONObject) -> list[str]:
+        identifiers = [doi[len('doi:') :] for doi in sorted(paper_dois(paper))]
         if not identifiers and paper.get('title'):
             identifiers.append('title:' + paper['title'])
         return identifiers
 
-    def find(self, paper):
+    def find(self, paper: JSONObject) -> PDFProviderResult:
         result = super().find(paper)
         not_indexed = result.diagnostics and all(item.get('status_code') == 404 for item in result.diagnostics)
         if not_indexed and paper.get('title'):
@@ -36,22 +42,27 @@ class CrossrefPDFProvider(MetadataPDFProvider):
                 candidates, pages = self.lookup(paper, 'title:' + paper['title'])
                 result.candidates.extend(candidates)
                 result.landing_pages.extend(pages)
-                result.status = 'ok'
-                result.diagnostics.append({'lookup_method': 'title_search', 'status': 'ok'})
+                result.status = ProviderStatus.OK
+                result.diagnostics.append({'lookup_method': 'title_search', 'status': ProviderStatus.OK})
             except (SourceError, ValueError, TypeError) as exc:
-                result.status = 'error'
+                result.status = ProviderStatus.ERROR
                 result.errors.append('Title search: ' + str(exc))
-                result.diagnostics.append({'lookup_method': 'title_search', 'status': 'error',
-                                           'status_code': getattr(exc, 'status_code', None),
-                                           'error_type': getattr(exc, 'error_type', 'malformed_response')})
+                result.diagnostics.append(
+                    {
+                        'lookup_method': 'title_search',
+                        'status': ProviderStatus.ERROR,
+                        'status_code': getattr(exc, 'status_code', None),
+                        'error_type': getattr(exc, 'error_type', 'malformed_response'),
+                    }
+                )
         if self.configuration_error:
             result.errors.append('Crossref optional contact configuration: ' + self.configuration_error)
         result.errors = [redact_contact(message, self.email) for message in result.errors]
         return result
 
-    def lookup(self, paper, identifier):
+    def lookup(self, paper: JSONObject, identifier: str) -> tuple[list[Any], list[Any]]:
         url = self.config.crossref_url + '/works'
-        params = {'mailto': self.email}
+        params: dict[str, Any] = {'mailto': self.email}
         search = identifier.startswith('title:')
         if search:
             params.update({'query.title': paper['title'], 'rows': self.config.crossref_search_results})
@@ -60,7 +71,7 @@ class CrossrefPDFProvider(MetadataPDFProvider):
         if identifier not in self.cache:
             self.cache[identifier] = self.client.get(url, params=params)
         response = self.cache[identifier]
-        if not isinstance(response, dict) or response.get('status') != 'ok':
+        if not isinstance(response, dict) or response.get('status') != ProviderStatus.OK:
             raise SourceError('Crossref did not return an ok metadata response', error_type='malformed_response')
         message = response.get('message')
         if not isinstance(message, dict):
@@ -75,7 +86,7 @@ class CrossrefPDFProvider(MetadataPDFProvider):
             pages.extend(landing)
         return candidates, pages
 
-    def _locations(self, paper, work, metadata_url):
+    def _locations(self, paper: JSONObject, work: JSONObject, metadata_url: str) -> tuple[list[Any], list[Any]]:
         titles = work.get('title') or []
         if not isinstance(titles, list) or any(not isinstance(title, str) for title in titles):
             raise SourceError('Crossref titles must be a list of strings', error_type='malformed_response')
@@ -93,19 +104,32 @@ class CrossrefPDFProvider(MetadataPDFProvider):
         if not isinstance(venues, list) or any(not isinstance(venue, str) for venue in venues):
             raise SourceError('Crossref container titles must be a list of strings', error_type='malformed_response')
         identity = metadata_identity(paper, self.name, doi=work.get('DOI'), title=title, year=year, authors=authors)
-        metadata = {'database': self.name, 'metadata_url': metadata_url, 'doi': work.get('DOI'),
-                    'title': title, 'metadata_year': year, 'metadata_authors': authors,
-                    'metadata_venue': venues[0] if venues else None}
+        metadata = {
+            'database': self.name,
+            'metadata_url': metadata_url,
+            'doi': work.get('DOI'),
+            'title': title,
+            'metadata_year': year,
+            'metadata_authors': authors,
+            'metadata_venue': venues[0] if venues else None,
+        }
         candidates = []
         for link in work.get('link') or []:
             if not isinstance(link, dict) or str(link.get('content-type') or '').lower() != 'application/pdf':
                 continue
             if not link.get('URL'):
                 continue
-            version = {'vor': 'publishedVersion', 'am': 'acceptedVersion'}.get(link.get('content-version'))
-            candidates.append(make_candidate(
-                link['URL'], self.name, identity, dict(metadata, intended_application=link.get('intended-application')),
-                'Crossref deposited full-text PDF link; anonymous public access still requires verification', version))
+            version = {'vor': 'publishedVersion', 'am': 'acceptedVersion'}.get(str(link.get('content-version') or ''))
+            candidates.append(
+                make_candidate(
+                    link['URL'],
+                    self.name,
+                    identity,
+                    dict(metadata, intended_application=link.get('intended-application')),
+                    'Crossref deposited full-text PDF link; anonymous public access still requires verification',
+                    version,
+                )
+            )
         pages = []
         resource = work.get('resource') or {}
         if not isinstance(resource, dict) or not isinstance(resource.get('primary') or {}, dict):
@@ -117,7 +141,7 @@ class CrossrefPDFProvider(MetadataPDFProvider):
         return candidates, pages
 
     @staticmethod
-    def _year(work):
+    def _year(work: JSONObject) -> int | None:
         for field in ('published', 'published-print', 'published-online', 'issued'):
             date = work.get(field) or {}
             if not isinstance(date, dict):

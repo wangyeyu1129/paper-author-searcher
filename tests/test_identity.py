@@ -16,12 +16,16 @@ class IdentityTests(unittest.TestCase):
         return resolver.resolve(ProfessorQuery(name, university))
 
     def test_missing_school_is_neutral(self):
-        missing = self.resolve_records([
-            AuthorCandidate('semantic_scholar', 'missing', 'Alex Morgan'),
-        ]).profile
-        mismatch = self.resolve_records([
-            AuthorCandidate('semantic_scholar', 'mismatch', 'Alex Morgan', ['Other University']),
-        ]).profile
+        missing = self.resolve_records(
+            [
+                AuthorCandidate('semantic_scholar', 'missing', 'Alex Morgan'),
+            ]
+        ).profile
+        mismatch = self.resolve_records(
+            [
+                AuthorCandidate('semantic_scholar', 'mismatch', 'Alex Morgan', ['Other University']),
+            ]
+        ).profile
         self.assertEqual(missing.university_status, 'unknown')
         self.assertEqual(missing.status, 'needs_review')
         self.assertGreater(missing.identity_confidence, mismatch.identity_confidence)
@@ -37,11 +41,17 @@ class IdentityTests(unittest.TestCase):
             with self.subTest(name=name, topic=topic):
                 records = [
                     AuthorCandidate(
-                        'openalex', 'target', name, [university],
-                        topics=[topic], paper_ids=['doi:10.example/a', 'doi:10.example/b'],
+                        'openalex',
+                        'target',
+                        name,
+                        [university],
+                        topics=[topic],
+                        paper_ids=['doi:10.example/a', 'doi:10.example/b'],
                     ),
                     AuthorCandidate(
-                        'semantic_scholar', 'verified', name,
+                        'semantic_scholar',
+                        'verified',
+                        name,
                         paper_ids=['https://doi.org/10.example/A', 'doi:10.example/b'],
                     ),
                     AuthorCandidate('dblp', 'namesake', name, [university]),
@@ -73,11 +83,17 @@ class IdentityTests(unittest.TestCase):
 
     def test_orcid_conflict_overrides_dois(self):
         left = AuthorCandidate(
-            'openalex', 'left', 'Alex Morgan', orcid='orcid-left',
+            'openalex',
+            'left',
+            'Alex Morgan',
+            orcid='orcid-left',
             paper_ids=['doi:example/a', 'doi:example/b'],
         )
         right = AuthorCandidate(
-            'dblp', 'right', 'Alex Morgan', orcid='orcid-right',
+            'dblp',
+            'right',
+            'Alex Morgan',
+            orcid='orcid-right',
             paper_ids=['doi:example/a', 'doi:example/b'],
         )
         self.assertFalse(linked(left, right))
@@ -98,15 +114,17 @@ class IdentityTests(unittest.TestCase):
         self.assertFalse(linked(left, right))
 
     def test_cli_verbose(self):
-        result = self.resolve_records([
-            AuthorCandidate('openalex', 'target', 'Alex Morgan', ['Example University']),
-        ])
+        result = self.resolve_records(
+            [
+                AuthorCandidate('openalex', 'target', 'Alex Morgan', ['Example University']),
+            ]
+        )
         for verbose in (False, True):
             arguments = ['--name', 'Alex Morgan', '--university', 'Example University']
             if verbose:
                 arguments.append('--verbose')
             output = io.StringIO()
-            with patch('paper_author_searcher.cli.ProfessorResolver') as factory:
+            with patch('paper_author_searcher.composition.ProfessorResolver') as factory:
                 factory.return_value.resolve.return_value = result
                 with redirect_stdout(output):
                     self.assertEqual(main(arguments), 0)
@@ -119,17 +137,28 @@ class IdentityTests(unittest.TestCase):
     def test_single_paper_fragment_does_not_outrank_current_anchor(self):
         records = [
             AuthorCandidate(
-                'openalex', 'anchor', 'Alex Morgan',
-                ['Example University'], ['Example University'],
+                'openalex',
+                'anchor',
+                'Alex Morgan',
+                ['Example University'],
+                ['Example University'],
             ),
             AuthorCandidate(
-                'openalex', 'fragment', 'Alex Y. Morgan',
-                ['Example University'], ['Example University'], aliases=['Alex Morgan'],
-                paper_ids=['doi:example/a'], coauthors=['Jane Smith', 'John Doe'],
+                'openalex',
+                'fragment',
+                'Alex Y. Morgan',
+                ['Example University'],
+                ['Example University'],
+                aliases=['Alex Morgan'],
+                paper_ids=['doi:example/a'],
+                coauthors=['Jane Smith', 'John Doe'],
             ),
             AuthorCandidate(
-                'semantic_scholar', 'fragment', 'Alex Y. Morgan',
-                paper_ids=['doi:example/a'], coauthors=['Jane Smith', 'John Doe'],
+                'semantic_scholar',
+                'fragment',
+                'Alex Y. Morgan',
+                paper_ids=['doi:example/a'],
+                coauthors=['Jane Smith', 'John Doe'],
             ),
         ]
         result = self.resolve_records(records)
@@ -140,11 +169,17 @@ class IdentityTests(unittest.TestCase):
         records = [
             AuthorCandidate('first', 'a', 'Alex Morgan', orcid='orcid-left'),
             AuthorCandidate(
-                'second', 'b', 'Alex Morgan', orcid='orcid-left',
+                'second',
+                'b',
+                'Alex Morgan',
+                orcid='orcid-left',
                 paper_ids=['doi:example/a', 'doi:example/b'],
             ),
             AuthorCandidate(
-                'third', 'c', 'Alex Morgan', orcid='orcid-right',
+                'third',
+                'c',
+                'Alex Morgan',
+                orcid='orcid-right',
                 paper_ids=['doi:example/a', 'doi:example/b'],
             ),
         ]
@@ -152,3 +187,68 @@ class IdentityTests(unittest.TestCase):
         self.assertEqual(len(result.candidates), 2)
         for profile in result.candidates:
             self.assertFalse('first' in profile.author_ids and 'third' in profile.author_ids)
+
+
+class NameBoundTests(unittest.TestCase):
+    """The grouping shortcut is exact only if the bound never falls below the real similarity."""
+
+    NAMES = (
+        'Wei Wang',
+        'Wang Wei',
+        'W. Wang',
+        'Wei Wang 2019',
+        'Wei-Wang',
+        'Weiwei Wang',
+        'Wei Huang',
+        'Mei Lin',
+        'Mei Lim',
+        'M Lin',
+        'Christopher D. Manning',
+        'Christopher Manning',
+        'Christopher Mannig',
+        'C. D. Manning',
+        'Chris Manning',
+        'Zoë Smith-Jones',
+        'Zoe Smith Jones',
+        'Huan Zhang',
+        'Zhang Huan',
+        'H. Zhang',
+        'Hao Zhang',
+        'Aarti Singh',
+        'A. Singh',
+        'Aarti S. Singh',
+        'Aarti R. Singh',
+        'Yi Cui',
+        'Yi  Cui',
+        'Cui Yi',
+        'J. P. Smith',
+        'John Paul Smith',
+        'John Smith',
+        'Jon Smith',
+        'José Álvarez',
+        'Jose Alvarez',
+        '',
+        'X',
+    )
+
+    def test_upper_bound_dominates_similarity_for_every_pair(self):
+        from paper_author_searcher.matching import name_similarity, name_similarity_upper_bound
+
+        for left in self.NAMES:
+            for right in self.NAMES:
+                with self.subTest(left=left, right=right):
+                    self.assertGreaterEqual(name_similarity_upper_bound(left, right), name_similarity(left, right))
+
+
+class SimilarityCacheTests(unittest.TestCase):
+    def test_statistics_and_clearing(self):
+        from paper_author_searcher.matching import clear_similarity_caches, name_similarity, similarity_cache_statistics
+
+        clear_similarity_caches()
+        name_similarity('Mei Lin', 'Mei Lin')
+        name_similarity('Mei Lin', 'Mei Lin')
+        statistics = similarity_cache_statistics()['name_similarity']
+        self.assertEqual((statistics['hits'], statistics['misses'], statistics['entries']), (1, 1, 1))
+        self.assertEqual(statistics['hit_rate'], 0.5)
+        clear_similarity_caches()
+        self.assertEqual(similarity_cache_statistics()['name_similarity']['entries'], 0)
