@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "complete_positive_list": true,
+  "complete_positive_list": false,
   "metadata": {
     "annotation_state": "assistant_reviewed",
-    "reviewer": "Claude (AI review requested by the user, 2026-10-18)",
-    "reviewed_at": "2026-10-18",
+    "reviewer": "Claude (AI review requested by the user, 2026-10-19)",
+    "reviewed_at": "2026-10-19",
     "person_id": "soc_raj_chetty",
     "dataset_id": "stratified_researchers_v1",
     "search_input": {
@@ -48,7 +48,7 @@
     ],
     "excluded_counts": {},
     "review_progress": {
-      "decided": 8,
+      "decided": 29,
       "pending": 0
     }
   },
@@ -200,9 +200,13 @@
         "Public list https://rajchetty.com/papers-and-data-scrolling/ entry 6 captured 2026-10-18"
       ],
       "review_flags": [
-        "identifier_from_title_lookup"
+        "identifier_from_title_lookup",
+        "version_identifiers_added_in_review",
+        "version_identifiers_added_in_review"
       ],
       "dois": [
+        "10.1038/s41586-022-04996-4",
+        "10.2139/ssrn.4177561",
         "10.3386/w30313"
       ],
       "metadata_aliases": [
@@ -224,6 +228,62 @@
             "Matthew O. Jackson",
             "Theresa Kuchler",
             "Johannes Stroebel"
+          ]
+        },
+        {
+          "title": "Social capital I: measurement and associations with economic mobility",
+          "year": 2022,
+          "authors": [
+            "Raj Chetty",
+            "Matthew O. Jackson",
+            "Theresa Kuchler",
+            "Johannes Stroebel",
+            "Nathaniel Hendren",
+            "Robert B. Fluegge",
+            "Sara Gong",
+            "Federico Gonzalez",
+            "Armelle Grondin",
+            "Matthew Jacob",
+            "Drew Johnston",
+            "Martin Koenen",
+            "Eduardo Laguna-Muggenburg",
+            "Florian Mudekereza",
+            "Tom Rutter",
+            "Nicolaj Thor",
+            "Wilbur Townsend",
+            "Ruby Zhang",
+            "Mike Bailey",
+            "Pablo Barberá",
+            "Monica Bhole",
+            "Nils Wernerfelt"
+          ]
+        },
+        {
+          "title": "Social Capital I: Measurement and Associations with Economic Mobility",
+          "year": 2022,
+          "authors": [
+            "Raj Chetty",
+            "Matthew O. Jackson",
+            "Theresa Kuchler",
+            "Johannes Stroebel",
+            "Nathaniel Hendren",
+            "Robert B. Fluegge",
+            "Sara Gong",
+            "Federico Gonzalez",
+            "Armelle Grondin",
+            "Matthew Jacob",
+            "Drew Johnston",
+            "Martin Koenen",
+            "Eduardo Laguna",
+            "Florian Mudekereza",
+            "Tom Rutter",
+            "Nicolaj Thor",
+            "Wilbur Townsend",
+            "Ruby Zhang",
+            "Michael Bailey",
+            "Pablo Barbera",
+            "Monica Bhole",
+            "Nils Wernerfelt"
           ]
         }
       ],
@@ -260,9 +320,13 @@
         "Public list https://rajchetty.com/papers-and-data-scrolling/ entry 5 captured 2026-10-18"
       ],
       "review_flags": [
-        "identifier_from_title_lookup"
+        "identifier_from_title_lookup",
+        "version_identifiers_added_in_review",
+        "version_identifiers_added_in_review"
       ],
       "dois": [
+        "10.1038/s41586-022-04997-3",
+        "10.2139/ssrn.4177562",
         "10.3386/w30314"
       ],
       "metadata_aliases": [
@@ -284,6 +348,62 @@
             "Matthew O. Jackson",
             "Theresa Kuchler",
             "Johannes Stroebel"
+          ]
+        },
+        {
+          "title": "Social capital II: determinants of economic connectedness",
+          "year": 2022,
+          "authors": [
+            "Raj Chetty",
+            "Matthew O. Jackson",
+            "Theresa Kuchler",
+            "Johannes Stroebel",
+            "Nathaniel Hendren",
+            "Robert B. Fluegge",
+            "Sara Gong",
+            "Federico Gonzalez",
+            "Armelle Grondin",
+            "Matthew Jacob",
+            "Drew Johnston",
+            "Martin Koenen",
+            "Eduardo Laguna-Muggenburg",
+            "Florian Mudekereza",
+            "Tom Rutter",
+            "Nicolaj Thor",
+            "Wilbur Townsend",
+            "Ruby Zhang",
+            "Mike Bailey",
+            "Pablo Barberá",
+            "Monica Bhole",
+            "Nils Wernerfelt"
+          ]
+        },
+        {
+          "title": "Social Capital II: Determinants of Economic Connectedness",
+          "year": 2022,
+          "authors": [
+            "Raj Chetty",
+            "Matthew O. Jackson",
+            "Theresa Kuchler",
+            "Johannes Stroebel",
+            "Nathaniel Hendren",
+            "Robert B. Fluegge",
+            "Sara Gong",
+            "Federico Gonzalez",
+            "Armelle Grondin",
+            "Matthew Jacob",
+            "Drew Johnston",
+            "Martin Koenen",
+            "Eduardo Laguna",
+            "Florian Mudekereza",
+            "Tom Rutter",
+            "Nicolaj Thor",
+            "Wilbur Townsend",
+            "Ruby Zhang",
+            "Michael Bailey",
+            "Pablo Barbera",
+            "Monica Bhole",
+            "Nils Wernerfelt"
           ]
         }
       ],
@@ -385,7 +505,11 @@
       "annotation_evidence": [
         "Public list https://rajchetty.com/papers-and-data-scrolling/ entry 4 captured 2026-10-18"
       ],
-      "review_flags": [],
+      "review_flags": [
+        "version_identifiers_added_in_review",
+        "version_identifiers_added_in_review",
+        "version_identifiers_added_in_review"
+      ],
       "metadata_aliases": [
         {
           "title": "The Economic Impacts of COVID-19: Evidence from a New Public Database Built Using Private Sector Data",
@@ -406,7 +530,95 @@
             "Nathaniel Hendren",
             "Michael Stepner"
           ]
+        },
+        {
+          "title": "The Economic Impacts of COVID-19: Evidence from a New Public Database Built Using Private Sector Data",
+          "year": 2023,
+          "authors": [
+            "Raj Chetty",
+            "John N Friedman",
+            "Michael Stepner",
+            "Opportunity Insights Team",
+            "Hamidah Alatas",
+            "Camille Baker",
+            "Harvey Barnhard",
+            "Matt Bell",
+            "Gregory Bruich",
+            "Tina Chelidze",
+            "Lucas Chu",
+            "Westley Cineus",
+            "Sebi Devlin-Foltz",
+            "Michael Droste",
+            "Dhruv Gaur",
+            "Federico Gonzalez",
+            "Rayshauna Gray",
+            "Abigail Hiller",
+            "Matthew Jacob",
+            "Tyler Jacobson",
+            "Margaret Kallus",
+            "Fiona Kastel",
+            "Laura Kincaide",
+            "Caitlin Kupsc",
+            "Sarah LaBauve",
+            "Lucía Lamas",
+            "Maddie Marino",
+            "Kai Matheson",
+            "Jared Miller",
+            "Christian Mott",
+            "Kate Musen",
+            "Danny Onorato",
+            "Sarah Oppenheimer",
+            "Trina Ott",
+            "Lynn Overmann",
+            "Max Pienkny",
+            "Jeremiah Prince",
+            "Sebastian Puerta",
+            "Daniel Reuter",
+            "Peter Ruhm",
+            "Tom Rutter",
+            "Emanuel Schertz",
+            "Shannon Felton Spence",
+            "Krista Stapleford",
+            "Kamelia Stavreva",
+            "Ceci Steyn",
+            "James Stratton",
+            "Clare Suter",
+            "Elizabeth Thach",
+            "Nicolaj Thor",
+            "Amanda Wahlers",
+            "Kristen Watkins",
+            "Alanna Williams",
+            "David Williams",
+            "Chase Williamson",
+            "Shady Yassin",
+            "Ruby Zhang",
+            "Austin Zheng"
+          ]
+        },
+        {
+          "title": "The Economic Impacts of COVID-19: Evidence from a New Public Database Built Using Private Sector Data",
+          "year": 2020,
+          "authors": [
+            "Raj Chetty",
+            "John Friedman",
+            "Michael Stepner",
+            "The Opportunity Insights Team"
+          ]
+        },
+        {
+          "title": "The Economic Impacts of COVID-19: Evidence from a New Public Database Built Using Private Sector Data",
+          "year": 2020,
+          "authors": [
+            "Raj Chetty",
+            "John N. Friedman",
+            "Nathaniel Hendren",
+            "Michael Stepner"
+          ]
         }
+      ],
+      "dois": [
+        "10.1093/qje/qjad048",
+        "10.3386/w27431"
       ]
     },
     {
@@ -525,6 +737,611 @@
           "crossref_year": 2025
         }
       ]
+    },
+    {
+      "title": "The Opportunity Atlas: Mapping the Childhood Roots of Social Mobility",
+      "year": 2025,
+      "authors": [
+        "Raj Chetty",
+        "John N. Friedman",
+        "Nathaniel Hendren",
+        "Maggie R. Jones",
+        "Sonya R. Porter"
+      ],
+      "listed_venue": "American Economic Review",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Harvard University and NBER (email: ); 4 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1257/aer.20200108"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-930e772d20",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Harvard University and NBER (email: ); 4 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Diversifying Society’s Leaders? The Determinants and Causal Effects of Admission to Highly Selective Private Colleges",
+      "year": 2025,
+      "authors": [
+        "Raj Chetty",
+        "David J Deming",
+        "John N Friedman"
+      ],
+      "listed_venue": "The Quarterly Journal of Economics",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Harvard University and National Bureau of Economic Research ,; 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1093/qje/qjaf050"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-80424e054b",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Harvard University and National Bureau of Economic Research ,; 1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Changing Opportunity: Sociological Mechanisms Underlying Growing Class Gaps and Shrinking Race Gaps in Economic Mobility",
+      "year": 2024,
+      "authors": [
+        "Raj Chetty",
+        "Will Dobbie",
+        "Benjamin Goldman",
+        "Sonya Porter",
+        "Crystal Yang"
+      ],
+      "listed_venue": "National Bureau of Economic Research",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.3386/w32697"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-6d2a89e12f",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Changing Opportunity: Sociological Mechanisms Underlying Growing Class Gaps and Shrinking Race Gaps in Economic Mobility",
+      "year": 2024,
+      "authors": [
+        "Raj Chetty",
+        "Will Dobbie",
+        "Benjamin Goldman",
+        "Sonya Porter",
+        "Crystal Yang"
+      ],
+      "listed_venue": "SSRN Electronic Journal",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 10"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.2139/ssrn.4908538"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-46fec2efec",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 10"
+    },
+    {
+      "title": "Diversifying Society’s Leaders? The Determinants and Causal Effects of Admission to Highly Selective Private Colleges",
+      "year": 2023,
+      "authors": [
+        "Raj Chetty",
+        "David Deming",
+        "John Friedman"
+      ],
+      "listed_venue": "National Bureau of Economic Research",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 9"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.3386/w31492"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-b3705ffae8",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 9"
+    },
+    {
+      "title": "Diversifying Society’s Leaders? The Determinants and Causal Effects of Admission to Highly Selective Private Colleges",
+      "year": 2023,
+      "authors": [
+        "Raj Chetty",
+        "David Deming",
+        "John Friedman"
+      ],
+      "listed_venue": "SSRN Electronic Journal",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 9"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.2139/ssrn.4519254"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-e1ff9fecd0",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 9"
+    },
+    {
+      "title": "Diversifying Society’s Leaders? The Causal Effects of Admission to Highly Selective Private Colleges",
+      "year": 2023,
+      "authors": [
+        "Raj Chetty",
+        "David Deming",
+        "John Friedman"
+      ],
+      "listed_venue": "SSRN Electronic Journal",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 9"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.2139/ssrn.4542762"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-a4ef591057",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 9"
+    },
+    {
+      "title": "Measuring Distribution and Mobility of Income and Wealth",
+      "year": 2022,
+      "authors": [
+        "Raj Chetty",
+        "John N. Friedman",
+        "Janet C. Gornick",
+        "Barry Johnson",
+        "Arthur Kennickell"
+      ],
+      "listed_venue": "University of Chicago Press eBooks",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Edited NBER volume (book), excluded type"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.7208/chicago/9780226816043.001.0001"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-773ad17db0",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Edited NBER volume (book), excluded type"
+    },
+    {
+      "title": "How Did COVID-19 and Stabilization Policies Affect Spending and Employment? A New Real-Time Economic Tracker Based on Private Sector Data",
+      "year": 2020,
+      "authors": [
+        "Raj Chetty",
+        "John N. Friedman",
+        "Nathaniel Hendren",
+        "Michael Stepner"
+      ],
+      "listed_venue": null,
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-85f33c9c6b",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Expanding and diversifying the pool of undergraduates who study economics: Insights from a new introductory course at Harvard",
+      "year": 2020,
+      "authors": [
+        "Amanda Bayer",
+        "Gregory Bruich",
+        "Raj Chetty",
+        "Andrew Housiaux"
+      ],
+      "listed_venue": "The Journal of Economic Education",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Department of Economics, Harvard University"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1080/00220485.2020.1804511"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-33d79b197d",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Department of Economics, Harvard University"
+    },
+    {
+      "title": "IMPROVING EQUALITY OF OPPORTUNITY: NEW INSIGHTS FROM BIG DATA",
+      "year": 2020,
+      "authors": [
+        "Raj Chetty"
+      ],
+      "listed_venue": "Contemporary Economic Policy",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Department of Economics Harvard University  Cambridge MA 01451 USA"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1111/coep.12478"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-9959957a29",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Department of Economics Harvard University  Cambridge MA 01451 USA"
+    },
+    {
+      "title": "Measuring and Understanding the Distribution and Intra/Inter-Generational Mobility of Income and Wealth",
+      "year": 2020,
+      "authors": [
+        "Raj Chetty",
+        "John N. Friedman",
+        "Janet C. Gornick",
+        "Barry Johnson",
+        "Arthur B. Kennickell"
+      ],
+      "listed_venue": null,
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Edited NBER volume (book), excluded type"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-5ae232af25",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Edited NBER volume (book), excluded type"
+    },
+    {
+      "title": "The Determinants of Income Segregation and Intergenerational Mobility: Using Test Scores to Measure Undermatching",
+      "year": 2020,
+      "authors": [
+        "Raj Chetty",
+        "John Friedman",
+        "Emmanuel Saez",
+        "Nicholas Turner",
+        "Danny Yagan"
+      ],
+      "listed_venue": "National Bureau of Economic Research",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 4 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.3386/w26748"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-97b80db2c1",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "4 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Using Experiments to Correct for Selection in Observational Studies",
+      "year": 2020,
+      "authors": [
+        "Athey, Susan",
+        "Chetty, Raj",
+        "Imbens, Guido"
+      ],
+      "listed_venue": "RePEc: Research Papers in Economics",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2006.09676"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-257da11d57",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Combining Experimental and Observational Data to Estimate Treatment Effects on Long Term Outcomes",
+      "year": 2020,
+      "authors": [
+        "Susan Athey",
+        "Raj Chetty",
+        "Guido W. Imbens"
+      ],
+      "listed_venue": "RePEc: Research Papers in Economics",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-acdab35af5",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Expanding and Diversifying the Pool of Undergraduates who Study Economics: Insights from a New Introductory Course at Harvard",
+      "year": 2020,
+      "authors": [
+        "Amanda Bayer",
+        "Gregory Bruich",
+        "Raj Chetty",
+        "Andrew Housiaux"
+      ],
+      "listed_venue": "National Bureau of Economic Research",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 22"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.3386/w26961"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-7a3eaf6468",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 22"
+    },
+    {
+      "title": "Expanding and Diversifying the Pool of Undergraduates Who Study Economics: Insights from a New Introductory Course at Harvard",
+      "year": 2020,
+      "authors": [
+        "Amanda Bayer",
+        "Gregory Bruich",
+        "Raj Chetty",
+        "Andrew Housiaux"
+      ],
+      "listed_venue": "SSRN Electronic Journal",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 22"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.2139/ssrn.3574426"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-5591bc4fb7",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 22"
+    },
+    {
+      "title": "Introduction to \"Measuring and Understanding the Distribution and Intra/Inter-Generational Mobility of Income and Wealth\"",
+      "year": 2020,
+      "authors": [
+        "Raj Chetty",
+        "John N. Friedman",
+        "Janet C. Gornick",
+        "Barry Johnson",
+        "Arthur B. Kennickell"
+      ],
+      "listed_venue": null,
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Introduction to an edited volume, not a research publication"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-2c9e845a51",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Introduction to an edited volume, not a research publication"
+    },
+    {
+      "title": "Expanding and Diversifying the Pool of Undergraduates Who Study Economics: Insights from a New Introductory Course at Harvard. NBER Working Paper No. 26961.",
+      "year": 2020,
+      "authors": [
+        "Amanda Bayer",
+        "Gregory Bruich",
+        "Raj Chetty",
+        "Andrew Housiaux"
+      ],
+      "listed_venue": "National Bureau of Economic Research",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-020c5a3d26",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Response to â€œThe Moving to Opportunity Experiment: What Do Heterogeneous Estimates of the Effect of Moving Imply About Causes?â€",
+      "year": 2020,
+      "authors": [
+        "Raj Chetty",
+        "Nathaniel Hendren",
+        "Lawrence F. Katz"
+      ],
+      "listed_venue": "Econ journal watch",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-d977bedb30",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Determinants of prosocial behaviour - Lessons from an experiment with referees at the Journal of Public Economics",
+      "year": 2020,
+      "authors": [
+        "Raj Chetty",
+        "Emmanuel Saez",
+        "LÃ¡szlÃ SÃ¡ndor"
+      ],
+      "listed_venue": null,
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "evaluation_id": "soc_raj_chetty:added-9deecfce0f",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
     }
   ],
   "excluded": []

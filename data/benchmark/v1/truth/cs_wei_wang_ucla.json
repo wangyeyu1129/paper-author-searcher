@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "complete_positive_list": true,
+  "complete_positive_list": false,
   "metadata": {
     "annotation_state": "assistant_reviewed",
-    "reviewer": "Claude (AI review requested by the user, 2026-10-18)",
-    "reviewed_at": "2026-10-18",
+    "reviewer": "Claude (AI review requested by the user, 2026-10-19)",
+    "reviewed_at": "2026-10-19",
     "person_id": "cs_wei_wang_ucla",
     "dataset_id": "stratified_researchers_v1",
     "search_input": {
@@ -56,7 +56,7 @@
       "outside_year_window": 291
     },
     "review_progress": {
-      "decided": 44,
+      "decided": 139,
       "pending": 0
     }
   },
@@ -334,7 +334,9 @@
       "annotation_evidence": [
         "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 21 captured 2026-10-18"
       ],
-      "review_flags": [],
+      "review_flags": [
+        "version_identifiers_added_in_review"
+      ],
       "metadata_aliases": [
         {
           "title": "Building an Ethical and Trustworthy Biomedical AI Ecosystem for the Translational and Clinical Integration of Foundational Models",
@@ -371,9 +373,30 @@
             "Wei Wang",
             "Peipei Ping"
           ]
+        },
+        {
+          "title": "Building an Ethical and Trustworthy Biomedical AI Ecosystem for the Translational and Clinical Integration of Foundational Models",
+          "year": 2024,
+          "authors": [
+            "Baradwaj, Simha Sankar",
+            "Gilliland, Destiny",
+            "Rincon, Jack",
+            "Hermjakob, Henning",
+            "Yan, Yu",
+            "Adam, Irsyad",
+            "Lemaster, Gwyneth",
+            "Wang, Dean",
+            "Watson, Karol",
+            "Bui, Alex",
+            "Wang, Wei",
+            "Ping, Peipei"
+          ]
         }
       ],
-      "reviewer_note": "Duplicate of row 3 (same paper from ORCID)"
+      "reviewer_note": "Duplicate of row 3 (same paper from ORCID)",
+      "dois": [
+        "10.48550/arxiv.2408.01431"
+      ]
     },
     {
       "evaluation_id": "cs_wei_wang_ucla:28c2aa75ae00",
@@ -790,7 +813,8 @@
         "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 20 captured 2026-10-18"
       ],
       "review_flags": [
-        "target_name_not_found_in_byline"
+        "target_name_not_found_in_byline",
+        "version_identifiers_added_in_review"
       ],
       "metadata_aliases": [
         {
@@ -806,7 +830,28 @@
           "authors": [
             "W. Jessie"
           ]
+        },
+        {
+          "title": "How the experience of California wildfires shape Twitter climate change framings",
+          "year": 2024,
+          "authors": [
+            "Jessie W. Y. Ko",
+            "Shengquan Ni",
+            "Alexander Taylor",
+            "Xiusi Chen",
+            "Yicong Huang",
+            "Avinash Kumar",
+            "Sadeem Alsudais",
+            "Zuozhi Wang",
+            "Xiaozhen Liu",
+            "Wei Wang",
+            "Chen Li",
+            "Suellen Hopfer"
+          ]
         }
+      ],
+      "dois": [
+        "10.1007/s10584-023-03668-0"
       ]
     },
     {
@@ -836,7 +881,8 @@
         "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 35 captured 2026-10-18"
       ],
       "review_flags": [
-        "target_name_not_found_in_byline"
+        "target_name_not_found_in_byline",
+        "version_identifiers_added_in_review"
       ],
       "metadata_aliases": [
         {
@@ -864,7 +910,25 @@
             "Baobao Chang",
             "P"
           ]
+        },
+        {
+          "title": "Improving Event Definition Following For Zero-Shot Event Detection",
+          "year": 2024,
+          "authors": [
+            "Zefan Cai",
+            "Po-Nien Kung",
+            "Ashima Suvarna",
+            "Mingyu Ma",
+            "Hritik Bansal",
+            "Baobao Chang",
+            "P. Jeffrey Brantingham",
+            "Wei Wang",
+            "Nanyun Peng"
+          ]
         }
+      ],
+      "dois": [
+        "10.18653/v1/2024.acl-long.157"
       ]
     },
     {
@@ -1152,7 +1216,9 @@
       "annotation_evidence": [
         "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 22 captured 2026-10-18"
       ],
-      "review_flags": [],
+      "review_flags": [
+        "version_identifiers_added_in_review"
+      ],
       "metadata_aliases": [
         {
           "title": "Missing Values in Longitudinal Proteome Dynamics Studies: Making a Case for Data Multiple Imputation",
@@ -1185,7 +1251,25 @@
             "Ding Wang",
             "Peipei Ping"
           ]
+        },
+        {
+          "title": "Missing Values in Longitudinal Proteomics Studies: Making a Case for Data Multiple Imputation",
+          "year": 2025,
+          "authors": [
+            "Yu Yan",
+            "Baradwaj Simha Sankar",
+            "Bilal Mirza",
+            "Sarah Huang",
+            "Alexander Pelletier",
+            "Wei Wang",
+            "Karol Watson",
+            "Ding Wang",
+            "Peipei Ping"
+          ]
         }
+      ],
+      "dois": [
+        "10.1016/j.jmccpl.2025.100433"
       ]
     },
     {
@@ -1547,7 +1631,8 @@
         "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 43 captured 2026-10-18"
       ],
       "review_flags": [
-        "target_name_not_found_in_byline"
+        "target_name_not_found_in_byline",
+        "version_identifiers_added_in_review"
       ],
       "metadata_aliases": [
         {
@@ -1569,7 +1654,22 @@
             "Po-Nien Kung",
             "P"
           ]
+        },
+        {
+          "title": "STAR: Boosting Low-Resource Information Extraction by Structure-to-Text Data Generation with Large Language Models",
+          "year": 2024,
+          "authors": [
+            "Mingyu Derek Ma",
+            "Xiaoxuan Wang",
+            "Po-Nien Kung",
+            "P. Jeffrey Brantingham",
+            "Nanyun Peng",
+            "Wei Wang"
+          ]
         }
+      ],
+      "dois": [
+        "10.1609/aaai.v38i17.29839"
       ]
     },
     {
@@ -1642,9 +1742,12 @@
       "annotation_evidence": [
         "ORCID 0000-0002-8180-2886 put-code 199301757"
       ],
-      "review_flags": [],
+      "review_flags": [
+        "version_identifiers_added_in_review"
+      ],
       "dois": [
-        "10.1145/3765612.3767226"
+        "10.1145/3765612.3767226",
+        "10.48550/arxiv.2507.07373"
       ],
       "metadata_aliases": [
         {
@@ -1677,6 +1780,22 @@
             "Wei Wang",
             "Karol Watson",
             "Peipei Ping"
+          ]
+        },
+        {
+          "title": "Atherosclerosis through Hierarchical Explainable Neural Network Analysis",
+          "year": 2025,
+          "authors": [
+            "Adam, Irsyad",
+            "Swee, Steven",
+            "Yilin, Erika",
+            "Ji, Ethan",
+            "Speier, William",
+            "Wang, Dean",
+            "Bui, Alex",
+            "Wang, Wei",
+            "Watson, Karol",
+            "Ping, Peipei"
           ]
         }
       ]
@@ -2403,7 +2522,9 @@
       "annotation_evidence": [
         "Public list https://web.cs.ucla.edu/~weiwang/chrolist.html entry 2 captured 2026-10-18"
       ],
-      "review_flags": [],
+      "review_flags": [
+        "version_identifiers_added_in_review"
+      ],
       "metadata_aliases": [
         {
           "title": "Neural Network-Assisted Personalized Handwriting Analysis for Parkinson�s Disease Diagnostics",
@@ -2438,7 +2559,28 @@
             "Song Li",
             "A. Katy"
           ]
+        },
+        {
+          "title": "Neural network-assisted personalized handwriting analysis for Parkinson’s disease diagnostics",
+          "year": 2025,
+          "authors": [
+            "Guorui Chen",
+            "Trinny Tat",
+            "Yihao Zhou",
+            "Zhaoqi Duan",
+            "Junkai Zhang",
+            "Kamryn Scott",
+            "Xun Zhao",
+            "Zeyang Liu",
+            "Wei Wang",
+            "Song Li",
+            "Katy A. Cross",
+            "Jun Chen"
+          ]
         }
+      ],
+      "dois": [
+        "10.1038/s44286-025-00219-5"
       ]
     },
     {
@@ -2770,6 +2912,3308 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Fabrication of g-C3N4-Co3O4/TiO2 Composite Nanofiber Layers by Electrospinning for Indoor Dye-Sensitized Solar Cell Photoanodes",
+      "year": 2025,
+      "authors": [
+        "Yu-Hsun Nien",
+        "Jhih-Wei Zeng",
+        "Jung-Chuan Chou",
+        "Chih-Hsien Lai",
+        "Po-Hui Yang",
+        "Po- Yu Kuo",
+        "Wen-Hao Chen",
+        "Chia-Wei Wang",
+        "Mao-Yang Lee"
+      ],
+      "listed_venue": "IEEE Journal of Photovoltaics",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Different field and unit, no shared coauthors: a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/jphotov.2025.3574797"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-2bb2857667",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Different field and unit, no shared coauthors: a namesake"
+    },
+    {
+      "title": "Exploring the roles of teachers in co-institutional social responsibility courses from a social design perspective",
+      "year": 2025,
+      "authors": [
+        "Chia-Wei Wang",
+        "Shyh-Huei Hwang"
+      ],
+      "listed_venue": "CRC Press eBooks",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Different field and unit, no shared coauthors: a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1201/9781003655534-6"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-2244fae06f",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Different field and unit, no shared coauthors: a namesake"
+    },
+    {
+      "title": "The Spatial Spillover Effects of Fiscal Expenditure and Taxation on the Number of Enterprises",
+      "year": 2025,
+      "authors": [
+        "Hao-Chen Huang",
+        "Chia-Wei Wang",
+        "Ting-Hsiu Liao",
+        "Chih-Wei Li"
+      ],
+      "listed_venue": null,
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Different field and unit, no shared coauthors: a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.47260/jafb/1552"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-bed0dd4e9e",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Different field and unit, no shared coauthors: a namesake"
+    },
+    {
+      "title": "Spatial Spillover Effects of Fiscal Expenditure on Employed Population in Taiwan",
+      "year": 2025,
+      "authors": [
+        "Hao-Chen Huang",
+        "Chia-Wei Wang",
+        "Ting-Hsiu Liao",
+        "Chih-Wei Li"
+      ],
+      "listed_venue": null,
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Different field and unit, no shared coauthors: a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.47260/jrc/1215"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-6893044d22",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Different field and unit, no shared coauthors: a namesake"
+    },
+    {
+      "title": "Effective and General Distance Computation for Approximate Nearest Neighbor Search",
+      "year": 2025,
+      "authors": [
+        "Mingyu Yang",
+        "Wentao Li",
+        "Jiabao Jin",
+        "Xiaoyao Zhong",
+        "Xiangyu Wang",
+        "Zhitao Shen",
+        "Wei Jia",
+        "Wei Wang"
+      ],
+      "listed_venue": "Proceedings - International Conference on Data Engineering",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation The Hong Kong University of Science and Technology (Guangzhou): a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icde65448.2025.00087"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-0fdbabf5f1",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation The Hong Kong University of Science and Technology (Guangzhou): a namesake"
+    },
+    {
+      "title": "Parameter estimation of structural dynamics with neural operators enabled surrogate modeling",
+      "year": 2025,
+      "authors": [
+        "Mingyuan Zhou",
+        "Haoze Song",
+        "Wenjing Ye",
+        "Wei Wang",
+        "Zhilu Lai"
+      ],
+      "listed_venue": "Mechanical Systems and Signal Processing",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.ymssp.2025.112914"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-35cf71d469",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Harnessing Scale and Physics: A Multi-Graph Neural Operator Framework for PDEs on Arbitrary Geometries",
+      "year": 2025,
+      "authors": [
+        "Zhihao Li",
+        "Haoze Song",
+        "Di Xiao",
+        "Zhilu Lai",
+        "Wei Wang"
+      ],
+      "listed_venue": "ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation The Hong Kong University of Science and Technology (Guangzhou), Guangz: a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1145/3690624.3709173"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-65204bad28",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation The Hong Kong University of Science and Technology (Guangzhou), Guangz: a namesake"
+    },
+    {
+      "title": "MRA-FD: Driver Fatigue Detection via Deep Convolutional Modeling With Local and Global Features",
+      "year": 2025,
+      "authors": [
+        "Xiaobo Zhang",
+        "Hailong Zheng",
+        "Qianjun Zhang",
+        "Hao Wang",
+        "Wei Wang"
+      ],
+      "listed_venue": "IEEE Transactions on Vehicular Technology",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation Hong Kong University of Science and Technology, Hong Kong SAR, China: a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/tvt.2025.3580078"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-44c64b5682",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation Hong Kong University of Science and Technology, Hong Kong SAR, China: a namesake"
+    },
+    {
+      "title": "ScorpioBase: An Efficient Batched Blockchain System for Traceability Applications in Supply Chain",
+      "year": 2025,
+      "authors": [
+        "Yuan Sui",
+        "Xiaochun Yang",
+        "Bin Wang",
+        "Yujie Zhang",
+        "Wei Wang",
+        "Lina Wang"
+      ],
+      "listed_venue": "IEEE Transactions on Industrial Informatics",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation Shanghai Key Laboratory of Data Science, School of Computer Science, F: a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/tii.2025.3528530"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-d62b173c05",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation Shanghai Key Laboratory of Data Science, School of Computer Science, F: a namesake"
+    },
+    {
+      "title": "ChatCAD: An MLLM-Guided Framework for Zero-shot CAD Drawing Restoration",
+      "year": 2025,
+      "authors": [
+        "Jing Tang",
+        "Hongru Xiao",
+        "Xiang Li",
+        "Wei Wang",
+        "Zeyu Gong"
+      ],
+      "listed_venue": "IEEE International Conference on Acoustics Speech and Signal Processing",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation The Hong Kong University of Science and Technology (Guangzhou): a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icassp49660.2025.10890248"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-2473af41ab",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation The Hong Kong University of Science and Technology (Guangzhou): a namesake"
+    },
+    {
+      "title": "Event AutoAugment: Word-level data augmentation for textual event detection",
+      "year": 2025,
+      "authors": [
+        "Jun Gao",
+        "Huan Zhao",
+        "Wei Wang",
+        "Changlong Yu",
+        "Ruifeng Xu"
+      ],
+      "listed_venue": "Expert Systems with Applications",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.eswa.2025.127740"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-91d54151e6",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "MLFD: A Novel Meta-Learning Method with Fourier Transform Data Augmentation for Domain Generalization",
+      "year": 2025,
+      "authors": [
+        "Xiaobo Zhang",
+        "Xinaoxue Zhang",
+        "Like Wei",
+        "Wei Wang",
+        "Yan Yang"
+      ],
+      "listed_venue": "Big Data Mining and Analytics",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation The Hong Kong University of Science and Technology (Guangzhou),Informa: a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.26599/bdma.2025.9020083"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-97de4e7ccf",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation The Hong Kong University of Science and Technology (Guangzhou),Informa: a namesake"
+    },
+    {
+      "title": "Decider: A Dual-System Rule-Controllable Decoding Framework for Language Generation",
+      "year": 2025,
+      "authors": [
+        "Chen Xu",
+        "Tian Lan",
+        "Yu Ji",
+        "Changlong Yu",
+        "Wei Wang",
+        "Jun Gao",
+        "Qunxi Dong",
+        "Kun Qian",
+        "Piji Li",
+        "Wei Bi",
+        "Bin Hu"
+      ],
+      "listed_venue": "IEEE Transactions on Knowledge and Data Engineering",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation Key Laboratory of Brain Health Intelligent Evaluation and Intervention: a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/tkde.2025.3554819"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-e479860cbb",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation Key Laboratory of Brain Health Intelligent Evaluation and Intervention: a namesake"
+    },
+    {
+      "title": "Locally Balancing Signed Graphs",
+      "year": 2025,
+      "authors": [
+        "Weizhe Chen",
+        "Wentao Li",
+        "Min Gao",
+        "Dong Wen",
+        "Maolin Cai",
+        "Wei Wang"
+      ],
+      "listed_venue": "ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation The Hong Kong University of Science and Technology (Guangzhou), Guangz: a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1145/3690624.3709342"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-ca48051315",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation The Hong Kong University of Science and Technology (Guangzhou), Guangz: a namesake"
+    },
+    {
+      "title": "Structural Clustering for Bipartite Graphs",
+      "year": 2025,
+      "authors": [
+        "Mingyu Yang",
+        "Wentao Li",
+        "Wei Wang",
+        "Dong Wen",
+        "Min Gao",
+        "Lu Qin"
+      ],
+      "listed_venue": "IEEE Transactions on Knowledge and Data Engineering",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation The Hong Kong University of Science and Technology (Guangzhou), Guangz: a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/tkde.2025.3612290"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-16d7309c5f",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation The Hong Kong University of Science and Technology (Guangzhou), Guangz: a namesake"
+    },
+    {
+      "title": "Detoxifying Large Language Models via the Diversity of Toxic Samples",
+      "year": 2025,
+      "authors": [
+        "Ying Zhao",
+        "Yuanzhao Guo",
+        "Xuemeng Weng",
+        "Yuan Tian",
+        "Wei Wang",
+        "Yi Chang"
+      ],
+      "listed_venue": "Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.18653/v1/2025.emnlp-main.298"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-e90cd8ec32",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Neural Preconditioning Operator for Efficient PDE Solves",
+      "year": 2025,
+      "authors": [
+        "Li, Zhihao",
+        "Xiao, Di",
+        "Lai, Zhilu",
+        "Wang, Wei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2502.01337"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-7c99b9c163",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Instruction-Tuning Data Synthesis from Scratch via Web Reconstruction",
+      "year": 2025,
+      "authors": [
+        "Yuxin Jiang",
+        "Yufei Wang",
+        "Chuhan Wu",
+        "Xinyi Dai",
+        "Yan Xu",
+        "Weinan Gan",
+        "Yasheng Wang",
+        "Xin Jiang",
+        "Lifeng Shang",
+        "Ruiming Tang",
+        "Wei Wang"
+      ],
+      "listed_venue": null,
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.18653/v1/2025.findings-acl.343"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-ed1e1fb198",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Reformulating Neural Operators in $d+1$ Dimensions for Embedding Evolution",
+      "year": 2025,
+      "authors": [
+        "Song, Haoze",
+        "Li, Zhihao",
+        "Zhang, Xiaobo",
+        "Gan, Zecheng",
+        "Lai, Zhilu",
+        "Wang, Wei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2505.11766"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-3128a35779",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Elastic Index Selection for Label-Hybrid AKNN Search",
+      "year": 2025,
+      "authors": [
+        "Yang, Mingyu",
+        "Xia, Wenxuan",
+        "Li, Wentao",
+        "Wong, Raymond Chi-Wing",
+        "Wang, Wei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2505.03212"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-032a3739e3",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Instruction-Tuning Data Synthesis from Scratch via Web Reconstruction",
+      "year": 2025,
+      "authors": [
+        "Jiang, Yuxin",
+        "Wang, Yufei",
+        "Wu, Chuhan",
+        "Dai, Xinyi",
+        "Xu, Yan",
+        "Gan, Weinan",
+        "Wang, Yasheng",
+        "Jiang, Xin",
+        "Shang, Lifeng",
+        "Tang, Ruiming",
+        "Wang, Wei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2504.15573"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-fcced7652a",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Robustness Feature Adapter for Efficient Adversarial Training",
+      "year": 2025,
+      "authors": [
+        "Quanwei Wu",
+        "Jun Guo",
+        "Wei Wang",
+        "Yi Wang"
+      ],
+      "listed_venue": "Frontiers in artificial intelligence and applications",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation The Hong Kong University of Science and Technology (Guangzhou): a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.3233/faia251217"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-b2e2b722c2",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation The Hong Kong University of Science and Technology (Guangzhou): a namesake"
+    },
+    {
+      "title": "Graph-based Approximate Nearest Neighbor Search by Deep Reinforcement Routing",
+      "year": 2025,
+      "authors": [
+        "Mingjie Li",
+        "Junhao Lin",
+        "Dian Ouyang",
+        "Ying Zhang",
+        "Wei Wang"
+      ],
+      "listed_venue": "ACM International Conference on Multimedia (ACM MM)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation The Hong Kong University of Science and Technology (Guangzhou), Guangz: a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1145/3746027.3754945"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-b9c6806836",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation The Hong Kong University of Science and Technology (Guangzhou), Guangz: a namesake"
+    },
+    {
+      "title": "DialogueAgents: A Hybrid Agent-Based Speech Synthesis Framework for Multi-Party Dialogue",
+      "year": 2025,
+      "authors": [
+        "Xiang Li",
+        "Duyi Pan",
+        "Hongru Xiao",
+        "Jiale Han",
+        "Jing Tang",
+        "Jiabao Ma",
+        "Wei Wang",
+        "Bo Cheng"
+      ],
+      "listed_venue": "IEEE International Conference on Multimedia and Expo (ICME)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation Hong Kong University of Science and Technology (Guangzhou),Department : a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icme59968.2025.11209338"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-26d9ef5b1c",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation Hong Kong University of Science and Technology (Guangzhou),Department : a namesake"
+    },
+    {
+      "title": "PUER: Boosting Few-shot Positive-Unlabeled Entity Resolution with Reinforcement Learning",
+      "year": 2025,
+      "authors": [
+        "Yaoshu Wang",
+        "Mengyi Yan",
+        "Wei Wang"
+      ],
+      "listed_venue": null,
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.18653/v1/2025.findings-emnlp.1336"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-2f8a8e4b92",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "When Inverse Data Outperforms: Exploring the Pitfalls of Mixed Data in Multi-Stage Fine-Tuning",
+      "year": 2025,
+      "authors": [
+        "Mengyi Deng",
+        "Xin Li",
+        "Tingyu Zhu",
+        "Zhicheng Yang",
+        "Zhijiang Guo",
+        "Wei Wang"
+      ],
+      "listed_venue": null,
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.18653/v1/2025.findings-emnlp.346"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-0f635e1ed4",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "ESG: Elastic Graphs for Range-Filtering Approximate k-Nearest Neighbor Search",
+      "year": 2025,
+      "authors": [
+        "Yang, Mingyu",
+        "Li, Wentao",
+        "Shen, Zhitao",
+        "Xiao, Chuan",
+        "Wang, Wei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2504.04018"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-a93ffa0138",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "LM-mixup: Text Data Augmentation via Language Model based Mixup",
+      "year": 2025,
+      "authors": [
+        "Deng, Zhijie",
+        "Shen, Zhouan",
+        "Li, Ling",
+        "Zhou, Yao",
+        "Zhu, Zhaowei",
+        "He, Yanji",
+        "Wang, Wei",
+        "Wei, Jiaheng"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2510.20449"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-1d8ccc7754",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Diffusion Reconstruction-based Data Likelihood Estimation for Core-Set Selection",
+      "year": 2025,
+      "authors": [
+        "Chen, Mingyang",
+        "Du, Jiawei",
+        "Huang, Bo",
+        "Wang, Yi",
+        "Zhang, Xiaobo",
+        "Wang, Wei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2511.19274"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-dd9feacbc3",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Influence-Guided Diffusion for Dataset Distillation",
+      "year": 2025,
+      "authors": [
+        "Chen, Mingyang",
+        "Du, Jiawei",
+        "Huang, Bo",
+        "Wang, Yi",
+        "Zhang, Xiaobo",
+        "Wang, Wei"
+      ],
+      "listed_venue": "Rare & Special e-Zone (The Hong Kong University of Science and Technology)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-ef42469921",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Elastic Index Selection for Label-Hybrid AKNN Search",
+      "year": 2025,
+      "authors": [
+        "Mingyu Yang",
+        "Wenxuan Xia",
+        "Wentao Li",
+        "Raymond Chi-Wing Wong",
+        "Wei Wang"
+      ],
+      "listed_venue": "Proceedings of the VLDB Endowment",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation HKUST (GZ) &amp; HKUST: a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.14778/3785297.3785304"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-6b72cbffd6",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation HKUST (GZ) &amp; HKUST: a namesake"
+    },
+    {
+      "title": "iTransformer-Based Temperature Forecasting in High-Altitude Plateau Environments: DiLSTM-iTransformer-RMSPre-LN",
+      "year": 2025,
+      "authors": [
+        "Zixuan Zhao",
+        "Xuanrui Zhang",
+        "Xue Zhong",
+        "Wei Wang",
+        "Xiaobo Zhang"
+      ],
+      "listed_venue": null,
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation Hong Kong University of Science and Technology (Guangzhou),Information: a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/iarce68366.2025.11485821"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-c98b342a5b",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation Hong Kong University of Science and Technology (Guangzhou),Information: a namesake"
+    },
+    {
+      "title": "OpenVLThinker: Complex Vision-Language Reasoning via Iterative SFT-RL Cycles",
+      "year": 2025,
+      "authors": [
+        "Yihe Deng",
+        "Hritik Bansal",
+        "Fan Yin",
+        "Nanyun Peng",
+        "Wei Wang",
+        "Kai-Wei Chang"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 5 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-4126"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-6d6cbebd71",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "5 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Protein Large Language Models: A Comprehensive Survey",
+      "year": 2025,
+      "authors": [
+        "Yijia Xiao",
+        "Wanjia Zhao",
+        "Junkai Zhang",
+        "Yiqiao Jin",
+        "Han Zhang",
+        "Zhicheng Ren",
+        "Renliang Sun",
+        "Haixin Wang",
+        "Guancheng Wan",
+        "Pan Lu",
+        "Xiao Luo",
+        "Yu Zhang",
+        "James Zou",
+        "Yizhou Sun",
+        "Wei Wang"
+      ],
+      "listed_venue": null,
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 10 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.18653/v1/2025.findings-emnlp.1255"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-6fd4fd137d",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "10 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Vad-R1: Towards Video Anomaly Reasoning via Perception-to-Cognition Chain-of-Thought",
+      "year": 2025,
+      "authors": [
+        "Chao Huang",
+        "Benfeng Wang",
+        "Wei Wang",
+        "Jie Wen",
+        "Chengliang Liu",
+        "Li Shen",
+        "Xiaochun Cao"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-3952"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-eba847c42f",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Explainable Biomedical Hypothesis Generation via Retrieval Augmented Generation enabled Large Language Models",
+      "year": 2025,
+      "authors": [
+        "Alexander Pelletier",
+        "Joseph Ramirez",
+        "Irsyad Adam",
+        "Simha Sankar",
+        "Dylan Steinecke",
+        "Alex Bui",
+        "Wei Wang",
+        "Peipei Ping"
+      ],
+      "listed_venue": "Journal of Molecular and Cellular Cardiology Plus",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 5 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.jmccpl.2025.100436"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-b0c9fff08b",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "5 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Conditional Neural ODE for Longitudinal Parkinson's Disease Progression Forecasting",
+      "year": 2025,
+      "authors": [
+        "Xiaoda Wang",
+        "Yuji Zhao",
+        "Kaiqiao Han",
+        "Xiao Luo",
+        "Sanne van Rooij",
+        "Jennifer Stevens",
+        "Lifang He",
+        "Liang Zhan",
+        "Yizhou Sun",
+        "Wei Wang",
+        "Carl Yang"
+      ],
+      "listed_venue": "IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/bibm66473.2025.11356813"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-41105b3227",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Using graph neural network and symbolic regression to model disordered systems",
+      "year": 2025,
+      "authors": [
+        "Ruoxia Chen",
+        "Mathieu Bauchy",
+        "Wei Wang",
+        "Yizhou Sun",
+        "Xiaojie Tao",
+        "Jaime Marian"
+      ],
+      "listed_venue": "Scientific Reports",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1038/s41598-025-05205-8"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-a4d6411388",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Time-IMM: A Dataset and Benchmark for Irregular Multimodal Multivariate Time Series",
+      "year": 2025,
+      "authors": [
+        "Ching Chang",
+        "Jeehyun Hwang",
+        "Yidan Shi",
+        "Haixin Wang",
+        "Wei Wang",
+        "Wen-Chih Peng",
+        "Tien-Fu Chen"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-1533"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-ad373b6a6a",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "CSR-Bench: Benchmarking LLM Agents in Deployment of Computer Science Research Repositories",
+      "year": 2025,
+      "authors": [
+        "Yijia Xiao",
+        "Runhui Wang",
+        "Luyang Kong",
+        "Davor Golac",
+        "Wei Wang"
+      ],
+      "listed_venue": "Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 4 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.18653/v1/2025.naacl-long.633"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-8eb015b56e",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "4 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Evidence-based Knowledge Synthesis and Hypothesis Validation: Navigating Biomedical Knowledge Bases via Explainable AI and Agentic Systems",
+      "year": 2025,
+      "authors": [
+        "Alexander R. Pelletier",
+        "Joseph Ramirez",
+        "Baradwaj Simha Sankar",
+        "Irsyad Adam",
+        "Yu Yan",
+        "Dylan Steinecke",
+        "Wei Wang",
+        "Karol E. Watson",
+        "Peipei Ping"
+      ],
+      "listed_venue": "Journal of Visualized Experiments",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 7 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.3791/67525"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-d9e2bf15d0",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "7 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "How Californians Tweet about Extreme Heat Events on Social Media: A Health Equity Perspective",
+      "year": 2025,
+      "authors": [
+        "Gomathi B. Sriperumbudur",
+        "Yihang Fan",
+        "Xiaozhen Liu",
+        "Mingyu Derek Ma",
+        "Wei Wang",
+        "Chen Li",
+        "Suellen Hopfer"
+      ],
+      "listed_venue": "Weather Climate and Society",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: Computer Science, University of California, Los Angeles, Los Angeles, California; 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1175/wcas-d-24-0147.1"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-392a2e30ff",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: Computer Science, University of California, Los Angeles, Los Angeles, California; 1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Hierarchical Frequency Tagging Probe (HFTP): A Unified Approach to Investigate Syntactic Structure Representations in Large Language Models and the Human Brain",
+      "year": 2025,
+      "authors": [
+        "Jingmin An",
+        "Yilong Song",
+        "Ruolin Yang",
+        "Nai Ding",
+        "Lingxi Lu",
+        "Yuxuan Wang",
+        "Wei Wang",
+        "Chu Zhuang",
+        "Qian Wang",
+        "Fang Fang"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-2014"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-e860ce02e2",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "How Do Large Language Models Perform on PDE Discovery: A Coarse-to-fine Perspective",
+      "year": 2025,
+      "authors": [
+        "Xiao Luo",
+        "Changhu Wang",
+        "Yizhou Sun",
+        "Wei Wang"
+      ],
+      "listed_venue": null,
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.18653/v1/2025.findings-emnlp.145"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-2847660cb5",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "RAG-IGBench: Innovative Evaluation for RAG-based Interleaved Generation in Open-domain Question Answering",
+      "year": 2025,
+      "authors": [
+        "Rongyang Zhang",
+        "Yuqing Huang",
+        "Chengqiang Lu",
+        "Qimeng Wang",
+        "Yan Gao",
+        "Yi Wu",
+        "Yao Hu",
+        "Yin Xu",
+        "Wei Wang",
+        "Hao Wang",
+        "Enhong Chen"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-4071"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-f31b053475",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "CoralVQA: A Large-Scale Visual Question Answering Dataset for Coral Reef Image Understanding",
+      "year": 2025,
+      "authors": [
+        "hongyong han",
+        "Wei Wang",
+        "Gaowei Zhang",
+        "Mingjie Li",
+        "Yi Wang"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-1863"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-5d2ef938b4",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "MatLLMSearch: Crystal Structure Discovery with Evolution-Guided Large Language Models",
+      "year": 2025,
+      "authors": [
+        "Gan, Jingru",
+        "Zhong, Peichen",
+        "Du, Yuanqi",
+        "Zhu, Yanqiao",
+        "Duan, Chenru",
+        "Wang, Haorui",
+        "Schwalbe-Koda, Daniel",
+        "Gomes, Carla P.",
+        "Persson, Kristin A.",
+        "Wang, Wei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 9 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2502.20933"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-58c0019b95",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "9 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Protein Large Language Models: A Comprehensive Survey",
+      "year": 2025,
+      "authors": [
+        "Xiao, Yijia",
+        "Zhao, Wanjia",
+        "Zhang, Junkai",
+        "Jin, Yiqiao",
+        "Zhang, Han",
+        "Ren, Zhicheng",
+        "Sun, Renliang",
+        "Wang, Haixin",
+        "Wan, Guancheng",
+        "Lu, Pan",
+        "Luo, Xiao",
+        "Zhang, Yu",
+        "Zou, James",
+        "Sun, Yizhou",
+        "Wang, Wei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 78"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2502.17504"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-9c7ddea2ee",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 78"
+    },
+    {
+      "title": "Evaluating Large Language Models in Scientific Discovery",
+      "year": 2025,
+      "authors": [
+        "Song, Zhangde",
+        "Lu, Jieyu",
+        "Du, Yuanqi",
+        "Yu, Botao",
+        "Pruyn, Thomas M.",
+        "Huang, Yue",
+        "Guo, Kehan",
+        "Luo, Xiuzhe",
+        "Qu, Yuanhao",
+        "Qu, Yi",
+        "Wang, Yinkai",
+        "Wang, Haorui",
+        "Guo, Jeff",
+        "Gan, Jingru",
+        "Shojaee, Parshin",
+        "Luo, Di",
+        "Bran, Andres M",
+        "Li, Gen",
+        "Zhao, Qiyuan",
+        "Luo, Shao-Xiong Lennon",
+        "Zhang, Yuxuan",
+        "Zou, Xiang",
+        "Zhao, Wanru",
+        "Zhang, Yifan F.",
+        "Zhang, Wucheng",
+        "Zheng, Shunan",
+        "Zhang, Saiyang",
+        "Khan, Sartaaj Takrim",
+        "Rajabi-Kochi, Mahyar",
+        "Paradi-Maropakis, Samantha",
+        "Baltoiu, Tony",
+        "Xie, Fengyu",
+        "Chen, Tianyang",
+        "Huang, Kexin",
+        "Luo, Weiliang",
+        "Fang, Meijing",
+        "Yang, Xin",
+        "Cheng, Lixue",
+        "He, Jiajun",
+        "Hassoun, Soha",
+        "Zhang, Xiangliang",
+        "Wang, Wei",
+        "Reddy, Chandan K.",
+        "Zhang, Chao",
+        "Zheng, Zhiling",
+        "Wang, Mengdi",
+        "Cong, Le",
+        "Gomes, Carla P.",
+        "Hsieh, Chang-Yu",
+        "Nandy, Aditya",
+        "Schwaller, Philippe",
+        "Kulik, Heather J.",
+        "Jia, Haojun",
+        "Sun, Huan",
+        "Moosavi, Seyed Mohamad",
+        "Duan, Chenru"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 6 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2512.15567"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-1aceb08380",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "6 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Preference Leakage: A Contamination Problem in LLM-as-a-judge",
+      "year": 2025,
+      "authors": [
+        "Li, Dawei",
+        "Sun, Renliang",
+        "Huang, Yue",
+        "Zhong, Ming",
+        "Jiang, Bohan",
+        "Han, Jiawei",
+        "Zhang, Xiangliang",
+        "Wang, Wei",
+        "Liu, Huan"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2502.01534"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-d65b0d4424",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Platform for Representation and Integration of multimodal Molecular Embeddings",
+      "year": 2025,
+      "authors": [
+        "Zheng, Erika Yilin",
+        "Yan, Yu",
+        "Sankar, Baradwaj Simha",
+        "Ji, Ethan",
+        "Swee, Steven",
+        "Adam, Irsyad",
+        "Wang, Ding",
+        "Pelletier, Alexander Russell",
+        "Bui, Alex",
+        "Wang, Wei",
+        "Ping, Peipei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 10 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2507.07367"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-aa870d50e3",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "10 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "A Comprehensive Survey in LLM(-Agent) Full Stack Safety: Data, Training and Deployment",
+      "year": 2025,
+      "authors": [
+        "Wang, Kun",
+        "Zhang, Guibin",
+        "Zhou, Zhenhong",
+        "Wu, Jiahao",
+        "Yu, Miao",
+        "Zhao, Shiqian",
+        "Yin, Chenlong",
+        "Fu, Jinhu",
+        "Yan, Yibo",
+        "Luo, Hanjun",
+        "Lin, Liang",
+        "Xu, Zhihao",
+        "Lu, Haolang",
+        "Cao, Xinye",
+        "Zhou, Xinyun",
+        "Jin, Weifei",
+        "Meng, Fanci",
+        "Xu, Shicheng",
+        "Mao, Junyuan",
+        "Wang, Yu",
+        "Wu, Hao",
+        "Wang, Minghe",
+        "Zhang, Fan",
+        "Fang, Junfeng",
+        "Qu, Wenjie",
+        "Liu, Yue",
+        "Liu, Chengwei",
+        "Zhang, Yifan",
+        "Li, Qiankun",
+        "Guo, Chongye",
+        "Qin, Yalan",
+        "Fan, Zhaoxin",
+        "Wang, Kai",
+        "Ding, Yi",
+        "Hong, Donghai",
+        "Ji, Jiaming",
+        "Lai, Yingxin",
+        "Yu, Zitong",
+        "Li, Xinfeng",
+        "Jiang, Yifan",
+        "Li, Yanhui",
+        "Deng, Xinyu",
+        "Wu, Junlin",
+        "Wang, Dongxia",
+        "Huang, Yihao",
+        "Guo, Yufei",
+        "Huang, Jen-tse",
+        "Wang, Qiufeng",
+        "Jin, Xiaolong",
+        "Wang, Wenxuan",
+        "Liu, Dongrui",
+        "Yue, Yanwei",
+        "Huang, Wenke",
+        "Wan, Guancheng",
+        "Chang, Heng",
+        "Li, Tianlin",
+        "Yu, Yi",
+        "Li, Chenghao",
+        "Li, Jiawei",
+        "Bai, Lei",
+        "Zhang, Jie",
+        "Guo, Qing",
+        "Wang, Jingyi",
+        "Chen, Tianlong",
+        "Zhou, Joey Tianyi",
+        "Jia, Xiaojun",
+        "Sun, Weisong",
+        "Wu, Cong",
+        "Chen, Jing",
+        "Hu, Xuming",
+        "Li, Yiming",
+        "Wang, Xiao",
+        "Zhang, Ningyu",
+        "Tuan, Luu Anh",
+        "Xu, Guowen",
+        "Zhang, Jiaheng",
+        "Zhang, Tianwei",
+        "Ma, Xingjun",
+        "Gu, Jindong",
+        "Pang, Liang",
+        "Wang, Xiang",
+        "An, Bo",
+        "Sun, Jun",
+        "Bansal, Mohit",
+        "Pan, Shirui",
+        "Lyu, Lingjuan",
+        "Elovici, Yuval",
+        "Kailkhura, Bhavya",
+        "Yang, Yaodong",
+        "Li, Hongwei",
+        "Xu, Wenyuan",
+        "Sun, Yizhou",
+        "Wang, Wei",
+        "Li, Qing",
+        "Tang, Ke",
+        "Jiang, Yu-Gang",
+        "Juefei-Xu, Felix",
+        "Xiong, Hui",
+        "Wang, Xiaofeng",
+        "Tao, Dacheng"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2504.15585"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-8b9b2b63ad",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "CSR-Bench: Benchmarking LLM Agents in Deployment of Computer Science Research Repositories",
+      "year": 2025,
+      "authors": [
+        "Xiao, Yijia",
+        "Wang, Runhui",
+        "Kong, Luyang",
+        "Golac, Davor",
+        "Wang, Wei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 84"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2502.06111"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-68bb9c8352",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 84"
+    },
+    {
+      "title": "Constructing A Multimodal Biomolecule Embedding Integration Platform to Support Comprehensive Biomedical Knowledge Representation",
+      "year": 2025,
+      "authors": [
+        "Yu Yan",
+        "Baradwaj Simha Sankar",
+        "Yijiao Xiao",
+        "Alexander R. Pelletier",
+        "Wei Wang",
+        "Peipei Ping"
+      ],
+      "listed_venue": "Journal of Molecular and Cellular Cardiology Plus",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 4 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.jmccpl.2025.100340"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-72dc1dc01b",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "4 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Data-driven insights into bidirectional association of calcium-regulating proteins and oxidative stress on cardiovascular diseases",
+      "year": 2025,
+      "authors": [
+        "Namuna Panday",
+        "Dibakar Sigdel",
+        "Irsyad Adam",
+        "Joseph Ramirez",
+        "Aarushi Verma",
+        "Anirudh Eranki",
+        "Wei Wang",
+        "Ding Wang",
+        "Peipei Ping"
+      ],
+      "listed_venue": "Journal of Molecular and Cellular Cardiology Plus",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 8 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.jmccpl.2025.100435"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-85dc112388",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "8 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Building an Ethical and Trustworthy Biomedical AI Ecosystem Centered on Foundational Models and Multimodal Biomedical Data",
+      "year": 2025,
+      "authors": [
+        "Baradwaj Simha Sankar",
+        "Destiny Gilliland",
+        "Yu Yan",
+        "Irsyad Adam",
+        "Gwyneth Lemaster",
+        "Jack Rincon",
+        "Dean Wang",
+        "Karol Watson",
+        "Wei Wang",
+        "Alex Bui",
+        "Peipei Ping"
+      ],
+      "listed_venue": "Journal of Molecular and Cellular Cardiology Plus",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 10 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.jmccpl.2025.100437"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-42bf43f0be",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "10 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "An Agentic System for Single Cell Bioinformatics Analysis, a Showcase in Cardiovascular Research",
+      "year": 2025,
+      "authors": [
+        "Yu Yan",
+        "Baradwaj Simha Sankar",
+        "Irsyad Adam",
+        "Wei Wang",
+        "Peipei Ping"
+      ],
+      "listed_venue": "Journal of Molecular and Cellular Cardiology Plus",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 4 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1016/j.jmccpl.2025.100397"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-c0339460ea",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "4 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "A Survey of Reasoning and Agentic Systems in Time Series with Large Language Models",
+      "year": 2025,
+      "authors": [
+        "Chang, Ching",
+        "Shi, Yidan",
+        "Cao, Defu",
+        "Yang, Wei",
+        "Hwang, Jeehyun",
+        "Wang, Haixin",
+        "Pang, Jiacheng",
+        "Wang, Wei",
+        "Liu, Yan",
+        "Peng, Wen-Chih",
+        "Chen, Tien-Fu"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2509.11575"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-4a7b878535",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Bridge2AI: Building A Cross-disciplinary Curriculum Towards AI-Enhanced Biomedical and Clinical Care",
+      "year": 2025,
+      "authors": [
+        "Rincon, John",
+        "Pelletier, Alexander R.",
+        "Gilliland, Destiny",
+        "Wang, Wei",
+        "Wang, Ding",
+        "Sankar, Baradwaj S.",
+        "Scott-Sheldon, Lori",
+        "Gebreab, Samson",
+        "Hersh, William",
+        "Rashidi, Parisa",
+        "Baxter, Sally",
+        "Schulz, Wade",
+        "Ideker, Trey",
+        "Bensoussan, Yael",
+        "Boutros, Paul C.",
+        "Bui, Alex A. T.",
+        "Walsh, Colin",
+        "Watson, Karol E.",
+        "Ping, Peipei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 7 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2505.14757"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-bb6a05963b",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "7 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Beyond Magic Words: Sharpness-Aware Prompt Evolving for Robust Large Language Models with TARE",
+      "year": 2025,
+      "authors": [
+        "Wan, Guancheng",
+        "Fu, Lucheng",
+        "Liu, Haoxin",
+        "Jin, Yiqiao",
+        "Leong, Hui Yi",
+        "Jiang, Eric Hanchen",
+        "Geng, Hejia",
+        "Bi, Jinhe",
+        "Ma, Yunpu",
+        "Tang, Xiangru",
+        "Prakash, B. Aditya",
+        "Sun, Yizhou",
+        "Wang, Wei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2509.24130"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-4ec1aafeb6",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "BIASINSPECTOR: Detecting Bias in Structured Data through LLM Agents",
+      "year": 2025,
+      "authors": [
+        "Li, Haoxuan",
+        "Ma, Mingyu Derek",
+        "Huang, Jen-tse",
+        "Weng, Zhaotian",
+        "Wang, Wei",
+        "Zhao, Jieyu"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2504.04855"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-0c561f64d3",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "BioVerge: A Comprehensive Benchmark and Study of Self-Evaluating Agents for Biomedical Hypothesis Generation",
+      "year": 2025,
+      "authors": [
+        "Yang, Fuyi",
+        "Ye, Chenchen",
+        "Ma, Mingyu Derek",
+        "Xiao, Yijia",
+        "Yang, Matthew",
+        "Wang, Wei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2511.08866"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-b8e2b0321a",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Simulator and Experience Enhanced Diffusion Model for Comprehensive ECG Generation",
+      "year": 2025,
+      "authors": [
+        "Wang, Xiaoda",
+        "Han, Kaiqiao",
+        "Xu, Yuhao",
+        "Luo, Xiao",
+        "Sun, Yizhou",
+        "Wang, Wei",
+        "Yang, Carl"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2511.09895"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-8a4483d249",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Can Large Language Models Master Complex Card Games?",
+      "year": 2025,
+      "authors": [
+        "Wei Wang",
+        "Fuqing Bie",
+        "Junzhe Chen",
+        "Dan Zhang",
+        "Shiyu Huang",
+        "Evgeny Kharlamov",
+        "Jie Tang"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-0833"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-8b54b719a9",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Quantized-Tinyllava: a new multimodal foundation model enables efficient split learning",
+      "year": 2025,
+      "authors": [
+        "Guo, Jiajun",
+        "Luo, Xin",
+        "Zheng, Jiayin",
+        "Wang, Yiqun",
+        "Chang, Kai-Wei",
+        "Wang, Wei",
+        "Liu, Jie"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2511.23402"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-6d31666893",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Conditional Neural ODE for Longitudinal Parkinson's Disease Progression Forecasting",
+      "year": 2025,
+      "authors": [
+        "Wang, Xiaoda",
+        "Zhao, Yuji",
+        "Han, Kaiqiao",
+        "Luo, Xiao",
+        "van Rooij, Sanne",
+        "Stevens, Jennifer",
+        "He, Lifang",
+        "Zhan, Liang",
+        "Sun, Yizhou",
+        "Wang, Wei",
+        "Yang, Carl"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 81"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2511.04789"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-3dbbaab23f",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 81"
+    },
+    {
+      "title": "Protein Large Language Models: A Comprehensive Survey",
+      "year": 2025,
+      "authors": [
+        "Association for Computational Linguistics 2025",
+        "Jin, Yiqiao",
+        "Lu, Pan",
+        "Luo, Xiao",
+        "Ren, Zhicheng",
+        "Sun, Renliang",
+        "Sun, Yizhou",
+        "Wan, Guancheng",
+        "Wang, Wei",
+        "Wang, Haixin",
+        "Xiao, Yijia",
+        "Zhang, Yu",
+        "Zhang, Junkai",
+        "Zhang, Han",
+        "Zhao, Wanjia",
+        "Zou, James"
+      ],
+      "listed_venue": "Underline Science Inc.",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Another version of lead row 78"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48448/f5pp-ge24"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-049409d7e4",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Another version of lead row 78"
+    },
+    {
+      "title": "Symmetry-Preserving Conformer Ensemble Networks for Molecular Representation Learning",
+      "year": 2025,
+      "authors": [
+        "Yanqiao Zhu",
+        "Yidan Shi",
+        "Yuanzhou Chen",
+        "Fang Sun",
+        "Yizhou Sun",
+        "Wei Wang"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 4 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-2291"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-cc765862df",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "4 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Localized Data Shapley: Accelerating Valuation for Nearest Neighbor Algorithms",
+      "year": 2025,
+      "authors": [
+        "Guangyi Zhang",
+        "Yanhao Wang",
+        "Chengliang Chai",
+        "Qiyu Liu",
+        "Wei Wang"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-1276"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-2682a0beef",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Rethinking Joint Maximum Mean Discrepancy for Visual Domain Adaptation",
+      "year": 2025,
+      "authors": [
+        "Wei Wang",
+        "Haifeng Xia",
+        "Chao Huang",
+        "Zhengming Ding",
+        "Cong Wang",
+        "Haojie Li",
+        "Xiaochun Cao"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-5061"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-d18d1e7841",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Don’t Forget the Enjoin: FocalLoRA for Instruction Hierarchical Alignment in Large Language Models",
+      "year": 2025,
+      "authors": [
+        "Zitong Shi",
+        "Frank Wan",
+        "Haixin Wang",
+        "Ruoyan Li",
+        "Zijie Huang",
+        "Wanjia Zhao",
+        "Yijia Xiao",
+        "Xiao Luo",
+        "Carl Yang",
+        "Yizhou Sun",
+        "Wei Wang"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 5 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-0282"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-3c35459c98",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "5 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Neighborhood Self-Dissimilarity Attention for Medical Image Segmentation",
+      "year": 2025,
+      "authors": [
+        "Junren Chen",
+        "Rui Chen",
+        "Wei Wang",
+        "Junlong Cheng",
+        "Gang Liang",
+        "Lei Zhang",
+        "Liangyin Chen"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-1278"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-07f017c60d",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Private Online Learning against an Adaptive Adversary: Realizable and Agnostic Settings",
+      "year": 2025,
+      "authors": [
+        "Bo Li",
+        "Wei Wang",
+        "Peng Ye"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/085713-5514"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-fa28a3ca7b",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Research on Photovoltaic Measurement and Electrochemical Impedance Spectroscopy Analysis of Dye-Sensitized Solar Cells With Modification of Photoanodes by TiO2 Nanofibers Composited With Zn2SnO4-SnO2 Under Various Illuminances",
+      "year": 2024,
+      "authors": [
+        "Yu-Hsun Nien",
+        "Yu-Han Huang",
+        "Jung-Chuan Chou",
+        "Chih-Hsien Lai",
+        "Po-Yu Kuo",
+        "Po-Hui Yang",
+        "Jhih-Wei Zeng",
+        "Chia-Wei Wang"
+      ],
+      "listed_venue": "IEEE Transactions on Nanotechnology",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Different field and unit, no shared coauthors: a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/tnano.2024.3460869"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-510d3a5c37",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Different field and unit, no shared coauthors: a namesake"
+    },
+    {
+      "title": "FollowBench: A Multi-level Fine-grained Constraints Following Benchmark for Large Language Models",
+      "year": 2024,
+      "authors": [
+        "Yuxin Jiang",
+        "Yufei Wang",
+        "Xingshan Zeng",
+        "Wanjun Zhong",
+        "Liangyou Li",
+        "Fei Mi",
+        "Lifeng Shang",
+        "Xin Jiang",
+        "Qun Liu",
+        "Wei Wang"
+      ],
+      "listed_venue": "Annual Meeting of the Association for Computational Linguistics (ACL)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.18653/v1/2024.acl-long.257"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-a8d3ba04b5",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Beyond the Commute: Unlocking the Potential of Electric Vehicles as Future Energy Storage Solutions (Vision Paper)",
+      "year": 2024,
+      "authors": [
+        "Muhammad Aamir Cheema",
+        "Hao Wang",
+        "Wei Wang",
+        "Adel N. Toosi",
+        "Egemen Tanin",
+        "Jianzhong Qi",
+        "Hanan Samet"
+      ],
+      "listed_venue": "ACM International Conference on Advances in Geographic Information Systems (SIGSPATIAL)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation HKUST(GZ), Guangzhou, China and HKUST, HKSAR, China: a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1145/3678717.3691247"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-dfc24c17f0",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation HKUST(GZ), Guangzhou, China and HKUST, HKSAR, China: a namesake"
+    },
+    {
+      "title": "Querying Numeric-Constrained Shortest Distances on Road Networks",
+      "year": 2024,
+      "authors": [
+        "Mingyu Yang",
+        "Wentao Li",
+        "Wei Wang",
+        "Dong Wen",
+        "Lu Qin"
+      ],
+      "listed_venue": "Proceedings - International Conference on Data Engineering",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation The Hong Kong University of Science and Technology (Guangzhou): a namesake"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icde60146.2024.00194"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-ea397642bf",
+      "ownership": "not_belongs",
+      "proposed_ownership": "not_belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation The Hong Kong University of Science and Technology (Guangzhou): a namesake"
+    },
+    {
+      "title": "EventRL: Enhancing Event Extraction with Outcome Supervision for Large Language Models",
+      "year": 2024,
+      "authors": [
+        "Gao, Jun",
+        "Zhao, Huan",
+        "Wang, Wei",
+        "Yu, Changlong",
+        "Xu, Ruifeng"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2402.11430"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-8958f2d072",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Learning to Edit: Aligning LLMs with Knowledge Editing",
+      "year": 2024,
+      "authors": [
+        "Jiang, Yuxin",
+        "Wang, Yufei",
+        "Wu, Chuhan",
+        "Zhong, Wanjun",
+        "Zeng, Xingshan",
+        "Gao, Jiahui",
+        "Li, Liangyou",
+        "Jiang, Xin",
+        "Shang, Lifeng",
+        "Tang, Ruiming",
+        "Liu, Qun",
+        "Wang, Wei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2402.11905"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-e27fd2d130",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "The Limits of Differential Privacy in Online Learning",
+      "year": 2024,
+      "authors": [
+        "Bo Li",
+        "Wei Wang",
+        "Peng Ye"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/079017-2086"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-535ce6e88a",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
+    },
+    {
+      "title": "Non-Euclidean Mixture Model for Social Network Embedding",
+      "year": 2024,
+      "authors": [
+        "Roshni Iyer",
+        "Yewen Wang",
+        "Wei Wang",
+        "Yizhou Sun"
+      ],
+      "listed_venue": "neural information processing systems",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.52202/079017-3540"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-06df84da7a",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "MIDDAG: Where Does Our News Go? Investigating Information Diffusion via Community-Level Information Pathways",
+      "year": 2024,
+      "authors": [
+        "Mingyu Derek Ma",
+        "Alexander K. Taylor",
+        "Nuan Wen",
+        "Yanchen Liu",
+        "Po-Nien Kung",
+        "Wenna Qin",
+        "Shicheng Wen",
+        "Azure Zhou",
+        "Diyi Yang",
+        "Xuezhe Ma",
+        "Nanyun Peng",
+        "Wei Wang"
+      ],
+      "listed_venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 8 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1609/aaai.v38i21.30573"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-4120d3d8c3",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "8 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "BrainODE: Dynamic Brain Signal Analysis via Graph-Aided Neural Ordinary Differential Equations",
+      "year": 2024,
+      "authors": [
+        "Kaiqiao Han",
+        "Yi Yang",
+        "Zijie Huang",
+        "Xuan Kan",
+        "Ying Guo",
+        "Yang Yang",
+        "Lifang He",
+        "Liang Zhan",
+        "Yizhou Sun",
+        "Wei Wang",
+        "Carl Yang"
+      ],
+      "listed_venue": "IEEE-EMBS International Conference on Biomedical and Health Informatics (BHI ...)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: University of California, LA,Dept. of Computer Science,Los Angeles,USA; 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/bhi62660.2024.10913768"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-4320d232bb",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: University of California, LA,Dept. of Computer Science,Los Angeles,USA; 2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "LogicVista: Multimodal LLM Logical Reasoning Benchmark in Visual Contexts",
+      "year": 2024,
+      "authors": [
+        "Xiao, Yijia",
+        "Sun, Edward",
+        "Liu, Tianyu",
+        "Wang, Wei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2407.04973"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-5f7299d6fe",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Does Few-Shot Learning Help LLM Performance in Code Synthesis?",
+      "year": 2024,
+      "authors": [
+        "Xu, Derek",
+        "Xie, Tong",
+        "Xia, Botao",
+        "Li, Haoyu",
+        "Bai, Yunsheng",
+        "Sun, Yizhou",
+        "Wang, Wei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2412.02906"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-410c9d86af",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Hierarchical Attention Models for Multi-Relational Graphs",
+      "year": 2024,
+      "authors": [
+        "Iyer, Roshni G.",
+        "Wang, Wei",
+        "Sun, Yizhou"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 1 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2404.09365"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-948822327d",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "1 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "MolX: Enhancing Large Language Models for Molecular Understanding With A Multi-Modal Extension",
+      "year": 2024,
+      "authors": [
+        "Le, Khiem",
+        "Guo, Zhichun",
+        "Dong, Kaiwen",
+        "Huang, Xiaobao",
+        "Nan, Bozhao",
+        "Iyer, Roshni",
+        "Zhang, Xiangliang",
+        "Wiest, Olaf",
+        "Wang, Wei",
+        "Hua, Ting",
+        "Chawla, Nitesh V."
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2406.06777"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-f1006a54df",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "MIRAI: Evaluating LLM Agents for Event Forecasting",
+      "year": 2024,
+      "authors": [
+        "Ye, Chenchen",
+        "Hu, Ziniu",
+        "Deng, Yihe",
+        "Huang, Zijie",
+        "Ma, Mingyu Derek",
+        "Zhu, Yanqiao",
+        "Wang, Wei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 6 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2407.01231"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-d80b73a78b",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "6 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Inverse designing metamaterials with programmable nonlinear functional responses in graph space",
+      "year": 2024,
+      "authors": [
+        "Maurizi, Marco",
+        "Xu, Derek",
+        "Wang, Yu-Tong",
+        "Yao, Desheng",
+        "Hahn, David",
+        "Oudich, Mourad",
+        "Satpati, Anish",
+        "Bauchy, Mathieu",
+        "Wang, Wei",
+        "Sun, Yizhou",
+        "Jing, Yun",
+        "Zheng, Xiaoyu Rayne"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 11 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2408.06300"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-a2d21c8273",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "11 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "RNA-GPT: Multimodal Generative System for RNA Sequence Understanding",
+      "year": 2024,
+      "authors": [
+        "Xiao, Yijia",
+        "Sun, Edward",
+        "Jin, Yiqiao",
+        "Wang, Wei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2411.08900"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-82cae2539d",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "BioLLMBench: A Comprehensive Benchmarking of Large Language Models in Bioinformatics",
+      "year": 2024,
+      "authors": [
+        "Serghei Mangul",
+        "Varuni Sarwal",
+        "Viorel Munteanu",
+        "Timur Suhodolschi",
+        "Dumitru Ciorba",
+        "Eleazar Eskin",
+        "Wei Wang"
+      ],
+      "listed_venue": "Research Square",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.21203/rs.3.rs-3780193/v1"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-59d795ef17",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Data Science Tasks Implemented with Scripts versus GUI-Based Workflows: The Good, the Bad, and the Ugly",
+      "year": 2024,
+      "authors": [
+        "Alexander K. Taylor",
+        "Yicong Huang",
+        "Junheng Hao",
+        "Xinyuan Lin",
+        "Xiusi Chen",
+        "Wei Wang",
+        "Chen Li"
+      ],
+      "listed_venue": "IEEE International Conference on Data Engineering Workshops (ICDEW)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: Crossref affiliation: UC Los Angeles,Computer Science Department,Los Angeles,USA; 2 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.1109/icdew61823.2024.00040"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-4fbf3d175d",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "Crossref affiliation: UC Los Angeles,Computer Science Department,Los Angeles,USA; 2 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Are Large-Language Models Graph Algorithmic Reasoners?",
+      "year": 2024,
+      "authors": [
+        "Taylor, Alexander K",
+        "Cuturrufo, Anthony",
+        "Yathish, Vishal",
+        "Ma, Mingyu Derek",
+        "Wang, Wei"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 3 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2410.22597"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-ce91c54370",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "3 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Graph Fourier Neural ODEs: Modeling Spatial-temporal Multi-scales in Molecular Dynamics",
+      "year": 2024,
+      "authors": [
+        "Sun, Fang",
+        "Huang, Zijie",
+        "Wang, Haixin",
+        "Tang, Huacong",
+        "Luo, Xiao",
+        "Wang, Wei",
+        "Sun, Yizhou"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: 4 coauthors shared with the researcher-maintained bibliography"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2411.01600"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-1df29888e2",
+      "ownership": "belongs",
+      "proposed_ownership": "belongs",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "4 coauthors shared with the researcher-maintained bibliography"
+    },
+    {
+      "title": "Measure Anything: Real-time, Multi-stage Vision-based Dimensional Measurement using Segment Anything",
+      "year": 2024,
+      "authors": [
+        "Lee, Yongkyu",
+        "Panda, Shivam Kumar",
+        "Wang, Wei",
+        "Jawed, Mohammad Khalid"
+      ],
+      "listed_venue": "arXiv (Cornell University)",
+      "truth_sources": [
+        "human_reviewer",
+        "confirmed_system_suggestion"
+      ],
+      "annotation_evidence": [
+        "Confirmed system suggestion: No independent evidence beyond the system byline"
+      ],
+      "review_flags": [
+        "added_by_reviewer",
+        "suggested_by_system_not_in_truth"
+      ],
+      "dois": [
+        "10.48550/arxiv.2412.03472"
+      ],
+      "evaluation_id": "cs_wei_wang_ucla:added-2f110a1aa3",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "assistant_reviewed",
+      "reviewer_note": "No independent evidence beyond the system byline"
     }
   ],
   "excluded": [

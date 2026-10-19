@@ -2,7 +2,7 @@
 
 import csv
 import hashlib
-from collections.abc import Sequence
+from collections.abc import Collection, Sequence
 from copy import deepcopy
 from datetime import date
 from pathlib import Path
@@ -46,10 +46,12 @@ def system_suggestions(
     run_id: str,
     limit: int,
     statuses: Sequence[str] = (OwnershipStatus.VERIFIED,),
+    excluded_types: Collection[str] = (),
 ) -> list[dict]:
     """Papers the search system collected in the window that match no truth entry: leads for completing the list.
 
     They are review aids only; a lead enters truth solely when the reviewer confirms it from an independent source.
+    Output of ``excluded_types`` (not publications, never scored) is not offered.
     """
     start, end = window
     matcher = GroundTruthMatcher(GroundTruth.from_dict(dict(truth, complete_positive_list=False)))
@@ -58,6 +60,8 @@ def system_suggestions(
     for paper in inner.get('all_papers', inner.get('papers')) or []:
         records = paper.get('records') or [paper]
         if paper.get('year') is None or not start <= paper['year'] <= end:
+            continue
+        if paper.get('paper_type') in excluded_types:
             continue
         # By default only verified output: it is what precision is scored on, so it is what needs a label.
         if statuses and paper.get('ownership_status', OwnershipStatus.NEEDS_REVIEW) not in statuses:
@@ -100,12 +104,19 @@ def system_suggestions(
     return rows[:limit]
 
 
-def export_review(truth: dict, path: Path, suggestions: list[dict] | None = None) -> int:
+def export_review(
+    truth: dict,
+    path: Path,
+    suggestions: list[dict] | None = None,
+    prefill: Collection[str] = (AnnotationState.HUMAN_REVIEWED,),
+) -> int:
+    """Write the review sheet. Decisions recorded under a state in ``prefill`` are filled in, so a reviewer
+    checking an earlier (for example an assistant's) review only edits the rows they disagree with."""
     with Path(path).open('w', encoding='utf-8-sig', newline='') as handle:
         writer = csv.DictWriter(handle, COLUMNS)
         writer.writeheader()
         for paper in truth['papers']:
-            decided = paper['ownership'] if paper.get('annotation_status') == AnnotationState.HUMAN_REVIEWED else ''
+            decided = paper['ownership'] if paper.get('annotation_status') in prefill else ''
             writer.writerow(
                 {
                     'row_kind': 'truth',

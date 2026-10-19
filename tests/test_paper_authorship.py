@@ -355,6 +355,26 @@ class OwnershipIdentityTests(unittest.TestCase):
         self.assertEqual(paper.ownership_status, 'needs_review')
         self.assertEqual({r.ownership_status for r in paper.records}, {'needs_review'})
 
+    def test_non_publications_stay_review_even_with_matching_orcid(self):
+        for publication_type in ('dataset', 'book review', 'dissertation', 'conference abstract'):
+            with self.subTest(publication_type=publication_type):
+                paper = validate([record(publication_type=publication_type, orcid='profile-orcid')])[0]
+                self.assertEqual(paper.ownership_status, 'needs_review')
+                self.assertTrue(any('Not a research publication' in text for text in paper.ownership_evidence))
+
+    def test_non_publication_record_does_not_block_its_merged_article(self):
+        article = record(orcid='profile-orcid')
+        dataset = record('semantic_scholar', publication_type='dataset', orcid='profile-orcid')
+        paper = validate([article, dataset])[0]
+        self.assertEqual(len(paper.records), 2)
+        self.assertEqual(paper.ownership_status, 'verified')
+        self.assertEqual({r.source: r.ownership_status for r in paper.records}['semantic_scholar'], 'needs_review')
+
+    def test_non_publication_types_come_from_configuration(self):
+        papers = deduplicate_papers([record(publication_type='dataset', orcid='profile-orcid')])
+        PaperOwnershipValidator(OwnershipConfig(non_publication_types=())).validate(papers, profile())
+        self.assertEqual(papers[0].ownership_status, 'verified')
+
     def test_cross_source_ids_are_verified_in_their_own_namespaces(self):
         left = replace(record(), authors=['Alex Morgan'])
         right = replace(record('semantic_scholar'), authors=['Alex Morgan'])

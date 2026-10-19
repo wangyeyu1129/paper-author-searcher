@@ -1,7 +1,7 @@
 {
   "dataset_id": "stratified_researchers_v1",
   "run_id": "calibrated-with_hints-20261018",
-  "scored_at": "2026-10-19T18:38:57.188598+00:00",
+  "scored_at": "2026-10-19T19:24:38.873878+00:00",
   "run_settings": {
     "mode": "full",
     "timeout": 15,
@@ -31,16 +31,16 @@
     "status": "failed",
     "exit_code": 1,
     "reasons": [
-      "11 of 22 stratum checks failed",
-      "32 people are scored against provisional (not human-reviewed) truth"
+      "26 of 55 stratum checks failed",
+      "32 people are scored against truth that is not human-reviewed"
     ],
     "failed_checks": [
       {
-        "stratum": "field=biomedicine",
+        "stratum": "field=computer_science",
         "metric": "verified_paper_recall",
         "label": "recall",
         "aggregation": "macro",
-        "observed": 0.715444890077243,
+        "observed": 0.5802097480569949,
         "minimum": 0.8,
         "worst_person_rate": 0.0,
         "people_with_rate": 8,
@@ -50,12 +50,24 @@
       {
         "stratum": "field=computer_science",
         "metric": "verified_paper_recall",
-        "label": "recall",
-        "aggregation": "macro",
-        "observed": 0.5837811766284234,
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.5202863961813843,
         "minimum": 0.8,
         "worst_person_rate": 0.0,
         "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=computer_science",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9356223175965666,
+        "minimum": 0.95,
+        "worst_person_rate": 0.6875,
+        "people_with_rate": 7,
         "passed": false,
         "reason": "below threshold"
       },
@@ -64,10 +76,34 @@
         "metric": "verified_paper_recall",
         "label": "recall",
         "aggregation": "macro",
-        "observed": 0.6210186976144423,
+        "observed": 0.7097356544165054,
         "minimum": 0.8,
         "worst_person_rate": 0.0,
-        "people_with_rate": 8,
+        "people_with_rate": 7,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=engineering",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.7095435684647303,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 7,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=social_science",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 0.8571428571428571,
+        "minimum": 1.0,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 7,
         "passed": false,
         "reason": "below threshold"
       },
@@ -76,10 +112,34 @@
         "metric": "verified_paper_recall",
         "label": "recall",
         "aggregation": "macro",
-        "observed": 0.660515873015873,
+        "observed": 0.754875283446712,
         "minimum": 0.8,
         "worst_person_rate": 0.0,
-        "people_with_rate": 8,
+        "people_with_rate": 7,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=social_science",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.7565217391304347,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 7,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "name_profile=common_chinese",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 0.9230769230769231,
+        "minimum": 1.0,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 13,
         "passed": false,
         "reason": "below threshold"
       },
@@ -88,10 +148,22 @@
         "metric": "verified_paper_recall",
         "label": "recall",
         "aggregation": "macro",
-        "observed": 0.4780023434604149,
+        "observed": 0.5428870319819709,
         "minimum": 0.8,
         "worst_person_rate": 0.0,
-        "people_with_rate": 16,
+        "people_with_rate": 14,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "name_profile=common_chinese",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.43004115226337447,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 14,
         "passed": false,
         "reason": "below threshold"
       },
@@ -100,7 +172,19 @@
         "metric": "author_match_precision",
         "label": "precision",
         "aggregation": "macro",
-        "observed": 0.9466403162055336,
+        "observed": 0.9462809917355371,
+        "minimum": 0.95,
+        "worst_person_rate": 0.6875,
+        "people_with_rate": 11,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "name_profile=common_chinese",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9126637554585153,
         "minimum": 0.95,
         "worst_person_rate": 0.6875,
         "people_with_rate": 11,
@@ -109,13 +193,49 @@
       },
       {
         "stratum": "overall=all",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 0.9629629629629629,
+        "minimum": 1.0,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 27,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "overall=all",
         "metric": "verified_paper_recall",
         "label": "recall",
         "aggregation": "macro",
-        "observed": 0.6451901593339955,
+        "observed": 0.7093067111205993,
         "minimum": 0.8,
         "worst_person_rate": 0.0,
-        "people_with_rate": 32,
+        "people_with_rate": 29,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "overall=all",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.6696517412935323,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 29,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=assistant_professor",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 0.875,
+        "minimum": 1.0,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
         "passed": false,
         "reason": "below threshold"
       },
@@ -124,9 +244,33 @@
         "metric": "verified_paper_recall",
         "label": "recall",
         "aggregation": "macro",
-        "observed": 0.5752818501726401,
+        "observed": 0.6574649716258744,
         "minimum": 0.8,
         "worst_person_rate": 0.0,
+        "people_with_rate": 7,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=assistant_professor",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.5650406504065041,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 7,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=established_faculty",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.7981366459627329,
+        "minimum": 0.8,
+        "worst_person_rate": 0.4342105263157895,
         "people_with_rate": 8,
         "passed": false,
         "reason": "below threshold"
@@ -144,11 +288,47 @@
         "reason": "below threshold"
       },
       {
+        "stratum": "seniority=established_faculty",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9345454545454546,
+        "minimum": 0.95,
+        "worst_person_rate": 0.6875,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
         "stratum": "seniority=phd_student",
         "metric": "verified_paper_recall",
         "label": "recall",
         "aggregation": "macro",
-        "observed": 0.5547123015873016,
+        "observed": 0.7396164021164021,
+        "minimum": 0.8,
+        "worst_person_rate": 0.4,
+        "people_with_rate": 6,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=phd_student",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.7931034482758621,
+        "minimum": 0.8,
+        "worst_person_rate": 0.4,
+        "people_with_rate": 6,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=renowned_senior",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.5923210064167511,
         "minimum": 0.8,
         "worst_person_rate": 0.0,
         "people_with_rate": 8,
@@ -158,9 +338,9 @@
       {
         "stratum": "seniority=renowned_senior",
         "metric": "verified_paper_recall",
-        "label": "recall",
-        "aggregation": "macro",
-        "observed": 0.6018448159405606,
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.6094986807387863,
         "minimum": 0.8,
         "worst_person_rate": 0.0,
         "people_with_rate": 8,
@@ -171,25 +351,73 @@
     "checks": [
       {
         "stratum": "field=biomedicine",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 1.0,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 7,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=biomedicine",
         "metric": "verified_paper_recall",
         "label": "recall",
         "aggregation": "macro",
-        "observed": 0.715444890077243,
+        "observed": 0.8108485818569852,
         "minimum": 0.8,
         "worst_person_rate": 0.0,
-        "people_with_rate": 8,
-        "passed": false,
-        "reason": "below threshold"
+        "people_with_rate": 7,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=biomedicine",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.8565217391304348,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 7,
+        "passed": true,
+        "reason": ""
       },
       {
         "stratum": "field=biomedicine",
         "metric": "author_match_precision",
         "label": "precision",
         "aggregation": "macro",
-        "observed": 0.9819611470860314,
+        "observed": 0.9813023855577047,
         "minimum": 0.95,
-        "worst_person_rate": 0.9130434782608695,
+        "worst_person_rate": 0.9090909090909091,
         "people_with_rate": 6,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=biomedicine",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.985,
+        "minimum": 0.95,
+        "worst_person_rate": 0.9090909090909091,
+        "people_with_rate": 6,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=computer_science",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 1.0,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 7,
         "passed": true,
         "reason": ""
       },
@@ -198,7 +426,19 @@
         "metric": "verified_paper_recall",
         "label": "recall",
         "aggregation": "macro",
-        "observed": 0.5837811766284234,
+        "observed": 0.5802097480569949,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=computer_science",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.5202863961813843,
         "minimum": 0.8,
         "worst_person_rate": 0.0,
         "people_with_rate": 8,
@@ -218,14 +458,50 @@
         "reason": ""
       },
       {
+        "stratum": "field=computer_science",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9356223175965666,
+        "minimum": 0.95,
+        "worst_person_rate": 0.6875,
+        "people_with_rate": 7,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=engineering",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 1.0,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 6,
+        "passed": true,
+        "reason": ""
+      },
+      {
         "stratum": "field=engineering",
         "metric": "verified_paper_recall",
         "label": "recall",
         "aggregation": "macro",
-        "observed": 0.6210186976144423,
+        "observed": 0.7097356544165054,
         "minimum": 0.8,
         "worst_person_rate": 0.0,
-        "people_with_rate": 8,
+        "people_with_rate": 7,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=engineering",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.7095435684647303,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 7,
         "passed": false,
         "reason": "below threshold"
       },
@@ -242,14 +518,50 @@
         "reason": ""
       },
       {
+        "stratum": "field=engineering",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 1.0,
+        "minimum": 0.95,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 6,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=social_science",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 0.8571428571428571,
+        "minimum": 1.0,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 7,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
         "stratum": "field=social_science",
         "metric": "verified_paper_recall",
         "label": "recall",
         "aggregation": "macro",
-        "observed": 0.660515873015873,
+        "observed": 0.754875283446712,
         "minimum": 0.8,
         "worst_person_rate": 0.0,
-        "people_with_rate": 8,
+        "people_with_rate": 7,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "field=social_science",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.7565217391304347,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 7,
         "passed": false,
         "reason": "below threshold"
       },
@@ -266,14 +578,50 @@
         "reason": ""
       },
       {
+        "stratum": "field=social_science",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9560439560439561,
+        "minimum": 0.95,
+        "worst_person_rate": 0.8125,
+        "people_with_rate": 6,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "name_profile=common_chinese",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 0.9230769230769231,
+        "minimum": 1.0,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 13,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
         "stratum": "name_profile=common_chinese",
         "metric": "verified_paper_recall",
         "label": "recall",
         "aggregation": "macro",
-        "observed": 0.4780023434604149,
+        "observed": 0.5428870319819709,
         "minimum": 0.8,
         "worst_person_rate": 0.0,
-        "people_with_rate": 16,
+        "people_with_rate": 14,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "name_profile=common_chinese",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.43004115226337447,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 14,
         "passed": false,
         "reason": "below threshold"
       },
@@ -282,7 +630,19 @@
         "metric": "author_match_precision",
         "label": "precision",
         "aggregation": "macro",
-        "observed": 0.9466403162055336,
+        "observed": 0.9462809917355371,
+        "minimum": 0.95,
+        "worst_person_rate": 0.6875,
+        "people_with_rate": 11,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "name_profile=common_chinese",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9126637554585153,
         "minimum": 0.95,
         "worst_person_rate": 0.6875,
         "people_with_rate": 11,
@@ -291,13 +651,37 @@
       },
       {
         "stratum": "name_profile=other",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 1.0,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 14,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "name_profile=other",
         "metric": "verified_paper_recall",
         "label": "recall",
         "aggregation": "macro",
-        "observed": 0.8123779752075759,
+        "observed": 0.8646317449833191,
         "minimum": 0.8,
         "worst_person_rate": 0.0,
-        "people_with_rate": 16,
+        "people_with_rate": 15,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "name_profile=other",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.8940269749518305,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 15,
         "passed": true,
         "reason": ""
       },
@@ -314,14 +698,50 @@
         "reason": ""
       },
       {
+        "stratum": "name_profile=other",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9957081545064378,
+        "minimum": 0.95,
+        "worst_person_rate": 0.8888888888888888,
+        "people_with_rate": 14,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "overall=all",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 0.9629629629629629,
+        "minimum": 1.0,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 27,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
         "stratum": "overall=all",
         "metric": "verified_paper_recall",
         "label": "recall",
         "aggregation": "macro",
-        "observed": 0.6451901593339955,
+        "observed": 0.7093067111205993,
         "minimum": 0.8,
         "worst_person_rate": 0.0,
-        "people_with_rate": 32,
+        "people_with_rate": 29,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "overall=all",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.6696517412935323,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 29,
         "passed": false,
         "reason": "below threshold"
       },
@@ -330,7 +750,19 @@
         "metric": "author_match_precision",
         "label": "precision",
         "aggregation": "macro",
-        "observed": 0.9712262308562031,
+        "observed": 0.9710681280894048,
+        "minimum": 0.95,
+        "worst_person_rate": 0.6875,
+        "people_with_rate": 25,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "overall=all",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9683453237410072,
         "minimum": 0.95,
         "worst_person_rate": 0.6875,
         "people_with_rate": 25,
@@ -339,13 +771,37 @@
       },
       {
         "stratum": "seniority=assistant_professor",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 0.875,
+        "minimum": 1.0,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=assistant_professor",
         "metric": "verified_paper_recall",
         "label": "recall",
         "aggregation": "macro",
-        "observed": 0.5752818501726401,
+        "observed": 0.6574649716258744,
         "minimum": 0.8,
         "worst_person_rate": 0.0,
-        "people_with_rate": 8,
+        "people_with_rate": 7,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=assistant_professor",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.5650406504065041,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 7,
         "passed": false,
         "reason": "below threshold"
       },
@@ -358,6 +814,30 @@
         "minimum": 0.95,
         "worst_person_rate": 1.0,
         "people_with_rate": 6,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=assistant_professor",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 1.0,
+        "minimum": 0.95,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 6,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=established_faculty",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 1.0,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 8,
         "passed": true,
         "reason": ""
       },
@@ -375,6 +855,18 @@
       },
       {
         "stratum": "seniority=established_faculty",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.7981366459627329,
+        "minimum": 0.8,
+        "worst_person_rate": 0.4342105263157895,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=established_faculty",
         "metric": "author_match_precision",
         "label": "precision",
         "aggregation": "macro",
@@ -386,14 +878,50 @@
         "reason": "below threshold"
       },
       {
+        "stratum": "seniority=established_faculty",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9345454545454546,
+        "minimum": 0.95,
+        "worst_person_rate": 0.6875,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=phd_student",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 1.0,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 6,
+        "passed": true,
+        "reason": ""
+      },
+      {
         "stratum": "seniority=phd_student",
         "metric": "verified_paper_recall",
         "label": "recall",
         "aggregation": "macro",
-        "observed": 0.5547123015873016,
+        "observed": 0.7396164021164021,
         "minimum": 0.8,
-        "worst_person_rate": 0.0,
-        "people_with_rate": 8,
+        "worst_person_rate": 0.4,
+        "people_with_rate": 6,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=phd_student",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.7931034482758621,
+        "minimum": 0.8,
+        "worst_person_rate": 0.4,
+        "people_with_rate": 6,
         "passed": false,
         "reason": "below threshold"
       },
@@ -410,11 +938,47 @@
         "reason": ""
       },
       {
+        "stratum": "seniority=phd_student",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9787234042553191,
+        "minimum": 0.95,
+        "worst_person_rate": 0.8888888888888888,
+        "people_with_rate": 6,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=renowned_senior",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 1.0,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 5,
+        "passed": true,
+        "reason": ""
+      },
+      {
         "stratum": "seniority=renowned_senior",
         "metric": "verified_paper_recall",
         "label": "recall",
         "aggregation": "macro",
-        "observed": 0.6018448159405606,
+        "observed": 0.5923210064167511,
+        "minimum": 0.8,
+        "worst_person_rate": 0.0,
+        "people_with_rate": 8,
+        "passed": false,
+        "reason": "below threshold"
+      },
+      {
+        "stratum": "seniority=renowned_senior",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.6094986807387863,
         "minimum": 0.8,
         "worst_person_rate": 0.0,
         "people_with_rate": 8,
@@ -426,9 +990,21 @@
         "metric": "author_match_precision",
         "label": "precision",
         "aggregation": "macro",
-        "observed": 0.9783533765032377,
+        "observed": 0.9775628626692455,
         "minimum": 0.95,
-        "worst_person_rate": 0.9130434782608695,
+        "worst_person_rate": 0.9090909090909091,
+        "people_with_rate": 5,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=renowned_senior",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9871794871794872,
+        "minimum": 0.95,
+        "worst_person_rate": 0.9090909090909091,
         "people_with_rate": 5,
         "passed": true,
         "reason": ""
@@ -446,31 +1022,44 @@
           "people_with_rate": 32,
           "minimum": 0.0,
           "numerator": 27,
-          "denominator": 32
+          "denominator": 32,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 0.9629629629629629,
+          "micro": 0.9629629629629629,
+          "people_with_rate": 27,
+          "minimum": 0.0,
+          "numerator": 26,
+          "denominator": 27,
+          "below_truth_minimum": 0
         },
         "verified_paper_recall": {
-          "macro": 0.6451901593339955,
-          "micro": 0.7068062827225131,
-          "people_with_rate": 32,
+          "macro": 0.7093067111205993,
+          "micro": 0.6696517412935323,
+          "people_with_rate": 29,
           "minimum": 0.0,
-          "numerator": 675,
-          "denominator": 955
+          "numerator": 673,
+          "denominator": 1005,
+          "below_truth_minimum": 3
         },
         "paper_discovery_recall": {
-          "macro": 0.8426134700703265,
-          "micro": 0.8879581151832461,
-          "people_with_rate": 32,
-          "minimum": 0.0,
-          "numerator": 848,
-          "denominator": 955
+          "macro": 0.904198030746254,
+          "micro": 0.8995024875621891,
+          "people_with_rate": 29,
+          "minimum": 0.5657894736842105,
+          "numerator": 904,
+          "denominator": 1005,
+          "below_truth_minimum": 3
         },
         "author_match_precision": {
-          "macro": 0.9712262308562031,
-          "micro": 0.9684361549497847,
+          "macro": 0.9710681280894048,
+          "micro": 0.9683453237410072,
           "people_with_rate": 25,
           "minimum": 0.6875,
-          "numerator": 675,
-          "denominator": 697
+          "numerator": 673,
+          "denominator": 695,
+          "below_truth_minimum": 0
         },
         "actual_download_coverage": {
           "macro": null,
@@ -478,7 +1067,8 @@
           "people_with_rate": 0,
           "minimum": null,
           "numerator": 0,
-          "denominator": 0
+          "denominator": 0,
+          "below_truth_minimum": 3
         }
       },
       "provisional_people": 32
@@ -493,31 +1083,44 @@
           "people_with_rate": 8,
           "minimum": 0.0,
           "numerator": 5,
-          "denominator": 8
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 5,
+          "minimum": 1.0,
+          "numerator": 5,
+          "denominator": 5,
+          "below_truth_minimum": 0
         },
         "verified_paper_recall": {
-          "macro": 0.6018448159405606,
-          "micro": 0.7169230769230769,
+          "macro": 0.5923210064167511,
+          "micro": 0.6094986807387863,
           "people_with_rate": 8,
           "minimum": 0.0,
-          "numerator": 233,
-          "denominator": 325
+          "numerator": 231,
+          "denominator": 379,
+          "below_truth_minimum": 0
         },
         "paper_discovery_recall": {
-          "macro": 0.9180640499681197,
-          "micro": 0.9292307692307692,
+          "macro": 0.9503280311419846,
+          "micro": 0.9472295514511874,
           "people_with_rate": 8,
-          "minimum": 0.6744186046511628,
-          "numerator": 302,
-          "denominator": 325
+          "minimum": 0.8837209302325582,
+          "numerator": 359,
+          "denominator": 379,
+          "below_truth_minimum": 0
         },
         "author_match_precision": {
-          "macro": 0.9783533765032377,
-          "micro": 0.9872881355932204,
+          "macro": 0.9775628626692455,
+          "micro": 0.9871794871794872,
           "people_with_rate": 5,
-          "minimum": 0.9130434782608695,
-          "numerator": 233,
-          "denominator": 236
+          "minimum": 0.9090909090909091,
+          "numerator": 231,
+          "denominator": 234,
+          "below_truth_minimum": 0
         },
         "actual_download_coverage": {
           "macro": null,
@@ -525,7 +1128,8 @@
           "people_with_rate": 0,
           "minimum": null,
           "numerator": 0,
-          "denominator": 0
+          "denominator": 0,
+          "below_truth_minimum": 0
         }
       },
       "provisional_people": 8
@@ -540,7 +1144,17 @@
           "people_with_rate": 8,
           "minimum": 1.0,
           "numerator": 8,
-          "denominator": 8
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 8,
+          "minimum": 1.0,
+          "numerator": 8,
+          "denominator": 8,
+          "below_truth_minimum": 0
         },
         "verified_paper_recall": {
           "macro": 0.8489216696354794,
@@ -548,7 +1162,8 @@
           "people_with_rate": 8,
           "minimum": 0.4342105263157895,
           "numerator": 257,
-          "denominator": 322
+          "denominator": 322,
+          "below_truth_minimum": 0
         },
         "paper_discovery_recall": {
           "macro": 0.9162903365587508,
@@ -556,7 +1171,8 @@
           "people_with_rate": 8,
           "minimum": 0.5657894736842105,
           "numerator": 280,
-          "denominator": 322
+          "denominator": 322,
+          "below_truth_minimum": 0
         },
         "author_match_precision": {
           "macro": 0.9375,
@@ -564,7 +1180,8 @@
           "people_with_rate": 8,
           "minimum": 0.6875,
           "numerator": 257,
-          "denominator": 275
+          "denominator": 275,
+          "below_truth_minimum": 0
         },
         "actual_download_coverage": {
           "macro": null,
@@ -572,7 +1189,8 @@
           "people_with_rate": 0,
           "minimum": null,
           "numerator": 0,
-          "denominator": 0
+          "denominator": 0,
+          "below_truth_minimum": 0
         }
       },
       "provisional_people": 8
@@ -587,23 +1205,35 @@
           "people_with_rate": 8,
           "minimum": 1.0,
           "numerator": 8,
-          "denominator": 8
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 0.875,
+          "micro": 0.875,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 7,
+          "denominator": 8,
+          "below_truth_minimum": 0
         },
         "verified_paper_recall": {
-          "macro": 0.5752818501726401,
-          "micro": 0.5604838709677419,
-          "people_with_rate": 8,
+          "macro": 0.6574649716258744,
+          "micro": 0.5650406504065041,
+          "people_with_rate": 7,
           "minimum": 0.0,
           "numerator": 139,
-          "denominator": 248
+          "denominator": 246,
+          "below_truth_minimum": 1
         },
         "paper_discovery_recall": {
-          "macro": 0.8135300493099911,
-          "micro": 0.8709677419354839,
-          "people_with_rate": 8,
-          "minimum": 0.0,
+          "macro": 0.929748627782847,
+          "micro": 0.8780487804878049,
+          "people_with_rate": 7,
+          "minimum": 0.6268656716417911,
           "numerator": 216,
-          "denominator": 248
+          "denominator": 246,
+          "below_truth_minimum": 1
         },
         "author_match_precision": {
           "macro": 1.0,
@@ -611,7 +1241,8 @@
           "people_with_rate": 6,
           "minimum": 1.0,
           "numerator": 139,
-          "denominator": 139
+          "denominator": 139,
+          "below_truth_minimum": 0
         },
         "actual_download_coverage": {
           "macro": null,
@@ -619,7 +1250,8 @@
           "people_with_rate": 0,
           "minimum": null,
           "numerator": 0,
-          "denominator": 0
+          "denominator": 0,
+          "below_truth_minimum": 1
         }
       },
       "provisional_people": 8
@@ -634,23 +1266,35 @@
           "people_with_rate": 8,
           "minimum": 0.0,
           "numerator": 6,
-          "denominator": 8
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 6,
+          "minimum": 1.0,
+          "numerator": 6,
+          "denominator": 6,
+          "below_truth_minimum": 0
         },
         "verified_paper_recall": {
-          "macro": 0.5547123015873016,
-          "micro": 0.7666666666666667,
-          "people_with_rate": 8,
-          "minimum": 0.0,
+          "macro": 0.7396164021164021,
+          "micro": 0.7931034482758621,
+          "people_with_rate": 6,
+          "minimum": 0.4,
           "numerator": 46,
-          "denominator": 60
+          "denominator": 58,
+          "below_truth_minimum": 2
         },
         "paper_discovery_recall": {
-          "macro": 0.7225694444444444,
-          "micro": 0.8333333333333334,
-          "people_with_rate": 8,
-          "minimum": 0.0,
-          "numerator": 50,
-          "denominator": 60
+          "macro": 0.7967592592592592,
+          "micro": 0.8448275862068966,
+          "people_with_rate": 6,
+          "minimum": 0.6,
+          "numerator": 49,
+          "denominator": 58,
+          "below_truth_minimum": 2
         },
         "author_match_precision": {
           "macro": 0.9814814814814815,
@@ -658,7 +1302,8 @@
           "people_with_rate": 6,
           "minimum": 0.8888888888888888,
           "numerator": 46,
-          "denominator": 47
+          "denominator": 47,
+          "below_truth_minimum": 0
         },
         "actual_download_coverage": {
           "macro": null,
@@ -666,7 +1311,8 @@
           "people_with_rate": 0,
           "minimum": null,
           "numerator": 0,
-          "denominator": 0
+          "denominator": 0,
+          "below_truth_minimum": 2
         }
       },
       "provisional_people": 8
@@ -681,31 +1327,44 @@
           "people_with_rate": 8,
           "minimum": 0.0,
           "numerator": 7,
-          "denominator": 8
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 7,
+          "minimum": 1.0,
+          "numerator": 7,
+          "denominator": 7,
+          "below_truth_minimum": 0
         },
         "verified_paper_recall": {
-          "macro": 0.5837811766284234,
-          "micro": 0.5824468085106383,
+          "macro": 0.5802097480569949,
+          "micro": 0.5202863961813843,
           "people_with_rate": 8,
           "minimum": 0.0,
-          "numerator": 219,
-          "denominator": 376
+          "numerator": 218,
+          "denominator": 419,
+          "below_truth_minimum": 0
         },
         "paper_discovery_recall": {
-          "macro": 0.7807916328065586,
-          "micro": 0.7659574468085106,
+          "macro": 0.8033829949328044,
+          "micro": 0.7971360381861575,
           "people_with_rate": 8,
           "minimum": 0.5657894736842105,
-          "numerator": 288,
-          "denominator": 376
+          "numerator": 334,
+          "denominator": 419,
+          "below_truth_minimum": 0
         },
         "author_match_precision": {
           "macro": 0.9553571428571429,
-          "micro": 0.9358974358974359,
+          "micro": 0.9356223175965666,
           "people_with_rate": 7,
           "minimum": 0.6875,
-          "numerator": 219,
-          "denominator": 234
+          "numerator": 218,
+          "denominator": 233,
+          "below_truth_minimum": 0
         },
         "actual_download_coverage": {
           "macro": null,
@@ -713,7 +1372,8 @@
           "people_with_rate": 0,
           "minimum": null,
           "numerator": 0,
-          "denominator": 0
+          "denominator": 0,
+          "below_truth_minimum": 0
         }
       },
       "provisional_people": 8
@@ -728,31 +1388,44 @@
           "people_with_rate": 8,
           "minimum": 0.0,
           "numerator": 7,
-          "denominator": 8
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 7,
+          "minimum": 1.0,
+          "numerator": 7,
+          "denominator": 7,
+          "below_truth_minimum": 0
         },
         "verified_paper_recall": {
-          "macro": 0.715444890077243,
-          "micro": 0.8571428571428571,
-          "people_with_rate": 8,
+          "macro": 0.8108485818569852,
+          "micro": 0.8565217391304348,
+          "people_with_rate": 7,
           "minimum": 0.0,
-          "numerator": 198,
-          "denominator": 231
+          "numerator": 197,
+          "denominator": 230,
+          "below_truth_minimum": 1
         },
         "paper_discovery_recall": {
-          "macro": 0.8573232323232323,
-          "micro": 0.9826839826839827,
-          "people_with_rate": 8,
-          "minimum": 0.0,
-          "numerator": 227,
-          "denominator": 231
+          "macro": 0.9729952587095444,
+          "micro": 0.9826086956521739,
+          "people_with_rate": 7,
+          "minimum": 0.8888888888888888,
+          "numerator": 226,
+          "denominator": 230,
+          "below_truth_minimum": 1
         },
         "author_match_precision": {
-          "macro": 0.9819611470860314,
-          "micro": 0.9850746268656716,
+          "macro": 0.9813023855577047,
+          "micro": 0.985,
           "people_with_rate": 6,
-          "minimum": 0.9130434782608695,
-          "numerator": 198,
-          "denominator": 201
+          "minimum": 0.9090909090909091,
+          "numerator": 197,
+          "denominator": 200,
+          "below_truth_minimum": 0
         },
         "actual_download_coverage": {
           "macro": null,
@@ -760,7 +1433,8 @@
           "people_with_rate": 0,
           "minimum": null,
           "numerator": 0,
-          "denominator": 0
+          "denominator": 0,
+          "below_truth_minimum": 1
         }
       },
       "provisional_people": 8
@@ -775,23 +1449,35 @@
           "people_with_rate": 8,
           "minimum": 0.0,
           "numerator": 6,
-          "denominator": 8
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 6,
+          "minimum": 1.0,
+          "numerator": 6,
+          "denominator": 6,
+          "below_truth_minimum": 0
         },
         "verified_paper_recall": {
-          "macro": 0.6210186976144423,
-          "micro": 0.7066115702479339,
-          "people_with_rate": 8,
+          "macro": 0.7097356544165054,
+          "micro": 0.7095435684647303,
+          "people_with_rate": 7,
           "minimum": 0.0,
           "numerator": 171,
-          "denominator": 242
+          "denominator": 241,
+          "below_truth_minimum": 1
         },
         "paper_discovery_recall": {
-          "macro": 0.9396306818181819,
-          "micro": 0.9752066115702479,
-          "people_with_rate": 8,
+          "macro": 0.9310064935064936,
+          "micro": 0.975103734439834,
+          "people_with_rate": 7,
           "minimum": 0.625,
-          "numerator": 236,
-          "denominator": 242
+          "numerator": 235,
+          "denominator": 241,
+          "below_truth_minimum": 1
         },
         "author_match_precision": {
           "macro": 1.0,
@@ -799,7 +1485,8 @@
           "people_with_rate": 6,
           "minimum": 1.0,
           "numerator": 171,
-          "denominator": 171
+          "denominator": 171,
+          "below_truth_minimum": 0
         },
         "actual_download_coverage": {
           "macro": null,
@@ -807,7 +1494,8 @@
           "people_with_rate": 0,
           "minimum": null,
           "numerator": 0,
-          "denominator": 0
+          "denominator": 0,
+          "below_truth_minimum": 1
         }
       },
       "provisional_people": 8
@@ -822,23 +1510,35 @@
           "people_with_rate": 8,
           "minimum": 0.0,
           "numerator": 7,
-          "denominator": 8
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 0.8571428571428571,
+          "micro": 0.8571428571428571,
+          "people_with_rate": 7,
+          "minimum": 0.0,
+          "numerator": 6,
+          "denominator": 7,
+          "below_truth_minimum": 0
         },
         "verified_paper_recall": {
-          "macro": 0.660515873015873,
-          "micro": 0.8207547169811321,
-          "people_with_rate": 8,
+          "macro": 0.754875283446712,
+          "micro": 0.7565217391304347,
+          "people_with_rate": 7,
           "minimum": 0.0,
           "numerator": 87,
-          "denominator": 106
+          "denominator": 115,
+          "below_truth_minimum": 1
         },
         "paper_discovery_recall": {
-          "macro": 0.7927083333333333,
-          "micro": 0.9150943396226415,
-          "people_with_rate": 8,
-          "minimum": 0.0,
-          "numerator": 97,
-          "denominator": 106
+          "macro": 0.9238095238095239,
+          "micro": 0.9478260869565217,
+          "people_with_rate": 7,
+          "minimum": 0.6666666666666666,
+          "numerator": 109,
+          "denominator": 115,
+          "below_truth_minimum": 1
         },
         "author_match_precision": {
           "macro": 0.9502314814814815,
@@ -846,7 +1546,8 @@
           "people_with_rate": 6,
           "minimum": 0.8125,
           "numerator": 87,
-          "denominator": 91
+          "denominator": 91,
+          "below_truth_minimum": 0
         },
         "actual_download_coverage": {
           "macro": null,
@@ -854,7 +1555,8 @@
           "people_with_rate": 0,
           "minimum": null,
           "numerator": 0,
-          "denominator": 0
+          "denominator": 0,
+          "below_truth_minimum": 1
         }
       },
       "provisional_people": 8
@@ -869,31 +1571,44 @@
           "people_with_rate": 16,
           "minimum": 0.0,
           "numerator": 13,
-          "denominator": 16
+          "denominator": 16,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 0.9230769230769231,
+          "micro": 0.9230769230769231,
+          "people_with_rate": 13,
+          "minimum": 0.0,
+          "numerator": 12,
+          "denominator": 13,
+          "below_truth_minimum": 0
         },
         "verified_paper_recall": {
-          "macro": 0.4780023434604149,
-          "micro": 0.47085201793721976,
-          "people_with_rate": 16,
+          "macro": 0.5428870319819709,
+          "micro": 0.43004115226337447,
+          "people_with_rate": 14,
           "minimum": 0.0,
-          "numerator": 210,
-          "denominator": 446
+          "numerator": 209,
+          "denominator": 486,
+          "below_truth_minimum": 2
         },
         "paper_discovery_recall": {
-          "macro": 0.7156741169493304,
-          "micro": 0.7937219730941704,
-          "people_with_rate": 16,
-          "minimum": 0.0,
-          "numerator": 354,
-          "denominator": 446
+          "macro": 0.8294620820822595,
+          "micro": 0.823045267489712,
+          "people_with_rate": 14,
+          "minimum": 0.5657894736842105,
+          "numerator": 400,
+          "denominator": 486,
+          "below_truth_minimum": 2
         },
         "author_match_precision": {
-          "macro": 0.9466403162055336,
-          "micro": 0.9130434782608695,
+          "macro": 0.9462809917355371,
+          "micro": 0.9126637554585153,
           "people_with_rate": 11,
           "minimum": 0.6875,
-          "numerator": 210,
-          "denominator": 230
+          "numerator": 209,
+          "denominator": 229,
+          "below_truth_minimum": 0
         },
         "actual_download_coverage": {
           "macro": null,
@@ -901,7 +1616,8 @@
           "people_with_rate": 0,
           "minimum": null,
           "numerator": 0,
-          "denominator": 0
+          "denominator": 0,
+          "below_truth_minimum": 2
         }
       },
       "provisional_people": 16
@@ -916,31 +1632,44 @@
           "people_with_rate": 16,
           "minimum": 0.0,
           "numerator": 14,
-          "denominator": 16
+          "denominator": 16,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 14,
+          "minimum": 1.0,
+          "numerator": 14,
+          "denominator": 14,
+          "below_truth_minimum": 0
         },
         "verified_paper_recall": {
-          "macro": 0.8123779752075759,
-          "micro": 0.9135559921414538,
-          "people_with_rate": 16,
+          "macro": 0.8646317449833191,
+          "micro": 0.8940269749518305,
+          "people_with_rate": 15,
           "minimum": 0.0,
-          "numerator": 465,
-          "denominator": 509
+          "numerator": 464,
+          "denominator": 519,
+          "below_truth_minimum": 1
         },
         "paper_discovery_recall": {
-          "macro": 0.9695528231913226,
-          "micro": 0.9705304518664047,
-          "people_with_rate": 16,
-          "minimum": 0.875,
-          "numerator": 494,
-          "denominator": 509
+          "macro": 0.9739515828326489,
+          "micro": 0.9710982658959537,
+          "people_with_rate": 15,
+          "minimum": 0.8857142857142857,
+          "numerator": 504,
+          "denominator": 519,
+          "below_truth_minimum": 1
         },
         "author_match_precision": {
           "macro": 0.9905437352245864,
-          "micro": 0.9957173447537473,
+          "micro": 0.9957081545064378,
           "people_with_rate": 14,
           "minimum": 0.8888888888888888,
-          "numerator": 465,
-          "denominator": 467
+          "numerator": 464,
+          "denominator": 466,
+          "below_truth_minimum": 0
         },
         "actual_download_coverage": {
           "macro": null,
@@ -948,7 +1677,8 @@
           "people_with_rate": 0,
           "minimum": null,
           "numerator": 0,
-          "denominator": 0
+          "denominator": 0,
+          "below_truth_minimum": 1
         }
       },
       "provisional_people": 16
@@ -964,7 +1694,7 @@
       },
       "truth_state": "assistant_reviewed",
       "run_status": "partial",
-      "truth_positives": 43,
+      "truth_positives": 86,
       "metrics": {
         "identity_resolution_rate": {
           "numerator": 0,
@@ -972,16 +1702,22 @@
           "rate": 0.0,
           "available": true
         },
+        "identity_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
         "verified_paper_recall": {
           "numerator": 0,
-          "denominator": 43,
+          "denominator": 86,
           "rate": 0.0,
           "available": true
         },
         "paper_discovery_recall": {
-          "numerator": 29,
-          "denominator": 43,
-          "rate": 0.6744186046511628,
+          "numerator": 76,
+          "denominator": 86,
+          "rate": 0.8837209302325582,
           "available": true
         },
         "author_match_precision": {
@@ -992,7 +1728,7 @@
         },
         "actual_download_coverage": {
           "numerator": 0,
-          "denominator": 43,
+          "denominator": 86,
           "rate": null,
           "available": false
         }
@@ -1018,21 +1754,27 @@
           "rate": 1.0,
           "available": true
         },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
         "verified_paper_recall": {
-          "numerator": 32,
+          "numerator": 31,
           "denominator": 35,
-          "rate": 0.9142857142857143,
+          "rate": 0.8857142857142857,
           "available": true
         },
         "paper_discovery_recall": {
-          "numerator": 32,
+          "numerator": 31,
           "denominator": 35,
-          "rate": 0.9142857142857143,
+          "rate": 0.8857142857142857,
           "available": true
         },
         "author_match_precision": {
-          "numerator": 32,
-          "denominator": 32,
+          "numerator": 31,
+          "denominator": 31,
           "rate": 1.0,
           "available": true
         },
@@ -1059,6 +1801,12 @@
       "truth_positives": 76,
       "metrics": {
         "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
           "numerator": 1,
           "denominator": 1,
           "rate": 1.0,
@@ -1110,6 +1858,12 @@
           "rate": 1.0,
           "available": true
         },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
         "verified_paper_recall": {
           "numerator": 86,
           "denominator": 97,
@@ -1151,6 +1905,12 @@
       "truth_positives": 67,
       "metrics": {
         "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
           "numerator": 1,
           "denominator": 1,
           "rate": 1.0,
@@ -1202,6 +1962,12 @@
           "rate": 1.0,
           "available": true
         },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
         "verified_paper_recall": {
           "numerator": 33,
           "denominator": 41,
@@ -1243,6 +2009,12 @@
       "truth_positives": 10,
       "metrics": {
         "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
           "numerator": 1,
           "denominator": 1,
           "rate": 1.0,
@@ -1294,6 +2066,12 @@
           "rate": 1.0,
           "available": true
         },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
         "verified_paper_recall": {
           "numerator": 6,
           "denominator": 7,
@@ -1340,22 +2118,28 @@
           "rate": 1.0,
           "available": true
         },
-        "verified_paper_recall": {
-          "numerator": 21,
-          "denominator": 21,
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
           "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 20,
+          "denominator": 21,
+          "rate": 0.9523809523809523,
           "available": true
         },
         "paper_discovery_recall": {
-          "numerator": 21,
+          "numerator": 20,
           "denominator": 21,
-          "rate": 1.0,
+          "rate": 0.9523809523809523,
           "available": true
         },
         "author_match_precision": {
-          "numerator": 21,
-          "denominator": 23,
-          "rate": 0.9130434782608695,
+          "numerator": 20,
+          "denominator": 22,
+          "rate": 0.9090909090909091,
           "available": true
         },
         "actual_download_coverage": {
@@ -1381,6 +2165,12 @@
       "truth_positives": 46,
       "metrics": {
         "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
           "numerator": 1,
           "denominator": 1,
           "rate": 1.0,
@@ -1432,6 +2222,12 @@
           "rate": 1.0,
           "available": true
         },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
         "verified_paper_recall": {
           "numerator": 16,
           "denominator": 18,
@@ -1473,6 +2269,12 @@
       "truth_positives": 68,
       "metrics": {
         "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
           "numerator": 1,
           "denominator": 1,
           "rate": 1.0,
@@ -1524,6 +2326,12 @@
           "rate": 1.0,
           "available": true
         },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
         "verified_paper_recall": {
           "numerator": 0,
           "denominator": 23,
@@ -1565,6 +2373,12 @@
       "truth_positives": 33,
       "metrics": {
         "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
           "numerator": 1,
           "denominator": 1,
           "rate": 1.0,
@@ -1616,6 +2430,12 @@
           "rate": 0.0,
           "available": true
         },
+        "identity_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
         "verified_paper_recall": {
           "numerator": 0,
           "denominator": 1,
@@ -1657,6 +2477,12 @@
       "truth_positives": 21,
       "metrics": {
         "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
           "numerator": 1,
           "denominator": 1,
           "rate": 1.0,
@@ -1708,6 +2534,12 @@
           "rate": 0.0,
           "available": true
         },
+        "identity_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
         "verified_paper_recall": {
           "numerator": 0,
           "denominator": 33,
@@ -1749,6 +2581,12 @@
       "truth_positives": 94,
       "metrics": {
         "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
           "numerator": 1,
           "denominator": 1,
           "rate": 1.0,
@@ -1800,6 +2638,12 @@
           "rate": 1.0,
           "available": true
         },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
         "verified_paper_recall": {
           "numerator": 14,
           "denominator": 16,
@@ -1841,6 +2685,12 @@
       "truth_positives": 15,
       "metrics": {
         "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
           "numerator": 1,
           "denominator": 1,
           "rate": 1.0,
@@ -1892,6 +2742,12 @@
           "rate": 1.0,
           "available": true
         },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
         "verified_paper_recall": {
           "numerator": 36,
           "denominator": 66,
@@ -1933,6 +2789,12 @@
       "truth_positives": 9,
       "metrics": {
         "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
           "numerator": 1,
           "denominator": 1,
           "rate": 1.0,
@@ -1984,6 +2846,12 @@
           "rate": 1.0,
           "available": true
         },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
         "verified_paper_recall": {
           "numerator": 5,
           "denominator": 8,
@@ -2030,6 +2898,12 @@
           "rate": 0.0,
           "available": true
         },
+        "identity_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
         "verified_paper_recall": {
           "numerator": 0,
           "denominator": 1,
@@ -2068,7 +2942,7 @@
       },
       "truth_state": "assistant_reviewed",
       "run_status": "partial",
-      "truth_positives": 8,
+      "truth_positives": 19,
       "metrics": {
         "identity_resolution_rate": {
           "numerator": 0,
@@ -2076,16 +2950,22 @@
           "rate": 0.0,
           "available": true
         },
+        "identity_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
         "verified_paper_recall": {
           "numerator": 0,
-          "denominator": 8,
+          "denominator": 19,
           "rate": 0.0,
           "available": true
         },
         "paper_discovery_recall": {
-          "numerator": 7,
-          "denominator": 8,
-          "rate": 0.875,
+          "numerator": 19,
+          "denominator": 19,
+          "rate": 1.0,
           "available": true
         },
         "author_match_precision": {
@@ -2096,7 +2976,7 @@
         },
         "actual_download_coverage": {
           "numerator": 0,
-          "denominator": 8,
+          "denominator": 19,
           "rate": null,
           "available": false
         }
@@ -2117,6 +2997,12 @@
       "truth_positives": 45,
       "metrics": {
         "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
           "numerator": 1,
           "denominator": 1,
           "rate": 1.0,
@@ -2168,6 +3054,12 @@
           "rate": 1.0,
           "available": true
         },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
         "verified_paper_recall": {
           "numerator": 13,
           "denominator": 14,
@@ -2209,6 +3101,12 @@
       "truth_positives": 18,
       "metrics": {
         "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
           "numerator": 1,
           "denominator": 1,
           "rate": 1.0,
@@ -2260,6 +3158,12 @@
           "rate": 1.0,
           "available": true
         },
+        "identity_precision": {
+          "numerator": 0,
+          "denominator": 1,
+          "rate": 0.0,
+          "available": true
+        },
         "verified_paper_recall": {
           "numerator": 0,
           "denominator": 2,
@@ -2301,6 +3205,12 @@
       "truth_positives": 7,
       "metrics": {
         "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
           "numerator": 1,
           "denominator": 1,
           "rate": 1.0,
@@ -2352,6 +3262,12 @@
           "rate": 1.0,
           "available": true
         },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
         "verified_paper_recall": {
           "numerator": 2,
           "denominator": 3,
@@ -2393,6 +3309,12 @@
       "truth_positives": 9,
       "metrics": {
         "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
           "numerator": 1,
           "denominator": 1,
           "rate": 1.0,

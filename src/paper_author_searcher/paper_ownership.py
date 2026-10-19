@@ -86,8 +86,16 @@ class PaperOwnershipValidator:
                 break
         return reasons
 
+    def _non_publication_reasons(self, record):
+        if record.paper_type in self.config.non_publication_types:
+            return ['Not a research publication: ' + record.paper_type]
+        return []
+
+    def _verification_blockers(self, record):
+        return self._non_publication_reasons(record) + self._nonstandard_reasons(record)
+
     def _coauthor_blockers(self, record):
-        reasons = self._nonstandard_reasons(record)
+        reasons = self._verification_blockers(record)
         count = max(len(record.authors), len(record.author_details))
         if count > self.config.maximum_coauthor_authors:
             reasons.append(f'Large author list ({count}); coauthor overlap cannot verify ownership')
@@ -164,6 +172,13 @@ class PaperOwnershipValidator:
                 ]
             if observed_orcids:
                 evidence.append('Author-profile ORCID differs from the identity ORCID; not paper-level evidence')
+        not_publication = self._non_publication_reasons(record)
+        if not_publication:
+            return OwnershipStatus.NEEDS_REVIEW, [
+                *evidence,
+                *not_publication,
+                'Excluded from verified output; metadata was retained',
+            ]
         nonstandard = self._nonstandard_reasons(record)
         evidence.extend(self._coauthor_blockers(record))
         if nonstandard:
@@ -328,7 +343,7 @@ class PaperOwnershipValidator:
             return
         eligible = []
         for record in paper.records:
-            if record.ownership_status == OwnershipStatus.REJECTED or self._nonstandard_reasons(record):
+            if record.ownership_status == OwnershipStatus.REJECTED or self._verification_blockers(record):
                 continue
             if not self._identity_eligible(record, profile):
                 continue

@@ -40,10 +40,10 @@ class ReleaseGate:
         self.settings = settings
 
     def evaluate(self, aggregates: dict[tuple[str, str], dict]) -> GateResult:
-        aggregation = self.settings.aggregation.value
         checks = []
         for (dimension, value), stratum in sorted(aggregates.items()):
             for rule in self.settings.gate_rules:
+                aggregation = self.settings.rule_aggregation(rule).value
                 metric = stratum['metrics'][rule.metric]
                 observed = metric[aggregation]
                 enough_people = metric['people_with_rate'] >= self.settings.minimum_people_per_stratum
@@ -81,7 +81,7 @@ class ReleaseGate:
             status = GateStatus.PASSED
         provisional = sum(stratum['provisional_people'] for key, stratum in aggregates.items() if key[0] == 'overall')
         if provisional and self.settings.require_human_review:
-            reasons.append(f'{provisional} people are scored against provisional (not human-reviewed) truth')
+            reasons.append(f'{provisional} people are scored against truth that is not human-reviewed')
             if status is GateStatus.PASSED:
                 status = GateStatus.NOT_CERTIFIABLE
         return GateResult(status, checks, reasons)

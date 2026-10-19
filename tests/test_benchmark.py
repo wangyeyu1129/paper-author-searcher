@@ -6,16 +6,18 @@ import json
 import tempfile
 import unittest
 from contextlib import redirect_stdout
+from dataclasses import replace
 from pathlib import Path
 
 from paper_author_searcher.benchmark.cli import main as benchmark_main
 from paper_author_searcher.benchmark.cli import score_run
 from paper_author_searcher.benchmark.gate import GateStatus, ReleaseGate
+from paper_author_searcher.benchmark.metrics import benchmark_metrics
 from paper_author_searcher.benchmark.review import export_review, import_review
 from paper_author_searcher.benchmark.roster import Roster
 from paper_author_searcher.benchmark.runner import BenchmarkRunner, WorkflowSearchSystem, window_archive
 from paper_author_searcher.benchmark.scoring import PersonScorer, aggregate, truth_paths
-from paper_author_searcher.benchmark.settings import BenchmarkSettings, RunSettings
+from paper_author_searcher.benchmark.settings import Aggregation, BenchmarkSettings, GateRule, RunSettings
 from paper_author_searcher.benchmark.snapshots import ARXIV_SNAPSHOT, CROSSREF_SNAPSHOT
 from paper_author_searcher.benchmark.truth_builder import TruthBuilder
 from paper_author_searcher.benchmark.truth_sources import (
@@ -46,9 +48,11 @@ def config(minimum_people=1, require_review=True, rules=None):
             'included': ['journal_article', 'conference_paper', 'preprint'],
             'excluded': ['poster', 'thesis'],
             'unknown_included': True,
+            'non_publication_output': ['dataset'],
         },
         'reported_metrics': [
             'identity_resolution_rate',
+            'identity_precision',
             'verified_paper_recall',
             'paper_discovery_recall',
             'author_match_precision',
@@ -139,6 +143,28 @@ class SettingsAndRosterTests(unittest.TestCase):
     def test_threshold_must_be_a_rate(self):
         with self.assertRaises(ValueError):
             BenchmarkSettings.from_dict(config(rules=[{'metric': 'verified_paper_recall', 'minimum': 80}]), Path('.'))
+
+    def test_rule_aggregation_and_truth_floor_come_from_config(self):
+        data = config(rules=[{'metric': 'verified_paper_recall', 'minimum': 0.8, 'aggregation': 'micro'}])
+        data['gate']['minimum_truth_positives'] = {'verified_paper_recall': 3}
+        settings = BenchmarkSettings.from_dict(data, Path('.'))
+        self.assertEqual(settings.rule_aggregation(settings.gate_rules[0]).value, 'micro')
+        self.assertEqual(settings.minimum_truth_positives, {'verified_paper_recall': 3})
+
+    def test_identity_share_comes_from_config_and_is_a_rate(self):
+        data = config()
+        data['identity'] = {'minimum_truth_share': 0.5}
+        settings = BenchmarkSettings.from_dict(data, Path('.'))
+        self.assertEqual(benchmark_metrics(settings)['identity_precision'].minimum_truth_share, 0.5)
+        data['identity'] = {'minimum_truth_share': 0}
+        with self.assertRaises(ValueError):
+            benchmark_metrics(BenchmarkSettings.from_dict(data, Path('.')))
+
+    def test_truth_floor_must_name_reported_metrics(self):
+        data = config()
+        data['gate']['minimum_truth_positives'] = {'f1_unknown': 3}
+        with self.assertRaises(ValueError):
+            BenchmarkSettings.from_dict(data, Path('.'))
 
     def test_roster_rejects_unknown_stratum_and_duplicates(self):
         workspace = Workspace([person('a_one'), person('a_one')], {})
@@ -408,6 +434,20 @@ class ReviewTests(unittest.TestCase):
         self.assertEqual(reviewed['metadata']['annotation_state'], 'human_reviewed')
         self.assertTrue(reviewed['complete_positive_list'])
 
+    def test_assistant_decisions_prefill_a_human_check(self):
+        self.decide({'Kept Study': 'belongs', 'Rejected Study': 'not_belongs'})
+        assistant = import_review(self.truth, self.sheet, 'Assistant', False, review_state='assistant_reviewed')
+        export_review(assistant, self.sheet)
+        with self.sheet.open(encoding='utf-8-sig', newline='') as handle:
+            self.assertEqual({row['decision'] for row in csv.DictReader(handle)}, {''})
+        export_review(assistant, self.sheet, prefill=('human_reviewed', 'assistant_reviewed'))
+        with self.sheet.open(encoding='utf-8-sig', newline='') as handle:
+            decisions = {row['title']: row['decision'] for row in csv.DictReader(handle)}
+        self.assertEqual(decisions, {'Kept Study': 'belongs', 'Rejected Study': 'not_belongs'})
+        checked = import_review(assistant, self.sheet, 'Reviewer A', False, reviewed_at='2026-02-01')
+        self.assertEqual(checked['metadata']['annotation_state'], 'human_reviewed')
+        self.assertEqual({entry['annotation_status'] for entry in checked['papers']}, {'human_reviewed'})
+
     def test_pending_rows_are_refused_unless_partial_progress_is_requested(self):
         self.decide({'Kept Study': 'belongs'})
         with self.assertRaises(ValueError):
@@ -445,10 +485,18 @@ class ReviewTests(unittest.TestCase):
                         'authors': ['Alex Morgan'],
                         'ownership_status': 'verified',
                     },
+                    {
+                        'title': 'replication_data.tab',
+                        'year': 2024,
+                        'doi': '10.7910/dvn/x',
+                        'authors': ['Alex Morgan'],
+                        'ownership_status': 'verified',
+                        'paper_type': 'dataset',
+                    },
                 ]
             }
         }
-        leads = system_suggestions(collection, self.truth, (2020, 2025), 'run1', 10)
+        leads = system_suggestions(collection, self.truth, (2020, 2025), 'run1', 10, excluded_types=('dataset',))
         self.assertEqual([lead['title'] for lead in leads], ['Unlisted Study'])
         export_review(self.truth, self.sheet, leads)
         with self.sheet.open(encoding='utf-8-sig', newline='') as handle:
@@ -713,8 +761,6 @@ class RunScoreGateTests(unittest.TestCase):
 
     def test_too_few_people_fails_the_stratum(self):
         settings = self.workspace.settings
-        from dataclasses import replace
-
         strict = replace(settings, minimum_people_per_stratum=2)
         scores = [
             PersonScorer(strict).score(person, settings.paths.runs / 'none', None)
@@ -723,6 +769,29 @@ class RunScoreGateTests(unittest.TestCase):
         result = ReleaseGate(strict).evaluate(aggregate(scores, strict))
         reasons = {check['reason'] for check in result.checks if not check['passed']}
         self.assertTrue(any(reason.startswith('only 1 people') for reason in reasons))
+
+    def test_rule_aggregation_overrides_the_gate_default(self):
+        self.run_benchmark()
+        settings = self.workspace.settings
+        micro = replace(settings, gate_rules=(GateRule('verified_paper_recall', 0.5, aggregation=Aggregation.MICRO),))
+        scores = score_run(micro, self.workspace.roster, 'run1', [])
+        overall = next(check for check in scores['gate']['checks'] if check['stratum'] == 'overall=all')
+        stratum = next(entry for entry in scores['strata'] if entry['stratum'] == 'overall=all')
+        self.assertEqual(overall['aggregation'], 'micro')
+        self.assertEqual(overall['observed'], stratum['metrics']['verified_paper_recall']['micro'])
+
+    def test_people_below_the_truth_floor_are_left_out_of_that_metric(self):
+        self.run_benchmark()
+        strict = replace(self.workspace.settings, minimum_truth_positives={'verified_paper_recall': 5})
+        scores = score_run(strict, self.workspace.roster, 'run1', [])
+        overall = next(entry for entry in scores['strata'] if entry['stratum'] == 'overall=all')
+        recall = overall['metrics']['verified_paper_recall']
+        self.assertEqual((recall['people_with_rate'], recall['below_truth_minimum']), (0, 2))
+        self.assertEqual(overall['metrics']['author_match_precision']['below_truth_minimum'], 0)
+        failed = {
+            check['reason'] for check in scores['gate']['failed_checks'] if check['metric'] == 'verified_paper_recall'
+        }
+        self.assertEqual(failed, {'metric unavailable'})
 
     def test_identity_resolution_rate_counts_only_confirmed_identities(self):
         system = FakeSystem(self.system.found, {'junior_poor': 'ambiguous_contenders'})
@@ -733,12 +802,43 @@ class RunScoreGateTests(unittest.TestCase):
         overall = next(entry for entry in scored['strata'] if entry['stratum'] == 'overall=all')
         self.assertEqual(overall['metrics']['identity_resolution_rate']['macro'], 0.5)
 
+    def test_identity_precision_flags_a_resolved_namesake(self):
+        namesake = [found('Unrelated Study', '10.1005/unrelated'), found('Other Study', '10.1005/other')]
+        system = FakeSystem(
+            {'senior_good': self.system.found['senior_good'], 'junior_poor': namesake},
+        )
+        self.run_benchmark(system)
+        scored = score_run(self.workspace.settings, self.workspace.roster, 'run1', [])
+        rates = {entry['person_id']: entry['metrics']['identity_precision']['rate'] for entry in scored['people']}
+        self.assertEqual(rates, {'senior_good': 1.0, 'junior_poor': 0.0})
+
+    def test_identity_precision_has_no_rate_for_unresolved_people(self):
+        system = FakeSystem(self.system.found, {'junior_poor': 'ambiguous_contenders'})
+        self.run_benchmark(system)
+        scored = score_run(self.workspace.settings, self.workspace.roster, 'run1', ['junior_poor'])
+        metric = scored['people'][0]['metrics']['identity_precision']
+        self.assertEqual((metric['denominator'], metric['rate']), (0, None))
+
     def test_verified_papers_outside_the_window_are_not_false_positives(self):
         old = dict(found('Old Unlisted Study', '10.1005/old'), year=2012)
         system = FakeSystem({pid: self.system.found['senior_good'] + [old] for pid in ('senior_good', 'junior_poor')})
         self.run_benchmark(system)
         scored = score_run(self.workspace.settings, self.workspace.roster, 'run1', ['senior_good'])
         self.assertEqual(scored['people'][0]['metrics']['author_match_precision']['rate'], 1.0)
+
+    def test_non_publication_output_is_neither_a_hit_nor_a_false_positive(self):
+        files = [
+            dict(found(f'replication_{index}.tab', f'10.7910/dvn/{index}'), paper_type='dataset') for index in range(3)
+        ]
+        system = FakeSystem({pid: self.system.found['senior_good'] + files for pid in ('senior_good', 'junior_poor')})
+        self.run_benchmark(system)
+        scored = score_run(self.workspace.settings, self.workspace.roster, 'run1', ['senior_good'])
+        self.assertEqual(scored['people'][0]['metrics']['author_match_precision']['rate'], 1.0)
+        unscoped = replace(
+            self.workspace.settings, type_policy=replace(self.workspace.settings.type_policy, non_publication_output=())
+        )
+        unscoped_scores = score_run(unscoped, self.workspace.roster, 'run1', ['senior_good'])
+        self.assertLess(unscoped_scores['people'][0]['metrics']['author_match_precision']['rate'], 1.0)
 
     def test_cli_score_writes_reports_and_enforces_gate(self):
         self.run_benchmark()

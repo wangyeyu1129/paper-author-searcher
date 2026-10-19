@@ -191,7 +191,9 @@ def review_reasons(paper: JSONObject, config: OwnershipConfig = DEFAULT_OWNERSHI
             reasons.add('incomplete_author_list')
         if max(len(details), len(record.get('authors') or [])) > config.maximum_coauthor_authors:
             reasons.add('large_author_list')
-        if record.get('paper_type') in config.nonstandard_types or 'Nonstandard' in evidence:
+        if record.get('paper_type') in config.non_publication_types:
+            reasons.add('not_a_research_publication')
+        elif record.get('paper_type') in config.nonstandard_types or 'Nonstandard' in evidence:
             reasons.add('nonstandard_or_conflicting_publication_type')
         if 'ORCID conflict' in evidence or 'conflicts with confirmed professor ORCID' in evidence:
             reasons.add('author_identity_conflict')

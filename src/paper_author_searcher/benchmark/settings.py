@@ -17,22 +17,38 @@ class Aggregation(str, Enum):
 
 @dataclass(frozen=True)
 class GateRule:
-    """A release condition: every stratum's aggregated metric must reach ``minimum``."""
+    """A release condition: every stratum's aggregated metric must reach ``minimum``.
+
+    ``aggregation`` overrides the gate's default, so one metric can be required both per person (macro) and
+    pooled over publications (micro).
+    """
 
     metric: str
     minimum: float
     label: str = ''
+    aggregation: Aggregation | None = None
 
     def __post_init__(self) -> None:
         if not 0 <= self.minimum <= 1:
             raise ValueError('Gate minimum must be a rate between 0 and 1')
 
+    @classmethod
+    def from_dict(cls, data: Mapping[str, Any]) -> 'GateRule':
+        values = dict(data)
+        if values.get('aggregation') is not None:
+            values['aggregation'] = Aggregation(values['aggregation'])
+        return cls(**values)
+
 
 @dataclass(frozen=True)
 class TypePolicy:
+    """Which publications count. ``included``/``excluded`` use the truth vocabulary; ``non_publication_output``
+    lists system ``paper_type`` values that are not publications, so such output is never judged."""
+
     included: tuple[str, ...]
     excluded: tuple[str, ...]
     unknown_included: bool = True
+    non_publication_output: tuple[str, ...] = ()
 
     def includes(self, work_type: str | None) -> bool:
         if work_type in self.included:
@@ -95,6 +111,13 @@ class CalibrationSettings:
 
 
 @dataclass(frozen=True)
+class IdentitySettings:
+    """identity_precision: a resolved identity is right when it holds this share of the person's truth."""
+
+    minimum_truth_share: float = 0.2
+
+
+@dataclass(frozen=True)
 class BenchmarkPaths:
     roster: Path
     snapshots: Path
@@ -115,6 +138,9 @@ class BenchmarkSettings:
     type_policy: TypePolicy
     aggregation: Aggregation = Aggregation.MACRO
     minimum_people_per_stratum: int = 2
+    # Per metric: people with fewer truth publications are left out of that metric's stratum aggregate, because
+    # one publication would swing a macro average by tens of points.
+    minimum_truth_positives: Mapping[str, int] = field(default_factory=dict)
     require_human_review: bool = True
     provisional_closed_world: bool = True
     version_grouping_year_tolerance: int = 2
@@ -122,6 +148,7 @@ class BenchmarkSettings:
     run: RunSettings = field(default_factory=RunSettings)
     sources: SourceSettings = field(default_factory=SourceSettings)
     calibration: CalibrationSettings = field(default_factory=CalibrationSettings)
+    identity: IdentitySettings = field(default_factory=IdentitySettings)
 
     def __post_init__(self) -> None:
         if self.year_start > self.year_end:
@@ -133,6 +160,14 @@ class BenchmarkSettings:
         unknown = {rule.metric for rule in self.gate_rules} - set(self.reported_metrics)
         if unknown:
             raise ValueError(f'Gate metrics must also be reported: {sorted(unknown)}')
+        unknown = set(self.minimum_truth_positives) - set(self.reported_metrics)
+        if unknown:
+            raise ValueError(f'minimum_truth_positives names unreported metrics: {sorted(unknown)}')
+        if any(value < 0 for value in self.minimum_truth_positives.values()):
+            raise ValueError('minimum_truth_positives values must be nonnegative')
+
+    def rule_aggregation(self, rule: GateRule) -> Aggregation:
+        return rule.aggregation or self.aggregation
 
     @classmethod
     def load(cls, path: Path) -> 'BenchmarkSettings':
@@ -153,14 +188,20 @@ class BenchmarkSettings:
             year_start=int(window['start']),
             year_end=int(window['end']),
             dimensions={key: tuple(values) for key, values in data['dimensions'].items()},
-            gate_rules=tuple(GateRule(**rule) for rule in data['gate']['rules']),
+            gate_rules=tuple(GateRule.from_dict(rule) for rule in data['gate']['rules']),
             reported_metrics=tuple(data['reported_metrics']),
             paths=BenchmarkPaths(**paths),
             type_policy=TypePolicy(
-                tuple(policy['included']), tuple(policy['excluded']), bool(policy.get('unknown_included', True))
+                tuple(policy['included']),
+                tuple(policy['excluded']),
+                bool(policy.get('unknown_included', True)),
+                tuple(policy.get('non_publication_output') or ()),
             ),
             aggregation=Aggregation(data['gate'].get('aggregation', Aggregation.MACRO.value)),
             minimum_people_per_stratum=int(data['gate'].get('minimum_people_per_stratum', 2)),
+            minimum_truth_positives={
+                metric: int(value) for metric, value in (data['gate'].get('minimum_truth_positives') or {}).items()
+            },
             require_human_review=bool(data['gate'].get('require_human_review', True)),
             provisional_closed_world=bool(data.get('provisional_closed_world', True)),
             version_grouping_year_tolerance=int(data.get('version_grouping_year_tolerance', 2)),
@@ -168,6 +209,7 @@ class BenchmarkSettings:
             run=_run_settings(data.get('run') or {}, base),
             sources=SourceSettings(**(data.get('sources') or {})),
             calibration=_calibration(data.get('calibration') or {}),
+            identity=IdentitySettings(**(data.get('identity') or {})),
         )
 
 

@@ -39,22 +39,27 @@ paper-benchmark score --run-id 2026-10-18 --enforce-gate
 | `year_window` | 默认时间窗；roster 中个人可用 `year_start`/`year_end` 覆盖 |
 | `dimensions` | 分层维度及允许值；每人必须在每个维度有一个值 |
 | `publication_types` | 计入真值的出版类型；未知类型是否计入 |
+| `publication_types.non_publication_output` | 系统输出中不是出版物的 `paper_type`（数据集、书评、学位论文、会议摘要），评分时既不算命中也不算误检 |
 | `reported_metrics` | 报告的指标，取自现有 `PerformanceEvaluator` 的指标名 |
-| `gate.rules` | 门槛：指标 + 最小值（0–1） |
+| `gate.rules` | 门槛：指标 + 最小值（0–1）；可选 `aggregation`（`macro`/`micro`）覆盖默认口径，同一指标可以同时要求两种口径 |
+| `gate.minimum_truth_positives` | 按指标设置每人至少多少篇真值；不够的人不进入该指标的分层汇总（报告里会列出），避免一两篇论文让宏平均大幅波动 |
 | `gate.aggregation` | `macro`（每人等权平均，默认）或 `micro`（汇总分子分母） |
 | `gate.minimum_people_per_stratum` | 每个分层至少有多少人有可计算的值，否则该层判失败 |
 | `gate.require_human_review` | 有人未经人工审核时，达标也只给 `not_certifiable` |
 | `provisional_closed_world` | 未审核时把来源并集当完整列表计算精度（是精度下界） |
 | `version_grouping_year_tolerance` / `metadata_year_tolerance` | 版本归并、元数据匹配允许的年份差 |
+| `identity.minimum_truth_share` | `identity_precision` 判定"认对了人"所需的真值覆盖比例 |
 | `run` | 传给检索流程的参数（与 `paper-search` 同名） |
 | `sources` | ORCID / Crossref / arXiv 地址、批量大小、请求间隔 |
 
-当前门槛：每个分层 `verified_paper_recall ≥ 0.80`，`author_match_precision ≥ 0.95`，宏平均，每层至少 2 人。全文获取率（`actual_download_coverage`）只报告，不设门槛。
+当前门槛：每个分层 `identity_precision = 1.00`（不能认错人），`verified_paper_recall ≥ 0.80`、`author_match_precision ≥ 0.95`，宏平均（每人等权）和汇总口径（按论文汇总）都要达到；召回类指标只统计真值至少 3 篇的人；每层至少 2 人。全文获取率（`actual_download_coverage`）只报告，不设门槛。
 
 ## 指标口径
 
 指标由现有 `PerformanceEvaluator` 计算，基准层只做逐人调用和分层聚合：
 
+- `identity_resolution_rate`：系统自己确认了身份的人所占比例。
+- `identity_precision`：在系统确认了身份的人里，确认对了的比例。选中的身份所收集的论文至少覆盖本人真值的 `identity.minimum_truth_share`（默认 20%）才算对。认成同名者比不确认更糟，所以门槛要求每个分层都是 100%。
 - `verified_paper_recall`：真值论文中被系统判为 verified 的比例。**门槛用的召回率。**
 - `paper_discovery_recall`：真值论文中被系统检索到的比例（无论归属状态），用于区分"没搜到"和"搜到了但不敢确认"。
 - `author_match_precision`：系统 verified 的论文里确实属于本人的比例。需要真值标注 `not_belongs`，或审核者确认 `complete_positive_list`。
@@ -78,6 +83,7 @@ paper-benchmark score --run-id 2026-10-18 --enforce-gate
 - 审核者发现来源漏掉的论文，可新增一行：`evaluation_id` 留空，填 `decision=belongs`、`title`、`year`、`authors`（`; ` 分隔）、可选 `dois` / `external_ids`、`reviewer_note`。
 - 只有全部条目都有决定，才会写成正式真值 `truth/<id>.json`；`--allow-pending` 只保存进度。
 - `--complete-positive-list` 只在审核者确认窗口内论文已列全时使用，它使未在真值中的 verified 输出成为可计算的误检。
+- 复核 AI 审核：`review-export --prefill-from assistant_reviewed` 会把 AI 的决定预先填好，人工只需修改不同意的行，再用默认的 `--review-state human_reviewed` 导入。导入后整份真值记为人工审核，所以每一行都要真正看过。
 
 ## 门槛结果与退出码
 

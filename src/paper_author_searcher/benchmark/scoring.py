@@ -1,33 +1,22 @@
 """Score each person with the existing evaluator, then aggregate by stratum."""
 
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping, Sequence
 from copy import deepcopy
 from dataclasses import dataclass, field
+from functools import cache
 from pathlib import Path
-from typing import Any
+from typing import Any, Protocol
 
 from paper_author_searcher.evaluation_matching import GroundTruth, GroundTruthMatcher
 from paper_author_searcher.jsonio import read_json
 from paper_author_searcher.performance_evaluation import PerformanceEvaluator
 from paper_author_searcher.status import AnnotationState, TruthState
 
+from .metrics import BenchmarkMetric, MetricInput, benchmark_metrics
 from .roster import BenchmarkPerson
 from .settings import Aggregation, BenchmarkSettings
 
 OVERALL = ('overall', 'all')
-RESOLVED_CONFIRMATIONS = frozenset({'resolver_resolved', 'manual_author_id'})
-
-
-def identity_resolution(collection: dict | None) -> dict:
-    """1/1 when the system committed to an identity it confirmed itself; 0/1 when it stopped or only collected
-    competing profiles. Measured per person, so the stratum macro is the share of people resolved."""
-    inner = (collection or {}).get('collection') or {}
-    resolved = inner.get('identity_confirmation') in RESOLVED_CONFIRMATIONS
-    return {'numerator': int(resolved), 'denominator': 1, 'rate': float(resolved), 'available': True}
-
-
-# Metrics the benchmark computes itself rather than reading from PerformanceEvaluator.
-BENCHMARK_METRICS = {'identity_resolution_rate': identity_resolution}
 EMPTY_COLLECTION: dict[str, Any] = {'collection': {'all_papers': [], 'sources': []}}
 
 
@@ -43,12 +32,41 @@ def load_truth(settings: BenchmarkSettings, person_id: str) -> dict | None:
     return None
 
 
-def scope_to_window(collection: dict, truth: dict, window: tuple[int, int]) -> dict:
+class OutputScope(Protocol):
+    """Decides whether one system output entry is judged at all. ``matched`` lazily reports a truth match."""
+
+    def keep(self, paper: dict, matched: Callable[[], bool]) -> bool: ...
+
+
+@dataclass(frozen=True)
+class WindowScope:
     """Judge only output inside the truth window; outside it, keep entries that match a truth publication.
 
     Without this, a closed-world score would count every verified paper from other years as a false positive.
     """
-    start, end = window
+
+    start: int
+    end: int
+
+    def keep(self, paper: dict, matched: Callable[[], bool]) -> bool:
+        records = paper.get('records') or [paper]
+        if any(record.get('year') is not None and self.start <= record['year'] <= self.end for record in records):
+            return True
+        return matched()
+
+
+@dataclass(frozen=True)
+class PublicationScope:
+    """Output that is not a publication (a dataset file, a book review) is neither a hit nor a false positive."""
+
+    non_publication_types: frozenset[str]
+
+    def keep(self, paper: dict, matched: Callable[[], bool]) -> bool:
+        return paper.get('paper_type') not in self.non_publication_types
+
+
+def scope_collection(collection: dict, truth: dict, scopes: Sequence[OutputScope]) -> dict:
+    """Keep the output entries every scope accepts."""
     matcher = GroundTruthMatcher(GroundTruth.from_dict(truth))
     # Copy only the two containers that are reassigned; paper dicts are shared (scoring never mutates them).
     scoped = dict(collection)
@@ -59,13 +77,27 @@ def scope_to_window(collection: dict, truth: dict, window: tuple[int, int]) -> d
 
     def keep(paper: dict) -> bool:
         records = paper.get('records') or [paper]
-        if any(record.get('year') is not None and start <= record['year'] <= end for record in records):
-            return True
-        return any(matcher.match(record).decision != 'unmatched' for record in records)
+
+        @cache
+        def matched() -> bool:
+            return any(matcher.match(record).decision != 'unmatched' for record in records)
+
+        return all(scope.keep(paper, matched) for scope in scopes)
 
     inner['all_papers'] = [paper for paper in papers if keep(paper)]
     inner['papers'] = inner['all_papers']
     return scoped
+
+
+def scope_to_window(collection: dict, truth: dict, window: tuple[int, int]) -> dict:
+    return scope_collection(collection, truth, [WindowScope(*window)])
+
+
+def output_scopes(settings: BenchmarkSettings, window: tuple[int, int]) -> list[OutputScope]:
+    scopes: list[OutputScope] = [WindowScope(*window)]
+    if settings.type_policy.non_publication_output:
+        scopes.append(PublicationScope(frozenset(settings.type_policy.non_publication_output)))
+    return scopes
 
 
 def truth_state(truth: dict) -> str:
@@ -112,9 +144,15 @@ class PersonScore:
 
 
 class PersonScorer:
-    def __init__(self, settings: BenchmarkSettings, evaluator: PerformanceEvaluator | None = None) -> None:
+    def __init__(
+        self,
+        settings: BenchmarkSettings,
+        evaluator: PerformanceEvaluator | None = None,
+        metrics: Mapping[str, BenchmarkMetric] | None = None,
+    ) -> None:
         self.settings = settings
         self.evaluator = evaluator or PerformanceEvaluator()
+        self.metrics = benchmark_metrics(settings) if metrics is None else metrics
 
     def score(self, person: BenchmarkPerson, run_root: Path, index_entry: dict | None) -> PersonScore:
         truth = load_truth(self.settings, person.person_id)
@@ -156,14 +194,18 @@ class PersonScorer:
         if collection is EMPTY_COLLECTION:
             notes.append('Run produced no paper collection; every truth publication counts as missed')
         else:
-            collection = scope_to_window(collection, scoring, person.window(self.settings))
+            collection = scope_collection(
+                collection, scoring, output_scopes(self.settings, person.window(self.settings))
+            )
         result = self.evaluator.evaluate(
             collection, scoring, pdf_report, manifest, manifest_path, reference_only=not formal
         )
+        positives = result['ownership_evaluation']['ground_truth']['positive_publications']
+        produced = MetricInput(None if collection is EMPTY_COLLECTION else collection, result, positives)
         metrics = {}
         for name in self.settings.reported_metrics:
-            if name in BENCHMARK_METRICS:
-                metrics[name] = BENCHMARK_METRICS[name](None if collection is EMPTY_COLLECTION else collection)
+            if name in self.metrics:
+                metrics[name] = self.metrics[name].compute(produced)
                 continue
             if name not in result['metrics']:
                 raise ValueError('Unknown reported metric: ' + name)
@@ -174,7 +216,6 @@ class PersonScorer:
                 'rate': metric['rate'],
                 'available': metric['available'],
             }
-        positives = result['ownership_evaluation']['ground_truth']['positive_publications']
         return PersonScore(person.person_id, person.strata, state, _status(index_entry), metrics, positives, notes)
 
 
@@ -195,7 +236,9 @@ def aggregate(scores: list[PersonScore], settings: BenchmarkSettings) -> dict[tu
     for key, members in strata.items():
         metrics = {}
         for name in settings.reported_metrics:
-            available = [member.metrics[name] for member in members if member.metrics[name]['available']]
+            floor = settings.minimum_truth_positives.get(name, 0)
+            eligible = [member for member in members if member.positives >= floor]
+            available = [member.metrics[name] for member in eligible if member.metrics[name]['available']]
             rates = [value['rate'] for value in available if value['rate'] is not None]
             numerator = sum(value['numerator'] for value in available)
             denominator = sum(value['denominator'] for value in available)
@@ -206,6 +249,7 @@ def aggregate(scores: list[PersonScore], settings: BenchmarkSettings) -> dict[tu
                 'minimum': min(rates) if rates else None,
                 'numerator': numerator,
                 'denominator': denominator,
+                'below_truth_minimum': len(members) - len(eligible),
             }
         result[key] = {
             'people': len(members),
