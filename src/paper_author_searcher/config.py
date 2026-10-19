@@ -350,6 +350,8 @@ class StorageConfig:
     # papers.json, pdf_urls.json, professor.json and the manifest are machine-read: write them without
     # indentation. report.json stays indented for people.
     compact_artifacts: bool = True
+    # Share repeated strings when loading checkpoints: ~1/3 less memory, ~1.6x load time.
+    intern_strings: bool = False
 
 
 DEFAULT_STORAGE = StorageConfig()

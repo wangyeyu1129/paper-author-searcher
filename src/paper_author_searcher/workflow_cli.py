@@ -163,9 +163,10 @@ def _show_candidates(report, verbose=False):
 def run_arguments(parser, args):
     _validate(parser, args)
     try:
-        saved = load_checkpoint(args.input) if args.input else None
+        settings = load_settings(args)
+        saved = load_checkpoint(args.input, settings.storage.intern_strings) if args.input else None
         query = None if saved is not None else query_from_args(args)
-        workflow = build_workflow(args)
+        workflow = build_workflow(args, settings)
         report = workflow.run(
             query=query,
             saved=saved,

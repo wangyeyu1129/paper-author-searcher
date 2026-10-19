@@ -153,3 +153,18 @@ class CompositionTests(unittest.TestCase):
         self.assertEqual(pdf['semantic_scholar'].api_key, 'semantic-key')
         self.assertEqual(pdf['unpaywall'].email, 'unpaywall@example.org')
         self.assertEqual(pdf['crossref'].email, 'crossref@example.org')
+
+
+class InterningTests(unittest.TestCase):
+    def test_interned_load_equals_plain_load_and_shares_strings(self):
+        from paper_author_searcher.jsonio import read_json
+
+        document = {'papers': [{'source': 'openalex', 'authors': ['Mei Lin', 'Alex Example']} for _ in range(3)]}
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'archive.json'
+            path.write_text(json.dumps(document), encoding='utf-8')
+            plain, interned = read_json(path), read_json(path, intern_strings=True)
+        self.assertEqual(plain, interned)
+        first, second = interned['papers'][0], interned['papers'][1]
+        self.assertIs(first['authors'][0], second['authors'][0])
+        self.assertIs(first['source'], second['source'])

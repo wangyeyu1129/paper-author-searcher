@@ -24,10 +24,10 @@ logger = logging.getLogger(__name__)
 MODES = ('metadata', 'pdf-urls', 'full')
 
 
-def load_checkpoint(path: Union[str, Path]) -> JSONObject:
+def load_checkpoint(path: Union[str, Path], intern_strings: bool = False) -> JSONObject:
     """Report references are local artifacts, never arbitrary paths or URLs."""
     path = Path(path).resolve()
-    data = read_json(path)
+    data = read_json(path, intern_strings)
     if data.get('report_type') != 'paper_search_workflow':
         return data
     loaded = {}
@@ -38,7 +38,7 @@ def load_checkpoint(path: Union[str, Path]) -> JSONObject:
         artifact = path.parent / filename
         if artifact.is_symlink() or artifact.resolve().parent != path.parent:
             raise ValueError('Report artifact must be a file in the report directory')
-        loaded[key] = read_json(artifact)
+        loaded[key] = read_json(artifact, intern_strings)
     if 'pdf_urls' in loaded:
         saved = loaded['pdf_urls']
         if 'papers' in loaded:
