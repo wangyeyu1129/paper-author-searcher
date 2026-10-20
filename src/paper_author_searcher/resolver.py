@@ -424,6 +424,8 @@ class ProfessorResolver:
             requested_name=query.name,
             identity_anchors=signals.anchors,
             orcid_conflict=signals.orcid_conflict,
+            requested_department=query.department,
+            listed_works=list(anchors.listed_works) if anchors is not None else [],
         )
         if profile.status != ResolutionStatus.RESOLVED and self.ranking.resolves(profile, signals.name):
             profile.status = ResolutionStatus.RESOLVED

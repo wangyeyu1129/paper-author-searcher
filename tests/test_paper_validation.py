@@ -115,6 +115,17 @@ class OwnershipTests(unittest.TestCase):
         merged_profile = OwnershipConfig(maximum_history_institutions=1)
         self.assertEqual(run(AnchorKind.ORCID, merged_profile).ownership_status, 'needs_review')
 
+    def test_papers_listed_on_the_persons_page_seed_recurring_coauthors(self):
+        listed = [record(title='Listed one', doi='10.example/one'), record(title='Listed two', doi='10.example/two')]
+        candidate = record(title='Candidate', doi='10.example/candidate')
+        target = replace(profile(), orcid=None, listed_works=['doi:10.example/one', 'doi:10.example/two'])
+        papers = deduplicate_papers([*listed, candidate])
+        PaperOwnershipValidator().validate(papers, target)
+        self.assertEqual(papers[-1].ownership_status, 'verified')
+        papers = deduplicate_papers([*listed, candidate])
+        PaperOwnershipValidator().validate(papers, replace(target, listed_works=[]))
+        self.assertEqual(papers[-1].ownership_status, 'needs_review')
+
     def test_target_names_are_unique_and_include_the_request(self):
         target = replace(profile(), name_aliases=['Alex Morgan', 'A. Morgan'], requested_name='Alex Morgan')
         self.assertEqual(target.target_names(), ['Alex Morgan', 'A. Morgan'])

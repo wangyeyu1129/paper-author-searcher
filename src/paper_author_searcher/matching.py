@@ -160,6 +160,17 @@ def arxiv_from_doi(value: str) -> str | None:
     return canonical_arxiv(doi[len(ARXIV_DOI_PREFIX) :]) if doi.startswith(ARXIV_DOI_PREFIX) else None
 
 
+def work_keys(dois: Iterable[str] = (), arxiv_ids: Iterable[str] = (), titles: Iterable[str] = ()) -> set[str]:
+    """Comparable keys for one work across sources and homepages: canonical DOI, arXiv ID, normalized title."""
+    keys = set()
+    for doi in dois:
+        arxiv = arxiv_from_doi(doi)
+        keys.add('arxiv:' + arxiv if arxiv else canonical_doi(doi))
+    keys.update('arxiv:' + identifier for identifier in filter(None, map(canonical_arxiv, arxiv_ids)))
+    keys.update('title:' + normalize(title) for title in titles if normalize(title))
+    return keys
+
+
 # Process-wide memo caches of the pure similarity functions (bounded LRU). A long-running service reports them
 # as metrics and may clear them, e.g. after changing matching configuration.
 SIMILARITY_CACHES = {

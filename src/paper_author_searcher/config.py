@@ -208,6 +208,73 @@ class OwnershipConfig:
 
 
 @dataclass(frozen=True)
+class PrecisionGuardConfig:
+    """Stricter ownership evidence where namesakes share institutions (Tsinghua has many Yang Lius).
+
+    Applies only to identities whose name is common (see ``common_surnames``) and only to author IDs not anchored
+    by an ``exempt_anchor_kinds`` anchor; every other identity keeps the ordinary rules.
+    """
+
+    enabled: bool = True
+    # A file in the package's data directory, or a path; one lowercase surname per line.
+    common_surnames: str = 'common_chinese_surnames.txt'
+    maximum_name_tokens: int = 3
+    exempt_anchor_kinds: tuple[str, ...] = ('orcid',)
+    # Department phrases are the comma-separated parts of a raw affiliation string that name a unit.
+    department_keywords: tuple[str, ...] = (
+        'department',
+        'dept',
+        'school',
+        'college',
+        'faculty',
+        'institute',
+        'laboratory',
+        'lab',
+        'center',
+        'centre',
+        'division',
+        'program',
+    )
+    department_stop_words: tuple[str, ...] = (
+        'department',
+        'dept',
+        'of',
+        'and',
+        'the',
+        'school',
+        'college',
+        'faculty',
+        'for',
+        'in',
+        'division',
+    )
+    # Two department phrases agree when one's words contain the other's, or their word Jaccard reaches this.
+    department_similarity: float = 0.6
+    # Units named on the person's own anchor papers join the requested department when they cover this share of
+    # those papers' unit mentions (at most maximum_home_departments of them).
+    home_department_share: float = 0.1
+    maximum_home_departments: int = 5
+    # A fragment is foreign when it has this much department evidence and too little of it is the person's.
+    # OpenAlex fragments are noisy (Yang Liu's own CS fragment names his department in only 16% of mentions).
+    fragment_minimum_evidence: int = 5
+    fragment_minimum_share: float = 0.1
+    # Coauthors whose name collides easily (common surname, given names of at most this many letters, e.g.
+    # "Hui Li", "Qi Liu") do not count as recurring coauthors.
+    exclude_common_coauthors: bool = True
+    collision_given_name_letters: int = 4
+
+    def __post_init__(self) -> None:
+        for name in ('department_similarity', 'home_department_share', 'fragment_minimum_share'):
+            if not 0 <= getattr(self, name) <= 1:
+                raise ValueError(f'{name} must be between 0 and 1')
+        if self.fragment_minimum_evidence < 1 or self.maximum_name_tokens < 1:
+            raise ValueError('fragment_minimum_evidence and maximum_name_tokens must be positive')
+
+
+DEFAULT_PRECISION = PrecisionGuardConfig()
+
+
+@dataclass(frozen=True)
 class DeduplicationConfig:
     author_similarity: float = 0.9
     minimum_shared_authors: int = 2

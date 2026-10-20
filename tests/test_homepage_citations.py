@@ -110,6 +110,12 @@ class FinderTests(unittest.TestCase):
         self.assertEqual(len(looked_up), DEFAULT_ANCHORS.maximum_anchor_papers)
         self.assertEqual(looked_up[0], '10.1000/student')
 
+    def test_listed_works_cover_the_persons_whole_list_beyond_the_budget(self):
+        found = ScholarlyAnchorFinder(Client(LAB_PAGE)).find(homepage_query())
+        self.assertEqual(found.listed_works, ['doi:10.1000/student'])  # a lab page: only the citations naming him
+        found = ScholarlyAnchorFinder(Client(TITLE_ONLY_PAGE)).find(homepage_query('Yi Cui'))
+        self.assertIn('title:stable lithium metal anodes with interfacial engineering', found.listed_works)
+
     def test_identifier_pages_spend_no_budget_on_titles(self):
         client = Client(LAB_PAGE)
         ScholarlyAnchorFinder(client).find(homepage_query())

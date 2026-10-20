@@ -299,7 +299,7 @@ class AdjudicationTests(unittest.TestCase):
 
 class AnchorEvidenceTests(unittest.TestCase):
     def test_legacy_text_dicts_and_instances_are_accepted(self):
-        expected = AnchorEvidence('semantic_scholar', 'B2', 'author of ARXIV:2501.00001')
+        expected = AnchorEvidence('semantic_scholar', 'B2', 'author of ARXIV:2501.00001', work='arxiv:2501.00001')
         self.assertEqual(AnchorEvidence.coerce('semantic_scholar B2: author of ARXIV:2501.00001'), expected)
         self.assertEqual(AnchorEvidence.coerce(dataclasses.asdict(expected)), expected)
         self.assertIs(AnchorEvidence.coerce(expected), expected)
@@ -310,6 +310,17 @@ class AnchorEvidenceTests(unittest.TestCase):
         self.assertEqual(AnchorEvidence.coerce('openalex A1: author of DOI 10.1/x').kind, 'paper')
         stored = {'source': 'openalex', 'author_id': 'A1', 'reason': 'custom', 'kind': 'orcid'}
         self.assertEqual(AnchorEvidence.coerce(stored).kind, 'orcid')
+
+    def test_anchor_work_is_recovered_from_old_reason_texts(self):
+        cases = {
+            'author of DOI 10.1000/XYZ': 'doi:10.1000/xyz',
+            'author of DOI:10.48550/arxiv.2401.01234': 'arxiv:2401.01234',
+            'author of arXiv 2401.01234': 'arxiv:2401.01234',
+            'author of title "Stable Anodes"': 'title:stable anodes',
+            'ORCID 0000-0001': '',
+        }
+        for reason, work in cases.items():
+            self.assertEqual(AnchorEvidence.coerce('openalex A1: ' + reason).work, work, reason)
 
     def test_malformed_legacy_text_is_rejected(self):
         with self.assertRaises(ValueError):

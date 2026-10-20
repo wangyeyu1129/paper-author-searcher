@@ -8,12 +8,24 @@ from .matching import canonical_orcid, institution_similarity, name_similarity, 
 from .models import AnchorEvidence
 from .paper_authorship import byline_forms, canonical_author_id, signature_names
 from .paper_deduplication import author_signatures_match, duplicate_evidence
+from .precision_guards import GuardContext, PrecisionGuard, record_work_keys
 from .status import OwnershipStatus
+
+FOREIGN_FRAGMENT = (
+    "Common-name guard: this author ID belongs to a fragment outside the person's department profile; "
+    'only paper-level evidence (a matching paper ORCID) can claim the paper'
+)
 
 
 class PaperOwnershipValidator:
-    def __init__(self, config=DEFAULT_OWNERSHIP):
+    """``validate`` prepares a per-identity precision-guard context for the duration of the call; one instance
+    validates one identity at a time."""
+
+    def __init__(self, config=DEFAULT_OWNERSHIP, guard: PrecisionGuard | None = None):
         self.config = config
+        # Optional stricter evidence for common names (precision_guards); without it every rule is the ordinary one.
+        self.guard = guard
+        self._guard: GuardContext = GuardContext()
 
     @staticmethod
     def _selected_ids(profile, source):
@@ -127,6 +139,8 @@ class PaperOwnershipValidator:
             # An ORCID-anchored author ID is the person throughout, so its earlier institutions count too; for any
             # other ID the affiliation union of merged fragments would admit namesakes' institutions.
             past = canonical_author_id(record.source, author.get('author_id')) in history_ids
+            if self._guard.foreign(record) or not self._guard.department_agrees(record, author):
+                continue
             for institution in author.get('institutions') or []:
                 observed = institution.get('display_name')
                 if not observed:
@@ -223,6 +237,8 @@ class PaperOwnershipValidator:
                 'Matching author-profile or unscoped ORCID is not independent paper authorship evidence '
                 '(scope: {})'.format(', '.join(scopes))
             )
+        if self._guard.foreign(record):
+            evidence.append(FOREIGN_FRAGMENT)
         institution = self._institution_agrees(record, details, profile)
         if details and institution:
             return OwnershipStatus.VERIFIED, [
@@ -238,6 +254,8 @@ class PaperOwnershipValidator:
 
     def _coauthor_eligible(self, record, profile):
         if not self._identity_eligible(record, profile):
+            return False
+        if self._guard.foreign(record) or self._guard.contradicted(record, self._target_details(record, profile)):
             return False
         if self._coauthor_blockers(record):
             return False
@@ -265,7 +283,7 @@ class PaperOwnershipValidator:
             if detail.get('role', 'author') != 'author':
                 excluded.update(normalize(name) for name in signature_names(detail))
         for author in record.authors:
-            if normalize(author) in excluded:
+            if normalize(author) in excluded or not self._guard.counts_as_coauthor(record, author):
                 continue
             is_target = any(
                 author_signatures_match(name, form) for name in profile.target_names() for form in byline_forms(author)
@@ -275,6 +293,13 @@ class PaperOwnershipValidator:
         return names
 
     def validate(self, papers, profile):
+        self._guard = self.guard.prepare(papers, profile) if self.guard else GuardContext()
+        try:
+            return self._validate(papers, profile)
+        finally:
+            self._guard = GuardContext()
+
+    def _validate(self, papers, profile):
         for paper in papers:
             for record in paper.records:
                 status, evidence = self._evaluate_record(record, profile)
@@ -300,21 +325,38 @@ class PaperOwnershipValidator:
             self._aggregate(paper)
         return papers
 
+    def _listed(self, record, profile, listed):
+        """The person's own publication page lists this work and the record's byline is theirs."""
+        return (
+            bool(record_work_keys(record) & listed)
+            and self._identity_eligible(record, profile)
+            and not self._coauthor_blockers(record)
+        )
+
     def _trusted_coauthors(self, papers, profile):
         counts: typing.Counter[str] = Counter()
         seed_titles = set()
+        listed = set(profile.listed_works)
         for paper in papers:
             statuses = {record.ownership_status for record in paper.records}
-            if OwnershipStatus.VERIFIED not in statuses or OwnershipStatus.REJECTED in statuses:
+            if OwnershipStatus.REJECTED in statuses:
+                continue
+            # Seeds: verified papers, plus every paper the person's own page lists (not only the anchored ones).
+            seeds = [
+                record
+                for record in paper.records
+                if (record.ownership_status == OwnershipStatus.VERIFIED and self._coauthor_eligible(record, profile))
+                or (listed and self._listed(record, profile, listed) and self._compatible_signature(record, profile))
+            ]
+            if not seeds:
                 continue
             title = normalize(paper.title)
             if title in seed_titles:
                 continue
             seed_titles.add(title)
             coauthors = set()
-            for record in paper.records:
-                if record.ownership_status == OwnershipStatus.VERIFIED and self._coauthor_eligible(record, profile):
-                    coauthors.update(self._coauthors(record, profile))
+            for record in seeds:
+                coauthors.update(self._coauthors(record, profile))
             counts.update(coauthors)
         return {name for name, count in counts.items() if count >= self.config.seed_papers_per_coauthor}
 
@@ -361,6 +403,8 @@ class PaperOwnershipValidator:
         eligible = []
         for record in paper.records:
             if record.ownership_status == OwnershipStatus.REJECTED or self._verification_blockers(record):
+                continue
+            if self._guard.foreign(record) or self._guard.contradicted(record, self._target_details(record, profile)):
                 continue
             if not self._identity_eligible(record, profile):
                 continue

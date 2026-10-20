@@ -30,6 +30,7 @@ from .config import (
     DEFAULT_MATCHING,
     DEFAULT_OWNERSHIP,
     DEFAULT_PDF,
+    DEFAULT_PRECISION,
     DEFAULT_SOURCES,
     DEFAULT_STORAGE,
     AnchorConfig,
@@ -40,6 +41,7 @@ from .config import (
     MatchingConfig,
     OwnershipConfig,
     PDFConfig,
+    PrecisionGuardConfig,
     SourceConfig,
     StorageConfig,
 )
@@ -100,6 +102,7 @@ class Settings:
     sources: SourceConfig = DEFAULT_SOURCES
     collection: CollectionConfig = DEFAULT_COLLECTION
     ownership: OwnershipConfig = DEFAULT_OWNERSHIP
+    precision: PrecisionGuardConfig = DEFAULT_PRECISION
     deduplication: DeduplicationConfig = DEFAULT_DEDUPLICATION
     pdf: PDFConfig = DEFAULT_PDF
     download: DownloadConfig = DEFAULT_DOWNLOAD

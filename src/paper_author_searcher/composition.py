@@ -20,6 +20,7 @@ from .paper_ownership import PaperOwnershipValidator
 from .pdf_resolver import PDFResolver
 from .pdf_resource_requests import PublicResourceRequests
 from .pdf_validation import PDFURLValidator
+from .precision_guards import PrecisionGuard
 from .progress import ProgressReporter
 from .resolver import ProfessorResolver
 from .settings import Settings
@@ -154,8 +155,15 @@ class ServiceContainer:
         ]
 
     @cached_property
+    def precision_guard(self) -> PrecisionGuard | None:
+        config = self.settings.precision
+        if not config.enabled:
+            return None
+        return PrecisionGuard(config, institution_similarity=self.settings.ownership.institution_similarity)
+
+    @cached_property
     def ownership_validator(self) -> PaperOwnershipValidator:
-        return PaperOwnershipValidator(self.settings.ownership)
+        return PaperOwnershipValidator(self.settings.ownership, self.precision_guard)
 
     @cached_property
     def collector(self) -> PaperCollector:

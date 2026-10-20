@@ -12,10 +12,18 @@ from urllib.parse import quote
 
 from .config import DEFAULT_ANCHORS, DEFAULT_MATCHING, DEFAULT_SOURCES
 from .evaluation_matching import bibliographic_name_agrees
-from .homepage_citations import ARXIV_IN_TEXT, DOI_IN_TEXT, CitationParser, HtmlCitationParser, prioritise
+from .homepage_citations import (
+    ARXIV_IN_TEXT,
+    DOI_IN_TEXT,
+    CitationParser,
+    HomepageCitation,
+    HtmlCitationParser,
+    mentions,
+    prioritise,
+)
 from .html_support import decode_response
 from .http import HttpClient, SourceError
-from .matching import ARXIV_DOI_PREFIX, canonical_doi, canonical_orcid, name_similarity, normalize
+from .matching import ARXIV_DOI_PREFIX, canonical_doi, canonical_orcid, name_similarity, normalize, work_keys
 from .models import AnchorEvidence
 from .status import AnchorKind
 
@@ -30,10 +38,14 @@ class IdentityAnchors:
     orcid: str | None = None
     evidence: list[AnchorEvidence] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
+    # Work keys (matching.work_keys) of every paper the person's own page lists, beyond the anchor budget.
+    listed_works: list[str] = field(default_factory=list)
 
-    def add(self, source: str, author_id: str, reason: str, kind: AnchorKind = AnchorKind.PAPER) -> None:
+    def add(
+        self, source: str, author_id: str, reason: str, kind: AnchorKind = AnchorKind.PAPER, work: str = ''
+    ) -> None:
         self.author_ids.setdefault(source, set()).add(str(author_id))
-        self.evidence.append(AnchorEvidence(source, str(author_id), reason, kind))
+        self.evidence.append(AnchorEvidence(source, str(author_id), reason, kind, work))
 
     def evidence_for(self, source: str, author_id: str) -> list[AnchorEvidence]:
         return [item for item in self.evidence if item.source == source and item.author_id == str(author_id)]
@@ -71,6 +83,19 @@ def homepage_papers(html: str) -> list[str]:
     found = [match.group(0).rstrip('.,;') for match in DOI_IN_TEXT.finditer(text)]
     found += [match.group(1) for match in ARXIV_IN_TEXT.finditer(text)]
     return list(dict.fromkeys(found))
+
+
+def _listed_works(citations: list[HomepageCitation], name: str) -> set[str]:
+    """On a lab page only the citations naming the person are theirs; a personal page lists only theirs."""
+    own = [citation for citation in citations if mentions(name, citation.text)] or citations
+    keys: set[str] = set()
+    for citation in own:
+        keys |= work_keys(citation.dois, citation.arxiv_ids, citation.titles)
+    return keys
+
+
+def _key(dois: Iterable[str] = (), arxiv_ids: Iterable[str] = (), titles: Iterable[str] = ()) -> str:
+    return next(iter(sorted(work_keys(dois, arxiv_ids, titles))), '')
 
 
 def _merge(*lists: list[str]) -> list[str]:
@@ -115,6 +140,7 @@ class ScholarlyAnchorFinder:
             hints['doi'] = _merge(hints['doi'], [doi.lower() for item in citations for doi in item.dois])
             hints['arxiv'] = _merge(hints['arxiv'], [arxiv for item in citations for arxiv in item.arxiv_ids])
             page_titles = _merge([title for item in citations for title in item.titles])
+            anchors.listed_works = sorted(_listed_works(citations, query.name))
         budget = self.config.maximum_anchor_papers
         dois, arxiv_ids = hints['doi'][:budget], hints['arxiv'][:budget]
         # A page that links no identifiers (titles only) is still usable: exact-title lookups fill the budget left.
@@ -155,7 +181,7 @@ class ScholarlyAnchorFinder:
         for item in data.get('results') or []:
             anchors.add('openalex', item['id'].rsplit('/', 1)[-1], 'ORCID ' + orcid, AnchorKind.ORCID)
 
-    def _openalex_authorships(self, anchors, query, work, reason) -> None:
+    def _openalex_authorships(self, anchors, query, work, reason, work_key='') -> None:
         for authorship in work.get('authorships') or []:
             author = authorship.get('author') or {}
             orcid = canonical_orcid(author.get('orcid')) if author.get('orcid') else None
@@ -163,14 +189,14 @@ class ScholarlyAnchorFinder:
                 continue
             names = [author.get('display_name') or '', authorship.get('raw_author_name') or '']
             if any(self._compatible(query, name) for name in names) and author.get('id'):
-                anchors.add('openalex', author['id'].rsplit('/', 1)[-1], reason)
+                anchors.add('openalex', author['id'].rsplit('/', 1)[-1], reason, AnchorKind.PAPER, work_key)
 
     def _by_doi(self, anchors, query, doi) -> None:
         work = self.client.get(
             self.openalex_url + '/works/doi:' + quote(doi, safe='/'),
             {'select': 'id,doi,authorships', 'api_key': self.openalex_key},
         )
-        self._openalex_authorships(anchors, query, work, 'author of DOI ' + doi)
+        self._openalex_authorships(anchors, query, work, 'author of DOI ' + doi, _key(dois=[doi]))
         self._guard(anchors, self._by_semantic_scholar_paper, query, 'DOI:' + doi)
 
     def _by_arxiv(self, anchors, query, arxiv) -> None:
@@ -180,7 +206,7 @@ class ScholarlyAnchorFinder:
             self.openalex_url + '/works/doi:' + quote(doi, safe='/'),
             {'select': 'id,doi,authorships', 'api_key': self.openalex_key},
         )
-        self._openalex_authorships(anchors, query, work, 'author of arXiv ' + arxiv)
+        self._openalex_authorships(anchors, query, work, 'author of arXiv ' + arxiv, _key(arxiv_ids=[arxiv]))
         self._guard(anchors, self._by_semantic_scholar_paper, query, 'ARXIV:' + arxiv)
 
     def _by_semantic_scholar_paper(self, anchors, query, paper_id) -> None:
@@ -190,9 +216,11 @@ class ScholarlyAnchorFinder:
             {'fields': 'title,authors'},
             headers,
         )
+        namespace, _, value = paper_id.partition(':')
+        work_key = _key(dois=[value]) if namespace == 'DOI' else _key(arxiv_ids=[value])
         for author in data.get('authors') or []:
             if author.get('authorId') and self._compatible(query, author.get('name')):
-                anchors.add('semantic_scholar', author['authorId'], 'author of ' + paper_id)
+                anchors.add('semantic_scholar', author['authorId'], 'author of ' + paper_id, AnchorKind.PAPER, work_key)
 
     def _by_title(self, anchors, query, title) -> None:
         data = self.client.get(
@@ -206,7 +234,9 @@ class ScholarlyAnchorFinder:
         )
         for work in data.get('results') or []:
             if normalize(work.get('title') or '') == normalize(title):
-                self._openalex_authorships(anchors, query, work, f'author of title "{title[:80]}"')
+                self._openalex_authorships(
+                    anchors, query, work, f'author of title "{title[:80]}"', _key(titles=[title])
+                )
                 # Anchor Semantic Scholar as well, as a DOI hint does: once anchors exist, an unanchored ID cannot
                 # corroborate the other database, so a one-sided anchor would cost the cross-source evidence.
                 doi = canonical_doi(work['doi']).removeprefix('doi:') if work.get('doi') else None
@@ -218,20 +248,23 @@ class RecordedAnchorFinder:
     """Replays the anchors an earlier run found, read from its saved identity, so an offline replay reproduces
     them without fetching homepages or anchor papers again."""
 
-    def __init__(self, evidence: Iterable[AnchorEvidence]) -> None:
+    def __init__(self, evidence: Iterable[AnchorEvidence], listed_works: Iterable[str] = ()) -> None:
         self.evidence = [item for item in evidence if item.reason != SUPPLIED_ORCID_REASON]
+        self.listed_works = sorted(set(listed_works))
 
     @classmethod
     def from_identity(cls, identity: Mapping[str, Any]) -> 'RecordedAnchorFinder':
         profiles = [identity.get('profile') or {}, *(identity.get('candidates') or [])]
         recorded = [item for profile in profiles for item in (profile or {}).get('identity_anchors') or []]
         evidence = [AnchorEvidence.coerce(item) for item in recorded]
-        return cls(dict.fromkeys(evidence))
+        listed = [key for profile in profiles for key in (profile or {}).get('listed_works') or []]
+        return cls(dict.fromkeys(evidence), listed)
 
     def find(self, query) -> IdentityAnchors:
         anchors = IdentityAnchors(orcid=canonical_orcid(query.orcid) if query.orcid else None)
         for item in self.evidence:
-            anchors.add(item.source, item.author_id, item.reason, item.kind)
+            anchors.add(item.source, item.author_id, item.reason, item.kind, item.work)
+        anchors.listed_works = list(self.listed_works)
         return anchors
 
 
