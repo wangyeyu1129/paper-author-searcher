@@ -11,15 +11,19 @@ from functools import cached_property
 from typing import Any, ClassVar
 
 from .config import CollectionConfig, DownloadConfig, PDFConfig
+from .contender_adjudication import DepartmentAdjudicator
 from .http import HttpClient
 from .http_budget import budgeted_client
 from .http_cache import cached_client
-from .identity_anchors import ScholarlyAnchorFinder
+from .identity_anchors import AnchorFinder, ScholarlyAnchorFinder
+from .listed_works import ListedWorkRetriever
 from .paper_collector import PaperCollector
 from .paper_ownership import PaperOwnershipValidator
+from .paper_providers import OpenAlexPaperProvider
 from .pdf_resolver import PDFResolver
 from .pdf_resource_requests import PublicResourceRequests
 from .pdf_validation import PDFURLValidator
+from .precision_guards import DepartmentMatcher, PrecisionGuard
 from .progress import ProgressReporter
 from .resolver import ProfessorResolver
 from .settings import Settings
@@ -78,14 +82,17 @@ class ServiceContainer:
         settings: Settings,
         options: RunOptions | None = None,
         adjudicator_factory: Callable[[], Any] | None = None,
+        anchor_finder: AnchorFinder | None = None,
     ) -> None:
         self.settings = settings
         self.options = options or RunOptions()
         self.adjudicator_factory = adjudicator_factory or _claude_adjudicator
+        # Overrides how caller hints become anchors (an offline replay supplies the anchors a run recorded).
+        self.anchor_finder_override = anchor_finder
 
     def with_settings(self, settings: Settings) -> 'ServiceContainer':
         """A fresh container (new clients, providers and caches) for a variant of the settings."""
-        return ServiceContainer(settings, self.options, self.adjudicator_factory)
+        return ServiceContainer(settings, self.options, self.adjudicator_factory, self.anchor_finder_override)
 
     # Transport ---------------------------------------------------------------------------------------------------
 
@@ -104,7 +111,9 @@ class ServiceContainer:
         return IDENTITY_SOURCES.create(self.settings.sources.identity_sources, self)
 
     @cached_property
-    def anchor_finder(self) -> ScholarlyAnchorFinder:
+    def anchor_finder(self) -> AnchorFinder:
+        if self.anchor_finder_override is not None:
+            return self.anchor_finder_override
         settings = self.settings
         return ScholarlyAnchorFinder(
             self.http_client,
@@ -149,8 +158,15 @@ class ServiceContainer:
         ]
 
     @cached_property
+    def precision_guard(self) -> PrecisionGuard | None:
+        config = self.settings.precision
+        if not config.enabled:
+            return None
+        return PrecisionGuard(config, institution_similarity=self.settings.ownership.institution_similarity)
+
+    @cached_property
     def ownership_validator(self) -> PaperOwnershipValidator:
-        return PaperOwnershipValidator(self.settings.ownership)
+        return PaperOwnershipValidator(self.settings.ownership, self.precision_guard)
 
     @cached_property
     def collector(self) -> PaperCollector:
@@ -160,7 +176,18 @@ class ServiceContainer:
             self.settings.deduplication,
             concurrency=dict(self.collection_config.source_concurrency),
             raw_metadata=self.collection_config.raw_metadata,
+            listed_works=self.listed_work_retriever,
+            adjudicator=DepartmentAdjudicator(self.collection_config, DepartmentMatcher(self.settings.precision)),
         )
+
+    @cached_property
+    def listed_work_retriever(self) -> ListedWorkRetriever | None:
+        openalex = next(
+            (provider for provider in self.paper_providers if isinstance(provider, OpenAlexPaperProvider)), None
+        )
+        if openalex is None or not self.settings.listed_works.enabled:
+            return None
+        return ListedWorkRetriever(openalex, self.settings.listed_works, self.settings.matching)
 
     # Full text ---------------------------------------------------------------------------------------------------
 

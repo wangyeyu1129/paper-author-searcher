@@ -2,11 +2,19 @@ import json
 import unittest
 from dataclasses import replace
 
-from paper_author_searcher.models import PaperCollectionResult, PaperRecord, PaperSourceResult, ProfessorProfile
+from paper_author_searcher.config import OwnershipConfig
+from paper_author_searcher.models import (
+    AnchorEvidence,
+    PaperCollectionResult,
+    PaperRecord,
+    PaperSourceResult,
+    ProfessorProfile,
+)
 from paper_author_searcher.paper_deduplication import deduplicate_papers
 from paper_author_searcher.paper_ownership import PaperOwnershipValidator
 from paper_author_searcher.paper_reanalysis import reanalyze_saved_result
 from paper_author_searcher.paper_types import classify_record
+from paper_author_searcher.status import AnchorKind
 
 
 def profile():
@@ -69,6 +77,58 @@ class OwnershipTests(unittest.TestCase):
 
     def test_explicit_wrong_target_signature_is_rejected(self):
         self.assertEqual(validate([record(name='Someone Else')])[0].ownership_status, 'rejected')
+
+    def test_byline_is_compared_with_the_requested_name_too(self):
+        # A source display name can carry noise ("Jia Liu B"); the caller's own query name still matches the byline.
+        corrupted = replace(profile(), name='Jia Liu B', name_aliases=['Jia Liu B'], orcid=None)
+        for target, expected in (
+            (corrupted, 'needs_review'),
+            (replace(corrupted, requested_name='Jia Liu'), 'verified'),
+        ):
+            papers = deduplicate_papers([record(name='Jia Liu')])
+            papers[0].records[0].author_details[0]['institutions'] = [{'display_name': 'Example University'}]
+            PaperOwnershipValidator().validate(papers, target)
+            self.assertEqual(papers[0].ownership_status, expected)
+
+    def test_past_institution_counts_only_for_an_orcid_anchored_author(self):
+        def run(kind, config=None):
+            target = replace(
+                profile(),
+                orcid=None,
+                affiliations=['Example University', 'Old University'],
+                matched_affiliations=['Example University'],
+                identity_anchors=[AnchorEvidence('openalex', 'author-a', 'anchor', kind)],
+            )
+            papers = deduplicate_papers([record()])
+            papers[0].records[0].author_details[0]['institutions'] = [{'display_name': 'Old University'}]
+            PaperOwnershipValidator(config or OwnershipConfig()).validate(papers, target)
+            return papers[0]
+
+        verified = run(AnchorKind.ORCID)
+        self.assertEqual(verified.ownership_status, 'verified')
+        self.assertTrue(any('past affiliation' in line for line in verified.ownership_evidence))
+        self.assertEqual(run(AnchorKind.PAPER).ownership_status, 'needs_review')
+        self.assertEqual(
+            run(AnchorKind.ORCID, OwnershipConfig(history_anchor_kinds=())).ownership_status, 'needs_review'
+        )
+        # Two institutions exceed a cap of one: a merged profile's history vouches for nobody.
+        merged_profile = OwnershipConfig(maximum_history_institutions=1)
+        self.assertEqual(run(AnchorKind.ORCID, merged_profile).ownership_status, 'needs_review')
+
+    def test_papers_listed_on_the_persons_page_seed_recurring_coauthors(self):
+        listed = [record(title='Listed one', doi='10.example/one'), record(title='Listed two', doi='10.example/two')]
+        candidate = record(title='Candidate', doi='10.example/candidate')
+        target = replace(profile(), orcid=None, listed_works=['doi:10.example/one', 'doi:10.example/two'])
+        papers = deduplicate_papers([*listed, candidate])
+        PaperOwnershipValidator().validate(papers, target)
+        self.assertEqual(papers[-1].ownership_status, 'verified')
+        papers = deduplicate_papers([*listed, candidate])
+        PaperOwnershipValidator().validate(papers, replace(target, listed_works=[]))
+        self.assertEqual(papers[-1].ownership_status, 'needs_review')
+
+    def test_target_names_are_unique_and_include_the_request(self):
+        target = replace(profile(), name_aliases=['Alex Morgan', 'A. Morgan'], requested_name='Alex Morgan')
+        self.assertEqual(target.target_names(), ['Alex Morgan', 'A. Morgan'])
 
     def test_cross_source_work_and_signature_and_coauthors_verify(self):
         papers = validate([record(), record('semantic_scholar', publication_type='JournalArticle')])

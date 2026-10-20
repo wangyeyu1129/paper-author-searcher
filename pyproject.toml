@@ -27,6 +27,9 @@ paper-benchmark = "paper_author_searcher.benchmark.cli:main"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+paper_author_searcher = ["data/*.txt"]
+
 [tool.ruff]
 target-version = "py310"
 line-length = 120
@@ -101,7 +104,10 @@ module = [
     "paper_author_searcher.http_transport",
     "paper_author_searcher.html_support",
     "paper_author_searcher.identity",
+    "paper_author_searcher.contender_adjudication",
+    "paper_author_searcher.homepage_citations",
     "paper_author_searcher.identity_adjudication",
+    "paper_author_searcher.identity_ranking",
     "paper_author_searcher.json_types",
     "paper_author_searcher.jsonio",
     "paper_author_searcher.logging_config",
@@ -114,7 +120,9 @@ module = [
     "paper_author_searcher.paper_deduplication",
     "paper_author_searcher.paper_reanalysis",
     "paper_author_searcher.paper_types",
+    "paper_author_searcher.listed_works",
     "paper_author_searcher.paper_views",
+    "paper_author_searcher.precision_guards",
     "paper_author_searcher.pdf_cli",
     "paper_author_searcher.pdf_crossref",
     "paper_author_searcher.pdf_discovery_comparison",

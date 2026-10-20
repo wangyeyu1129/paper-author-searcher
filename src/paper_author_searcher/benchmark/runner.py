@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any, Protocol
 
 from paper_author_searcher.composition import RunOptions, ServiceContainer
+from paper_author_searcher.identity_anchors import AnchorFinder, RecordedAnchorFinder
 from paper_author_searcher.jsonio import read_json, write_json
 from paper_author_searcher.settings import load_settings
 from paper_author_searcher.status import RunStatus
@@ -19,6 +20,7 @@ from .settings import BenchmarkSettings, RunSettings
 logger = logging.getLogger(__name__)
 
 FULL_MODE = 'full'
+METADATA_MODE = 'metadata'
 
 INDEX = 'index.json'
 TERMINAL_STATUSES = frozenset(
@@ -59,9 +61,28 @@ def window_archive(archive: dict, window: tuple[int, int]) -> dict:
     return restricted
 
 
-def default_workflow_factory(run: RunSettings) -> PaperSearchWorkflow:
+AnchorSource = Callable[[BenchmarkPerson], AnchorFinder | None]
+WorkflowFactory = Callable[[RunSettings, AnchorFinder | None], PaperSearchWorkflow]
+
+
+def default_workflow_factory(run: RunSettings, anchor_finder: AnchorFinder | None = None) -> PaperSearchWorkflow:
     """Production wiring: the service's own composition root, configured by the run settings."""
-    return ServiceContainer(load_settings(run), RunOptions.from_namespace(run)).workflow()
+    return ServiceContainer(load_settings(run), RunOptions.from_namespace(run), anchor_finder=anchor_finder).workflow()
+
+
+class RecordedRunAnchors:
+    """An AnchorSource for offline replay: each person gets the anchors a saved run found for them."""
+
+    def __init__(self, settings: BenchmarkSettings, run_id: str) -> None:
+        self.root = settings.paths.runs / run_id
+        self.index = load_index(settings, run_id)
+
+    def __call__(self, person: BenchmarkPerson) -> AnchorFinder:
+        entry = self.index['people'].get(person.person_id) or {}
+        identity = self.root / entry['report'] / 'professor.json' if entry.get('report') else None
+        if identity is None or not identity.exists():
+            return RecordedAnchorFinder([])
+        return RecordedAnchorFinder.from_identity(read_json(identity))
 
 
 class WorkflowSearchSystem:
@@ -78,21 +99,25 @@ class WorkflowSearchSystem:
         self,
         run: RunSettings,
         settings: BenchmarkSettings | None = None,
-        workflow_factory: Callable | None = None,
+        workflow_factory: WorkflowFactory | None = None,
+        anchor_source: AnchorSource | None = None,
     ) -> None:
-        if workflow_factory is None:
-            workflow_factory = default_workflow_factory
         self.run_settings = run
         self.settings = settings
-        self.workflow_factory = workflow_factory
+        self.workflow_factory = workflow_factory or default_workflow_factory
+        self.anchor_source = anchor_source
 
     def search(self, person: BenchmarkPerson, output_dir: Path) -> dict:
         settings = self.settings
         windowed = self.run_settings.mode == FULL_MODE and settings is not None
-        first_mode = 'metadata' if windowed else self.run_settings.mode
+        first_mode = METADATA_MODE if windowed else self.run_settings.mode
         with_hints = self.run_settings.input_profile == 'with_hints'
+        anchor_finder = self.anchor_source(person) if self.anchor_source else None
         report = self._run(
-            replace(self.run_settings, mode=first_mode), output_dir, query=person.search_input.to_query(with_hints)
+            replace(self.run_settings, mode=first_mode),
+            output_dir,
+            anchor_finder,
+            query=person.search_input.to_query(with_hints),
         )
         if settings is None or not windowed or not report.get('artifacts', {}).get('papers'):
             return report
@@ -104,14 +129,15 @@ class WorkflowSearchSystem:
         fulltext = self._run(
             self.run_settings,
             Path(output_dir) / 'fulltext',
+            anchor_finder,
             saved=window_archive(archive, (start - tolerance, end + tolerance)),
         )
         report['fulltext_report'] = fulltext['output_directory']
         report['fulltext_status'] = fulltext.get('run_status')
         return report
 
-    def _run(self, run: RunSettings, output_dir: Path, **source: Any) -> dict:
-        workflow = self.workflow_factory(run)
+    def _run(self, run: RunSettings, output_dir: Path, anchor_finder: AnchorFinder | None, **source: Any) -> dict:
+        workflow = self.workflow_factory(run, anchor_finder)
         return workflow.run(
             output_dir=output_dir,
             mode=run.mode,

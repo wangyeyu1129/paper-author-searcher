@@ -149,6 +149,10 @@ class OpenAlexPaperProvider(PagedPaperProvider):
             raise SourceError('Malformed OpenAlex pagination response')
         return data['results'], data['meta']['next_cursor']
 
+    def parse_work(self, item, author_id):
+        """One OpenAlex work as a record of ``author_id`` (used for works fetched outside author paging)."""
+        return self._parse_paper(item, author_id)
+
     def _parse_paper(self, item, author_id):
         item, errors = self._expand_authors(item)
         authors = []

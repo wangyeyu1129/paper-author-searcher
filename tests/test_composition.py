@@ -9,7 +9,7 @@ from unittest.mock import Mock
 
 from paper_author_searcher.composition import RunOptions, ServiceContainer
 from paper_author_searcher.http_budget import BudgetedHttpClient
-from paper_author_searcher.http_cache import CachingHttpClient
+from paper_author_searcher.http_cache import CachingHttpClient, OfflineHttpClient
 from paper_author_searcher.models import ProfessorQuery
 from paper_author_searcher.settings import Settings
 from paper_author_searcher.workflow import PaperSearchWorkflow
@@ -46,9 +46,12 @@ class ServiceContainerTests(unittest.TestCase):
     def test_transport_layers_follow_the_options(self):
         plain = self.container().http_client
         self.assertNotIsInstance(plain, (CachingHttpClient, BudgetedHttpClient))
-        layered = self.container(max_cost_usd=0.1, http_cache_dir='/tmp/cache', http_cache_mode='replay').http_client
+        layered = self.container(max_cost_usd=0.1, http_cache_dir='/tmp/cache', http_cache_mode='record').http_client
         self.assertIsInstance(layered, CachingHttpClient)
         self.assertIsInstance(layered.client, BudgetedHttpClient)
+        replay = self.container(max_cost_usd=0.1, http_cache_dir='/tmp/cache', http_cache_mode='replay').http_client
+        self.assertIsInstance(replay.client, OfflineHttpClient)  # a replay can never reach the network
+        self.assertIsInstance(replay.client.client, BudgetedHttpClient)
 
     def test_options_override_settings_only_when_given(self):
         settings = Settings.from_mapping({'collection': {'maximum_contenders': 4}, 'download': {'chunk_bytes': 2048}})

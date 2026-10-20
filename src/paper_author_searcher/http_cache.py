@@ -80,8 +80,52 @@ class CachingHttpClient(HttpClientDecorator):
         return body
 
 
+class OfflineHttpClient(HttpClientDecorator):
+    """Sits below a replay cache: any request that would reach the network fails, so a replay is offline by
+    construction (homepage probes, posts and downloads included), not by the luck of a complete cache."""
+
+    def get(
+        self,
+        url: str,
+        params: dict[str, Any] | None = None,
+        headers: dict[str, str] | None = None,
+        xml: bool = False,
+    ) -> Any:
+        raise self._refused(url)
+
+    def post_json(
+        self,
+        url: str,
+        payload: Any,
+        params: dict[str, Any] | None = None,
+        headers: dict[str, str] | None = None,
+        expected_type: type = dict,
+    ) -> Any:
+        raise self._refused(url)
+
+    def probe(
+        self,
+        url: str,
+        maximum_bytes: int = 1024,
+        html_bytes: int = 0,
+        maximum_redirects: int = 5,
+        redirect_guard: Any = None,
+    ) -> Any:
+        raise self._refused(url)
+
+    def stream_pdf(self, url: str, destination: Any, config: Any) -> Any:
+        raise self._refused(url)
+
+    @staticmethod
+    def _refused(url: str) -> SourceError:
+        return SourceError('Offline replay: no network request for ' + url, error_type='offline_replay')
+
+
 def cached_client(client: Any, directory: str | Path | None, mode: str | None) -> Any:
-    """Return the client unchanged when no cache directory is configured."""
+    """Return the client unchanged when no cache directory is configured; a replay never touches the network."""
     if not directory:
         return client
-    return CachingHttpClient(client, Path(directory), CacheMode(mode or CacheMode.RECORD.value))
+    cache_mode = CacheMode(mode or CacheMode.RECORD.value)
+    if cache_mode is CacheMode.REPLAY:
+        client = OfflineHttpClient(client)
+    return CachingHttpClient(client, Path(directory), cache_mode)

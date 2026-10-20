@@ -3,7 +3,7 @@
 from dataclasses import dataclass, field
 from typing import Any
 
-from .matching import canonical_doi, normalize
+from .matching import arxiv_from_doi, canonical_arxiv, canonical_doi, normalize
 from .paper_authorship import byline_forms
 
 LABELS = frozenset({'belongs', 'not_belongs', 'uncertain'})
@@ -100,7 +100,9 @@ def stable_identifiers(paper):
         if not isinstance(doi, str):
             raise ValueError('DOIs must be strings')
         if doi.strip():
-            keys.add(('doi', canonical_doi(doi)))
+            # An arXiv DOI is the preprint's arXiv identifier: a version of the paper, not a conflicting DOI.
+            arxiv = arxiv_from_doi(doi)
+            keys.add(('arxiv', arxiv) if arxiv else ('doi', canonical_doi(doi)))
     external_ids = paper.get('external_ids') or {}
     if not isinstance(external_ids, dict):
         raise ValueError('external_ids must be an object')
@@ -109,7 +111,10 @@ def stable_identifiers(paper):
             continue
         namespace = namespace.casefold()
         if namespace == 'doi':
-            keys.add(('doi', canonical_doi(str(value))))
+            arxiv = arxiv_from_doi(str(value))
+            keys.add(('arxiv', arxiv) if arxiv else ('doi', canonical_doi(str(value))))
+        elif namespace == 'arxiv':
+            keys.add(('arxiv', canonical_arxiv(str(value)) or str(value).strip()))
         else:
             keys.add((namespace, str(value).strip()))
     records = paper.get('source_records') or []

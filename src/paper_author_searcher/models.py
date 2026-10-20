@@ -1,10 +1,13 @@
+import re
 import typing
 from collections.abc import Mapping, Sequence
 from dataclasses import asdict, dataclass, field, fields
 from typing import Any, Union
 
+from .matching import work_keys
 from .status import (
     AccessStatus,
+    AnchorKind,
     DownloadStatus,
     FetchStatus,
     FormatStatus,
@@ -16,6 +19,9 @@ from .status import (
     StrEnum,
     UniversityStatus,
 )
+
+# Reason texts of older checkpoints: 'author of DOI x', 'author of DOI:x', 'author of arXiv x', 'author of title "t"'.
+LEGACY_ANCHOR_WORK = re.compile(r'^author of (?P<kind>DOI|arXiv|title)[: ]\s*(?P<value>.+)$', re.IGNORECASE)
 
 _STATUS_FIELDS: dict[type, tuple[tuple[str, type[StrEnum]], ...]] = {}
 
@@ -96,9 +102,26 @@ class AnchorEvidence:
     source: str
     author_id: str
     reason: str
+    kind: AnchorKind = AnchorKind.PAPER
+    # The work this anchor came from (matching.work_keys form); empty for ORCID anchors.
+    work: str = ''
 
     def __str__(self) -> str:
         return f'{self.source} {self.author_id}: {self.reason}'
+
+    @staticmethod
+    def work_from_reason(reason: str) -> str:
+        """Only for checkpoints written before anchors carried their work: the reason text names it."""
+        match = LEGACY_ANCHOR_WORK.match(reason)
+        if not match:
+            return ''
+        kind, value = match.group('kind').lower(), match.group('value').strip().strip('"')
+        keys = (
+            work_keys(titles=[value])
+            if kind == 'title'
+            else work_keys([value] if kind == 'doi' else [], [value] if kind == 'arxiv' else [])
+        )
+        return next(iter(keys), '')
 
     @classmethod
     def coerce(cls, value: Union['AnchorEvidence', Mapping[str, Any], str]) -> 'AnchorEvidence':
@@ -106,12 +129,16 @@ class AnchorEvidence:
         if isinstance(value, cls):
             return value
         if isinstance(value, Mapping):
-            return cls(str(value['source']), str(value['author_id']), str(value.get('reason', '')))
+            reason = str(value.get('reason', ''))
+            kind = AnchorKind(value['kind']) if value.get('kind') else AnchorKind.from_reason(reason)
+            work = str(value['work']) if 'work' in value else cls.work_from_reason(reason)
+            return cls(str(value['source']), str(value['author_id']), reason, kind, work)
         head, separator, reason = str(value).partition(':')
         source, _, author_id = head.strip().partition(' ')
         if not separator or not source or not author_id.strip():
             raise ValueError(f'Unrecognised identity anchor: {value!r}')
-        return cls(source, author_id.strip(), reason.strip())
+        reason = reason.strip()
+        return cls(source, author_id.strip(), reason, AnchorKind.from_reason(reason), cls.work_from_reason(reason))
 
 
 @dataclass
@@ -133,10 +160,24 @@ class ProfessorProfile(ValidatedStatuses):
     name_aliases: list[str] = field(default_factory=list)
     identity_anchors: list[AnchorEvidence] = field(default_factory=list)
     adjudication: str | None = None
+    # The name the caller searched for; kept because a source's display name can be corrupted ("Jia Liu B").
+    requested_name: str | None = None
+    # Some record of this identity carries an ORCID other than the supplied one.
+    orcid_conflict: bool = False
+    requested_department: str | None = None
+    # Works the person's own publication page lists (canonical DOI / arXiv / normalized-title keys).
+    listed_works: list[str] = field(default_factory=list)
+    # Collected contenders' author IDs, one mapping per contender, when the identity is unconfirmed.
+    contender_ids: list[dict[str, list[str]]] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         super().__post_init__()
         self.identity_anchors = [AnchorEvidence.coerce(item) for item in self.identity_anchors]
+
+    def target_names(self) -> list[str]:
+        """Every name the target may appear under in a byline: display name, aliases and the requested name."""
+        names = [self.name, *self.name_aliases, self.requested_name]
+        return list(dict.fromkeys(name for name in names if name))
 
 
 @dataclass
@@ -175,6 +216,11 @@ class PaperRecord(ValidatedStatuses):
     ownership_evidence: list[str] = field(default_factory=list)
     paper_type: str = 'unknown'
     type_evidence: list[str] = field(default_factory=list)
+
+    def work_keys(self) -> set[str]:
+        """Keys comparable with homepage and anchor works (matching.work_keys)."""
+        arxiv = (self.external_ids or {}).get('arxiv')
+        return work_keys([self.doi] if self.doi else [], [arxiv] if arxiv else [], [self.title])
 
 
 @dataclass(slots=True)

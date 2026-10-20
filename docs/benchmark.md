@@ -30,6 +30,22 @@ paper-benchmark run --run-id 2026-10-18
 paper-benchmark score --run-id 2026-10-18 --enforce-gate
 ```
 
+### 离线重放
+
+改了身份解析或归属规则后，可以先离线验证效果，不花 API 费用，也不发出任何网络请求：
+
+```bash
+paper-benchmark run --replay-from calibrated-with_hints-20261018 --input-profile with_hints --run-id replay-x
+paper-benchmark score --run-id replay-x
+```
+
+重放时：
+- 所有元数据请求都从 `run.http_cache_dir` 读取；缓存里没有的请求直接失败，不会联网。主页、POST、下载请求一律拒绝。
+- 锚点使用原 run 保存的结果。
+- 只跑到 metadata 阶段，因为 PDF 阶段需要的页面和文件不在缓存里。
+
+改动锚点发现（主页解析）后，无法离线验证，必须联网重跑。
+
 需要可信 CA 时沿用 `SSL_CERT_FILE=/etc/ssl/cert.pem`。`CROSSREF_MAILTO` 可选，用于 Crossref polite pool；其余 API key 与主流程相同。
 
 ## 配置（`data/benchmark/v1/benchmark.json`）
