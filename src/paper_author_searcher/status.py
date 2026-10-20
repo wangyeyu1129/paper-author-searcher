@@ -40,6 +40,16 @@ class AnchorKind(StrEnum):
         return cls.ORCID if reason.startswith('ORCID') else cls.PAPER
 
 
+class IdentityConfirmation(StrEnum):
+    """How a collection's identity was confirmed (``PaperCollectionResult.identity_confirmation``)."""
+
+    RESOLVER = 'resolver_resolved'
+    MANUAL = 'manual_author_id'
+    # Competing profiles were collected and exactly one matched the requested department on its own papers.
+    DEPARTMENT = 'department_adjudicated'
+    CONTENDERS = 'ambiguous_contenders'
+
+
 class UniversityStatus(StrEnum):
     MATCHED = 'matched'
     MISMATCH = 'mismatch'

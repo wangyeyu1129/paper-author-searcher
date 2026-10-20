@@ -27,6 +27,7 @@ from .config import (
     DEFAULT_DEDUPLICATION,
     DEFAULT_DOWNLOAD,
     DEFAULT_HTTP,
+    DEFAULT_LISTED_WORKS,
     DEFAULT_MATCHING,
     DEFAULT_OWNERSHIP,
     DEFAULT_PDF,
@@ -38,6 +39,7 @@ from .config import (
     DeduplicationConfig,
     DownloadConfig,
     HttpConfig,
+    ListedWorksConfig,
     MatchingConfig,
     OwnershipConfig,
     PDFConfig,
@@ -103,6 +105,7 @@ class Settings:
     collection: CollectionConfig = DEFAULT_COLLECTION
     ownership: OwnershipConfig = DEFAULT_OWNERSHIP
     precision: PrecisionGuardConfig = DEFAULT_PRECISION
+    listed_works: ListedWorksConfig = DEFAULT_LISTED_WORKS
     deduplication: DeduplicationConfig = DEFAULT_DEDUPLICATION
     pdf: PDFConfig = DEFAULT_PDF
     download: DownloadConfig = DEFAULT_DOWNLOAD

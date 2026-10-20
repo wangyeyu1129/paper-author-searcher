@@ -4,16 +4,20 @@ import logging
 import threading
 from collections.abc import Callable, Iterable, Mapping, Sequence
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from dataclasses import replace
 from typing import Any
 
 from .config import DEFAULT_COLLECTION, DEFAULT_DEDUPLICATION, DeduplicationConfig, RawMetadataPolicy
+from .contender_adjudication import ContenderEvidence, DepartmentAdjudicator
+from .listed_works import ListedWorkRetriever
 from .logging_config import log_isolated_failure
-from .models import Paper, PaperCollectionResult, PaperSourceResult, ProfessorProfile
+from .models import Paper, PaperCollectionResult, PaperRecord, PaperSourceResult, ProfessorProfile
+from .paper_authorship import canonical_author_id
 from .paper_deduplication import deduplicate_papers
 from .paper_ownership import PaperOwnershipValidator
 from .paper_providers import PaperProvider
 from .raw_metadata import apply_policy
-from .status import OwnershipStatus, ResolutionStatus
+from .status import IdentityConfirmation, OwnershipStatus, ResolutionStatus
 
 logger = logging.getLogger(__name__)
 
@@ -40,8 +44,14 @@ class PaperCollector:
         deduplication: DeduplicationConfig = DEFAULT_DEDUPLICATION,
         concurrency: Mapping[str, int] | None = None,
         raw_metadata: str = RawMetadataPolicy.FULL,
+        listed_works: ListedWorkRetriever | None = None,
+        adjudicator: DepartmentAdjudicator | None = None,
     ) -> None:
         self.providers = list(providers)
+        # Optional: fetch works the person lists themselves that no selected author ID returned.
+        self.listed_works = listed_works
+        # Optional: settle collected contenders by the requested department on their own papers.
+        self.adjudicator = adjudicator
         self.ownership_validator = ownership_validator or PaperOwnershipValidator()
         self.deduplication = deduplication
         # Author IDs paged at once per source; sources run side by side.
@@ -63,7 +73,7 @@ class PaperCollector:
             if author_id not in known_ids and author_id != representative:
                 raise IdentityConfirmationRequired('Selected Author ID is not in this candidate')
             # Manual confirmation applies to this ID only, never competing candidates.
-            return {source: [author_id]}, 'manual_author_id'
+            return {source: [author_id]}, IdentityConfirmation.MANUAL
         if profile.status not in (ResolutionStatus.RESOLVED, ResolutionStatus.AMBIGUOUS_CONTENDERS):
             raise IdentityConfirmationRequired('Select an Author ID before collecting an unconfirmed identity')
         selected = {}
@@ -74,7 +84,33 @@ class PaperCollector:
             raise IdentityConfirmationRequired('No confirmed Author IDs available')
         if profile.status == ResolutionStatus.AMBIGUOUS_CONTENDERS:
             return selected, ResolutionStatus.AMBIGUOUS_CONTENDERS
-        return selected, 'resolver_resolved'
+        return selected, IdentityConfirmation.RESOLVER
+
+    @staticmethod
+    def _settle(
+        profile: ProfessorProfile, winner: ContenderEvidence, records: list[PaperRecord]
+    ) -> tuple[ProfessorProfile, dict[str, list[str]], list[PaperRecord]]:
+        """Narrow the merged contender profile to the adjudicated contender."""
+        selected = {source: sorted(ids) for source, ids in winner.author_ids.items() if ids}
+        wanted = {(source, canonical_author_id(source, value)) for source, ids in selected.items() for value in ids}
+        narrowed = replace(
+            profile,
+            author_ids={source: ids[0] for source, ids in selected.items()},
+            author_id_aliases=selected,
+            status=ResolutionStatus.RESOLVED,
+            contender_ids=[],
+            evidence=[
+                *profile.evidence,
+                f'Department adjudication: {winner.share:.0%} of {winner.mentions} unit mentions on this '
+                f"profile's papers name {profile.requested_department}; no rival profile does",
+            ],
+        )
+        kept = [
+            record
+            for record in records
+            if (record.source, canonical_author_id(record.source, record.source_author_id)) in wanted
+        ]
+        return narrowed, selected, kept
 
     def collect(
         self,
@@ -127,6 +163,15 @@ class PaperCollector:
         records = []
         for fetched in sources:
             records.extend(fetched.papers)
+        if confirmation == ResolutionStatus.AMBIGUOUS_CONTENDERS and self.adjudicator is not None:
+            winner = self.adjudicator.choose(profile, records)
+            if winner is not None:
+                profile, selected, records = self._settle(profile, winner, records)
+                confirmation = IdentityConfirmation.DEPARTMENT
+        if self.listed_works is not None and confirmation != ResolutionStatus.AMBIGUOUS_CONTENDERS:
+            listed = self.listed_works.retrieve(profile, records)
+            sources.append(listed)
+            records.extend(listed.papers)
         complete = bool(sources) and all(fetched.complete for fetched in sources)
         if progress:
             progress('Deduplicating papers', len(records), len(records))

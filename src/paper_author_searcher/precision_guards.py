@@ -24,7 +24,7 @@ from pathlib import Path
 from typing import Any
 
 from .config import DEFAULT_OWNERSHIP, DEFAULT_PRECISION, PrecisionGuardConfig
-from .matching import institution_similarity, normalize, work_keys
+from .matching import institution_similarity, normalize
 from .models import AnchorEvidence, Paper, PaperRecord, ProfessorProfile
 from .paper_authorship import canonical_author_id
 
@@ -299,7 +299,7 @@ class PrecisionGuard:
     ) -> list[PaperRecord]:
         """Records of the person's own papers: the works their anchors came from and their page lists."""
         own_works = {anchor.work for anchor in anchors if anchor.work} | set(profile.listed_works)
-        return [record for paper in papers for record in paper.records if record_work_keys(record) & own_works]
+        return [record for paper in papers for record in paper.records if record.work_keys() & own_works]
 
     def _target_departments(self, profile: ProfessorProfile, own: Sequence[PaperRecord]) -> tuple[list[str], bool]:
         """The requested department plus the units named on the person's own papers. Whole fragments are no
@@ -348,11 +348,6 @@ def _targets(record: PaperRecord) -> list[Mapping[str, Any]]:
         for author in record.author_details
         if canonical_author_id(record.source, author.get('author_id')) == target
     ]
-
-
-def record_work_keys(record: PaperRecord) -> set[str]:
-    external = (record.external_ids or {}).get('arxiv')
-    return work_keys([record.doi] if record.doi else [], [external] if external else [], [record.title])
 
 
 def _read_list(location: str) -> list[str]:

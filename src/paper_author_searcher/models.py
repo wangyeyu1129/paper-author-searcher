@@ -4,6 +4,7 @@ from collections.abc import Mapping, Sequence
 from dataclasses import asdict, dataclass, field, fields
 from typing import Any, Union
 
+from .matching import work_keys
 from .status import (
     AccessStatus,
     AnchorKind,
@@ -111,8 +112,6 @@ class AnchorEvidence:
     @staticmethod
     def work_from_reason(reason: str) -> str:
         """Only for checkpoints written before anchors carried their work: the reason text names it."""
-        from .matching import work_keys
-
         match = LEGACY_ANCHOR_WORK.match(reason)
         if not match:
             return ''
@@ -168,6 +167,8 @@ class ProfessorProfile(ValidatedStatuses):
     requested_department: str | None = None
     # Works the person's own publication page lists (canonical DOI / arXiv / normalized-title keys).
     listed_works: list[str] = field(default_factory=list)
+    # Collected contenders' author IDs, one mapping per contender, when the identity is unconfirmed.
+    contender_ids: list[dict[str, list[str]]] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         super().__post_init__()
@@ -215,6 +216,11 @@ class PaperRecord(ValidatedStatuses):
     ownership_evidence: list[str] = field(default_factory=list)
     paper_type: str = 'unknown'
     type_evidence: list[str] = field(default_factory=list)
+
+    def work_keys(self) -> set[str]:
+        """Keys comparable with homepage and anchor works (matching.work_keys)."""
+        arxiv = (self.external_ids or {}).get('arxiv')
+        return work_keys([self.doi] if self.doi else [], [arxiv] if arxiv else [], [self.title])
 
 
 @dataclass(slots=True)

@@ -88,6 +88,7 @@ class SourceConfig:
     institution_limit: int = 2
     # Enabled identity sources, in order (names registered in source_catalog.IDENTITY_SOURCES).
     identity_sources: tuple[str, ...] = ('openalex', 'semantic_scholar', 'dblp')
+    orcid_api_url: str = 'https://pub.orcid.org/v3.0'
 
 
 @dataclass(frozen=True)
@@ -105,6 +106,8 @@ class AnchorConfig:
     title_maximum_characters: int = 300
     # Title lookups (one search request each) only fill what identifier anchors left of maximum_anchor_papers.
     maximum_title_anchors: int = 10
+    # A supplied ORCID's public works list is the person's own list, like a homepage (one request).
+    orcid_listed_works: bool = True
 
 
 DEFAULT_MATCHING = MatchingConfig()
@@ -143,6 +146,13 @@ class CollectionConfig:
     source_concurrency: tuple[tuple[str, int], ...] = (('openalex', 4), ('semantic_scholar', 1), ('dblp', 1))
     # How much of each raw API payload papers.json keeps (see raw_metadata.py).
     raw_metadata: str = RawMetadataPolicy.FULL
+    # Department adjudication of collected contenders: one contender's own papers must name the requested
+    # department in at least this share of their unit mentions (with enough mentions), every rival in at most
+    # contender_rival_share. Without a requested department nothing is adjudicated.
+    contender_department_adjudication: bool = True
+    contender_minimum_share: float = 0.25
+    contender_minimum_evidence: int = 5
+    contender_rival_share: float = 0.05
 
     def __post_init__(self) -> None:
         if self.ambiguity_policy not in AMBIGUITY_POLICIES:
@@ -179,6 +189,8 @@ class OwnershipConfig:
     # Anchor kinds that make an author ID's past institutions (the identity's affiliation history) acceptable as
     # paper-level evidence. Paper anchors are excluded: they can attach a namesake's fragment.
     history_anchor_kinds: tuple[str, ...] = ('orcid',)
+    # A work on the person's own list (homepage or supplied ORCID) with a compatible byline is theirs.
+    verify_listed_works: bool = True
     # An identity listing more institutions than this is a merge of several people (OpenAlex filed many Wei Lus,
     # 89 institutions, under one ORCID-bearing author ID), so its history vouches for nobody.
     maximum_history_institutions: int = 12
@@ -205,6 +217,27 @@ class OwnershipConfig:
         'author response',
         'proceedings of',
     )
+
+
+@dataclass(frozen=True)
+class ListedWorksConfig:
+    """Works the person lists themselves (homepage, supplied ORCID) that author-ID collection did not return.
+
+    Each missing work is looked up once (DOI, arXiv ID or exact title in OpenAlex) and enters the collection under
+    the name-compatible author of that work; OwnershipConfig.verify_listed_works decides whether the listing alone
+    verifies it.
+    """
+
+    enabled: bool = True
+    maximum_lookups: int = 100
+    title_search_results: int = 3
+
+    def __post_init__(self) -> None:
+        if self.maximum_lookups < 0 or self.title_search_results < 1:
+            raise ValueError('maximum_lookups must be nonnegative and title_search_results positive')
+
+
+DEFAULT_LISTED_WORKS = ListedWorksConfig()
 
 
 @dataclass(frozen=True)

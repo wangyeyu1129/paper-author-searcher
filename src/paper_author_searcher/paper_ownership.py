@@ -8,13 +8,16 @@ from .matching import canonical_orcid, institution_similarity, name_similarity, 
 from .models import AnchorEvidence
 from .paper_authorship import byline_forms, canonical_author_id, signature_names
 from .paper_deduplication import author_signatures_match, duplicate_evidence
-from .precision_guards import GuardContext, PrecisionGuard, record_work_keys
+from .precision_guards import GuardContext, PrecisionGuard
 from .status import OwnershipStatus
 
 FOREIGN_FRAGMENT = (
     "Common-name guard: this author ID belongs to a fragment outside the person's department profile; "
     'only paper-level evidence (a matching paper ORCID) can claim the paper'
 )
+
+
+LISTED_CLAIM = "Listed on the researcher's own publication list (homepage or supplied ORCID) with a compatible byline"
 
 
 class PaperOwnershipValidator:
@@ -160,6 +163,10 @@ class PaperOwnershipValidator:
         evidence.extend('Metadata warning: ' + message for message in record.metadata_errors)
         requested_id = canonical_author_id(record.source, record.source_author_id)
         if requested_id not in self._selected_ids(profile, record.source):
+            # A work the person lists themselves is claimed on its own, under whichever author ID holds it.
+            claim = self._listed_claim(record, profile)
+            if claim:
+                return OwnershipStatus.VERIFIED, [*evidence, claim]
             return OwnershipStatus.NEEDS_REVIEW, [*evidence, 'Source Author ID is not part of the selected identity']
         if not record.title or not record.source_paper_id:
             return OwnershipStatus.NEEDS_REVIEW, [*evidence, 'Insufficient publication metadata']
@@ -237,6 +244,9 @@ class PaperOwnershipValidator:
                 'Matching author-profile or unscoped ORCID is not independent paper authorship evidence '
                 '(scope: {})'.format(', '.join(scopes))
             )
+        claim = self._listed_claim(record, profile)
+        if claim:
+            return OwnershipStatus.VERIFIED, [*evidence, claim]
         if self._guard.foreign(record):
             evidence.append(FOREIGN_FRAGMENT)
         institution = self._institution_agrees(record, details, profile)
@@ -325,10 +335,25 @@ class PaperOwnershipValidator:
             self._aggregate(paper)
         return papers
 
+    def _listed_claim(self, record, profile):
+        """Evidence that the person's own list (homepage, supplied ORCID) names this work with their byline."""
+        if not self.config.verify_listed_works or not record.work_keys() & set(profile.listed_works):
+            return None
+        if self._verification_blockers(record):
+            return None
+        details = self._target_details(record)
+        score, signatures = self._signature_score(details, record, profile)
+        if not signatures or score < self.config.name_similarity:
+            return None
+        orcids = self._observed_orcids(details, paper_level=True)
+        if profile.orcid and orcids - {canonical_orcid(profile.orcid)}:
+            return None
+        return LISTED_CLAIM
+
     def _listed(self, record, profile, listed):
         """The person's own publication page lists this work and the record's byline is theirs."""
         return (
-            bool(record_work_keys(record) & listed)
+            bool(record.work_keys() & listed)
             and self._identity_eligible(record, profile)
             and not self._coauthor_blockers(record)
         )

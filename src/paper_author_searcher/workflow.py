@@ -101,6 +101,13 @@ def contender_profile(result: ResolutionResult, maximum_contenders: int, margin:
                     aliases[source].append(value)
     merged.author_id_aliases = aliases
     merged.author_ids = {source: values[0] for source, values in aliases.items()}
+    merged.contender_ids = [
+        {
+            source: list(dict.fromkeys([*(candidate.author_id_aliases.get(source) or []), author_id]))
+            for source, author_id in candidate.author_ids.items()
+        }
+        for candidate in contenders
+    ]
     merged.evidence = [
         *list(best.evidence),
         f'Collected {len(contenders)} competing profiles without confirming identity',

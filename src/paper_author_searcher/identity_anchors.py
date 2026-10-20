@@ -118,6 +118,7 @@ class ScholarlyAnchorFinder:
         self.client = client
         self.citation_parser = citation_parser or HtmlCitationParser(anchor_config)
         self.openalex_url = source_config.openalex_url.rstrip('/')
+        self.orcid_url = source_config.orcid_api_url.rstrip('/')
         self.semantic_scholar_url = source_config.semantic_scholar_url.rstrip('/')
         self.matching = matching_config
         self.config = anchor_config
@@ -128,6 +129,8 @@ class ScholarlyAnchorFinder:
         anchors = IdentityAnchors(orcid=canonical_orcid(query.orcid) if query.orcid else None)
         if anchors.orcid:
             self._guard(anchors, self._by_orcid, query, anchors.orcid)
+            if self.config.orcid_listed_works:
+                self._guard(anchors, self._orcid_works, query, anchors.orcid)
         hints = paper_hints(list(query.known_papers))
         page_titles: list[str] = []
         if query.homepage:
@@ -140,7 +143,7 @@ class ScholarlyAnchorFinder:
             hints['doi'] = _merge(hints['doi'], [doi.lower() for item in citations for doi in item.dois])
             hints['arxiv'] = _merge(hints['arxiv'], [arxiv for item in citations for arxiv in item.arxiv_ids])
             page_titles = _merge([title for item in citations for title in item.titles])
-            anchors.listed_works = sorted(_listed_works(citations, query.name))
+            anchors.listed_works = sorted(set(anchors.listed_works) | _listed_works(citations, query.name))
         budget = self.config.maximum_anchor_papers
         dois, arxiv_ids = hints['doi'][:budget], hints['arxiv'][:budget]
         # A page that links no identifiers (titles only) is still usable: exact-title lookups fill the budget left.
@@ -180,6 +183,19 @@ class ScholarlyAnchorFinder:
         )
         for item in data.get('results') or []:
             anchors.add('openalex', item['id'].rsplit('/', 1)[-1], 'ORCID ' + orcid, AnchorKind.ORCID)
+
+    def _orcid_works(self, anchors, query, orcid) -> None:
+        """The ORCID record's works (identifiers and titles) join the person's own list."""
+        data = self.client.get(f'{self.orcid_url}/{orcid}/works', None, {'Accept': 'application/json'})
+        keys: set[str] = set()
+        for group in data.get('group') or []:
+            identifiers = (group.get('external-ids') or {}).get('external-id') or []
+            dois = [item['external-id-value'] for item in identifiers if item.get('external-id-type') == 'doi']
+            arxiv = [item['external-id-value'] for item in identifiers if item.get('external-id-type') == 'arxiv']
+            summaries = group.get('work-summary') or [{}]
+            title = (((summaries[0] or {}).get('title') or {}).get('title') or {}).get('value')
+            keys |= work_keys(dois, arxiv, [] if dois or arxiv else [title] if title else [])
+        anchors.listed_works = sorted(set(anchors.listed_works) | keys)
 
     def _openalex_authorships(self, anchors, query, work, reason, work_key='') -> None:
         for authorship in work.get('authorships') or []:

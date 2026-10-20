@@ -111,11 +111,17 @@ class FinderTests(unittest.TestCase):
                     }
                 if '/paper/' in url:
                     return {'authors': [{'authorId': '77', 'name': 'M. Lin'}, {'authorId': '78', 'name': 'J. Smith'}]}
+                if url.endswith('/0000-0000-0000-0001/works'):
+                    doi = {'external-id-type': 'doi', 'external-id-value': '10.1000/Listed'}
+                    title = {'title': {'title': {'value': 'An Untitled Identifier-free Work'}}}
+                    return {'group': [{'external-ids': {'external-id': [doi]}}, {'work-summary': [title]}]}
                 raise AssertionError(url)
 
         found = ScholarlyAnchorFinder(Client()).find(query(orcid='0000-0000-0000-0001'))
         self.assertEqual(found.author_ids['openalex'], {'A9', 'A1'})
         self.assertEqual(found.author_ids['semantic_scholar'], {'77'})
+        # The supplied ORCID's works are the person's own list.
+        self.assertEqual(found.listed_works, ['doi:10.1000/listed', 'title:an untitled identifier free work'])
 
 
 class ResolverAnchorTests(unittest.TestCase):
