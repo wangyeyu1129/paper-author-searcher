@@ -197,6 +197,9 @@ class OwnershipConfig:
     incompatible_name: float = 0.5
     minimum_shared_coauthors: int = 1
     seed_papers_per_coauthor: int = 2
+    # A coauthor on the person's own papers (homepage or ORCID list, anchor papers) is trusted after this many
+    # seed papers: PhD students and junior faculty rarely share two papers with anyone.
+    own_paper_seed_papers_per_coauthor: int = 1
     minimum_known_coauthors: int = 2
     institution_similarity: float = 0.95
     maximum_coauthor_authors: int = 50

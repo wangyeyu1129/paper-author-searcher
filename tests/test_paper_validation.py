@@ -126,6 +126,18 @@ class OwnershipTests(unittest.TestCase):
         PaperOwnershipValidator().validate(papers, replace(target, listed_works=[]))
         self.assertEqual(papers[-1].ownership_status, 'needs_review')
 
+    def test_one_shared_own_paper_is_enough_for_a_young_authors_coauthors(self):
+        own = record(title='Only own paper', doi='10.example/own')
+        candidate = record(title='Candidate', doi='10.example/candidate')
+        target = replace(profile(), orcid=None, listed_works=['doi:10.example/own'])
+        papers = deduplicate_papers([own, candidate])
+        PaperOwnershipValidator().validate(papers, target)
+        self.assertEqual(papers[-1].ownership_status, 'verified')
+        strict = OwnershipConfig(own_paper_seed_papers_per_coauthor=2)
+        papers = deduplicate_papers([own, candidate])
+        PaperOwnershipValidator(strict).validate(papers, target)
+        self.assertEqual(papers[-1].ownership_status, 'needs_review')
+
     def test_target_names_are_unique_and_include_the_request(self):
         target = replace(profile(), name_aliases=['Alex Morgan', 'A. Morgan'], requested_name='Alex Morgan')
         self.assertEqual(target.target_names(), ['Alex Morgan', 'A. Morgan'])
