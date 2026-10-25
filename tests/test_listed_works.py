@@ -6,7 +6,14 @@ import unittest
 from paper_author_searcher.config import DEFAULT_COLLECTION, ListedWorksConfig, OwnershipConfig
 from paper_author_searcher.contender_adjudication import DepartmentAdjudicator
 from paper_author_searcher.http import SourceError
-from paper_author_searcher.listed_works import RETRIEVED_EVIDENCE, ListedWorkRetriever
+from paper_author_searcher.listed_works import (
+    RETRIEVED_EVIDENCE,
+    ArxivWorkLookup,
+    AuthorMatcher,
+    CrossrefWorkLookup,
+    ListedWorkRetriever,
+    OpenAlexWorkLookup,
+)
 from paper_author_searcher.models import PaperRecord, ProfessorProfile
 from paper_author_searcher.paper_deduplication import deduplicate_papers
 from paper_author_searcher.paper_ownership import LISTED_CLAIM, PaperOwnershipValidator
@@ -64,8 +71,40 @@ def profile(listed=(), **values):
     return ProfessorProfile(**data)
 
 
-def retriever(works, **config):
-    return ListedWorkRetriever(OpenAlexPaperProvider(Provider(Client(works))), ListedWorksConfig(**config))
+def retriever(works, *extra, **config):
+    settings = ListedWorksConfig(**config)
+    openalex = OpenAlexWorkLookup(OpenAlexPaperProvider(Provider(Client(works))), settings, AuthorMatcher())
+    return ListedWorkRetriever([openalex, *extra], settings)
+
+
+ARXIV_FEED = """<feed xmlns="http://www.w3.org/2005/Atom" xmlns:arxiv="http://arxiv.org/schemas/atom">
+<entry><id>http://arxiv.org/abs/2401.01234v2</id><title>Preprint Only Study</title>
+<published>2024-01-03T00:00:00Z</published>
+<author><name>Mei Lin</name><arxiv:affiliation>Example University</arxiv:affiliation></author>
+<author><name>Jane Smith</name></author></entry></feed>"""
+
+
+class FeedClient:
+    def __init__(self):
+        self.calls = []
+
+    def get(self, url, params=None, headers=None, xml=False):
+        import xml.etree.ElementTree as ET
+
+        self.calls.append(params)
+        if xml:
+            return ET.fromstring(ARXIV_FEED)
+        title = (params or {}).get('query.bibliographic', '')
+        if title.lower() == 'publisher only study':
+            author = {'given': 'Mei', 'family': 'Lin', 'affiliation': [{'name': 'Dept. of X, Example University'}]}
+            item = {
+                'DOI': '10.2000/pub',
+                'title': ['Publisher Only Study'],
+                'author': [author],
+                'issued': {'date-parts': [[2023]]},
+            }
+            return {'message': {'items': [item]}}
+        return {'message': {'items': []}}
 
 
 class RetrievalTests(unittest.TestCase):
@@ -75,7 +114,7 @@ class RetrievalTests(unittest.TestCase):
         self.assertEqual(len(result.papers), 1)
         record = result.papers[0]
         self.assertEqual(record.source_author_id, 'https://openalex.org/A9')
-        self.assertIn(RETRIEVED_EVIDENCE, record.attribution_evidence)
+        self.assertTrue(record.attribution_evidence[-1].startswith(RETRIEVED_EVIDENCE))
         self.assertEqual(result.metadata_errors, [])  # an unknown DOI is a 404, not a failure
 
     def test_works_already_collected_are_not_fetched_again(self):
@@ -88,6 +127,37 @@ class RetrievalTests(unittest.TestCase):
         self.assertEqual(len(retriever(works).retrieve(profile(['title:title only study']), []).papers), 1)
         capped = retriever(works, maximum_lookups=0).retrieve(profile(['title:title only study']), [])
         self.assertEqual((capped.papers, capped.complete), ([], False))
+
+    def test_the_chain_falls_through_to_crossref_and_arxiv(self):
+        feed = FeedClient()
+        crossref = CrossrefWorkLookup(feed, 'https://api.crossref.org', ListedWorksConfig(), AuthorMatcher())
+        arxiv = ArxivWorkLookup(
+            feed, 'https://export.arxiv.org/api/query', ListedWorksConfig(arxiv_request_interval=0), AuthorMatcher()
+        )
+        chain = retriever({}, crossref, arxiv)
+        result = chain.retrieve(profile(['title:publisher only study', 'title:preprint only study']), [])
+        by_source = {record.source: record for record in result.papers}
+        self.assertEqual(set(by_source), {'crossref', 'arxiv'})
+        self.assertEqual(
+            by_source['crossref'].author_details[0]['affiliations'][0]['raw_affiliation_string'],
+            'Dept. of X, Example University',
+        )
+        self.assertEqual(by_source['arxiv'].external_ids, {'arxiv': '2401.01234'})
+        self.assertTrue(all('found in' in record.attribution_evidence[-1] for record in result.papers))
+
+    def test_a_failing_source_is_skipped_not_fatal(self):
+        class Broken:
+            name = 'broken'
+
+            def find(self, key, target):
+                raise SourceError('HTTP 500', status_code=500)
+
+        works = {'10.1000/missing': work('Missing Study', '10.1000/missing')}
+        settings = ListedWorksConfig()
+        openalex = OpenAlexWorkLookup(OpenAlexPaperProvider(Provider(Client(works))), settings, AuthorMatcher())
+        result = ListedWorkRetriever([Broken(), openalex], settings).retrieve(profile(['doi:10.1000/missing']), [])
+        self.assertEqual(len(result.papers), 1)
+        self.assertEqual(result.metadata_errors[0]['source'], 'broken')
 
     def test_a_work_without_a_compatible_author_is_skipped(self):
         works = {'10.1000/x': work('Other', '10.1000/x', name='Someone Else')}

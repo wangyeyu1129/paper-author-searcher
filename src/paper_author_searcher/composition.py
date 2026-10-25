@@ -19,7 +19,6 @@ from .identity_anchors import AnchorFinder, ScholarlyAnchorFinder
 from .listed_works import ListedWorkRetriever
 from .paper_collector import PaperCollector
 from .paper_ownership import PaperOwnershipValidator
-from .paper_providers import OpenAlexPaperProvider
 from .pdf_resolver import PDFResolver
 from .pdf_resource_requests import PublicResourceRequests
 from .pdf_validation import PDFURLValidator
@@ -27,7 +26,7 @@ from .precision_guards import DepartmentMatcher, PrecisionGuard
 from .progress import ProgressReporter
 from .resolver import ProfessorResolver
 from .settings import Settings
-from .source_catalog import IDENTITY_SOURCES, PAPER_SOURCES, PDF_SOURCES
+from .source_catalog import IDENTITY_SOURCES, PAPER_SOURCES, PDF_SOURCES, WORK_LOOKUPS
 from .workflow import PaperSearchWorkflow
 
 FULL_MODE = 'full'
@@ -182,12 +181,10 @@ class ServiceContainer:
 
     @cached_property
     def listed_work_retriever(self) -> ListedWorkRetriever | None:
-        openalex = next(
-            (provider for provider in self.paper_providers if isinstance(provider, OpenAlexPaperProvider)), None
-        )
-        if openalex is None or not self.settings.listed_works.enabled:
+        config = self.settings.listed_works
+        if not config.enabled:
             return None
-        return ListedWorkRetriever(openalex, self.settings.listed_works, self.settings.matching)
+        return ListedWorkRetriever(WORK_LOOKUPS.create(config.sources, self), config)
 
     # Full text ---------------------------------------------------------------------------------------------------
 

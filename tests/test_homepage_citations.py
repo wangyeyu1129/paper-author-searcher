@@ -8,7 +8,9 @@ from paper_author_searcher.config import DEFAULT_ANCHORS, DEFAULT_SOURCES
 from paper_author_searcher.homepage_citations import (
     CitationRanker,
     HomepageCitation,
+    HomepageReader,
     HtmlCitationParser,
+    PdfCitationParser,
     mentions,
     prioritise,
 )
@@ -93,6 +95,30 @@ class ParserTests(unittest.TestCase):
     def test_citations_naming_the_person_come_first(self):
         mine, other = HomepageCitation('J. Lee, X. Y.'), HomepageCitation('A. Other')
         self.assertEqual(prioritise([other, mine], 'Jonathan Lee'), [mine, other])
+
+
+class PdfCvTests(unittest.TestCase):
+    def test_cv_text_splits_into_numbered_bulleted_and_year_led_entries(self):
+        text = """Publications
+1. N. Roussille. "The Central Role of the Ask Gap in Gender Pay Inequality", QJE.
+continued line
+2. S. Jager, N. Roussille. "Worker Beliefs About Outside Options", QJE 2024.
+2023 Bidding for Talent, with B. Scuderi"""
+        entries = PdfCitationParser().entries(text)
+        self.assertEqual(len(entries), 4)
+        self.assertTrue(entries[1].endswith('continued line'))
+
+    def test_pdf_bodies_go_to_the_pdf_parser_and_pages_to_the_html_parser(self):
+        class Fixed:
+            def __init__(self, label):
+                self.label = label
+
+            def parse(self, value):
+                return [HomepageCitation(self.label)]
+
+        reader = HomepageReader(Fixed('html'), Fixed('pdf'))
+        self.assertEqual(reader.citations('application/pdf', b'%PDF-1.7', lambda: '')[0].text, 'pdf')
+        self.assertEqual(reader.citations('text/html', b'<html>', lambda: '<html>')[0].text, 'html')
 
 
 class FinderTests(unittest.TestCase):

@@ -89,6 +89,8 @@ class SourceConfig:
     # Enabled identity sources, in order (names registered in source_catalog.IDENTITY_SOURCES).
     identity_sources: tuple[str, ...] = ('openalex', 'semantic_scholar', 'dblp')
     orcid_api_url: str = 'https://pub.orcid.org/v3.0'
+    crossref_url: str = 'https://api.crossref.org'
+    arxiv_url: str = 'https://export.arxiv.org/api/query'
 
 
 @dataclass(frozen=True)
@@ -243,18 +245,22 @@ class OwnershipConfig:
 class ListedWorksConfig:
     """Works the person lists themselves (homepage, supplied ORCID) that author-ID collection did not return.
 
-    Each missing work is looked up once (DOI, arXiv ID or exact title in OpenAlex) and enters the collection under
-    the name-compatible author of that work; OwnershipConfig.verify_listed_works decides whether the listing alone
-    verifies it.
+    Each missing work is looked up once (DOI, arXiv ID or exact title) through ``sources`` in order, stopping at the
+    first that has it, and enters the collection under the work's name-compatible author;
+    OwnershipConfig.verify_listed_works decides whether the listing alone verifies it.
     """
 
     enabled: bool = True
     maximum_lookups: int = 100
     title_search_results: int = 3
+    # Names registered in source_catalog.WORK_LOOKUPS. OpenAlex first (richest authorship), then sources that
+    # index what it misses: Semantic Scholar (CS venues), Crossref (publisher records), arXiv (preprints).
+    sources: tuple[str, ...] = ('openalex', 'semantic_scholar', 'crossref', 'arxiv')
+    arxiv_request_interval: float = 3.0
 
     def __post_init__(self) -> None:
-        if self.maximum_lookups < 0 or self.title_search_results < 1:
-            raise ValueError('maximum_lookups must be nonnegative and title_search_results positive')
+        if self.maximum_lookups < 0 or self.title_search_results < 1 or self.arxiv_request_interval < 0:
+            raise ValueError('maximum_lookups and arxiv_request_interval must be nonnegative, results positive')
 
 
 DEFAULT_LISTED_WORKS = ListedWorksConfig()

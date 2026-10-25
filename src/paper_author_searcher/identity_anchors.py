@@ -18,7 +18,9 @@ from .homepage_citations import (
     CitationParser,
     CitationRanker,
     HomepageCitation,
+    HomepageReader,
     HtmlCitationParser,
+    PdfCitationParser,
     mentions,
 )
 from .html_support import decode_response
@@ -118,6 +120,7 @@ class ScholarlyAnchorFinder:
     ) -> None:
         self.client = client
         self.citation_parser = citation_parser or HtmlCitationParser(anchor_config)
+        self.reader = HomepageReader(self.citation_parser, PdfCitationParser(anchor_config))
         self.ranker = ranker or CitationRanker(anchor_config)
         self.openalex_url = source_config.openalex_url.rstrip('/')
         self.orcid_url = source_config.orcid_api_url.rstrip('/')
@@ -137,7 +140,7 @@ class ScholarlyAnchorFinder:
         page_titles: list[str] = []
         if query.homepage:
             try:
-                citations = self.ranker.rank(self.citation_parser.parse(self._read_page(query.homepage)), query.name)
+                citations = self.ranker.rank(self._read_citations(query.homepage), query.name)
             except (SourceError, ValueError) as exc:
                 anchors.errors.append(f'homepage: {exc}')
                 citations = []
@@ -166,9 +169,11 @@ class ScholarlyAnchorFinder:
         except SourceError as exc:
             anchors.errors.append(f'{value}: {exc}')
 
-    def _read_page(self, url: str) -> str:
-        response = self.client.probe(url, 1024, self.config.homepage_bytes, self.config.maximum_redirects)
-        return decode_response(response)
+    def _read_citations(self, url: str) -> list[HomepageCitation]:
+        # One limit for both kinds: an HTML page's text and a PDF CV's whole body.
+        limit = self.config.homepage_bytes
+        response = self.client.probe(url, limit, limit, self.config.maximum_redirects)
+        return self.reader.citations(response.content_type, response.prefix, lambda: decode_response(response))
 
     def _compatible(self, query, name: str | None) -> bool:
         if not name:
