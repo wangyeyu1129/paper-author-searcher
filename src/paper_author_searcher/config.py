@@ -72,6 +72,9 @@ class HttpConfig:
     retry_backoff_base: float = 2
     retry_statuses: tuple[int, ...] = (429, 500, 502, 503, 504)
     user_agent: str = 'paper-author-searcher/0.1'
+    # Minimum seconds between requests to a host, as its terms require (arXiv asks for 3 s). Applied below the
+    # cache, so cached and replayed requests never wait.
+    host_request_intervals: tuple[tuple[str, float], ...] = (('export.arxiv.org', 3.0),)
 
 
 @dataclass(frozen=True)
@@ -256,11 +259,10 @@ class ListedWorksConfig:
     # Names registered in source_catalog.WORK_LOOKUPS. OpenAlex first (richest authorship), then sources that
     # index what it misses: Semantic Scholar (CS venues), Crossref (publisher records), arXiv (preprints).
     sources: tuple[str, ...] = ('openalex', 'semantic_scholar', 'crossref', 'arxiv')
-    arxiv_request_interval: float = 3.0
 
     def __post_init__(self) -> None:
-        if self.maximum_lookups < 0 or self.title_search_results < 1 or self.arxiv_request_interval < 0:
-            raise ValueError('maximum_lookups and arxiv_request_interval must be nonnegative, results positive')
+        if self.maximum_lookups < 0 or self.title_search_results < 1:
+            raise ValueError('maximum_lookups must be nonnegative and title_search_results positive')
 
 
 DEFAULT_LISTED_WORKS = ListedWorksConfig()
@@ -280,7 +282,6 @@ class CSSourcesConfig:
     arxiv_recent_years: int = 6
     arxiv_page_size: int = 100
     arxiv_maximum_results: int = 300
-    arxiv_request_interval: float = 3.0
     openreview: bool = True
     openreview_url: str = 'https://api2.openreview.net'
     openreview_maximum_notes: int = 1000
@@ -288,8 +289,8 @@ class CSSourcesConfig:
     def __post_init__(self) -> None:
         if min(self.arxiv_recent_years, self.arxiv_page_size, self.openreview_maximum_notes) < 1:
             raise ValueError('arXiv years, page size and OpenReview note limit must be positive')
-        if self.arxiv_maximum_results < 0 or self.arxiv_request_interval < 0:
-            raise ValueError('arXiv result cap and request interval must be nonnegative')
+        if self.arxiv_maximum_results < 0:
+            raise ValueError('arXiv result cap must be nonnegative')
 
 
 DEFAULT_CS_SOURCES = CSSourcesConfig()

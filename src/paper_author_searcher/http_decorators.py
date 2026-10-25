@@ -5,8 +5,11 @@ type checking and to readers; nothing is reached through ``__getattr__`` magic. 
 client at the bottom of a chain.
 """
 
-from collections.abc import Callable
+from collections.abc import Callable, Iterable
 from typing import Any
+from urllib.parse import urlsplit
+
+from .pacing import RequestPacer
 
 
 class HttpClientDecorator:
@@ -74,3 +77,44 @@ def unwrap(client: Any) -> Any:
         seen.add(id(client))
         client = client.client
     return client
+
+
+class PacedHttpClient(HttpClientDecorator):
+    """Keeps each configured host's minimum request interval. It belongs directly above the network client, below
+    the cache, so only requests that really go out wait."""
+
+    def __init__(
+        self,
+        client: Any,
+        intervals: Iterable[tuple[str, float]],
+        pacer_factory: Callable[[float], RequestPacer] = RequestPacer,
+    ) -> None:
+        super().__init__(client)
+        self.pacers = {host.lower(): pacer_factory(interval) for host, interval in intervals if interval > 0}
+
+    def _wait(self, url: str) -> None:
+        host = (urlsplit(url).hostname or '').lower()
+        pacer = self.pacers.get(host)
+        if pacer is not None:
+            pacer.wait(host)
+
+    def get(
+        self,
+        url: str,
+        params: dict[str, Any] | None = None,
+        headers: dict[str, str] | None = None,
+        xml: bool = False,
+    ) -> Any:
+        self._wait(url)
+        return self.client.get(url, params, headers, xml)
+
+    def probe(
+        self,
+        url: str,
+        maximum_bytes: int = 1024,
+        html_bytes: int = 0,
+        maximum_redirects: int = 5,
+        redirect_guard: Callable[[str], None] | None = None,
+    ) -> Any:
+        self._wait(url)
+        return super().probe(url, maximum_bytes, html_bytes, maximum_redirects, redirect_guard)

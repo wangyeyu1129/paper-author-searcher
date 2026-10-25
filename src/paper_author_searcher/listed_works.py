@@ -19,7 +19,6 @@ from .http import SourceError
 from .logging_config import log_isolated_failure
 from .matching import ARXIV_DOI_PREFIX, canonical_arxiv, canonical_doi, name_similarity, normalize
 from .models import PaperRecord, PaperSourceResult, ProfessorProfile
-from .pacing import RequestPacer
 from .paper_providers import OpenAlexPaperProvider, SemanticScholarPaperProvider, parse_year
 
 logger = logging.getLogger(__name__)
@@ -223,19 +222,17 @@ class CrossrefWorkLookup:
 
 
 class ArxivWorkLookup:
-    """Preprints, paced as the arXiv API terms require."""
+    """Preprints (the HTTP layer keeps the interval arXiv's terms require)."""
 
     name = 'arxiv'
 
     def __init__(self, client: Any, base_url: str, config: ListedWorksConfig, authors: AuthorMatcher) -> None:
         self.client, self.base_url, self.config, self.authors = client, base_url, config, authors
-        self.pacer = RequestPacer(config.arxiv_request_interval)
 
     def find(self, key: str, profile: ProfessorProfile) -> PaperRecord | None:
         kind, value = split_key(key)
         if kind == 'doi':
             return None
-        self.pacer.wait('arxiv')
         if kind == 'arxiv':
             params: dict[str, Any] = {'id_list': value}
         else:

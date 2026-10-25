@@ -22,7 +22,6 @@ from .listed_works import ATOM, AuthorMatcher, arxiv_entry_record
 from .logging_config import log_isolated_failure
 from .matching import best_similarity, institution_similarity, normalize, work_keys
 from .models import PaperSourceResult, ProfessorProfile
-from .pacing import RequestPacer
 
 logger = logging.getLogger(__name__)
 
@@ -43,7 +42,6 @@ class ArxivAuthorSearch:
         self.client, self.base_url, self.config = client, base_url, config
         self.authors = AuthorMatcher(matching)
         self.current_year = current_year or date.today().year
-        self.pacer = RequestPacer(config.arxiv_request_interval)
 
     def author_key(self, profile: ProfessorProfile) -> str:
         return 'name:' + normalize(profile.requested_name or profile.name)
@@ -59,7 +57,6 @@ class ArxivAuthorSearch:
         try:
             offset = 0
             while offset < self.config.arxiv_maximum_results:
-                self.pacer.wait(self.name)
                 feed = self.client.get(
                     self.base_url,
                     params={

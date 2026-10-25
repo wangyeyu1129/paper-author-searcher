@@ -42,9 +42,7 @@ def profile(**values):
 
 
 def search(client):
-    return ArxivAuthorSearch(
-        client, 'https://export.arxiv.org/api/query', CSSourcesConfig(arxiv_request_interval=0), current_year=2025
-    )
+    return ArxivAuthorSearch(client, 'https://export.arxiv.org/api/query', CSSourcesConfig(), current_year=2025)
 
 
 class ArxivAuthorSearchTests(unittest.TestCase):

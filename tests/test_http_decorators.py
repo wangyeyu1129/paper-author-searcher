@@ -7,7 +7,8 @@ from paper_author_searcher.config import DEFAULT_PDF
 from paper_author_searcher.http import HttpClient, SourceError, URLProbe
 from paper_author_searcher.http_budget import BudgetedHttpClient, CostLedger
 from paper_author_searcher.http_cache import CachingHttpClient, cached_client
-from paper_author_searcher.http_decorators import HttpClientDecorator, unwrap
+from paper_author_searcher.http_decorators import HttpClientDecorator, PacedHttpClient, unwrap
+from paper_author_searcher.pacing import RequestPacer
 from paper_author_searcher.pdf_resource_requests import PublicResourceRequests
 
 
@@ -65,6 +66,18 @@ class DecoratorChainTests(unittest.TestCase):
                 with self.assertRaises(SourceError):
                     call()
         self.assertEqual(network.probes, [])
+
+    def test_configured_hosts_keep_their_interval_and_others_do_not_wait(self):
+        clock, sleeps = [0.0], []
+        paced = PacedHttpClient(
+            RecordingClient(),
+            [('export.arxiv.org', 3.0)],
+            lambda interval: RequestPacer(interval, clock=lambda: clock[0], sleep=sleeps.append),
+        )
+        for _ in range(3):
+            paced.get('https://export.arxiv.org/api/query')
+        paced.get('https://api.openalex.org/works')
+        self.assertEqual(sleeps, [3.0, 6.0])
 
     def test_unwrap_returns_plain_clients_unchanged(self):
         client = object()

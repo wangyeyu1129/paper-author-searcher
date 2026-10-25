@@ -16,6 +16,7 @@ from .cs_sources import ArxivAuthorSearch, OpenReviewProfiles
 from .http import HttpClient
 from .http_budget import budgeted_client
 from .http_cache import cached_client
+from .http_decorators import PacedHttpClient
 from .identity_anchors import AnchorFinder, ScholarlyAnchorFinder
 from .listed_works import ListedWorkRetriever
 from .paper_collector import PaperCollector
@@ -98,10 +99,12 @@ class ServiceContainer:
 
     @cached_property
     def http_client(self) -> Any:
-        """cache -> budget -> network: cached replays are free; only real requests are priced."""
+        """cache -> budget -> pacing -> network: cached replays are free and never wait; real requests are priced
+        and keep each host's interval."""
         options = self.options
         network = HttpClient(timeout=options.timeout, retries=options.retries, config=self.settings.http)
-        metered = budgeted_client(network, options.max_cost_usd, options.cost_ledger)
+        paced = PacedHttpClient(network, self.settings.http.host_request_intervals)
+        metered = budgeted_client(paced, options.max_cost_usd, options.cost_ledger)
         return cached_client(metered, options.http_cache_dir, options.http_cache_mode)
 
     # Identity ----------------------------------------------------------------------------------------------------
