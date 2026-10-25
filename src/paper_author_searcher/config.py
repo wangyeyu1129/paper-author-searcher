@@ -95,7 +95,24 @@ class SourceConfig:
 class AnchorConfig:
     """Limits for turning caller hints (ORCID, homepage, known papers) into author-ID anchors."""
 
-    maximum_anchor_papers: int = 15
+    # Anchor lookups per person. The page's citations are ranked by value first (see homepage_citations): the
+    # person's own, recent, research-paper entries before others.
+    maximum_anchor_papers: int = 25
+    anchor_recent_years: int = 6
+    non_paper_markers: tuple[str, ...] = (
+        'talk',
+        'keynote',
+        'poster',
+        'slides',
+        'tutorial',
+        'dataset',
+        'software',
+        'thesis',
+        'dissertation',
+        'abstract',
+        'patent',
+        'workshop proposal',
+    )
     homepage_bytes: int = 2_000_000
     maximum_redirects: int = 5
     title_search_results: int = 3

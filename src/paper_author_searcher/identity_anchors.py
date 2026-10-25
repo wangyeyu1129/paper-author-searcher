@@ -16,10 +16,10 @@ from .homepage_citations import (
     ARXIV_IN_TEXT,
     DOI_IN_TEXT,
     CitationParser,
+    CitationRanker,
     HomepageCitation,
     HtmlCitationParser,
     mentions,
-    prioritise,
 )
 from .html_support import decode_response
 from .http import HttpClient, SourceError
@@ -114,9 +114,11 @@ class ScholarlyAnchorFinder:
         openalex_api_key: str | None = None,
         semantic_scholar_api_key: str | None = None,
         citation_parser: CitationParser | None = None,
+        ranker: CitationRanker | None = None,
     ) -> None:
         self.client = client
         self.citation_parser = citation_parser or HtmlCitationParser(anchor_config)
+        self.ranker = ranker or CitationRanker(anchor_config)
         self.openalex_url = source_config.openalex_url.rstrip('/')
         self.orcid_url = source_config.orcid_api_url.rstrip('/')
         self.semantic_scholar_url = source_config.semantic_scholar_url.rstrip('/')
@@ -135,7 +137,7 @@ class ScholarlyAnchorFinder:
         page_titles: list[str] = []
         if query.homepage:
             try:
-                citations = prioritise(self.citation_parser.parse(self._read_page(query.homepage)), query.name)
+                citations = self.ranker.rank(self.citation_parser.parse(self._read_page(query.homepage)), query.name)
             except (SourceError, ValueError) as exc:
                 anchors.errors.append(f'homepage: {exc}')
                 citations = []

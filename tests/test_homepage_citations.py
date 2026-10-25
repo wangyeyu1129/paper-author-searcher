@@ -5,7 +5,13 @@ import unittest
 
 from paper_author_searcher import ProfessorQuery as Q
 from paper_author_searcher.config import DEFAULT_ANCHORS, DEFAULT_SOURCES
-from paper_author_searcher.homepage_citations import HomepageCitation, HtmlCitationParser, mentions, prioritise
+from paper_author_searcher.homepage_citations import (
+    CitationRanker,
+    HomepageCitation,
+    HtmlCitationParser,
+    mentions,
+    prioritise,
+)
 from paper_author_searcher.http import URLProbe
 from paper_author_searcher.identity_anchors import ScholarlyAnchorFinder
 
@@ -22,7 +28,7 @@ TITLE_ONLY_PAGE = """
 LAB_PAGE = (
     ''.join(
         f'<p>A. Other, B. Person. Lab paper {index}. <a href="https://doi.org/10.1000/lab{index}">doi</a></p>'
-        for index in range(20)
+        for index in range(40)
     )
     + '<p>J. Lee, L. Lu. Student paper. <a href="https://doi.org/10.1000/student">doi</a></p>'
 )
@@ -61,7 +67,7 @@ class ParserTests(unittest.TestCase):
 
     def test_identifiers_are_read_from_links_per_citation(self):
         citations = HtmlCitationParser().parse(LAB_PAGE)
-        self.assertEqual(len(citations), 21)
+        self.assertEqual(len(citations), 41)
         self.assertEqual(citations[-1].dois, ('10.1000/student',))
 
     def test_title_bounds_come_from_configuration(self):
@@ -72,6 +78,17 @@ class ParserTests(unittest.TestCase):
         for text in ('Yang Liu and others', 'Y. Liu, Z. Wang', 'Liu Y, Wang Z'):
             self.assertTrue(mentions('Yang Liu', text), text)
         self.assertFalse(mentions('Yang Liu', 'Z. Wang, Q. Liu'))
+
+    def test_recent_research_papers_outrank_old_ones_and_talks(self):
+        ranker = CitationRanker(current_year=2025)
+        old = HomepageCitation('J. Lee. Old study. 2009.')
+        recent = HomepageCitation('J. Lee. Recent study. 2024.')
+        talk = HomepageCitation('J. Lee. Invited talk on studies. 2024.')
+        self.assertEqual(ranker.rank([old, talk, recent], 'Jonathan Lee'), [recent, talk, old])
+
+    def test_ranking_windows_come_from_configuration(self):
+        wide = CitationRanker(dataclasses.replace(DEFAULT_ANCHORS, anchor_recent_years=30), current_year=2025)
+        self.assertEqual(wide.value(HomepageCitation('J. Lee. Old study. 2009.'), 'Jonathan Lee'), (True, True, True))
 
     def test_citations_naming_the_person_come_first(self):
         mine, other = HomepageCitation('J. Lee, X. Y.'), HomepageCitation('A. Other')

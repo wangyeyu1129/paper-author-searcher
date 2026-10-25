@@ -9,6 +9,7 @@ prefer citations that name the person and fall back to title lookups when a page
 import re
 from collections.abc import Iterable, Sequence
 from dataclasses import dataclass, field
+from datetime import date
 from html import unescape
 from html.parser import HTMLParser
 from typing import Protocol
@@ -129,12 +130,33 @@ def mentions(name: str, text: str) -> bool:
     return (last in tokens and first[0] in tokens) or (first in tokens and last[0] in tokens)
 
 
+YEAR = re.compile(r'\b(19[5-9]\d|20\d\d)\b')
+
+
+class CitationRanker:
+    """Orders citations by their value as anchors: naming the person (on a lab page those are theirs), recent
+    (inside ``anchor_recent_years``: current affiliations, current author IDs), then research papers over talks,
+    posters or datasets. Ties keep page order."""
+
+    def __init__(self, config: AnchorConfig = DEFAULT_ANCHORS, current_year: int | None = None) -> None:
+        self.config = config
+        self.current_year = current_year or date.today().year
+        self.markers = tuple(normalize(marker) for marker in config.non_paper_markers)
+
+    def value(self, citation: HomepageCitation, name: str) -> tuple[bool, bool, bool]:
+        text = normalize(citation.text)
+        years = [int(year) for year in YEAR.findall(citation.text)]
+        recent = any(self.current_year - year < self.config.anchor_recent_years for year in years)
+        paper = not any(f' {marker} ' in f' {text} ' for marker in self.markers)
+        return mentions(name, citation.text), recent, paper
+
+    def rank(self, citations: Iterable[HomepageCitation], name: str) -> list[HomepageCitation]:
+        return sorted(citations, key=lambda citation: tuple(not flag for flag in self.value(citation, name)))
+
+
 def prioritise(citations: Iterable[HomepageCitation], name: str) -> list[HomepageCitation]:
-    """Citations that name the person first, page order otherwise kept: on a lab page they are the person's own."""
-    citations = list(citations)
-    return [citation for citation in citations if mentions(name, citation.text)] + [
-        citation for citation in citations if not mentions(name, citation.text)
-    ]
+    """Rank with the default configuration (see CitationRanker)."""
+    return CitationRanker().rank(citations, name)
 
 
 def _unique(values: Iterable[str]) -> list[str]:
