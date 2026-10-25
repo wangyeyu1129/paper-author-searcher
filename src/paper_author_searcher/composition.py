@@ -12,6 +12,7 @@ from typing import Any, ClassVar
 
 from .config import CollectionConfig, DownloadConfig, PDFConfig
 from .contender_adjudication import DepartmentAdjudicator
+from .cs_sources import ArxivAuthorSearch, OpenReviewProfiles
 from .http import HttpClient
 from .http_budget import budgeted_client
 from .http_cache import cached_client
@@ -121,6 +122,7 @@ class ServiceContainer:
             anchor_config=settings.anchors,
             openalex_api_key=settings.credentials.openalex_api_key,
             semantic_scholar_api_key=settings.credentials.semantic_scholar_api_key,
+            listed_sources=self.listed_work_sources,
         )
 
     @cached_property
@@ -176,8 +178,24 @@ class ServiceContainer:
             concurrency=dict(self.collection_config.source_concurrency),
             raw_metadata=self.collection_config.raw_metadata,
             listed_works=self.listed_work_retriever,
+            name_searches=self.name_searches,
             adjudicator=DepartmentAdjudicator(self.collection_config, DepartmentMatcher(self.settings.precision)),
         )
+
+    @cached_property
+    def name_searches(self) -> list[ArxivAuthorSearch]:
+        settings = self.settings
+        if not settings.cs_sources.arxiv_author_search:
+            return []
+        return [ArxivAuthorSearch(self.http_client, settings.sources.arxiv_url, settings.cs_sources, settings.matching)]
+
+    @cached_property
+    def listed_work_sources(self) -> list[OpenReviewProfiles]:
+        settings = self.settings
+        token = settings.credentials.openreview_token
+        if not settings.cs_sources.openreview or not token:
+            return []
+        return [OpenReviewProfiles(self.http_client, token, settings.cs_sources, settings.matching)]
 
     @cached_property
     def listed_work_retriever(self) -> ListedWorkRetriever | None:

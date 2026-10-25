@@ -267,6 +267,35 @@ DEFAULT_LISTED_WORKS = ListedWorksConfig()
 
 
 @dataclass(frozen=True)
+class CSSourcesConfig:
+    """Computer-science sources beyond the author-ID databases.
+
+    arXiv author search collects the person's recent preprints by name; they still need ownership evidence
+    (affiliation, recurring coauthors, the person's own list). OpenReview profiles are maintained by their owners,
+    so a profile matching the name and the requested institution contributes its papers to the person's own list;
+    its API needs an account token (credentials.openreview_token), without which it is skipped.
+    """
+
+    arxiv_author_search: bool = True
+    arxiv_recent_years: int = 6
+    arxiv_page_size: int = 100
+    arxiv_maximum_results: int = 300
+    arxiv_request_interval: float = 3.0
+    openreview: bool = True
+    openreview_url: str = 'https://api2.openreview.net'
+    openreview_maximum_notes: int = 1000
+
+    def __post_init__(self) -> None:
+        if min(self.arxiv_recent_years, self.arxiv_page_size, self.openreview_maximum_notes) < 1:
+            raise ValueError('arXiv years, page size and OpenReview note limit must be positive')
+        if self.arxiv_maximum_results < 0 or self.arxiv_request_interval < 0:
+            raise ValueError('arXiv result cap and request interval must be nonnegative')
+
+
+DEFAULT_CS_SOURCES = CSSourcesConfig()
+
+
+@dataclass(frozen=True)
 class PrecisionGuardConfig:
     """Stricter ownership evidence where namesakes share institutions (Tsinghua has many Yang Lius).
 

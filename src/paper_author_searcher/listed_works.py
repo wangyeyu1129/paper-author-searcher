@@ -9,7 +9,7 @@ why. Ownership decides afterwards (``OwnershipConfig.verify_listed_works``).
 
 import logging
 import xml.etree.ElementTree as ET
-from collections.abc import Iterable, Sequence
+from collections.abc import Callable, Iterable, Sequence
 from typing import Any, Protocol
 from urllib.parse import quote
 
@@ -46,13 +46,17 @@ class AuthorMatcher:
         self.matching = matching
 
     def compatible(self, profile: ProfessorProfile, names: Iterable[str]) -> bool:
+        return self.compatible_names(profile.target_names(), names)
+
+    def compatible_names(self, targets: Iterable[str], names: Iterable[str]) -> bool:
+        names = list(names)
         return any(
             name
             and (
                 name_similarity(target, name, self.matching) >= self.matching.compatible_name
                 or bibliographic_name_agrees(target, name)
             )
-            for target in profile.target_names()
+            for target in targets
             for name in names
         )
 
@@ -241,46 +245,64 @@ class ArxivWorkLookup:
             }
         feed = self.client.get(self.base_url, params=params, xml=True)
         for entry in feed.findall(ATOM + 'entry'):
-            identifier = canonical_arxiv((entry.findtext(ATOM + 'id') or '').rsplit('/abs/', 1)[-1])
             title = ' '.join((entry.findtext(ATOM + 'title') or '').split())
-            if not identifier or (kind == 'title' and not same_title(title, value)):
+            if kind == 'title' and not same_title(title, value):
                 continue
-            return self._record(entry, identifier, title, profile)
+            record = arxiv_entry_record(entry, lambda details: self.authors.single(profile, _named(details)))
+            if record is not None:
+                return record
         return None
 
-    def _record(self, entry: ET.Element, identifier: str, title: str, profile: ProfessorProfile) -> PaperRecord | None:
-        details: list[dict[str, Any]] = []
-        for index, author in enumerate(entry.findall(ATOM + 'author')):
-            affiliations = [item.text for item in author.findall(ARXIV_ATOM + 'affiliation') if item.text]
-            details.append(
-                {
-                    'name': author.findtext(ATOM + 'name') or '',
-                    'author_id': f'arxiv:{identifier}#{index}',
-                    'role': 'author',
-                    'affiliations': [{'raw_affiliation_string': value} for value in affiliations],
-                    'affiliation_scope': 'paper_authorship',
-                }
-            )
-        author_id = self.authors.single(profile, ((detail['author_id'], [detail['name']]) for detail in details))
-        if not author_id:
-            return None
-        doi = entry.findtext(ARXIV_ATOM + 'doi')
-        return PaperRecord(
-            title=title,
-            authors=[detail['name'] for detail in details],
-            year=parse_year((entry.findtext(ATOM + 'published') or '')[:4]),
-            doi=doi or ARXIV_DOI_PREFIX + identifier,
-            venue='arXiv',
-            abstract=' '.join((entry.findtext(ATOM + 'summary') or '').split()) or None,
-            source=self.name,
-            source_paper_id=identifier,
-            source_author_id=author_id,
-            paper_url='https://arxiv.org/abs/' + identifier,
-            publication_type='preprint',
-            author_details=details,
-            target_author_present=True,
-            external_ids={'arxiv': identifier},
+
+def _named(details: Sequence[dict[str, Any]]) -> Iterable[tuple[str, Sequence[str]]]:
+    return ((detail['author_id'], [detail['name']]) for detail in details)
+
+
+def arxiv_entry_record(
+    entry: ET.Element, choose: Callable[[list[dict[str, Any]]], str | None], relabel: str | None = None
+) -> PaperRecord | None:
+    """One arXiv Atom entry as a record of the author ``choose`` picks (None: no record). Authors get per-entry
+    IDs; ``relabel`` gives the chosen author a stable ID instead (a name-search key)."""
+    identifier = canonical_arxiv((entry.findtext(ATOM + 'id') or '').rsplit('/abs/', 1)[-1])
+    if not identifier:
+        return None
+    details: list[dict[str, Any]] = []
+    for index, author in enumerate(entry.findall(ATOM + 'author')):
+        affiliations = [item.text for item in author.findall(ARXIV_ATOM + 'affiliation') if item.text]
+        details.append(
+            {
+                'name': author.findtext(ATOM + 'name') or '',
+                'author_id': f'arxiv:{identifier}#{index}',
+                'role': 'author',
+                'affiliations': [{'raw_affiliation_string': value} for value in affiliations],
+                'affiliation_scope': 'paper_authorship',
+            }
         )
+    author_id = choose(details)
+    if not author_id:
+        return None
+    if relabel:
+        for detail in details:
+            if detail['author_id'] == author_id:
+                detail['author_id'] = relabel
+        author_id = relabel
+    doi = entry.findtext(ARXIV_ATOM + 'doi')
+    return PaperRecord(
+        title=' '.join((entry.findtext(ATOM + 'title') or '').split()),
+        authors=[detail['name'] for detail in details],
+        year=parse_year((entry.findtext(ATOM + 'published') or '')[:4]),
+        doi=doi or ARXIV_DOI_PREFIX + identifier,
+        venue='arXiv',
+        abstract=' '.join((entry.findtext(ATOM + 'summary') or '').split()) or None,
+        source='arxiv',
+        source_paper_id=identifier,
+        source_author_id=author_id,
+        paper_url='https://arxiv.org/abs/' + identifier,
+        publication_type='preprint',
+        author_details=details,
+        target_author_present=True,
+        external_ids={'arxiv': identifier},
+    )
 
 
 class ListedWorkRetriever:

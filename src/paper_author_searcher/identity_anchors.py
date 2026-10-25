@@ -4,7 +4,7 @@ An anchor is independent of the name search, so it separates namesakes and ties 
 """
 
 import re
-from collections.abc import Iterable, Mapping
+from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass, field
 from html import unescape
 from typing import Any, Protocol
@@ -57,6 +57,14 @@ class IdentityAnchors:
 
     def __bool__(self) -> bool:
         return bool(self.author_ids or self.orcid)
+
+
+class ListedWorkSource(Protocol):
+    """Adds works to the person's own list (``IdentityAnchors.listed_works``), e.g. an OpenReview profile."""
+
+    name: str
+
+    def works(self, query) -> set[str]: ...
 
 
 class AnchorFinder(Protocol):
@@ -117,11 +125,13 @@ class ScholarlyAnchorFinder:
         semantic_scholar_api_key: str | None = None,
         citation_parser: CitationParser | None = None,
         ranker: CitationRanker | None = None,
+        listed_sources: Sequence[ListedWorkSource] = (),
     ) -> None:
         self.client = client
         self.citation_parser = citation_parser or HtmlCitationParser(anchor_config)
         self.reader = HomepageReader(self.citation_parser, PdfCitationParser(anchor_config))
         self.ranker = ranker or CitationRanker(anchor_config)
+        self.listed_sources = list(listed_sources)
         self.openalex_url = source_config.openalex_url.rstrip('/')
         self.orcid_url = source_config.orcid_api_url.rstrip('/')
         self.semantic_scholar_url = source_config.semantic_scholar_url.rstrip('/')
@@ -149,6 +159,11 @@ class ScholarlyAnchorFinder:
             hints['arxiv'] = _merge(hints['arxiv'], [arxiv for item in citations for arxiv in item.arxiv_ids])
             page_titles = _merge([title for item in citations for title in item.titles])
             anchors.listed_works = sorted(set(anchors.listed_works) | _listed_works(citations, query.name))
+        for source in self.listed_sources:
+            try:
+                anchors.listed_works = sorted(set(anchors.listed_works) | source.works(query))
+            except (SourceError, ValueError) as exc:
+                anchors.errors.append(f'{source.name}: {exc}')
         budget = self.config.maximum_anchor_papers
         dois, arxiv_ids = hints['doi'][:budget], hints['arxiv'][:budget]
         # A page that links no identifiers (titles only) is still usable: exact-title lookups fill the budget left.
