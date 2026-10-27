@@ -129,17 +129,22 @@ class FragmentMerger:
     def __init__(self, config: FragmentConfig = DEFAULT_FRAGMENTS, matching: MatchingConfig = DEFAULT_MATCHING):
         self.config, self.matching = config, matching
 
+    def worth_paging(self, profile: ProfessorProfile, fragments: Iterable[Fragment]) -> list[Fragment]:
+        """Fragments that could still be accepted, so paging them is not wasted: with the institution required,
+        those whose known affiliations already include it (a source without affiliations, such as Semantic
+        Scholar, can never satisfy the rule, and paging it only spends its rate limit)."""
+        if not self.config.require_institution:
+            return list(fragments)
+        schools = self._schools(profile)
+        return [fragment for fragment in fragments if self._same_institution(fragment, schools)]
+
     def select(
         self, profile: ProfessorProfile, verified: Iterable[PaperRecord], fragments: Sequence[Fragment]
     ) -> list[FragmentDecision]:
         """One decision per fragment, accepted ones in the order they joined."""
         network = person_coauthors(profile, verified)
         weights = self._weights(network, fragments)
-        schools = [
-            school
-            for school in [profile.requested_university, *profile.matched_affiliations, profile.university]
-            if school
-        ]
+        schools = self._schools(profile)
         pending = list(fragments)
         decisions: list[FragmentDecision] = []
         changed = True
@@ -188,6 +193,11 @@ class FragmentMerger:
             decision.accepted = True
             decision.reason = 'shared institution' if self.config.require_institution else 'coauthors only'
         return decision
+
+    @staticmethod
+    def _schools(profile: ProfessorProfile) -> list[str]:
+        candidates = [profile.requested_university, *profile.matched_affiliations, profile.university]
+        return [school for school in candidates if school]
 
     def _same_institution(self, fragment: Fragment, schools: Sequence[str]) -> bool:
         similarity = best_similarity(
