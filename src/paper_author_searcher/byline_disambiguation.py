@@ -9,9 +9,9 @@ one such work each) leaves the contest open, and so does thin evidence: a wrong 
 papers to the person.
 
 Some departments never appear in a byline (Harvard bioengineering signs as the School of Engineering and Applied
-Sciences). When no contender has department evidence, works printing the school alone may decide instead. A
-senior namesake at the school would win that tier on tenure alone, so it is never used once any contender's
-bylines name the department.
+Sciences). When no contender has department evidence, works printing the school alone may decide instead
+(``school_fallback``, off by default). A senior namesake at the school wins that tier on tenure alone: it chose an
+immunologist over Stanford CS student Jing Huang, whose sampled papers rarely print Stanford.
 """
 
 from collections.abc import Sequence

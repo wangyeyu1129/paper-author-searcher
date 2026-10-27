@@ -1,6 +1,6 @@
 # 锁定身份与多源检索（Phase 1 / Phase 2）
 
-本页说明输入格式、身份发现、发表列表提取、各数据源与本地索引。所有阈值、地址、来源顺序都在 `Settings` 的对应分区里（`discovery`、`profile_links`、`extraction`、`name_searches`、`listed_works`、`dblp_dump`、`catalogs`），可用 JSON 配置文件或 `PAPER_SEARCH__<分区>__<字段>` 覆盖。评测结果见 [reports/benchmark/phase1-2-evaluation-20261027.md](../reports/benchmark/phase1-2-evaluation-20261027.md)。
+本页说明输入格式、身份发现、发表列表提取、各数据源与本地索引。所有阈值、地址、来源顺序都在 `Settings` 的对应分区里（`discovery`、`profile_links`、`extraction`、`name_searches`、`listed_works`、`dblp_dump`、`catalogs`、`disambiguation`），可用 JSON 配置文件或 `PAPER_SEARCH__<分区>__<字段>` 覆盖。评测结果见 [reports/benchmark/phase1-2-evaluation-20261027.md](../reports/benchmark/phase1-2-evaluation-20261027.md)。
 
 ## 输入格式
 
@@ -31,6 +31,18 @@ OpenAlex 为每个合并后的作者聚类只记一个 ORCID，混入同名者�
 
 - 本人发表列表中的论文若只能归到带其他 ORCID 的作者，先记为 "有争议"；同一作者持有至少 `anchors.minimum_contested_works`（默认 3）篇不同的本人论文时，锚定该作者（锚点类型 `contested`），解析时不再把它的 ORCID 算作冲突。少于此数则仍以 ORCID 为准。
 - 一个分组只要含有由本人 ORCID 确认的记录（带该 ORCID，或其 ORCID 已被本人论文推翻），其中带其他 ORCID 的成员就会被移出，每个 ORCID 各成一组。同名者常因共享 DOI 的混合 Semantic Scholar 档案被并入。
+
+## 同校同名者的裁决
+
+只给姓名、学校和院系时，同校同名者在姓名和学校两项上同分（Yi Cui 与 Yi Shun Cui 都是 Stanford）。前两名差距小于 `ambiguity_margin` 且没有任何锚点时，`byline_disambiguation.BylineDisambiguator` 看各候选**本人在论文上印出的机构行**（OpenAlex `raw_affiliation_strings`，解析阶段已抓取，不增加请求）：
+
+1. 参与者：分数在第一名 `disambiguation.contest_band`（默认 0.05）以内、学校匹配的分组。真正的 Feng Zhang 排在一个只有 1 篇论文的同名者之后 0.02，也在其中。
+2. 每组的证据是"署名同时写出所请求院系和学校"的论文数。院系短语的提取与比较沿用 `precision_guards.DepartmentMatcher`，学校用 `matching.institution_mentioned`。
+3. 最多的一组至少有 `minimum_works`（默认 5）篇，且至少是其他任一组的 `dominance_ratio`（默认 3）倍，才胜出并解析为该身份；否则保持未解决。
+
+可选的第二层 `school_fallback`（默认关闭）：没有任何候选有院系证据时，改数只写学校的论文。重放中它没有选对任何人，反而把 Stanford CS 博士生 Jing Huang 判给了一位免疫学同名者，所以默认关闭。
+
+收集阶段的 `contender_adjudication.DepartmentAdjudicator` 仍保留，作为第二道裁决：它只看已收集的前几个候选，按院系提及的占比判断。
 
 ## 发表列表提取
 

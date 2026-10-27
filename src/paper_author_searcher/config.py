@@ -161,8 +161,10 @@ class DisambiguationConfig:
     minimum_works: int = 5
     dominance_ratio: float = 3.0
     # Departments a byline never prints (Harvard bioengineering signs as "School of Engineering and Applied
-    # Sciences") fall back to works printing the school; never used when any contender has department evidence.
-    school_fallback: bool = True
+    # Sciences") may fall back to works printing the school; never used when any contender has department
+    # evidence. Off by default: in the 2026-10-27 replay it settled nobody correctly (Jia Liu 33 vs 25 against a
+    # Harvard Medical namesake) and settled Stanford CS student Jing Huang on an immunologist's 21 Stanford works.
+    school_fallback: bool = False
 
     def __post_init__(self) -> None:
         if self.contest_band < 0:

@@ -48,19 +48,19 @@ class BylineDisambiguationTests(unittest.TestCase):
         # A long-tenured namesake elsewhere at the school must not beat two thinly evidenced department matches.
         result = self.resolve(
             [namesake('A1', [MEDICINE] * 30), namesake('A2', [HOME]), namesake('A3', [HOME])],
+            config=replace(DEFAULT_DISAMBIGUATION, school_fallback=True),
         )
         self.assertEqual(result.profile.status, 'ambiguous')
 
-    def test_school_bylines_decide_when_no_byline_names_the_department(self):
+    def test_school_bylines_decide_when_enabled_and_no_byline_names_the_department(self):
         records = [namesake('A1', [SCHOOL] * 8), namesake('A2', ['Tsinghua University', SCHOOL])]
-        result = self.resolve(records)
+        result = self.resolve(records, config=replace(DEFAULT_DISAMBIGUATION, school_fallback=True))
         self.assertEqual(result.profile.author_ids, {'openalex': 'A1'})
         self.assertIn('print Example University', result.profile.disambiguation)
 
-    def test_school_tier_can_be_switched_off(self):
+    def test_school_tier_is_off_by_default(self):
         records = [namesake('A1', [SCHOOL] * 8), namesake('A2', [SCHOOL])]
-        config = replace(DEFAULT_DISAMBIGUATION, school_fallback=False)
-        self.assertEqual(self.resolve(records, config=config).profile.status, 'ambiguous')
+        self.assertEqual(self.resolve(records).profile.status, 'ambiguous')
 
     def test_disabled_disambiguation_changes_nothing(self):
         records = [namesake('A1', [MEDICINE] * 9), namesake('A2', [HOME] * 6)]
