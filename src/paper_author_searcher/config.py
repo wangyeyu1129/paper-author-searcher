@@ -394,7 +394,8 @@ class CatalogConfig:
     # Harvest records added or changed since this date (YYYY-MM-DD); empty harvests everything.
     oai_from: str = ''
     oai_maximum_pages: int = 2000
-    maximum_download_bytes: int = 200_000_000
+    # Largest listing today: the ACL Anthology export, 13.5 MB. The download reads into a buffer of this size.
+    maximum_download_bytes: int = 64_000_000
 
     def __post_init__(self) -> None:
         if self.maximum_download_bytes < 1 or self.oai_maximum_pages < 1:

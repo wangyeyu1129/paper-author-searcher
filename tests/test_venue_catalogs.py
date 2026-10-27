@@ -31,9 +31,11 @@ from paper_author_searcher.venue_catalogs import (
     author_key,
     bibtex_authors,
     bibtex_entries,
+    bibtex_stream,
     catalog_sources,
     latex_text,
     probe_fetch,
+    text_lines,
 )
 
 BIB = r"""
@@ -129,6 +131,14 @@ class BibtexTests(unittest.TestCase):
         self.assertEqual(fields['year'], '2024')
         self.assertEqual(fields['booktitle'], 'Proceedings of the 62nd Annual Meeting (ACL)')
         self.assertEqual(bibtex_authors(fields['author']), ('Mei Lin', 'Jürgen Müller', 'Ana Other'))
+
+
+class StreamTests(unittest.TestCase):
+    def test_streamed_parsing_equals_whole_text_parsing(self):
+        text = BIB + PMLR + '@misc{x, note = {mail me @ home}, author = {A, B}}\n'
+        lines = text_lines(gzip.compress(text.encode('utf-8')))
+        self.assertEqual(list(bibtex_stream(lines)), list(bibtex_entries(text)))
+        self.assertEqual(len(list(bibtex_stream(text_lines(text.encode('utf-8'))))), 4)
 
 
 class SourceTests(unittest.TestCase):
@@ -240,6 +250,20 @@ class StoreTests(unittest.TestCase):
         report = CatalogIndexer(self.store, [Broken()]).build()
         self.assertEqual(report.errors, {'cvf': 'HTTP 503'})
         self.assertEqual(self.store.counts(), {'cvf': 1})
+
+    def test_a_source_failing_midway_rolls_back_to_its_previous_entries(self):
+        self.store.replace('cvf', [entry('1')])
+
+        class Midway:
+            name = 'cvf'
+
+            def entries(self):
+                yield entry('2', title='Another Paper Entirely')
+                raise ValueError('connection reset')
+
+        report = CatalogIndexer(self.store, [Midway()]).build()
+        self.assertEqual(report.errors, {'cvf': 'connection reset'})
+        self.assertEqual([found.key for found in self.store.by_author('Mei Lin')], ['1'])
 
     def test_lookup_and_repository_search_name_the_person(self):
         self.store.replace('cvf', [entry('1')])
