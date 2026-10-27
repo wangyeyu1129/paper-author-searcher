@@ -28,6 +28,7 @@ from .config import (
     DEFAULT_DEDUPLICATION,
     DEFAULT_DISCOVERY,
     DEFAULT_DOWNLOAD,
+    DEFAULT_EXTRACTION,
     DEFAULT_HTTP,
     DEFAULT_LISTED_WORKS,
     DEFAULT_MATCHING,
@@ -43,6 +44,7 @@ from .config import (
     DeduplicationConfig,
     DiscoveryConfig,
     DownloadConfig,
+    ExtractionConfig,
     HttpConfig,
     ListedWorksConfig,
     MatchingConfig,
@@ -88,6 +90,8 @@ class Credentials:
     brave_api_key: str | None = field(default=None, repr=False)
     tavily_api_key: str | None = field(default=None, repr=False)
     exa_api_key: str | None = field(default=None, repr=False)
+    # Claude for publication-list extraction (identity_anchors pages); unset disables it.
+    anthropic_api_key: str | None = field(default=None, repr=False)
 
     ENVIRONMENT: ClassVar[Mapping[str, str]] = {
         'openalex_api_key': 'OPENALEX_API_KEY',
@@ -98,6 +102,7 @@ class Credentials:
         'brave_api_key': 'BRAVE_API_KEY',
         'tavily_api_key': 'TAVILY_API_KEY',
         'exa_api_key': 'EXA_API_KEY',
+        'anthropic_api_key': 'ANTHROPIC_API_KEY',
     }
 
     @classmethod
@@ -125,6 +130,7 @@ class Settings:
     cs_sources: CSSourcesConfig = DEFAULT_CS_SOURCES
     profile_links: ProfileLinkConfig = DEFAULT_PROFILE_LINKS
     discovery: DiscoveryConfig = DEFAULT_DISCOVERY
+    extraction: ExtractionConfig = DEFAULT_EXTRACTION
     deduplication: DeduplicationConfig = DEFAULT_DEDUPLICATION
     pdf: PDFConfig = DEFAULT_PDF
     download: DownloadConfig = DEFAULT_DOWNLOAD

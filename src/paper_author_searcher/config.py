@@ -388,6 +388,31 @@ DEFAULT_DISCOVERY = DiscoveryConfig()
 
 
 @dataclass(frozen=True)
+class ExtractionConfig:
+    """LLM extraction of a structured publication list from a homepage, publication page or CV.
+
+    Runs beside the rule-based citation parser (their citations are merged) when ``ANTHROPIC_API_KEY`` is set.
+    Page text is split into chunks of at most ``chunk_characters`` on line boundaries; each chunk is one request.
+    """
+
+    enabled: bool = True
+    model: str = 'claude-opus-5-5'
+    effort: str = 'low'
+    max_tokens: int = 16000
+    chunk_characters: int = 24000
+    maximum_chunks: int = 8
+    # Extracted publications are cached by request (under the run's HTTP cache directory when it has one).
+    cache: bool = True
+
+    def __post_init__(self) -> None:
+        if self.chunk_characters < 1000 or self.maximum_chunks < 1 or self.max_tokens < 1024:
+            raise ValueError('Extraction chunks and token limits are too small')
+
+
+DEFAULT_EXTRACTION = ExtractionConfig()
+
+
+@dataclass(frozen=True)
 class PrecisionGuardConfig:
     """Stricter ownership evidence where namesakes share institutions (Tsinghua has many Yang Lius).
 

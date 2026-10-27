@@ -8,11 +8,13 @@ Library classes receive their collaborators; only this module decides which impl
 from collections.abc import Callable, Mapping
 from dataclasses import dataclass, fields, replace
 from functools import cached_property
+from pathlib import Path
 from typing import Any, ClassVar
 
 from .config import CollectionConfig, DownloadConfig, PDFConfig
 from .contender_adjudication import DepartmentAdjudicator
 from .cs_sources import ArxivAuthorSearch, OpenReviewProfiles
+from .homepage_citations import DocumentParser, HtmlCitationParser, PdfCitationParser
 from .http import HttpClient
 from .http_budget import budgeted_client
 from .http_cache import cached_client
@@ -34,6 +36,15 @@ from .pdf_validation import PDFURLValidator
 from .precision_guards import DepartmentMatcher, PrecisionGuard
 from .profile_links import ProfileLinkParser
 from .progress import ProgressReporter
+from .publication_extraction import (
+    CachedJsonCompletion,
+    ClaudeJsonCompletion,
+    JsonCompletion,
+    LlmHtmlParser,
+    LlmPdfParser,
+    LlmPublicationExtractor,
+    MergedCitationParser,
+)
 from .resolver import ProfessorResolver
 from .settings import Settings
 from .source_catalog import IDENTITY_SOURCES, PAPER_SOURCES, PDF_SOURCES, WEB_SEARCH, WORK_LOOKUPS
@@ -134,9 +145,38 @@ class ServiceContainer:
             openalex_api_key=settings.credentials.openalex_api_key,
             semantic_scholar_api_key=settings.credentials.semantic_scholar_api_key,
             listed_sources=self.listed_work_sources,
+            citation_parser=self.citation_parsers[0],
+            pdf_parser=self.citation_parsers[1],
             discovery=self.discovery,
             profile_links=self.profile_links,
             discovery_config=settings.discovery,
+        )
+
+    @cached_property
+    def extraction_completion(self) -> JsonCompletion | None:
+        """Claude for publication-list extraction, cached beside the HTTP cache; None without a key."""
+        settings = self.settings
+        key = settings.credentials.anthropic_api_key
+        if not settings.extraction.enabled or not key:
+            return None
+        completion: JsonCompletion = ClaudeJsonCompletion(settings.extraction, api_key=key)
+        if settings.extraction.cache and self.options.http_cache_dir:
+            namespace = f'{settings.extraction.model}:{settings.extraction.effort}'
+            completion = CachedJsonCompletion(completion, Path(self.options.http_cache_dir) / 'llm', namespace)
+        return completion
+
+    @cached_property
+    def citation_parsers(self) -> tuple[DocumentParser, DocumentParser]:
+        """(HTML, PDF) parsers: rule-based, merged with LLM extraction when it is available."""
+        anchors = self.settings.anchors
+        html: DocumentParser = HtmlCitationParser(anchors)
+        pdf: DocumentParser = PdfCitationParser(anchors)
+        if self.extraction_completion is None:
+            return html, pdf
+        extractor = LlmPublicationExtractor(self.extraction_completion, self.settings.extraction, anchors)
+        return (
+            MergedCitationParser([html, LlmHtmlParser(extractor, anchors)]),
+            MergedCitationParser([pdf, LlmPdfParser(extractor)]),
         )
 
     @cached_property

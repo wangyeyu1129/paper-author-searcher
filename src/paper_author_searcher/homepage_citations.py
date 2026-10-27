@@ -13,7 +13,7 @@ from dataclasses import dataclass, field
 from datetime import date
 from html import unescape
 from html.parser import HTMLParser
-from typing import Protocol
+from typing import Any, Protocol
 
 from .config import DEFAULT_ANCHORS, AnchorConfig
 from .matching import normalize
@@ -145,11 +145,7 @@ class PdfCitationParser:
         self.config = config
 
     def parse(self, document: bytes) -> list[HomepageCitation]:
-        try:
-            from pypdf import PdfReader
-        except ImportError as exc:  # pragma: no cover - depends on the installed extras
-            raise ValueError('Reading a PDF publication list needs pypdf (pip install ".[download]")') from exc
-        text = '\n'.join(page.extract_text() or '' for page in PdfReader(io.BytesIO(document)).pages)
+        text = pdf_text(document)
         citations = []
         for entry in self.entries(text):
             dois = _unique(match.group(0).rstrip(TRAILING_PUNCTUATION) for match in DOI_IN_TEXT.finditer(entry))
@@ -169,10 +165,25 @@ class PdfCitationParser:
         return [' '.join(lines) for lines in entries if lines]
 
 
+def pdf_text(document: bytes) -> str:
+    """Text of a PDF, page by page. Needs the optional ``pypdf`` dependency (the ``download`` extra)."""
+    try:
+        from pypdf import PdfReader
+    except ImportError as exc:  # pragma: no cover - depends on the installed extras
+        raise ValueError('Reading a PDF publication list needs pypdf (pip install ".[download]")') from exc
+    return '\n'.join(page.extract_text() or '' for page in PdfReader(io.BytesIO(document)).pages)
+
+
+class DocumentParser(Protocol):
+    """Citations of one fetched document (an HTML page's text, or a PDF's bytes)."""
+
+    def parse(self, document: Any) -> list[HomepageCitation]: ...
+
+
 class HomepageReader:
     """Turns a fetched publication page into citations: HTML pages and PDF CVs alike."""
 
-    def __init__(self, html: CitationParser, pdf: PdfCitationParser) -> None:
+    def __init__(self, html: CitationParser, pdf: DocumentParser) -> None:
         self.html, self.pdf = html, pdf
 
     def citations(self, content_type: str, body: bytes, decode: Callable[[], str]) -> list[HomepageCitation]:
