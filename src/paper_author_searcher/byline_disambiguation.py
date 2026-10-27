@@ -29,7 +29,7 @@ from typing import Any
 
 from .config import DEFAULT_DISAMBIGUATION, DEFAULT_MATCHING, DisambiguationConfig, MatchingConfig
 from .logging_config import log_isolated_failure
-from .matching import canonical_orcid, institution_mentioned, institution_similarity
+from .matching import canonical_orcid, institution_mentioned, institution_similarity, name_similarity
 from .models import AuthorCandidate, CuratedPosition, ProfessorProfile, ProfessorQuery
 from .precision_guards import DepartmentMatcher
 from .status import UniversityStatus
@@ -103,7 +103,7 @@ class BylineDisambiguator:
             verdict = self._dominant(departments, 'department', query)
             if verdict is not None:
                 return verdict
-        verdict = self._curated(query, contest, departments)
+        verdict = self._curated(query, scored, contest, departments)
         if verdict is not None or any(departments.values()) or not self.config.school_fallback:
             return verdict
         schools = {index: item.school for index, item in evidence.items()}
@@ -129,14 +129,24 @@ class BylineDisambiguator:
         return PositionFit.NONE
 
     def _curated(
-        self, query: ProfessorQuery, contest: list[tuple[int, Any]], departments: dict[int, int]
+        self,
+        query: ProfessorQuery,
+        scored: Sequence[tuple[ProfessorProfile, Any]],
+        contest: list[tuple[int, Any]],
+        departments: dict[int, int],
     ) -> BylineVerdict | None:
         if not self.config.curated_positions:
+            return None
+        reach = self._curated_reach(query, scored, {index for index, _ in contest})
+        if reach is None:
             return None
         try:
             positions = self._contest_positions(contest)
         except _Abstain:
             return None
+        for index, group in reach:
+            positions[index] = [position for candidate in group for position in candidate.positions]
+            departments[index] = self.evidence(query, group).department
         fits = {
             index: max((self.fit(position, query) for position in held), default=PositionFit.NONE)
             for index, held in positions.items()
@@ -157,6 +167,33 @@ class BylineDisambiguator:
                 f'{query.university} in {unit} now',
             )
         return None
+
+    def _curated_reach(
+        self, query: ProfessorQuery, scored: Sequence[tuple[ProfessorProfile, Any]], contest: set[int]
+    ) -> list[tuple[int, Any]] | None:
+        """Candidates behind the contest band, within ``curated_band``, whose own record names the department.
+
+        None when one of them is anchored: an anchor outranks any position record.
+        """
+        leader = scored[0][0].match_score
+        reach = []
+        for index, (profile, group) in enumerate(scored):
+            if index in contest or profile.match_score < leader - self.config.curated_band:
+                continue
+            if profile.university_status != UniversityStatus.MATCHED or not self._names_agree(query, profile):
+                continue
+            held = [position for candidate in group for position in candidate.positions]
+            if any(self.fit(position, query) == PositionFit.DEPARTMENT for position in held):
+                if profile.identity_anchors:
+                    return None
+                reach.append((index, group))
+        return reach
+
+    def _names_agree(self, query: ProfessorQuery, profile: ProfessorProfile) -> bool:
+        return any(
+            name_similarity(query.name, name, self.matching) >= self.matching.compatible_name
+            for name in [profile.name, *profile.name_aliases]
+        )
 
     def _contest_positions(self, contest: list[tuple[int, Any]]) -> dict[int, list[CuratedPosition]]:
         orcids = {index: sorted(self._orcids(group)) for index, group in contest}

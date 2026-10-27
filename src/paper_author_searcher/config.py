@@ -171,6 +171,10 @@ class DisambiguationConfig:
     # Sciences" for bioengineering) counts only when no contender names the department itself, and only when
     # its words relate to the department's. Rivals' records are all read, or the tier abstains.
     curated_positions: bool = True
+    # A candidate this far behind the leader also enters that tier, but only when its own record already names
+    # the requested department at the school: a cross-source link bonus lifted Tsinghua's AI-institute Yang Liu
+    # 0.065 above the DBLP profile that names Computer Science and Technology.
+    curated_band: float = 0.1
     parent_unit_keywords: tuple[str, ...] = ('school', 'faculty', 'college')
     # Distinct ORCID records read per contest (two requests each); a contest with more abstains.
     maximum_orcid_lookups: int = 20
@@ -178,6 +182,8 @@ class DisambiguationConfig:
     related_word_length: int = 5
 
     def __post_init__(self) -> None:
+        if self.curated_band < self.contest_band:
+            raise ValueError('curated_band must be at least contest_band')
         if self.maximum_orcid_lookups < 0:
             raise ValueError('maximum_orcid_lookups must not be negative')
         if self.contest_band < 0:

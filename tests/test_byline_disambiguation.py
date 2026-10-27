@@ -129,6 +129,22 @@ class CuratedPositionTests(unittest.TestCase):
         self.assertEqual(verdict.index, 1)
         self.assertIn('Curated position', verdict.note)
 
+    def test_a_department_record_behind_the_band_still_competes(self):
+        institute = self.dblp('51/3710-165', self.at('institute for ai industry research'))
+        other = self.dblp('49576068')
+        behind = self.dblp('51/3710-5', self.at('department of computer science and technology'))
+        unrelated = self.dblp('0001')
+        scored = [
+            contender('Yang Liu', 0.935, [institute]),
+            contender('Yang Liu', 0.913, [other]),
+            contender('Yang Liu', 0.87, [behind]),
+            contender('Yang Liu', 0.80, [self.dblp('far', self.at('department of computer science and technology'))]),
+            contender('Yang Liu', 0.87, [unrelated]),
+        ]
+        verdict = BylineDisambiguator().choose(self.QUERY, scored)
+        # 0.87 is outside the 0.05 contest band, inside the 0.1 curated band; 0.80 is outside both.
+        self.assertEqual(verdict.index, 2)
+
     def test_two_records_in_the_department_leave_the_contest_open(self):
         unit = 'department of computer science and technology'
         self.assertIsNone(self.choose([self.dblp('a', self.at(unit))], [self.dblp('b', self.at(unit))]))
