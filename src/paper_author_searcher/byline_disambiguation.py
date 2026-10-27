@@ -12,17 +12,39 @@ Some departments never appear in a byline (Harvard bioengineering signs as the S
 Sciences). When no contender has department evidence, works printing the school alone may decide instead
 (``school_fallback``, off by default). A senior namesake at the school wins that tier on tenure alone: it chose an
 immunologist over Stanford CS student Jing Huang, whose sampled papers rarely print Stanford.
+
+When bylines settle nothing, the contenders' own curated records may: DBLP affiliation notes and ORCID entries
+are kept by people, not inferred from papers. The real Yang Liu's DBLP note reads "Tsinghua University,
+Department of Computer Science and Technology"; his namesake's reads "Tsinghua University, Institute for AI
+Industry Research". Exactly one contender must hold a current position at the school in the requested department
+(or, failing any such, in a broader unit related to it), and no rival may have more department bylines once
+they count (``minimum_works``).
 """
 
-from collections.abc import Sequence
+import logging
+from collections.abc import Callable, Sequence
 from dataclasses import dataclass
+from enum import IntEnum
 from typing import Any
 
 from .config import DEFAULT_DISAMBIGUATION, DEFAULT_MATCHING, DisambiguationConfig, MatchingConfig
-from .matching import institution_mentioned
-from .models import AuthorCandidate, ProfessorProfile, ProfessorQuery
+from .logging_config import log_isolated_failure
+from .matching import canonical_orcid, institution_mentioned, institution_similarity
+from .models import AuthorCandidate, CuratedPosition, ProfessorProfile, ProfessorQuery
 from .precision_guards import DepartmentMatcher
 from .status import UniversityStatus
+
+logger = logging.getLogger(__name__)
+
+
+class PositionFit(IntEnum):
+    NONE = 0
+    BROADER_UNIT = 1  # a school or faculty whose words relate to the requested department
+    DEPARTMENT = 2
+
+
+class _Abstain(Exception):
+    """A rival's curated record could not be read, so no contender can be shown to be the only one."""
 
 
 @dataclass(frozen=True)
@@ -45,10 +67,13 @@ class BylineDisambiguator:
         config: DisambiguationConfig = DEFAULT_DISAMBIGUATION,
         matching: MatchingConfig = DEFAULT_MATCHING,
         departments: DepartmentMatcher | None = None,
+        orcid_positions: Callable[[str], list[CuratedPosition]] | None = None,
     ) -> None:
         self.config = config
         self.matching = matching
         self.departments = departments or DepartmentMatcher()
+        # Reads an ORCID record's positions (orcid_affiliations.OrcidAffiliations.positions); None reads none.
+        self.orcid_positions = orcid_positions
 
     def evidence(self, query: ProfessorQuery, group: Sequence[AuthorCandidate]) -> BylineEvidence:
         schools = [query.university, *query.university_aliases]
@@ -73,15 +98,107 @@ class BylineDisambiguator:
         if len(contest) < 2:
             return None
         evidence = {index: self.evidence(query, group) for index, group in contest}
-        tiers = [('department', lambda item: item.department)]
-        if self.config.school_fallback:
-            tiers.append(('school', lambda item: item.school))
-        for tier, count in tiers:
-            counts = {index: count(item) for index, item in evidence.items()}
-            if not any(counts.values()):
+        departments = {index: item.department for index, item in evidence.items()}
+        if any(departments.values()):
+            verdict = self._dominant(departments, 'department', query)
+            if verdict is not None:
+                return verdict
+        verdict = self._curated(query, contest, departments)
+        if verdict is not None or any(departments.values()) or not self.config.school_fallback:
+            return verdict
+        schools = {index: item.school for index, item in evidence.items()}
+        return self._dominant(schools, 'school', query) if any(schools.values()) else None
+
+    def fit(self, position: CuratedPosition, query: ProfessorQuery) -> PositionFit:
+        """How well one curated position places the person at the requested school and department."""
+        schools = [school for school in (query.university, *query.university_aliases) if school]
+        at_school = any(
+            institution_similarity(school, institution, self.matching) >= self.matching.matched_school
+            for school in schools
+            for institution in position.institutions
+        )
+        if not position.current or not at_school:
+            return PositionFit.NONE
+        if not query.department:
+            return PositionFit.DEPARTMENT
+        # A position naming no unit says nothing about the department: it neither fits nor rules out.
+        if any(self.departments.agree(unit, query.department) for unit in position.units):
+            return PositionFit.DEPARTMENT
+        if any(self._broader_unit(unit, query.department) for unit in position.units):
+            return PositionFit.BROADER_UNIT
+        return PositionFit.NONE
+
+    def _curated(
+        self, query: ProfessorQuery, contest: list[tuple[int, Any]], departments: dict[int, int]
+    ) -> BylineVerdict | None:
+        if not self.config.curated_positions:
+            return None
+        try:
+            positions = self._contest_positions(contest)
+        except _Abstain:
+            return None
+        fits = {
+            index: max((self.fit(position, query) for position in held), default=PositionFit.NONE)
+            for index, held in positions.items()
+        }
+        for level in (PositionFit.DEPARTMENT, PositionFit.BROADER_UNIT):
+            holders = [index for index, value in fits.items() if value == level]
+            if not holders:
                 continue
-            return self._dominant(counts, tier, query)
+            if len(holders) > 1:
+                return None
+            winner = holders[0]
+            if self._bylines_favour_rival(winner, departments):
+                return None
+            unit = query.department if level == PositionFit.DEPARTMENT else 'a broader unit'
+            return BylineVerdict(
+                winner,
+                f'Curated position: the only contender whose own record (DBLP note or ORCID) places it at '
+                f'{query.university} in {unit} now',
+            )
         return None
+
+    def _contest_positions(self, contest: list[tuple[int, Any]]) -> dict[int, list[CuratedPosition]]:
+        orcids = {index: sorted(self._orcids(group)) for index, group in contest}
+        if len({orcid for values in orcids.values() for orcid in values}) > self.config.maximum_orcid_lookups:
+            raise _Abstain
+        records: dict[str, list[CuratedPosition]] = {}
+        positions = {}
+        for index, group in contest:
+            held = [position for candidate in group for position in candidate.positions]
+            for orcid in orcids[index] if self.orcid_positions is not None else ():
+                if orcid not in records:
+                    records[orcid] = self._read_orcid(orcid)
+                held.extend(records[orcid])
+            positions[index] = held
+        return positions
+
+    @staticmethod
+    def _orcids(group: Sequence[AuthorCandidate]) -> set[str]:
+        return {orcid for orcid in (canonical_orcid(candidate.orcid) for candidate in group) if orcid}
+
+    def _read_orcid(self, orcid: str) -> list[CuratedPosition]:
+        assert self.orcid_positions is not None
+        try:
+            return self.orcid_positions(orcid)
+        except Exception as exc:
+            log_isolated_failure(logger, 'ORCID record %s unreadable: %s', orcid, exc)
+            raise _Abstain from exc
+
+    def _bylines_favour_rival(self, winner: int, departments: dict[int, int]) -> bool:
+        """A rival's bylines name the department often enough to count, and more often than the record holder's."""
+        strongest = max((count for index, count in departments.items() if index != winner), default=0)
+        return strongest >= self.config.minimum_works and strongest > departments[winner]
+
+    def _broader_unit(self, unit: str, department: str) -> bool:
+        """A school or faculty whose distinctive words relate to the department's ("engineering", "bioengineering")."""
+        words = unit.lower().split()
+        if not any(word in self.config.parent_unit_keywords for word in words):
+            return False
+        length = self.config.related_word_length
+        unit_words = [word for word in self.departments.words(unit) if len(word) >= length]
+        wanted = [word for word in self.departments.words(department) if len(word) >= length]
+        return any(left in right or right in left for left in unit_words for right in wanted)
 
     def _contest(self, scored: Sequence[tuple[ProfessorProfile, Any]]) -> list[tuple[int, Any]]:
         """Contenders near the leader at the requested school; none if an anchor already speaks for one."""

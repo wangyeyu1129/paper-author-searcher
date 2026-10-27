@@ -30,6 +30,7 @@ from .identity_discovery import (
     WebPageSearch,
 )
 from .listed_works import ListedWorkRetriever
+from .orcid_affiliations import OrcidAffiliations
 from .paper_collector import NameSearch, PaperCollector
 from .paper_ownership import PaperOwnershipValidator
 from .pdf_resolver import PDFResolver
@@ -247,7 +248,12 @@ class ServiceContainer:
             anchor_finder=self.anchor_finder,
             adjudicator=adjudicator,
             disambiguator=BylineDisambiguator(
-                self.settings.disambiguation, self.settings.matching, DepartmentMatcher(self.settings.precision)
+                self.settings.disambiguation,
+                self.settings.matching,
+                DepartmentMatcher(self.settings.precision),
+                orcid_positions=OrcidAffiliations(
+                    self.http_client, self.settings.sources, self.settings.discovery.orcid_affiliation_sections
+                ).positions,
             ),
         )
 

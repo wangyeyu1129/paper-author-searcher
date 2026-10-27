@@ -165,8 +165,21 @@ class DisambiguationConfig:
     # evidence. Off by default: in the 2026-10-27 replay it settled nobody correctly (Jia Liu 33 vs 25 against a
     # Harvard Medical namesake) and settled Stanford CS student Jing Huang on an immunologist's 21 Stanford works.
     school_fallback: bool = False
+    # When bylines settle nothing, a position the contender's own curated record states (an unlabelled DBLP
+    # affiliation note, a current ORCID employment or education) may: exactly one contender's record must place
+    # it at the requested school in the requested department. A broader unit ("School of Engineering and Applied
+    # Sciences" for bioengineering) counts only when no contender names the department itself, and only when
+    # its words relate to the department's. Rivals' records are all read, or the tier abstains.
+    curated_positions: bool = True
+    parent_unit_keywords: tuple[str, ...] = ('school', 'faculty', 'college')
+    # Distinct ORCID records read per contest (two requests each); a contest with more abstains.
+    maximum_orcid_lookups: int = 20
+    # Unit words this long or longer relate when one contains the other ("engineering" in "bioengineering").
+    related_word_length: int = 5
 
     def __post_init__(self) -> None:
+        if self.maximum_orcid_lookups < 0:
+            raise ValueError('maximum_orcid_lookups must not be negative')
         if self.contest_band < 0:
             raise ValueError('contest_band must not be negative')
         if self.minimum_works < 1:

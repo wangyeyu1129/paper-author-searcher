@@ -175,11 +175,14 @@ def command_run(args) -> int:
     if args.input_profile:
         run = replace(run, input_profile=args.input_profile)
     anchor_source = None
+    if args.record_misses and not args.replay_from:
+        raise SystemExit('--record-misses only applies to --replay-from')
     if args.replay_from:
         if not run.http_cache_dir:
             raise SystemExit('--replay-from needs run.http_cache_dir in the benchmark config')
         # PDF stages fetch pages and files that are never cached, so a replay stops at metadata.
-        run = replace(run, http_cache_mode=CacheMode.REPLAY.value, mode=METADATA_MODE)
+        mode = CacheMode.RECORD if args.record_misses else CacheMode.REPLAY
+        run = replace(run, http_cache_mode=mode.value, mode=METADATA_MODE)
         anchor_source = RecordedRunAnchors(settings, args.replay_from)
     runner = BenchmarkRunner(
         settings, WorkflowSearchSystem(run, settings, anchor_source=anchor_source), progress=logger.info
@@ -391,6 +394,11 @@ def build_parser() -> argparse.ArgumentParser:
         '--replay-from',
         metavar='RUN_ID',
         help='Offline replay: metadata from the HTTP cache only (no network at all) and the anchors that run found',
+    )
+    run.add_argument(
+        '--record-misses',
+        action='store_true',
+        help='With --replay-from: fetch and cache requests the cache lacks (new code paths) instead of failing them',
     )
     run.set_defaults(handler=command_run)
 

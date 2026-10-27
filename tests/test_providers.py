@@ -162,6 +162,11 @@ class ProviderTests(unittest.TestCase):
         )
         # Recency is not inferred here: a current note in another unit must not outscore a namesake.
         self.assertEqual(record.current_affiliations, [])
+        # It is kept as a curated position instead; only the unlabelled note is current.
+        self.assertEqual(
+            [(position.institutions[-1], position.current) for position in record.positions],
+            [('Tsinghua University', True), ('University of California, Los Angeles', False)],
+        )
 
     def test_openalex_enrichment_uses_own_authorship(self):
         author = {'id': 'https://openalex.org/fixture-author', 'display_name': 'Alex Morgan'}

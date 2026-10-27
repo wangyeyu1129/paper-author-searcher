@@ -13,7 +13,6 @@ evidence is held to a stricter standard than supplied evidence:
 import logging
 from collections.abc import Callable, Iterable, Sequence
 from dataclasses import dataclass, field
-from datetime import date
 from typing import Any, Protocol
 from urllib.parse import urlsplit
 
@@ -29,11 +28,10 @@ from .matching import (
     normalize,
     split_name,
 )
+from .orcid_affiliations import ORCID_JSON, OrcidAffiliations
 from .web_search import SearchHit, WebSearch
 
 logger = logging.getLogger(__name__)
-
-ORCID_JSON = {'Accept': 'application/json'}
 
 
 @dataclass(frozen=True, order=True)
@@ -121,9 +119,8 @@ class OrcidRegistrySearch:
         current_year: int | None = None,
     ) -> None:
         self.client, self.config, self.matching = client, config, matching
-        self.current_year = current_year or date.today().year
-        self.base_url = source_config.orcid_api_url.rstrip('/')
-        self.url = self.base_url + '/expanded-search/'
+        self.records = OrcidAffiliations(client, source_config, config.orcid_affiliation_sections, current_year)
+        self.url = self.records.base_url + '/expanded-search/'
         # (printed department, requested department) -> same unit; without one, departments are not compared.
         self.department_agrees = department_agrees
 
@@ -198,18 +195,10 @@ class OrcidRegistrySearch:
         return f'no current affiliation in {wanted}'
 
     def affiliations(self, orcid: str) -> list[dict]:
-        """Every summary of the configured ORCID affiliation sections (employment-summary, education-summary...)."""
-        found: list[dict] = []
-        for section in self.config.orcid_affiliation_sections:
-            data = self.client.get(f'{self.base_url}/{orcid}/{section}', None, ORCID_JSON)
-            for group in (data or {}).get('affiliation-group') or []:
-                for summary in group.get('summaries') or []:
-                    found.extend(value for value in summary.values() if isinstance(value, dict))
-        return found
+        return self.records.summaries(orcid)
 
     def _current(self, affiliation: dict) -> bool:
-        end = ((affiliation.get('end-date') or {}).get('year') or {}).get('value')
-        return not end or int(end) >= self.current_year
+        return self.records.current(affiliation)
 
     def _results(self, search: str) -> list[dict]:
         data = self.client.get(self.url, {'q': search, 'rows': self.config.orcid_search_rows}, ORCID_JSON)
