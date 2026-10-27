@@ -28,6 +28,7 @@ from .config import (
     DEFAULT_CS_SOURCES,
     DEFAULT_DBLP_DUMP,
     DEFAULT_DEDUPLICATION,
+    DEFAULT_DISAMBIGUATION,
     DEFAULT_DISCOVERY,
     DEFAULT_DOWNLOAD,
     DEFAULT_EXTRACTION,
@@ -47,6 +48,7 @@ from .config import (
     CSSourcesConfig,
     DblpDumpConfig,
     DeduplicationConfig,
+    DisambiguationConfig,
     DiscoveryConfig,
     DownloadConfig,
     ExtractionConfig,
@@ -130,6 +132,7 @@ class Settings:
 
     matching: MatchingConfig = DEFAULT_MATCHING
     anchors: AnchorConfig = DEFAULT_ANCHORS
+    disambiguation: DisambiguationConfig = DEFAULT_DISAMBIGUATION
     http: HttpConfig = DEFAULT_HTTP
     sources: SourceConfig = DEFAULT_SOURCES
     collection: CollectionConfig = DEFAULT_COLLECTION

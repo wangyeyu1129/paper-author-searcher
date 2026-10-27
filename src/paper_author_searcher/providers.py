@@ -192,6 +192,7 @@ class OpenAlexProvider:
         author_id = (author.get('id') or '').rsplit('/', 1)[-1]
         if author_id == candidate.author_id:
             candidate.affiliations.extend(_display_names(authorship.get('institutions')))
+            candidate.bylines.append(tuple(authorship.get('raw_affiliation_strings') or ()))
             if not candidate.orcid:
                 candidate.orcid = author.get('orcid')
         elif author.get('display_name'):

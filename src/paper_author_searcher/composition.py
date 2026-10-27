@@ -11,6 +11,7 @@ from functools import cached_property
 from pathlib import Path
 from typing import Any, ClassVar
 
+from .byline_disambiguation import BylineDisambiguator
 from .config import CollectionConfig, DownloadConfig, PDFConfig
 from .contender_adjudication import DepartmentAdjudicator
 from .cs_sources import OpenReviewProfiles
@@ -245,6 +246,9 @@ class ServiceContainer:
             config=self.settings.matching,
             anchor_finder=self.anchor_finder,
             adjudicator=adjudicator,
+            disambiguator=BylineDisambiguator(
+                self.settings.disambiguation, self.settings.matching, DepartmentMatcher(self.settings.precision)
+            ),
         )
 
     # Collection --------------------------------------------------------------------------------------------------
