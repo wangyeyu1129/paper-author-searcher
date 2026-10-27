@@ -194,7 +194,10 @@ class ServiceContainer:
         ranker = PageRanker(config, settings.matching)
         steps: list[Any] = []
         if config.orcid_search:
-            steps.append(OrcidRegistrySearch(self.http_client, settings.sources, config, settings.matching))
+            departments = DepartmentMatcher(settings.precision)
+            steps.append(
+                OrcidRegistrySearch(self.http_client, settings.sources, config, settings.matching, departments.agree)
+            )
         if config.orcid_researcher_urls:
             steps.append(OrcidResearcherUrls(self.http_client, ranker, settings.sources))
         search = WEB_SEARCH.factory(config.web_search)(self) if config.web_search else None

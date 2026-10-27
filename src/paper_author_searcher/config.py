@@ -361,6 +361,11 @@ class DiscoveryConfig:
     # ORCID public registry search by name and institution (free, no key).
     orcid_search: bool = True
     orcid_search_rows: int = 10
+    # A unique registry match is not a unique person: the researcher may have no ORCID while a namesake at the
+    # institution does (or lists it only as education). The match is adopted only when its own employment record
+    # names the requested institution and, when a department was requested and this is set, an agreeing one.
+    orcid_require_employment: bool = True
+    orcid_require_department: bool = True
     # The registry's researcher URLs (personal websites) of the supplied or discovered ORCID become candidate pages.
     orcid_researcher_urls: bool = True
     # Web search provider registered in source_catalog.WEB_SEARCH ('brave', 'tavily', 'exa'); empty disables it.
