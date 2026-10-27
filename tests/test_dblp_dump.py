@@ -3,13 +3,16 @@
 import gzip
 import io
 import json
+import sqlite3
 import tempfile
 import unittest
 from contextlib import redirect_stdout
 from dataclasses import replace
 from pathlib import Path
+from unittest import mock
 
 from paper_author_searcher import ProfessorQuery as Q
+from paper_author_searcher import dblp_dump
 from paper_author_searcher.composition import RunOptions, ServiceContainer
 from paper_author_searcher.config import DEFAULT_DBLP_DUMP
 from paper_author_searcher.dblp_cli import main as dblp_main
@@ -109,9 +112,29 @@ class IndexTests(DumpTestCase):
         self.assertIsNone(article.find('pages'))  # dropped: not in kept_fields
         self.assertIsNone(self.index.bibliography('99/9'))
 
+    def test_an_index_of_another_schema_must_be_rebuilt(self):
+        old = Path(self.directory.name) / 'old.sqlite'
+        sqlite3.connect(old).executescript('CREATE TABLE records(key TEXT, xml TEXT);').close()
+        with self.assertRaises(ValueError) as error:
+            DblpDumpIndex(old)
+        self.assertIn('rebuild', str(error.exception))
+
     def test_a_missing_index_is_an_error(self):
         with self.assertRaises(FileNotFoundError):
             DblpDumpIndex(Path(self.directory.name) / 'absent.sqlite')
+
+
+class CollisionTests(unittest.TestCase):
+    def test_reads_stay_exact_when_every_hash_collides(self):
+        with tempfile.TemporaryDirectory() as directory, mock.patch.object(dblp_dump, 'digest', return_value=7):
+            dump = Path(directory) / 'dblp.xml'
+            dump.write_text(DUMP, encoding='iso-8859-1')
+            path = Path(directory) / 'i.sqlite'
+            DblpDumpIndexer().build(dump, path)
+            index = DblpDumpIndex(path)
+            root = index.bibliography('22/2')
+            self.assertEqual([record.get('key') for record in root.iter('inproceedings')], ['conf/z/Lin23'])
+            self.assertEqual([record.get('key') for record in index.works('doi:10.1000/lis')], ['journals/x/Lin24'])
 
 
 class ProviderTests(DumpTestCase):

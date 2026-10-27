@@ -13,10 +13,12 @@ DBLP disambiguates homonyms with a four-digit suffix ("Wei Wang 0001"); each per
 """
 
 import gzip
+import hashlib
 import re
 import sqlite3
 import threading
 import xml.etree.ElementTree as ET
+import zlib
 from collections.abc import Iterable, Iterator, Sequence
 from dataclasses import dataclass, field
 from html.entities import name2codepoint
@@ -37,19 +39,30 @@ ARXIV_LINK = re.compile(r'arxiv\.org/abs/([^\s?#]+)', re.IGNORECASE)
 # SQLite allows 999 bound parameters per statement in older builds.
 PARAMETER_CHUNK = 900
 
+# Version 2: XML stored zlib-compressed; authorship and work keys stored as 64-bit hashes referencing records by
+# row ID (10.9 GB -> about 4 GB for the full dump). Every read re-checks what a hash returned, so a collision can
+# never return a record that does not carry the requested name or work.
+SCHEMA_VERSION = '2'
 SCHEMA = """
-CREATE TABLE names(name TEXT PRIMARY KEY, pid TEXT NOT NULL, name_key TEXT NOT NULL);
-CREATE TABLE persons(pid TEXT PRIMARY KEY, xml TEXT NOT NULL);
-CREATE TABLE records(key TEXT PRIMARY KEY, xml TEXT NOT NULL);
-CREATE TABLE authorship(name TEXT NOT NULL, key TEXT NOT NULL);
-CREATE TABLE works(work TEXT NOT NULL, key TEXT NOT NULL);
+CREATE TABLE meta(name TEXT PRIMARY KEY, value TEXT NOT NULL);
+CREATE TABLE names(name TEXT PRIMARY KEY, pid TEXT NOT NULL, name_key TEXT NOT NULL, name_hash INTEGER NOT NULL);
+CREATE TABLE persons(pid TEXT PRIMARY KEY, xml BLOB NOT NULL);
+CREATE TABLE records(id INTEGER PRIMARY KEY, key TEXT NOT NULL UNIQUE, xml BLOB NOT NULL);
+CREATE TABLE authorship(name_hash INTEGER NOT NULL, record INTEGER NOT NULL);
+CREATE TABLE works(work_hash INTEGER NOT NULL, record INTEGER NOT NULL);
 """
 INDEXES = """
 CREATE INDEX names_by_key ON names(name_key);
 CREATE INDEX names_by_pid ON names(pid);
-CREATE INDEX authorship_by_name ON authorship(name);
-CREATE INDEX works_by_work ON works(work);
+CREATE INDEX authorship_by_name ON authorship(name_hash);
+CREATE INDEX works_by_work ON works(work_hash);
 """
+PEOPLE_TAGS = ('author', 'editor')
+
+
+def digest(text: str) -> int:
+    """A signed 64-bit hash (SQLite's INTEGER range) of a name or work key."""
+    return int.from_bytes(hashlib.blake2b(text.encode('utf-8'), digest_size=8).digest(), 'big', signed=True)
 
 
 def base_name(name: str) -> str:
@@ -108,8 +121,8 @@ class DblpDumpIndexer:
         connection = sqlite3.connect(partial)
         try:
             connection.executescript('PRAGMA journal_mode=OFF; PRAGMA synchronous=OFF;' + SCHEMA)
-            batches: dict[str, list[tuple]] = {table: [] for table in ('names', 'persons', 'records', 'authorship')}
-            batches['works'] = []
+            connection.execute("INSERT INTO meta VALUES ('schema', ?)", (SCHEMA_VERSION,))
+            batches: dict[str, list[tuple]] = {table: [] for table in STATEMENTS}
             with _open(dump) as source:
                 for element in self._elements(source):
                     self._add(element, batches, statistics)
@@ -143,8 +156,8 @@ class DblpDumpIndexer:
             pid = key[len(HOMEPAGES) :]
             names = [item.text for item in element.findall('author') if item.text]
             element.tag = 'person'
-            batches['persons'].append((pid, ET.tostring(element, encoding='unicode')))
-            batches['names'].extend((name, pid, name_key(name)) for name in names)
+            batches['persons'].append((pid, self._pack(element)))
+            batches['names'].extend((name, pid, name_key(name), digest(name)) for name in names)
             statistics.persons += 1
             statistics.names += len(names)
             return
@@ -155,29 +168,39 @@ class DblpDumpIndexer:
             if child.tag not in self.kept:
                 element.remove(child)
             child.tail = None
-        batches['records'].append((key, ET.tostring(element, encoding='unicode')))
-        people = {item.text for item in element if item.tag in ('author', 'editor') and item.text}
-        batches['authorship'].extend((name, key) for name in people)
-        batches['works'].extend((work, key) for work in record_work_keys(element))
         statistics.records += 1
+        record = statistics.records  # row IDs are assigned here, so references need no lookup while building
+        batches['records'].append((record, key, self._pack(element)))
+        people = {item.text for item in element if item.tag in PEOPLE_TAGS and item.text}
+        batches['authorship'].extend((digest(name), record) for name in people)
+        batches['works'].extend((digest(work), record) for work in record_work_keys(element))
+
+    def _pack(self, element: ET.Element) -> bytes:
+        return zlib.compress(ET.tostring(element, encoding='utf-8'), self.config.compression_level)
 
     @staticmethod
     def _flush(connection: sqlite3.Connection, batches: dict[str, list[tuple]]) -> None:
-        statements = {
-            'names': 'INSERT OR IGNORE INTO names VALUES (?, ?, ?)',
-            'persons': 'INSERT OR REPLACE INTO persons VALUES (?, ?)',
-            'records': 'INSERT OR REPLACE INTO records VALUES (?, ?)',
-            'authorship': 'INSERT INTO authorship VALUES (?, ?)',
-            'works': 'INSERT INTO works VALUES (?, ?)',
-        }
         for table, rows in batches.items():
             if rows:
-                connection.executemany(statements[table], rows)
+                connection.executemany(STATEMENTS[table], rows)
                 rows.clear()
         connection.commit()
 
 
-def _chunks(values: Sequence[str]) -> Iterator[Sequence[str]]:
+STATEMENTS = {
+    'names': 'INSERT OR IGNORE INTO names VALUES (?, ?, ?, ?)',
+    'persons': 'INSERT OR REPLACE INTO persons VALUES (?, ?)',
+    'records': 'INSERT INTO records VALUES (?, ?, ?)',
+    'authorship': 'INSERT INTO authorship VALUES (?, ?)',
+    'works': 'INSERT INTO works VALUES (?, ?)',
+}
+
+
+def _unpack(blob: bytes) -> ET.Element:
+    return ET.fromstring(zlib.decompress(blob))
+
+
+def _chunks(values: Sequence[Any]) -> Iterator[Sequence[Any]]:
     for start in range(0, len(values), PARAMETER_CHUNK):
         yield values[start : start + PARAMETER_CHUNK]
 
@@ -191,12 +214,19 @@ class DblpDumpIndex:
             raise FileNotFoundError(f'DBLP dump index not found: {self.path}')
         self._connection = sqlite3.connect(f'file:{self.path}?mode=ro', uri=True, check_same_thread=False)
         self._lock = threading.Lock()
+        try:
+            version = self._rows("SELECT value FROM meta WHERE name = 'schema'")
+        except sqlite3.DatabaseError:
+            version = []
+        if not version or version[0][0] != SCHEMA_VERSION:
+            found = version[0][0] if version else 'unversioned'
+            raise ValueError(f'DBLP dump index {self.path} has schema {found}, not {SCHEMA_VERSION}: rebuild it')
 
     def _rows(self, sql: str, parameters: Iterable[Any] = ()) -> list[tuple]:
         with self._lock:
             return self._connection.execute(sql, tuple(parameters)).fetchall()
 
-    def _in(self, sql: str, values: Sequence[str]) -> list[tuple]:
+    def _in(self, sql: str, values: Sequence[Any]) -> list[tuple]:
         rows: list[tuple] = []
         for chunk in _chunks(list(values)):
             rows += self._rows(sql.format(', '.join('?' * len(chunk))), chunk)
@@ -205,8 +235,8 @@ class DblpDumpIndex:
     def search(self, name: str, limit: int) -> list[tuple[str, str]]:
         """(pid, printed name) of the people with this name, those with most publications first."""
         rows = self._rows(
-            'SELECT names.pid, MIN(names.name), COUNT(authorship.key) AS papers FROM names '
-            'LEFT JOIN authorship ON authorship.name = names.name WHERE names.name_key = ? '
+            'SELECT names.pid, MIN(names.name), COUNT(authorship.record) AS papers FROM names '
+            'LEFT JOIN authorship ON authorship.name_hash = names.name_hash WHERE names.name_key = ? '
             'GROUP BY names.pid ORDER BY papers DESC, names.pid LIMIT ?',
             (name_key(name), limit),
         )
@@ -218,22 +248,28 @@ class DblpDumpIndex:
         if not person:
             return None
         names = [name for (name,) in self._rows('SELECT name FROM names WHERE pid = ?', (pid,))]
-        keys = sorted({key for (key,) in self._in('SELECT key FROM authorship WHERE name IN ({})', names)})
-        records = self._records(keys)
+        hashes = [digest(name) for name in names]
+        ids = {record for (record,) in self._in('SELECT record FROM authorship WHERE name_hash IN ({})', hashes)}
+        wanted = set(names)
+        records = [
+            element
+            for element in self._records(ids)
+            if any(item.text in wanted for item in element if item.tag in PEOPLE_TAGS)
+        ]
         root = ET.Element('dblpperson', {'name': names[0] if names else '', 'pid': pid, 'n': str(len(records))})
-        root.append(ET.fromstring(person[0][0]))
+        root.append(_unpack(person[0][0]))
         for record in records:
             ET.SubElement(root, 'r').append(record)
         return root
 
     def works(self, work: str) -> list[ET.Element]:
-        keys = [key for (key,) in self._rows('SELECT key FROM works WHERE work = ?', (work,))]
-        return self._records(sorted(set(keys)))
+        ids = {record for (record,) in self._rows('SELECT record FROM works WHERE work_hash = ?', (digest(work),))}
+        return [element for element in self._records(ids) if work in record_work_keys(element)]
 
-    def _records(self, keys: Sequence[str]) -> list[ET.Element]:
+    def _records(self, ids: Iterable[int]) -> list[ET.Element]:
         """Records in key order, every author and editor carrying the PID their printed name belongs to."""
-        texts = dict(self._in('SELECT key, xml FROM records WHERE key IN ({})', keys))
-        elements = [ET.fromstring(texts[key]) for key in keys if key in texts]
+        rows = sorted(self._in('SELECT key, xml FROM records WHERE id IN ({})', sorted(ids)))
+        elements = [_unpack(blob) for _, blob in rows]
         people = sorted(
             {item.text for element in elements for item in element if item.tag in ('author', 'editor') and item.text}
         )
