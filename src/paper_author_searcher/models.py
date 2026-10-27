@@ -185,8 +185,6 @@ class ProfessorProfile(ValidatedStatuses):
     contender_ids: list[dict[str, list[str]]] = field(default_factory=list)
     # What identity discovery found for the query (ORCID, pages and why); see identity_discovery.Discovery.
     discovered: dict[str, Any] = field(default_factory=dict)
-    # Other same-name author IDs the collector may merge as split profiles (fragment_merging.Fragment.to_dict).
-    split_fragments: list[dict[str, Any]] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         super().__post_init__()

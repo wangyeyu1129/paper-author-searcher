@@ -340,31 +340,6 @@ DEFAULT_NAME_SEARCHES = NameSearchConfig()
 
 
 @dataclass(frozen=True)
-class FragmentConfig:
-    """Collection-time merging of a person's split author profiles (fragment_merging.FragmentMerger)."""
-
-    enabled: bool = True
-    # Sources whose same-name candidates the resolver passes on as fragments (and the collector can page).
-    sources: tuple[str, ...] = ('openalex', 'semantic_scholar')
-    maximum_fragments: int = 12
-    # A fragment joins with at least this many coauthors shared with the person's verified papers, whose weights
-    # sum to at least minimum_score. A coauthor shared only by the person and this fragment weighs 1; one shared
-    # by every fragment weighs nearly 0 (normalized inverse fragment frequency), so the score counts distinctive
-    # shared coauthors.
-    minimum_shared_coauthors: int = 2
-    minimum_score: float = 2.0
-    require_institution: bool = True
-    institution_similarity: float = 0.95
-
-    def __post_init__(self) -> None:
-        if self.maximum_fragments < 0 or self.minimum_shared_coauthors < 1 or self.minimum_score < 0:
-            raise ValueError('Fragment limits must be nonnegative and at least one coauthor must be shared')
-
-
-DEFAULT_FRAGMENTS = FragmentConfig()
-
-
-@dataclass(frozen=True)
 class CatalogConfig:
     """Venue proceedings (ACL Anthology, PMLR, CVF) and institutional repositories (OAI-PMH) as one local store.
 
