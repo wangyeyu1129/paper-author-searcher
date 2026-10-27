@@ -15,6 +15,7 @@ the requested institution's repositories that name the person.
 """
 
 import gzip
+import io
 import json
 import logging
 import re
@@ -26,7 +27,7 @@ from collections.abc import Callable, Iterable, Iterator, Sequence
 from dataclasses import asdict, dataclass, field
 from html.parser import HTMLParser
 from pathlib import Path
-from typing import Any, Protocol
+from typing import IO, Any, Protocol
 
 from .config import DEFAULT_MATCHING, CatalogConfig, MatchingConfig
 from .homepage_citations import DOI_IN_TEXT
@@ -39,6 +40,7 @@ from .paper_providers import parse_year
 logger = logging.getLogger(__name__)
 
 Fetch = Callable[[str], bytes]
+GZIP_MAGIC = b'\x1f\x8b'
 
 REPOSITORY_SOURCE = 'repository'
 # Each repository is its own catalog, named by this prefix and its endpoint.
@@ -138,6 +140,27 @@ def bibtex_entries(text: str) -> Iterator[tuple[str, str, dict[str, str]]]:
         yield kind, key, fields
 
 
+def bibtex_stream(lines: Iterable[str]) -> Iterator[tuple[str, str, dict[str, str]]]:
+    """``bibtex_entries`` over a line stream, one entry in memory at a time (an entry starts on a line that
+    begins with ``@``), so a 100 MB export is never held as one string."""
+    buffer: list[str] = []
+    for line in lines:
+        if line.startswith('@') and buffer:
+            yield from bibtex_entries(''.join(buffer))
+            buffer = []
+        buffer.append(line)
+    if buffer:
+        yield from bibtex_entries(''.join(buffer))
+
+
+def text_lines(body: bytes) -> Iterator[str]:
+    """Decoded lines of a (possibly gzipped) download, decompressed and decoded incrementally."""
+    raw: IO[bytes] = io.BytesIO(body)
+    if body[:2] == GZIP_MAGIC:
+        raw = gzip.GzipFile(fileobj=raw)  # type: ignore[assignment]  # a GzipFile is a binary file object
+    yield from io.TextIOWrapper(raw, encoding='utf-8', errors='replace')
+
+
 def bibtex_authors(value: str) -> tuple[str, ...]:
     """'Last, First and First Last' as display names in byline order."""
     names = []
@@ -172,9 +195,7 @@ class AclAnthologyCatalog:
         self.fetch, self.url = fetch, url
 
     def entries(self) -> Iterator[CatalogEntry]:
-        body = self.fetch(self.url)
-        text = (gzip.decompress(body) if body[:2] == b'\x1f\x8b' else body).decode('utf-8', 'replace')
-        for kind, key, fields in bibtex_entries(text):
+        for kind, key, fields in bibtex_stream(text_lines(self.fetch(self.url))):
             if kind in PAPER_TYPES and fields.get('author'):
                 url = fields.get('url', '').rstrip('/')
                 yield bibtex_entry(self.name, key, fields, url + '.pdf' if url else None)
@@ -188,8 +209,7 @@ class PmlrCatalog:
 
     def entries(self) -> Iterator[CatalogEntry]:
         for volume in self.volumes:
-            text = self.fetch(self.url_template.format(volume=volume)).decode('utf-8', 'replace')
-            for kind, key, fields in bibtex_entries(text):
+            for kind, key, fields in bibtex_stream(text_lines(self.fetch(self.url_template.format(volume=volume)))):
                 if kind in PAPER_TYPES and fields.get('author'):
                     yield bibtex_entry(self.name, key, fields)
 
@@ -416,7 +436,8 @@ class CatalogIndexer:
         report = IndexReport()
         for source in self.sources:
             try:
-                report.stored[source.name] = self.store.replace(source.name, list(source.entries()))
+                # Streamed: replace() runs in one transaction, so a source failing midway keeps its previous entries.
+                report.stored[source.name] = self.store.replace(source.name, source.entries())
             except Exception as exc:
                 log_isolated_failure(logger, 'Catalog %s failed: %s', source.name, exc)
                 report.errors[source.name] = str(exc)
