@@ -11,7 +11,7 @@ from .logging_config import add_logging_arguments, configure_from_arguments
 from .models import PaperCollectionResult, ProfessorProfile, ResolutionResult
 from .paper_collector import IdentityConfirmationRequired, PaperCollector
 from .paper_reanalysis import reanalyze_saved_result, saved_collection_profile
-from .status import OwnershipStatus, ResolutionStatus
+from .status import IdentityConfirmation, OwnershipStatus, ResolutionStatus
 from .workflow_cli import (
     add_hint_arguments,
     add_workflow_arguments,
@@ -50,6 +50,7 @@ def summary(result: ResolutionResult) -> JSONObject:
         'author_id_aliases': profile.author_id_aliases,
         'orcid': profile.orcid,
         'name_aliases': profile.name_aliases,
+        'requested_name': profile.requested_name,
         'status': profile.status,
         'evidence': profile.evidence[:SUMMARY_EVIDENCE_LIMIT],
     }
@@ -146,6 +147,7 @@ def _collect_output(
         'status': profile.status,
         'orcid': profile.orcid,
         'name_aliases': profile.name_aliases,
+        'requested_name': profile.requested_name,
     }
     if collection.complete:
         return SUCCESS_EXIT_CODE
@@ -163,7 +165,7 @@ def _refresh_collection(saved: JSONObject, collector: PaperCollector) -> PaperCo
     profile = saved_collection_profile(saved)
     stored = saved['collection']
     selection = None
-    if stored.get('identity_confirmation') == 'manual_author_id':
+    if stored.get('identity_confirmation') == IdentityConfirmation.MANUAL:
         selected = stored.get('selected_author_ids') or {}
         if len(selected) != 1:
             raise IdentityConfirmationRequired('Saved manual selection must contain one source and one Author ID')

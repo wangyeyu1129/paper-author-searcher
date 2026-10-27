@@ -9,7 +9,8 @@ from typing import Any
 from .config import DEFAULT_MATCHING
 from .identity import IdentityLink, compare_identity, names_may_match
 from .identity_adjudication import accepted
-from .identity_anchors import IdentityAnchors
+from .identity_anchors import SUPPLIED_ORCID_REASON, IdentityAnchors
+from .identity_ranking import IdentityRanking
 from .logging_config import log_isolated_failure
 from .matching import (
     best_similarity,
@@ -19,7 +20,7 @@ from .matching import (
     research_similarity,
 )
 from .models import AnchorEvidence, ProfessorProfile, ResolutionResult
-from .status import ResolutionStatus, UniversityStatus
+from .status import AnchorKind, ResolutionStatus, UniversityStatus
 
 logger = logging.getLogger(__name__)
 
@@ -40,9 +41,11 @@ class ProfileSignals:
 
 
 class ProfessorResolver:
-    def __init__(self, providers, config=DEFAULT_MATCHING, anchor_finder=None, adjudicator=None):
+    def __init__(self, providers, config=DEFAULT_MATCHING, anchor_finder=None, adjudicator=None, ranking=None):
         self.config = config
         self.providers = list(providers)
+        # Orders candidates and decides contests; see identity_ranking.IdentityRanking.
+        self.ranking = ranking or IdentityRanking(config)
         # Turns query hints (ORCID, homepage, known papers) into author-ID anchors; without one, hints are unused.
         self.anchor_finder = anchor_finder
         # Off unless injected; see identity_adjudication.ClaudeIdentityAdjudicator.
@@ -58,7 +61,7 @@ class ProfessorResolver:
         groups = self._merge_anchored(self._group_candidates(records), anchors)
         scored = sorted(
             ((self._score(query, group, anchors), group) for group in groups),
-            key=lambda item: self._ranking_key(item[0]),
+            key=lambda item: self.ranking.key(item[0]),
         )
         scored = self._adjudicate(query, scored, anchors)
         return [profile for profile, _ in scored], [group for _, group in scored], errors
@@ -81,7 +84,7 @@ class ProfessorResolver:
             profile = self._score(query, merged, anchors)
             profile.adjudication = note
             profile.evidence.append(note)
-            rest = sorted(scored[2:], key=lambda item: self._ranking_key(item[0]))
+            rest = sorted(scored[2:], key=lambda item: self.ranking.key(item[0]))
             return [(profile, merged), *rest]
         if verdict.same_person == 'no' and verdict.target in ('first', 'second'):
             chosen = 0 if verdict.target == 'first' else 1
@@ -109,9 +112,11 @@ class ProfessorResolver:
 
     @staticmethod
     def _is_anchored(record, anchors):
-        if anchors.contains(record.source, record.author_id):
-            return True
-        return bool(anchors.orcid and record.orcid and canonical_orcid(record.orcid) == anchors.orcid)
+        if anchors.orcid and record.orcid:
+            # The record's own ORCID decides: an anchor that a different ORCID contradicts (a source returning a
+            # namesake for an ORCID lookup) must not pull that profile into the person's identity.
+            return canonical_orcid(record.orcid) == anchors.orcid
+        return anchors.contains(record.source, record.author_id)
 
     def _merge_anchored(self, groups, anchors):
         """Every group holding an anchored profile belongs to the requested person."""
@@ -185,21 +190,12 @@ class ProfessorResolver:
             return True
         return any(link.split_profile for link in links) and not any(link.conflict for link in links)
 
-    @staticmethod
-    def _ranking_key(profile):
-        return (-profile.match_score, profile.name, sorted(profile.author_ids.items()))
-
     def _mark_ambiguity(self, profiles, groups):
         if len(profiles) < 2:
             return None
         best = profiles[0]
         margin = best.match_score - profiles[1].match_score
-        if margin >= self.config.ambiguity_margin:
-            return None
-        if best.identity_anchors and not profiles[1].identity_anchors:
-            # Independent anchors outweigh a close name/school score.
-            return None
-        if best.adjudication and not profiles[1].adjudication:
+        if self.ranking.uncontested(best, profiles[1]):
             return None
         best.identity_confidence = round(
             min(best.identity_confidence, self.config.review_cap),
@@ -279,7 +275,7 @@ class ProfessorResolver:
                 anchor_evidence.extend(anchors.evidence_for(record.source, record.author_id))
                 if anchors.orcid and record.orcid and canonical_orcid(record.orcid) == anchors.orcid:
                     anchor_evidence.append(
-                        AnchorEvidence(record.source, str(record.author_id), 'ORCID matches the supplied ORCID')
+                        AnchorEvidence(record.source, str(record.author_id), SUPPLIED_ORCID_REASON, AnchorKind.ORCID)
                     )
         orcid_conflict = bool(
             anchors.orcid and any(record.orcid and canonical_orcid(record.orcid) != anchors.orcid for record in group)
@@ -409,7 +405,7 @@ class ProfessorResolver:
             author_id_aliases.setdefault(candidate.source, []).append(candidate.author_id)
             if orcid is None and candidate.orcid:
                 orcid = canonical_orcid(candidate.orcid)
-        return ProfessorProfile(
+        profile = ProfessorProfile(
             name=group[0].name,
             affiliations=signals.affiliations,
             author_ids=author_ids,
@@ -425,5 +421,13 @@ class ProfessorResolver:
             matched_affiliations=matched_affiliations,
             author_id_aliases=author_id_aliases,
             name_aliases=sorted({candidate.name for candidate in group}),
+            requested_name=query.name,
             identity_anchors=signals.anchors,
+            orcid_conflict=signals.orcid_conflict,
+            requested_department=query.department,
+            listed_works=list(anchors.listed_works) if anchors is not None else [],
         )
+        if profile.status != ResolutionStatus.RESOLVED and self.ranking.resolves(profile, signals.name):
+            profile.status = ResolutionStatus.RESOLVED
+            profile.evidence.append('Resolved by a precedence identity anchor (the supplied ORCID)')
+        return profile

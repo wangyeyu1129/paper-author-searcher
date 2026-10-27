@@ -35,6 +35,9 @@ class MatchingConfig:
     contextual_link_bonus: float = 0.01
     # Independent identity anchors (caller-supplied ORCID or papers the person is known to have written).
     anchor_bonus: float = 0.15
+    # Anchor kinds strong enough to act as a rule rather than a weight: a candidate holding one (and no conflicting
+    # ORCID) ranks first, is not contested by candidates without one, and resolves on a compatible name.
+    precedence_anchor_kinds: tuple[str, ...] = ('orcid',)
     orcid_conflict_penalty: float = 0.30
     # Optional LLM adjudication of close contests is accepted only at or above this stated confidence.
     adjudication_minimum_confidence: float = 0.8
@@ -85,6 +88,7 @@ class SourceConfig:
     institution_limit: int = 2
     # Enabled identity sources, in order (names registered in source_catalog.IDENTITY_SOURCES).
     identity_sources: tuple[str, ...] = ('openalex', 'semantic_scholar', 'dblp')
+    orcid_api_url: str = 'https://pub.orcid.org/v3.0'
 
 
 @dataclass(frozen=True)
@@ -95,6 +99,15 @@ class AnchorConfig:
     homepage_bytes: int = 2_000_000
     maximum_redirects: int = 5
     title_search_results: int = 3
+    # Homepage parsing: each block element is one citation; emphasised or quoted spans of title length are titles.
+    citation_block_tags: tuple[str, ...] = ('li', 'p', 'tr', 'dd', 'dt', 'div')
+    title_tags: tuple[str, ...] = ('a', 'b', 'strong', 'i', 'em', 'cite')
+    title_minimum_words: int = 4
+    title_maximum_characters: int = 300
+    # Title lookups (one search request each) only fill what identifier anchors left of maximum_anchor_papers.
+    maximum_title_anchors: int = 10
+    # A supplied ORCID's public works list is the person's own list, like a homepage (one request).
+    orcid_listed_works: bool = True
 
 
 DEFAULT_MATCHING = MatchingConfig()
@@ -133,6 +146,13 @@ class CollectionConfig:
     source_concurrency: tuple[tuple[str, int], ...] = (('openalex', 4), ('semantic_scholar', 1), ('dblp', 1))
     # How much of each raw API payload papers.json keeps (see raw_metadata.py).
     raw_metadata: str = RawMetadataPolicy.FULL
+    # Department adjudication of collected contenders: one contender's own papers must name the requested
+    # department in at least this share of their unit mentions (with enough mentions), every rival in at most
+    # contender_rival_share. Without a requested department nothing is adjudicated.
+    contender_department_adjudication: bool = True
+    contender_minimum_share: float = 0.25
+    contender_minimum_evidence: int = 5
+    contender_rival_share: float = 0.05
 
     def __post_init__(self) -> None:
         if self.ambiguity_policy not in AMBIGUITY_POLICIES:
@@ -166,6 +186,14 @@ class OwnershipConfig:
     paper_orcid_scopes: tuple[str, ...] = ('paper_authorship',)
     # Copied from the source's author profile onto every paper of that author ID: no per-paper evidence.
     author_level_orcid_scopes: tuple[str, ...] = ('resolved_author', 'author_profile')
+    # Anchor kinds that make an author ID's past institutions (the identity's affiliation history) acceptable as
+    # paper-level evidence. Paper anchors are excluded: they can attach a namesake's fragment.
+    history_anchor_kinds: tuple[str, ...] = ('orcid',)
+    # A work on the person's own list (homepage or supplied ORCID) with a compatible byline is theirs.
+    verify_listed_works: bool = True
+    # An identity listing more institutions than this is a merge of several people (OpenAlex filed many Wei Lus,
+    # 89 institutions, under one ORCID-bearing author ID), so its history vouches for nobody.
+    maximum_history_institutions: int = 12
     nonstandard_types: tuple[str, ...] = (
         'proceedings',
         'peer_review',
@@ -189,6 +217,94 @@ class OwnershipConfig:
         'author response',
         'proceedings of',
     )
+
+
+@dataclass(frozen=True)
+class ListedWorksConfig:
+    """Works the person lists themselves (homepage, supplied ORCID) that author-ID collection did not return.
+
+    Each missing work is looked up once (DOI, arXiv ID or exact title in OpenAlex) and enters the collection under
+    the name-compatible author of that work; OwnershipConfig.verify_listed_works decides whether the listing alone
+    verifies it.
+    """
+
+    enabled: bool = True
+    maximum_lookups: int = 100
+    title_search_results: int = 3
+
+    def __post_init__(self) -> None:
+        if self.maximum_lookups < 0 or self.title_search_results < 1:
+            raise ValueError('maximum_lookups must be nonnegative and title_search_results positive')
+
+
+DEFAULT_LISTED_WORKS = ListedWorksConfig()
+
+
+@dataclass(frozen=True)
+class PrecisionGuardConfig:
+    """Stricter ownership evidence where namesakes share institutions (Tsinghua has many Yang Lius).
+
+    Applies only to identities whose name is common (see ``common_surnames``) and only to author IDs not anchored
+    by an ``exempt_anchor_kinds`` anchor; every other identity keeps the ordinary rules.
+    """
+
+    enabled: bool = True
+    # A file in the package's data directory, or a path; one lowercase surname per line.
+    common_surnames: str = 'common_chinese_surnames.txt'
+    maximum_name_tokens: int = 3
+    exempt_anchor_kinds: tuple[str, ...] = ('orcid',)
+    # Department phrases are the comma-separated parts of a raw affiliation string that name a unit.
+    department_keywords: tuple[str, ...] = (
+        'department',
+        'dept',
+        'school',
+        'college',
+        'faculty',
+        'institute',
+        'laboratory',
+        'lab',
+        'center',
+        'centre',
+        'division',
+        'program',
+    )
+    department_stop_words: tuple[str, ...] = (
+        'department',
+        'dept',
+        'of',
+        'and',
+        'the',
+        'school',
+        'college',
+        'faculty',
+        'for',
+        'in',
+        'division',
+    )
+    # Two department phrases agree when one's words contain the other's, or their word Jaccard reaches this.
+    department_similarity: float = 0.6
+    # Units named on the person's own anchor papers join the requested department when they cover this share of
+    # those papers' unit mentions (at most maximum_home_departments of them).
+    home_department_share: float = 0.1
+    maximum_home_departments: int = 5
+    # A fragment is foreign when it has this much department evidence and too little of it is the person's.
+    # OpenAlex fragments are noisy (Yang Liu's own CS fragment names his department in only 16% of mentions).
+    fragment_minimum_evidence: int = 5
+    fragment_minimum_share: float = 0.1
+    # Coauthors whose name collides easily (common surname, given names of at most this many letters, e.g.
+    # "Hui Li", "Qi Liu") do not count as recurring coauthors.
+    exclude_common_coauthors: bool = True
+    collision_given_name_letters: int = 4
+
+    def __post_init__(self) -> None:
+        for name in ('department_similarity', 'home_department_share', 'fragment_minimum_share'):
+            if not 0 <= getattr(self, name) <= 1:
+                raise ValueError(f'{name} must be between 0 and 1')
+        if self.fragment_minimum_evidence < 1 or self.maximum_name_tokens < 1:
+            raise ValueError('fragment_minimum_evidence and maximum_name_tokens must be positive')
+
+
+DEFAULT_PRECISION = PrecisionGuardConfig()
 
 
 @dataclass(frozen=True)

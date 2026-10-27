@@ -48,7 +48,7 @@
     ],
     "excluded_counts": {},
     "review_progress": {
-      "decided": 44,
+      "decided": 43,
       "pending": 0
     }
   },
@@ -2228,11 +2228,13 @@
         "confirmed_system_suggestion"
       ],
       "annotation_evidence": [
-        "Confirmed system suggestion: 3 coauthors shared with the researcher-maintained bibliography"
+        "Confirmed system suggestion: 3 coauthors shared with the researcher-maintained bibliography",
+        "ICML version merged in (2026-10-19): its arXiv ID is this preprint's DOI"
       ],
       "review_flags": [
         "added_by_reviewer",
-        "suggested_by_system_not_in_truth"
+        "suggested_by_system_not_in_truth",
+        "version_identifiers_added_in_review"
       ],
       "dois": [
         "10.48550/arxiv.2106.11053"
@@ -2241,7 +2243,23 @@
       "ownership": "belongs",
       "proposed_ownership": "belongs",
       "annotation_status": "assistant_reviewed",
-      "reviewer_note": "3 coauthors shared with the researcher-maintained bibliography"
+      "reviewer_note": "3 coauthors shared with the researcher-maintained bibliography",
+      "external_ids": {
+        "arxiv": "2106.11053"
+      },
+      "metadata_aliases": [
+        {
+          "title": "Leveraging Language to Learn Program Abstractions and Search Heuristics",
+          "year": 2021,
+          "authors": [
+            "Catherine Wong",
+            "Kevin Ellis",
+            "J. Tenenbaum",
+            "Jacob Andreas"
+          ],
+          "venue": "International Conference on Machine Learning"
+        }
+      ]
     },
     {
       "title": "DreamCoder software and data",
@@ -2277,36 +2295,6 @@
       "proposed_ownership": "uncertain",
       "annotation_status": "assistant_reviewed",
       "reviewer_note": "Dataset/software record, excluded type"
-    },
-    {
-      "title": "Leveraging Language to Learn Program Abstractions and Search Heuristics",
-      "year": 2021,
-      "authors": [
-        "Catherine Wong",
-        "Kevin Ellis",
-        "J. Tenenbaum",
-        "Jacob Andreas"
-      ],
-      "listed_venue": "International Conference on Machine Learning",
-      "truth_sources": [
-        "human_reviewer",
-        "confirmed_system_suggestion"
-      ],
-      "annotation_evidence": [
-        "Confirmed system suggestion: Another version of lead row 36"
-      ],
-      "review_flags": [
-        "added_by_reviewer",
-        "suggested_by_system_not_in_truth"
-      ],
-      "external_ids": {
-        "arxiv": "2106.11053"
-      },
-      "evaluation_id": "cs_kevin_ellis:added-8536e2bbc0",
-      "ownership": "uncertain",
-      "proposed_ownership": "uncertain",
-      "annotation_status": "assistant_reviewed",
-      "reviewer_note": "Another version of lead row 36"
     },
     {
       "title": "DreamCoder: Building interpretable hierarchical knowledge representations with wake-sleep Bayesian program learning",

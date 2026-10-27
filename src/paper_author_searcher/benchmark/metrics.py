@@ -9,9 +9,13 @@ from collections.abc import Mapping
 from dataclasses import dataclass
 from typing import Any, ClassVar
 
+from paper_author_searcher.status import IdentityConfirmation
+
 from .settings import BenchmarkSettings
 
-RESOLVED_CONFIRMATIONS = frozenset({'resolver_resolved', 'manual_author_id'})
+RESOLVED_CONFIRMATIONS = frozenset(
+    {IdentityConfirmation.RESOLVER, IdentityConfirmation.MANUAL, IdentityConfirmation.DEPARTMENT}
+)
 
 
 @dataclass(frozen=True)

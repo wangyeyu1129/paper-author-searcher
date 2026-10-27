@@ -209,6 +209,22 @@ class URLSafetyTests(unittest.TestCase):
             connection._create_connection(('repository.example.edu', 443), 5)
         self.assertEqual(connect.call_args[0][0], ('1.1.1.1', 443))
 
+    def test_https_handler_builds_connections_on_current_python(self):
+        # urllib's do_open passes https_open's keyword arguments to the connection class; Python 3.12 removed
+        # HTTPSConnection(check_hostname=...), which crashed every homepage probe in a live run.
+        handler = PublicHTTPSHandler((80, 443))
+        request = Mock(full_url=URL)
+
+        def do_open(factory, opened, **arguments):
+            return factory('repository.example.edu', timeout=5, **arguments)
+
+        with (
+            patch('paper_author_searcher.network_safety.public_addresses', return_value=['1.1.1.1']),
+            patch.object(handler, 'do_open', side_effect=do_open),
+        ):
+            connection = handler.https_open(request)
+        self.assertTrue(connection._context.check_hostname)
+
     def test_each_https_redirect_target_is_resolved_again(self):
         handler = PublicHTTPSHandler((80, 443))
         request = Mock(full_url='https://redirect.example.edu/document')

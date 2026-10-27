@@ -9,6 +9,7 @@ from pathlib import Path
 
 from paper_author_searcher.composition import RunOptions, ServiceContainer
 from paper_author_searcher.http import HttpClient, SourceError
+from paper_author_searcher.http_cache import CacheMode
 from paper_author_searcher.jsonio import read_json, write_json
 from paper_author_searcher.logging_config import add_logging_arguments, configure_from_arguments, log_isolated_failure
 from paper_author_searcher.settings import load_settings
@@ -18,7 +19,7 @@ from .gate import ReleaseGate
 from .report import markdown_report
 from .review import REVIEW_STATES, export_review, import_review
 from .roster import Roster
-from .runner import BenchmarkRunner, WorkflowSearchSystem, load_index
+from .runner import METADATA_MODE, BenchmarkRunner, RecordedRunAnchors, WorkflowSearchSystem, load_index
 from .scoring import OVERALL, PersonScorer, aggregate, is_human_reviewed, load_truth, truth_paths
 from .settings import BenchmarkSettings
 from .snapshots import ArxivLookup, CrossrefLookup, OrcidFetcher, SnapshotCollector, missing_snapshots
@@ -173,10 +174,22 @@ def command_run(args) -> int:
     run = settings.run if args.mode is None else replace(settings.run, mode=args.mode)
     if args.input_profile:
         run = replace(run, input_profile=args.input_profile)
-    runner = BenchmarkRunner(settings, WorkflowSearchSystem(run, settings), progress=logger.info)
+    anchor_source = None
+    if args.replay_from:
+        if not run.http_cache_dir:
+            raise SystemExit('--replay-from needs run.http_cache_dir in the benchmark config')
+        # PDF stages fetch pages and files that are never cached, so a replay stops at metadata.
+        run = replace(run, http_cache_mode=CacheMode.REPLAY.value, mode=METADATA_MODE)
+        anchor_source = RecordedRunAnchors(settings, args.replay_from)
+    runner = BenchmarkRunner(
+        settings, WorkflowSearchSystem(run, settings, anchor_source=anchor_source), progress=logger.info
+    )
     run_id = args.run_id or datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
     index = runner.run(
-        roster.select(args.person), run_id, {'code_version': _code_version(), 'label': args.label}, rerun=args.rerun
+        roster.select(args.person),
+        run_id,
+        {'code_version': _code_version(), 'label': args.label, 'replay_of': args.replay_from},
+        rerun=args.rerun,
     )
     print(f'Run {run_id} saved to {settings.paths.runs / run_id}')
     if index.get('api_budget'):
@@ -224,7 +237,7 @@ def command_diagnose(args) -> int:
 
     settings, roster, _registry, _warnings = _context(args)
     cache_dir = args.http_cache_dir or settings.run.http_cache_dir
-    run = replace(settings.run, mode='metadata', http_cache_dir=cache_dir, http_cache_mode=args.http_cache_mode)
+    run = replace(settings.run, mode=METADATA_MODE, http_cache_dir=cache_dir, http_cache_mode=args.http_cache_mode)
     container = ServiceContainer(load_settings(run), RunOptions.from_namespace(run))
     service = container.settings
     resolver = container.resolver
@@ -374,6 +387,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     run.add_argument('--label', default='')
     run.add_argument('--rerun', action='store_true', help='Repeat people that already finished in this run')
+    run.add_argument(
+        '--replay-from',
+        metavar='RUN_ID',
+        help='Offline replay: metadata from the HTTP cache only (no network at all) and the anchors that run found',
+    )
     run.set_defaults(handler=command_run)
 
     score = commands.add_parser('score', help='Score a run by stratum and evaluate the release gate (offline)')

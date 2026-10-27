@@ -28,6 +28,28 @@ class ResolutionStatus(StrEnum):
     UNKNOWN = 'unknown'
 
 
+class AnchorKind(StrEnum):
+    """What ties a source author ID to the requested person: the supplied ORCID, or a paper known to be theirs."""
+
+    ORCID = 'orcid'
+    PAPER = 'paper'
+
+    @classmethod
+    def from_reason(cls, reason: str) -> 'AnchorKind':
+        """Only for checkpoints written before anchors carried a kind: their reason text names the evidence."""
+        return cls.ORCID if reason.startswith('ORCID') else cls.PAPER
+
+
+class IdentityConfirmation(StrEnum):
+    """How a collection's identity was confirmed (``PaperCollectionResult.identity_confirmation``)."""
+
+    RESOLVER = 'resolver_resolved'
+    MANUAL = 'manual_author_id'
+    # Competing profiles were collected and exactly one matched the requested department on its own papers.
+    DEPARTMENT = 'department_adjudicated'
+    CONTENDERS = 'ambiguous_contenders'
+
+
 class UniversityStatus(StrEnum):
     MATCHED = 'matched'
     MISMATCH = 'mismatch'

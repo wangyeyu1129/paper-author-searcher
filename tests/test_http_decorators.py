@@ -4,9 +4,9 @@ from dataclasses import replace
 from pathlib import Path
 
 from paper_author_searcher.config import DEFAULT_PDF
-from paper_author_searcher.http import HttpClient, URLProbe
+from paper_author_searcher.http import HttpClient, SourceError, URLProbe
 from paper_author_searcher.http_budget import BudgetedHttpClient, CostLedger
-from paper_author_searcher.http_cache import CachingHttpClient
+from paper_author_searcher.http_cache import CachingHttpClient, cached_client
 from paper_author_searcher.http_decorators import HttpClientDecorator, unwrap
 from paper_author_searcher.pdf_resource_requests import PublicResourceRequests
 
@@ -50,6 +50,21 @@ class DecoratorChainTests(unittest.TestCase):
             requests.probe('https://doi.org/10.1234/x')
         self.assertIsNotNone(network.probes[0])  # previously dropped once the client was wrapped
         self.assertIn('publisher.example.edu', requests.redirect_targets.get('doi.org', set()))
+
+    def test_replay_serves_cached_reads_and_never_reaches_the_network(self):
+        with tempfile.TemporaryDirectory() as directory:
+            network = RecordingClient()
+            cached_client(network, directory, 'record').get('https://api.example.org/x')
+            replay = cached_client(network, directory, 'replay')
+            self.assertEqual(replay.get('https://api.example.org/x'), {'url': 'https://api.example.org/x'})
+            for call in (
+                lambda: replay.get('https://api.example.org/missing'),
+                lambda: replay.probe('https://homepage.example.edu/'),
+                lambda: replay.post_json('https://api.example.org/batch', {}),
+            ):
+                with self.assertRaises(SourceError):
+                    call()
+        self.assertEqual(network.probes, [])
 
     def test_unwrap_returns_plain_clients_unchanged(self):
         client = object()
