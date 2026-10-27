@@ -73,6 +73,25 @@ class SplitProfileTests(unittest.TestCase):
         self.assertTrue(compare_identity(fragment('A1'), fragment('A2')).matched)
 
 
+class AbbreviatedNameTests(unittest.TestCase):
+    """Semantic Scholar often keeps only the byline form ("M. Lin") of a name another source spells out."""
+
+    DOIS = ('10.1000/a', '10.1000/b', '10.1000/c')
+
+    def test_an_abbreviated_name_with_shared_papers_links_to_the_full_one(self):
+        full = C('dblp', 'x/1', 'Mei Lin', paper_ids=list(self.DOIS))
+        byline = C('semantic_scholar', '9', 'M. Lin', paper_ids=list(self.DOIS))
+        self.assertTrue(compare_identity(byline, full).matched)
+
+    def test_an_agreeing_abbreviation_alone_is_no_link_and_a_different_initial_still_conflicts(self):
+        full = C('dblp', 'x/1', 'Mei Lin', paper_ids=['10.1000/a'])
+        byline = C('semantic_scholar', '9', 'M. Lin', paper_ids=['10.1000/z'])
+        link = compare_identity(byline, full)
+        self.assertFalse(link.matched or link.conflict)
+        other = compare_identity(C('semantic_scholar', '8', 'J. Lin', paper_ids=list(self.DOIS)), full)
+        self.assertTrue(other.conflict)
+
+
 if __name__ == '__main__':
     unittest.main()
 

@@ -3,6 +3,7 @@
 from dataclasses import dataclass, field
 
 from .config import DEFAULT_MATCHING, MatchingConfig
+from .evaluation_matching import bibliographic_name_agrees
 from .matching import (
     best_similarity,
     canonical_doi,
@@ -41,7 +42,7 @@ def compare_identity(
         [right.name, *right.aliases],
         lambda a, b: name_similarity(a, b, config),
     )
-    if names < config.compatible_name:
+    if names < config.compatible_name and not _bibliographic_names_agree(left, right):
         return IdentityLink(reason='Names are incompatible', conflict=True)
 
     if left.orcid and right.orcid:
@@ -160,6 +161,14 @@ def names_may_match(left: AuthorCandidate, right: AuthorCandidate, config: Match
     right_names = [right.name, *right.aliases]
     return any(
         name_similarity_upper_bound(a, b, config) >= config.compatible_name for a in left_names for b in right_names
+    ) or _bibliographic_names_agree(left, right)
+
+
+def _bibliographic_names_agree(left: AuthorCandidate, right: AuthorCandidate) -> bool:
+    """An abbreviated byline name (Semantic Scholar's "A. Kundaje") agrees with the full one ("Anshul Kundaje")
+    although their similarity is low. Agreeing names only lift the veto: a link still needs shared evidence."""
+    return any(
+        bibliographic_name_agrees(a, b) for a in [left.name, *left.aliases] for b in [right.name, *right.aliases]
     )
 
 
