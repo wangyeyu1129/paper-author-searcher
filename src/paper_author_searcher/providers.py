@@ -4,7 +4,7 @@ from typing import Protocol
 
 from .config import DEFAULT_MATCHING, DEFAULT_SOURCES
 from .http import SourceError
-from .matching import best_similarity, canonical_doi, institution_similarity, name_similarity
+from .matching import best_similarity, canonical_doi, identity_work, institution_similarity, name_similarity
 from .models import AuthorCandidate, ProfessorQuery
 
 
@@ -174,6 +174,13 @@ class OpenAlexProvider:
         for work in data.get('results', []):
             if work.get('doi'):
                 candidate.paper_ids.append(canonical_doi(work['doi']))
+            candidate.works.append(
+                identity_work(
+                    [work['doi']] if work.get('doi') else [],
+                    title=work.get('title'),
+                    minimum_title_words=self.matching_config.work_title_minimum_words,
+                )
+            )
             for authorship in work.get('authorships') or []:
                 self._add_authorship(candidate, authorship)
             candidate.topics.extend(_display_names(work.get('topics')))
@@ -195,11 +202,14 @@ class SemanticScholarProvider:
     name = 'semantic_scholar'
     AUTHOR_FIELDS = 'name,affiliations,externalIds,url,' 'papers.title,papers.externalIds,papers.authors'
 
-    def __init__(self, client, api_key=None, limit=None, source_config=DEFAULT_SOURCES):
+    def __init__(
+        self, client, api_key=None, limit=None, source_config=DEFAULT_SOURCES, matching_config=DEFAULT_MATCHING
+    ):
         self.client = client
         self.api_key = api_key
         self.base_url = source_config.semantic_scholar_url.rstrip('/')
         self.limit = source_config.author_limit if limit is None else limit
+        self.matching_config = matching_config
 
     def search(self, query):
         headers = {}
@@ -224,10 +234,20 @@ class SemanticScholarProvider:
         dois = []
         topics = []
         coauthors = []
+        works = []
         for paper in item.get('papers') or []:
-            doi = (paper.get('externalIds') or {}).get('DOI')
+            identifiers = paper.get('externalIds') or {}
+            doi = identifiers.get('DOI')
             if doi:
                 dois.append(canonical_doi(doi))
+            works.append(
+                identity_work(
+                    [doi] if doi else [],
+                    [identifiers['ArXiv']] if identifiers.get('ArXiv') else [],
+                    paper.get('title'),
+                    self.matching_config.work_title_minimum_words,
+                )
+            )
             if paper.get('title'):
                 topics.append(paper['title'])
             for author in paper.get('authors') or []:
@@ -244,16 +264,18 @@ class SemanticScholarProvider:
             paper_ids=dois,
             url=item.get('url'),
             coauthors=coauthors,
+            works=works,
         )
 
 
 class DBLPProvider:
     name = 'dblp'
 
-    def __init__(self, client, limit=None, source_config=DEFAULT_SOURCES):
+    def __init__(self, client, limit=None, source_config=DEFAULT_SOURCES, matching_config=DEFAULT_MATCHING):
         self.client = client
         self.base_url = source_config.dblp_url.rstrip('/')
         self.limit = source_config.dblp_author_limit if limit is None else limit
+        self.matching_config = matching_config
 
     def search(self, query):
         data = self.client.get(
@@ -278,7 +300,7 @@ class DBLPProvider:
                     xml=True,
                 )
                 self._add_person_metadata(candidate, root)
-                self._add_publication_metadata(candidate, root)
+                self._add_publication_metadata(candidate, root, self.matching_config.work_title_minimum_words)
             except SourceError as exc:
                 candidate.metadata_errors.append(str(exc))
             candidates.append(candidate)
@@ -305,14 +327,17 @@ class DBLPProvider:
                     candidate.orcid = url.text
 
     @staticmethod
-    def _add_publication_metadata(candidate, root):
+    def _add_publication_metadata(candidate, root, minimum_title_words=DEFAULT_MATCHING.work_title_minimum_words):
         for record in root.findall('r'):
             for author in record.findall('.//author'):
                 if author.text and author.text not in candidate.aliases:
                     candidate.coauthors.append(author.text)
-            title = record.find('.//title')
-            if title is not None:
-                candidate.topics.append(''.join(title.itertext()))
-            for reference in record.findall('.//ee'):
-                if reference.text and 'doi.org/' in reference.text:
-                    candidate.paper_ids.append(canonical_doi(reference.text))
+            title_element = record.find('.//title')
+            title = ''.join(title_element.itertext()) if title_element is not None else None
+            if title:
+                candidate.topics.append(title)
+            links = [reference.text for reference in record.findall('.//ee') if reference.text]
+            dois = [link for link in links if 'doi.org/' in link]
+            candidate.paper_ids.extend(canonical_doi(doi) for doi in dois)
+            arxiv = [link for link in links if 'arxiv.org/' in link]
+            candidate.works.append(identity_work(dois, arxiv, title, minimum_title_words))
