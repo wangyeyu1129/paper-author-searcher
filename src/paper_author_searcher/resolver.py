@@ -64,7 +64,7 @@ class ProfessorResolver:
         if anchors.errors:
             errors['anchors'] = '; '.join(anchors.errors)
         records.extend(self._anchored_records(anchors, records, errors))
-        groups = self._merge_anchored(self._group_candidates(records), anchors)
+        groups = self._separate_orcid_conflicts(self._merge_anchored(self._group_candidates(records), anchors), anchors)
         scored = sorted(
             ((self._score(query, group, anchors), group) for group in groups),
             key=lambda item: self.ranking.key(item[0]),
@@ -134,6 +134,37 @@ class ProfessorResolver:
             return groups
         merged = [record for group in anchored for record in group]
         return [merged] + [group for group in groups if group not in anchored]
+
+    @staticmethod
+    def _separate_orcid_conflicts(groups, anchors):
+        """A group holding a record confirmed by the person's ORCID (carrying it, or outweighing another) is theirs;
+        members carrying another ORCID are namesakes that shared DOIs or coauthors pulled in, and leave it, one group
+        per ORCID. A group without a confirmed record keeps its members, and its conflict counts as before."""
+        if not anchors.orcid:
+            return groups
+
+        def foreign(record):
+            orcid = canonical_orcid(record.orcid) if record.orcid else None
+            return bool(orcid and orcid != anchors.orcid) and not anchors.orcid_outweighed(
+                record.source, str(record.author_id)
+            )
+
+        def confirmed(record):
+            orcid = canonical_orcid(record.orcid) if record.orcid else None
+            return orcid == anchors.orcid or anchors.orcid_outweighed(record.source, str(record.author_id))
+
+        separated = []
+        for group in groups:
+            outsiders = [record for record in group if foreign(record)]
+            if not outsiders or not any(confirmed(record) for record in group):
+                separated.append(group)
+                continue
+            separated.append([record for record in group if not foreign(record)])
+            by_orcid: dict[str, list] = {}
+            for record in outsiders:
+                by_orcid.setdefault(str(canonical_orcid(record.orcid)), []).append(record)
+            separated.extend(by_orcid.values())
+        return separated
 
     def resolve(self, query):
         profiles, groups, errors = self.rank(query)
