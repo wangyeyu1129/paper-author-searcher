@@ -5,7 +5,7 @@ import threading
 from collections.abc import Callable, Iterable, Mapping, Sequence
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import replace
-from typing import Any
+from typing import Any, Protocol
 
 from .config import DEFAULT_COLLECTION, DEFAULT_DEDUPLICATION, DeduplicationConfig, RawMetadataPolicy
 from .contender_adjudication import ContenderEvidence, DepartmentAdjudicator
@@ -20,6 +20,16 @@ from .raw_metadata import apply_policy
 from .status import IdentityConfirmation, OwnershipStatus, ResolutionStatus
 
 logger = logging.getLogger(__name__)
+
+
+class NameSearch(Protocol):
+    """A paper source keyed by the person's name instead of an author ID (arXiv author search)."""
+
+    name: str
+
+    def author_key(self, profile: ProfessorProfile) -> str: ...
+
+    def collect(self, profile: ProfessorProfile) -> PaperSourceResult: ...
 
 
 class IdentityConfirmationRequired(ValueError):
@@ -46,12 +56,15 @@ class PaperCollector:
         raw_metadata: str = RawMetadataPolicy.FULL,
         listed_works: ListedWorkRetriever | None = None,
         adjudicator: DepartmentAdjudicator | None = None,
+        name_searches: Sequence[NameSearch] = (),
     ) -> None:
         self.providers = list(providers)
         # Optional: fetch works the person lists themselves that no selected author ID returned.
         self.listed_works = listed_works
         # Optional: settle collected contenders by the requested department on their own papers.
         self.adjudicator = adjudicator
+        # Optional: sources searched by the person's name; their records join under a name key.
+        self.name_searches = list(name_searches)
         self.ownership_validator = ownership_validator or PaperOwnershipValidator()
         self.deduplication = deduplication
         # Author IDs paged at once per source; sources run side by side.
@@ -168,6 +181,15 @@ class PaperCollector:
             if winner is not None:
                 profile, selected, records = self._settle(profile, winner, records)
                 confirmation = IdentityConfirmation.DEPARTMENT
+        if confirmation != ResolutionStatus.AMBIGUOUS_CONTENDERS:
+            for search in self.name_searches:
+                found = search.collect(profile)
+                sources.append(found)
+                records.extend(found.papers)
+                key = search.author_key(profile)
+                selected[search.name] = sorted({*selected.get(search.name, []), key})
+                aliases = {**profile.author_id_aliases, search.name: selected[search.name]}
+                profile = replace(profile, author_id_aliases=aliases)
         if self.listed_works is not None and confirmation != ResolutionStatus.AMBIGUOUS_CONTENDERS:
             listed = self.listed_works.retrieve(profile, records)
             sources.append(listed)

@@ -7,6 +7,14 @@ Factories receive the ``ServiceContainer``, so they draw clients, settings and c
 
 from typing import Any
 
+from .listed_works import (
+    ArxivWorkLookup,
+    AuthorMatcher,
+    CrossrefWorkLookup,
+    OpenAlexWorkLookup,
+    SemanticScholarWorkLookup,
+    WorkLookup,
+)
 from .paper_providers import DBLPPaperProvider, OpenAlexPaperProvider, PaperProvider, SemanticScholarPaperProvider
 from .pdf_catalogs import JournalCatalogPDFProvider
 from .pdf_crossref import CrossrefPDFProvider
@@ -25,6 +33,8 @@ IDENTITY_SOURCES: Registry[Any] = Registry('identity source')
 # Paper collectors are keyed by the identity source whose author IDs they page through.
 PAPER_SOURCES: Registry[PaperProvider] = Registry('paper source')
 PDF_SOURCES: Registry[Any] = Registry('PDF source')
+# Sources a listed work missing from the collection is looked up in, in the order ListedWorksConfig.sources gives.
+WORK_LOOKUPS: Registry[WorkLookup] = Registry('work lookup')
 
 
 @IDENTITY_SOURCES.register('openalex')
@@ -118,3 +128,43 @@ def _journal_catalogs(container: Any) -> JournalCatalogPDFProvider:
 @PDF_SOURCES.register('public_pages')
 def _public_pages(container: Any) -> PublicPagePDFProvider:
     return PublicPagePDFProvider(container.resource_requests, container.pdf_config)
+
+
+def _paper_provider(container: Any, kind: type) -> Any:
+    provider = next((item for item in container.paper_providers if isinstance(item, kind)), None)
+    if provider is None:
+        raise ValueError(f'Work lookup needs the {kind.__name__}; enable its identity source')
+    return provider
+
+
+@WORK_LOOKUPS.register('openalex')
+def _openalex_lookup(container: Any) -> OpenAlexWorkLookup:
+    settings = container.settings
+    papers = _paper_provider(container, OpenAlexPaperProvider)
+    return OpenAlexWorkLookup(papers, settings.listed_works, AuthorMatcher(settings.matching))
+
+
+@WORK_LOOKUPS.register('semantic_scholar')
+def _semantic_scholar_lookup(container: Any) -> SemanticScholarWorkLookup:
+    papers = _paper_provider(container, SemanticScholarPaperProvider)
+    return SemanticScholarWorkLookup(papers, AuthorMatcher(container.settings.matching))
+
+
+@WORK_LOOKUPS.register('crossref')
+def _crossref_lookup(container: Any) -> CrossrefWorkLookup:
+    settings = container.settings
+    return CrossrefWorkLookup(
+        container.http_client,
+        settings.sources.crossref_url,
+        settings.listed_works,
+        AuthorMatcher(settings.matching),
+        settings.credentials.crossref_email,
+    )
+
+
+@WORK_LOOKUPS.register('arxiv')
+def _arxiv_lookup(container: Any) -> ArxivWorkLookup:
+    settings = container.settings
+    return ArxivWorkLookup(
+        container.http_client, settings.sources.arxiv_url, settings.listed_works, AuthorMatcher(settings.matching)
+    )

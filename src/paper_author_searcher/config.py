@@ -72,6 +72,9 @@ class HttpConfig:
     retry_backoff_base: float = 2
     retry_statuses: tuple[int, ...] = (429, 500, 502, 503, 504)
     user_agent: str = 'paper-author-searcher/0.1'
+    # Minimum seconds between requests to a host, as its terms require (arXiv asks for 3 s). Applied below the
+    # cache, so cached and replayed requests never wait.
+    host_request_intervals: tuple[tuple[str, float], ...] = (('export.arxiv.org', 3.0),)
 
 
 @dataclass(frozen=True)
@@ -89,13 +92,32 @@ class SourceConfig:
     # Enabled identity sources, in order (names registered in source_catalog.IDENTITY_SOURCES).
     identity_sources: tuple[str, ...] = ('openalex', 'semantic_scholar', 'dblp')
     orcid_api_url: str = 'https://pub.orcid.org/v3.0'
+    crossref_url: str = 'https://api.crossref.org'
+    arxiv_url: str = 'https://export.arxiv.org/api/query'
 
 
 @dataclass(frozen=True)
 class AnchorConfig:
     """Limits for turning caller hints (ORCID, homepage, known papers) into author-ID anchors."""
 
-    maximum_anchor_papers: int = 15
+    # Anchor lookups per person. The page's citations are ranked by value first (see homepage_citations): the
+    # person's own, recent, research-paper entries before others.
+    maximum_anchor_papers: int = 25
+    anchor_recent_years: int = 6
+    non_paper_markers: tuple[str, ...] = (
+        'talk',
+        'keynote',
+        'poster',
+        'slides',
+        'tutorial',
+        'dataset',
+        'software',
+        'thesis',
+        'dissertation',
+        'abstract',
+        'patent',
+        'workshop proposal',
+    )
     homepage_bytes: int = 2_000_000
     maximum_redirects: int = 5
     title_search_results: int = 3
@@ -180,6 +202,9 @@ class OwnershipConfig:
     incompatible_name: float = 0.5
     minimum_shared_coauthors: int = 1
     seed_papers_per_coauthor: int = 2
+    # A coauthor on the person's own papers (homepage or ORCID list, anchor papers) is trusted after this many
+    # seed papers: PhD students and junior faculty rarely share two papers with anyone.
+    own_paper_seed_papers_per_coauthor: int = 1
     minimum_known_coauthors: int = 2
     institution_similarity: float = 0.95
     maximum_coauthor_authors: int = 50
@@ -223,14 +248,17 @@ class OwnershipConfig:
 class ListedWorksConfig:
     """Works the person lists themselves (homepage, supplied ORCID) that author-ID collection did not return.
 
-    Each missing work is looked up once (DOI, arXiv ID or exact title in OpenAlex) and enters the collection under
-    the name-compatible author of that work; OwnershipConfig.verify_listed_works decides whether the listing alone
-    verifies it.
+    Each missing work is looked up once (DOI, arXiv ID or exact title) through ``sources`` in order, stopping at the
+    first that has it, and enters the collection under the work's name-compatible author;
+    OwnershipConfig.verify_listed_works decides whether the listing alone verifies it.
     """
 
     enabled: bool = True
     maximum_lookups: int = 100
     title_search_results: int = 3
+    # Names registered in source_catalog.WORK_LOOKUPS. OpenAlex first (richest authorship), then sources that
+    # index what it misses: Semantic Scholar (CS venues), Crossref (publisher records), arXiv (preprints).
+    sources: tuple[str, ...] = ('openalex', 'semantic_scholar', 'crossref', 'arxiv')
 
     def __post_init__(self) -> None:
         if self.maximum_lookups < 0 or self.title_search_results < 1:
@@ -238,6 +266,34 @@ class ListedWorksConfig:
 
 
 DEFAULT_LISTED_WORKS = ListedWorksConfig()
+
+
+@dataclass(frozen=True)
+class CSSourcesConfig:
+    """Computer-science sources beyond the author-ID databases.
+
+    arXiv author search collects the person's recent preprints by name; they still need ownership evidence
+    (affiliation, recurring coauthors, the person's own list). OpenReview profiles are maintained by their owners,
+    so a profile matching the name and the requested institution contributes its papers to the person's own list;
+    its API needs an account token (credentials.openreview_token), without which it is skipped.
+    """
+
+    arxiv_author_search: bool = True
+    arxiv_recent_years: int = 6
+    arxiv_page_size: int = 100
+    arxiv_maximum_results: int = 300
+    openreview: bool = True
+    openreview_url: str = 'https://api2.openreview.net'
+    openreview_maximum_notes: int = 1000
+
+    def __post_init__(self) -> None:
+        if min(self.arxiv_recent_years, self.arxiv_page_size, self.openreview_maximum_notes) < 1:
+            raise ValueError('arXiv years, page size and OpenReview note limit must be positive')
+        if self.arxiv_maximum_results < 0:
+            raise ValueError('arXiv result cap must be nonnegative')
+
+
+DEFAULT_CS_SOURCES = CSSourcesConfig()
 
 
 @dataclass(frozen=True)

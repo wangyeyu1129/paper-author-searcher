@@ -383,7 +383,25 @@ class PaperOwnershipValidator:
             for record in seeds:
                 coauthors.update(self._coauthors(record, profile))
             counts.update(coauthors)
-        return {name for name, count in counts.items() if count >= self.config.seed_papers_per_coauthor}
+        own = self._own_paper_coauthors(papers, profile)
+        return {
+            name
+            for name, count in counts.items()
+            if count >= self.config.seed_papers_per_coauthor
+            or (name in own and count >= self.config.own_paper_seed_papers_per_coauthor)
+        }
+
+    def _own_paper_coauthors(self, papers, profile):
+        """Coauthors on the person's own papers: those their list names and those their anchors came from."""
+        own_works = set(profile.listed_works) | {
+            AnchorEvidence.coerce(anchor).work for anchor in profile.identity_anchors
+        } - {''}
+        names: set[str] = set()
+        for paper in papers:
+            for record in paper.records:
+                if record.work_keys() & own_works:
+                    names |= self._coauthors(record, profile)
+        return names
 
     def _cross_source_evidence(self, left, right, profile):
         links = duplicate_evidence(left, right)

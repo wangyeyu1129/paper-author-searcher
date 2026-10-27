@@ -6,9 +6,11 @@ element becomes one citation with its identifiers, its likely title strings and 
 prefer citations that name the person and fall back to title lookups when a page links nothing.
 """
 
+import io
 import re
-from collections.abc import Iterable, Sequence
+from collections.abc import Callable, Iterable, Sequence
 from dataclasses import dataclass, field
+from datetime import date
 from html import unescape
 from html.parser import HTMLParser
 from typing import Protocol
@@ -109,11 +111,7 @@ class HtmlCitationParser:
         return citations
 
     def _title_like(self, value: str) -> bool:
-        value = value.strip()
-        words = value.split()
-        if len(words) < self.config.title_minimum_words or len(value) > self.config.title_maximum_characters:
-            return False
-        return not DOI_IN_TEXT.search(value) and not value.lower().startswith(('http', 'www.'))
+        return title_like(value, self.config)
 
 
 def mentions(name: str, text: str) -> bool:
@@ -129,12 +127,87 @@ def mentions(name: str, text: str) -> bool:
     return (last in tokens and first[0] in tokens) or (first in tokens and last[0] in tokens)
 
 
+def title_like(value: str, config: AnchorConfig = DEFAULT_ANCHORS) -> bool:
+    """A span of title length that is not a link or an identifier."""
+    value = value.strip()
+    if len(value.split()) < config.title_minimum_words or len(value) > config.title_maximum_characters:
+        return False
+    return not DOI_IN_TEXT.search(value) and not value.lower().startswith(('http', 'www.'))
+
+
+class PdfCitationParser:
+    """A CV or publication list in PDF: each paragraph (or numbered / bulleted / year-led line) is one citation;
+    quoted spans of title length are titles. Needs the optional ``pypdf`` dependency (the ``download`` extra)."""
+
+    ENTRY_START = re.compile(r'^\s*(?:\[\d+\]|\d+[.)]|[•●▪◦\-–*]|(?:19|20)\d\d\b)')
+
+    def __init__(self, config: AnchorConfig = DEFAULT_ANCHORS) -> None:
+        self.config = config
+
+    def parse(self, document: bytes) -> list[HomepageCitation]:
+        try:
+            from pypdf import PdfReader
+        except ImportError as exc:  # pragma: no cover - depends on the installed extras
+            raise ValueError('Reading a PDF publication list needs pypdf (pip install ".[download]")') from exc
+        text = '\n'.join(page.extract_text() or '' for page in PdfReader(io.BytesIO(document)).pages)
+        citations = []
+        for entry in self.entries(text):
+            dois = _unique(match.group(0).rstrip(TRAILING_PUNCTUATION) for match in DOI_IN_TEXT.finditer(entry))
+            arxiv = _unique(match.group(1) for match in ARXIV_IN_TEXT.finditer(entry))
+            titles = _unique(title.strip(' .,;:') for title in QUOTED.findall(entry) if title_like(title, self.config))
+            if dois or arxiv or titles:
+                citations.append(HomepageCitation(entry, tuple(dois), tuple(arxiv), tuple(titles)))
+        return citations
+
+    def entries(self, text: str) -> list[str]:
+        entries: list[list[str]] = [[]]
+        for line in text.splitlines():
+            if not line.strip() or self.ENTRY_START.match(line):
+                entries.append([])
+            if line.strip():
+                entries[-1].append(line.strip())
+        return [' '.join(lines) for lines in entries if lines]
+
+
+class HomepageReader:
+    """Turns a fetched publication page into citations: HTML pages and PDF CVs alike."""
+
+    def __init__(self, html: CitationParser, pdf: PdfCitationParser) -> None:
+        self.html, self.pdf = html, pdf
+
+    def citations(self, content_type: str, body: bytes, decode: Callable[[], str]) -> list[HomepageCitation]:
+        if 'pdf' in (content_type or '').lower() or body.startswith(b'%PDF'):
+            return self.pdf.parse(body)
+        return self.html.parse(decode())
+
+
+YEAR = re.compile(r'\b(19[5-9]\d|20\d\d)\b')
+
+
+class CitationRanker:
+    """Orders citations by their value as anchors: naming the person (on a lab page those are theirs), recent
+    (inside ``anchor_recent_years``: current affiliations, current author IDs), then research papers over talks,
+    posters or datasets. Ties keep page order."""
+
+    def __init__(self, config: AnchorConfig = DEFAULT_ANCHORS, current_year: int | None = None) -> None:
+        self.config = config
+        self.current_year = current_year or date.today().year
+        self.markers = tuple(normalize(marker) for marker in config.non_paper_markers)
+
+    def value(self, citation: HomepageCitation, name: str) -> tuple[bool, bool, bool]:
+        text = normalize(citation.text)
+        years = [int(year) for year in YEAR.findall(citation.text)]
+        recent = any(self.current_year - year < self.config.anchor_recent_years for year in years)
+        paper = not any(f' {marker} ' in f' {text} ' for marker in self.markers)
+        return mentions(name, citation.text), recent, paper
+
+    def rank(self, citations: Iterable[HomepageCitation], name: str) -> list[HomepageCitation]:
+        return sorted(citations, key=lambda citation: tuple(not flag for flag in self.value(citation, name)))
+
+
 def prioritise(citations: Iterable[HomepageCitation], name: str) -> list[HomepageCitation]:
-    """Citations that name the person first, page order otherwise kept: on a lab page they are the person's own."""
-    citations = list(citations)
-    return [citation for citation in citations if mentions(name, citation.text)] + [
-        citation for citation in citations if not mentions(name, citation.text)
-    ]
+    """Rank with the default configuration (see CitationRanker)."""
+    return CitationRanker().rank(citations, name)
 
 
 def _unique(values: Iterable[str]) -> list[str]:

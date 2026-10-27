@@ -24,6 +24,7 @@ from typing import Any, ClassVar, Union
 from .config import (
     DEFAULT_ANCHORS,
     DEFAULT_COLLECTION,
+    DEFAULT_CS_SOURCES,
     DEFAULT_DEDUPLICATION,
     DEFAULT_DOWNLOAD,
     DEFAULT_HTTP,
@@ -36,6 +37,7 @@ from .config import (
     DEFAULT_STORAGE,
     AnchorConfig,
     CollectionConfig,
+    CSSourcesConfig,
     DeduplicationConfig,
     DownloadConfig,
     HttpConfig,
@@ -76,12 +78,15 @@ class Credentials:
     semantic_scholar_api_key: str | None = field(default=None, repr=False)
     unpaywall_email: str | None = field(default=None, repr=False)
     crossref_email: str | None = field(default=None, repr=False)
+    # OpenReview's profile and note APIs refuse guests; a token of the operator's own account enables them.
+    openreview_token: str | None = field(default=None, repr=False)
 
     ENVIRONMENT: ClassVar[Mapping[str, str]] = {
         'openalex_api_key': 'OPENALEX_API_KEY',
         'semantic_scholar_api_key': 'SEMANTIC_SCHOLAR_API_KEY',
         'unpaywall_email': 'UNPAYWALL_EMAIL',
         'crossref_email': 'CROSSREF_MAILTO',
+        'openreview_token': 'OPENREVIEW_TOKEN',
     }
 
     @classmethod
@@ -106,6 +111,7 @@ class Settings:
     ownership: OwnershipConfig = DEFAULT_OWNERSHIP
     precision: PrecisionGuardConfig = DEFAULT_PRECISION
     listed_works: ListedWorksConfig = DEFAULT_LISTED_WORKS
+    cs_sources: CSSourcesConfig = DEFAULT_CS_SOURCES
     deduplication: DeduplicationConfig = DEFAULT_DEDUPLICATION
     pdf: PDFConfig = DEFAULT_PDF
     download: DownloadConfig = DEFAULT_DOWNLOAD

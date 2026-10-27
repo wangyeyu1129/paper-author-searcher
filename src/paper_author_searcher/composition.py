@@ -12,14 +12,15 @@ from typing import Any, ClassVar
 
 from .config import CollectionConfig, DownloadConfig, PDFConfig
 from .contender_adjudication import DepartmentAdjudicator
+from .cs_sources import ArxivAuthorSearch, OpenReviewProfiles
 from .http import HttpClient
 from .http_budget import budgeted_client
 from .http_cache import cached_client
+from .http_decorators import PacedHttpClient
 from .identity_anchors import AnchorFinder, ScholarlyAnchorFinder
 from .listed_works import ListedWorkRetriever
 from .paper_collector import PaperCollector
 from .paper_ownership import PaperOwnershipValidator
-from .paper_providers import OpenAlexPaperProvider
 from .pdf_resolver import PDFResolver
 from .pdf_resource_requests import PublicResourceRequests
 from .pdf_validation import PDFURLValidator
@@ -27,7 +28,7 @@ from .precision_guards import DepartmentMatcher, PrecisionGuard
 from .progress import ProgressReporter
 from .resolver import ProfessorResolver
 from .settings import Settings
-from .source_catalog import IDENTITY_SOURCES, PAPER_SOURCES, PDF_SOURCES
+from .source_catalog import IDENTITY_SOURCES, PAPER_SOURCES, PDF_SOURCES, WORK_LOOKUPS
 from .workflow import PaperSearchWorkflow
 
 FULL_MODE = 'full'
@@ -98,10 +99,12 @@ class ServiceContainer:
 
     @cached_property
     def http_client(self) -> Any:
-        """cache -> budget -> network: cached replays are free; only real requests are priced."""
+        """cache -> budget -> pacing -> network: cached replays are free and never wait; real requests are priced
+        and keep each host's interval."""
         options = self.options
         network = HttpClient(timeout=options.timeout, retries=options.retries, config=self.settings.http)
-        metered = budgeted_client(network, options.max_cost_usd, options.cost_ledger)
+        paced = PacedHttpClient(network, self.settings.http.host_request_intervals)
+        metered = budgeted_client(paced, options.max_cost_usd, options.cost_ledger)
         return cached_client(metered, options.http_cache_dir, options.http_cache_mode)
 
     # Identity ----------------------------------------------------------------------------------------------------
@@ -122,6 +125,7 @@ class ServiceContainer:
             anchor_config=settings.anchors,
             openalex_api_key=settings.credentials.openalex_api_key,
             semantic_scholar_api_key=settings.credentials.semantic_scholar_api_key,
+            listed_sources=self.listed_work_sources,
         )
 
     @cached_property
@@ -177,17 +181,31 @@ class ServiceContainer:
             concurrency=dict(self.collection_config.source_concurrency),
             raw_metadata=self.collection_config.raw_metadata,
             listed_works=self.listed_work_retriever,
+            name_searches=self.name_searches,
             adjudicator=DepartmentAdjudicator(self.collection_config, DepartmentMatcher(self.settings.precision)),
         )
 
     @cached_property
+    def name_searches(self) -> list[ArxivAuthorSearch]:
+        settings = self.settings
+        if not settings.cs_sources.arxiv_author_search:
+            return []
+        return [ArxivAuthorSearch(self.http_client, settings.sources.arxiv_url, settings.cs_sources, settings.matching)]
+
+    @cached_property
+    def listed_work_sources(self) -> list[OpenReviewProfiles]:
+        settings = self.settings
+        token = settings.credentials.openreview_token
+        if not settings.cs_sources.openreview or not token:
+            return []
+        return [OpenReviewProfiles(self.http_client, token, settings.cs_sources, settings.matching)]
+
+    @cached_property
     def listed_work_retriever(self) -> ListedWorkRetriever | None:
-        openalex = next(
-            (provider for provider in self.paper_providers if isinstance(provider, OpenAlexPaperProvider)), None
-        )
-        if openalex is None or not self.settings.listed_works.enabled:
+        config = self.settings.listed_works
+        if not config.enabled:
             return None
-        return ListedWorkRetriever(openalex, self.settings.listed_works, self.settings.matching)
+        return ListedWorkRetriever(WORK_LOOKUPS.create(config.sources, self), config)
 
     # Full text ---------------------------------------------------------------------------------------------------
 

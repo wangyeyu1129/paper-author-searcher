@@ -301,6 +301,10 @@ class SemanticScholarPaperProvider(PagedPaperProvider):
             return [item for item in value if isinstance(item, str) and item]
         return []
 
+    def parse_work(self, item, author_id):
+        """One Semantic Scholar paper as a record of ``author_id`` (used for papers fetched outside author paging)."""
+        return self._parse_paper(item, author_id)
+
     def _fetch_page(self, author_id, token):
         data = self.provider.client.get(
             self.provider.base_url + '/author/' + author_id + '/papers',

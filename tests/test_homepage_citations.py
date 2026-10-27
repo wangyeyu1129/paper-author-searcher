@@ -5,7 +5,15 @@ import unittest
 
 from paper_author_searcher import ProfessorQuery as Q
 from paper_author_searcher.config import DEFAULT_ANCHORS, DEFAULT_SOURCES
-from paper_author_searcher.homepage_citations import HomepageCitation, HtmlCitationParser, mentions, prioritise
+from paper_author_searcher.homepage_citations import (
+    CitationRanker,
+    HomepageCitation,
+    HomepageReader,
+    HtmlCitationParser,
+    PdfCitationParser,
+    mentions,
+    prioritise,
+)
 from paper_author_searcher.http import URLProbe
 from paper_author_searcher.identity_anchors import ScholarlyAnchorFinder
 
@@ -22,7 +30,7 @@ TITLE_ONLY_PAGE = """
 LAB_PAGE = (
     ''.join(
         f'<p>A. Other, B. Person. Lab paper {index}. <a href="https://doi.org/10.1000/lab{index}">doi</a></p>'
-        for index in range(20)
+        for index in range(40)
     )
     + '<p>J. Lee, L. Lu. Student paper. <a href="https://doi.org/10.1000/student">doi</a></p>'
 )
@@ -61,7 +69,7 @@ class ParserTests(unittest.TestCase):
 
     def test_identifiers_are_read_from_links_per_citation(self):
         citations = HtmlCitationParser().parse(LAB_PAGE)
-        self.assertEqual(len(citations), 21)
+        self.assertEqual(len(citations), 41)
         self.assertEqual(citations[-1].dois, ('10.1000/student',))
 
     def test_title_bounds_come_from_configuration(self):
@@ -73,9 +81,44 @@ class ParserTests(unittest.TestCase):
             self.assertTrue(mentions('Yang Liu', text), text)
         self.assertFalse(mentions('Yang Liu', 'Z. Wang, Q. Liu'))
 
+    def test_recent_research_papers_outrank_old_ones_and_talks(self):
+        ranker = CitationRanker(current_year=2025)
+        old = HomepageCitation('J. Lee. Old study. 2009.')
+        recent = HomepageCitation('J. Lee. Recent study. 2024.')
+        talk = HomepageCitation('J. Lee. Invited talk on studies. 2024.')
+        self.assertEqual(ranker.rank([old, talk, recent], 'Jonathan Lee'), [recent, talk, old])
+
+    def test_ranking_windows_come_from_configuration(self):
+        wide = CitationRanker(dataclasses.replace(DEFAULT_ANCHORS, anchor_recent_years=30), current_year=2025)
+        self.assertEqual(wide.value(HomepageCitation('J. Lee. Old study. 2009.'), 'Jonathan Lee'), (True, True, True))
+
     def test_citations_naming_the_person_come_first(self):
         mine, other = HomepageCitation('J. Lee, X. Y.'), HomepageCitation('A. Other')
         self.assertEqual(prioritise([other, mine], 'Jonathan Lee'), [mine, other])
+
+
+class PdfCvTests(unittest.TestCase):
+    def test_cv_text_splits_into_numbered_bulleted_and_year_led_entries(self):
+        text = """Publications
+1. N. Roussille. "The Central Role of the Ask Gap in Gender Pay Inequality", QJE.
+continued line
+2. S. Jager, N. Roussille. "Worker Beliefs About Outside Options", QJE 2024.
+2023 Bidding for Talent, with B. Scuderi"""
+        entries = PdfCitationParser().entries(text)
+        self.assertEqual(len(entries), 4)
+        self.assertTrue(entries[1].endswith('continued line'))
+
+    def test_pdf_bodies_go_to_the_pdf_parser_and_pages_to_the_html_parser(self):
+        class Fixed:
+            def __init__(self, label):
+                self.label = label
+
+            def parse(self, value):
+                return [HomepageCitation(self.label)]
+
+        reader = HomepageReader(Fixed('html'), Fixed('pdf'))
+        self.assertEqual(reader.citations('application/pdf', b'%PDF-1.7', lambda: '')[0].text, 'pdf')
+        self.assertEqual(reader.citations('text/html', b'<html>', lambda: '<html>')[0].text, 'html')
 
 
 class FinderTests(unittest.TestCase):
