@@ -100,49 +100,79 @@ class ProfileLinkTests(unittest.TestCase):
         self.assertFalse(query().has_hints())
 
 
-def employments(*jobs):
+def affiliations(kind, *entries):
+    """An ORCID affiliation section; each entry is (institution, department, end year or None)."""
     return {
         'affiliation-group': [
-            {'summaries': [{'employment-summary': {'department-name': department, 'organization': {'name': school}}}]}
-            for school, department in jobs
+            {
+                'summaries': [
+                    {
+                        f'{kind}-summary': {
+                            'department-name': department,
+                            'organization': {'name': school},
+                            'end-date': {'year': {'value': str(end)}} if end else None,
+                        }
+                    }
+                ]
+            }
+            for school, department, end in entries
         ]
     }
 
 
 class OrcidRegistrySearchTests(unittest.TestCase):
-    def search(self, results, jobs=(('Example University', 'Department of Physics'),), **config):
+    def search(self, results, jobs=(('Example University', 'Department of Physics', None),), studies=(), **config):
         client = Client(
             {
                 'expanded-search': {'expanded-result': results, 'num-found': len(results)},
-                'employments': employments(*jobs),
+                'employments': affiliations('employment', *jobs),
+                'educations': affiliations('education', *studies),
             }
         )
-        agrees = DepartmentMatcher().agree
-        return OrcidRegistrySearch(
-            client, config=replace(DEFAULT_DISCOVERY, **config), department_agrees=agrees
-        ), client
+        step = OrcidRegistrySearch(
+            client,
+            config=replace(DEFAULT_DISCOVERY, **config),
+            department_agrees=DepartmentMatcher().agree,
+            current_year=2026,
+        )
+        return step, client
 
-    def test_a_match_without_employment_at_the_institution_is_not_adopted(self):
-        step, _ = self.search([registry_person(ORCID)], jobs=(('Other University', 'Physics'),))
+    def adopted(self, step, **changes):
         found = Discovery()
-        step.discover(query(), found)
+        step.discover(query(**changes), found)
+        return found
+
+    def test_a_match_without_a_current_affiliation_at_the_institution_is_not_adopted(self):
+        elsewhere, _ = self.search([registry_person(ORCID)], jobs=(('Other University', 'Physics', None),))
+        found = self.adopted(elsewhere)
         self.assertIsNone(found.orcid)
-        self.assertIn('no employment at the requested institution', found.evidence[0])
-        unchecked, _ = self.search([registry_person(ORCID)], jobs=(), orcid_require_employment=False)
-        found = Discovery()
-        unchecked.discover(query(), found)
-        self.assertEqual(found.orcid, ORCID)
+        self.assertIn('no current affiliation at the requested institution', found.evidence[0])
+        former, _ = self.search(
+            [registry_person(ORCID)],
+            jobs=(('Other University', None, None),),
+            studies=(('Example University', 'Physics', 2025),),
+        )
+        self.assertIsNone(self.adopted(former).orcid)
+        unchecked, _ = self.search([registry_person(ORCID)], jobs=(), orcid_require_affiliation=False)
+        self.assertEqual(self.adopted(unchecked).orcid, ORCID)
 
-    def test_a_requested_department_must_agree_with_the_employment(self):
+    def test_a_current_education_confirms_a_student(self):
+        student, _ = self.search([registry_person(ORCID)], jobs=(), studies=(('Example University', 'Physics', 2026),))
+        self.assertEqual(self.adopted(student, department='Physics').orcid, ORCID)
+        only_jobs, _ = self.search(
+            [registry_person(ORCID)],
+            jobs=(),
+            studies=(('Example University', 'Physics', None),),
+            orcid_affiliation_sections=('employments',),
+        )
+        self.assertIsNone(self.adopted(only_jobs).orcid)
+
+    def test_a_requested_department_must_agree_with_the_affiliation(self):
         for department, adopted in (('Physics', True), ('Computer Science', False)):
             step, _ = self.search([registry_person(ORCID)])
-            found = Discovery()
-            step.discover(query(department=department), found)
-            self.assertEqual(found.orcid == ORCID, adopted, department)
-        unnamed, _ = self.search([registry_person(ORCID)], jobs=(('Example University', None),))
-        found = Discovery()
-        unnamed.discover(query(department='Physics'), found)
-        self.assertIsNone(found.orcid)
+            self.assertEqual(self.adopted(step, department=department).orcid == ORCID, adopted, department)
+        unnamed, _ = self.search([registry_person(ORCID)], jobs=(('Example University', None, None),))
+        self.assertIsNone(self.adopted(unnamed, department='Physics').orcid)
 
     def test_the_only_compatible_person_at_the_institution_is_adopted(self):
         step, client = self.search([registry_person(ORCID)])

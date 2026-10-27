@@ -13,6 +13,7 @@ evidence is held to a stricter standard than supplied evidence:
 import logging
 from collections.abc import Callable, Iterable, Sequence
 from dataclasses import dataclass, field
+from datetime import date
 from typing import Any, Protocol
 from urllib.parse import urlsplit
 
@@ -117,8 +118,10 @@ class OrcidRegistrySearch:
         config: DiscoveryConfig = DEFAULT_DISCOVERY,
         matching: MatchingConfig = DEFAULT_MATCHING,
         department_agrees: Callable[[str, str], bool] | None = None,
+        current_year: int | None = None,
     ) -> None:
         self.client, self.config, self.matching = client, config, matching
+        self.current_year = current_year or date.today().year
         self.base_url = source_config.orcid_api_url.rstrip('/')
         self.url = self.base_url + '/expanded-search/'
         # (printed department, requested department) -> same unit; without one, departments are not compared.
@@ -170,29 +173,43 @@ class OrcidRegistrySearch:
         return sorted({orcid for orcid in orcids if orcid})
 
     def unconfirmed(self, query: Any, orcid: str) -> str | None:
-        """Why the record's employment does not confirm the person (None: it does, or no check is configured)."""
-        if not self.config.orcid_require_employment:
+        """Why the record's own affiliations do not confirm the person (None: they do, or no check is set)."""
+        if not self.config.orcid_require_affiliation:
             return None
-        data = self.client.get(f'{self.base_url}/{orcid}/employments', None, ORCID_JSON)
         universities = [query.university, *getattr(query, 'university_aliases', [])]
-        departments = []
-        for group in (data or {}).get('affiliation-group') or []:
-            for summary in group.get('summaries') or []:
-                employment = summary.get('employment-summary') or {}
-                organisation = (employment.get('organization') or {}).get('name') or ''
-                school = best_similarity(
-                    universities, [organisation], lambda a, b: institution_similarity(a, b, self.matching)
-                )
-                if school >= self.matching.matched_school:
-                    departments.append(employment.get('department-name') or '')
+        departments = [
+            affiliation.get('department-name') or ''
+            for affiliation in self.affiliations(orcid)
+            if self._current(affiliation)
+            and best_similarity(
+                universities,
+                [(affiliation.get('organization') or {}).get('name') or ''],
+                lambda a, b: institution_similarity(a, b, self.matching),
+            )
+            >= self.matching.matched_school
+        ]
         if not departments:
-            return 'no employment at the requested institution'
+            return 'no current affiliation at the requested institution'
         wanted = getattr(query, 'department', None)
         if not wanted or not self.config.orcid_require_department or self.department_agrees is None:
             return None
         if any(department and self.department_agrees(department, wanted) for department in departments):
             return None
-        return f'no employment in {wanted}'
+        return f'no current affiliation in {wanted}'
+
+    def affiliations(self, orcid: str) -> list[dict]:
+        """Every summary of the configured ORCID affiliation sections (employment-summary, education-summary...)."""
+        found: list[dict] = []
+        for section in self.config.orcid_affiliation_sections:
+            data = self.client.get(f'{self.base_url}/{orcid}/{section}', None, ORCID_JSON)
+            for group in (data or {}).get('affiliation-group') or []:
+                for summary in group.get('summaries') or []:
+                    found.extend(value for value in summary.values() if isinstance(value, dict))
+        return found
+
+    def _current(self, affiliation: dict) -> bool:
+        end = ((affiliation.get('end-date') or {}).get('year') or {}).get('value')
+        return not end or int(end) >= self.current_year
 
     def _results(self, search: str) -> list[dict]:
         data = self.client.get(self.url, {'q': search, 'rows': self.config.orcid_search_rows}, ORCID_JSON)
