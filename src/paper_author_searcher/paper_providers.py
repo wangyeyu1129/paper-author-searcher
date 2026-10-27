@@ -410,44 +410,47 @@ class DBLPPaperProvider:
                 }
             )
             return
-        authors = []
-        verified = False
-        for author in record.findall('author'):
-            if author.text:
-                authors.append(author.text)
-            if author.get('pid') == author_id:
-                verified = True
-        references = []
-        doi = None
-        for reference in record.findall('ee'):
-            if reference.text:
-                references.append(reference.text)
-                if 'doi.org/' in reference.text:
-                    doi = doi_value(reference.text)
-        title = text_content(record, 'title')
-        paper_id = record.get('key')
-        venue = text_content(record, 'journal') or text_content(record, 'booktitle')
-        editor_only = not record.findall('author') and bool(record.findall('editor'))
-        result.papers.append(
-            PaperRecord(
-                title=title or '',
-                authors=authors,
-                year=parse_year(text_content(record, 'year')),
-                doi=doi,
-                venue=venue,
-                abstract=None,
-                source=self.name,
-                source_paper_id=paper_id or '',
-                source_author_id=author_id,
-                paper_url=references[0] if references else self.provider.base_url + '/rec/' + (paper_id or ''),
-                publication_type=record.tag,
-                author_details=[
-                    {'name': author.text, 'author_id': author.get('pid'), 'role': 'author'}
-                    for author in record.findall('author')
-                ],
-                external_ids={'dblp': paper_id or ''},
-                raw_metadata={'xml': ET.tostring(record, encoding='unicode')},
-                target_author_present=False if editor_only else True if verified else None,
-                attribution_evidence=[] if verified else ['Target PID absent from author metadata'],
-            )
-        )
+        result.papers.append(dblp_record(record, author_id, self.provider.base_url))
+
+
+def dblp_record(record: ET.Element, author_id: str, base_url: str) -> PaperRecord:
+    """One DBLP publication element (from a PID bibliography or the data dump) as a record of ``author_id``."""
+    authors = []
+    verified = False
+    for author in record.findall('author'):
+        if author.text:
+            authors.append(author.text)
+        if author.get('pid') == author_id:
+            verified = True
+    references = []
+    doi = None
+    for reference in record.findall('ee'):
+        if reference.text:
+            references.append(reference.text)
+            if 'doi.org/' in reference.text:
+                doi = doi_value(reference.text)
+    title = text_content(record, 'title')
+    paper_id = record.get('key')
+    venue = text_content(record, 'journal') or text_content(record, 'booktitle')
+    editor_only = not record.findall('author') and bool(record.findall('editor'))
+    return PaperRecord(
+        title=title or '',
+        authors=authors,
+        year=parse_year(text_content(record, 'year')),
+        doi=doi,
+        venue=venue,
+        abstract=None,
+        source=DBLPPaperProvider.name,
+        source_paper_id=paper_id or '',
+        source_author_id=author_id,
+        paper_url=references[0] if references else base_url + '/rec/' + (paper_id or ''),
+        publication_type=record.tag,
+        author_details=[
+            {'name': author.text, 'author_id': author.get('pid'), 'role': 'author'}
+            for author in record.findall('author')
+        ],
+        external_ids={'dblp': paper_id or ''},
+        raw_metadata={'xml': ET.tostring(record, encoding='unicode')},
+        target_author_present=False if editor_only else True if verified else None,
+        attribution_evidence=[] if verified else ['Target PID absent from author metadata'],
+    )
