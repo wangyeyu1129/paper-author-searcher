@@ -1,6 +1,6 @@
 # 锁定身份与多源检索（Phase 1 / Phase 2）
 
-本页说明输入格式、身份发现、发表列表提取、各数据源、本地索引与拆分档案合并。所有阈值、地址、来源顺序都在 `Settings` 的对应分区里（`discovery`、`profile_links`、`extraction`、`name_searches`、`listed_works`、`dblp_dump`、`catalogs`、`fragments`），可用 JSON 配置文件或 `PAPER_SEARCH__<分区>__<字段>` 覆盖。评测结果见 [reports/benchmark/phase1-2-evaluation-20261027.md](../reports/benchmark/phase1-2-evaluation-20261027.md)。
+本页说明输入格式、身份发现、发表列表提取、各数据源与本地索引。所有阈值、地址、来源顺序都在 `Settings` 的对应分区里（`discovery`、`profile_links`、`extraction`、`name_searches`、`listed_works`、`dblp_dump`、`catalogs`），可用 JSON 配置文件或 `PAPER_SEARCH__<分区>__<字段>` 覆盖。评测结果见 [reports/benchmark/phase1-2-evaluation-20261027.md](../reports/benchmark/phase1-2-evaluation-20261027.md)。
 
 ## 输入格式
 
@@ -77,12 +77,6 @@ export PAPER_SEARCH__CATALOGS__STORE_PATH=output/catalogs/catalogs.sqlite
 
 路径未设置时这些来源不启用；设置了但文件不存在会直接报错，不会悄悄回退。
 
-## 拆分档案合并
+## 收集阶段的拆分档案合并（已移除）
 
-数据库常把同一个人拆成多个作者 ID。解析阶段把同来源、姓名一致、ORCID 不冲突的其他候选作为 `split_fragments` 交给收集阶段；收集阶段在已收集内容上先做一次临时归属验证，得到本人**已验证**论文的合作者网络，然后：
-
-1. 只翻页可能被接受的片段（要求同机构时，只翻页已知机构包含所请求机构的片段）；片段自己的论文提供合作者与机构；
-2. 共享合作者按归一化逆片段频率加权：`ln((N+1)/df) / ln((N+1)/2)`，只有本人与该片段共有的合作者权重为 1，出现在每个同名片段里的权重接近 0；
-3. 同时要求共享机构且没有其他 ORCID；被接受的片段并入网络，其余片段重新打分直到不再变化（片段图上的闭包）。
-
-只有被接受片段的论文加入，并且照常逐篇验证：合并扩大收集范围，不扩大验证范围。阈值在 `fragments` 分区。
+曾有一个收集阶段的合并步骤：按合作者网络与机构，把同名的其他作者 ID 并入本人身份。评测中它对 28 人提出了 268 个片段，一个都没有接受；对最少输入下 158 篇未找到的真值论文逐篇核对，只有 1 篇位于被提出的片段之下，即这一步最多只能多找到 1 篇。因此已删除，不再为它翻页消耗 API 配额。解析阶段同来源的拆分档案合并（`MatchingConfig.merge_split_profiles`，见 [identity_resolution.md](identity_resolution.md)）不受影响。

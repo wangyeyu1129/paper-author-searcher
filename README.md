@@ -338,4 +338,4 @@ Aarti Singh 的 37 条记录已整理为 [试点审核包](data/ground_truth/aar
 
 ## 锁定身份与多源检索
 
-输入：姓名、学校必填；主页、发表页 / CV、邮箱、ORCID、Google Scholar 及其他档案链接选填。未提供时自动发现 ORCID（注册表唯一匹配且当前就职或就读于该机构、院系一致）与个人页面（ORCID 个人网站、可选的网页搜索 API），页面上的发表列表可由 LLM 结构化提取。新增来源：DBLP 官方 dump 本地索引（`paper-dblp-index`）、ACL Anthology / PMLR / CVF / OAI-PMH 知识库本地书目库（`paper-catalog-index`）、Europe PMC（含 PubMed）、Crossref 作者 + 机构检索、CORE；本人发表列表中的每一篇缺失论文按配置顺序在各库逐篇反查；同一人被拆分的多个作者 ID 按合作者网络与机构合并。说明见 [docs/identity_and_sources.md](docs/identity_and_sources.md)，评测见 [reports/benchmark/phase1-2-evaluation-20261027.md](reports/benchmark/phase1-2-evaluation-20261027.md)。
+输入：姓名、学校必填；主页、发表页 / CV、邮箱、ORCID、Google Scholar 及其他档案链接选填。未提供时自动发现 ORCID（注册表唯一匹配且当前就职或就读于该机构、院系一致）与个人页面（ORCID 个人网站、可选的网页搜索 API），页面上的发表列表可由 LLM 结构化提取。新增来源：DBLP 官方 dump 本地索引（`paper-dblp-index`）、ACL Anthology / PMLR / CVF / OAI-PMH 知识库本地书目库（`paper-catalog-index`）、Europe PMC（含 PubMed）、Crossref 作者 + 机构检索、CORE；本人发表列表中的每一篇缺失论文按配置顺序在各库逐篇反查。说明见 [docs/identity_and_sources.md](docs/identity_and_sources.md)，评测见 [reports/benchmark/phase1-2-evaluation-20261027.md](reports/benchmark/phase1-2-evaluation-20261027.md)。
