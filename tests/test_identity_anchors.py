@@ -240,6 +240,30 @@ class ResolverAnchorTests(unittest.TestCase):
         self.assertFalse(result.profile.orcid_conflict)
         self.assertEqual(result.profile.status, 'resolved')
 
+    def test_namesakes_with_other_orcids_leave_a_group_the_orcid_confirms(self):
+        # An anchored Semantic Scholar profile mixing two people shares DOIs with a namesake's DBLP profile, and
+        # merging anchored groups pulls that namesake in beside the ORCID's own record.
+        orcid = '0000-0000-0000-0001'
+        found = anchors(orcid=orcid)
+        found.add('semantic_scholar', '9', 'author of DOI 10.1000/mixed')
+        records = [
+            C('openalex', 'A1', 'Mei Lin', SCHOOL, orcid=orcid, paper_ids=['10.1000/own']),
+            C('semantic_scholar', '9', 'Mei Lin', SCHOOL, paper_ids=['10.1000/mixed', '10.1000/other']),
+            C(
+                'dblp',
+                'x/1',
+                'Mei Lin',
+                SCHOOL,
+                orcid='0000-0000-0000-0009',
+                paper_ids=['10.1000/mixed', '10.1000/other'],
+            ),
+        ]
+        result, _ = self.resolve(records, found)
+        self.assertEqual(sorted(result.profile.author_ids), ['openalex', 'semantic_scholar'])
+        self.assertFalse(result.profile.orcid_conflict)
+        self.assertEqual(result.profile.status, 'resolved')
+        self.assertIn({'dblp': 'x/1'}, [profile.author_ids for profile in result.candidates])
+
     def test_anchor_precedence_is_configurable(self):
         orcid = '0000-0000-0000-0001'
         records = [
