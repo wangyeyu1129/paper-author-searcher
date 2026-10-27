@@ -9,7 +9,7 @@ from .models import AnchorEvidence
 from .paper_authorship import byline_forms, canonical_author_id, signature_names
 from .paper_deduplication import author_signatures_match, duplicate_evidence
 from .precision_guards import GuardContext, PrecisionGuard
-from .status import OwnershipStatus
+from .status import AnchorKind, OwnershipStatus
 
 FOREIGN_FRAGMENT = (
     "Common-name guard: this author ID belongs to a fragment outside the person's department profile; "
@@ -126,6 +126,21 @@ class PaperOwnershipValidator:
             for anchor in anchors
             if anchor.source == source and anchor.kind in self.config.history_anchor_kinds
         }
+
+    def _curated_orcid_claim(self, record, details, profile):
+        """The paper lists, by ID, a curated source's author profile that the person's ORCID anchors."""
+        if record.source not in self.config.curated_orcid_sources or not details:
+            return None
+        anchors = (AnchorEvidence.coerce(item) for item in profile.identity_anchors)
+        orcid_ids = {
+            canonical_author_id(record.source, anchor.author_id)
+            for anchor in anchors
+            if anchor.source == record.source and anchor.kind == AnchorKind.ORCID
+        }
+        listed = {canonical_author_id(record.source, author.get('author_id')) for author in details}
+        if orcid_ids & listed:
+            return f"Curated {record.source} author profile carrying the person's ORCID is on the author list"
+        return None
 
     def _institution_agrees(self, record, details, profile):
         confirmed = profile.matched_affiliations
@@ -249,6 +264,10 @@ class PaperOwnershipValidator:
             return OwnershipStatus.VERIFIED, [*evidence, claim]
         if self._guard.foreign(record):
             evidence.append(FOREIGN_FRAGMENT)
+        else:
+            curated = self._curated_orcid_claim(record, details, profile)
+            if curated:
+                return OwnershipStatus.VERIFIED, [*evidence, curated]
         institution = self._institution_agrees(record, details, profile)
         if details and institution:
             return OwnershipStatus.VERIFIED, [
