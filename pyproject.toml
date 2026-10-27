@@ -22,6 +22,7 @@ pdf-resolve = "paper_author_searcher.pdf_cli:main"
 pdf-download = "paper_author_searcher.download_cli:main"
 paper-search = "paper_author_searcher.workflow_cli:main"
 paper-dblp-index = "paper_author_searcher.dblp_cli:main"
+paper-catalog-index = "paper_author_searcher.catalog_cli:main"
 paper-performance = "paper_author_searcher.performance_cli:main"
 paper-benchmark = "paper_author_searcher.benchmark.cli:main"
 

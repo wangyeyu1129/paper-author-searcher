@@ -22,8 +22,8 @@ from .name_searches import (
     CrossrefAuthorSearch,
     EuropePmcAuthorSearch,
     EuropePmcWorkLookup,
-    PagedNameSearch,
 )
+from .paper_collector import NameSearch
 from .paper_providers import DBLPPaperProvider, OpenAlexPaperProvider, PaperProvider, SemanticScholarPaperProvider
 from .pdf_catalogs import JournalCatalogPDFProvider
 from .pdf_crossref import CrossrefPDFProvider
@@ -37,6 +37,7 @@ from .pdf_providers import (
 from .pdf_public_pages import PublicPagePDFProvider
 from .providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
 from .registry import Registry
+from .venue_catalogs import CatalogWorkLookup, RepositoryNameSearch
 from .web_search import BraveSearch, ExaSearch, TavilySearch, WebSearch
 
 IDENTITY_SOURCES: Registry[Any] = Registry('identity source')
@@ -46,7 +47,7 @@ PDF_SOURCES: Registry[Any] = Registry('PDF source')
 # Sources a listed work missing from the collection is looked up in, in the order ListedWorksConfig.sources gives.
 WORK_LOOKUPS: Registry[WorkLookup | None] = Registry('work lookup')
 # Sources searched by the person's name after author-ID collection (NameSearchConfig.sources); None when disabled.
-NAME_SEARCHES: Registry[PagedNameSearch | None] = Registry('name search')
+NAME_SEARCHES: Registry[NameSearch | None] = Registry('name search')
 # Web search providers for homepage discovery (DiscoveryConfig.web_search); a factory returns None without its key.
 WEB_SEARCH: Registry[WebSearch | None] = Registry('web search')
 
@@ -259,3 +260,17 @@ def _dblp_lookup(container: Any) -> DblpWorkLookup | None:
         return None
     settings = container.settings
     return DblpWorkLookup(index, AuthorMatcher(settings.matching), settings.sources)
+
+
+@WORK_LOOKUPS.register('catalogs')
+def _catalog_lookup(container: Any) -> CatalogWorkLookup | None:
+    store = container.catalog_store
+    return CatalogWorkLookup(store, AuthorMatcher(container.settings.matching)) if store is not None else None
+
+
+@NAME_SEARCHES.register('repositories')
+def _repository_search(container: Any) -> RepositoryNameSearch | None:
+    store = container.catalog_store
+    if store is None or not container.settings.catalogs.oai_repositories:
+        return None
+    return RepositoryNameSearch(store, container.settings.matching)

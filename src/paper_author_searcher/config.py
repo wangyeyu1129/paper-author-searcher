@@ -262,7 +262,16 @@ class ListedWorksConfig:
     title_search_results: int = 3
     # Names registered in source_catalog.WORK_LOOKUPS. OpenAlex first (richest authorship), then sources that
     # index what it misses: Semantic Scholar (CS venues), Crossref (publisher records), arXiv (preprints).
-    sources: tuple[str, ...] = ('openalex', 'dblp', 'semantic_scholar', 'crossref', 'arxiv', 'europepmc', 'core')
+    sources: tuple[str, ...] = (
+        'openalex',
+        'dblp',
+        'catalogs',
+        'semantic_scholar',
+        'crossref',
+        'arxiv',
+        'europepmc',
+        'core',
+    )
 
     def __post_init__(self) -> None:
         if self.maximum_lookups < 0 or self.title_search_results < 1:
@@ -307,7 +316,7 @@ class NameSearchConfig:
     names the one author whose name is the person's (and whose ORCID, when printed, is theirs), and ownership
     verifies it like any other record."""
 
-    sources: tuple[str, ...] = ('arxiv', 'europepmc', 'crossref')
+    sources: tuple[str, ...] = ('arxiv', 'europepmc', 'crossref', 'repositories')
     # Publication years searched, counting back from the current one.
     recent_years: int = 6
     page_size: int = 100
@@ -324,6 +333,52 @@ class NameSearchConfig:
 
 
 DEFAULT_NAME_SEARCHES = NameSearchConfig()
+
+
+@dataclass(frozen=True)
+class CatalogConfig:
+    """Venue proceedings (ACL Anthology, PMLR, CVF) and institutional repositories (OAI-PMH) as one local store.
+
+    ``paper-catalog-index`` downloads each source's bulk listing once and indexes its entries by work key and
+    author name; with ``store_path`` set, listed works are looked up there (``WORK_LOOKUPS['catalogs']``) and the
+    repositories of the requested institution are searched by name (``NAME_SEARCHES['repositories']``).
+    """
+
+    # Empty: no store. Set it, e.g. PAPER_SEARCH__CATALOGS__STORE_PATH, once built.
+    store_path: str = ''
+    sources: tuple[str, ...] = ('acl_anthology', 'pmlr', 'cvf', 'oai_pmh')
+    acl_anthology_url: str = 'https://aclanthology.org/anthology.bib.gz'
+    pmlr_bibliography_url: str = 'https://proceedings.mlr.press/v{volume}/assets/bib/bibliography.bib'
+    # ICML 2020-2025 and AISTATS 2021-2025.
+    pmlr_volumes: tuple[int, ...] = (119, 139, 162, 202, 235, 267, 130, 151, 206, 238, 258)
+    cvf_url: str = 'https://openaccess.thecvf.com'
+    cvf_conferences: tuple[str, ...] = (
+        'CVPR2021',
+        'CVPR2022',
+        'CVPR2023',
+        'CVPR2024',
+        'CVPR2025',
+        'ICCV2021',
+        'ICCV2023',
+        'ICCV2025',
+        'WACV2024',
+        'WACV2025',
+    )
+    # OAI-PMH repositories as (institution, endpoint, set); an empty set harvests the whole repository.
+    oai_repositories: tuple[tuple[str, ...], ...] = ()
+    # Harvest records added or changed since this date (YYYY-MM-DD); empty harvests everything.
+    oai_from: str = ''
+    oai_maximum_pages: int = 2000
+    maximum_download_bytes: int = 200_000_000
+
+    def __post_init__(self) -> None:
+        if self.maximum_download_bytes < 1 or self.oai_maximum_pages < 1:
+            raise ValueError('Catalog download and harvest limits must be positive')
+        if any(len(repository) not in (2, 3) for repository in self.oai_repositories):
+            raise ValueError('oai_repositories entries are (institution, endpoint[, set])')
+
+
+DEFAULT_CATALOGS = CatalogConfig()
 
 
 @dataclass(frozen=True)

@@ -29,8 +29,7 @@ from .identity_discovery import (
     WebPageSearch,
 )
 from .listed_works import ListedWorkRetriever
-from .name_searches import PagedNameSearch
-from .paper_collector import PaperCollector
+from .paper_collector import NameSearch, PaperCollector
 from .paper_ownership import PaperOwnershipValidator
 from .pdf_resolver import PDFResolver
 from .pdf_resource_requests import PublicResourceRequests
@@ -50,6 +49,7 @@ from .publication_extraction import (
 from .resolver import ProfessorResolver
 from .settings import Settings
 from .source_catalog import IDENTITY_SOURCES, NAME_SEARCHES, PAPER_SOURCES, PDF_SOURCES, WEB_SEARCH, WORK_LOOKUPS
+from .venue_catalogs import CatalogIndexer, CatalogStore, catalog_sources, probe_fetch
 from .workflow import PaperSearchWorkflow
 
 FULL_MODE = 'full'
@@ -138,6 +138,26 @@ class ServiceContainer:
         if not path.is_file():
             raise FileNotFoundError(f'dblp_dump.index_path {path} does not exist; build it with paper-dblp-index')
         return DblpDumpIndex(path)
+
+    @cached_property
+    def catalog_store(self) -> CatalogStore | None:
+        """The venue and repository catalog store (``paper-catalog-index``), when it has been built."""
+        configured = self.settings.catalogs.store_path
+        if not configured:
+            return None
+        if not Path(configured).is_file():
+            raise FileNotFoundError(
+                f'catalogs.store_path {configured} does not exist; build it with paper-catalog-index'
+            )
+        return CatalogStore(configured)
+
+    def catalog_indexer(self) -> CatalogIndexer:
+        """Indexes the configured catalogs into ``catalogs.store_path`` (created when absent)."""
+        config = self.settings.catalogs
+        if not config.store_path:
+            raise ValueError('Set catalogs.store_path to build the catalog store')
+        fetch = probe_fetch(self.http_client, config.maximum_download_bytes)
+        return CatalogIndexer(CatalogStore(config.store_path), catalog_sources(config, fetch, self.http_client))
 
     # Identity ----------------------------------------------------------------------------------------------------
 
@@ -275,7 +295,7 @@ class ServiceContainer:
         )
 
     @cached_property
-    def name_searches(self) -> list[PagedNameSearch]:
+    def name_searches(self) -> list[NameSearch]:
         """Configured name searches in order; a source disabled by its own settings builds to None."""
         return [search for search in NAME_SEARCHES.create(self.settings.name_searches.sources, self) if search]
 
