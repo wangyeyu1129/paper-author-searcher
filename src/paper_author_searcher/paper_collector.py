@@ -9,6 +9,7 @@ from typing import Any, Protocol
 
 from .config import DEFAULT_COLLECTION, DEFAULT_DEDUPLICATION, DeduplicationConfig, RawMetadataPolicy
 from .contender_adjudication import ContenderEvidence, DepartmentAdjudicator
+from .fragment_merging import Fragment, FragmentMerger
 from .listed_works import ListedWorkRetriever
 from .logging_config import log_isolated_failure
 from .models import Paper, PaperCollectionResult, PaperRecord, PaperSourceResult, ProfessorProfile
@@ -57,6 +58,7 @@ class PaperCollector:
         listed_works: ListedWorkRetriever | None = None,
         adjudicator: DepartmentAdjudicator | None = None,
         name_searches: Sequence[NameSearch] = (),
+        fragment_merger: FragmentMerger | None = None,
     ) -> None:
         self.providers = list(providers)
         # Optional: fetch works the person lists themselves that no selected author ID returned.
@@ -65,6 +67,8 @@ class PaperCollector:
         self.adjudicator = adjudicator
         # Optional: sources searched by the person's name; their records join under a name key.
         self.name_searches = list(name_searches)
+        # Optional: merge the person's split author profiles found by their verified coauthor network.
+        self.fragment_merger = fragment_merger
         self.ownership_validator = ownership_validator or PaperOwnershipValidator()
         self.deduplication = deduplication
         # Author IDs paged at once per source; sources run side by side.
@@ -124,6 +128,43 @@ class PaperCollector:
             if (record.source, canonical_author_id(record.source, record.source_author_id)) in wanted
         ]
         return narrowed, selected, kept
+
+    def _merge_fragments(
+        self,
+        profile: ProfessorProfile,
+        records: list[PaperRecord],
+        available: Mapping[str, PaperProvider],
+        selected: dict[str, list[str]],
+    ) -> tuple[ProfessorProfile, list[PaperSourceResult]]:
+        """Collect the split profiles whose coauthors match the person's verified papers (a provisional
+        validation of what was collected so far); they become part of the selected identity."""
+        fragments = [
+            fragment
+            for fragment in map(Fragment.from_dict, profile.split_fragments)
+            if fragment.source in available and fragment.author_id not in selected.get(fragment.source, [])
+        ]
+        if not fragments or self.fragment_merger is None:
+            return profile, []
+        provisional = deduplicate_papers(records, self.deduplication)
+        self.ownership_validator.validate(provisional, profile)
+        verified = [paper for paper in provisional if paper.ownership_status == OwnershipStatus.VERIFIED]
+        fetched = {(item.source, item.author_id): available[item.source].collect(item.author_id) for item in fragments}
+        # Each fragment's own papers are its evidence; only accepted fragments keep them.
+        papered = [
+            fragment.with_papers(fetched[fragment.source, fragment.author_id].papers, profile.target_names())
+            for fragment in fragments
+        ]
+        decisions = [item for item in self.fragment_merger.select(profile, verified, papered) if item.accepted]
+        merged = []
+        for decision in decisions:
+            fragment = decision.fragment
+            merged.append(fetched[fragment.source, fragment.author_id])
+            selected[fragment.source] = sorted({*selected.get(fragment.source, []), fragment.author_id})
+        if not decisions:
+            return profile, []
+        aliases = {**profile.author_id_aliases, **{source: list(ids) for source, ids in selected.items()}}
+        evidence = [*profile.evidence, *(decision.evidence() for decision in decisions)]
+        return replace(profile, author_id_aliases=aliases, evidence=evidence), merged
 
     def collect(
         self,
@@ -194,6 +235,10 @@ class PaperCollector:
             listed = self.listed_works.retrieve(profile, records)
             sources.append(listed)
             records.extend(listed.papers)
+        if self.fragment_merger is not None and confirmation != ResolutionStatus.AMBIGUOUS_CONTENDERS:
+            profile, merged = self._merge_fragments(profile, records, available, selected)
+            sources.extend(merged)
+            records.extend(paper for fetched in merged for paper in fetched.papers)
         complete = bool(sources) and all(fetched.complete for fetched in sources)
         if progress:
             progress('Deduplicating papers', len(records), len(records))
