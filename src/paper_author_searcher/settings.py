@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Union
 
 from .config import (
     DEFAULT_ANCHORS,
+    DEFAULT_CATALOGS,
     DEFAULT_COLLECTION,
     DEFAULT_CS_SOURCES,
     DEFAULT_DBLP_DUMP,
@@ -41,6 +42,7 @@ from .config import (
     DEFAULT_SOURCES,
     DEFAULT_STORAGE,
     AnchorConfig,
+    CatalogConfig,
     CollectionConfig,
     CSSourcesConfig,
     DblpDumpConfig,
@@ -136,6 +138,7 @@ class Settings:
     listed_works: ListedWorksConfig = DEFAULT_LISTED_WORKS
     cs_sources: CSSourcesConfig = DEFAULT_CS_SOURCES
     name_searches: NameSearchConfig = DEFAULT_NAME_SEARCHES
+    catalogs: CatalogConfig = DEFAULT_CATALOGS
     dblp_dump: DblpDumpConfig = DEFAULT_DBLP_DUMP
     profile_links: ProfileLinkConfig = DEFAULT_PROFILE_LINKS
     discovery: DiscoveryConfig = DEFAULT_DISCOVERY
