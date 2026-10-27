@@ -32,6 +32,7 @@ from .config import (
     DEFAULT_HTTP,
     DEFAULT_LISTED_WORKS,
     DEFAULT_MATCHING,
+    DEFAULT_NAME_SEARCHES,
     DEFAULT_OWNERSHIP,
     DEFAULT_PDF,
     DEFAULT_PRECISION,
@@ -48,6 +49,7 @@ from .config import (
     HttpConfig,
     ListedWorksConfig,
     MatchingConfig,
+    NameSearchConfig,
     OwnershipConfig,
     PDFConfig,
     PrecisionGuardConfig,
@@ -86,6 +88,8 @@ class Credentials:
     crossref_email: str | None = field(default=None, repr=False)
     # OpenReview's profile and note APIs refuse guests; a token of the operator's own account enables them.
     openreview_token: str | None = field(default=None, repr=False)
+    # CORE (core.ac.uk) aggregates institutional repositories; its API needs a key.
+    core_api_key: str | None = field(default=None, repr=False)
     # Web search providers for homepage discovery; only the configured one is used.
     brave_api_key: str | None = field(default=None, repr=False)
     tavily_api_key: str | None = field(default=None, repr=False)
@@ -99,6 +103,7 @@ class Credentials:
         'unpaywall_email': 'UNPAYWALL_EMAIL',
         'crossref_email': 'CROSSREF_MAILTO',
         'openreview_token': 'OPENREVIEW_TOKEN',
+        'core_api_key': 'CORE_API_KEY',
         'brave_api_key': 'BRAVE_API_KEY',
         'tavily_api_key': 'TAVILY_API_KEY',
         'exa_api_key': 'EXA_API_KEY',
@@ -128,6 +133,7 @@ class Settings:
     precision: PrecisionGuardConfig = DEFAULT_PRECISION
     listed_works: ListedWorksConfig = DEFAULT_LISTED_WORKS
     cs_sources: CSSourcesConfig = DEFAULT_CS_SOURCES
+    name_searches: NameSearchConfig = DEFAULT_NAME_SEARCHES
     profile_links: ProfileLinkConfig = DEFAULT_PROFILE_LINKS
     discovery: DiscoveryConfig = DEFAULT_DISCOVERY
     extraction: ExtractionConfig = DEFAULT_EXTRACTION

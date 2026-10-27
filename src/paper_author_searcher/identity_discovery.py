@@ -20,7 +20,14 @@ from .config import DEFAULT_DISCOVERY, DEFAULT_MATCHING, DEFAULT_SOURCES, Discov
 from .evaluation_matching import bibliographic_name_agrees
 from .http import SourceError
 from .logging_config import log_isolated_failure
-from .matching import best_similarity, canonical_orcid, institution_similarity, name_similarity, normalize
+from .matching import (
+    best_similarity,
+    canonical_orcid,
+    institution_similarity,
+    name_similarity,
+    normalize,
+    split_name,
+)
 from .web_search import SearchHit, WebSearch
 
 logger = logging.getLogger(__name__)
@@ -86,12 +93,6 @@ class IdentityDiscovery:
 class NoDiscovery:
     def discover(self, query: Any) -> Discovery:
         return Discovery()
-
-
-def split_name(name: str) -> tuple[str, str]:
-    """(given names, family name) of a Western-order name; a single token is a family name."""
-    parts = name.split()
-    return (' '.join(parts[:-1]), parts[-1]) if len(parts) > 1 else ('', name.strip())
 
 
 def compatible_name(wanted: str, found: str, matching: MatchingConfig) -> bool:

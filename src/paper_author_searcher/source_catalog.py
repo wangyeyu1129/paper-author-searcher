@@ -7,6 +7,7 @@ Factories receive the ``ServiceContainer``, so they draw clients, settings and c
 
 from typing import Any
 
+from .cs_sources import ArxivAuthorSearch
 from .listed_works import (
     ArxivWorkLookup,
     AuthorMatcher,
@@ -14,6 +15,13 @@ from .listed_works import (
     OpenAlexWorkLookup,
     SemanticScholarWorkLookup,
     WorkLookup,
+)
+from .name_searches import (
+    CoreWorkLookup,
+    CrossrefAuthorSearch,
+    EuropePmcAuthorSearch,
+    EuropePmcWorkLookup,
+    PagedNameSearch,
 )
 from .paper_providers import DBLPPaperProvider, OpenAlexPaperProvider, PaperProvider, SemanticScholarPaperProvider
 from .pdf_catalogs import JournalCatalogPDFProvider
@@ -35,7 +43,9 @@ IDENTITY_SOURCES: Registry[Any] = Registry('identity source')
 PAPER_SOURCES: Registry[PaperProvider] = Registry('paper source')
 PDF_SOURCES: Registry[Any] = Registry('PDF source')
 # Sources a listed work missing from the collection is looked up in, in the order ListedWorksConfig.sources gives.
-WORK_LOOKUPS: Registry[WorkLookup] = Registry('work lookup')
+WORK_LOOKUPS: Registry[WorkLookup | None] = Registry('work lookup')
+# Sources searched by the person's name after author-ID collection (NameSearchConfig.sources); None when disabled.
+NAME_SEARCHES: Registry[PagedNameSearch | None] = Registry('name search')
 # Web search providers for homepage discovery (DiscoveryConfig.web_search); a factory returns None without its key.
 WEB_SEARCH: Registry[WebSearch | None] = Registry('web search')
 
@@ -189,3 +199,50 @@ def _tavily(container: Any) -> TavilySearch | None:
 def _exa(container: Any) -> ExaSearch | None:
     key = container.settings.credentials.exa_api_key
     return ExaSearch(container.http_client, container.settings.discovery.exa_url, key) if key else None
+
+
+@WORK_LOOKUPS.register('europepmc')
+def _europepmc_lookup(container: Any) -> EuropePmcWorkLookup:
+    settings = container.settings
+    return EuropePmcWorkLookup(
+        container.http_client, settings.sources.europepmc_url, settings.listed_works, AuthorMatcher(settings.matching)
+    )
+
+
+@WORK_LOOKUPS.register('core')
+def _core_lookup(container: Any) -> CoreWorkLookup | None:
+    settings = container.settings
+    key = settings.credentials.core_api_key
+    if not key:
+        return None
+    return CoreWorkLookup(
+        container.http_client, settings.sources.core_url, key, settings.listed_works, AuthorMatcher(settings.matching)
+    )
+
+
+@NAME_SEARCHES.register('arxiv')
+def _arxiv_name_search(container: Any) -> ArxivAuthorSearch | None:
+    settings = container.settings
+    if not settings.cs_sources.arxiv_author_search:
+        return None
+    return ArxivAuthorSearch(container.http_client, settings.sources.arxiv_url, settings.cs_sources, settings.matching)
+
+
+@NAME_SEARCHES.register('europepmc')
+def _europepmc_name_search(container: Any) -> EuropePmcAuthorSearch:
+    settings = container.settings
+    return EuropePmcAuthorSearch(
+        container.http_client, settings.sources.europepmc_url, settings.name_searches, settings.matching
+    )
+
+
+@NAME_SEARCHES.register('crossref')
+def _crossref_name_search(container: Any) -> CrossrefAuthorSearch:
+    settings = container.settings
+    return CrossrefAuthorSearch(
+        container.http_client,
+        settings.sources.crossref_url,
+        settings.name_searches,
+        settings.matching,
+        settings.credentials.crossref_email,
+    )

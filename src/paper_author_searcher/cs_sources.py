@@ -20,8 +20,9 @@ from typing import Any
 from .config import DEFAULT_CS_SOURCES, DEFAULT_MATCHING, CSSourcesConfig, MatchingConfig
 from .listed_works import ATOM, AuthorMatcher, arxiv_entry_record
 from .logging_config import log_isolated_failure
-from .matching import best_similarity, institution_similarity, normalize, work_keys
-from .models import PaperSourceResult, ProfessorProfile
+from .matching import best_similarity, institution_similarity, work_keys
+from .models import PaperRecord, ProfessorProfile
+from .name_searches import Page, PagedNameSearch
 from .profile_links import ProfileLinkParser
 
 logger = logging.getLogger(__name__)
@@ -29,8 +30,9 @@ logger = logging.getLogger(__name__)
 OPENSEARCH = '{http://a9.com/-/spec/opensearch/1.1/}'
 
 
-class ArxivAuthorSearch:
+class ArxivAuthorSearch(PagedNameSearch):
     name = 'arxiv'
+    evidence = 'Found by arXiv author-name search; no author ID'
 
     def __init__(
         self,
@@ -40,56 +42,37 @@ class ArxivAuthorSearch:
         matching: MatchingConfig = DEFAULT_MATCHING,
         current_year: int | None = None,
     ) -> None:
+        super().__init__(matching)
         self.client, self.base_url, self.config = client, base_url, config
-        self.authors = AuthorMatcher(matching)
+        self.page_size, self.maximum_results = config.arxiv_page_size, config.arxiv_maximum_results
         self.current_year = current_year or date.today().year
-
-    def author_key(self, profile: ProfessorProfile) -> str:
-        return 'name:' + normalize(profile.requested_name or profile.name)
 
     def query(self, profile: ProfessorProfile) -> str:
         start = self.current_year - self.config.arxiv_recent_years + 1
         name = (profile.requested_name or profile.name).replace('"', ' ')
         return f'au:"{name}" AND submittedDate:[{start}01010000 TO {self.current_year}12312359]'
 
-    def collect(self, profile: ProfessorProfile) -> PaperSourceResult:
-        key = self.author_key(profile)
-        result = PaperSourceResult(source=self.name, author_id=key)
-        try:
-            offset = 0
-            while offset < self.config.arxiv_maximum_results:
-                feed = self.client.get(
-                    self.base_url,
-                    params={
-                        'search_query': self.query(profile),
-                        'start': offset,
-                        'max_results': min(self.config.arxiv_page_size, self.config.arxiv_maximum_results - offset),
-                        'sortBy': 'submittedDate',
-                    },
-                    xml=True,
-                )
-                entries = feed.findall(ATOM + 'entry')
-                result.pages_fetched += 1
-                for entry in entries:
-                    result.records_received += 1
-                    record = arxiv_entry_record(
-                        entry,
-                        lambda details: self.authors.single(profile, ((d['author_id'], [d['name']]) for d in details)),
-                        key,
-                    )
-                    if record is not None:
-                        record.attribution_evidence.append('Found by arXiv author-name search; no author ID')
-                        result.papers.append(record)
-                total = int(feed.findtext(OPENSEARCH + 'totalResults') or 0)
-                offset += len(entries)
-                if not entries or offset >= total:
-                    result.pagination_complete = True
-                    break
-            result.complete = result.pagination_complete
-        except Exception as exc:
-            log_isolated_failure(logger, 'arXiv author search failed for %s: %s', key, exc)
-            result.error = str(exc)
-        return result
+    def first_cursor(self) -> int:
+        return 0
+
+    def page(self, profile: ProfessorProfile, cursor: Any, size: int) -> Page:
+        feed = self.client.get(
+            self.base_url,
+            params={
+                'search_query': self.query(profile),
+                'start': cursor,
+                'max_results': size,
+                'sortBy': 'submittedDate',
+            },
+            xml=True,
+        )
+        entries = feed.findall(ATOM + 'entry')
+        total = int(feed.findtext(OPENSEARCH + 'totalResults') or 0)
+        following = cursor + len(entries)
+        return Page(entries, following if following < total else None)
+
+    def record(self, item: Any, profile: ProfessorProfile, key: str) -> PaperRecord | None:
+        return arxiv_entry_record(item, lambda details: self.authors.pick(profile, details), key)
 
 
 class OpenReviewProfiles:
