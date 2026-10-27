@@ -70,6 +70,7 @@ def _semantic_scholar_identity(container: Any) -> SemanticScholarProvider:
         client=container.http_client,
         api_key=settings.credentials.semantic_scholar_api_key,
         source_config=settings.sources,
+        matching_config=settings.matching,
     )
 
 
@@ -78,7 +79,9 @@ def _dblp_identity(container: Any) -> DBLPProvider:
     """Reads the DBLP dump index when one is built; otherwise the DBLP API (often refused to automated clients)."""
     index = container.dblp_index
     client = DblpDumpClient(index, container.settings.sources) if index is not None else container.http_client
-    return DBLPProvider(client=client, source_config=container.settings.sources)
+    return DBLPProvider(
+        client=client, source_config=container.settings.sources, matching_config=container.settings.matching
+    )
 
 
 @PAPER_SOURCES.register('openalex')

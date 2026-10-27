@@ -7,7 +7,8 @@ from paper_author_searcher import AuthorCandidate as C
 from paper_author_searcher import ProfessorQuery as Q
 from paper_author_searcher import ProfessorResolver
 from paper_author_searcher.config import MatchingConfig
-from paper_author_searcher.identity import compare_identity
+from paper_author_searcher.identity import compare_identity, shared_works
+from paper_author_searcher.matching import identity_work
 
 SCHOOL = ['Example University']
 LAB = ['Ana Ruiz', 'Ben Okafor', 'Chen Wei', 'Dana Kim', 'Eli Novak', 'Fay Osei', 'Gus Mora']
@@ -111,3 +112,33 @@ class CoauthorOverlapTests(unittest.TestCase):
         link = compare_identity(fragment('A1'), fragment('A2'))
         self.assertTrue(link.split_profile)
         self.assertIn('overlap', link.evidence[0])
+
+
+class SharedWorkTests(unittest.TestCase):
+    """Profiles link on shared works, whether the work carries a DOI, an arXiv ID or only its title."""
+
+    def test_arxiv_only_and_title_only_works_link_profiles(self):
+        dblp = C('dblp', 'x/1', 'Mei Lin', works=[identity_work(arxiv_ids=['2401.00001'])])
+        dblp.works.append(identity_work(title='Learning Robust Protein Language Models at Scale'))
+        scholar = C('semantic_scholar', '9', 'Mei Lin', paper_ids=['doi:10.1000/journal'])
+        scholar.works = [
+            identity_work(['10.1000/journal'], ['2401.00001'], 'Some Title of the First Paper'),
+            identity_work(title='Learning robust protein language models at scale.'),
+        ]
+        link = compare_identity(scholar, dblp)
+        self.assertTrue(link.matched)
+        self.assertIn('shared work count: 2', link.evidence)
+
+    def test_a_work_listed_twice_counts_once_and_short_titles_are_ignored(self):
+        title = 'Learning Robust Protein Language Models at Scale'
+        twice = C(
+            'openalex', 'A1', 'Mei Lin', works=[identity_work(title=title), identity_work(['10.1/p'], title=title)]
+        )
+        once = C('dblp', 'x/1', 'Mei Lin', works=[identity_work(title=title)])
+        self.assertEqual(shared_works(twice, once), 1)
+        self.assertEqual(identity_work(title='Introduction'), ())
+
+    def test_dois_without_recorded_works_still_count(self):
+        left = C('openalex', 'A1', 'Mei Lin', paper_ids=['doi:10.1/a', 'doi:10.1/b'])
+        right = C('semantic_scholar', '9', 'Mei Lin', paper_ids=['doi:10.1/a', 'doi:10.1/b'])
+        self.assertEqual(shared_works(left, right), 2)

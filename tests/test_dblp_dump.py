@@ -148,6 +148,7 @@ class ProviderTests(DumpTestCase):
         self.assertEqual(first.orcid, 'https://orcid.org/0000-0002-1825-0097')
         self.assertIn('Jürgen Müller', first.coauthors)
         self.assertEqual(first.paper_ids, ['doi:10.1000/lis'])
+        self.assertIn(('arxiv:2501.01234',), first.works)  # a four-word title is too generic to count
         collected = DBLPPaperProvider(identity).collect('11/1')
         self.assertTrue(collected.complete, collected.error)
         verified = {paper.source_paper_id: paper.target_author_present for paper in collected.papers}

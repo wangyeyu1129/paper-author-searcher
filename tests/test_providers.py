@@ -95,12 +95,23 @@ class ProviderTests(unittest.TestCase):
                 {
                     'title': 'Biodiversity',
                     'externalIds': {'DOI': '10.example/ABC'},
-                }
+                },
+                {
+                    'title': 'Long Range Dispersal of Seeds in Fragmented Forests',
+                    'externalIds': {'ArXiv': '2401.00001'},
+                },
             ],
         }
         client = Client([{'data': [author]}])
         record = SemanticScholarProvider(client).search(self.query)[0]
         self.assertEqual(record.paper_ids, ['doi:10.example/abc'])
+        self.assertEqual(
+            record.works,
+            [
+                ('doi:10.example/abc',),
+                ('arxiv:2401.00001', 'title:long range dispersal of seeds in fragmented forests'),
+            ],
+        )
         self.assertEqual(record.orcid, 'fixture-orcid')
 
     def test_dblp(self):

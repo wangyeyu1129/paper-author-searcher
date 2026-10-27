@@ -107,6 +107,9 @@ class AuthorCandidate:
     url: str | None = None
     coauthors: list[str] = field(default_factory=list)
     metadata_errors: list[str] = field(default_factory=list)
+    # Keys of each sampled work (matching.identity_work: canonical DOI, arXiv ID, normalized title), compared by
+    # identity linking. ``paper_ids`` keeps the DOIs alone.
+    works: list[tuple[str, ...]] = field(default_factory=list)
 
 
 @dataclass(frozen=True, order=True, slots=True)
