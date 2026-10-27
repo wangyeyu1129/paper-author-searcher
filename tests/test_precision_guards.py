@@ -171,3 +171,21 @@ class GuardTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class AffiliationSplitTests(unittest.TestCase):
+    def test_first_part_is_the_institution_even_with_a_unit_keyword(self):
+        institutions, units = DepartmentMatcher().split(
+            'Massachusetts Institute of Technology, Department of Electrical Engineering and Computer Science, USA'
+        )
+        self.assertEqual(institutions, ['Massachusetts Institute of Technology'])
+        self.assertEqual(units, ['department of electrical engineering and computer science'])
+
+    def test_without_a_unit_every_leading_prefix_is_a_candidate_name(self):
+        self.assertEqual(
+            DepartmentMatcher().split('Princeton University, NJ, USA'),
+            (['Princeton University', 'Princeton University, NJ', 'Princeton University, NJ, USA'], []),
+        )
+
+    def test_empty_affiliation(self):
+        self.assertEqual(DepartmentMatcher().split(' , '), ([], []))

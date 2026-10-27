@@ -6,6 +6,7 @@ from .config import DEFAULT_MATCHING, DEFAULT_SOURCES
 from .http import SourceError
 from .matching import best_similarity, canonical_doi, identity_work, institution_similarity, name_similarity
 from .models import AuthorCandidate, ProfessorQuery
+from .precision_guards import DepartmentMatcher
 
 
 class AuthorProvider(Protocol):
@@ -272,11 +273,15 @@ class SemanticScholarProvider:
 class DBLPProvider:
     name = 'dblp'
 
-    def __init__(self, client, limit=None, source_config=DEFAULT_SOURCES, matching_config=DEFAULT_MATCHING):
+    def __init__(
+        self, client, limit=None, source_config=DEFAULT_SOURCES, matching_config=DEFAULT_MATCHING, departments=None
+    ):
         self.client = client
         self.base_url = source_config.dblp_url.rstrip('/')
         self.limit = source_config.dblp_author_limit if limit is None else limit
         self.matching_config = matching_config
+        # Splits curated affiliation notes into institution names and units (precision_guards.DepartmentMatcher).
+        self.departments = departments or DepartmentMatcher()
 
     def search(self, query):
         data = self.client.get(
@@ -300,7 +305,7 @@ class DBLPProvider:
                     self.base_url + '/pid/' + candidate.author_id + '.xml',
                     xml=True,
                 )
-                self._add_person_metadata(candidate, root)
+                self._add_person_metadata(candidate, root, self.departments)
                 self._add_publication_metadata(candidate, root, self.matching_config.work_title_minimum_words)
             except SourceError as exc:
                 candidate.metadata_errors.append(str(exc))
@@ -315,14 +320,21 @@ class DBLPProvider:
         return author_id
 
     @staticmethod
-    def _add_person_metadata(candidate, root):
+    def _add_person_metadata(candidate, root, departments):
         for person in root.findall('person'):
             for author in person.findall('author'):
                 if author.text:
                     candidate.aliases.append(author.text)
             for note in person.findall('note'):
                 if note.get('type') == 'affiliation' and note.text:
-                    candidate.affiliations.append(note.text)
+                    # "Tsinghua University, Department of Computer Science and Technology, China": compared whole,
+                    # the note never matched "Tsinghua University", so its institution and unit are split out.
+                    institutions, units = departments.split(note.text)
+                    _extend_unique(candidate.affiliations, [note.text, *institutions])
+                    _extend_unique(candidate.departments, units)
+                    # DBLP labels past affiliations ("former", "PhD", "2002-2012"); an unlabelled note is current.
+                    if note.get('label') is None:
+                        _extend_unique(candidate.current_affiliations, institutions)
             for url in person.findall('url'):
                 if url.text and 'orcid.org/' in url.text:
                     candidate.orcid = url.text
@@ -342,3 +354,9 @@ class DBLPProvider:
             candidate.paper_ids.extend(canonical_doi(doi) for doi in dois)
             arxiv = [link for link in links if 'arxiv.org/' in link]
             candidate.works.append(identity_work(dois, arxiv, title, minimum_title_words))
+
+
+def _extend_unique(values, additions):
+    for value in additions:
+        if value not in values:
+            values.append(value)
