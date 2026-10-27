@@ -132,6 +132,10 @@ class AnchorConfig:
     maximum_title_anchors: int = 10
     # A supplied ORCID's public works list is the person's own list, like a homepage (one request).
     orcid_listed_works: bool = True
+    # OpenAlex assigns one ORCID per merged author cluster, and a cluster mixing namesakes can carry another
+    # person's. A compatible author holding at least this many distinct works of the person's own list is anchored
+    # despite such an ORCID (AnchorKind.CONTESTED); fewer, and the ORCID wins.
+    minimum_contested_works: int = 3
     # Sources whose caller-supplied profile link (profile_links) anchors the linked author ID directly.
     profile_anchor_sources: tuple[str, ...] = ('openalex', 'semantic_scholar', 'dblp')
 

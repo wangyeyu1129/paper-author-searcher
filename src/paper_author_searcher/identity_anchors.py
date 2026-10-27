@@ -50,12 +50,29 @@ class IdentityAnchors:
     listed_works: list[str] = field(default_factory=list)
     # What discovery found (identity_discovery.Discovery.to_dict), recorded so a replay can restore it.
     discovered: dict[str, Any] = field(default_factory=dict)
+    # Listed works whose only compatible author carries another ORCID: (source, author ID) -> {work key: reason}.
+    contested: dict[tuple[str, str], dict[str, str]] = field(default_factory=dict)
 
     def add(
         self, source: str, author_id: str, reason: str, kind: AnchorKind = AnchorKind.PAPER, work: str = ''
     ) -> None:
         self.author_ids.setdefault(source, set()).add(str(author_id))
         self.evidence.append(AnchorEvidence(source, str(author_id), reason, kind, work))
+
+    def contest(self, source: str, author_id: str, reason: str, work: str) -> None:
+        self.contested.setdefault((source, str(author_id)), {})[work or reason] = reason
+
+    def settle_contested(self, minimum_works: int) -> None:
+        """Anchor the contested authors that hold at least ``minimum_works`` distinct listed works."""
+        for (source, author_id), works in self.contested.items():
+            if len(works) >= minimum_works:
+                for work, reason in works.items():
+                    self.add(source, author_id, reason, AnchorKind.CONTESTED, work if work != reason else '')
+        self.contested = {}
+
+    def orcid_outweighed(self, source: str, author_id: str) -> bool:
+        """Whether the person's own works outweigh the ORCID this author ID carries in its database."""
+        return any(item.kind == AnchorKind.CONTESTED for item in self.evidence_for(source, author_id))
 
     def evidence_for(self, source: str, author_id: str) -> list[AnchorEvidence]:
         return [item for item in self.evidence if item.source == source and item.author_id == str(author_id)]
@@ -223,6 +240,7 @@ class ScholarlyAnchorFinder:
             self._guard(anchors, self._by_arxiv, query, arxiv)
         for title in titles:
             self._guard(anchors, self._by_title, query, title)
+        anchors.settle_contested(self.config.minimum_contested_works)
         return anchors
 
     @staticmethod
@@ -294,14 +312,22 @@ class ScholarlyAnchorFinder:
         anchors.listed_works = sorted(set(anchors.listed_works) | keys)
 
     def _openalex_authorships(self, anchors, query, work, reason, work_key='') -> None:
+        """Anchor the work's compatible authors. One whose author record carries another ORCID is only contested
+        (see ``IdentityAnchors.settle_contested``), and only when no compatible author agrees with the ORCID."""
+        agreeing: list[str] = []
+        conflicting: list[str] = []
         for authorship in work.get('authorships') or []:
             author = authorship.get('author') or {}
-            orcid = canonical_orcid(author.get('orcid')) if author.get('orcid') else None
-            if anchors.orcid and orcid and orcid != anchors.orcid:
-                continue
             names = [author.get('display_name') or '', authorship.get('raw_author_name') or '']
-            if any(self._compatible(query, name) for name in names) and author.get('id'):
-                anchors.add('openalex', author['id'].rsplit('/', 1)[-1], reason, AnchorKind.PAPER, work_key)
+            if not author.get('id') or not any(self._compatible(query, name) for name in names):
+                continue
+            orcid = canonical_orcid(author.get('orcid')) if author.get('orcid') else None
+            target = conflicting if anchors.orcid and orcid and orcid != anchors.orcid else agreeing
+            target.append(author['id'].rsplit('/', 1)[-1])
+        for author_id in agreeing:
+            anchors.add('openalex', author_id, reason, AnchorKind.PAPER, work_key)
+        for author_id in conflicting if not agreeing else []:
+            anchors.contest('openalex', author_id, reason, work_key)
 
     def _by_doi(self, anchors, query, doi) -> None:
         work = self.client.get(
