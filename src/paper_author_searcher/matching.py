@@ -113,6 +113,18 @@ def institution_similarity(left: str, right: str, config: MatchingConfig = DEFAU
     return len(left_words & right_words) / len(left_words | right_words)
 
 
+def institution_mentioned(expected: str, text: str, config: MatchingConfig = DEFAULT_MATCHING) -> bool:
+    """Every distinctive word of the institution's name appears in ``text`` (a printed affiliation string)."""
+    wanted = set(normalize(expected).split()) - set(config.school_stop_words)
+    return bool(wanted) and wanted <= set(normalize(text).split())
+
+
+def split_name(name: str) -> tuple[str, str]:
+    """(given names, family name) of a Western-order name; a single token is a family name."""
+    parts = name.split()
+    return (' '.join(parts[:-1]), parts[-1]) if len(parts) > 1 else ('', name.strip())
+
+
 def research_similarity(left: str, right: str) -> float:
     return SequenceMatcher(None, normalize(left), normalize(right)).ratio()
 

@@ -13,7 +13,7 @@ from typing import Any, ClassVar
 
 from .config import CollectionConfig, DownloadConfig, PDFConfig
 from .contender_adjudication import DepartmentAdjudicator
-from .cs_sources import ArxivAuthorSearch, OpenReviewProfiles
+from .cs_sources import OpenReviewProfiles
 from .homepage_citations import DocumentParser, HtmlCitationParser, PdfCitationParser
 from .http import HttpClient
 from .http_budget import budgeted_client
@@ -28,6 +28,7 @@ from .identity_discovery import (
     WebPageSearch,
 )
 from .listed_works import ListedWorkRetriever
+from .name_searches import PagedNameSearch
 from .paper_collector import PaperCollector
 from .paper_ownership import PaperOwnershipValidator
 from .pdf_resolver import PDFResolver
@@ -47,7 +48,7 @@ from .publication_extraction import (
 )
 from .resolver import ProfessorResolver
 from .settings import Settings
-from .source_catalog import IDENTITY_SOURCES, PAPER_SOURCES, PDF_SOURCES, WEB_SEARCH, WORK_LOOKUPS
+from .source_catalog import IDENTITY_SOURCES, NAME_SEARCHES, PAPER_SOURCES, PDF_SOURCES, WEB_SEARCH, WORK_LOOKUPS
 from .workflow import PaperSearchWorkflow
 
 FULL_MODE = 'full'
@@ -259,11 +260,9 @@ class ServiceContainer:
         )
 
     @cached_property
-    def name_searches(self) -> list[ArxivAuthorSearch]:
-        settings = self.settings
-        if not settings.cs_sources.arxiv_author_search:
-            return []
-        return [ArxivAuthorSearch(self.http_client, settings.sources.arxiv_url, settings.cs_sources, settings.matching)]
+    def name_searches(self) -> list[PagedNameSearch]:
+        """Configured name searches in order; a source disabled by its own settings builds to None."""
+        return [search for search in NAME_SEARCHES.create(self.settings.name_searches.sources, self) if search]
 
     @cached_property
     def listed_work_sources(self) -> list[OpenReviewProfiles]:
@@ -278,7 +277,8 @@ class ServiceContainer:
         config = self.settings.listed_works
         if not config.enabled:
             return None
-        return ListedWorkRetriever(WORK_LOOKUPS.create(config.sources, self), config)
+        # A lookup without its credential builds to None and is left out.
+        return ListedWorkRetriever([lookup for lookup in WORK_LOOKUPS.create(config.sources, self) if lookup], config)
 
     # Full text ---------------------------------------------------------------------------------------------------
 

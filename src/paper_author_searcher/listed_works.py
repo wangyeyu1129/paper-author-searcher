@@ -17,7 +17,7 @@ from .config import DEFAULT_LISTED_WORKS, DEFAULT_MATCHING, ListedWorksConfig, M
 from .evaluation_matching import bibliographic_name_agrees
 from .http import SourceError
 from .logging_config import log_isolated_failure
-from .matching import ARXIV_DOI_PREFIX, canonical_arxiv, canonical_doi, name_similarity, normalize
+from .matching import ARXIV_DOI_PREFIX, canonical_arxiv, canonical_doi, canonical_orcid, name_similarity, normalize
 from .models import PaperRecord, PaperSourceResult, ProfessorProfile
 from .paper_providers import OpenAlexPaperProvider, SemanticScholarPaperProvider, parse_year
 
@@ -62,6 +62,18 @@ class AuthorMatcher:
     def single(self, profile: ProfessorProfile, authors: Iterable[tuple[str, Sequence[str]]]) -> str | None:
         matches = {author_id for author_id, names in authors if author_id and self.compatible(profile, names)}
         return next(iter(matches)) if len(matches) == 1 else None
+
+    def pick(self, profile: ProfessorProfile, details: Sequence[dict[str, Any]]) -> str | None:
+        """``single`` over author details, leaving out any author whose ORCID differs from the person's."""
+        orcid = canonical_orcid(profile.orcid) if profile.orcid else None
+        return self.single(
+            profile,
+            (
+                (detail['author_id'], [detail['name']])
+                for detail in details
+                if not (orcid and detail.get('orcid') and canonical_orcid(detail['orcid']) != orcid)
+            ),
+        )
 
 
 def split_key(key: str) -> tuple[str, str]:
@@ -164,50 +176,7 @@ class CrossrefWorkLookup:
         item = self._item(kind, value)
         if item is None:
             return None
-        doi = canonical_doi(item.get('DOI') or '').removeprefix('doi:') or None
-        details: list[dict[str, Any]] = []
-        for index, author in enumerate(item.get('author') or []):
-            name = (
-                ' '.join(part for part in (author.get('given'), author.get('family')) if part)
-                or author.get('name')
-                or ''
-            )
-            details.append(
-                {
-                    'name': name,
-                    'author_id': f'crossref:{doi}#{index}',
-                    'role': 'author',
-                    'orcid': author.get('ORCID'),
-                    'orcid_scope': 'paper_authorship',
-                    'affiliations': [
-                        {'raw_affiliation_string': entry['name']}
-                        for entry in author.get('affiliation') or []
-                        if entry.get('name')
-                    ],
-                    'affiliation_scope': 'paper_authorship',
-                }
-            )
-        author_id = self.authors.single(profile, ((detail['author_id'], [detail['name']]) for detail in details))
-        if not author_id:
-            return None
-        title = ' '.join((item.get('title') or [''])[0].split())
-        issued = ((item.get('issued') or {}).get('date-parts') or [[None]])[0][0]
-        return PaperRecord(
-            title=title,
-            authors=[detail['name'] for detail in details],
-            year=parse_year(issued),
-            doi=doi,
-            venue=(item.get('container-title') or [None])[0],
-            abstract=None,
-            source=self.name,
-            source_paper_id=doi or title,
-            source_author_id=author_id,
-            paper_url='https://doi.org/' + doi if doi else None,
-            publication_type=item.get('type'),
-            author_details=details,
-            target_author_present=True,
-            raw_metadata={'crossref': item},
-        )
+        return crossref_item_record(item, lambda details: self.authors.pick(profile, details), self.name)
 
     def _item(self, kind: str, value: str) -> dict | None:
         params = {'mailto': self.mailto} if self.mailto else {}
@@ -251,6 +220,68 @@ class ArxivWorkLookup:
         return None
 
 
+def crossref_item_record(
+    item: dict,
+    choose: Callable[[list[dict[str, Any]]], str | None],
+    source: str = 'crossref',
+    relabel: str | None = None,
+) -> PaperRecord | None:
+    """One Crossref work as a record of the author ``choose`` picks (None: no record). Authors carry their printed
+    affiliations and ORCIDs; ``relabel`` gives the chosen author a stable ID instead (a name-search key)."""
+    doi = canonical_doi(item.get('DOI') or '').removeprefix('doi:') or None
+    details: list[dict[str, Any]] = []
+    for index, author in enumerate(item.get('author') or []):
+        name = (
+            ' '.join(part for part in (author.get('given'), author.get('family')) if part) or author.get('name') or ''
+        )
+        details.append(
+            {
+                'name': name,
+                'author_id': f'crossref:{doi}#{index}',
+                'role': 'author',
+                'orcid': author.get('ORCID'),
+                'orcid_scope': 'paper_authorship',
+                'affiliations': [
+                    {'raw_affiliation_string': entry['name']}
+                    for entry in author.get('affiliation') or []
+                    if entry.get('name')
+                ],
+                'affiliation_scope': 'paper_authorship',
+            }
+        )
+    author_id = relabel_choice(details, choose(details), relabel)
+    if not author_id:
+        return None
+    title = ' '.join((item.get('title') or [''])[0].split())
+    issued = ((item.get('issued') or {}).get('date-parts') or [[None]])[0][0]
+    return PaperRecord(
+        title=title,
+        authors=[detail['name'] for detail in details],
+        year=parse_year(issued),
+        doi=doi,
+        venue=(item.get('container-title') or [None])[0],
+        abstract=None,
+        source=source,
+        source_paper_id=doi or title,
+        source_author_id=author_id,
+        paper_url='https://doi.org/' + doi if doi else None,
+        publication_type=item.get('type'),
+        author_details=details,
+        target_author_present=True,
+        raw_metadata={'crossref': item},
+    )
+
+
+def relabel_choice(details: list[dict[str, Any]], author_id: str | None, relabel: str | None) -> str | None:
+    """The chosen author's ID, renamed to ``relabel`` (in ``details`` too) when one is given."""
+    if not author_id or not relabel:
+        return author_id
+    for detail in details:
+        if detail['author_id'] == author_id:
+            detail['author_id'] = relabel
+    return relabel
+
+
 def _named(details: Sequence[dict[str, Any]]) -> Iterable[tuple[str, Sequence[str]]]:
     return ((detail['author_id'], [detail['name']]) for detail in details)
 
@@ -275,14 +306,9 @@ def arxiv_entry_record(
                 'affiliation_scope': 'paper_authorship',
             }
         )
-    author_id = choose(details)
+    author_id = relabel_choice(details, choose(details), relabel)
     if not author_id:
         return None
-    if relabel:
-        for detail in details:
-            if detail['author_id'] == author_id:
-                detail['author_id'] = relabel
-        author_id = relabel
     doi = entry.findtext(ARXIV_ATOM + 'doi')
     return PaperRecord(
         title=' '.join((entry.findtext(ATOM + 'title') or '').split()),

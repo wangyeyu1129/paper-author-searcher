@@ -94,6 +94,8 @@ class SourceConfig:
     orcid_api_url: str = 'https://pub.orcid.org/v3.0'
     crossref_url: str = 'https://api.crossref.org'
     arxiv_url: str = 'https://export.arxiv.org/api/query'
+    europepmc_url: str = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search'
+    core_url: str = 'https://api.core.ac.uk/v3'
 
 
 @dataclass(frozen=True)
@@ -260,7 +262,7 @@ class ListedWorksConfig:
     title_search_results: int = 3
     # Names registered in source_catalog.WORK_LOOKUPS. OpenAlex first (richest authorship), then sources that
     # index what it misses: Semantic Scholar (CS venues), Crossref (publisher records), arXiv (preprints).
-    sources: tuple[str, ...] = ('openalex', 'semantic_scholar', 'crossref', 'arxiv')
+    sources: tuple[str, ...] = ('openalex', 'semantic_scholar', 'crossref', 'arxiv', 'europepmc', 'core')
 
     def __post_init__(self) -> None:
         if self.maximum_lookups < 0 or self.title_search_results < 1:
@@ -296,6 +298,32 @@ class CSSourcesConfig:
 
 
 DEFAULT_CS_SOURCES = CSSourcesConfig()
+
+
+@dataclass(frozen=True)
+class NameSearchConfig:
+    """Sources searched by the person's name and institution after the author-ID collection (registered in
+    ``source_catalog.NAME_SEARCHES``, run in this order). Their records carry no author ID of the person: each
+    names the one author whose name is the person's (and whose ORCID, when printed, is theirs), and ownership
+    verifies it like any other record."""
+
+    sources: tuple[str, ...] = ('arxiv', 'europepmc', 'crossref')
+    # Publication years searched, counting back from the current one.
+    recent_years: int = 6
+    page_size: int = 100
+    # Europe PMC's full ("core") records are large: a smaller page keeps each response under the HTTP size limit.
+    europepmc_page_size: int = 25
+    maximum_results: int = 500
+    # Crossref ranks by relevance and does not filter by affiliation: keep only works where the person's own
+    # byline entry prints the requested institution.
+    crossref_require_affiliation: bool = True
+
+    def __post_init__(self) -> None:
+        if min(self.recent_years, self.page_size, self.europepmc_page_size, self.maximum_results) < 1:
+            raise ValueError('Name search limits must be positive')
+
+
+DEFAULT_NAME_SEARCHES = NameSearchConfig()
 
 
 @dataclass(frozen=True)
