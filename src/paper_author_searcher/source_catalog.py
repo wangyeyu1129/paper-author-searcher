@@ -8,6 +8,7 @@ Factories receive the ``ServiceContainer``, so they draw clients, settings and c
 from typing import Any
 
 from .cs_sources import ArxivAuthorSearch
+from .dblp_dump import DblpDumpClient, DblpWorkLookup
 from .listed_works import (
     ArxivWorkLookup,
     AuthorMatcher,
@@ -73,7 +74,10 @@ def _semantic_scholar_identity(container: Any) -> SemanticScholarProvider:
 
 @IDENTITY_SOURCES.register('dblp')
 def _dblp_identity(container: Any) -> DBLPProvider:
-    return DBLPProvider(client=container.http_client, source_config=container.settings.sources)
+    """Reads the DBLP dump index when one is built; otherwise the DBLP API (often refused to automated clients)."""
+    index = container.dblp_index
+    client = DblpDumpClient(index, container.settings.sources) if index is not None else container.http_client
+    return DBLPProvider(client=client, source_config=container.settings.sources)
 
 
 @PAPER_SOURCES.register('openalex')
@@ -246,3 +250,12 @@ def _crossref_name_search(container: Any) -> CrossrefAuthorSearch:
         settings.matching,
         settings.credentials.crossref_email,
     )
+
+
+@WORK_LOOKUPS.register('dblp')
+def _dblp_lookup(container: Any) -> DblpWorkLookup | None:
+    index = container.dblp_index
+    if index is None:
+        return None
+    settings = container.settings
+    return DblpWorkLookup(index, AuthorMatcher(settings.matching), settings.sources)

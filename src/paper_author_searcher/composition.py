@@ -14,6 +14,7 @@ from typing import Any, ClassVar
 from .config import CollectionConfig, DownloadConfig, PDFConfig
 from .contender_adjudication import DepartmentAdjudicator
 from .cs_sources import OpenReviewProfiles
+from .dblp_dump import DblpDumpIndex
 from .homepage_citations import DocumentParser, HtmlCitationParser, PdfCitationParser
 from .http import HttpClient
 from .http_budget import budgeted_client
@@ -126,6 +127,17 @@ class ServiceContainer:
         paced = PacedHttpClient(network, self.settings.http.host_request_intervals)
         metered = budgeted_client(paced, options.max_cost_usd, options.cost_ledger)
         return cached_client(metered, options.http_cache_dir, options.http_cache_mode)
+
+    @cached_property
+    def dblp_index(self) -> DblpDumpIndex | None:
+        """The DBLP dump index (``paper-dblp-index``), when it has been built."""
+        configured = self.settings.dblp_dump.index_path
+        if not configured:
+            return None
+        path = Path(configured)
+        if not path.is_file():
+            raise FileNotFoundError(f'dblp_dump.index_path {path} does not exist; build it with paper-dblp-index')
+        return DblpDumpIndex(path)
 
     # Identity ----------------------------------------------------------------------------------------------------
 

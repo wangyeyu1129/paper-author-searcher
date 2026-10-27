@@ -25,6 +25,7 @@ from .config import (
     DEFAULT_ANCHORS,
     DEFAULT_COLLECTION,
     DEFAULT_CS_SOURCES,
+    DEFAULT_DBLP_DUMP,
     DEFAULT_DEDUPLICATION,
     DEFAULT_DISCOVERY,
     DEFAULT_DOWNLOAD,
@@ -42,6 +43,7 @@ from .config import (
     AnchorConfig,
     CollectionConfig,
     CSSourcesConfig,
+    DblpDumpConfig,
     DeduplicationConfig,
     DiscoveryConfig,
     DownloadConfig,
@@ -134,6 +136,7 @@ class Settings:
     listed_works: ListedWorksConfig = DEFAULT_LISTED_WORKS
     cs_sources: CSSourcesConfig = DEFAULT_CS_SOURCES
     name_searches: NameSearchConfig = DEFAULT_NAME_SEARCHES
+    dblp_dump: DblpDumpConfig = DEFAULT_DBLP_DUMP
     profile_links: ProfileLinkConfig = DEFAULT_PROFILE_LINKS
     discovery: DiscoveryConfig = DEFAULT_DISCOVERY
     extraction: ExtractionConfig = DEFAULT_EXTRACTION

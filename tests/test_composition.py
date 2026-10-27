@@ -15,7 +15,7 @@ from paper_author_searcher.settings import Settings
 from paper_author_searcher.workflow import PaperSearchWorkflow
 
 PACKAGE = Path(__file__).resolve().parents[1] / 'src' / 'paper_author_searcher'
-CLI_MODULES = {'cli', 'workflow_cli', 'pdf_cli', 'download_cli', 'evaluation_cli', 'performance_cli'}
+CLI_MODULES = {'cli', 'workflow_cli', 'pdf_cli', 'download_cli', 'evaluation_cli', 'performance_cli', 'dblp_cli'}
 # Modules allowed to construct the network transport: the composition root and command entry points.
 TRANSPORT_OWNERS = {'composition.py', 'reference_import.py', 'benchmark/cli.py'}
 

@@ -262,7 +262,7 @@ class ListedWorksConfig:
     title_search_results: int = 3
     # Names registered in source_catalog.WORK_LOOKUPS. OpenAlex first (richest authorship), then sources that
     # index what it misses: Semantic Scholar (CS venues), Crossref (publisher records), arXiv (preprints).
-    sources: tuple[str, ...] = ('openalex', 'semantic_scholar', 'crossref', 'arxiv', 'europepmc', 'core')
+    sources: tuple[str, ...] = ('openalex', 'dblp', 'semantic_scholar', 'crossref', 'arxiv', 'europepmc', 'core')
 
     def __post_init__(self) -> None:
         if self.maximum_lookups < 0 or self.title_search_results < 1:
@@ -324,6 +324,37 @@ class NameSearchConfig:
 
 
 DEFAULT_NAME_SEARCHES = NameSearchConfig()
+
+
+@dataclass(frozen=True)
+class DblpDumpConfig:
+    """DBLP from its official data dump (https://dblp.org/xml/dblp.xml.gz) instead of the API, which answers
+    automated clients with an anti-bot page. ``paper-dblp-index`` builds an SQLite index from the dump; while the
+    index exists, the DBLP identity, paper and listed-work sources read it and never call dblp.org."""
+
+    # Empty: no index (the DBLP API is used). Set it, e.g. PAPER_SEARCH__DBLP_DUMP__INDEX_PATH, once built.
+    index_path: str = ''
+    # Publication elements indexed (person pages are the 'www' elements keyed 'homepages/').
+    record_tags: tuple[str, ...] = (
+        'article',
+        'inproceedings',
+        'proceedings',
+        'book',
+        'incollection',
+        'phdthesis',
+        'mastersthesis',
+    )
+    # Child elements kept per record; the rest (urls, crossrefs, page numbers) is dropped to keep the index small.
+    kept_fields: tuple[str, ...] = ('author', 'editor', 'title', 'year', 'journal', 'booktitle', 'ee', 'volume')
+    # Rows written per transaction while building.
+    batch_size: int = 50000
+
+    def __post_init__(self) -> None:
+        if self.batch_size < 1:
+            raise ValueError('batch_size must be positive')
+
+
+DEFAULT_DBLP_DUMP = DblpDumpConfig()
 
 
 @dataclass(frozen=True)
