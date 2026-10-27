@@ -18,7 +18,11 @@ class MatchingConfig:
     middle_name_similarity: float = 0.97
     initial_similarity: float = 0.78
     reordered_school_similarity: float = 0.98
+    # Shared works link two source profiles: a work is shared when its DOI, arXiv ID or normalized title agrees
+    # (identity.shared_works), so arXiv-only output links as well as journal papers do.
     minimum_shared_dois: int = 2
+    # A title shorter than this many words ("Introduction", "Editorial") is too generic to identify a work.
+    work_title_minimum_words: int = 5
     coauthors_with_doi: int = 2
     coauthors_with_school: int = 3
     topics_with_school: int = 2
