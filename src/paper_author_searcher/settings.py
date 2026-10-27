@@ -31,6 +31,7 @@ from .config import (
     DEFAULT_DISCOVERY,
     DEFAULT_DOWNLOAD,
     DEFAULT_EXTRACTION,
+    DEFAULT_FRAGMENTS,
     DEFAULT_HTTP,
     DEFAULT_LISTED_WORKS,
     DEFAULT_MATCHING,
@@ -50,6 +51,7 @@ from .config import (
     DiscoveryConfig,
     DownloadConfig,
     ExtractionConfig,
+    FragmentConfig,
     HttpConfig,
     ListedWorksConfig,
     MatchingConfig,
@@ -138,6 +140,7 @@ class Settings:
     listed_works: ListedWorksConfig = DEFAULT_LISTED_WORKS
     cs_sources: CSSourcesConfig = DEFAULT_CS_SOURCES
     name_searches: NameSearchConfig = DEFAULT_NAME_SEARCHES
+    fragments: FragmentConfig = DEFAULT_FRAGMENTS
     catalogs: CatalogConfig = DEFAULT_CATALOGS
     dblp_dump: DblpDumpConfig = DEFAULT_DBLP_DUMP
     profile_links: ProfileLinkConfig = DEFAULT_PROFILE_LINKS

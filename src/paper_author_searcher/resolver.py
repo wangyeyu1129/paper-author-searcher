@@ -7,6 +7,7 @@ from itertools import combinations
 from typing import Any
 
 from .config import DEFAULT_MATCHING
+from .fragment_merging import split_fragments
 from .identity import IdentityLink, compare_identity, names_may_match
 from .identity_adjudication import accepted
 from .identity_anchors import SUPPLIED_ORCID_REASON, IdentityAnchors
@@ -41,8 +42,12 @@ class ProfileSignals:
 
 
 class ProfessorResolver:
-    def __init__(self, providers, config=DEFAULT_MATCHING, anchor_finder=None, adjudicator=None, ranking=None):
+    def __init__(
+        self, providers, config=DEFAULT_MATCHING, anchor_finder=None, adjudicator=None, ranking=None, fragments=None
+    ):
         self.config = config
+        # Off unless injected: which other same-name candidates to pass on as split-profile fragments.
+        self.fragments = fragments
         self.providers = list(providers)
         # Orders candidates and decides contests; see identity_ranking.IdentityRanking.
         self.ranking = ranking or IdentityRanking(config)
@@ -134,6 +139,9 @@ class ProfessorResolver:
         if not profiles:
             return ResolutionResult(profile=None, candidates=[], source_errors=errors)
         ambiguity = self._mark_ambiguity(profiles, groups)
+        if self.fragments is not None and self.fragments.enabled:
+            found = split_fragments(profiles[0], groups[1:], self.fragments, self.config)
+            profiles[0].split_fragments = [fragment.to_dict() for fragment in found]
         return ResolutionResult(
             profile=profiles[0],
             candidates=profiles,

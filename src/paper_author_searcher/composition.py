@@ -15,6 +15,7 @@ from .config import CollectionConfig, DownloadConfig, PDFConfig
 from .contender_adjudication import DepartmentAdjudicator
 from .cs_sources import OpenReviewProfiles
 from .dblp_dump import DblpDumpIndex
+from .fragment_merging import FragmentMerger
 from .homepage_citations import DocumentParser, HtmlCitationParser, PdfCitationParser
 from .http import HttpClient
 from .http_budget import budgeted_client
@@ -245,6 +246,7 @@ class ServiceContainer:
             config=self.settings.matching,
             anchor_finder=self.anchor_finder,
             adjudicator=adjudicator,
+            fragments=self.settings.fragments,
         )
 
     # Collection --------------------------------------------------------------------------------------------------
@@ -292,7 +294,13 @@ class ServiceContainer:
             listed_works=self.listed_work_retriever,
             name_searches=self.name_searches,
             adjudicator=DepartmentAdjudicator(self.collection_config, DepartmentMatcher(self.settings.precision)),
+            fragment_merger=self.fragment_merger,
         )
+
+    @cached_property
+    def fragment_merger(self) -> FragmentMerger | None:
+        config = self.settings.fragments
+        return FragmentMerger(config, self.settings.matching) if config.enabled else None
 
     @cached_property
     def name_searches(self) -> list[NameSearch]:
