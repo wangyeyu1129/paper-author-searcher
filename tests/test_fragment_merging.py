@@ -169,6 +169,16 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(result.selected_author_ids['openalex'], ['A1', 'A2'])
         self.assertEqual({paper.source_paper_id for paper in result.papers}, {'p1', 'p9'})
 
+    def test_fragments_that_cannot_share_the_institution_are_never_paged(self):
+        provider = Provider('openalex', {'A1': [record('p1', ['Mei Lin'])]})
+        collector = PaperCollector([provider], Verifier(), fragment_merger=FragmentMerger())
+        unknown = fragment('A2', {'x', 'y'}, ())
+        elsewhere = fragment('A3', {'x', 'y'}, ('Other College',))
+        collector.collect(profile(split_fragments=[unknown.to_dict(), elsewhere.to_dict()]))
+        self.assertEqual(provider.collected, ['A1'])
+        anywhere = FragmentMerger(replace(DEFAULT_FRAGMENTS, require_institution=False))
+        self.assertEqual(anywhere.worth_paging(profile(), [unknown, elsewhere]), [unknown, elsewhere])
+
     def test_no_fragments_means_no_extra_collection(self):
         provider = Provider('openalex', {'A1': [record('p1', ['Mei Lin'])]})
         collector = PaperCollector([provider], Verifier(), fragment_merger=FragmentMerger())

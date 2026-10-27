@@ -138,12 +138,17 @@ class PaperCollector:
     ) -> tuple[ProfessorProfile, list[PaperSourceResult]]:
         """Collect the split profiles whose coauthors match the person's verified papers (a provisional
         validation of what was collected so far); they become part of the selected identity."""
-        fragments = [
-            fragment
-            for fragment in map(Fragment.from_dict, profile.split_fragments)
-            if fragment.source in available and fragment.author_id not in selected.get(fragment.source, [])
-        ]
-        if not fragments or self.fragment_merger is None:
+        if self.fragment_merger is None:
+            return profile, []
+        fragments = self.fragment_merger.worth_paging(
+            profile,
+            (
+                fragment
+                for fragment in map(Fragment.from_dict, profile.split_fragments)
+                if fragment.source in available and fragment.author_id not in selected.get(fragment.source, [])
+            ),
+        )
+        if not fragments:
             return profile, []
         provisional = deduplicate_papers(records, self.deduplication)
         self.ownership_validator.validate(provisional, profile)
