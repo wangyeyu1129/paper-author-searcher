@@ -144,8 +144,38 @@ class AnchorConfig:
     profile_anchor_sources: tuple[str, ...] = ('openalex', 'semantic_scholar', 'dblp')
 
 
+@dataclass(frozen=True)
+class DisambiguationConfig:
+    """Settle a close, unanchored contest between namesakes by their own bylines (byline_disambiguation).
+
+    A profile's evidence is the number of its sampled works whose byline prints the requested department at the
+    requested school; when no contender has any, optionally the works printing the school alone. The leader wins
+    with at least ``minimum_works`` and ``dominance_ratio`` times the strongest rival's count; otherwise the
+    contest stays open.
+    """
+
+    enabled: bool = True
+    # Contenders scoring within this distance of the leader take part (the real Feng Zhang scored 0.02 below a
+    # one-paper namesake at MIT).
+    contest_band: float = 0.05
+    minimum_works: int = 5
+    dominance_ratio: float = 3.0
+    # Departments a byline never prints (Harvard bioengineering signs as "School of Engineering and Applied
+    # Sciences") fall back to works printing the school; never used when any contender has department evidence.
+    school_fallback: bool = True
+
+    def __post_init__(self) -> None:
+        if self.contest_band < 0:
+            raise ValueError('contest_band must not be negative')
+        if self.minimum_works < 1:
+            raise ValueError('minimum_works must be positive')
+        if self.dominance_ratio < 1:
+            raise ValueError('dominance_ratio must be at least 1')
+
+
 DEFAULT_MATCHING = MatchingConfig()
 DEFAULT_ANCHORS = AnchorConfig()
+DEFAULT_DISAMBIGUATION = DisambiguationConfig()
 DEFAULT_HTTP = HttpConfig()
 DEFAULT_SOURCES = SourceConfig()
 

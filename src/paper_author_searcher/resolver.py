@@ -41,7 +41,15 @@ class ProfileSignals:
 
 
 class ProfessorResolver:
-    def __init__(self, providers, config=DEFAULT_MATCHING, anchor_finder=None, adjudicator=None, ranking=None):
+    def __init__(
+        self,
+        providers,
+        config=DEFAULT_MATCHING,
+        anchor_finder=None,
+        adjudicator=None,
+        ranking=None,
+        disambiguator=None,
+    ):
         self.config = config
         self.providers = list(providers)
         # Orders candidates and decides contests; see identity_ranking.IdentityRanking.
@@ -50,6 +58,8 @@ class ProfessorResolver:
         self.anchor_finder = anchor_finder
         # Off unless injected; see identity_adjudication.ClaudeIdentityAdjudicator.
         self.adjudicator = adjudicator
+        # Off unless injected; see byline_disambiguation.BylineDisambiguator.
+        self.disambiguator = disambiguator
 
     def rank(self, query):
         """Scored identity profiles, the candidate groups behind them, and per-source errors."""
@@ -64,14 +74,29 @@ class ProfessorResolver:
             ((self._score(query, group, anchors), group) for group in groups),
             key=lambda item: self.ranking.key(item[0]),
         )
+        scored = self._disambiguate(query, scored)
         scored = self._adjudicate(query, scored, anchors)
         return [profile for profile, _ in scored], [group for _, group in scored], errors
+
+    def _disambiguate(self, query, scored):
+        """Let the contenders' own bylines settle a close contest the scores leave open."""
+        if self.disambiguator is None or len(scored) < 2 or self.ranking.uncontested(scored[0][0], scored[1][0]):
+            return scored
+        verdict = self.disambiguator.choose(query, scored)
+        if verdict is None:
+            return scored
+        profile, group = scored[verdict.index]
+        profile.disambiguation = verdict.note
+        profile.evidence.append(verdict.note)
+        return [(profile, group), *(item for index, item in enumerate(scored) if index != verdict.index)]
 
     def _adjudicate(self, query, scored, anchors):
         """Ask the adjudicator about a close, unanchored contest between the top two profiles."""
         if self.adjudicator is None or len(scored) < 2:
             return scored
         (first, first_group), (second, second_group) = scored[0], scored[1]
+        if first.disambiguation:
+            return scored
         if first.match_score - second.match_score >= self.config.ambiguity_margin:
             return scored
         if first.identity_anchors or second.identity_anchors:

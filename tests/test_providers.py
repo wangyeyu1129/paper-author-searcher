@@ -148,10 +148,12 @@ class ProviderTests(unittest.TestCase):
                 {
                     'author': author,
                     'institutions': [{'display_name': 'Example University'}],
+                    'raw_affiliation_strings': ['Department of Ecology, Example University'],
                 },
                 {
                     'author': {'id': 'https://openalex.org/coauthor', 'display_name': 'Someone Else'},
                     'institutions': [{'display_name': 'Other University'}],
+                    'raw_affiliation_strings': ['Department of Physics, Other University'],
                 },
             ],
         }
@@ -159,6 +161,8 @@ class ProviderTests(unittest.TestCase):
         record = OpenAlexProvider(client).search(self.query)[0]
         self.assertEqual(record.affiliations, ['Example University'])
         self.assertEqual(record.coauthors, ['Someone Else'])
+        # Only the candidate's own printed affiliation lines, one tuple per work.
+        self.assertEqual(record.bylines, [('Department of Ecology, Example University',)])
         self.assertEqual(record.paper_ids, ['doi:10.example/a'])
         self.assertIn('select', client.calls[1][1])
 

@@ -110,6 +110,9 @@ class AuthorCandidate:
     # Keys of each sampled work (matching.identity_work: canonical DOI, arXiv ID, normalized title), compared by
     # identity linking. ``paper_ids`` keeps the DOIs alone.
     works: list[tuple[str, ...]] = field(default_factory=list)
+    # The candidate's own printed affiliation lines on each sampled work, one tuple per work (OpenAlex
+    # raw_affiliation_strings); byline_disambiguation counts the works that name the requested department.
+    bylines: list[tuple[str, ...]] = field(default_factory=list)
 
 
 @dataclass(frozen=True, order=True, slots=True)
@@ -177,6 +180,8 @@ class ProfessorProfile(ValidatedStatuses):
     name_aliases: list[str] = field(default_factory=list)
     identity_anchors: list[AnchorEvidence] = field(default_factory=list)
     adjudication: str | None = None
+    # Why byline evidence settled a close contest in this profile's favour (byline_disambiguation).
+    disambiguation: str | None = None
     # The name the caller searched for; kept because a source's display name can be corrupted ("Jia Liu B").
     requested_name: str | None = None
     # Some record of this identity carries an ORCID other than the supplied one.

@@ -38,8 +38,10 @@ class IdentityRanking:
             return True
         if self.has_precedence(best) and not self.has_precedence(runner_up):
             return True
-        # Independent anchors and an accepted adjudication outweigh a close name/school score.
+        # Independent anchors, an accepted adjudication and dominant byline evidence outweigh a close score.
         if best.identity_anchors and not runner_up.identity_anchors:
+            return True
+        if best.disambiguation and not runner_up.disambiguation:
             return True
         return bool(best.adjudication and not runner_up.adjudication)
 
