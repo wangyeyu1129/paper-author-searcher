@@ -11,7 +11,7 @@ evidence is held to a stricter standard than supplied evidence:
 """
 
 import logging
-from collections.abc import Iterable, Sequence
+from collections.abc import Callable, Iterable, Sequence
 from dataclasses import dataclass, field
 from typing import Any, Protocol
 from urllib.parse import urlsplit
@@ -116,9 +116,13 @@ class OrcidRegistrySearch:
         source_config: SourceConfig = DEFAULT_SOURCES,
         config: DiscoveryConfig = DEFAULT_DISCOVERY,
         matching: MatchingConfig = DEFAULT_MATCHING,
+        department_agrees: Callable[[str, str], bool] | None = None,
     ) -> None:
         self.client, self.config, self.matching = client, config, matching
-        self.url = source_config.orcid_api_url.rstrip('/') + '/expanded-search/'
+        self.base_url = source_config.orcid_api_url.rstrip('/')
+        self.url = self.base_url + '/expanded-search/'
+        # (printed department, requested department) -> same unit; without one, departments are not compared.
+        self.department_agrees = department_agrees
 
     def discover(self, query: Any, found: Discovery) -> None:
         if query.orcid or found.orcid:
@@ -126,6 +130,10 @@ class OrcidRegistrySearch:
         for search in self.queries(query):
             matches = self.matches(query, self._results(search))
             if len(matches) == 1:
+                reason = self.unconfirmed(query, matches[0])
+                if reason:
+                    found.evidence.append(f'ORCID {matches[0]} not adopted: {reason}')
+                    return
                 found.orcid = matches[0]
                 found.evidence.append(f'ORCID {matches[0]}: the only registry match for {search}')
                 return
@@ -160,6 +168,31 @@ class OrcidRegistrySearch:
             ):
                 orcids.append(canonical_orcid(result.get('orcid-id')))
         return sorted({orcid for orcid in orcids if orcid})
+
+    def unconfirmed(self, query: Any, orcid: str) -> str | None:
+        """Why the record's employment does not confirm the person (None: it does, or no check is configured)."""
+        if not self.config.orcid_require_employment:
+            return None
+        data = self.client.get(f'{self.base_url}/{orcid}/employments', None, ORCID_JSON)
+        universities = [query.university, *getattr(query, 'university_aliases', [])]
+        departments = []
+        for group in (data or {}).get('affiliation-group') or []:
+            for summary in group.get('summaries') or []:
+                employment = summary.get('employment-summary') or {}
+                organisation = (employment.get('organization') or {}).get('name') or ''
+                school = best_similarity(
+                    universities, [organisation], lambda a, b: institution_similarity(a, b, self.matching)
+                )
+                if school >= self.matching.matched_school:
+                    departments.append(employment.get('department-name') or '')
+        if not departments:
+            return 'no employment at the requested institution'
+        wanted = getattr(query, 'department', None)
+        if not wanted or not self.config.orcid_require_department or self.department_agrees is None:
+            return None
+        if any(department and self.department_agrees(department, wanted) for department in departments):
+            return None
+        return f'no employment in {wanted}'
 
     def _results(self, search: str) -> list[dict]:
         data = self.client.get(self.url, {'q': search, 'rows': self.config.orcid_search_rows}, ORCID_JSON)

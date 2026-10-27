@@ -18,6 +18,7 @@ from paper_author_searcher.identity_discovery import (
     WebPageSearch,
     split_name,
 )
+from paper_author_searcher.precision_guards import DepartmentMatcher
 from paper_author_searcher.profile_links import ProfileLinkParser
 from paper_author_searcher.settings import Credentials, Settings
 from paper_author_searcher.source_catalog import WEB_SEARCH
@@ -99,10 +100,49 @@ class ProfileLinkTests(unittest.TestCase):
         self.assertFalse(query().has_hints())
 
 
+def employments(*jobs):
+    return {
+        'affiliation-group': [
+            {'summaries': [{'employment-summary': {'department-name': department, 'organization': {'name': school}}}]}
+            for school, department in jobs
+        ]
+    }
+
+
 class OrcidRegistrySearchTests(unittest.TestCase):
-    def search(self, results):
-        client = Client({'expanded-search': {'expanded-result': results, 'num-found': len(results)}})
-        return OrcidRegistrySearch(client), client
+    def search(self, results, jobs=(('Example University', 'Department of Physics'),), **config):
+        client = Client(
+            {
+                'expanded-search': {'expanded-result': results, 'num-found': len(results)},
+                'employments': employments(*jobs),
+            }
+        )
+        agrees = DepartmentMatcher().agree
+        return OrcidRegistrySearch(
+            client, config=replace(DEFAULT_DISCOVERY, **config), department_agrees=agrees
+        ), client
+
+    def test_a_match_without_employment_at_the_institution_is_not_adopted(self):
+        step, _ = self.search([registry_person(ORCID)], jobs=(('Other University', 'Physics'),))
+        found = Discovery()
+        step.discover(query(), found)
+        self.assertIsNone(found.orcid)
+        self.assertIn('no employment at the requested institution', found.evidence[0])
+        unchecked, _ = self.search([registry_person(ORCID)], jobs=(), orcid_require_employment=False)
+        found = Discovery()
+        unchecked.discover(query(), found)
+        self.assertEqual(found.orcid, ORCID)
+
+    def test_a_requested_department_must_agree_with_the_employment(self):
+        for department, adopted in (('Physics', True), ('Computer Science', False)):
+            step, _ = self.search([registry_person(ORCID)])
+            found = Discovery()
+            step.discover(query(department=department), found)
+            self.assertEqual(found.orcid == ORCID, adopted, department)
+        unnamed, _ = self.search([registry_person(ORCID)], jobs=(('Example University', None),))
+        found = Discovery()
+        unnamed.discover(query(department='Physics'), found)
+        self.assertIsNone(found.orcid)
 
     def test_the_only_compatible_person_at_the_institution_is_adopted(self):
         step, client = self.search([registry_person(ORCID)])
