@@ -68,12 +68,26 @@ class DepartmentMatcher:
         self.stop_words = frozenset(config.department_stop_words)
 
     def phrases(self, affiliation: str) -> list[str]:
-        found = []
-        for part in affiliation.split(','):
-            words = normalize(part).split()
-            if words and self.keywords.intersection(words):
-                found.append(' '.join(words))
-        return found
+        return [' '.join(normalize(part).split()) for part in affiliation.split(',') if self._names_unit(part)]
+
+    def split(self, affiliation: str) -> tuple[list[str], list[str]]:
+        """A structured affiliation ("Institution, Unit, City, Country") as (institution names, unit phrases).
+
+        The first part always names the institution ("Massachusetts Institute of Technology" holds a unit keyword).
+        An institution name can itself hold a comma ("University of California, Los Angeles"), so every prefix of
+        the parts before the first unit is a candidate name; the school comparison keeps whichever matches.
+        """
+        parts = [part.strip() for part in affiliation.split(',') if part.strip()]
+        if not parts:
+            return [], []
+        units = [' '.join(normalize(part).split()) for part in parts[1:] if self._names_unit(part)]
+        lead = 1
+        while lead < len(parts) and not self._names_unit(parts[lead]):
+            lead += 1
+        return [', '.join(parts[:end]) for end in range(1, lead + 1)], units
+
+    def _names_unit(self, part: str) -> bool:
+        return bool(self.keywords.intersection(normalize(part).split()))
 
     def words(self, phrase: str) -> frozenset[str]:
         return frozenset(word for word in normalize(phrase).split() if word not in self.stop_words)

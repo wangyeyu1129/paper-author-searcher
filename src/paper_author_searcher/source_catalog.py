@@ -35,6 +35,7 @@ from .pdf_providers import (
     UnpaywallPDFProvider,
 )
 from .pdf_public_pages import PublicPagePDFProvider
+from .precision_guards import DepartmentMatcher
 from .providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
 from .registry import Registry
 from .venue_catalogs import CatalogWorkLookup, RepositoryNameSearch
@@ -80,7 +81,10 @@ def _dblp_identity(container: Any) -> DBLPProvider:
     index = container.dblp_index
     client = DblpDumpClient(index, container.settings.sources) if index is not None else container.http_client
     return DBLPProvider(
-        client=client, source_config=container.settings.sources, matching_config=container.settings.matching
+        client=client,
+        source_config=container.settings.sources,
+        matching_config=container.settings.matching,
+        departments=DepartmentMatcher(container.settings.precision),
     )
 
 

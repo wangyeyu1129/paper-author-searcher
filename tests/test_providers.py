@@ -139,6 +139,30 @@ class ProviderTests(unittest.TestCase):
         self.assertEqual(record.topics, ['A sample paper'])
         self.assertEqual(record.paper_ids, ['doi:10.example/abc'])
 
+    def test_dblp_affiliation_notes_split_into_institution_and_unit(self):
+        info = {'author': 'Yang Liu 0005', 'url': 'https://dblp.org/pid/51/3710-5'}
+        current = 'Tsinghua University, Department of Computer Science and Technology, China'
+        former = 'University of California, Los Angeles, Department of Computer Science, CA, USA'
+        root = ET.fromstring(f"""
+            <dblpperson>
+                <person>
+                    <author>Yang Liu 0005</author>
+                    <note type="affiliation">{current}</note>
+                    <note type="affiliation" label="former">{former}</note>
+                </person>
+            </dblpperson>
+        """)
+        client = Client([{'result': {'hits': {'hit': {'info': info}}}}, root])
+        record = DBLPProvider(client).search(ProfessorQuery('Yang Liu', 'Tsinghua University'))[0]
+        self.assertIn('Tsinghua University', record.affiliations)
+        # A comma inside the institution's name: every prefix before the unit is kept.
+        self.assertIn('University of California, Los Angeles', record.affiliations)
+        self.assertEqual(
+            record.departments, ['department of computer science and technology', 'department of computer science']
+        )
+        # Recency is not inferred here: a current note in another unit must not outscore a namesake.
+        self.assertEqual(record.current_affiliations, [])
+
     def test_openalex_enrichment_uses_own_authorship(self):
         author = {'id': 'https://openalex.org/fixture-author', 'display_name': 'Alex Morgan'}
         work = {
