@@ -18,6 +18,7 @@ from .homepage_citations import (
     DOI_IN_TEXT,
     CitationParser,
     CitationRanker,
+    DocumentParser,
     HomepageCitation,
     HomepageReader,
     HtmlCitationParser,
@@ -148,6 +149,7 @@ class ScholarlyAnchorFinder:
         openalex_api_key: str | None = None,
         semantic_scholar_api_key: str | None = None,
         citation_parser: CitationParser | None = None,
+        pdf_parser: DocumentParser | None = None,
         ranker: CitationRanker | None = None,
         listed_sources: Sequence[ListedWorkSource] = (),
         discovery: Discoverer | None = None,
@@ -159,7 +161,7 @@ class ScholarlyAnchorFinder:
         self.profile_links = profile_links or ProfileLinkParser()
         self.discovery_config = discovery_config
         self.citation_parser = citation_parser or HtmlCitationParser(anchor_config)
-        self.reader = HomepageReader(self.citation_parser, PdfCitationParser(anchor_config))
+        self.reader = HomepageReader(self.citation_parser, pdf_parser or PdfCitationParser(anchor_config))
         self.ranker = ranker or CitationRanker(anchor_config)
         self.listed_sources = list(listed_sources)
         self.openalex_url = source_config.openalex_url.rstrip('/')
