@@ -6,12 +6,12 @@ from .config import DEFAULT_MATCHING, MatchingConfig
 from .evaluation_matching import bibliographic_name_agrees
 from .matching import (
     best_similarity,
-    canonical_doi,
     canonical_orcid,
     institution_similarity,
     name_similarity,
     name_similarity_upper_bound,
     normalize,
+    work_keys,
 )
 from .models import AuthorCandidate
 
@@ -54,9 +54,7 @@ def compare_identity(
             evidence=['shared ORCID'],
         )
 
-    left_dois = set(map(canonical_doi, left.paper_ids))
-    right_dois = set(map(canonical_doi, right.paper_ids))
-    shared_dois = len(left_dois & right_dois)
+    shared_dois = shared_works(left, right)
     shared_coauthors = set(map(normalize, left.coauthors)) & set(map(normalize, right.coauthors))
     author_names = [left.name, right.name, *left.aliases, *right.aliases]
     shared_coauthors.difference_update(map(normalize, author_names))
@@ -68,7 +66,7 @@ def compare_identity(
             matched=True,
             shared_dois=shared_dois,
             evidence=[
-                f'shared DOI count: {shared_dois}',
+                f'shared work count: {shared_dois}',
                 f'shared coauthor count: {len(shared_coauthors)}',
             ],
         )
@@ -91,6 +89,31 @@ def compare_identity(
             evidence=['shared school, coauthors and research topics'],
         )
     return IdentityLink()
+
+
+def shared_works(left: AuthorCandidate, right: AuthorCandidate) -> int:
+    """Works the two profiles have in common: a work is shared when any of its keys (DOI, arXiv ID, title) is
+    among the other profile's. Counted from both sides and the smaller kept, so a work listed twice on one side
+    (preprint and journal version) counts once."""
+    left_works, right_works = _works(left), _works(right)
+    if not left_works or not right_works:
+        return 0
+    left_keys = frozenset().union(*left_works)
+    right_keys = frozenset().union(*right_works)
+    if left_keys.isdisjoint(right_keys):
+        return 0
+    return min(
+        sum(1 for work in left_works if not work.isdisjoint(right_keys)),
+        sum(1 for work in right_works if not work.isdisjoint(left_keys)),
+    )
+
+
+def _works(candidate: AuthorCandidate) -> list[frozenset[str]]:
+    """The candidate's works as key sets; a DOI in ``paper_ids`` that no recorded work carries is a work of its own."""
+    works = [frozenset(keys) for keys in candidate.works if keys]
+    covered = frozenset().union(*works) if works else frozenset()
+    works += [frozenset({key}) for key in work_keys(dois=candidate.paper_ids) if key not in covered]
+    return works
 
 
 def _shared_context(

@@ -183,6 +183,15 @@ def work_keys(dois: Iterable[str] = (), arxiv_ids: Iterable[str] = (), titles: I
     return keys
 
 
+def identity_work(
+    dois: Iterable[str] = (), arxiv_ids: Iterable[str] = (), title: str | None = None, minimum_title_words: int = 5
+) -> tuple[str, ...]:
+    """One work's comparable keys for identity linking; a title of fewer than ``minimum_title_words`` words is
+    too generic to identify a work and is left out."""
+    titles = [title] if title and len(normalize(title).split()) >= minimum_title_words else []
+    return tuple(sorted(work_keys(dois, arxiv_ids, titles)))
+
+
 # Process-wide memo caches of the pure similarity functions (bounded LRU). A long-running service reports them
 # as metrics and may clear them, e.g. after changing matching configuration.
 SIMILARITY_CACHES = {
