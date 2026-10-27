@@ -332,9 +332,6 @@ class DBLPProvider:
                     institutions, units = departments.split(note.text)
                     _extend_unique(candidate.affiliations, [note.text, *institutions])
                     _extend_unique(candidate.departments, units)
-                    # DBLP labels past affiliations ("former", "PhD", "2002-2012"); an unlabelled note is current.
-                    if note.get('label') is None:
-                        _extend_unique(candidate.current_affiliations, institutions)
             for url in person.findall('url'):
                 if url.text and 'orcid.org/' in url.text:
                     candidate.orcid = url.text

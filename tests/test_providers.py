@@ -136,7 +136,6 @@ class ProviderTests(unittest.TestCase):
         record = DBLPProvider(client).search(self.query)[0]
         self.assertEqual(record.author_id, 'example/author')
         self.assertEqual(record.affiliations, ['Example University'])
-        self.assertEqual(record.current_affiliations, ['Example University'])
         self.assertEqual(record.topics, ['A sample paper'])
         self.assertEqual(record.paper_ids, ['doi:10.example/abc'])
 
@@ -161,8 +160,8 @@ class ProviderTests(unittest.TestCase):
         self.assertEqual(
             record.departments, ['department of computer science and technology', 'department of computer science']
         )
-        # Only the unlabelled note is current; "former" is history.
-        self.assertEqual(record.current_affiliations, ['Tsinghua University'])
+        # Recency is not inferred here: a current note in another unit must not outscore a namesake.
+        self.assertEqual(record.current_affiliations, [])
 
     def test_openalex_enrichment_uses_own_authorship(self):
         author = {'id': 'https://openalex.org/fixture-author', 'display_name': 'Alex Morgan'}
