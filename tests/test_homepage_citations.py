@@ -120,6 +120,10 @@ continued line
         self.assertEqual(reader.citations('application/pdf', b'%PDF-1.7', lambda: '')[0].text, 'pdf')
         self.assertEqual(reader.citations('text/html', b'<html>', lambda: '<html>')[0].text, 'html')
 
+    def test_a_truncated_pdf_is_an_unreadable_page_not_a_crash(self):
+        with self.assertRaises(ValueError):
+            PdfCitationParser().parse(b'%PDF-1.7\n1 0 obj << /Type /Catalog')
+
 
 class FinderTests(unittest.TestCase):
     def test_title_only_page_anchors_by_title(self):

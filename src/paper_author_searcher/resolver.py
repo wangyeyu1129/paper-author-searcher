@@ -118,9 +118,10 @@ class ProfessorResolver:
 
     @staticmethod
     def _is_anchored(record, anchors):
-        if anchors.orcid and record.orcid:
+        if anchors.orcid and record.orcid and not anchors.orcid_outweighed(record.source, str(record.author_id)):
             # The record's own ORCID decides: an anchor that a different ORCID contradicts (a source returning a
-            # namesake for an ORCID lookup) must not pull that profile into the person's identity.
+            # namesake for an ORCID lookup) must not pull that profile into the person's identity, unless enough of
+            # the person's own works outweigh that ORCID (AnchorKind.CONTESTED).
             return canonical_orcid(record.orcid) == anchors.orcid
         return anchors.contains(record.source, record.author_id)
 
@@ -287,7 +288,13 @@ class ProfessorResolver:
                         AnchorEvidence(record.source, str(record.author_id), SUPPLIED_ORCID_REASON, AnchorKind.ORCID)
                     )
         orcid_conflict = bool(
-            anchors.orcid and any(record.orcid and canonical_orcid(record.orcid) != anchors.orcid for record in group)
+            anchors.orcid
+            and any(
+                record.orcid
+                and canonical_orcid(record.orcid) != anchors.orcid
+                and not anchors.orcid_outweighed(record.source, str(record.author_id))
+                for record in group
+            )
         )
         return ProfileSignals(
             name=best_similarity(

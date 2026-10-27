@@ -166,12 +166,17 @@ class PdfCitationParser:
 
 
 def pdf_text(document: bytes) -> str:
-    """Text of a PDF, page by page. Needs the optional ``pypdf`` dependency (the ``download`` extra)."""
+    """Text of a PDF, page by page. Needs the optional ``pypdf`` dependency (the ``download`` extra). A damaged or
+    truncated PDF (a CV cut at the page byte limit) is a ``ValueError``, like any other unreadable page."""
     try:
         from pypdf import PdfReader
+        from pypdf.errors import PyPdfError
     except ImportError as exc:  # pragma: no cover - depends on the installed extras
         raise ValueError('Reading a PDF publication list needs pypdf (pip install ".[download]")') from exc
-    return '\n'.join(page.extract_text() or '' for page in PdfReader(io.BytesIO(document)).pages)
+    try:
+        return '\n'.join(page.extract_text() or '' for page in PdfReader(io.BytesIO(document)).pages)
+    except PyPdfError as exc:
+        raise ValueError(f'unreadable PDF: {exc}') from exc
 
 
 class DocumentParser(Protocol):

@@ -7,7 +7,7 @@ import unittest
 from paper_author_searcher import AuthorCandidate as C
 from paper_author_searcher import ProfessorQuery as Q
 from paper_author_searcher import ProfessorResolver
-from paper_author_searcher.config import DEFAULT_MATCHING
+from paper_author_searcher.config import DEFAULT_ANCHORS, DEFAULT_MATCHING
 from paper_author_searcher.identity_anchors import (
     IdentityAnchors,
     RecordedAnchorFinder,
@@ -122,6 +122,51 @@ class FinderTests(unittest.TestCase):
         self.assertEqual(found.author_ids['semantic_scholar'], {'77'})
         # The supplied ORCID's works are the person's own list.
         self.assertEqual(found.listed_works, ['doi:10.1000/listed', 'title:an untitled identifier free work'])
+
+
+class ContestedAnchorTests(unittest.TestCase):
+    """OpenAlex gives a merged author cluster one ORCID, which can be a namesake's."""
+
+    ORCID = '0000-0000-0000-0001'
+
+    def find(self, dois, minimum=3):
+        class Client:
+            def get(self, url, params=None, headers=None, xml=False):
+                if url.endswith(('/authors', '/works')) or '/paper/' in url:
+                    return {'results': [], 'group': [], 'authors': []}
+                author = {'id': 'https://openalex.org/A5', 'display_name': 'Mei Lin', 'orcid': '0000-0000-0000-0009'}
+                return {'authorships': [{'author': author}]}
+
+        config = dataclasses.replace(DEFAULT_ANCHORS, minimum_contested_works=minimum)
+        hinted = Q('Mei Lin', 'Example University', known_papers=dois, orcid=self.ORCID)
+        return ScholarlyAnchorFinder(Client(), anchor_config=config).find(hinted)
+
+    def test_enough_listed_works_outweigh_the_clusters_orcid(self):
+        found = self.find(['10.1000/a', '10.1000/b', '10.1000/c'])
+        self.assertEqual(found.author_ids['openalex'], {'A5'})
+        self.assertEqual({item.kind for item in found.evidence}, {'contested'})
+        self.assertTrue(found.orcid_outweighed('openalex', 'A5'))
+        replayed = RecordedAnchorFinder(found.evidence).find(query(orcid=self.ORCID))
+        self.assertTrue(replayed.orcid_outweighed('openalex', 'A5'))
+
+    def test_too_few_listed_works_leave_the_orcid_in_force(self):
+        found = self.find(['10.1000/a', '10.1000/b'])
+        self.assertNotIn('openalex', found.author_ids)
+        self.assertFalse(found.orcid_outweighed('openalex', 'A5'))
+
+    def test_an_outweighed_orcid_is_no_conflict_for_the_resolver(self):
+        found = IdentityAnchors(orcid=self.ORCID)
+        for work in ('a', 'b', 'c'):
+            found.contest('openalex', 'A5', f'author of DOI 10.1000/{work}', f'doi:10.1000/{work}')
+        found.settle_contested(3)
+        records = [
+            C('openalex', 'A5', 'Mei Lin', SCHOOL, orcid='0000-0000-0000-0009'),
+            C('openalex', 'B1', 'Mei Lin', SCHOOL),
+        ]
+        result = ProfessorResolver([Provider(records)], anchor_finder=FixedAnchors(found)).resolve(query())
+        self.assertEqual(result.profile.author_ids['openalex'], 'A5')
+        self.assertFalse(result.profile.orcid_conflict)
+        self.assertEqual(result.profile.status, 'resolved')
 
 
 class ResolverAnchorTests(unittest.TestCase):

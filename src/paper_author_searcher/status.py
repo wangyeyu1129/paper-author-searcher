@@ -35,6 +35,9 @@ class AnchorKind(StrEnum):
     PAPER = 'paper'
     # A source profile link the caller supplied (its author ID, as given).
     PROFILE = 'profile'
+    # Papers on the person's own list held by a database author whose (cluster-level) ORCID is someone else's:
+    # enough of them outweigh that ORCID (AnchorConfig.minimum_contested_works).
+    CONTESTED = 'contested'
 
     @classmethod
     def from_reason(cls, reason: str) -> 'AnchorKind':
