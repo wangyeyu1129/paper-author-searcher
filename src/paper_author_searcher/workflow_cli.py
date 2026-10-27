@@ -22,7 +22,20 @@ def add_hint_arguments(parser):
     """Optional identity hints; each one makes namesake disambiguation far more reliable."""
     parser.add_argument('--orcid', help='ORCID iD of the researcher')
     parser.add_argument('--homepage', help='Public homepage or CV URL; DOIs/arXiv links on it become anchors')
-    parser.add_argument('--email', help='Institutional email (recorded with the query)')
+    parser.add_argument('--email', help='Institutional email; finds the ORCID record and the institution domain')
+    parser.add_argument('--scholar-url', help='Google Scholar profile link (kept as identity evidence)')
+    parser.add_argument(
+        '--profile-url',
+        action='append',
+        default=[],
+        help='ORCID, OpenAlex, Semantic Scholar, DBLP or OpenReview profile link; anchors that ID (repeatable)',
+    )
+    parser.add_argument(
+        '--publication-page',
+        action='append',
+        default=[],
+        help="Further page or CV PDF listing the researcher's publications (repeatable)",
+    )
     parser.add_argument(
         '--known-paper',
         action='append',
@@ -42,6 +55,9 @@ def query_from_args(args):
         homepage=getattr(args, 'homepage', None),
         email=getattr(args, 'email', None),
         known_papers=list(getattr(args, 'known_paper', [])),
+        scholar_url=getattr(args, 'scholar_url', None),
+        profile_urls=list(getattr(args, 'profile_url', [])),
+        publication_pages=list(getattr(args, 'publication_page', [])),
     )
 
 

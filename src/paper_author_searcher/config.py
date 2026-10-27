@@ -37,7 +37,7 @@ class MatchingConfig:
     anchor_bonus: float = 0.15
     # Anchor kinds strong enough to act as a rule rather than a weight: a candidate holding one (and no conflicting
     # ORCID) ranks first, is not contested by candidates without one, and resolves on a compatible name.
-    precedence_anchor_kinds: tuple[str, ...] = ('orcid',)
+    precedence_anchor_kinds: tuple[str, ...] = ('orcid', 'profile')
     orcid_conflict_penalty: float = 0.30
     # Optional LLM adjudication of close contests is accepted only at or above this stated confidence.
     adjudication_minimum_confidence: float = 0.8
@@ -130,6 +130,8 @@ class AnchorConfig:
     maximum_title_anchors: int = 10
     # A supplied ORCID's public works list is the person's own list, like a homepage (one request).
     orcid_listed_works: bool = True
+    # Sources whose caller-supplied profile link (profile_links) anchors the linked author ID directly.
+    profile_anchor_sources: tuple[str, ...] = ('openalex', 'semantic_scholar', 'dblp')
 
 
 DEFAULT_MATCHING = MatchingConfig()
@@ -213,7 +215,7 @@ class OwnershipConfig:
     author_level_orcid_scopes: tuple[str, ...] = ('resolved_author', 'author_profile')
     # Anchor kinds that make an author ID's past institutions (the identity's affiliation history) acceptable as
     # paper-level evidence. Paper anchors are excluded: they can attach a namesake's fragment.
-    history_anchor_kinds: tuple[str, ...] = ('orcid',)
+    history_anchor_kinds: tuple[str, ...] = ('orcid', 'profile')
     # A work on the person's own list (homepage or supplied ORCID) with a compatible byline is theirs.
     verify_listed_works: bool = True
     # An identity listing more institutions than this is a merge of several people (OpenAlex filed many Wei Lus,
@@ -297,6 +299,95 @@ DEFAULT_CS_SOURCES = CSSourcesConfig()
 
 
 @dataclass(frozen=True)
+class ProfileLinkConfig:
+    """Profile URLs a caller may supply (ORCID, Google Scholar, OpenAlex, Semantic Scholar, DBLP, OpenReview).
+
+    Each pattern is ``(source, regular expression)``; the expression's ``id`` group is the source's identifier. A
+    caller-supplied profile of an author-ID source anchors that ID directly; Google Scholar has no public API, so
+    its user ID is kept as evidence only.
+    """
+
+    patterns: tuple[tuple[str, str], ...] = (
+        ('orcid', r'orcid\.org/(?P<id>\d{4}-\d{4}-\d{4}-\d{3}[\dX])'),
+        ('openalex', r'openalex\.org/(?:authors/)?(?P<id>A\d+)'),
+        ('semantic_scholar', r'semanticscholar\.org/author/(?:[^/?#]+/)?(?P<id>\d+)'),
+        ('dblp', r'dblp\.(?:org|uni-trier\.de)/pid/(?P<id>[\w/-]+?)(?:\.html|\.xml)?(?:[?#]|$)'),
+        ('openreview', r'openreview\.net/profile\?id=(?P<id>~[\w.-]+)'),
+        ('google_scholar', r'scholar\.google\.[a-z.]+/citations\?(?:[^#]*&)?user=(?P<id>[\w-]+)'),
+    )
+
+
+DEFAULT_PROFILE_LINKS = ProfileLinkConfig()
+
+
+@dataclass(frozen=True)
+class DiscoveryConfig:
+    """Find what the caller did not supply: the person's ORCID and their homepage, publication page or CV.
+
+    Discovered evidence is weaker than supplied evidence: an ORCID is adopted only when the registry returns
+    exactly one compatible person at the requested institution, and a page only when its ranking score clears
+    ``minimum_page_score`` (see identity_discovery.PageRanker).
+    """
+
+    enabled: bool = True
+    # ORCID public registry search by name and institution (free, no key).
+    orcid_search: bool = True
+    orcid_search_rows: int = 10
+    # The registry's researcher URLs (personal websites) of the supplied or discovered ORCID become candidate pages.
+    orcid_researcher_urls: bool = True
+    # Web search provider registered in source_catalog.WEB_SEARCH ('brave', 'tavily', 'exa'); empty disables it.
+    # Each provider needs its key (BRAVE_API_KEY, TAVILY_API_KEY, EXA_API_KEY); without it the step is skipped.
+    web_search: str = 'brave'
+    web_search_results: int = 10
+    brave_url: str = 'https://api.search.brave.com/res/v1/web/search'
+    tavily_url: str = 'https://api.tavily.com/search'
+    exa_url: str = 'https://api.exa.ai/search'
+    # Query templates; {name}, {university} and {department} are filled from the query.
+    web_queries: tuple[str, ...] = ('"{name}" {university}', '"{name}" {university} publications')
+    maximum_pages: int = 3
+    minimum_page_score: float = 0.5
+    # Page ranking weights (PageRanker): each feature is 0..1 and the score is their weighted sum.
+    weight_name_in_title: float = 0.35
+    weight_name_in_url: float = 0.15
+    weight_institution: float = 0.30
+    weight_publication_page: float = 0.15
+    weight_academic_host: float = 0.10
+    weight_orcid_listed: float = 0.50
+    # Hosts that never are a person's own page (profiles aggregated by others, social networks, search engines).
+    excluded_hosts: tuple[str, ...] = (
+        'researchgate.net',
+        'linkedin.com',
+        'scholar.google.com',
+        'facebook.com',
+        'twitter.com',
+        'x.com',
+        'wikipedia.org',
+        'semanticscholar.org',
+        'dblp.org',
+        'orcid.org',
+        'openalex.org',
+        'youtube.com',
+        'ratemyprofessors.com',
+        'zoominfo.com',
+        'rocketreach.co',
+    )
+    academic_host_suffixes: tuple[str, ...] = ('.edu', '.ac.uk', '.edu.cn', '.ac.jp', '.ac.kr', '.edu.au', 'github.io')
+    publication_markers: tuple[str, ...] = ('publication', 'papers', 'research', 'cv', 'vita', 'bibliography')
+    # Links on a fetched page that lead to its publication list or CV (same site only), followed once.
+    follow_publication_links: bool = True
+    maximum_followed_links: int = 2
+
+    def __post_init__(self) -> None:
+        if self.orcid_search_rows < 1 or self.web_search_results < 1 or self.maximum_pages < 0:
+            raise ValueError('Discovery limits must be positive')
+        if self.maximum_followed_links < 0:
+            raise ValueError('maximum_followed_links must be nonnegative')
+
+
+DEFAULT_DISCOVERY = DiscoveryConfig()
+
+
+@dataclass(frozen=True)
 class PrecisionGuardConfig:
     """Stricter ownership evidence where namesakes share institutions (Tsinghua has many Yang Lius).
 
@@ -308,7 +399,7 @@ class PrecisionGuardConfig:
     # A file in the package's data directory, or a path; one lowercase surname per line.
     common_surnames: str = 'common_chinese_surnames.txt'
     maximum_name_tokens: int = 3
-    exempt_anchor_kinds: tuple[str, ...] = ('orcid',)
+    exempt_anchor_kinds: tuple[str, ...] = ('orcid', 'profile')
     # Department phrases are the comma-separated parts of a raw affiliation string that name a unit.
     department_keywords: tuple[str, ...] = (
         'department',

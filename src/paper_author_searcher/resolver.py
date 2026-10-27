@@ -54,7 +54,8 @@ class ProfessorResolver:
     def rank(self, query):
         """Scored identity profiles, the candidate groups behind them, and per-source errors."""
         records, errors = self._collect_candidates(query)
-        anchors = self.anchor_finder.find(query) if self.anchor_finder and query.has_hints() else IdentityAnchors()
+        # The finder also discovers hints the caller did not give (identity_discovery), so it runs for every query.
+        anchors = self.anchor_finder.find(query) if self.anchor_finder else IdentityAnchors()
         if anchors.errors:
             errors['anchors'] = '; '.join(anchors.errors)
         records.extend(self._anchored_records(anchors, records, errors))
@@ -426,6 +427,7 @@ class ProfessorResolver:
             orcid_conflict=signals.orcid_conflict,
             requested_department=query.department,
             listed_works=list(anchors.listed_works) if anchors is not None else [],
+            discovered=dict(anchors.discovered) if anchors is not None else {},
         )
         if profile.status != ResolutionStatus.RESOLVED and self.ranking.resolves(profile, signals.name):
             profile.status = ResolutionStatus.RESOLVED

@@ -18,6 +18,13 @@ from .http_budget import budgeted_client
 from .http_cache import cached_client
 from .http_decorators import PacedHttpClient
 from .identity_anchors import AnchorFinder, ScholarlyAnchorFinder
+from .identity_discovery import (
+    IdentityDiscovery,
+    OrcidRegistrySearch,
+    OrcidResearcherUrls,
+    PageRanker,
+    WebPageSearch,
+)
 from .listed_works import ListedWorkRetriever
 from .paper_collector import PaperCollector
 from .paper_ownership import PaperOwnershipValidator
@@ -25,10 +32,11 @@ from .pdf_resolver import PDFResolver
 from .pdf_resource_requests import PublicResourceRequests
 from .pdf_validation import PDFURLValidator
 from .precision_guards import DepartmentMatcher, PrecisionGuard
+from .profile_links import ProfileLinkParser
 from .progress import ProgressReporter
 from .resolver import ProfessorResolver
 from .settings import Settings
-from .source_catalog import IDENTITY_SOURCES, PAPER_SOURCES, PDF_SOURCES, WORK_LOOKUPS
+from .source_catalog import IDENTITY_SOURCES, PAPER_SOURCES, PDF_SOURCES, WEB_SEARCH, WORK_LOOKUPS
 from .workflow import PaperSearchWorkflow
 
 FULL_MODE = 'full'
@@ -126,7 +134,32 @@ class ServiceContainer:
             openalex_api_key=settings.credentials.openalex_api_key,
             semantic_scholar_api_key=settings.credentials.semantic_scholar_api_key,
             listed_sources=self.listed_work_sources,
+            discovery=self.discovery,
+            profile_links=self.profile_links,
+            discovery_config=settings.discovery,
         )
+
+    @cached_property
+    def profile_links(self) -> ProfileLinkParser:
+        return ProfileLinkParser(self.settings.profile_links)
+
+    @cached_property
+    def discovery(self) -> IdentityDiscovery:
+        """ORCID registry search, then the ORCID record's websites, then web search (when its key is set)."""
+        settings = self.settings
+        config = settings.discovery
+        if not config.enabled:
+            return IdentityDiscovery([])
+        ranker = PageRanker(config, settings.matching)
+        steps: list[Any] = []
+        if config.orcid_search:
+            steps.append(OrcidRegistrySearch(self.http_client, settings.sources, config, settings.matching))
+        if config.orcid_researcher_urls:
+            steps.append(OrcidResearcherUrls(self.http_client, ranker, settings.sources))
+        search = WEB_SEARCH.factory(config.web_search)(self) if config.web_search else None
+        if search is not None:
+            steps.append(WebPageSearch(search, ranker, config))
+        return IdentityDiscovery(steps)
 
     @cached_property
     def resolver(self) -> ProfessorResolver:
@@ -198,7 +231,7 @@ class ServiceContainer:
         token = settings.credentials.openreview_token
         if not settings.cs_sources.openreview or not token:
             return []
-        return [OpenReviewProfiles(self.http_client, token, settings.cs_sources, settings.matching)]
+        return [OpenReviewProfiles(self.http_client, token, settings.cs_sources, settings.matching, self.profile_links)]
 
     @cached_property
     def listed_work_retriever(self) -> ListedWorkRetriever | None:

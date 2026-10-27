@@ -22,6 +22,7 @@ from .listed_works import ATOM, AuthorMatcher, arxiv_entry_record
 from .logging_config import log_isolated_failure
 from .matching import best_similarity, institution_similarity, normalize, work_keys
 from .models import PaperSourceResult, ProfessorProfile
+from .profile_links import ProfileLinkParser
 
 logger = logging.getLogger(__name__)
 
@@ -100,9 +101,11 @@ class OpenReviewProfiles:
         token: str | None,
         config: CSSourcesConfig = DEFAULT_CS_SOURCES,
         matching: MatchingConfig = DEFAULT_MATCHING,
+        profile_links: ProfileLinkParser | None = None,
     ) -> None:
         self.client, self.token, self.config, self.matching = client, token, config, matching
         self.authors = AuthorMatcher(matching)
+        self.profile_links = profile_links or ProfileLinkParser()
 
     def works(self, query: Any) -> set[str]:
         if not self.token or not self.config.openreview:
@@ -121,7 +124,12 @@ class OpenReviewProfiles:
         return keys
 
     def profile_id(self, query: Any) -> str | None:
-        """The one profile with a compatible name and the requested institution in its history."""
+        """The caller's OpenReview link, else the one profile with a compatible name and the requested institution
+        in its history."""
+        links = self.profile_links.parse_all(getattr(query, 'links', list)())
+        supplied = next((link.identifier for link in links if link.source == self.name), None)
+        if supplied:
+            return supplied
         data = self._get('/profiles/search', {'fullname': query.name})
         universities = [query.university, *getattr(query, 'university_aliases', [])]
         matches = []
