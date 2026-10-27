@@ -144,6 +144,8 @@ class CuratedPositionTests(unittest.TestCase):
         verdict = BylineDisambiguator().choose(self.QUERY, scored)
         # 0.87 is outside the 0.05 contest band, inside the 0.1 curated band; 0.80 is outside both.
         self.assertEqual(verdict.index, 2)
+        # The DBLP profile whose own note settled it is handed on for paper ownership.
+        self.assertEqual(verdict.curated_author_ids, {'dblp': ['51/3710-5']})
 
     def test_two_records_in_the_department_leave_the_contest_open(self):
         unit = 'department of computer science and technology'
@@ -189,6 +191,8 @@ class CuratedPositionTests(unittest.TestCase):
         }
         verdict = self.choose([holder], [other], orcid_positions=records.__getitem__)
         self.assertEqual(verdict.index, 0)
+        # A position read from ORCID vouches for no source profile: an OpenAlex cluster is not curated.
+        self.assertEqual(verdict.curated_author_ids, {})
 
     def test_an_unreadable_rival_record_abstains(self):
         holder = self.dblp('a', self.at('department of computer science and technology'))

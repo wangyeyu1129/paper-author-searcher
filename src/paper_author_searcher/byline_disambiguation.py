@@ -23,7 +23,7 @@ they count (``minimum_works``).
 
 import logging
 from collections.abc import Callable, Sequence
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import IntEnum
 from typing import Any
 
@@ -59,6 +59,9 @@ class BylineVerdict:
 
     index: int
     note: str
+    # Author IDs whose own curated record (a DBLP note) placed the person there: paper ownership may trust them
+    # like an ORCID-anchored profile. Empty for byline verdicts and for positions read from ORCID.
+    curated_author_ids: dict[str, list[str]] = field(default_factory=dict)
 
 
 class BylineDisambiguator:
@@ -144,6 +147,7 @@ class BylineDisambiguator:
             positions = self._contest_positions(contest)
         except _Abstain:
             return None
+        groups = dict(contest) | dict(reach)
         for index, group in reach:
             positions[index] = [position for candidate in group for position in candidate.positions]
             departments[index] = self.evidence(query, group).department
@@ -161,10 +165,15 @@ class BylineDisambiguator:
             if self._bylines_favour_rival(winner, departments):
                 return None
             unit = query.department if level == PositionFit.DEPARTMENT else 'a broader unit'
+            curated: dict[str, list[str]] = {}
+            for candidate in groups[winner]:
+                if any(self.fit(position, query) == level for position in candidate.positions):
+                    curated.setdefault(candidate.source, []).append(candidate.author_id)
             return BylineVerdict(
                 winner,
                 f'Curated position: the only contender whose own record (DBLP note or ORCID) places it at '
                 f'{query.university} in {unit} now',
+                curated,
             )
         return None
 
