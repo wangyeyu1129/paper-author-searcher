@@ -228,6 +228,10 @@ class OwnershipConfig:
     history_anchor_kinds: tuple[str, ...] = ('orcid', 'profile')
     # A work on the person's own list (homepage or supplied ORCID) with a compatible byline is theirs.
     verify_listed_works: bool = True
+    # Sources whose author profiles are curated by people (DBLP disambiguates by hand), so an author ID there that
+    # the person's own ORCID anchors vouches for every paper listing it. Elsewhere a profile ORCID is set per
+    # merged cluster (OpenAlex's can be a namesake's) and is no paper-level evidence.
+    curated_orcid_sources: tuple[str, ...] = ('dblp',)
     # An identity listing more institutions than this is a merge of several people (OpenAlex filed many Wei Lus,
     # 89 institutions, under one ORCID-bearing author ID), so its history vouches for nobody.
     maximum_history_institutions: int = 12
