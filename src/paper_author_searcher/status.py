@@ -33,6 +33,8 @@ class AnchorKind(StrEnum):
 
     ORCID = 'orcid'
     PAPER = 'paper'
+    # A source profile link the caller supplied (its author ID, as given).
+    PROFILE = 'profile'
 
     @classmethod
     def from_reason(cls, reason: str) -> 'AnchorKind':

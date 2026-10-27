@@ -26,6 +26,7 @@ from .config import (
     DEFAULT_COLLECTION,
     DEFAULT_CS_SOURCES,
     DEFAULT_DEDUPLICATION,
+    DEFAULT_DISCOVERY,
     DEFAULT_DOWNLOAD,
     DEFAULT_HTTP,
     DEFAULT_LISTED_WORKS,
@@ -33,12 +34,14 @@ from .config import (
     DEFAULT_OWNERSHIP,
     DEFAULT_PDF,
     DEFAULT_PRECISION,
+    DEFAULT_PROFILE_LINKS,
     DEFAULT_SOURCES,
     DEFAULT_STORAGE,
     AnchorConfig,
     CollectionConfig,
     CSSourcesConfig,
     DeduplicationConfig,
+    DiscoveryConfig,
     DownloadConfig,
     HttpConfig,
     ListedWorksConfig,
@@ -46,6 +49,7 @@ from .config import (
     OwnershipConfig,
     PDFConfig,
     PrecisionGuardConfig,
+    ProfileLinkConfig,
     SourceConfig,
     StorageConfig,
 )
@@ -80,6 +84,10 @@ class Credentials:
     crossref_email: str | None = field(default=None, repr=False)
     # OpenReview's profile and note APIs refuse guests; a token of the operator's own account enables them.
     openreview_token: str | None = field(default=None, repr=False)
+    # Web search providers for homepage discovery; only the configured one is used.
+    brave_api_key: str | None = field(default=None, repr=False)
+    tavily_api_key: str | None = field(default=None, repr=False)
+    exa_api_key: str | None = field(default=None, repr=False)
 
     ENVIRONMENT: ClassVar[Mapping[str, str]] = {
         'openalex_api_key': 'OPENALEX_API_KEY',
@@ -87,6 +95,9 @@ class Credentials:
         'unpaywall_email': 'UNPAYWALL_EMAIL',
         'crossref_email': 'CROSSREF_MAILTO',
         'openreview_token': 'OPENREVIEW_TOKEN',
+        'brave_api_key': 'BRAVE_API_KEY',
+        'tavily_api_key': 'TAVILY_API_KEY',
+        'exa_api_key': 'EXA_API_KEY',
     }
 
     @classmethod
@@ -112,6 +123,8 @@ class Settings:
     precision: PrecisionGuardConfig = DEFAULT_PRECISION
     listed_works: ListedWorksConfig = DEFAULT_LISTED_WORKS
     cs_sources: CSSourcesConfig = DEFAULT_CS_SOURCES
+    profile_links: ProfileLinkConfig = DEFAULT_PROFILE_LINKS
+    discovery: DiscoveryConfig = DEFAULT_DISCOVERY
     deduplication: DeduplicationConfig = DEFAULT_DEDUPLICATION
     pdf: PDFConfig = DEFAULT_PDF
     download: DownloadConfig = DEFAULT_DOWNLOAD

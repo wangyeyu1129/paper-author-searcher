@@ -69,13 +69,27 @@ class ProfessorQuery:
     homepage: str | None = None
     email: str | None = None
     known_papers: list[str] = field(default_factory=list)
+    # A Google Scholar profile link, and any other profile links (ORCID, OpenAlex, Semantic Scholar, DBLP,
+    # OpenReview); see profile_links.ProfileLinkParser.
+    scholar_url: str | None = None
+    profile_urls: list[str] = field(default_factory=list)
+    # Further pages listing the person's publications (lab page, CV PDF), supplied or discovered.
+    publication_pages: list[str] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         if not self.name.strip() or not self.university.strip():
             raise ValueError('name and university are required')
 
     def has_hints(self) -> bool:
-        return bool(self.orcid or self.homepage or self.known_papers)
+        return bool(self.orcid or self.homepage or self.known_papers or self.links() or self.publication_pages)
+
+    def links(self) -> list[str]:
+        """Every supplied profile link, the Scholar link first."""
+        return list(dict.fromkeys(url for url in [self.scholar_url, *self.profile_urls] if url))
+
+    def pages(self) -> list[str]:
+        """Publication pages to read: the homepage first, then the others."""
+        return list(dict.fromkeys(url for url in [self.homepage, *self.publication_pages] if url))
 
 
 @dataclass(slots=True)
@@ -169,6 +183,8 @@ class ProfessorProfile(ValidatedStatuses):
     listed_works: list[str] = field(default_factory=list)
     # Collected contenders' author IDs, one mapping per contender, when the identity is unconfirmed.
     contender_ids: list[dict[str, list[str]]] = field(default_factory=list)
+    # What identity discovery found for the query (ORCID, pages and why); see identity_discovery.Discovery.
+    discovered: dict[str, Any] = field(default_factory=dict)
 
     def __post_init__(self) -> None:
         super().__post_init__()

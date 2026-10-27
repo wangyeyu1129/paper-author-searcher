@@ -3,14 +3,15 @@
 An anchor is independent of the name search, so it separates namesakes and ties split profiles together.
 """
 
+import logging
 import re
 from collections.abc import Iterable, Mapping, Sequence
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from html import unescape
 from typing import Any, Protocol
-from urllib.parse import quote
+from urllib.parse import quote, urljoin, urlsplit
 
-from .config import DEFAULT_ANCHORS, DEFAULT_MATCHING, DEFAULT_SOURCES
+from .config import DEFAULT_ANCHORS, DEFAULT_DISCOVERY, DEFAULT_MATCHING, DEFAULT_SOURCES
 from .evaluation_matching import bibliographic_name_agrees
 from .homepage_citations import (
     ARXIV_IN_TEXT,
@@ -23,11 +24,15 @@ from .homepage_citations import (
     PdfCitationParser,
     mentions,
 )
-from .html_support import decode_response
+from .html_support import LinkExtractor, decode_response
 from .http import HttpClient, SourceError
+from .identity_discovery import Discovery, NoDiscovery
 from .matching import ARXIV_DOI_PREFIX, canonical_doi, canonical_orcid, name_similarity, normalize, work_keys
 from .models import AnchorEvidence
+from .profile_links import ORCID_SOURCE, ProfileLink, ProfileLinkParser
 from .status import AnchorKind
+
+logger = logging.getLogger(__name__)
 
 # Added by the resolver itself when a candidate record carries the supplied ORCID; not an anchor-finder result.
 SUPPLIED_ORCID_REASON = 'ORCID matches the supplied ORCID'
@@ -42,6 +47,8 @@ class IdentityAnchors:
     errors: list[str] = field(default_factory=list)
     # Work keys (matching.work_keys) of every paper the person's own page lists, beyond the anchor budget.
     listed_works: list[str] = field(default_factory=list)
+    # What discovery found (identity_discovery.Discovery.to_dict), recorded so a replay can restore it.
+    discovered: dict[str, Any] = field(default_factory=dict)
 
     def add(
         self, source: str, author_id: str, reason: str, kind: AnchorKind = AnchorKind.PAPER, work: str = ''
@@ -71,6 +78,18 @@ class AnchorFinder(Protocol):
     def find(self, query) -> IdentityAnchors: ...
 
 
+class Discoverer(Protocol):
+    def discover(self, query) -> Discovery: ...
+
+
+@dataclass(frozen=True)
+class PageToRead:
+    url: str
+    # A page the caller supplied may be a personal page listing only the person's works; on a discovered page (and
+    # on a lab page) only the citations that name the person count.
+    strict: bool
+
+
 def paper_hints(values: list[str]) -> dict[str, list[str]]:
     """Split free-form known papers into DOIs, arXiv IDs and titles."""
     hints: dict[str, list[str]] = {'doi': [], 'arxiv': [], 'title': []}
@@ -95,9 +114,14 @@ def homepage_papers(html: str) -> list[str]:
     return list(dict.fromkeys(found))
 
 
+def own_citations(citations: list[HomepageCitation], name: str, strict: bool = False) -> list[HomepageCitation]:
+    """On a lab page only the citations naming the person are theirs; a supplied personal page lists only theirs."""
+    named = [citation for citation in citations if mentions(name, citation.text)]
+    return named if named or strict else citations
+
+
 def _listed_works(citations: list[HomepageCitation], name: str) -> set[str]:
-    """On a lab page only the citations naming the person are theirs; a personal page lists only theirs."""
-    own = [citation for citation in citations if mentions(name, citation.text)] or citations
+    own = own_citations(citations, name)
     keys: set[str] = set()
     for citation in own:
         keys |= work_keys(citation.dois, citation.arxiv_ids, citation.titles)
@@ -126,8 +150,14 @@ class ScholarlyAnchorFinder:
         citation_parser: CitationParser | None = None,
         ranker: CitationRanker | None = None,
         listed_sources: Sequence[ListedWorkSource] = (),
+        discovery: Discoverer | None = None,
+        profile_links: ProfileLinkParser | None = None,
+        discovery_config=DEFAULT_DISCOVERY,
     ) -> None:
         self.client = client
+        self.discovery = discovery or NoDiscovery()
+        self.profile_links = profile_links or ProfileLinkParser()
+        self.discovery_config = discovery_config
         self.citation_parser = citation_parser or HtmlCitationParser(anchor_config)
         self.reader = HomepageReader(self.citation_parser, PdfCitationParser(anchor_config))
         self.ranker = ranker or CitationRanker(anchor_config)
@@ -141,23 +171,39 @@ class ScholarlyAnchorFinder:
         self.semantic_scholar_key = semantic_scholar_api_key
 
     def find(self, query) -> IdentityAnchors:
-        anchors = IdentityAnchors(orcid=canonical_orcid(query.orcid) if query.orcid else None)
+        links = self.profile_links.parse_all(query.links())
+        supplied_orcid = query.orcid or next((link.identifier for link in links if link.source == ORCID_SOURCE), None)
+        if supplied_orcid and not query.orcid:
+            query = replace(query, orcid=supplied_orcid)
+        discovery = self.discovery.discover(query)
+        orcid = canonical_orcid(supplied_orcid) if supplied_orcid else discovery.orcid
+        anchors = IdentityAnchors(orcid=orcid, discovered=discovery.to_dict())
+        anchors.errors.extend(f'discovery {error}' for error in discovery.errors)
+        self._profile_anchors(anchors, links)
         if anchors.orcid:
             self._guard(anchors, self._by_orcid, query, anchors.orcid)
             if self.config.orcid_listed_works:
                 self._guard(anchors, self._orcid_works, query, anchors.orcid)
         hints = paper_hints(list(query.known_papers))
         page_titles: list[str] = []
-        if query.homepage:
+        pages = [PageToRead(url, strict=False) for url in query.pages()]
+        pages += [
+            PageToRead(page.url, strict=True)
+            for page in discovery.best_pages(self.discovery_config.maximum_pages)
+            if page.url not in query.pages()
+        ]
+        for page in pages:
             try:
-                citations = self.ranker.rank(self._read_citations(query.homepage), query.name)
+                citations = self.ranker.rank(self._read_page(page.url), query.name)
             except (SourceError, ValueError) as exc:
-                anchors.errors.append(f'homepage: {exc}')
-                citations = []
+                anchors.errors.append(f'page {page.url}: {exc}')
+                continue
+            if page.strict:
+                citations = own_citations(citations, query.name, strict=True)
             # The caller's own hints first, then the page's citations that name the person, then the rest.
             hints['doi'] = _merge(hints['doi'], [doi.lower() for item in citations for doi in item.dois])
             hints['arxiv'] = _merge(hints['arxiv'], [arxiv for item in citations for arxiv in item.arxiv_ids])
-            page_titles = _merge([title for item in citations for title in item.titles])
+            page_titles = _merge(page_titles, [title for item in citations for title in item.titles])
             anchors.listed_works = sorted(set(anchors.listed_works) | _listed_works(citations, query.name))
         for source in self.listed_sources:
             try:
@@ -184,11 +230,37 @@ class ScholarlyAnchorFinder:
         except SourceError as exc:
             anchors.errors.append(f'{value}: {exc}')
 
-    def _read_citations(self, url: str) -> list[HomepageCitation]:
+    def _profile_anchors(self, anchors: IdentityAnchors, links: list[ProfileLink]) -> None:
+        """A caller-supplied profile link of an author-ID source anchors that ID as given."""
+        for link in links:
+            if link.source in self.config.profile_anchor_sources:
+                anchors.add(link.source, link.identifier, 'profile link ' + link.url, AnchorKind.PROFILE)
+
+    def _read_page(self, url: str) -> list[HomepageCitation]:
+        """The page's citations, plus those of the publication list or CV it links to on the same site."""
+        citations, html = self._read_citations(url)
+        if html is None or not self.discovery_config.follow_publication_links:
+            return citations
+        for link in publication_links(html, url, self.discovery_config)[: self.discovery_config.maximum_followed_links]:
+            try:
+                citations += self._read_citations(link)[0]
+            except (SourceError, ValueError) as exc:
+                logger.debug('Publication link %s unreadable: %s', link, exc)
+        return citations
+
+    def _read_citations(self, url: str) -> tuple[list[HomepageCitation], str | None]:
+        """Citations of one page, and its HTML (None for a PDF) for link following."""
         # One limit for both kinds: an HTML page's text and a PDF CV's whole body.
         limit = self.config.homepage_bytes
         response = self.client.probe(url, limit, limit, self.config.maximum_redirects)
-        return self.reader.citations(response.content_type, response.prefix, lambda: decode_response(response))
+        decoded: list[str] = []
+
+        def decode() -> str:
+            decoded.append(decode_response(response))
+            return decoded[-1]
+
+        citations = self.reader.citations(response.content_type, response.prefix, decode)
+        return citations, decoded[-1] if decoded else None
 
     def _compatible(self, query, name: str | None) -> bool:
         if not name:
@@ -286,9 +358,12 @@ class RecordedAnchorFinder:
     """Replays the anchors an earlier run found, read from its saved identity, so an offline replay reproduces
     them without fetching homepages or anchor papers again."""
 
-    def __init__(self, evidence: Iterable[AnchorEvidence], listed_works: Iterable[str] = ()) -> None:
+    def __init__(
+        self, evidence: Iterable[AnchorEvidence], listed_works: Iterable[str] = (), discovered: Mapping | None = None
+    ) -> None:
         self.evidence = [item for item in evidence if item.reason != SUPPLIED_ORCID_REASON]
         self.listed_works = sorted(set(listed_works))
+        self.discovered = dict(discovered or {})
 
     @classmethod
     def from_identity(cls, identity: Mapping[str, Any]) -> 'RecordedAnchorFinder':
@@ -296,10 +371,14 @@ class RecordedAnchorFinder:
         recorded = [item for profile in profiles for item in (profile or {}).get('identity_anchors') or []]
         evidence = [AnchorEvidence.coerce(item) for item in recorded]
         listed = [key for profile in profiles for key in (profile or {}).get('listed_works') or []]
-        return cls(dict.fromkeys(evidence), listed)
+        discovered: Mapping[str, Any] = next(
+            (profile['discovered'] for profile in profiles if (profile or {}).get('discovered')), {}
+        )
+        return cls(dict.fromkeys(evidence), listed, discovered)
 
     def find(self, query) -> IdentityAnchors:
-        anchors = IdentityAnchors(orcid=canonical_orcid(query.orcid) if query.orcid else None)
+        orcid = query.orcid or self.discovered.get('orcid')
+        anchors = IdentityAnchors(orcid=canonical_orcid(orcid) if orcid else None, discovered=dict(self.discovered))
         for item in self.evidence:
             anchors.add(item.source, item.author_id, item.reason, item.kind, item.work)
         anchors.listed_works = list(self.listed_works)
@@ -309,3 +388,21 @@ class RecordedAnchorFinder:
 class NoAnchors:
     def find(self, query) -> IdentityAnchors:
         return IdentityAnchors()
+
+
+def publication_links(html: str, base_url: str, config=DEFAULT_DISCOVERY) -> list[str]:
+    """Same-site links whose text or path names a publication list or CV, in page order."""
+    extractor = LinkExtractor()
+    extractor.feed(html)
+    extractor.close()
+    host = urlsplit(base_url).hostname
+    markers = tuple(normalize(marker) for marker in config.publication_markers)
+    found = []
+    for link in extractor.links:
+        url = urljoin(base_url, str(link.get('href') or '')).split('#', 1)[0]
+        parts = urlsplit(url)
+        label = normalize(f'{link.get("text") or ""} {parts.path}')
+        same_site = parts.scheme in ('http', 'https') and parts.hostname == host and url != base_url
+        if same_site and any(marker in label.split() or marker in parts.path.lower() for marker in markers):
+            found.append(url)
+    return list(dict.fromkeys(found))

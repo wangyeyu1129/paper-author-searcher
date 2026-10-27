@@ -28,6 +28,7 @@ from .pdf_providers import (
 from .pdf_public_pages import PublicPagePDFProvider
 from .providers import DBLPProvider, OpenAlexProvider, SemanticScholarProvider
 from .registry import Registry
+from .web_search import BraveSearch, ExaSearch, TavilySearch, WebSearch
 
 IDENTITY_SOURCES: Registry[Any] = Registry('identity source')
 # Paper collectors are keyed by the identity source whose author IDs they page through.
@@ -35,6 +36,8 @@ PAPER_SOURCES: Registry[PaperProvider] = Registry('paper source')
 PDF_SOURCES: Registry[Any] = Registry('PDF source')
 # Sources a listed work missing from the collection is looked up in, in the order ListedWorksConfig.sources gives.
 WORK_LOOKUPS: Registry[WorkLookup] = Registry('work lookup')
+# Web search providers for homepage discovery (DiscoveryConfig.web_search); a factory returns None without its key.
+WEB_SEARCH: Registry[WebSearch | None] = Registry('web search')
 
 
 @IDENTITY_SOURCES.register('openalex')
@@ -168,3 +171,21 @@ def _arxiv_lookup(container: Any) -> ArxivWorkLookup:
     return ArxivWorkLookup(
         container.http_client, settings.sources.arxiv_url, settings.listed_works, AuthorMatcher(settings.matching)
     )
+
+
+@WEB_SEARCH.register('brave')
+def _brave(container: Any) -> BraveSearch | None:
+    key = container.settings.credentials.brave_api_key
+    return BraveSearch(container.http_client, container.settings.discovery.brave_url, key) if key else None
+
+
+@WEB_SEARCH.register('tavily')
+def _tavily(container: Any) -> TavilySearch | None:
+    key = container.settings.credentials.tavily_api_key
+    return TavilySearch(container.http_client, container.settings.discovery.tavily_url, key) if key else None
+
+
+@WEB_SEARCH.register('exa')
+def _exa(container: Any) -> ExaSearch | None:
+    key = container.settings.credentials.exa_api_key
+    return ExaSearch(container.http_client, container.settings.discovery.exa_url, key) if key else None
