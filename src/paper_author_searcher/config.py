@@ -429,10 +429,12 @@ class DblpDumpConfig:
     kept_fields: tuple[str, ...] = ('author', 'editor', 'title', 'year', 'journal', 'booktitle', 'ee', 'volume')
     # Rows written per transaction while building.
     batch_size: int = 50000
+    # zlib level for the stored XML (1 fastest .. 9 smallest).
+    compression_level: int = 6
 
     def __post_init__(self) -> None:
-        if self.batch_size < 1:
-            raise ValueError('batch_size must be positive')
+        if self.batch_size < 1 or not 1 <= self.compression_level <= 9:
+            raise ValueError('batch_size must be positive and compression_level between 1 and 9')
 
 
 DEFAULT_DBLP_DUMP = DblpDumpConfig()
