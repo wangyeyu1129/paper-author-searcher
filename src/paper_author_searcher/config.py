@@ -718,10 +718,14 @@ class PDFConfig:
         'semantic_scholar',
         'crossref',
         'unpaywall',
+        'europepmc',
         'arxiv',
         'journal_catalog',
         'public_pages',
     )
+    # Europe PMC full-text links accepted as PDFs: availability codes for open access ("OA") and free to read
+    # ("F", e.g. a PubMed Central copy under a funder mandate). Subscription links ("S") are never followed.
+    europepmc_free_codes: tuple[str, ...] = ('OA', 'F')
     bibliography_urls: tuple[str, ...] = ()
     journal_catalogs: tuple[tuple[str, str], ...] = (
         ('Journal of Machine Learning Research', 'https://jmlr.org/papers/'),

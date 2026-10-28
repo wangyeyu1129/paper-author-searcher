@@ -29,6 +29,7 @@ from .pdf_catalogs import JournalCatalogPDFProvider
 from .pdf_crossref import CrossrefPDFProvider
 from .pdf_providers import (
     ArxivPDFProvider,
+    EuropePMCPDFProvider,
     ExistingPDFProvider,
     OpenAlexPDFProvider,
     SemanticScholarPDFProvider,
@@ -138,6 +139,11 @@ def _crossref_pdf(container: Any) -> CrossrefPDFProvider:
 def _unpaywall_pdf(container: Any) -> UnpaywallPDFProvider:
     email = container.options.unpaywall_email or container.settings.credentials.unpaywall_email
     return UnpaywallPDFProvider(container.resource_requests, email, container.pdf_config)
+
+
+@PDF_SOURCES.register('europepmc')
+def _europepmc_pdf(container: Any) -> EuropePMCPDFProvider:
+    return EuropePMCPDFProvider(container.resource_requests, container.settings.sources, container.pdf_config)
 
 
 @PDF_SOURCES.register('arxiv')

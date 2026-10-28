@@ -9,6 +9,7 @@ from paper_author_searcher.pacing import RequestPacer
 from paper_author_searcher.pdf_identity import arxiv_id, metadata_identity
 from paper_author_searcher.pdf_providers import (
     ArxivPDFProvider,
+    EuropePMCPDFProvider,
     ExistingPDFProvider,
     LandingPagePDFProvider,
     OpenAlexPDFProvider,
@@ -201,6 +202,45 @@ class ProviderTests(unittest.TestCase):
         self.assertEqual(len(result.candidates), 1)
         self.assertEqual(result.candidates[0].version_type, 'published_version')
         self.assertEqual(client.get.call_args[1]['params']['email'], 'person@example.edu')
+
+    def test_europepmc_offers_only_free_pdf_links(self):
+        client = Mock()
+        client.get.return_value = {
+            'resultList': {
+                'result': [
+                    {
+                        'doi': paper()['doi'],
+                        'title': paper()['title'],
+                        'pmcid': 'PMC11194069',
+                        'fullTextUrlList': {
+                            'fullTextUrl': [
+                                {'documentStyle': 'doi', 'availabilityCode': 'S', 'url': 'https://doi.org/x'},
+                                {'documentStyle': 'pdf', 'availabilityCode': 'S', 'url': 'https://pub.example/pdf'},
+                                {'documentStyle': 'html', 'availabilityCode': 'F', 'url': 'https://epmc/PMC1'},
+                                {
+                                    'documentStyle': 'pdf',
+                                    'availabilityCode': 'F',
+                                    'availability': 'Free',
+                                    'site': 'Europe_PMC',
+                                    'url': 'https://europepmc.org/articles/PMC11194069?pdf=render',
+                                },
+                            ]
+                        },
+                    }
+                ]
+            }
+        }
+        result = EuropePMCPDFProvider(client).find(paper())
+        self.assertEqual(
+            [candidate.url for candidate in result.candidates],
+            ['https://europepmc.org/articles/PMC11194069?pdf=render'],
+        )
+        self.assertEqual(result.candidates[0].identity_status, 'verified')
+        self.assertEqual(client.get.call_args[1]['params']['query'], 'DOI:"10.1234/example"')
+
+    def test_europepmc_needs_a_doi(self):
+        saved = dict(paper(), doi=None, records=[])
+        self.assertEqual(EuropePMCPDFProvider(Mock()).find(saved).status, 'not_applicable')
 
     def test_arxiv_reads_returned_link_and_version(self):
         saved = paper()
