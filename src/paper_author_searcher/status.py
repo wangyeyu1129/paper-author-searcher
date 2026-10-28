@@ -168,6 +168,7 @@ class AttemptStatus(StrEnum):
     FAILED = 'failed'
     IDENTITY_MISMATCH = 'identity_mismatch'
     NON_FULL_DOCUMENT = 'non_full_document'
+    UNCONFIRMED_CONTENT = 'unconfirmed_content'
 
 
 class CacheStatus(StrEnum):
