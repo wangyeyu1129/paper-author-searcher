@@ -27,6 +27,7 @@ from typing import IO, Any
 from urllib.parse import urlsplit
 
 from .config import DEFAULT_DBLP_DUMP, DEFAULT_SOURCES, DblpDumpConfig, SourceConfig
+from .dblp_format import ARXIV_LINK, base_name
 from .http import SourceError
 from .listed_works import AuthorMatcher
 from .matching import canonical_arxiv, normalize, work_keys
@@ -34,8 +35,6 @@ from .models import PaperRecord, ProfessorProfile
 from .paper_providers import dblp_record
 
 HOMEPAGES = 'homepages/'
-HOMONYM_SUFFIX = re.compile(r'\s+\d{4}$')
-ARXIV_LINK = re.compile(r'arxiv\.org/abs/([^\s?#]+)', re.IGNORECASE)
 # SQLite allows 999 bound parameters per statement in older builds.
 PARAMETER_CHUNK = 900
 
@@ -63,11 +62,6 @@ PEOPLE_TAGS = ('author', 'editor')
 def digest(text: str) -> int:
     """A signed 64-bit hash (SQLite's INTEGER range) of a name or work key."""
     return int.from_bytes(hashlib.blake2b(text.encode('utf-8'), digest_size=8).digest(), 'big', signed=True)
-
-
-def base_name(name: str) -> str:
-    """The printed name without DBLP's homonym number."""
-    return HOMONYM_SUFFIX.sub('', name.strip())
 
 
 def name_key(name: str) -> str:

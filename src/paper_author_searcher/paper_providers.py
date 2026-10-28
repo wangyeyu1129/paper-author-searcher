@@ -6,6 +6,7 @@ from abc import ABC, abstractmethod
 from typing import Any, ClassVar, Protocol
 
 from .config import DEFAULT_COLLECTION, CollectionConfig
+from .dblp_format import arxiv_ids, base_name, plain_title
 from .http import SourceError
 from .logging_config import log_isolated_failure
 from .matching import canonical_doi
@@ -419,7 +420,7 @@ def dblp_record(record: ET.Element, author_id: str, base_url: str) -> PaperRecor
     verified = False
     for author in record.findall('author'):
         if author.text:
-            authors.append(author.text)
+            authors.append(base_name(author.text))
         if author.get('pid') == author_id:
             verified = True
     references = []
@@ -429,8 +430,12 @@ def dblp_record(record: ET.Element, author_id: str, base_url: str) -> PaperRecor
             references.append(reference.text)
             if 'doi.org/' in reference.text:
                 doi = doi_value(reference.text)
-    title = text_content(record, 'title')
+    title = plain_title(text_content(record, 'title') or '')
     paper_id = record.get('key')
+    external_ids = {'dblp': paper_id or ''}
+    arxiv = arxiv_ids(references)
+    if arxiv:
+        external_ids['arxiv'] = arxiv[0]
     venue = text_content(record, 'journal') or text_content(record, 'booktitle')
     editor_only = not record.findall('author') and bool(record.findall('editor'))
     return PaperRecord(
@@ -446,10 +451,10 @@ def dblp_record(record: ET.Element, author_id: str, base_url: str) -> PaperRecor
         paper_url=references[0] if references else base_url + '/rec/' + (paper_id or ''),
         publication_type=record.tag,
         author_details=[
-            {'name': author.text, 'author_id': author.get('pid'), 'role': 'author'}
+            {'name': base_name(author.text or ''), 'author_id': author.get('pid'), 'role': 'author'}
             for author in record.findall('author')
         ],
-        external_ids={'dblp': paper_id or ''},
+        external_ids=external_ids,
         raw_metadata={'xml': ET.tostring(record, encoding='unicode')},
         target_author_present=False if editor_only else True if verified else None,
         attribution_evidence=[] if verified else ['Target PID absent from author metadata'],
