@@ -522,6 +522,10 @@ class DiscoveryConfig:
     orcid_require_department: bool = True
     # The registry's researcher URLs (personal websites) of the supplied or discovered ORCID become candidate pages.
     orcid_researcher_urls: bool = True
+    # With a local DBLP index: the one name-compatible DBLP profile whose own note places the person at the
+    # requested school and department (curated_positions) gives its homepage URLs and its ORCID. Two such profiles,
+    # or none, give nothing. Needs a requested department.
+    dblp_profiles: bool = True
     # Web search provider registered in source_catalog.WEB_SEARCH ('brave', 'tavily', 'exa'); empty disables it.
     # Each provider needs its key (BRAVE_API_KEY, TAVILY_API_KEY, EXA_API_KEY); without it the step is skipped.
     web_search: str = 'brave'
@@ -540,6 +544,7 @@ class DiscoveryConfig:
     weight_publication_page: float = 0.15
     weight_academic_host: float = 0.10
     weight_orcid_listed: float = 0.50
+    weight_dblp_listed: float = 0.50
     # Hosts that never are a person's own page (profiles aggregated by others, social networks, search engines).
     excluded_hosts: tuple[str, ...] = (
         'researchgate.net',
@@ -557,6 +562,15 @@ class DiscoveryConfig:
         'ratemyprofessors.com',
         'zoominfo.com',
         'rocketreach.co',
+        # Profile and index sites a DBLP record links besides the person's homepage.
+        'openreview.net',
+        'ams.org',
+        'acm.org',
+        'scopus.com',
+        'zbmath.org',
+        'wikidata.org',
+        'mathgenealogy.org',
+        'github.com',
     )
     academic_host_suffixes: tuple[str, ...] = ('.edu', '.ac.uk', '.edu.cn', '.ac.jp', '.ac.kr', '.edu.au', 'github.io')
     publication_markers: tuple[str, ...] = ('publication', 'papers', 'research', 'cv', 'vita', 'bibliography')

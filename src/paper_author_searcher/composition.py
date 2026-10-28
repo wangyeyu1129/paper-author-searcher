@@ -15,6 +15,8 @@ from .byline_disambiguation import BylineDisambiguator
 from .config import CollectionConfig, DownloadConfig, PDFConfig
 from .contender_adjudication import DepartmentAdjudicator
 from .cs_sources import OpenReviewProfiles
+from .curated_positions import PositionMatcher
+from .dblp_discovery import DblpProfileDiscovery
 from .dblp_dump import DblpDumpIndex
 from .homepage_citations import DocumentParser, HtmlCitationParser, PdfCitationParser
 from .http import HttpClient
@@ -220,15 +222,21 @@ class ServiceContainer:
 
     @cached_property
     def discovery(self) -> IdentityDiscovery:
-        """ORCID registry search, then the ORCID record's websites, then web search (when its key is set)."""
+        """The person's DBLP profile (local index), ORCID registry search, then the ORCID record's websites, then
+        web search (when its key is set)."""
         settings = self.settings
         config = settings.discovery
         if not config.enabled:
             return IdentityDiscovery([])
         ranker = PageRanker(config, settings.matching)
+        departments = DepartmentMatcher(settings.precision)
         steps: list[Any] = []
+        dblp = next((provider for provider in self.identity_providers if provider.name == 'dblp'), None)
+        # Only from the local index: the DBLP API refuses automated clients.
+        if config.dblp_profiles and dblp is not None and self.dblp_index is not None:
+            positions = PositionMatcher(settings.disambiguation, settings.matching, departments)
+            steps.append(DblpProfileDiscovery(dblp, positions, ranker, settings.matching))
         if config.orcid_search:
-            departments = DepartmentMatcher(settings.precision)
             steps.append(
                 OrcidRegistrySearch(self.http_client, settings.sources, config, settings.matching, departments.agree)
             )

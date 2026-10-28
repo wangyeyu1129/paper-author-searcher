@@ -127,6 +127,8 @@ class AuthorCandidate:
     bylines: list[tuple[str, ...]] = field(default_factory=list)
     # Positions from the profile's own curated record (DBLP notes); byline_disambiguation reads them.
     positions: list[CuratedPosition] = field(default_factory=list)
+    # Other web pages the profile's own record links (DBLP person URLs: homepages, profiles elsewhere).
+    links: list[str] = field(default_factory=list)
 
 
 @dataclass(frozen=True, order=True, slots=True)

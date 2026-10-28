@@ -125,6 +125,7 @@ class ProviderTests(unittest.TestCase):
                     <author>Alex E. Morgan</author>
                     <note type="affiliation">Example University</note>
                     <url>https://orcid.org/fixture-orcid</url>
+                    <url>https://example.edu/~morgan/</url>
                 </person>
                 <r><article>
                     <title>A <i>sample</i> paper</title>
@@ -136,6 +137,7 @@ class ProviderTests(unittest.TestCase):
         record = DBLPProvider(client).search(self.query)[0]
         self.assertEqual(record.author_id, 'example/author')
         self.assertEqual(record.affiliations, ['Example University'])
+        self.assertEqual(record.links, ['https://example.edu/~morgan/'])
         self.assertEqual(record.topics, ['A sample paper'])
         self.assertEqual(record.paper_ids, ['doi:10.example/abc'])
 
