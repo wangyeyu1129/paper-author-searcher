@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any, Protocol
 
 from paper_author_searcher.composition import RunOptions, ServiceContainer
+from paper_author_searcher.evaluation_matching import GroundTruth, GroundTruthMatcher
 from paper_author_searcher.identity_anchors import AnchorFinder, RecordedAnchorFinder
 from paper_author_searcher.jsonio import read_json, write_json
 from paper_author_searcher.settings import load_settings
@@ -15,6 +16,7 @@ from paper_author_searcher.status import RunStatus
 from paper_author_searcher.workflow import PaperSearchWorkflow
 
 from .roster import BenchmarkPerson
+from .scoring import load_truth
 from .settings import BenchmarkSettings, RunSettings
 
 logger = logging.getLogger(__name__)
@@ -58,6 +60,23 @@ def window_archive(archive: dict, window: tuple[int, int]) -> dict:
         'kept': len(kept),
         'collected': len(papers),
     }
+    return restricted
+
+
+def truth_archive(archive: dict, truth: dict) -> dict:
+    """Keep collected papers that match a truth entry (any label); decisions are untouched."""
+    matcher = GroundTruthMatcher(GroundTruth.from_dict(dict(truth, complete_positive_list=False)))
+    restricted = dict(archive)
+    collection = restricted
+    if isinstance(restricted.get('collection'), dict):
+        collection = restricted['collection'] = dict(restricted['collection'])
+    papers = collection.get('all_papers', collection.get('papers')) or []
+    kept = [paper for paper in papers if matcher.match(paper).candidates]
+    collection['all_papers'] = kept
+    collection['papers'] = kept
+    scope = dict(collection.get('benchmark_pdf_scope') or {})
+    scope.update(truth_matched=len(kept))
+    collection['benchmark_pdf_scope'] = scope
     return restricted
 
 
@@ -126,12 +145,11 @@ class WorkflowSearchSystem:
         archive = read_json(Path(report['output_directory']) / report['artifacts']['papers'])
         if report.get('identity'):
             archive.setdefault('identity_archive', report['identity'])
-        fulltext = self._run(
-            self.run_settings,
-            Path(output_dir) / 'fulltext',
-            anchor_finder,
-            saved=window_archive(archive, (start - tolerance, end + tolerance)),
-        )
+        scoped = window_archive(archive, (start - tolerance, end + tolerance))
+        if self.run_settings.fulltext_scope == 'truth':
+            truth = load_truth(settings, person.person_id)
+            scoped = truth_archive(scoped, truth) if truth is not None else scoped
+        fulltext = self._run(self.run_settings, Path(output_dir) / 'fulltext', anchor_finder, saved=scoped)
         report['fulltext_report'] = fulltext['output_directory']
         report['fulltext_status'] = fulltext.get('run_status')
         return report
