@@ -67,6 +67,35 @@ class ContentIdentityTests(unittest.TestCase):
         self.assertEqual(identity, 'verified')
         self.assertEqual(dois, ['10.1234/example'])
 
+    def test_a_label_glued_to_the_doi_is_not_part_of_it(self):
+        saved = dict(target(), doi='10.1101/2023.12.14.571777')
+        identity, dois, _ = content_identity(saved, [saved['title']], [], '10.1101/2023.12.14.571777doi: bioRxiv', '')
+        self.assertEqual(identity, 'verified')
+        self.assertEqual(dois, ['10.1101/2023.12.14.571777'])
+
+    def test_the_works_arxiv_edition_counts_as_its_identifier(self):
+        saved = dict(target(), doi='10.18653/v1/2025.findings-acl.1254', arxiv_ids=['2410.05613'])
+        by_doi = content_identity(saved, [saved['title']], [], 'DOI: 10.48550/arXiv.2410.05613', '')
+        self.assertEqual(by_doi[0], 'verified')
+        self.assertTrue(any('arXiv identifier' in line for line in by_doi[2]))
+        stamped = content_identity(saved, [saved['title']], [], 'arXiv:2410.05613v2 [cs.CL] 3 Oct 2024', '')
+        self.assertEqual(stamped[0], 'verified')
+
+    def test_another_works_arxiv_identifier_still_conflicts(self):
+        saved = dict(target(), arxiv_ids=['2410.05613'])
+        identity, _, evidence = content_identity(saved, [saved['title']], [], 'DOI: 10.48550/arXiv.2401.00001', '')
+        self.assertEqual(identity, 'needs_review')
+        self.assertTrue(any('DOI differs' in line for line in evidence))
+
+    def test_validation_target_carries_the_works_arxiv_ids(self):
+        paper = dict(target(), external_ids={'arxiv': '2410.05613'}, source='dblp', source_paper_id='x')
+        self.assertEqual(validation_target(paper)['arxiv_ids'], ['2410.05613'])
+
+    def test_validation_target_carries_related_editions_arxiv_ids(self):
+        related = [{'identifiers': [{'source': 'dblp', 'paper_id': 'x', 'doi': '10.48550/arxiv.2410.05613'}]}]
+        paper = dict(target(), paper_metadata={'related_versions': related})
+        self.assertEqual(validation_target(paper)['arxiv_ids'], ['2410.05613'])
+
     def test_balanced_parentheses_inside_doi_preserved(self):
         saved = dict(target(), doi='10.1234/(abc)')
         identity, dois, evidence = content_identity(saved, [saved['title']], [], 'DOI: 10.1234/(abc).', '')

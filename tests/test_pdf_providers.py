@@ -9,8 +9,10 @@ from paper_author_searcher.pacing import RequestPacer
 from paper_author_searcher.pdf_identity import arxiv_id, metadata_identity
 from paper_author_searcher.pdf_providers import (
     ArxivPDFProvider,
+    EuropePMCPDFProvider,
     ExistingPDFProvider,
     LandingPagePDFProvider,
+    OpenAIREPDFProvider,
     OpenAlexPDFProvider,
     SemanticScholarPDFProvider,
     UnpaywallPDFProvider,
@@ -201,6 +203,76 @@ class ProviderTests(unittest.TestCase):
         self.assertEqual(len(result.candidates), 1)
         self.assertEqual(result.candidates[0].version_type, 'published_version')
         self.assertEqual(client.get.call_args[1]['params']['email'], 'person@example.edu')
+
+    def test_europepmc_offers_only_free_pdf_links(self):
+        client = Mock()
+        client.get.return_value = {
+            'resultList': {
+                'result': [
+                    {
+                        'doi': paper()['doi'],
+                        'title': paper()['title'],
+                        'pmcid': 'PMC11194069',
+                        'fullTextUrlList': {
+                            'fullTextUrl': [
+                                {'documentStyle': 'doi', 'availabilityCode': 'S', 'url': 'https://doi.org/x'},
+                                {'documentStyle': 'pdf', 'availabilityCode': 'S', 'url': 'https://pub.example/pdf'},
+                                {'documentStyle': 'html', 'availabilityCode': 'F', 'url': 'https://epmc/PMC1'},
+                                {
+                                    'documentStyle': 'pdf',
+                                    'availabilityCode': 'F',
+                                    'availability': 'Free',
+                                    'site': 'Europe_PMC',
+                                    'url': 'https://europepmc.org/articles/PMC11194069?pdf=render',
+                                },
+                            ]
+                        },
+                    }
+                ]
+            }
+        }
+        result = EuropePMCPDFProvider(client).find(paper())
+        self.assertEqual(
+            [candidate.url for candidate in result.candidates],
+            ['https://europepmc.org/articles/PMC11194069?pdf=render'],
+        )
+        self.assertEqual(result.candidates[0].identity_status, 'verified')
+        self.assertEqual(client.get.call_args[1]['params']['query'], 'DOI:"10.1234/example"')
+
+    def test_europepmc_needs_a_doi(self):
+        saved = dict(paper(), doi=None, records=[])
+        self.assertEqual(EuropePMCPDFProvider(Mock()).find(saved).status, 'not_applicable')
+
+    def test_openaire_offers_pdf_files_and_passes_on_landing_pages(self):
+        client = Mock()
+        client.get.return_value = {
+            'results': [
+                {
+                    'mainTitle': paper()['title'],
+                    'bestAccessRight': {'label': 'OPEN'},
+                    'instances': [
+                        {'urls': ['https://repo.example.edu/item/1', 'https://repo.example.edu/item/1/file.PDF']},
+                        {'urls': ['ftp://old.example/file.pdf', None]},
+                    ],
+                }
+            ]
+        }
+        result = OpenAIREPDFProvider(client).find(paper())
+        self.assertEqual(
+            [candidate.url for candidate in result.candidates], ['https://repo.example.edu/item/1/file.PDF']
+        )
+        self.assertEqual(
+            [page['landing_page_url'] for page in result.landing_pages], ['https://repo.example.edu/item/1']
+        )
+        self.assertEqual(client.get.call_args[1]['params'], {'pid': '10.1234/example'})
+
+    def test_openaire_ignores_works_it_does_not_rate_open(self):
+        client = Mock()
+        client.get.return_value = {
+            'results': [{'bestAccessRight': {'label': 'CLOSED'}, 'instances': [{'urls': ['https://x.edu/a.pdf']}]}]
+        }
+        result = OpenAIREPDFProvider(client).find(paper())
+        self.assertEqual((result.candidates, result.landing_pages), ([], []))
 
     def test_arxiv_reads_returned_link_and_version(self):
         saved = paper()

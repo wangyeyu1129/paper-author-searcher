@@ -13,11 +13,11 @@ from typing import Any
 
 from .config import DEFAULT_DOWNLOAD, DownloadConfig
 from .http import has_pdf_signature
-from .matching import canonical_doi, normalize
+from .matching import arxiv_from_doi, canonical_arxiv, canonical_doi, normalize
 from .models import PDFFileValidation
 from .pdf_document_types import NON_FULL_DOCUMENTS, classify_document
 from .pdf_front_matter import authors_present, front_matter, metadata_title_kind, publication_years, title_in_region
-from .pdf_identity import metadata_identity
+from .pdf_identity import edition_arxiv_ids, metadata_identity
 from .status import FormatStatus, IdentityStatus, PDFValidationStatus
 
 logger = logging.getLogger(__name__)
@@ -26,6 +26,8 @@ logger = logging.getLogger(__name__)
 def validation_target(paper, candidate=None):
     """Preserve publisher bylines only after the URL's citation metadata was bound."""
     target = {key: paper.get(key) for key in ('title', 'authors', 'year', 'doi')}
+    # Another edition of the same work (its arXiv preprint) prints the arXiv identifier, not the venue DOI.
+    target['arxiv_ids'] = edition_arxiv_ids(paper)
     target['pdf_version_type'] = candidate.get('version_type') if candidate else None
     target['venue'] = paper.get('venue') or (paper.get('paper_metadata') or {}).get('venue')
     variants = []
@@ -92,15 +94,21 @@ def content_identity(paper, titles, title_regions, text, author_metadata, config
         title_match = title_match or title_in_region(paper.get('title') or '', region)
     observed_dois = set()
     for value in re.findall(r'10\.\d{4,9}/[^\s<>"\']+', text, flags=re.IGNORECASE):
-        observed_dois.add(canonical_doi(_clean_extracted_doi(value))[len('doi:') :])
+        observed_dois.add(canonical_doi(_clean_extracted_doi(value, config.doi_glued_labels))[len('doi:') :])
     expected_doi = canonical_doi(paper['doi'])[len('doi:') :] if paper.get('doi') else None
-    doi_match = bool(expected_doi and expected_doi in observed_dois)
+    # The work's own editions: its DOI, and its arXiv preprint (printed as an arXiv DOI or as "arXiv:ID").
+    editions = {canonical_arxiv(value) for value in paper.get('arxiv_ids') or []} - {None}
+    observed_editions = {arxiv_from_doi(doi) for doi in observed_dois} | set(_printed_arxiv_ids(text))
+    edition_match = bool(editions & observed_editions)
+    doi_match = bool(expected_doi and expected_doi in observed_dois) or edition_match
     title_conflict = 'conflicting' in metadata_kinds
     evidence = []
     if title_match:
         evidence.append('Expected normalized title occurs in PDF title metadata or the first-page title region')
-    if doi_match:
+    if doi_match and not edition_match:
         evidence.append('Target DOI found in the downloaded PDF front matter/metadata')
+    if edition_match:
+        evidence.append("The work's own arXiv identifier is printed in the PDF (an edition of the same work)")
     if title_conflict:
         evidence.append('PDF title metadata differs from the target; content association remains conservative')
     if 'technical' in metadata_kinds:
@@ -134,7 +142,21 @@ def content_identity(paper, titles, title_regions, text, author_metadata, config
     return IdentityStatus.NEEDS_REVIEW, sorted(observed_dois), evidence
 
 
-def _clean_extracted_doi(value):
+def _printed_arxiv_ids(text):
+    """arXiv identifiers printed as "arXiv:2408.15126v6" (the preprint's margin stamp or citation line)."""
+    found = re.findall(r'arxiv\s*:\s*(\d{4}\.\d{4,5})(?:v\d+)?', text, flags=re.IGNORECASE)
+    return [identifier for identifier in (canonical_arxiv(value) for value in found) if identifier]
+
+
+def _clean_extracted_doi(value, glued_labels=()):
+    value = _strip_trailing_punctuation(value)
+    for label in glued_labels:
+        if len(value) > len(label) and value.lower().endswith(label) and value[-len(label) - 1].isdigit():
+            return _strip_trailing_punctuation(value[: -len(label)])
+    return value
+
+
+def _strip_trailing_punctuation(value):
     pairs = {')': '(', ']': '[', '}': '{'}
     while value:
         last = value[-1]
@@ -285,6 +307,7 @@ class PDFFileValidator:
                 'authors',
                 'year',
                 'doi',
+                'arxiv_ids',
                 'venue',
                 'publisher_author_variants',
                 'pdf_version_type',

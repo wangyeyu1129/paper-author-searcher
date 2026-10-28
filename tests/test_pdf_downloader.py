@@ -60,6 +60,39 @@ def fake_client(body=b'%PDF-synthetic-fixture'):
     return client
 
 
+def two_copies():
+    """A PMC rendering the validator cannot confirm, then an arXiv copy it can."""
+    paper = target()
+    paper['best_pdf_url'] = 'https://europepmc.org/render'
+    paper['pdf_candidates'] = [
+        dict(paper['pdf_candidates'][0], url='https://europepmc.org/render', source='europepmc'),
+        dict(paper['pdf_candidates'][0], url='https://arxiv.org/pdf/1', source='arxiv'),
+    ]
+    return paper
+
+
+def per_url_client():
+    client = Mock()
+
+    def transfer(url, path, config):
+        body = b'%PDF-' + url.encode()
+        path.write_bytes(body)
+        return DownloadReceipt(url, 200, 'application/pdf', len(body), hashlib.sha256(body).hexdigest())
+
+    client.stream_pdf.side_effect = transfer
+    return client
+
+
+def content_validator(confirmed=b'arxiv'):
+    def validate(path, paper):
+        status = 'verified' if confirmed in Path(path).read_bytes() else 'needs_review'
+        return PDFFileValidation(format_status='valid', identity_status=status, validation_status=status, page_count=1)
+
+    validator = Mock()
+    validator.validate.side_effect = validate
+    return validator
+
+
 class FilenameTests(unittest.TestCase):
     def test_portable_filename_removes_invalid_characters(self):
         paper = dict(target(), title='../CON: A/B\\C*D?E|F"G<>\x00\u202e')
@@ -237,6 +270,29 @@ class DownloaderTests(unittest.TestCase):
         self.assertEqual(entry['format_status'], 'not_checked')
         self.assertEqual(entry['validation_status'], 'not_checked')
         self.assertEqual(entry['download_status'], 'failed')
+
+    def test_unconfirmed_file_falls_back_to_a_confirmable_copy(self):
+        downloader = PDFDownloader(per_url_client(), content_validator())
+        entry = downloader.download({'papers': [two_copies()]}, self.root)['papers'][0]
+        self.assertEqual(entry['validation_status'], 'verified')
+        self.assertEqual(entry['pdf_source'], 'arxiv')
+        self.assertEqual([attempt['status'] for attempt in entry['attempts']], ['unconfirmed_content', 'completed'])
+
+    def test_unconfirmed_file_kept_when_no_copy_confirms(self):
+        downloader = PDFDownloader(per_url_client(), content_validator(confirmed=b'nothing'))
+        entry = downloader.download({'papers': [two_copies()]}, self.root)['papers'][0]
+        self.assertEqual(entry['validation_status'], 'needs_review')
+        self.assertEqual(entry['pdf_source'], 'europepmc')
+        self.assertTrue((self.root / entry['local_filename']).is_file())
+
+    def test_rerun_tries_other_urls_before_reusing_an_unconfirmed_file(self):
+        client = per_url_client()
+        paper = two_copies()
+        paper['pdf_candidates'] = paper['pdf_candidates'][:1]
+        PDFDownloader(client, content_validator()).download({'papers': [paper]}, self.root)
+        second = PDFDownloader(client, content_validator()).download({'papers': [two_copies()]}, self.root)
+        self.assertEqual(second['papers'][0]['validation_status'], 'verified')
+        self.assertEqual(second['papers'][0]['pdf_source'], 'arxiv')
 
     def test_valid_format_uncertain_identity_stored_in_review_folder(self):
         self.downloader.validator = fake_validator('needs_review')

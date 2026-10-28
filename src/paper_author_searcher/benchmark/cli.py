@@ -21,7 +21,7 @@ from .review import REVIEW_STATES, export_review, import_review
 from .roster import Roster
 from .runner import METADATA_MODE, BenchmarkRunner, RecordedRunAnchors, WorkflowSearchSystem, load_index
 from .scoring import OVERALL, PersonScorer, aggregate, is_human_reviewed, load_truth, truth_paths
-from .settings import BenchmarkSettings
+from .settings import FULLTEXT_SCOPES, BenchmarkSettings, RunSettings
 from .snapshots import ArxivLookup, CrossrefLookup, OrcidFetcher, SnapshotCollector, missing_snapshots
 from .truth_builder import TruthBuilder
 from .truth_sources import default_registry
@@ -167,6 +167,17 @@ def command_review_import(args) -> int:
     return 0
 
 
+def replay_settings(run: RunSettings, record_misses: bool, mode: str | None) -> RunSettings:
+    """Run settings for a replay of a recorded run.
+
+    PDF stages fetch pages and files that are never cached, so a strict replay stops at metadata. Recording misses
+    lets the requested mode run live on the replayed identities and collections (``full`` for full text).
+    """
+    if record_misses:
+        return replace(run, http_cache_mode=CacheMode.RECORD.value, mode=mode or METADATA_MODE)
+    return replace(run, http_cache_mode=CacheMode.REPLAY.value, mode=METADATA_MODE)
+
+
 def command_run(args) -> int:
     settings, roster, _registry, warnings = _context(args)
     for warning in warnings:
@@ -174,15 +185,15 @@ def command_run(args) -> int:
     run = settings.run if args.mode is None else replace(settings.run, mode=args.mode)
     if args.input_profile:
         run = replace(run, input_profile=args.input_profile)
+    if args.fulltext_scope:
+        run = replace(run, fulltext_scope=args.fulltext_scope)
     anchor_source = None
     if args.record_misses and not args.replay_from:
         raise SystemExit('--record-misses only applies to --replay-from')
     if args.replay_from:
         if not run.http_cache_dir:
             raise SystemExit('--replay-from needs run.http_cache_dir in the benchmark config')
-        # PDF stages fetch pages and files that are never cached, so a replay stops at metadata.
-        mode = CacheMode.RECORD if args.record_misses else CacheMode.REPLAY
-        run = replace(run, http_cache_mode=mode.value, mode=METADATA_MODE)
+        run = replay_settings(run, args.record_misses, args.mode)
         anchor_source = RecordedRunAnchors(settings, args.replay_from)
     runner = BenchmarkRunner(
         settings, WorkflowSearchSystem(run, settings, anchor_source=anchor_source), progress=logger.info
@@ -388,6 +399,11 @@ def build_parser() -> argparse.ArgumentParser:
         choices=('minimal', 'with_hints'),
         help='Override run.input_profile: pass roster hints (ORCID, homepage, known papers) or not',
     )
+    run.add_argument(
+        '--fulltext-scope',
+        choices=FULLTEXT_SCOPES,
+        help='Full mode: run the full-text pass on the truth window (default) or only on truth-matched papers',
+    )
     run.add_argument('--label', default='')
     run.add_argument('--rerun', action='store_true', help='Repeat people that already finished in this run')
     run.add_argument(
@@ -398,7 +414,10 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument(
         '--record-misses',
         action='store_true',
-        help='With --replay-from: fetch and cache requests the cache lacks (new code paths) instead of failing them',
+        help=(
+            'With --replay-from: fetch and cache requests the cache lacks instead of failing them; '
+            '--mode then applies, so full text runs live on the replayed collection'
+        ),
     )
     run.set_defaults(handler=command_run)
 

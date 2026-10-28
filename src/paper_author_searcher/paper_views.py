@@ -26,6 +26,8 @@ BIBLIOGRAPHIC_FIELDS = (
     'source_identifiers',
     'publication_type',
     'paper_type',
+    # Other editions deduplication tied to this paper (the arXiv preprint of a venue paper): a PDF may be one.
+    'related_versions',
 )
 # Paper-level copies a download history entry need not repeat: they are on the current record already.
 HISTORY_EXCLUDED_FIELDS = frozenset(
