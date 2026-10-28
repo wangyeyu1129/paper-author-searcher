@@ -42,6 +42,22 @@ OpenAlex 为每个合并后的作者聚类只记一个 ORCID，混入同名者�
 
 可选的第二层 `school_fallback`（默认关闭）：没有任何候选有院系证据时，改数只写学校的论文。重放中它没有选对任何人，反而把 Stanford CS 博士生 Jing Huang 判给了一位免疫学同名者，所以默认关闭。
 
+**人工维护档案中的职位**（`curated_positions`，默认开启）：署名证据没能裁决时，看各候选本人维护的记录。
+
+- **两类记录**：
+  - DBLP 机构注释：没有标签的是当前职位；`former`、`PhD`、年份区间都是过去的。
+  - ORCID 中当前的工作或教育经历：每个带 ORCID 的候选读一次，经 `orcid_affiliations.OrcidAffiliations`，身份发现也共用它。
+- **胜出条件**：恰好一个候选的记录写着当前在所请求的学校、所请求的院系，它就胜出。
+  - 如果没有人写到院系本身，可以退一级：恰好一个候选写在与院系相关的上级学院，也胜出。例如 Harvard 的 "School of Engineering and Applied Sciences" 与 "Bioengineering"：两者都含 "engineering" 这个词，算相关。
+  - 只写到学校、没写院系的记录，既不算符合，也不算排除。
+- **何时放弃判定**：
+  - 某个对手的记录读不到，或者 ORCID 记录超过 `maximum_orcid_lookups`（默认 20）条。这时无法证明"只有一个"。
+  - 某个对手的院系署名篇数达到 `minimum_works`，而且多于胜出者。
+- **竞争范围外的候选**：分数在第一名 `curated_band`（默认 0.1）以内的候选，只要它自己的 DBLP 记录写明了院系，也参与这一层。这样做是因为跨来源共享 ORCID 的加分，让清华智能产业研究院的 Yang Liu 领先真正的计算机系 Yang Liu 0.065。
+- **对论文归属的影响**：判定所依据的 DBLP 档案记在 `ProfessorProfile.curated_author_ids` 里。论文归属检查对它的信任程度，与对"由本人 ORCID 锚定的 DBLP 档案"相同，所以列出这个 DBLP 档案的论文会被验证。从 ORCID 读来的职位不会为任何 OpenAlex 聚类背书。
+
+DBLP 机构注释（"Tsinghua University, Department of Computer Science and Technology, China"）先由 `DepartmentMatcher.split` 拆成机构名和院系。第一段总是机构；在出现院系之前的每个前缀都保留，因为 "University of California, Los Angeles" 本身带逗号。注释中的"当前"信息不参与打分，只在上面这一层里和院系一起核对。
+
 收集阶段的 `contender_adjudication.DepartmentAdjudicator` 仍保留，作为第二道裁决：它只看已收集的前几个候选，按院系提及的占比判断。
 
 ## 发表列表提取
