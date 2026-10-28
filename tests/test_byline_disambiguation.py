@@ -2,8 +2,9 @@ import unittest
 from dataclasses import replace
 
 from paper_author_searcher import AuthorCandidate, ProfessorQuery, ProfessorResolver
-from paper_author_searcher.byline_disambiguation import BylineDisambiguator, PositionFit
+from paper_author_searcher.byline_disambiguation import BylineDisambiguator
 from paper_author_searcher.config import DEFAULT_DISAMBIGUATION
+from paper_author_searcher.curated_positions import PositionFit
 from paper_author_searcher.http import SourceError
 from paper_author_searcher.identity_anchors import IdentityAnchors
 from paper_author_searcher.models import CuratedPosition, ProfessorProfile

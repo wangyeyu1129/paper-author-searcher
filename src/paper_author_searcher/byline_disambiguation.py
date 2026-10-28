@@ -24,23 +24,17 @@ they count (``minimum_works``).
 import logging
 from collections.abc import Callable, Sequence
 from dataclasses import dataclass, field
-from enum import IntEnum
 from typing import Any
 
 from .config import DEFAULT_DISAMBIGUATION, DEFAULT_MATCHING, DisambiguationConfig, MatchingConfig
+from .curated_positions import PositionFit, PositionMatcher
 from .logging_config import log_isolated_failure
-from .matching import canonical_orcid, institution_mentioned, institution_similarity, name_similarity
+from .matching import canonical_orcid, institution_mentioned, name_similarity
 from .models import AuthorCandidate, CuratedPosition, ProfessorProfile, ProfessorQuery
 from .precision_guards import DepartmentMatcher
 from .status import UniversityStatus
 
 logger = logging.getLogger(__name__)
-
-
-class PositionFit(IntEnum):
-    NONE = 0
-    BROADER_UNIT = 1  # a school or faculty whose words relate to the requested department
-    DEPARTMENT = 2
 
 
 class _Abstain(Exception):
@@ -75,6 +69,7 @@ class BylineDisambiguator:
         self.config = config
         self.matching = matching
         self.departments = departments or DepartmentMatcher()
+        self.positions = PositionMatcher(config, matching, self.departments)
         # Reads an ORCID record's positions (orcid_affiliations.OrcidAffiliations.positions); None reads none.
         self.orcid_positions = orcid_positions
 
@@ -113,23 +108,7 @@ class BylineDisambiguator:
         return self._dominant(schools, 'school', query) if any(schools.values()) else None
 
     def fit(self, position: CuratedPosition, query: ProfessorQuery) -> PositionFit:
-        """How well one curated position places the person at the requested school and department."""
-        schools = [school for school in (query.university, *query.university_aliases) if school]
-        at_school = any(
-            institution_similarity(school, institution, self.matching) >= self.matching.matched_school
-            for school in schools
-            for institution in position.institutions
-        )
-        if not position.current or not at_school:
-            return PositionFit.NONE
-        if not query.department:
-            return PositionFit.DEPARTMENT
-        # A position naming no unit says nothing about the department: it neither fits nor rules out.
-        if any(self.departments.agree(unit, query.department) for unit in position.units):
-            return PositionFit.DEPARTMENT
-        if any(self._broader_unit(unit, query.department) for unit in position.units):
-            return PositionFit.BROADER_UNIT
-        return PositionFit.NONE
+        return self.positions.fit(position, query)
 
     def _curated(
         self,
@@ -235,16 +214,6 @@ class BylineDisambiguator:
         """A rival's bylines name the department often enough to count, and more often than the record holder's."""
         strongest = max((count for index, count in departments.items() if index != winner), default=0)
         return strongest >= self.config.minimum_works and strongest > departments[winner]
-
-    def _broader_unit(self, unit: str, department: str) -> bool:
-        """A school or faculty whose distinctive words relate to the department's ("engineering", "bioengineering")."""
-        words = unit.lower().split()
-        if not any(word in self.config.parent_unit_keywords for word in words):
-            return False
-        length = self.config.related_word_length
-        unit_words = [word for word in self.departments.words(unit) if len(word) >= length]
-        wanted = [word for word in self.departments.words(department) if len(word) >= length]
-        return any(left in right or right in left for left in unit_words for right in wanted)
 
     def _contest(self, scored: Sequence[tuple[ProfessorProfile, Any]]) -> list[tuple[int, Any]]:
         """Contenders near the leader at the requested school; none if an anchor already speaks for one."""
