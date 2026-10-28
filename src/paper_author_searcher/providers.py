@@ -5,7 +5,7 @@ from typing import Protocol
 from .config import DEFAULT_MATCHING, DEFAULT_SOURCES
 from .http import SourceError
 from .matching import best_similarity, canonical_doi, identity_work, institution_similarity, name_similarity
-from .models import AuthorCandidate, ProfessorQuery
+from .models import AuthorCandidate, CuratedPosition, ProfessorQuery
 from .precision_guards import DepartmentMatcher
 
 
@@ -332,6 +332,10 @@ class DBLPProvider:
                     institutions, units = departments.split(note.text)
                     _extend_unique(candidate.affiliations, [note.text, *institutions])
                     _extend_unique(candidate.departments, units)
+                    # DBLP labels past affiliations ("former", "PhD", "2002-2012"); an unlabelled note is current.
+                    candidate.positions.append(
+                        CuratedPosition('dblp', tuple(institutions), tuple(units), current=note.get('label') is None)
+                    )
             for url in person.findall('url'):
                 if url.text and 'orcid.org/' in url.text:
                     candidate.orcid = url.text

@@ -128,18 +128,27 @@ class PaperOwnershipValidator:
         }
 
     def _curated_orcid_claim(self, record, details, profile):
-        """The paper lists, by ID, a curated source's author profile that the person's ORCID anchors."""
+        """The paper lists, by ID, a curated source's author profile that the person's ORCID anchors, or whose
+        own affiliation record settled the identity (byline_disambiguation's curated position)."""
         if record.source not in self.config.curated_orcid_sources or not details:
             return None
+        listed = {canonical_author_id(record.source, author.get('author_id')) for author in details}
         anchors = (AnchorEvidence.coerce(item) for item in profile.identity_anchors)
         orcid_ids = {
             canonical_author_id(record.source, anchor.author_id)
             for anchor in anchors
             if anchor.source == record.source and anchor.kind == AnchorKind.ORCID
         }
-        listed = {canonical_author_id(record.source, author.get('author_id')) for author in details}
         if orcid_ids & listed:
             return f"Curated {record.source} author profile carrying the person's ORCID is on the author list"
+        positioned = {
+            canonical_author_id(record.source, value) for value in profile.curated_author_ids.get(record.source, [])
+        }
+        if positioned & listed:
+            return (
+                f'Curated {record.source} author profile whose own affiliation record placed the person at the '
+                'requested school and department is on the author list'
+            )
         return None
 
     def _institution_agrees(self, record, details, profile):

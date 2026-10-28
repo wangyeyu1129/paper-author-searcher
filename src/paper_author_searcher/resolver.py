@@ -87,6 +87,7 @@ class ProfessorResolver:
             return scored
         profile, group = scored[verdict.index]
         profile.disambiguation = verdict.note
+        profile.curated_author_ids = verdict.curated_author_ids
         profile.evidence.append(verdict.note)
         return [(profile, group), *(item for index, item in enumerate(scored) if index != verdict.index)]
 

@@ -137,6 +137,28 @@ class OwnershipTests(unittest.TestCase):
         self.assertEqual(run('semantic_scholar', AnchorKind.PAPER, curated).ownership_status, 'needs_review')
         self.assertEqual(run('semantic_scholar', AnchorKind.ORCID).ownership_status, 'needs_review')
 
+    def test_a_curated_profile_whose_record_settled_the_identity_verifies_the_papers_listing_it(self):
+        def run(source, curated_ids):
+            target = replace(
+                profile(),
+                orcid=None,
+                author_ids={source: 'author-b'},
+                author_id_aliases={source: ['author-b']},
+                curated_author_ids=curated_ids,
+            )
+            papers = deduplicate_papers([record(source=source)])
+            PaperOwnershipValidator(OwnershipConfig(curated_orcid_sources=('semantic_scholar',))).validate(
+                papers, target
+            )
+            return papers[0]
+
+        verified = run('semantic_scholar', {'semantic_scholar': ['author-b']})
+        self.assertEqual(verified.ownership_status, 'verified')
+        self.assertTrue(any('own affiliation record placed' in line for line in verified.ownership_evidence))
+        # Another profile's record, or an uncurated source, does not verify.
+        self.assertEqual(run('semantic_scholar', {'semantic_scholar': ['other']}).ownership_status, 'needs_review')
+        self.assertEqual(run('openalex', {'openalex': ['author-b']}).ownership_status, 'needs_review')
+
     def test_papers_listed_on_the_persons_page_seed_recurring_coauthors(self):
         listed = [record(title='Listed one', doi='10.example/one'), record(title='Listed two', doi='10.example/two')]
         candidate = record(title='Candidate', doi='10.example/candidate')

@@ -92,6 +92,18 @@ class ProfessorQuery:
         return list(dict.fromkeys(url for url in [self.homepage, *self.publication_pages] if url))
 
 
+@dataclass(frozen=True, slots=True)
+class CuratedPosition:
+    """A position the person's own, hand-maintained record states (a DBLP affiliation note, an ORCID entry)."""
+
+    source: str
+    # Every name the institution may go by in the record ("University of California", "... , Los Angeles").
+    institutions: tuple[str, ...]
+    # Unit phrases ("department of computer science"); empty when the record names none.
+    units: tuple[str, ...] = ()
+    current: bool = False
+
+
 @dataclass(slots=True)
 class AuthorCandidate:
     source: str
@@ -113,6 +125,8 @@ class AuthorCandidate:
     # The candidate's own printed affiliation lines on each sampled work, one tuple per work (OpenAlex
     # raw_affiliation_strings); byline_disambiguation counts the works that name the requested department.
     bylines: list[tuple[str, ...]] = field(default_factory=list)
+    # Positions from the profile's own curated record (DBLP notes); byline_disambiguation reads them.
+    positions: list[CuratedPosition] = field(default_factory=list)
 
 
 @dataclass(frozen=True, order=True, slots=True)
@@ -182,6 +196,8 @@ class ProfessorProfile(ValidatedStatuses):
     adjudication: str | None = None
     # Why byline evidence settled a close contest in this profile's favour (byline_disambiguation).
     disambiguation: str | None = None
+    # Curated author profiles (DBLP) whose own affiliation record settled the identity; see paper_ownership.
+    curated_author_ids: dict[str, list[str]] = field(default_factory=dict)
     # The name the caller searched for; kept because a source's display name can be corrupted ("Jia Liu B").
     requested_name: str | None = None
     # Some record of this identity carries an ORCID other than the supplied one.

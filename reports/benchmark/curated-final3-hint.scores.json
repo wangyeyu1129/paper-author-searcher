@@ -1,0 +1,3041 @@
+{
+  "dataset_id": "stratified_researchers_v1",
+  "run_id": "curated-final3-hint",
+  "scored_at": "2026-10-28T00:08:57.487130+00:00",
+  "run_settings": {
+    "mode": "full",
+    "timeout": 15,
+    "retries": 2,
+    "max_pages": null,
+    "page_size": null,
+    "max_pdf_papers": null,
+    "max_downloads": null,
+    "max_file_mb": null,
+    "include_needs_review": false,
+    "unpaywall_email": false,
+    "bibliography_url": [],
+    "verbose": false,
+    "http_cache_dir": "/Users/wangyeyu/Desktop/paper-author-searcher/output/benchmark/http_cache",
+    "http_cache_mode": "record",
+    "ambiguity_policy": "collect_contenders",
+    "settings": null,
+    "llm_adjudication": false,
+    "input_profile": "minimal",
+    "max_cost_usd": 0.4,
+    "cost_ledger": "benchmark"
+  },
+  "run_metadata": {
+    "code_version": "a7012bcd2783c0ad765df23896ae4ce747d0137c",
+    "label": "curated-final3-hint",
+    "replay_of": "final-hints-20261027"
+  },
+  "gate": {
+    "status": "not_certifiable",
+    "exit_code": 3,
+    "reasons": [
+      "32 people are scored against truth that is not human-reviewed"
+    ],
+    "failed_checks": [],
+    "checks": [
+      {
+        "stratum": "field=biomedicine",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 1.0,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 7,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=biomedicine",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.9623637333721368,
+        "minimum": 0.8,
+        "worst_person_rate": 0.8888888888888888,
+        "people_with_rate": 7,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=biomedicine",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9652173913043478,
+        "minimum": 0.8,
+        "worst_person_rate": 0.8888888888888888,
+        "people_with_rate": 7,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=biomedicine",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.9839734733351754,
+        "minimum": 0.95,
+        "worst_person_rate": 0.9090909090909091,
+        "people_with_rate": 7,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=biomedicine",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9866666666666667,
+        "minimum": 0.95,
+        "worst_person_rate": 0.9090909090909091,
+        "people_with_rate": 7,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=computer_science",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 1.0,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=computer_science",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.8569472484185803,
+        "minimum": 0.8,
+        "worst_person_rate": 0.618421052631579,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=computer_science",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.8591885441527446,
+        "minimum": 0.8,
+        "worst_person_rate": 0.618421052631579,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=computer_science",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 0.95,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=computer_science",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 1.0,
+        "minimum": 0.95,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=engineering",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 1.0,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=engineering",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.9571969696969697,
+        "minimum": 0.8,
+        "worst_person_rate": 0.875,
+        "people_with_rate": 7,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=engineering",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.979253112033195,
+        "minimum": 0.8,
+        "worst_person_rate": 0.875,
+        "people_with_rate": 7,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=engineering",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 0.95,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=engineering",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 1.0,
+        "minimum": 0.95,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=social_science",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 1.0,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=social_science",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.9060866451843895,
+        "minimum": 0.8,
+        "worst_person_rate": 0.6666666666666666,
+        "people_with_rate": 7,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=social_science",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9304347826086956,
+        "minimum": 0.8,
+        "worst_person_rate": 0.6666666666666666,
+        "people_with_rate": 7,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=social_science",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.9861111111111112,
+        "minimum": 0.95,
+        "worst_person_rate": 0.8888888888888888,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "field=social_science",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9908256880733946,
+        "minimum": 0.95,
+        "worst_person_rate": 0.8888888888888888,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "name_profile=common_chinese",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 1.0,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 15,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "name_profile=common_chinese",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.8748281718492465,
+        "minimum": 0.8,
+        "worst_person_rate": 0.618421052631579,
+        "people_with_rate": 14,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "name_profile=common_chinese",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.8641975308641975,
+        "minimum": 0.8,
+        "worst_person_rate": 0.618421052631579,
+        "people_with_rate": 14,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "name_profile=common_chinese",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.9939393939393939,
+        "minimum": 0.95,
+        "worst_person_rate": 0.9090909090909091,
+        "people_with_rate": 15,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "name_profile=common_chinese",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9952718676122931,
+        "minimum": 0.95,
+        "worst_person_rate": 0.9090909090909091,
+        "people_with_rate": 15,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "name_profile=other",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 1.0,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 16,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "name_profile=other",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.9591676679489108,
+        "minimum": 0.8,
+        "worst_person_rate": 0.8571428571428571,
+        "people_with_rate": 15,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "name_profile=other",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9730250481695568,
+        "minimum": 0.8,
+        "worst_person_rate": 0.8571428571428571,
+        "people_with_rate": 15,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "name_profile=other",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.991725768321513,
+        "minimum": 0.95,
+        "worst_person_rate": 0.8888888888888888,
+        "people_with_rate": 16,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "name_profile=other",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9960629921259843,
+        "minimum": 0.95,
+        "worst_person_rate": 0.8888888888888888,
+        "people_with_rate": 16,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "overall=all",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 1.0,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 31,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "overall=all",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.9184520491421764,
+        "minimum": 0.8,
+        "worst_person_rate": 0.618421052631579,
+        "people_with_rate": 29,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "overall=all",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9203980099502488,
+        "minimum": 0.8,
+        "worst_person_rate": 0.618421052631579,
+        "people_with_rate": 29,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "overall=all",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.9927968774914554,
+        "minimum": 0.95,
+        "worst_person_rate": 0.8888888888888888,
+        "people_with_rate": 31,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "overall=all",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9957035445757251,
+        "minimum": 0.95,
+        "worst_person_rate": 0.8888888888888888,
+        "people_with_rate": 31,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=assistant_professor",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 1.0,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=assistant_professor",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.9630190826040844,
+        "minimum": 0.8,
+        "worst_person_rate": 0.8656716417910447,
+        "people_with_rate": 7,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=assistant_professor",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.943089430894309,
+        "minimum": 0.8,
+        "worst_person_rate": 0.8656716417910447,
+        "people_with_rate": 7,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=assistant_professor",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 0.95,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=assistant_professor",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 1.0,
+        "minimum": 0.95,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=established_faculty",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 1.0,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=established_faculty",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.9078246320458008,
+        "minimum": 0.8,
+        "worst_person_rate": 0.618421052631579,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=established_faculty",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.8850931677018633,
+        "minimum": 0.8,
+        "worst_person_rate": 0.618421052631579,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=established_faculty",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 0.95,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=established_faculty",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 1.0,
+        "minimum": 0.95,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=phd_student",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 1.0,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 7,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=phd_student",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.8479497354497355,
+        "minimum": 0.8,
+        "worst_person_rate": 0.6666666666666666,
+        "people_with_rate": 6,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=phd_student",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.896551724137931,
+        "minimum": 0.8,
+        "worst_person_rate": 0.6666666666666666,
+        "people_with_rate": 6,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=phd_student",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.9841269841269842,
+        "minimum": 0.95,
+        "worst_person_rate": 0.8888888888888888,
+        "people_with_rate": 7,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=phd_student",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9814814814814815,
+        "minimum": 0.95,
+        "worst_person_rate": 0.8888888888888888,
+        "people_with_rate": 7,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=renowned_senior",
+        "metric": "identity_precision",
+        "label": "right person",
+        "aggregation": "macro",
+        "observed": 1.0,
+        "minimum": 1.0,
+        "worst_person_rate": 1.0,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=renowned_senior",
+        "metric": "verified_paper_recall",
+        "label": "recall",
+        "aggregation": "macro",
+        "observed": 0.9429600472287131,
+        "minimum": 0.8,
+        "worst_person_rate": 0.8488372093023255,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=renowned_senior",
+        "metric": "verified_paper_recall",
+        "label": "recall (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9393139841688655,
+        "minimum": 0.8,
+        "worst_person_rate": 0.8488372093023255,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=renowned_senior",
+        "metric": "author_match_precision",
+        "label": "precision",
+        "aggregation": "macro",
+        "observed": 0.9859767891682785,
+        "minimum": 0.95,
+        "worst_person_rate": 0.9090909090909091,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "stratum": "seniority=renowned_senior",
+        "metric": "author_match_precision",
+        "label": "precision (pooled)",
+        "aggregation": "micro",
+        "observed": 0.9916434540389972,
+        "minimum": 0.95,
+        "worst_person_rate": 0.9090909090909091,
+        "people_with_rate": 8,
+        "passed": true,
+        "reason": ""
+      }
+    ]
+  },
+  "strata": [
+    {
+      "stratum": "overall=all",
+      "people": 32,
+      "metrics": {
+        "identity_resolution_rate": {
+          "macro": 0.96875,
+          "micro": 0.96875,
+          "people_with_rate": 32,
+          "minimum": 0.0,
+          "numerator": 31,
+          "denominator": 32,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 31,
+          "minimum": 1.0,
+          "numerator": 31,
+          "denominator": 31,
+          "below_truth_minimum": 0
+        },
+        "verified_paper_recall": {
+          "macro": 0.9184520491421764,
+          "micro": 0.9203980099502488,
+          "people_with_rate": 29,
+          "minimum": 0.618421052631579,
+          "numerator": 925,
+          "denominator": 1005,
+          "below_truth_minimum": 3
+        },
+        "paper_discovery_recall": {
+          "macro": 0.9339836059579588,
+          "micro": 0.9323383084577115,
+          "people_with_rate": 29,
+          "minimum": 0.631578947368421,
+          "numerator": 937,
+          "denominator": 1005,
+          "below_truth_minimum": 3
+        },
+        "author_match_precision": {
+          "macro": 0.9927968774914554,
+          "micro": 0.9957035445757251,
+          "people_with_rate": 31,
+          "minimum": 0.8888888888888888,
+          "numerator": 927,
+          "denominator": 931,
+          "below_truth_minimum": 0
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0,
+          "below_truth_minimum": 3
+        }
+      },
+      "provisional_people": 32
+    },
+    {
+      "stratum": "seniority=renowned_senior",
+      "people": 8,
+      "metrics": {
+        "identity_resolution_rate": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 8,
+          "minimum": 1.0,
+          "numerator": 8,
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 8,
+          "minimum": 1.0,
+          "numerator": 8,
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "verified_paper_recall": {
+          "macro": 0.9429600472287131,
+          "micro": 0.9393139841688655,
+          "people_with_rate": 8,
+          "minimum": 0.8488372093023255,
+          "numerator": 356,
+          "denominator": 379,
+          "below_truth_minimum": 0
+        },
+        "paper_discovery_recall": {
+          "macro": 0.9524459713413201,
+          "micro": 0.9472295514511874,
+          "people_with_rate": 8,
+          "minimum": 0.872093023255814,
+          "numerator": 359,
+          "denominator": 379,
+          "below_truth_minimum": 0
+        },
+        "author_match_precision": {
+          "macro": 0.9859767891682785,
+          "micro": 0.9916434540389972,
+          "people_with_rate": 8,
+          "minimum": 0.9090909090909091,
+          "numerator": 356,
+          "denominator": 359,
+          "below_truth_minimum": 0
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0,
+          "below_truth_minimum": 0
+        }
+      },
+      "provisional_people": 8
+    },
+    {
+      "stratum": "seniority=established_faculty",
+      "people": 8,
+      "metrics": {
+        "identity_resolution_rate": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 8,
+          "minimum": 1.0,
+          "numerator": 8,
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 8,
+          "minimum": 1.0,
+          "numerator": 8,
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "verified_paper_recall": {
+          "macro": 0.9078246320458008,
+          "micro": 0.8850931677018633,
+          "people_with_rate": 8,
+          "minimum": 0.618421052631579,
+          "numerator": 285,
+          "denominator": 322,
+          "below_truth_minimum": 0
+        },
+        "paper_discovery_recall": {
+          "macro": 0.9311299081035923,
+          "micro": 0.9037267080745341,
+          "people_with_rate": 8,
+          "minimum": 0.631578947368421,
+          "numerator": 291,
+          "denominator": 322,
+          "below_truth_minimum": 0
+        },
+        "author_match_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 8,
+          "minimum": 1.0,
+          "numerator": 285,
+          "denominator": 285,
+          "below_truth_minimum": 0
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0,
+          "below_truth_minimum": 0
+        }
+      },
+      "provisional_people": 8
+    },
+    {
+      "stratum": "seniority=assistant_professor",
+      "people": 8,
+      "metrics": {
+        "identity_resolution_rate": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 8,
+          "minimum": 1.0,
+          "numerator": 8,
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 8,
+          "minimum": 1.0,
+          "numerator": 8,
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "verified_paper_recall": {
+          "macro": 0.9630190826040844,
+          "micro": 0.943089430894309,
+          "people_with_rate": 7,
+          "minimum": 0.8656716417910447,
+          "numerator": 232,
+          "denominator": 246,
+          "below_truth_minimum": 1
+        },
+        "paper_discovery_recall": {
+          "macro": 0.9694802830951357,
+          "micro": 0.9512195121951219,
+          "people_with_rate": 7,
+          "minimum": 0.8805970149253731,
+          "numerator": 234,
+          "denominator": 246,
+          "below_truth_minimum": 1
+        },
+        "author_match_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 8,
+          "minimum": 1.0,
+          "numerator": 233,
+          "denominator": 233,
+          "below_truth_minimum": 0
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0,
+          "below_truth_minimum": 1
+        }
+      },
+      "provisional_people": 8
+    },
+    {
+      "stratum": "seniority=phd_student",
+      "people": 8,
+      "metrics": {
+        "identity_resolution_rate": {
+          "macro": 0.875,
+          "micro": 0.875,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 7,
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 7,
+          "minimum": 1.0,
+          "numerator": 7,
+          "denominator": 7,
+          "below_truth_minimum": 0
+        },
+        "verified_paper_recall": {
+          "macro": 0.8479497354497355,
+          "micro": 0.896551724137931,
+          "people_with_rate": 6,
+          "minimum": 0.6666666666666666,
+          "numerator": 52,
+          "denominator": 58,
+          "below_truth_minimum": 2
+        },
+        "paper_discovery_recall": {
+          "macro": 0.8717592592592592,
+          "micro": 0.9137931034482759,
+          "people_with_rate": 6,
+          "minimum": 0.6666666666666666,
+          "numerator": 53,
+          "denominator": 58,
+          "below_truth_minimum": 2
+        },
+        "author_match_precision": {
+          "macro": 0.9841269841269842,
+          "micro": 0.9814814814814815,
+          "people_with_rate": 7,
+          "minimum": 0.8888888888888888,
+          "numerator": 53,
+          "denominator": 54,
+          "below_truth_minimum": 0
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0,
+          "below_truth_minimum": 2
+        }
+      },
+      "provisional_people": 8
+    },
+    {
+      "stratum": "field=computer_science",
+      "people": 8,
+      "metrics": {
+        "identity_resolution_rate": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 8,
+          "minimum": 1.0,
+          "numerator": 8,
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 8,
+          "minimum": 1.0,
+          "numerator": 8,
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "verified_paper_recall": {
+          "macro": 0.8569472484185803,
+          "micro": 0.8591885441527446,
+          "people_with_rate": 8,
+          "minimum": 0.618421052631579,
+          "numerator": 360,
+          "denominator": 419,
+          "below_truth_minimum": 0
+        },
+        "paper_discovery_recall": {
+          "macro": 0.8812217765038055,
+          "micro": 0.8711217183770883,
+          "people_with_rate": 8,
+          "minimum": 0.631578947368421,
+          "numerator": 365,
+          "denominator": 419,
+          "below_truth_minimum": 0
+        },
+        "author_match_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 8,
+          "minimum": 1.0,
+          "numerator": 360,
+          "denominator": 360,
+          "below_truth_minimum": 0
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0,
+          "below_truth_minimum": 0
+        }
+      },
+      "provisional_people": 8
+    },
+    {
+      "stratum": "field=biomedicine",
+      "people": 8,
+      "metrics": {
+        "identity_resolution_rate": {
+          "macro": 0.875,
+          "micro": 0.875,
+          "people_with_rate": 8,
+          "minimum": 0.0,
+          "numerator": 7,
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 7,
+          "minimum": 1.0,
+          "numerator": 7,
+          "denominator": 7,
+          "below_truth_minimum": 0
+        },
+        "verified_paper_recall": {
+          "macro": 0.9623637333721368,
+          "micro": 0.9652173913043478,
+          "people_with_rate": 7,
+          "minimum": 0.8888888888888888,
+          "numerator": 222,
+          "denominator": 230,
+          "below_truth_minimum": 1
+        },
+        "paper_discovery_recall": {
+          "macro": 0.9729952587095444,
+          "micro": 0.9826086956521739,
+          "people_with_rate": 7,
+          "minimum": 0.8888888888888888,
+          "numerator": 226,
+          "denominator": 230,
+          "below_truth_minimum": 1
+        },
+        "author_match_precision": {
+          "macro": 0.9839734733351754,
+          "micro": 0.9866666666666667,
+          "people_with_rate": 7,
+          "minimum": 0.9090909090909091,
+          "numerator": 222,
+          "denominator": 225,
+          "below_truth_minimum": 0
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0,
+          "below_truth_minimum": 1
+        }
+      },
+      "provisional_people": 8
+    },
+    {
+      "stratum": "field=engineering",
+      "people": 8,
+      "metrics": {
+        "identity_resolution_rate": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 8,
+          "minimum": 1.0,
+          "numerator": 8,
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 8,
+          "minimum": 1.0,
+          "numerator": 8,
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "verified_paper_recall": {
+          "macro": 0.9571969696969697,
+          "micro": 0.979253112033195,
+          "people_with_rate": 7,
+          "minimum": 0.875,
+          "numerator": 236,
+          "denominator": 241,
+          "below_truth_minimum": 1
+        },
+        "paper_discovery_recall": {
+          "macro": 0.9756493506493508,
+          "micro": 0.9875518672199171,
+          "people_with_rate": 7,
+          "minimum": 0.875,
+          "numerator": 238,
+          "denominator": 241,
+          "below_truth_minimum": 1
+        },
+        "author_match_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 8,
+          "minimum": 1.0,
+          "numerator": 237,
+          "denominator": 237,
+          "below_truth_minimum": 0
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0,
+          "below_truth_minimum": 1
+        }
+      },
+      "provisional_people": 8
+    },
+    {
+      "stratum": "field=social_science",
+      "people": 8,
+      "metrics": {
+        "identity_resolution_rate": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 8,
+          "minimum": 1.0,
+          "numerator": 8,
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 8,
+          "minimum": 1.0,
+          "numerator": 8,
+          "denominator": 8,
+          "below_truth_minimum": 0
+        },
+        "verified_paper_recall": {
+          "macro": 0.9060866451843895,
+          "micro": 0.9304347826086956,
+          "people_with_rate": 7,
+          "minimum": 0.6666666666666666,
+          "numerator": 107,
+          "denominator": 115,
+          "below_truth_minimum": 1
+        },
+        "paper_discovery_recall": {
+          "macro": 0.9136054421768708,
+          "micro": 0.9391304347826087,
+          "people_with_rate": 7,
+          "minimum": 0.6666666666666666,
+          "numerator": 108,
+          "denominator": 115,
+          "below_truth_minimum": 1
+        },
+        "author_match_precision": {
+          "macro": 0.9861111111111112,
+          "micro": 0.9908256880733946,
+          "people_with_rate": 8,
+          "minimum": 0.8888888888888888,
+          "numerator": 108,
+          "denominator": 109,
+          "below_truth_minimum": 0
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0,
+          "below_truth_minimum": 1
+        }
+      },
+      "provisional_people": 8
+    },
+    {
+      "stratum": "name_profile=common_chinese",
+      "people": 16,
+      "metrics": {
+        "identity_resolution_rate": {
+          "macro": 0.9375,
+          "micro": 0.9375,
+          "people_with_rate": 16,
+          "minimum": 0.0,
+          "numerator": 15,
+          "denominator": 16,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 15,
+          "minimum": 1.0,
+          "numerator": 15,
+          "denominator": 15,
+          "below_truth_minimum": 0
+        },
+        "verified_paper_recall": {
+          "macro": 0.8748281718492465,
+          "micro": 0.8641975308641975,
+          "people_with_rate": 14,
+          "minimum": 0.618421052631579,
+          "numerator": 420,
+          "denominator": 486,
+          "below_truth_minimum": 2
+        },
+        "paper_discovery_recall": {
+          "macro": 0.8829595348367222,
+          "micro": 0.8744855967078189,
+          "people_with_rate": 14,
+          "minimum": 0.631578947368421,
+          "numerator": 425,
+          "denominator": 486,
+          "below_truth_minimum": 2
+        },
+        "author_match_precision": {
+          "macro": 0.9939393939393939,
+          "micro": 0.9952718676122931,
+          "people_with_rate": 15,
+          "minimum": 0.9090909090909091,
+          "numerator": 421,
+          "denominator": 423,
+          "below_truth_minimum": 0
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0,
+          "below_truth_minimum": 2
+        }
+      },
+      "provisional_people": 16
+    },
+    {
+      "stratum": "name_profile=other",
+      "people": 16,
+      "metrics": {
+        "identity_resolution_rate": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 16,
+          "minimum": 1.0,
+          "numerator": 16,
+          "denominator": 16,
+          "below_truth_minimum": 0
+        },
+        "identity_precision": {
+          "macro": 1.0,
+          "micro": 1.0,
+          "people_with_rate": 16,
+          "minimum": 1.0,
+          "numerator": 16,
+          "denominator": 16,
+          "below_truth_minimum": 0
+        },
+        "verified_paper_recall": {
+          "macro": 0.9591676679489108,
+          "micro": 0.9730250481695568,
+          "people_with_rate": 15,
+          "minimum": 0.8571428571428571,
+          "numerator": 505,
+          "denominator": 519,
+          "below_truth_minimum": 1
+        },
+        "paper_discovery_recall": {
+          "macro": 0.9816060723377796,
+          "micro": 0.9865125240847784,
+          "people_with_rate": 15,
+          "minimum": 0.8888888888888888,
+          "numerator": 512,
+          "denominator": 519,
+          "below_truth_minimum": 1
+        },
+        "author_match_precision": {
+          "macro": 0.991725768321513,
+          "micro": 0.9960629921259843,
+          "people_with_rate": 16,
+          "minimum": 0.8888888888888888,
+          "numerator": 506,
+          "denominator": 508,
+          "below_truth_minimum": 0
+        },
+        "actual_download_coverage": {
+          "macro": null,
+          "micro": null,
+          "people_with_rate": 0,
+          "minimum": null,
+          "numerator": 0,
+          "denominator": 0,
+          "below_truth_minimum": 1
+        }
+      },
+      "provisional_people": 16
+    }
+  ],
+  "people": [
+    {
+      "person_id": "cs_wei_wang_ucla",
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "computer_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 86,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 73,
+          "denominator": 86,
+          "rate": 0.8488372093023255,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 75,
+          "denominator": 86,
+          "rate": 0.872093023255814,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 73,
+          "denominator": 73,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 86,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "cs_christopher_manning",
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "computer_science",
+        "name_profile": "other"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 35,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 32,
+          "denominator": 35,
+          "rate": 0.9142857142857143,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 32,
+          "denominator": 35,
+          "rate": 0.9142857142857143,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 32,
+          "denominator": 32,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 35,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "cs_yang_liu_tsinghua",
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "computer_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 76,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 47,
+          "denominator": 76,
+          "rate": 0.618421052631579,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 48,
+          "denominator": 76,
+          "rate": 0.631578947368421,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 47,
+          "denominator": 47,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 76,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "cs_graham_neubig",
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "computer_science",
+        "name_profile": "other"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "completed",
+      "truth_positives": 97,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 97,
+          "denominator": 97,
+          "rate": 1.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 97,
+          "denominator": 97,
+          "rate": 1.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 97,
+          "denominator": 97,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 97,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "cs_huan_zhang",
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "computer_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 67,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 58,
+          "denominator": 67,
+          "rate": 0.8656716417910447,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 59,
+          "denominator": 67,
+          "rate": 0.8805970149253731,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 58,
+          "denominator": 58,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 67,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "cs_kevin_ellis",
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "computer_science",
+        "name_profile": "other"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 41,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 39,
+          "denominator": 41,
+          "rate": 0.9512195121951219,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 39,
+          "denominator": 41,
+          "rate": 0.9512195121951219,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 39,
+          "denominator": 39,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 41,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "cs_jing_huang",
+      "strata": {
+        "seniority": "phd_student",
+        "field": "computer_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 10,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 8,
+          "denominator": 10,
+          "rate": 0.8,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 8,
+          "denominator": 10,
+          "rate": 0.8,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 8,
+          "denominator": 8,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 10,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "cs_julie_kallini",
+      "strata": {
+        "seniority": "phd_student",
+        "field": "computer_science",
+        "name_profile": "other"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "completed",
+      "truth_positives": 7,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 6,
+          "denominator": 7,
+          "rate": 0.8571428571428571,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 7,
+          "denominator": 7,
+          "rate": 1.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 7,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "bio_feng_zhang",
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "biomedicine",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 21,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 20,
+          "denominator": 21,
+          "rate": 0.9523809523809523,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 20,
+          "denominator": 21,
+          "rate": 0.9523809523809523,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 20,
+          "denominator": 22,
+          "rate": 0.9090909090909091,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 21,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "bio_jennifer_doudna",
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "biomedicine",
+        "name_profile": "other"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 46,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 46,
+          "denominator": 46,
+          "rate": 1.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 46,
+          "denominator": 46,
+          "rate": 1.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 46,
+          "denominator": 47,
+          "rate": 0.9787234042553191,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 46,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "bio_le_cong",
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "biomedicine",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 18,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 16,
+          "denominator": 18,
+          "rate": 0.8888888888888888,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 16,
+          "denominator": 18,
+          "rate": 0.8888888888888888,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 16,
+          "denominator": 16,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 18,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "bio_anshul_kundaje",
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "biomedicine",
+        "name_profile": "other"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 68,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 65,
+          "denominator": 68,
+          "rate": 0.9558823529411765,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 68,
+          "denominator": 68,
+          "rate": 1.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 65,
+          "denominator": 65,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 68,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "bio_jia_liu",
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "biomedicine",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 23,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 23,
+          "denominator": 23,
+          "rate": 1.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 23,
+          "denominator": 23,
+          "rate": 1.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 23,
+          "denominator": 23,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 23,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "bio_brian_hie",
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "biomedicine",
+        "name_profile": "other"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 33,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 31,
+          "denominator": 33,
+          "rate": 0.9393939393939394,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 32,
+          "denominator": 33,
+          "rate": 0.9696969696969697,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 31,
+          "denominator": 31,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 33,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "bio_zhiwei_xue",
+      "strata": {
+        "seniority": "phd_student",
+        "field": "biomedicine",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 1,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 0,
+          "denominator": 1,
+          "rate": 0.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 0,
+          "denominator": 1,
+          "rate": 0.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 1,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "bio_marena_trinidad",
+      "strata": {
+        "seniority": "phd_student",
+        "field": "biomedicine",
+        "name_profile": "other"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 21,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 21,
+          "denominator": 21,
+          "rate": 1.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 21,
+          "denominator": 21,
+          "rate": 1.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 21,
+          "denominator": 21,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 21,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "eng_yi_cui",
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "engineering",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 33,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 32,
+          "denominator": 33,
+          "rate": 0.9696969696969697,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 32,
+          "denominator": 33,
+          "rate": 0.9696969696969697,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 32,
+          "denominator": 32,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 33,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "eng_daniela_rus",
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "engineering",
+        "name_profile": "other"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "completed",
+      "truth_positives": 94,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 94,
+          "denominator": 94,
+          "rate": 1.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 94,
+          "denominator": 94,
+          "rate": 1.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 94,
+          "denominator": 94,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 94,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "eng_wei_lu",
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "engineering",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 16,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 15,
+          "denominator": 16,
+          "rate": 0.9375,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 16,
+          "denominator": 16,
+          "rate": 1.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 15,
+          "denominator": 15,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "eng_sindy_tang",
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "engineering",
+        "name_profile": "other"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 15,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 14,
+          "denominator": 15,
+          "rate": 0.9333333333333333,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 15,
+          "denominator": 15,
+          "rate": 1.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 14,
+          "denominator": 14,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 15,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "eng_lu_lu",
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "engineering",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 66,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 65,
+          "denominator": 66,
+          "rate": 0.9848484848484849,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 65,
+          "denominator": 66,
+          "rate": 0.9848484848484849,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 65,
+          "denominator": 65,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 66,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "eng_siddharth_krishnan",
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "engineering",
+        "name_profile": "other"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 9,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 9,
+          "denominator": 9,
+          "rate": 1.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 9,
+          "denominator": 9,
+          "rate": 1.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 9,
+          "denominator": 9,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 9,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "eng_min_zhu",
+      "strata": {
+        "seniority": "phd_student",
+        "field": "engineering",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 8,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 7,
+          "denominator": 8,
+          "rate": 0.875,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 7,
+          "denominator": 8,
+          "rate": 0.875,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 7,
+          "denominator": 7,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 8,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "eng_jonathan_lee",
+      "strata": {
+        "seniority": "phd_student",
+        "field": "engineering",
+        "name_profile": "other"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 1,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 1,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "soc_raj_chetty",
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "social_science",
+        "name_profile": "other"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 19,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 18,
+          "denominator": 19,
+          "rate": 0.9473684210526315,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 19,
+          "denominator": 19,
+          "rate": 1.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 18,
+          "denominator": 18,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 19,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "soc_yu_xie",
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "social_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 45,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 41,
+          "denominator": 45,
+          "rate": 0.9111111111111111,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 41,
+          "denominator": 45,
+          "rate": 0.9111111111111111,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 41,
+          "denominator": 41,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 45,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "soc_xiang_zhou",
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "social_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 14,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 13,
+          "denominator": 14,
+          "rate": 0.9285714285714286,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 13,
+          "denominator": 14,
+          "rate": 0.9285714285714286,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 13,
+          "denominator": 13,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 14,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "soc_christian_wolf",
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "social_science",
+        "name_profile": "other"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 18,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 18,
+          "denominator": 18,
+          "rate": 1.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 18,
+          "denominator": 18,
+          "rate": 1.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 18,
+          "denominator": 18,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 18,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "soc_daniel_chen",
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "social_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 2,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "soc_nina_roussille",
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "social_science",
+        "name_profile": "other"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "completed",
+      "truth_positives": 7,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 7,
+          "denominator": 7,
+          "rate": 1.0,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 7,
+          "denominator": 7,
+          "rate": 1.0,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 7,
+          "denominator": 7,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 7,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "soc_whitney_zhang",
+      "strata": {
+        "seniority": "phd_student",
+        "field": "social_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 3,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 2,
+          "denominator": 3,
+          "rate": 0.6666666666666666,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 2,
+          "denominator": 3,
+          "rate": 0.6666666666666666,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 2,
+          "denominator": 2,
+          "rate": 1.0,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    },
+    {
+      "person_id": "soc_shakked_noy",
+      "strata": {
+        "seniority": "phd_student",
+        "field": "social_science",
+        "name_profile": "other"
+      },
+      "truth_state": "assistant_reviewed",
+      "run_status": "partial",
+      "truth_positives": 9,
+      "metrics": {
+        "identity_resolution_rate": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "identity_precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0,
+          "available": true
+        },
+        "verified_paper_recall": {
+          "numerator": 8,
+          "denominator": 9,
+          "rate": 0.8888888888888888,
+          "available": true
+        },
+        "paper_discovery_recall": {
+          "numerator": 8,
+          "denominator": 9,
+          "rate": 0.8888888888888888,
+          "available": true
+        },
+        "author_match_precision": {
+          "numerator": 8,
+          "denominator": 9,
+          "rate": 0.8888888888888888,
+          "available": true
+        },
+        "actual_download_coverage": {
+          "numerator": 0,
+          "denominator": 9,
+          "rate": null,
+          "available": false
+        }
+      },
+      "notes": [
+        "Assistant-reviewed truth: labels reviewed by an AI assistant, not certified"
+      ]
+    }
+  ]
+}
