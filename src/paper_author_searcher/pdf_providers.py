@@ -3,7 +3,7 @@
 from abc import ABC, abstractmethod
 from html.parser import HTMLParser
 from typing import Any, ClassVar
-from urllib.parse import quote, urljoin
+from urllib.parse import quote, urljoin, urlsplit
 
 from .config import DEFAULT_PDF, DEFAULT_SOURCES
 from .html_support import decode_response
@@ -516,6 +516,68 @@ class EuropePMCPDFProvider(MetadataPDFProvider):
                     )
                 )
         return candidates, []
+
+
+class OpenAIREPDFProvider(MetadataPDFProvider):
+    """Repository copies the OpenAIRE Graph aggregates for an open-access work, looked up by DOI.
+
+    A URL to a PDF file is a candidate; any other URL is a landing page for the sources after this one.
+    """
+
+    name = 'openaire'
+
+    def __init__(self, client, config=DEFAULT_PDF):
+        super().__init__(client)
+        self.config = config
+
+    def lookups(self, paper):
+        return [doi[len('doi:') :] for doi in sorted(paper_dois(paper))]
+
+    def lookup(self, paper, identifier):
+        data = self.client.get(self.config.openaire_url, params={'pid': identifier})
+        results = (data or {}).get('results') or []
+        if not isinstance(results, list):
+            raise SourceError('OpenAIRE results must be a list', error_type='malformed_response')
+        candidates: list[Any] = []
+        landing_pages: list[Any] = []
+        for work in results:
+            if not isinstance(work, dict):
+                raise SourceError('OpenAIRE results must contain objects', error_type='malformed_response')
+            if (work.get('bestAccessRight') or {}).get('label') not in self.config.openaire_open_labels:
+                continue
+            identity = metadata_identity(paper, self.name, doi=identifier, title=work.get('mainTitle'))
+            for instance in work.get('instances') or []:
+                for url in (instance or {}).get('urls') or []:
+                    if not isinstance(url, str) or not url.startswith(('http://', 'https://')):
+                        continue
+                    if urlsplit(url).path.lower().endswith('.pdf'):
+                        provenance = {
+                            'metadata_url': self.config.openaire_url,
+                            'doi': identifier,
+                            'metadata_title': work.get('mainTitle'),
+                        }
+                        candidates.append(
+                            make_candidate(
+                                url,
+                                self.name,
+                                identity,
+                                provenance,
+                                'OpenAIRE open-access repository copy',
+                                None,
+                                (instance.get('license') or None),
+                            )
+                        )
+                    else:
+                        landing_pages.append(
+                            {
+                                'landing_page_url': url,
+                                'database': self.name,
+                                'doi': identifier,
+                                'title': work.get('mainTitle'),
+                                'is_oa': True,
+                            }
+                        )
+        return candidates, landing_pages
 
 
 class ArxivPDFProvider:

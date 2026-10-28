@@ -12,6 +12,7 @@ from paper_author_searcher.pdf_providers import (
     EuropePMCPDFProvider,
     ExistingPDFProvider,
     LandingPagePDFProvider,
+    OpenAIREPDFProvider,
     OpenAlexPDFProvider,
     SemanticScholarPDFProvider,
     UnpaywallPDFProvider,
@@ -241,6 +242,37 @@ class ProviderTests(unittest.TestCase):
     def test_europepmc_needs_a_doi(self):
         saved = dict(paper(), doi=None, records=[])
         self.assertEqual(EuropePMCPDFProvider(Mock()).find(saved).status, 'not_applicable')
+
+    def test_openaire_offers_pdf_files_and_passes_on_landing_pages(self):
+        client = Mock()
+        client.get.return_value = {
+            'results': [
+                {
+                    'mainTitle': paper()['title'],
+                    'bestAccessRight': {'label': 'OPEN'},
+                    'instances': [
+                        {'urls': ['https://repo.example.edu/item/1', 'https://repo.example.edu/item/1/file.PDF']},
+                        {'urls': ['ftp://old.example/file.pdf', None]},
+                    ],
+                }
+            ]
+        }
+        result = OpenAIREPDFProvider(client).find(paper())
+        self.assertEqual(
+            [candidate.url for candidate in result.candidates], ['https://repo.example.edu/item/1/file.PDF']
+        )
+        self.assertEqual(
+            [page['landing_page_url'] for page in result.landing_pages], ['https://repo.example.edu/item/1']
+        )
+        self.assertEqual(client.get.call_args[1]['params'], {'pid': '10.1234/example'})
+
+    def test_openaire_ignores_works_it_does_not_rate_open(self):
+        client = Mock()
+        client.get.return_value = {
+            'results': [{'bestAccessRight': {'label': 'CLOSED'}, 'instances': [{'urls': ['https://x.edu/a.pdf']}]}]
+        }
+        result = OpenAIREPDFProvider(client).find(paper())
+        self.assertEqual((result.candidates, result.landing_pages), ([], []))
 
     def test_arxiv_reads_returned_link_and_version(self):
         saved = paper()

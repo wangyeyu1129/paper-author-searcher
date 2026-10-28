@@ -31,6 +31,7 @@ from .pdf_providers import (
     ArxivPDFProvider,
     EuropePMCPDFProvider,
     ExistingPDFProvider,
+    OpenAIREPDFProvider,
     OpenAlexPDFProvider,
     SemanticScholarPDFProvider,
     UnpaywallPDFProvider,
@@ -144,6 +145,11 @@ def _unpaywall_pdf(container: Any) -> UnpaywallPDFProvider:
 @PDF_SOURCES.register('europepmc')
 def _europepmc_pdf(container: Any) -> EuropePMCPDFProvider:
     return EuropePMCPDFProvider(container.resource_requests, container.settings.sources, container.pdf_config)
+
+
+@PDF_SOURCES.register('openaire')
+def _openaire_pdf(container: Any) -> OpenAIREPDFProvider:
+    return OpenAIREPDFProvider(container.resource_requests, container.pdf_config)
 
 
 @PDF_SOURCES.register('arxiv')

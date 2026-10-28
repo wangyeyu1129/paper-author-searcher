@@ -719,6 +719,7 @@ class PDFConfig:
         'crossref',
         'unpaywall',
         'europepmc',
+        'openaire',
         'arxiv',
         'journal_catalog',
         'public_pages',
@@ -726,6 +727,10 @@ class PDFConfig:
     # Europe PMC full-text links accepted as PDFs: availability codes for open access ("OA") and free to read
     # ("F", e.g. a PubMed Central copy under a funder mandate). Subscription links ("S") are never followed.
     europepmc_free_codes: tuple[str, ...] = ('OA', 'F')
+    # OpenAIRE Graph (no key): copies of a work in repositories it aggregates, used only when it rates the work's
+    # best access right as one of these labels.
+    openaire_url: str = 'https://api.openaire.eu/graph/v1/researchProducts'
+    openaire_open_labels: tuple[str, ...] = ('OPEN',)
     bibliography_urls: tuple[str, ...] = ()
     journal_catalogs: tuple[tuple[str, str], ...] = (
         ('Journal of Machine Learning Research', 'https://jmlr.org/papers/'),
