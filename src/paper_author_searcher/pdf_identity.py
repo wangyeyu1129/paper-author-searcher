@@ -145,6 +145,21 @@ def arxiv_ids(paper):
     return list(dict.fromkeys(identifiers))
 
 
+def edition_arxiv_ids(paper):
+    """arXiv identifiers of the paper and of the editions deduplication related to it (same normalized title and
+    compatible authors). A PDF printing one of them is an edition of this work only if its title also matches."""
+    identifiers = list(arxiv_ids(paper))
+    metadata = paper.get('paper_metadata') or {}
+    for related in paper.get('related_versions') or metadata.get('related_versions') or []:
+        for identifier in (related or {}).get('identifiers') or []:
+            if identifier.get('source') == 'arxiv' and arxiv_id(identifier.get('paper_id')):
+                identifiers.append(arxiv_id(identifier['paper_id']))
+            doi = canonical_doi(identifier.get('doi') or '')
+            if doi.startswith('doi:' + ARXIV_DOI_PREFIX) and arxiv_id(doi[len('doi:' + ARXIV_DOI_PREFIX) :]):
+                identifiers.append(arxiv_id(doi[len('doi:' + ARXIV_DOI_PREFIX) :]))
+    return list(dict.fromkeys(identifiers))
+
+
 def same_arxiv_version(requested, returned):
     if re.search(r'v\d+$', requested):
         return requested == returned

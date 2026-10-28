@@ -897,7 +897,7 @@ class WindowedFullTextTests(unittest.TestCase):
                     'authors': ['Alex Morgan'],
                     'ownership': 'belongs',
                 }
-            ]
+            ],
         }
         archive = {
             'collection': {

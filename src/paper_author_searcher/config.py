@@ -794,6 +794,9 @@ class DownloadConfig:
     title_lines: int = 30
     maximum_extracted_characters: int = 20000
     minimum_title_words_without_doi: int = 4
+    # Words text extraction glues to the end of a DOI ("10.1101/2023.12.14.571777doi: bioRxiv preprint"); one is
+    # dropped when it follows a digit, so the printed DOI is not mistaken for another one.
+    doi_glued_labels: tuple[str, ...] = ('doi', 'http', 'https', 'www')
     footer_scan_bytes: int = 4096
     poster_minimum_edge_points: float = 1000
     slide_minimum_aspect_ratio: float = 1.2
