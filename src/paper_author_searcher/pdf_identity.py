@@ -3,7 +3,8 @@
 import re
 from urllib.parse import urlsplit
 
-from .matching import ARXIV_DOI_PREFIX, canonical_doi, normalize
+from .config import DEFAULT_PDF, PDFConfig
+from .matching import ARXIV_DOI_PREFIX, arxiv_from_doi, canonical_arxiv, canonical_doi, normalize
 from .paper_authorship import byline_forms
 from .paper_deduplication import author_signatures_match
 from .status import IdentityStatus, OwnershipStatus
@@ -43,29 +44,90 @@ def paper_dois(paper):
     return identifiers
 
 
-def metadata_identity(paper, source, identifier=None, doi=None, title=None, year=None, authors=None):
-    """Stable identifiers bind a location; conflicting metadata blocks it."""
+def metadata_identity(
+    paper,
+    source,
+    identifier=None,
+    doi=None,
+    title=None,
+    year=None,
+    authors=None,
+    editions=(),
+    config: PDFConfig = DEFAULT_PDF,
+):
+    """Stable identifiers bind a location; conflicting metadata blocks it.
+
+    One work has editions: its arXiv preprint and its journal or proceedings version carry different DOIs, and the
+    title sometimes changes between them (CRISPR-GPT's preprint was renamed for Nature Biomedical Engineering). A
+    source naming one of the paper's own arXiv editions (as its DOI, as its arXiv ID, or among ``editions``, the arXiv
+    IDs it lists for the same record) is not in conflict over another DOI, and a changed title is accepted when
+    enough authors agree.
+    """
     expected_dois = paper_dois(paper)
     doi_match = bool(doi and canonical_doi(doi) in expected_dois)
-    if doi and expected_dois and not doi_match:
+    edition = _names_edition(paper, source, identifier, doi, editions)
+    if doi and expected_dois and not doi_match and not edition:
         return IdentityStatus.CONFLICTING, ['Source DOI conflicts with saved paper DOI identifiers']
     title_match = bool(title and normalize(title) == normalize(paper.get('title', '')))
+    shared = _shared_authors(paper, authors or [], config)
     if title and paper.get('title') and not title_match:
+        if edition and shared:
+            return IdentityStatus.VERIFIED, [
+                "Source names the paper's own arXiv edition and shares its authors; the title changed between editions"
+            ]
         return IdentityStatus.CONFLICTING, ['Source title conflicts with saved paper title']
     if doi_match:
         return IdentityStatus.VERIFIED, ['Exact DOI agreement with saved paper metadata']
+    if edition and title_match:
+        return IdentityStatus.VERIFIED, ["Source names the paper's own arXiv edition with the same normalized title"]
     if identifier and native_id(source, identifier) in paper_ids(paper, source):
         if title_match:
             return IdentityStatus.VERIFIED, ['Exact source paper ID and normalized title agreement']
         return IdentityStatus.UNVERIFIED, ['Source paper ID agrees, but corroborating title/DOI is absent']
-    author_match = False
-    for expected_authors in _author_lists(paper):
-        if _authors_agree(expected_authors, authors or []):
-            author_match = True
-            break
-    if title_match and year and str(year) == str(paper.get('year')) and author_match:
-        return IdentityStatus.VERIFIED, ['Exact normalized title, publication year and author signature agreement']
+    author_match = any(_authors_agree(expected, authors or []) for expected in _author_lists(paper))
+    # A preprint is often dated a year before its venue edition: the same title and full byline still bind it.
+    if title_match and _years_agree(year, paper.get('year'), config.identity_year_tolerance) and author_match:
+        return IdentityStatus.VERIFIED, [
+            'Exact normalized title, publication year (within tolerance) and author signature agreement'
+        ]
     return IdentityStatus.UNVERIFIED, ['Insufficient metadata to associate URL with this paper']
+
+
+def _names_edition(paper, source, identifier, doi, editions):
+    own = {canonical_arxiv(value) for value in edition_arxiv_ids(paper)} - {None}
+    if not own:
+        return False
+    named = {arxiv_from_doi(doi)} if doi else set()
+    if source == 'arxiv' and identifier:
+        named.add(canonical_arxiv(str(identifier)))
+    named.update(canonical_arxiv(str(value)) for value in editions or ())
+    return bool(own & (named - {None}))
+
+
+def _shared_authors(paper, observed, config):
+    """Whether some saved author list and the source share enough author signatures (all of a shorter list)."""
+    if not observed:
+        return False
+    for expected in _author_lists(paper):
+        if not expected:
+            continue
+        unused = list(observed)
+        shared = 0
+        for author in expected:
+            index = next((index for index, other in enumerate(unused) if _signature_agrees(author, other)), None)
+            if index is not None:
+                shared += 1
+                unused.pop(index)
+        if shared >= min(config.identity_shared_authors, len(expected)):
+            return True
+    return False
+
+
+def _years_agree(observed, expected, tolerance):
+    try:
+        return abs(int(str(observed)[:4]) - int(str(expected)[:4])) <= tolerance
+    except (TypeError, ValueError):
+        return False
 
 
 def _author_lists(paper):
