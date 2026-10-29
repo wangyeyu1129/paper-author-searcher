@@ -217,3 +217,33 @@ class ReplaySchedulingTests(unittest.TestCase):
             self.assertEqual(requests.probe(second).status, 206)
         self.assertEqual(requests.cooldown_remaining({'repo.example.edu'}), 0.0)
         self.assertEqual(requests.statistics['cooldown_skips'], 0)
+
+
+class FailingClient(HttpClient):
+    def __init__(self, *outcomes):
+        super().__init__(retries=0)
+        self.outcomes = list(outcomes)
+        self.calls = 0
+
+    def get(self, url, params=None, headers=None, xml=False):
+        self.calls += 1
+        outcome = self.outcomes.pop(0)
+        if isinstance(outcome, Exception):
+            raise outcome
+        return outcome
+
+
+class FailedReadTests(unittest.TestCase):
+    url = 'https://api.unpaywall.org/v2/10.1234/x'
+
+    def test_a_recorded_404_replays_and_recording_asks_again(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with self.assertRaises(SourceError):
+                cached_client(FailingClient(SourceError('HTTP 404', 404)), directory, 'record').get(self.url)
+            with self.assertRaises(SourceError) as raised:
+                cached_client(FailingClient(), directory, 'replay').get(self.url)
+            again = FailingClient({'is_oa': True})
+            self.assertEqual(cached_client(again, directory, 'record').get(self.url), {'is_oa': True})
+            self.assertEqual(cached_client(FailingClient(), directory, 'replay').get(self.url), {'is_oa': True})
+        self.assertEqual((raised.exception.status_code, raised.exception.error_type), (404, 'not_found'))
+        self.assertEqual(again.calls, 1)

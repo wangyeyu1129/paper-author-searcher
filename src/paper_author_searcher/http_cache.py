@@ -18,7 +18,7 @@ SECRET_PARAMETERS = frozenset({'api_key', 'apikey', 'key', 'token', 'mailto', 'e
 # Response headers a probe consumer reads; cookies and the rest are never stored.
 PROBE_HEADERS = frozenset({'content-type', 'content-length', 'content-range', 'retry-after'})
 # Failures that describe this process (scheduler state, a replay), not the remote resource.
-UNRECORDED_PROBE_ERRORS = frozenset({'source_deferred', 'cache_miss', 'offline_replay'})
+UNRECORDED_ERRORS = frozenset({'source_deferred', 'cache_miss', 'offline_replay'})
 
 
 class CacheMode(str, Enum):
@@ -30,11 +30,11 @@ class CacheMode(str, Enum):
 class CachingHttpClient(HttpClientDecorator):
     """Wraps an HttpClient; ``get``, JSON ``post_json`` and ``probe`` are cached. Downloads pass straight through.
 
-    Secrets never reach the cache key or the stored file; failed GETs and posts are not cached.
+    Secrets never reach the cache key or the stored file.
 
-    A probe is stored with its redirect hops and its outcome, failures included, so a replay answers exactly as
-    the recorded run did. Recording serves stored successes but probes a stored failure again, since a failure
-    may have been transient; only a replay serves recorded failures.
+    Every answer is stored with its outcome, failures included (a probe with its redirect hops too), so a replay
+    answers as the recorded run did. Recording serves stored successes but asks again after a stored failure,
+    since a failure may have been transient; only a replay serves recorded failures.
     """
 
     def __init__(
@@ -67,27 +67,13 @@ class CachingHttpClient(HttpClientDecorator):
         xml: bool = False,
     ) -> Any:
         key = self.key(url, params, xml)
-        path = self.directory / key[:2] / (key + '.json')
-        if self.mode is not CacheMode.REFRESH and path.exists():
-            self.statistics['hits'] += 1
-            with path.open(encoding='utf-8') as handle:
-                stored = json.load(handle)
-            return ET.fromstring(stored['body']) if xml else stored['body']
-        self.statistics['misses'] += 1
-        if self.mode is CacheMode.REPLAY:
-            raise SourceError('Replay cache miss for ' + url, error_type='cache_miss')
-        body = self.client.get(url, params, headers, xml)
-        path.parent.mkdir(parents=True, exist_ok=True)
-        temporary = path.with_suffix('.tmp')
-        with temporary.open('w', encoding='utf-8') as handle:
-            json.dump(
-                {'url': url, 'xml': xml, 'body': ET.tostring(body, encoding='unicode') if xml else body},
-                handle,
-                ensure_ascii=False,
-            )
-        temporary.replace(path)
-        self.statistics['stored'] += 1
-        return body
+        stored = self._recorded(
+            url,
+            self.directory / key[:2] / (key + '.json'),
+            lambda: self.client.get(url, params, headers, xml),
+            lambda body: {'url': url, 'xml': xml, 'body': ET.tostring(body, encoding='unicode') if xml else body},
+        )
+        return ET.fromstring(stored['body']) if xml and isinstance(stored['body'], str) else stored['body']
 
     def post_json(
         self,
@@ -99,18 +85,39 @@ class CachingHttpClient(HttpClientDecorator):
     ) -> Any:
         material = self.key(url, params, False) + json.dumps(payload, sort_keys=True, ensure_ascii=False)
         key = hashlib.sha256(('post ' + material).encode('utf-8')).hexdigest()
-        path = self.directory / key[:2] / (key + '.post.json')
+        stored = self._recorded(
+            url,
+            self.directory / key[:2] / (key + '.post.json'),
+            lambda: self.client.post_json(url, payload, params=params, headers=headers, expected_type=expected_type),
+            lambda body: {'url': url, 'body': body},
+        )
+        return stored['body']
+
+    def _recorded(self, url: str, path: Path, fetch: Any, encode: Any) -> dict[str, Any]:
+        """A stored answer, or the live one (stored). A failure is stored beside it and served only by a replay."""
+        failure = path.with_suffix('.failure.json')
         if self.mode is not CacheMode.REFRESH and path.exists():
             self.statistics['hits'] += 1
             with path.open(encoding='utf-8') as handle:
-                return json.load(handle)['body']
+                return json.load(handle)
+        if self.mode is CacheMode.REPLAY and failure.exists():
+            self.statistics['hits'] += 1
+            with failure.open(encoding='utf-8') as handle:
+                raise SourceError(**json.load(handle)['error'])
         self.statistics['misses'] += 1
         if self.mode is CacheMode.REPLAY:
             raise SourceError('Replay cache miss for ' + url, error_type='cache_miss')
-        body = self.client.post_json(url, payload, params=params, headers=headers, expected_type=expected_type)
-        self._store(path, {'url': url, 'body': body})
+        try:
+            body = fetch()
+        except SourceError as exc:
+            if exc.error_type not in UNRECORDED_ERRORS:
+                self._store(failure, _failure_record(url, [], exc))
+            raise
+        record = encode(body)
+        self._store(path, record)
+        failure.unlink(missing_ok=True)
         self.statistics['stored'] += 1
-        return body
+        return {'body': body}
 
     def probe(
         self,
@@ -143,8 +150,8 @@ class CachingHttpClient(HttpClientDecorator):
         try:
             response = super().probe(url, maximum_bytes, html_bytes, maximum_redirects, record_hop)
         except SourceError as exc:
-            if exc.error_type not in UNRECORDED_PROBE_ERRORS:
-                self._store(path, _probe_failure(url, hops, exc))
+            if exc.error_type not in UNRECORDED_ERRORS:
+                self._store(path, _failure_record(url, hops, exc))
                 self.statistics['probe_stored'] += 1
             raise
         self._store(path, _probe_success(url, hops, response, maximum_bytes, html_bytes))
@@ -201,7 +208,7 @@ def _probe_success(url: str, hops: list[str], response: Any, maximum_bytes: int,
     }
 
 
-def _probe_failure(url: str, hops: list[str], exc: SourceError) -> dict[str, Any]:
+def _failure_record(url: str, hops: list[str], exc: SourceError) -> dict[str, Any]:
     error = {
         'message': str(exc),
         'status_code': exc.status_code,
