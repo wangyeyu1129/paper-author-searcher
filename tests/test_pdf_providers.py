@@ -16,6 +16,7 @@ from paper_author_searcher.pdf_providers import (
     OpenAlexPDFProvider,
     SemanticScholarPDFProvider,
     UnpaywallPDFProvider,
+    openalex_arxiv_ids,
 )
 
 
@@ -88,6 +89,82 @@ class IdentityTests(unittest.TestCase):
             saved, 'landing_page', title=saved['title'], year=2020, authors=['Alex Example', 'Unrelated Person']
         )
         self.assertEqual(identity[0], 'unverified')
+
+    def preprint_paper(self):
+        """A saved arXiv paper (its DOI is the arXiv DOI) whose preprint was renamed for its journal edition."""
+        return dict(
+            paper(),
+            title='CRISPR-GPT: An LLM Agent for Automated Design of Gene-Editing Experiments',
+            doi='10.48550/arxiv.2404.18021',
+            year=2024,
+            authors=['Kaixuan Huang', 'Yuanhao Qu', 'Henry Cousins'],
+            records=[],
+        )
+
+    def test_the_journal_edition_of_an_arxiv_paper_is_not_a_doi_conflict(self):
+        saved = self.preprint_paper()
+        identity = metadata_identity(
+            saved,
+            'openalex',
+            'W4412759774',
+            doi='10.1038/s41551-025-01463-z',
+            title='CRISPR-GPT for agentic automation of gene-editing experiments',
+            authors=['Yuanhao Qu', 'Kaixuan Huang', 'Ming Yin', 'Henry C. Cousins'],
+            editions=['2404.18021'],
+        )
+        self.assertEqual(identity[0], 'verified')
+        self.assertIn('title changed between editions', identity[1][0])
+
+    def test_own_arxiv_id_with_a_renamed_title_needs_shared_authors(self):
+        saved = self.preprint_paper()
+        renamed = 'CRISPR-GPT for Agentic Automation of Gene-editing Experiments'
+        shared = metadata_identity(
+            saved, 'arxiv', '2404.18021v2', title=renamed, authors=['Yuanhao Qu', 'Kaixuan Huang']
+        )
+        self.assertEqual(shared[0], 'verified')
+        strangers = metadata_identity(saved, 'arxiv', '2404.18021v2', title=renamed, authors=['Unrelated Person'])
+        self.assertEqual(strangers[0], 'conflicting')
+        self.assertEqual(metadata_identity(saved, 'arxiv', '2404.18021v2', title=renamed)[0], 'conflicting')
+
+    def test_another_works_arxiv_id_does_not_excuse_a_doi_conflict(self):
+        saved = self.preprint_paper()
+        identity = metadata_identity(
+            saved, 'openalex', 'W1', doi='10.1038/other', title=saved['title'], editions=['2401.00001']
+        )
+        self.assertEqual(identity[0], 'conflicting')
+
+    def test_preprint_dated_a_year_early_binds_with_title_and_full_byline(self):
+        saved = dict(paper(), year=2024, authors=['Adam Winnifrith', 'Carlos Outeiral', 'Brian L. Hie'])
+        authors = ['Adam Winnifrith', 'Carlos Outeiral', 'Brian Hie']
+        early = metadata_identity(saved, 'arxiv', '2310.09685v1', title=saved['title'], year='2023', authors=authors)
+        self.assertEqual(early[0], 'verified')
+        far = metadata_identity(saved, 'arxiv', '2310.09685v1', title=saved['title'], year='2022', authors=authors)
+        self.assertEqual(far[0], 'unverified')
+        partial = metadata_identity(
+            saved,
+            'arxiv',
+            '2310.09685v1',
+            title=saved['title'],
+            year='2023',
+            authors=authors[:2] + ['Unrelated Person'],
+        )
+        self.assertEqual(partial[0], 'unverified')
+
+    def test_year_tolerance_is_configurable(self):
+        saved = dict(paper(), year=2024)
+        strict = replace(DEFAULT_PDF, identity_year_tolerance=0)
+        identity = metadata_identity(
+            saved, 'landing_page', title=saved['title'], year=2023, authors=['Alex Example'], config=strict
+        )
+        self.assertEqual(identity[0], 'unverified')
+
+    def test_openalex_lists_its_merged_arxiv_copies(self):
+        locations = [
+            {'id': 'pmh:oai:arXiv.org:2404.18021', 'landing_page_url': 'https://arxiv.org/abs/2404.18021'},
+            {'id': 'doi:10.1038/x', 'pdf_url': 'https://arxiv.org/pdf/2404.18021v2'},
+            {'id': 'pmh:oai:europepmc.org:1', 'landing_page_url': 'https://europepmc.org/abstract/MED/1'},
+        ]
+        self.assertEqual(openalex_arxiv_ids(locations), ['2404.18021', '2404.18021v2'])
 
     def test_arxiv_identifiers_preserve_versions(self):
         self.assertEqual(arxiv_id('https://arxiv.org/pdf/2401.00001v2.pdf'), '2401.00001v2')

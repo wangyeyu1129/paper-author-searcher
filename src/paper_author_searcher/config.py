@@ -739,6 +739,11 @@ class PDFConfig:
     journal_catalogs: tuple[tuple[str, str], ...] = (
         ('Journal of Machine Learning Research', 'https://jmlr.org/papers/'),
     )
+    # Binding a URL to a paper without a shared DOI (pdf_identity.metadata_identity). A preprint is often dated a
+    # year before its venue edition. An own arXiv edition whose title changed needs this many shared author
+    # signatures (all of a shorter list).
+    identity_year_tolerance: int = 1
+    identity_shared_authors: int = 2
     version_preference: tuple[str, ...] = (
         'published_version',
         'accepted_manuscript',
@@ -773,6 +778,8 @@ class PDFConfig:
             raise ValueError('lookup_workers must be positive')
         if self.transient_retry_rounds < 0 or self.transient_retry_maximum_wait < 0:
             raise ValueError('Transient retry rounds and wait must be nonnegative')
+        if self.identity_year_tolerance < 0 or self.identity_shared_authors < 1:
+            raise ValueError('identity_year_tolerance must be nonnegative and identity_shared_authors positive')
         if self.public_page_maximum_bytes < self.html_metadata_bytes:
             raise ValueError('Public page maximum must cover the initial metadata preview')
         if self.public_page_cache_bytes < self.public_page_maximum_bytes:
