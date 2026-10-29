@@ -2,14 +2,17 @@ import json
 import tempfile
 import unittest
 from copy import deepcopy
+from dataclasses import replace
 from pathlib import Path
 from unittest.mock import Mock, patch
 
+from paper_author_searcher.config import DEFAULT_PDF
 from paper_author_searcher.http import SourceError, URLProbe
 from paper_author_searcher.models import PDFCandidate, PDFProviderResult
 from paper_author_searcher.pdf_cli import main
 from paper_author_searcher.pdf_providers import LandingPagePDFProvider, OpenAlexPDFProvider
 from paper_author_searcher.pdf_resolver import PDFResolver
+from paper_author_searcher.pdf_resource_requests import PublicResourceRequests
 from paper_author_searcher.pdf_validation import PDFURLValidator
 
 
@@ -233,6 +236,87 @@ class ResolverTests(unittest.TestCase):
         result = PDFResolver([], validator()).resolve(saved).to_dict()['papers'][0]
         for name in ('authors', 'year', 'source', 'source_paper_id', 'external_ids'):
             self.assertEqual(result[name], saved['papers'][0][name])
+
+
+class Clock:
+    """A monotonic clock that only the resolver's sleep advances."""
+
+    def __init__(self):
+        self.now = 0.0
+        self.slept = []
+
+    def monotonic(self):
+        return self.now
+
+    def sleep(self, seconds):
+        self.slept.append(seconds)
+        self.now += seconds
+
+
+class FlakyClient:
+    """Fails the first probes of each URL with the given errors, then serves a PDF."""
+
+    def __init__(self, *failures):
+        self.failures = list(failures)
+        self.urls = []
+
+    def probe(self, url, *args, **kwargs):
+        self.urls.append(url)
+        if self.failures:
+            raise self.failures.pop(0)
+        return URLProbe(url, 200, 'application/pdf', {}, b'%PDF-1.7')
+
+
+class TransientRetryTests(unittest.TestCase):
+    def resolve(self, client, sources=None, **changes):
+        clock = Clock()
+        config = replace(DEFAULT_PDF, public_page_request_interval=0, **changes)
+        requests = PublicResourceRequests(client, config)
+        resolver = PDFResolver(
+            sources or [provider()], PDFURLValidator(requests, config), requests, config, clock.sleep
+        )
+        with patch('paper_author_searcher.pdf_resource_requests.time.monotonic', clock.monotonic):
+            return resolver.resolve(saved_collection()), clock
+
+    def test_a_link_that_timed_out_is_probed_again_after_its_host_cools_down(self):
+        client = FlakyClient(SourceError('timed out', error_type='timeout', endpoint_host='repo.example.edu'))
+        result, clock = self.resolve(client)
+        paper = result.papers[0]
+        self.assertEqual(paper.validation_status, 'verified')
+        self.assertEqual(len(client.urls), 2)
+        self.assertEqual(clock.slept, [DEFAULT_PDF.public_page_cooldown])
+        self.assertFalse(any(entry.get('error_type') == 'timeout' for entry in paper.error_details))
+        self.assertEqual(paper.pdf_candidates[0].error_details, [])
+        self.assertEqual(result.statistics['transient_retry']['recovered_papers'], 1)
+
+    def test_a_definitive_refusal_is_not_retried(self):
+        client = FlakyClient(SourceError('HTTP 403', 403, 'access_restricted', endpoint_host='repo.example.edu'))
+        result, clock = self.resolve(client)
+        self.assertEqual(result.papers[0].validation_status, 'unverified')
+        self.assertEqual(len(client.urls), 1)
+        self.assertEqual(clock.slept, [])
+
+    def test_a_paper_with_a_verified_link_is_not_retried(self):
+        sources = [provider('first', 'https://slow.example.edu/a.pdf'), provider('second')]
+        client = FlakyClient(SourceError('HTTP 503', 503, 'server_error', endpoint_host='slow.example.edu'))
+        result, _ = self.resolve(client, sources)
+        self.assertEqual(result.papers[0].validation_status, 'verified')
+        self.assertEqual(len(client.urls), 2)
+        self.assertEqual(result.statistics['transient_retry']['retried_links'], 0)
+
+    def test_links_without_identity_are_not_retried(self):
+        client = FlakyClient(SourceError('timed out', error_type='timeout', endpoint_host='repo.example.edu'))
+        result, _ = self.resolve(client, [provider(identity='unverified')])
+        self.assertEqual(len(client.urls), 1)
+
+    def test_the_wait_is_capped_and_retries_can_be_disabled(self):
+        limit = SourceError('HTTP 429', 429, 'rate_limited', retry_after=600, endpoint_host='repo.example.edu')
+        _, clock = self.resolve(FlakyClient(limit), transient_retry_maximum_wait=30)
+        self.assertEqual(clock.slept, [30])
+        client = FlakyClient(SourceError('timed out', error_type='timeout', endpoint_host='repo.example.edu'))
+        result, clock = self.resolve(client, transient_retry_rounds=0)
+        self.assertEqual((len(client.urls), clock.slept), (1, []))
+        self.assertEqual(result.papers[0].validation_status, 'unverified')
 
 
 class CLITests(unittest.TestCase):
