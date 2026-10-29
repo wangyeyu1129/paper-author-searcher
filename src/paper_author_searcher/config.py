@@ -822,6 +822,9 @@ class DownloadConfig:
     # Typesetting remnants LaTeX leaves in a PDF's title metadata: an \includegraphics option list and image path
     # ("[width=2em,height=2em]assets/logo.png AxBench: ..."). Removed before the title is compared.
     title_artifact_pattern: str = r'\[[^\]]*\]\s*\S+\.(?:png|jpe?g|pdf|eps|svg)\b'
+    # A PDF title metadata value shorter than this is a record number, file stem or placeholder ("68605761",
+    # "mcedit_fetal_heart_manuscript", "My title"), not another paper's title, so it never vetoes identity.
+    metadata_title_minimum_words: int = 3
     footer_scan_bytes: int = 4096
     poster_minimum_edge_points: float = 1000
     slide_minimum_aspect_ratio: float = 1.2
@@ -845,6 +848,7 @@ class DownloadConfig:
             self.title_lines,
             self.maximum_extracted_characters,
             self.minimum_title_words_without_doi,
+            self.metadata_title_minimum_words,
             self.footer_scan_bytes,
             self.poster_minimum_edge_points,
             self.slide_minimum_aspect_ratio,
