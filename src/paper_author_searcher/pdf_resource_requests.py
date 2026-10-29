@@ -8,7 +8,7 @@ from urllib.parse import urldefrag, urlsplit
 
 from .config import DEFAULT_PDF
 from .http import HttpClient, SourceError
-from .http_decorators import HttpClientDecorator, unwrap
+from .http_decorators import HttpClientDecorator, serves_probe_from_cache, unwrap
 from .pacing import RequestPacer
 from .status import CacheStatus, RequestOutcome
 
@@ -51,14 +51,17 @@ class PublicResourceRequests(HttpClientDecorator):
             self._host(hostname)
             self._guard_before_request(url, allow_source_backpressure)
             self.statistics['requests'] += 1
-        self.pacer.wait(hostname)
+        # A recorded answer sends nothing to the host, so it is not paced (hops still pass every guard).
+        recorded = serves_probe_from_cache(self.client, url, maximum_bytes, html_bytes)
+        if not recorded:
+            self.pacer.wait(hostname)
         previous_url = [url]
 
         def guard_redirect(destination):
             with self._lock:
                 self._remember_redirect(previous_url[0], destination)
                 previous_url[0] = destination
-            self._before_redirect(destination)
+            self._before_redirect(destination, pace=not recorded)
 
         try:
             # The network client re-checks every redirect hop through this guard (also through cache/budget).
@@ -97,13 +100,14 @@ class PublicResourceRequests(HttpClientDecorator):
     def _host(self, hostname):
         return self.hosts.setdefault(hostname, {'until': 0, 'failures': 0, 'error': None})
 
-    def _before_redirect(self, url):
+    def _before_redirect(self, url, pace=True):
         """Each redirect hop honours the destination host's cooldown and pacing."""
         hostname = urlsplit(url).hostname or ''
         with self._lock:
             self._guard_redirect(url, request_started=True)
             self._host(hostname)
-        self.pacer.wait(hostname)
+        if pace:
+            self.pacer.wait(hostname)
 
     def _record_failure(self, url, hostname, exc):
         affected = exc.endpoint_host or hostname

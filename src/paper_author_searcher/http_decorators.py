@@ -52,6 +52,9 @@ class HttpClientDecorator:
     def stream_pdf(self, url: str, destination: Any, config: Any) -> Any:
         return self.client.stream_pdf(url, destination, config)
 
+    def serves_probe_from_cache(self, url: str, maximum_bytes: int = 1024, html_bytes: int = 0) -> bool:
+        return serves_probe_from_cache(self.client, url, maximum_bytes, html_bytes)
+
     def close(self) -> None:
         close = getattr(self.client, 'close', None)
         if callable(close):
@@ -68,6 +71,12 @@ class HttpClientDecorator:
     @property
     def transport_statistics(self) -> Any:
         return getattr(self.client, 'transport_statistics', None)
+
+
+def serves_probe_from_cache(client: Any, url: str, maximum_bytes: int = 1024, html_bytes: int = 0) -> bool:
+    """Whether a probe through this client would be answered from a cache below it (False for plain clients)."""
+    serves = getattr(client, 'serves_probe_from_cache', None)
+    return bool(callable(serves) and serves(url, maximum_bytes, html_bytes))
 
 
 def unwrap(client: Any) -> Any:
