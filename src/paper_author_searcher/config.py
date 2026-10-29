@@ -132,6 +132,12 @@ class AnchorConfig:
     title_tags: tuple[str, ...] = ('a', 'b', 'strong', 'i', 'em', 'cite')
     title_minimum_words: int = 4
     title_maximum_characters: int = 300
+    # A citation's link to a PDF (its path ends in a suffix or holds a marker) is the author's copy of that paper,
+    # recorded for the PDF source 'homepage'. A longer block is a container of several citations, not one.
+    pdf_link_suffixes: tuple[str, ...] = ('.pdf',)
+    pdf_link_path_markers: tuple[str, ...] = ('/pdf/',)
+    listed_pdf_citation_characters: int = 1500
+    maximum_listed_pdfs: int = 2000
     # Title lookups (one search request each) only fill what identifier anchors left of maximum_anchor_papers.
     maximum_title_anchors: int = 10
     # A supplied ORCID's public works list is the person's own list, like a homepage (one request).
@@ -742,6 +748,7 @@ class PDFConfig:
         'arxiv',
         'journal_catalog',
         'public_pages',
+        'homepage',
     )
     # Europe PMC full-text links accepted as PDFs: availability codes for open access ("OA") and free to read
     # ("F", e.g. a PubMed Central copy under a funder mandate). Subscription links ("S") are never followed.
@@ -754,6 +761,9 @@ class PDFConfig:
     # the PDF; no lookup request is needed.
     nber_doi_pattern: str = r'^10\.3386/(w\d+)$'
     nber_pdf_url_template: str = 'https://www.nber.org/system/files/working_papers/{number}/{number}.pdf'
+    # A homepage citation names a paper without an identifier only by its full normalized title, of at least this
+    # many words (a shorter title is common enough to appear inside another citation).
+    homepage_title_minimum_words: int = 4
     bibliography_urls: tuple[str, ...] = ()
     journal_catalogs: tuple[tuple[str, str], ...] = (
         ('Journal of Machine Learning Research', 'https://jmlr.org/papers/'),

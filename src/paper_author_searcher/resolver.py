@@ -492,6 +492,7 @@ class ProfessorResolver:
             requested_department=query.department,
             listed_works=list(anchors.listed_works) if anchors is not None else [],
             discovered=dict(anchors.discovered) if anchors is not None else {},
+            listed_pdfs=list(anchors.listed_pdfs) if anchors is not None else [],
         )
         if profile.status != ResolutionStatus.RESOLVED and self.ranking.resolves(profile, signals.name):
             profile.status = ResolutionStatus.RESOLVED

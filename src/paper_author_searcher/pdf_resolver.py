@@ -65,7 +65,7 @@ class PDFResolver:
         selected = [paper for paper in papers if paper.get('ownership_status') in eligible_statuses]
         if maximum_papers is not None:
             selected = selected[:maximum_papers]
-        self._prepare_providers(selected)
+        self._prepare_providers(selected, saved_result.get('profile'))
         jobs: list[tuple[dict[str, Any], PaperPDFResult]] = []
         for index, paper in enumerate(papers):
             result = PaperPDFResult(
@@ -191,13 +191,15 @@ class PDFResolver:
         result.error_details = [e for e in result.error_details if not ('error_type' in e and e.get('url') == url)]
         result.candidate_decisions = [d for d in result.candidate_decisions if d.get('url') != url]
 
-    def _prepare_providers(self, papers):
+    def _prepare_providers(self, papers, profile=None):
+        """Each provider that prepares sees the person's resolved profile (prepare_profile), then the papers."""
         self.preparation_errors = {}
         for provider in self.providers:
-            if not callable(getattr(type(provider), 'prepare', None)):
-                continue
             try:
-                provider.prepare(papers)
+                if callable(getattr(type(provider), 'prepare_profile', None)):
+                    provider.prepare_profile(profile or {})
+                if callable(getattr(type(provider), 'prepare', None)):
+                    provider.prepare(papers)
             except Exception as exc:
                 log_isolated_failure(logger, 'PDF provider %s preparation failed: %s', provider.name, exc)
                 self.preparation_errors[provider.name] = str(exc)

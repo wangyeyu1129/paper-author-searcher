@@ -14,6 +14,7 @@ from datetime import date
 from html import unescape
 from html.parser import HTMLParser
 from typing import Any, Protocol
+from urllib.parse import urlsplit
 
 from .config import DEFAULT_ANCHORS, AnchorConfig
 from .matching import normalize
@@ -30,6 +31,8 @@ class HomepageCitation:
     dois: tuple[str, ...] = ()
     arxiv_ids: tuple[str, ...] = ()
     titles: tuple[str, ...] = ()
+    # Links of the citation to a PDF file, as written on the page (relative links resolved by the page reader).
+    pdf_links: tuple[str, ...] = ()
 
 
 class CitationParser(Protocol):
@@ -106,8 +109,9 @@ class HtmlCitationParser:
                 for candidate in [*block.emphasised, *QUOTED.findall(text)]
                 if self._title_like(candidate)
             )
-            if dois or arxiv or titles:
-                citations.append(HomepageCitation(text, tuple(dois), tuple(arxiv), tuple(titles)))
+            pdfs = _unique(link for link in block.links if pdf_link(link, self.config))
+            if dois or arxiv or titles or pdfs:
+                citations.append(HomepageCitation(text, tuple(dois), tuple(arxiv), tuple(titles), tuple(pdfs)))
         return citations
 
     def _title_like(self, value: str) -> bool:
@@ -125,6 +129,11 @@ def mentions(name: str, text: str) -> bool:
         return True
     first, last = parts[0], parts[-1]
     return (last in tokens and first[0] in tokens) or (first in tokens and last[0] in tokens)
+
+
+def pdf_link(url: str, config: AnchorConfig = DEFAULT_ANCHORS) -> bool:
+    path = urlsplit(unescape(url)).path.lower()
+    return path.endswith(config.pdf_link_suffixes) or any(marker in path for marker in config.pdf_link_path_markers)
 
 
 def title_like(value: str, config: AnchorConfig = DEFAULT_ANCHORS) -> bool:

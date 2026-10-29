@@ -31,6 +31,7 @@ from .pdf_providers import (
     ArxivPDFProvider,
     EuropePMCPDFProvider,
     ExistingPDFProvider,
+    HomepagePDFProvider,
     NBERPDFProvider,
     OpenAIREPDFProvider,
     OpenAlexPDFProvider,
@@ -174,6 +175,11 @@ def _journal_catalogs(container: Any) -> JournalCatalogPDFProvider:
 @PDF_SOURCES.register('public_pages')
 def _public_pages(container: Any) -> PublicPagePDFProvider:
     return PublicPagePDFProvider(container.resource_requests, container.pdf_config)
+
+
+@PDF_SOURCES.register('homepage')
+def _homepage_pdf(container: Any) -> HomepagePDFProvider:
+    return HomepagePDFProvider(container.pdf_config)
 
 
 def _paper_provider(container: Any, kind: type) -> Any:

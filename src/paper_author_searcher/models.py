@@ -211,6 +211,8 @@ class ProfessorProfile(ValidatedStatuses):
     contender_ids: list[dict[str, list[str]]] = field(default_factory=list)
     # What identity discovery found for the query (ORCID, pages and why); see identity_discovery.Discovery.
     discovered: dict[str, Any] = field(default_factory=dict)
+    # Citations on the person's own pages that link a PDF (identity_anchors.listed_pdfs), for the 'homepage' source.
+    listed_pdfs: list[dict[str, Any]] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         super().__post_init__()

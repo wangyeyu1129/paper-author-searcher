@@ -50,6 +50,8 @@ class IdentityAnchors:
     listed_works: list[str] = field(default_factory=list)
     # What discovery found (identity_discovery.Discovery.to_dict), recorded so a replay can restore it.
     discovered: dict[str, Any] = field(default_factory=dict)
+    # Citations on the person's pages that link a PDF (listed_pdf), for the PDF source 'homepage'.
+    listed_pdfs: list[dict[str, Any]] = field(default_factory=list)
     # Listed works whose only compatible author carries another ORCID: (source, author ID) -> {work key: reason}.
     contested: dict[tuple[str, str], dict[str, str]] = field(default_factory=dict)
 
@@ -146,6 +148,27 @@ def _listed_works(citations: list[HomepageCitation], name: str) -> set[str]:
     return keys
 
 
+def listed_pdfs(citations: list[HomepageCitation], page: str, config=DEFAULT_ANCHORS) -> list[dict[str, Any]]:
+    """One record per PDF link of a single citation; a block longer than one citation holds several, so its links
+    are not tied to any one of them."""
+    records: dict[str, dict[str, Any]] = {}
+    for citation in citations:
+        if not citation.pdf_links or len(citation.text) > config.listed_pdf_citation_characters:
+            continue
+        for url in citation.pdf_links:
+            records.setdefault(
+                url,
+                {
+                    'url': url,
+                    'page': page,
+                    'citation': citation.text,
+                    'dois': list(citation.dois),
+                    'arxiv_ids': list(citation.arxiv_ids),
+                },
+            )
+    return list(records.values())
+
+
 def _key(dois: Iterable[str] = (), arxiv_ids: Iterable[str] = (), titles: Iterable[str] = ()) -> str:
     return next(iter(sorted(work_keys(dois, arxiv_ids, titles))), '')
 
@@ -224,6 +247,9 @@ class ScholarlyAnchorFinder:
             hints['arxiv'] = _merge(hints['arxiv'], [arxiv for item in citations for arxiv in item.arxiv_ids])
             page_titles = _merge(page_titles, [title for item in citations for title in item.titles])
             anchors.listed_works = sorted(set(anchors.listed_works) | _listed_works(citations, query.name))
+            known = {item['url'] for item in anchors.listed_pdfs}
+            new = [item for item in listed_pdfs(citations, page.url, self.config) if item['url'] not in known]
+            anchors.listed_pdfs += new[: max(0, self.config.maximum_listed_pdfs - len(anchors.listed_pdfs))]
         for source in self.listed_sources:
             try:
                 anchors.listed_works = sorted(set(anchors.listed_works) | source.works(query))
@@ -280,6 +306,12 @@ class ScholarlyAnchorFinder:
             return decoded[-1]
 
         citations = self.reader.citations(response.content_type, response.prefix, decode)
+        # Relative links resolve against the page as served, after redirects.
+        base = getattr(response, 'url', None) or url
+        citations = [
+            replace(item, pdf_links=tuple(urljoin(base, unescape(link)) for link in item.pdf_links))
+            for item in citations
+        ]
         return citations, decoded[-1] if decoded else None
 
     def _compatible(self, query, name: str | None) -> bool:
@@ -387,11 +419,16 @@ class RecordedAnchorFinder:
     them without fetching homepages or anchor papers again."""
 
     def __init__(
-        self, evidence: Iterable[AnchorEvidence], listed_works: Iterable[str] = (), discovered: Mapping | None = None
+        self,
+        evidence: Iterable[AnchorEvidence],
+        listed_works: Iterable[str] = (),
+        discovered: Mapping | None = None,
+        listed_pdfs: Iterable[Mapping[str, Any]] = (),
     ) -> None:
         self.evidence = [item for item in evidence if item.reason != SUPPLIED_ORCID_REASON]
         self.listed_works = sorted(set(listed_works))
         self.discovered = dict(discovered or {})
+        self.listed_pdfs = [dict(item) for item in listed_pdfs]
 
     @classmethod
     def from_identity(cls, identity: Mapping[str, Any]) -> 'RecordedAnchorFinder':
@@ -402,7 +439,10 @@ class RecordedAnchorFinder:
         discovered: Mapping[str, Any] = next(
             (profile['discovered'] for profile in profiles if (profile or {}).get('discovered')), {}
         )
-        return cls(dict.fromkeys(evidence), listed, discovered)
+        pdfs: list[Mapping[str, Any]] = next(
+            (profile['listed_pdfs'] for profile in profiles if (profile or {}).get('listed_pdfs')), []
+        )
+        return cls(dict.fromkeys(evidence), listed, discovered, pdfs)
 
     def find(self, query) -> IdentityAnchors:
         orcid = query.orcid or self.discovered.get('orcid')
@@ -410,6 +450,7 @@ class RecordedAnchorFinder:
         for item in self.evidence:
             anchors.add(item.source, item.author_id, item.reason, item.kind, item.work)
         anchors.listed_works = list(self.listed_works)
+        anchors.listed_pdfs = [dict(item) for item in self.listed_pdfs]
         return anchors
 
 
