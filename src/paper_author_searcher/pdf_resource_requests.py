@@ -8,7 +8,7 @@ from urllib.parse import urldefrag, urlsplit
 
 from .config import DEFAULT_PDF
 from .http import HttpClient, SourceError
-from .http_decorators import HttpClientDecorator, unwrap
+from .http_decorators import HttpClientDecorator, serves_probe_from_cache, unwrap
 from .pacing import RequestPacer
 from .status import CacheStatus, RequestOutcome
 
@@ -47,18 +47,24 @@ class PublicResourceRequests(HttpClientDecorator):
 
     def _request(self, url, maximum_bytes, html_bytes, maximum_redirects, allow_source_backpressure=False):
         hostname = urlsplit(url).hostname or ''
+        # A recorded answer sends nothing to any host: it is neither paced nor held back by a host cooldown, and a
+        # recorded failure starts none. So a replay answers every URL as recorded, however fast it runs.
+        recorded = serves_probe_from_cache(self.client, url, maximum_bytes, html_bytes)
         with self._lock:
             self._host(hostname)
-            self._guard_before_request(url, allow_source_backpressure)
+            if not recorded:
+                self._guard_before_request(url, allow_source_backpressure)
             self.statistics['requests'] += 1
-        self.pacer.wait(hostname)
+        if not recorded:
+            self.pacer.wait(hostname)
         previous_url = [url]
 
         def guard_redirect(destination):
             with self._lock:
                 self._remember_redirect(previous_url[0], destination)
                 previous_url[0] = destination
-            self._before_redirect(destination)
+            if not recorded:
+                self._before_redirect(destination)
 
         try:
             # The network client re-checks every redirect hop through this guard (also through cache/budget).
@@ -70,7 +76,10 @@ class PublicResourceRequests(HttpClientDecorator):
                 response = self.client.probe(url, maximum_bytes, html_bytes, maximum_redirects)
         except SourceError as exc:
             with self._lock:
-                self._record_failure(url, hostname, exc)
+                if recorded:
+                    self._record_replayed_failure(hostname, exc)
+                else:
+                    self._record_failure(url, hostname, exc)
             raise
         with self._lock:
             self.hosts[hostname]['failures'] = 0
@@ -78,6 +87,9 @@ class PublicResourceRequests(HttpClientDecorator):
             if final_host:
                 final_host['failures'] = 0
             self.route_failures.pop(hostname, None)
+        if recorded:
+            context = {'outcome': RequestOutcome.CACHED_RESPONSE, 'cache_status': CacheStatus.HIT}
+            return replace(response, request_context=dict(context, request_attempted=False))
         return replace(
             response,
             request_context={
@@ -86,6 +98,17 @@ class PublicResourceRequests(HttpClientDecorator):
                 'request_attempted': True,
             },
         )
+
+    def _record_replayed_failure(self, hostname, exc):
+        affected = exc.endpoint_host or hostname
+        self.statistics['request_failures'] += 1
+        exc.request_context = {
+            'outcome': RequestOutcome.CACHED_FAILURE,
+            'cache_status': CacheStatus.HIT,
+            'request_attempted': False,
+            'endpoint_host': affected,
+        }
+        self.events.append({'host': affected, 'error_type': exc.error_type, 'status_code': exc.status_code})
 
     def cooldown_remaining(self, hostnames):
         """Seconds until none of these hosts is cooling down (0 when none is)."""
