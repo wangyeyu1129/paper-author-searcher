@@ -17,7 +17,7 @@ from .matching import arxiv_from_doi, canonical_arxiv, canonical_doi, normalize
 from .models import PDFFileValidation
 from .pdf_document_types import NON_FULL_DOCUMENTS, classify_document
 from .pdf_front_matter import authors_present, front_matter, metadata_title_kind, publication_years, title_in_region
-from .pdf_identity import edition_arxiv_ids, metadata_identity
+from .pdf_identity import arxiv_id, edition_arxiv_ids, metadata_identity
 from .status import FormatStatus, IdentityStatus, PDFValidationStatus
 
 logger = logging.getLogger(__name__)
@@ -28,6 +28,7 @@ def validation_target(paper, candidate=None):
     target = {key: paper.get(key) for key in ('title', 'authors', 'year', 'doi')}
     # Another edition of the same work (its arXiv preprint) prints the arXiv identifier, not the venue DOI.
     target['arxiv_ids'] = edition_arxiv_ids(paper)
+    target['served_arxiv_id'], target['edition_titles'] = _served_edition(candidate)
     target['pdf_version_type'] = candidate.get('version_type') if candidate else None
     target['venue'] = paper.get('venue') or (paper.get('paper_metadata') or {}).get('venue')
     variants = []
@@ -82,24 +83,57 @@ def validation_target(paper, candidate=None):
     return target
 
 
+def _served_edition(candidate):
+    """The arXiv ID a bound URL was served under, and the titles arXiv gave that ID.
+
+    arXiv serves one paper at arxiv.org/pdf/<id>; once the URL was bound to the paper (its identity verified), the
+    identifier the file came from is evidence of the edition, though no DOI or margin stamp survives extraction. A
+    preprint renamed for its venue edition prints the arXiv title, so that title is accepted for this file too.
+    """
+    if (
+        not candidate
+        or candidate.get('identity_status') != IdentityStatus.VERIFIED
+        or candidate.get('validation_status') != PDFValidationStatus.VERIFIED
+    ):
+        return None, []
+    served = canonical_arxiv(arxiv_id(candidate.get('final_url') or candidate.get('url')) or '')
+    if not served:
+        return None, []
+    titles = []
+    for provenance in candidate.get('provenance') or []:
+        title = provenance.get('metadata_title') or provenance.get('title')
+        if title and canonical_arxiv(str(provenance.get('source_paper_id') or '')) == served and title not in titles:
+            titles.append(title)
+    return served, titles
+
+
+def _best_title_kind(title, expected_titles):
+    kinds = [metadata_title_kind(title, expected) for expected in expected_titles]
+    return next((kind for kind in ('matching', 'decorated', 'technical') if kind in kinds), 'conflicting')
+
+
 def content_identity(paper, titles, title_regions, text, author_metadata, config=DEFAULT_DOWNLOAD):
     expected_title = normalize(paper.get('title') or '')
-    metadata_match = any(normalize(title) == expected_title for title in titles)
-    metadata_kinds = [metadata_title_kind(title, paper.get('title') or '') for title in titles]
+    expected_titles = [paper.get('title') or '', *(paper.get('edition_titles') or [])]
+    titles = [_without_artifacts(title, config) for title in titles]
+    metadata_match = any(normalize(title) in {normalize(value) for value in expected_titles} for title in titles)
+    metadata_kinds = [_best_title_kind(title, expected_titles) for title in titles]
     normal_title_match = metadata_match
     title_match = metadata_match
     for region in title_regions:
-        if title_in_region(paper.get('title') or '', region, compact=False):
-            normal_title_match = True
-        title_match = title_match or title_in_region(paper.get('title') or '', region)
+        for expected in expected_titles:
+            if title_in_region(expected, region, compact=False):
+                normal_title_match = True
+            title_match = title_match or title_in_region(expected, region)
     observed_dois = set()
     for value in re.findall(r'10\.\d{4,9}/[^\s<>"\']+', text, flags=re.IGNORECASE):
         observed_dois.add(canonical_doi(_clean_extracted_doi(value, config.doi_glued_labels))[len('doi:') :])
     expected_doi = canonical_doi(paper['doi'])[len('doi:') :] if paper.get('doi') else None
     # The work's own editions: its DOI, and its arXiv preprint (printed as an arXiv DOI or as "arXiv:ID").
-    editions = {canonical_arxiv(value) for value in paper.get('arxiv_ids') or []} - {None}
-    observed_editions = {arxiv_from_doi(doi) for doi in observed_dois} | set(_printed_arxiv_ids(text))
-    edition_match = bool(editions & observed_editions)
+    served = paper.get('served_arxiv_id')
+    editions = ({canonical_arxiv(value) for value in paper.get('arxiv_ids') or []} | {served}) - {None}
+    observed_editions = {arxiv_from_doi(doi) for doi in observed_dois} | set(_printed_arxiv_ids(text)) | {served}
+    edition_match = bool(editions & (observed_editions - {None}))
     doi_match = bool(expected_doi and expected_doi in observed_dois) or edition_match
     title_conflict = 'conflicting' in metadata_kinds
     evidence = []
@@ -107,7 +141,9 @@ def content_identity(paper, titles, title_regions, text, author_metadata, config
         evidence.append('Expected normalized title occurs in PDF title metadata or the first-page title region')
     if doi_match and not edition_match:
         evidence.append('Target DOI found in the downloaded PDF front matter/metadata')
-    if edition_match:
+    if edition_match and served and served in editions & observed_editions - set(_printed_arxiv_ids(text)):
+        evidence.append("arXiv served this file under the work's own arXiv identifier, bound to the paper")
+    elif edition_match:
         evidence.append("The work's own arXiv identifier is printed in the PDF (an edition of the same work)")
     if title_conflict:
         evidence.append('PDF title metadata differs from the target; content association remains conservative')
@@ -140,6 +176,11 @@ def content_identity(paper, titles, title_regions, text, author_metadata, config
             return IdentityStatus.REJECTED, sorted(observed_dois), evidence
     evidence.append('File is parseable, but its correspondence to the target paper requires review')
     return IdentityStatus.NEEDS_REVIEW, sorted(observed_dois), evidence
+
+
+def _without_artifacts(title, config):
+    """A PDF title with typesetting remnants removed ("[width=2em,height=2em]assets/logo.png AxBench: ...")."""
+    return ' '.join(re.sub(config.title_artifact_pattern, ' ', title, flags=re.IGNORECASE).split())
 
 
 def _printed_arxiv_ids(text):
@@ -308,6 +349,8 @@ class PDFFileValidator:
                 'year',
                 'doi',
                 'arxiv_ids',
+                'served_arxiv_id',
+                'edition_titles',
                 'venue',
                 'publisher_author_variants',
                 'pdf_version_type',

@@ -806,6 +806,9 @@ class DownloadConfig:
     # Words text extraction glues to the end of a DOI ("10.1101/2023.12.14.571777doi: bioRxiv preprint"); one is
     # dropped when it follows a digit, so the printed DOI is not mistaken for another one.
     doi_glued_labels: tuple[str, ...] = ('doi', 'http', 'https', 'www')
+    # Typesetting remnants LaTeX leaves in a PDF's title metadata: an \includegraphics option list and image path
+    # ("[width=2em,height=2em]assets/logo.png AxBench: ..."). Removed before the title is compared.
+    title_artifact_pattern: str = r'\[[^\]]*\]\s*\S+\.(?:png|jpe?g|pdf|eps|svg)\b'
     footer_scan_bytes: int = 4096
     poster_minimum_edge_points: float = 1000
     slide_minimum_aspect_ratio: float = 1.2
