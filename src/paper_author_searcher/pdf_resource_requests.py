@@ -87,6 +87,13 @@ class PublicResourceRequests(HttpClientDecorator):
             },
         )
 
+    def cooldown_remaining(self, hostnames):
+        """Seconds until none of these hosts is cooling down (0 when none is)."""
+        now = time.monotonic()
+        with self._lock:
+            waits = [self.hosts[name]['until'] - now for name in hostnames if name in self.hosts]
+        return max([0.0, *waits])
+
     def _host(self, hostname):
         return self.hosts.setdefault(hostname, {'until': 0, 'failures': 0, 'error': None})
 

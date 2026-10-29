@@ -705,6 +705,10 @@ class PDFConfig:
     public_page_cache_bytes: int = 8 * 1024 * 1024
     source_maximum_cooldown: float = 900.0
     redirect_failure_budget: int = 3
+    # Identity-bound links that failed transiently (host cooldown, timeout, 5xx, 429) are probed again
+    # after the run, once their hosts' cooldowns expire; the wait for that is capped. 403/404 are final.
+    transient_retry_rounds: int = 1
+    transient_retry_maximum_wait: float = 120.0
     # Papers resolved concurrently; each source still paces its own hosts.
     lookup_workers: int = 4
     # Full collected records live in papers.json; reports keep a bibliographic view plus entry_index.
@@ -772,6 +776,8 @@ class PDFConfig:
             raise ValueError('Discovery and cache limits must be positive')
         if self.lookup_workers < 1:
             raise ValueError('lookup_workers must be positive')
+        if self.transient_retry_rounds < 0 or self.transient_retry_maximum_wait < 0:
+            raise ValueError('Transient retry rounds and wait must be nonnegative')
         if self.identity_year_tolerance < 0 or self.identity_shared_authors < 1:
             raise ValueError('identity_year_tolerance must be nonnegative and identity_shared_authors positive')
         if self.public_page_maximum_bytes < self.html_metadata_bytes:

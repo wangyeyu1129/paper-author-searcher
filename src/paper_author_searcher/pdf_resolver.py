@@ -1,11 +1,13 @@
 """Resolve URLs from saved collections while preserving ownership judgments."""
 
 import logging
+import threading
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from copy import deepcopy
 from dataclasses import asdict
 from typing import Any
-from urllib.parse import urldefrag
+from urllib.parse import urldefrag, urlsplit
 
 from .config import DEFAULT_PDF
 from .http import HttpClient
@@ -20,6 +22,9 @@ from .status import AccessStatus, IdentityStatus, OwnershipStatus, PDFValidation
 
 logger = logging.getLogger(__name__)
 
+# Probe failures that say nothing about the URL itself; another probe later may succeed.
+TRANSIENT_ERRORS = frozenset({'source_deferred', 'timeout', 'network_error', 'server_error', 'rate_limited'})
+
 
 class PDFResolver:
     """Run every PDF source for each eligible paper and keep only validated candidates.
@@ -28,12 +33,19 @@ class PDFResolver:
     probe statistics are reported. Build the full source set with ``composition.ServiceContainer``.
     """
 
-    def __init__(self, providers, validator, requests: PublicResourceRequests | None = None, config=DEFAULT_PDF):
+    def __init__(
+        self, providers, validator, requests: PublicResourceRequests | None = None, config=DEFAULT_PDF, sleep=time.sleep
+    ):
         self.providers = list(providers)
         self.validator = validator
         self.resource_requests = requests
         self.config = config
+        self.sleep = sleep
         self.preparation_errors: dict[str, Any] = {}
+        # Candidates as the sources returned them, before probing, so a retry starts from a clean record.
+        self._unprobed: dict[int, list[Any]] = {}
+        self._unprobed_lock = threading.Lock()
+        self.retry_statistics: dict[str, Any] = {}
 
     def resolve(self, saved_result, include_needs_review=False, maximum_papers=None, progress=None):
         if maximum_papers is not None and maximum_papers < 1:
@@ -78,20 +90,22 @@ class PDFResolver:
         for processed in self._run_lookups(jobs):
             if progress:
                 progress('Finding PDF URLs', processed, progress_total)
+        self._retry_transient(jobs)
         for result in results:
             result.failure_reasons = pdf_failure_reasons(asdict(result))
         return PDFResolutionResult(results, self._statistics(results))
 
-    def _run_lookups(self, jobs):
+    def _run_lookups(self, jobs, work=None):
         """Resolve papers concurrently (sources keep their own per-host pacing); yield the running count."""
+        work = work or self._resolve_isolated
         workers = min(self.config.lookup_workers, len(jobs))
         if workers <= 1:
             for processed, job in enumerate(jobs, 1):
-                self._resolve_isolated(*job)
+                work(*job)
                 yield processed
             return
         with ThreadPoolExecutor(max_workers=workers, thread_name_prefix='pdf-lookup') as pool:
-            futures = [pool.submit(self._resolve_isolated, *job) for job in jobs]
+            futures = [pool.submit(work, *job) for job in jobs]
             for processed, future in enumerate(as_completed(futures), 1):
                 future.result()
                 yield processed
@@ -105,6 +119,77 @@ class PDFResolver:
             )
             result.validation_status = PDFValidationStatus.UNVERIFIED
             result.error_details.append({'source': 'pdf_validation', 'error': str(exc)})
+
+    def _retry_transient(self, jobs):
+        """Probe again, once host cooldowns expire, the identity-bound links that failed only transiently.
+
+        Only papers still without a verified link take part; a definitive answer (403, 404, HTML) is final.
+        """
+        stats = {'rounds': 0, 'waited_seconds': 0.0, 'retried_links': 0, 'recovered_papers': 0}
+        self.retry_statistics = stats
+        pending = self._transient_jobs(jobs)
+        for _ in range(self.config.transient_retry_rounds):
+            if not pending:
+                break
+            hosts = {
+                self._failed_host(result.pdf_candidates[index]) for _, result, indexes in pending for index in indexes
+            }
+            wait = self.resource_requests.cooldown_remaining(hosts) if self.resource_requests else 0.0
+            wait = min(wait, self.config.transient_retry_maximum_wait)
+            if wait > 0:
+                self.sleep(wait)
+            stats['rounds'] += 1
+            stats['waited_seconds'] += wait
+            stats['retried_links'] += sum(len(indexes) for _, _, indexes in pending)
+            for _ in self._run_lookups(pending, self._retry_isolated):
+                pass
+            stats['recovered_papers'] += sum(
+                result.validation_status == PDFValidationStatus.VERIFIED for _, result, _ in pending
+            )
+            pending = self._transient_jobs([(paper, result) for paper, result, _ in pending])
+        self._unprobed.clear()
+
+    def _transient_jobs(self, jobs):
+        pending = []
+        for paper, result in jobs:
+            if result.validation_status == PDFValidationStatus.VERIFIED or id(result) not in self._unprobed:
+                continue
+            indexes = [
+                index
+                for index, candidate in enumerate(result.pdf_candidates)
+                if candidate.identity_status == IdentityStatus.VERIFIED
+                and candidate.query_error_type in TRANSIENT_ERRORS
+            ]
+            if indexes:
+                pending.append((paper, result, indexes))
+        return pending
+
+    @staticmethod
+    def _failed_host(candidate):
+        return (candidate.request_context or {}).get('endpoint_host') or urlsplit(candidate.url).hostname or ''
+
+    def _retry_isolated(self, paper, result, indexes):
+        try:
+            for index in indexes:
+                stale = result.pdf_candidates[index]
+                self._forget(result, stale.url)
+                fresh = deepcopy(self._unprobed[id(result)][index])
+                result.pdf_candidates[index] = fresh
+                self._validate(fresh, paper, result)
+            self._settle(result)
+        except Exception as exc:
+            log_isolated_failure(
+                logger, 'PDF link retry failed for %s: %s', paper.get('doi') or paper.get('title'), exc
+            )
+
+    @staticmethod
+    def _forget(result, url):
+        """Drop the probe outcome recorded for this URL; the retry records its own."""
+        result.warnings = [
+            w for w in result.warnings if not (w.get('code') == 'source_deferred' and w.get('url') == url)
+        ]
+        result.error_details = [e for e in result.error_details if not ('error_type' in e and e.get('url') == url)]
+        result.candidate_decisions = [d for d in result.candidate_decisions if d.get('url') != url]
 
     def _prepare_providers(self, papers):
         self.preparation_errors = {}
@@ -144,31 +229,39 @@ class PDFResolver:
             candidates.extend(found.candidates)
             lookup_paper['_pdf_landing_pages'].extend(found.landing_pages)
         result.pdf_candidates = self._merge_urls(candidates)
+        with self._unprobed_lock:
+            self._unprobed[id(result)] = deepcopy(result.pdf_candidates)
         for candidate in result.pdf_candidates:
-            self.validator.validate(candidate, paper)
-            for error in candidate.error_details:
-                entry = {'source': candidate.source, 'url': candidate.url, 'error': error}
-                if candidate.query_error_type == 'source_deferred':
-                    result.warnings.append(
-                        dict(entry, code='source_deferred', incomplete=True, request_context=candidate.request_context)
+            self._validate(candidate, paper, result)
+        self._settle(result)
+
+    def _validate(self, candidate, paper, result):
+        self.validator.validate(candidate, paper)
+        for error in candidate.error_details:
+            entry = {'source': candidate.source, 'url': candidate.url, 'error': error}
+            if candidate.query_error_type == 'source_deferred':
+                result.warnings.append(
+                    dict(entry, code='source_deferred', incomplete=True, request_context=candidate.request_context)
+                )
+            elif candidate.access_status == AccessStatus.UNREACHABLE:
+                entry.update(error_type=candidate.query_error_type, request_context=candidate.request_context)
+                result.error_details.append(entry)
+            else:
+                category = (
+                    'pdf_identity_conflict'
+                    if candidate.identity_status == IdentityStatus.CONFLICTING
+                    else 'candidate_filtered'
+                )
+                result.candidate_decisions.append(
+                    dict(
+                        entry,
+                        category=category,
+                        identity_status=candidate.identity_status,
+                        validation_status=candidate.validation_status,
                     )
-                elif candidate.access_status == AccessStatus.UNREACHABLE:
-                    entry.update(error_type=candidate.query_error_type, request_context=candidate.request_context)
-                    result.error_details.append(entry)
-                else:
-                    category = (
-                        'pdf_identity_conflict'
-                        if candidate.identity_status == IdentityStatus.CONFLICTING
-                        else 'candidate_filtered'
-                    )
-                    result.candidate_decisions.append(
-                        dict(
-                            entry,
-                            category=category,
-                            identity_status=candidate.identity_status,
-                            validation_status=candidate.validation_status,
-                        )
-                    )
+                )
+
+    def _settle(self, result):
         valid = [
             candidate
             for candidate in result.pdf_candidates
@@ -274,6 +367,7 @@ class PDFResolver:
         counts['coverage_note'] = (
             'Counts describe processed saved entries and public-source observations, not all available PDFs.'
         )
+        counts['transient_retry'] = dict(self.retry_statistics)
         counts['provider_request_statistics'] = {}
         if self.resource_requests is not None:
             counts['provider_request_statistics']['public_resources'] = dict(
