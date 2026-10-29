@@ -67,6 +67,74 @@ class ContentIdentityTests(unittest.TestCase):
         self.assertEqual(identity, 'verified')
         self.assertEqual(dois, ['10.1234/example'])
 
+    def test_a_label_glued_to_the_doi_is_not_part_of_it(self):
+        saved = dict(target(), doi='10.1101/2023.12.14.571777')
+        identity, dois, _ = content_identity(saved, [saved['title']], [], '10.1101/2023.12.14.571777doi: bioRxiv', '')
+        self.assertEqual(identity, 'verified')
+        self.assertEqual(dois, ['10.1101/2023.12.14.571777'])
+
+    def test_the_works_arxiv_edition_counts_as_its_identifier(self):
+        saved = dict(target(), doi='10.18653/v1/2025.findings-acl.1254', arxiv_ids=['2410.05613'])
+        by_doi = content_identity(saved, [saved['title']], [], 'DOI: 10.48550/arXiv.2410.05613', '')
+        self.assertEqual(by_doi[0], 'verified')
+        self.assertTrue(any('arXiv identifier' in line for line in by_doi[2]))
+        stamped = content_identity(saved, [saved['title']], [], 'arXiv:2410.05613v2 [cs.CL] 3 Oct 2024', '')
+        self.assertEqual(stamped[0], 'verified')
+
+    def test_another_works_arxiv_identifier_still_conflicts(self):
+        saved = dict(target(), arxiv_ids=['2410.05613'])
+        identity, _, evidence = content_identity(saved, [saved['title']], [], 'DOI: 10.48550/arXiv.2401.00001', '')
+        self.assertEqual(identity, 'needs_review')
+        self.assertTrue(any('DOI differs' in line for line in evidence))
+
+    def test_validation_target_carries_the_works_arxiv_ids(self):
+        paper = dict(target(), external_ids={'arxiv': '2410.05613'}, source='dblp', source_paper_id='x')
+        self.assertEqual(validation_target(paper)['arxiv_ids'], ['2410.05613'])
+
+    def test_validation_target_carries_related_editions_arxiv_ids(self):
+        related = [{'identifiers': [{'source': 'dblp', 'paper_id': 'x', 'doi': '10.48550/arxiv.2410.05613'}]}]
+        paper = dict(target(), paper_metadata={'related_versions': related})
+        self.assertEqual(validation_target(paper)['arxiv_ids'], ['2410.05613'])
+
+    def arxiv_candidate(self, url='https://arxiv.org/pdf/2505.13898v2', title=None):
+        return {
+            'url': url,
+            'identity_status': 'verified',
+            'validation_status': 'verified',
+            'provenance': [{'source_paper_id': '2505.13898v2', 'metadata_title': title or target()['title']}],
+        }
+
+    def test_a_file_arxiv_served_under_the_bound_id_is_that_edition(self):
+        saved = dict(target(), doi='10.52202/085713-5357')
+        bound = validation_target(saved, self.arxiv_candidate())
+        self.assertEqual(bound['served_arxiv_id'], '2505.13898')
+        printed_doi = content_identity(bound, [saved['title']], [], 'DOI: 10.48550/arXiv.2505.13898', '')
+        self.assertEqual(printed_doi[0], 'verified')
+        nothing_printed = content_identity(bound, [saved['title']], [], 'Abstract', '')
+        self.assertEqual(nothing_printed[0], 'verified')
+        self.assertTrue(any('arXiv served this file' in line for line in nothing_printed[2]))
+
+    def test_the_served_id_still_needs_the_title(self):
+        bound = validation_target(target(), self.arxiv_candidate())
+        self.assertEqual(content_identity(bound, ['Another paper entirely'], [], 'Abstract', '')[0], 'needs_review')
+
+    def test_an_unbound_or_non_arxiv_url_serves_no_edition(self):
+        unbound = dict(self.arxiv_candidate(), identity_status='unverified')
+        self.assertIsNone(validation_target(target(), unbound)['served_arxiv_id'])
+        elsewhere = self.arxiv_candidate(url='https://mirror.example.org/pdf/2505.13898v2')
+        self.assertIsNone(validation_target(target(), elsewhere)['served_arxiv_id'])
+
+    def test_a_renamed_preprint_matches_the_title_arxiv_gave_its_id(self):
+        renamed = 'Transformers use their depth unevenly'
+        bound = validation_target(target(), self.arxiv_candidate(title=renamed))
+        self.assertEqual(bound['edition_titles'], [renamed])
+        self.assertEqual(content_identity(bound, [renamed], [], 'Abstract', '')[0], 'verified')
+
+    def test_latex_remnants_are_removed_from_metadata_titles(self):
+        saved = target()
+        decorated = '[width=2em,height=2em]assets/logo.png ' + saved['title']
+        self.assertEqual(content_identity(saved, [decorated], [], saved['doi'], '')[0], 'verified')
+
     def test_balanced_parentheses_inside_doi_preserved(self):
         saved = dict(target(), doi='10.1234/(abc)')
         identity, dois, evidence = content_identity(saved, [saved['title']], [], 'DOI: 10.1234/(abc).', '')

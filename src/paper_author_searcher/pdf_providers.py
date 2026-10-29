@@ -1,9 +1,10 @@
 """Independent public metadata providers; no paywall or login workarounds."""
 
+import re
 from abc import ABC, abstractmethod
 from html.parser import HTMLParser
 from typing import Any, ClassVar
-from urllib.parse import quote, urljoin
+from urllib.parse import quote, urljoin, urlsplit
 
 from .config import DEFAULT_PDF, DEFAULT_SOURCES
 from .html_support import decode_response
@@ -17,6 +18,7 @@ from .pdf_identity import (
     metadata_identity,
     paper_dois,
     paper_ids,
+    related_dois,
     same_arxiv_version,
     source_records,
 )
@@ -33,6 +35,10 @@ VERSION_TYPES = {
     'accepted_manuscript': 'accepted_manuscript',
     'submitted_manuscript': 'submitted_manuscript',
 }
+
+
+# OpenAlex names an arXiv copy's location after the arXiv OAI record it harvested.
+OPENALEX_ARXIV_LOCATION = 'pmh:oai:arxiv.org:'
 
 
 def openalex_locations(work):
@@ -66,7 +72,29 @@ def make_candidate(url, source, identity, metadata, access_basis, version=None, 
     )
 
 
-def openalex_candidates(paper, work, provider, metadata_url=None):
+def openalex_authors(work):
+    """Author names of a saved OpenAlex work; a lookup that did not select authorships has none."""
+    names = []
+    for authorship in work.get('authorships') or []:
+        name = ((authorship or {}).get('author') or {}).get('display_name') if isinstance(authorship, dict) else None
+        if name:
+            names.append(name)
+    return names
+
+
+def openalex_arxiv_ids(locations):
+    """arXiv IDs of the copies OpenAlex merged into one work ("pmh:oai:arXiv.org:2404.18021", arxiv.org URLs)."""
+    identifiers: list[str] = []
+    for location in locations:
+        values = [location.get('landing_page_url'), location.get('pdf_url')]
+        source_id = str(location.get('id') or '')
+        if source_id.lower().startswith(OPENALEX_ARXIV_LOCATION):
+            values.append(source_id[len(OPENALEX_ARXIV_LOCATION) :])
+        identifiers.extend(identifier for identifier in map(arxiv_id, values) if identifier)
+    return list(dict.fromkeys(identifiers))
+
+
+def openalex_candidates(paper, work, provider, metadata_url=None, config=DEFAULT_PDF):
     locations = openalex_locations(work)
     identity = metadata_identity(
         paper,
@@ -75,6 +103,9 @@ def openalex_candidates(paper, work, provider, metadata_url=None):
         work.get('doi'),
         work.get('title'),
         work.get('publication_year'),
+        openalex_authors(work),
+        openalex_arxiv_ids(locations),
+        config,
     )
     candidates = []
     for location in locations:
@@ -107,7 +138,7 @@ def openalex_candidates(paper, work, provider, metadata_url=None):
     return candidates
 
 
-def semantic_candidates(paper, work, provider, metadata_url=None):
+def semantic_candidates(paper, work, provider, metadata_url=None, config=DEFAULT_PDF):
     if not isinstance(work, dict):
         raise SourceError('Malformed Semantic Scholar paper: expected an object', error_type='malformed_response')
     location = work.get('openAccessPdf') or {}
@@ -129,6 +160,8 @@ def semantic_candidates(paper, work, provider, metadata_url=None):
         work.get('title'),
         work.get('year'),
         [author.get('name', '') for author in authors],
+        [external_ids['ArXiv']] if external_ids.get('ArXiv') else (),
+        config,
     )
     provenance = {
         'database': 'semantic_scholar',
@@ -177,16 +210,19 @@ def openalex_landing_pages(work):
 class ExistingPDFProvider:
     name = 'existing_metadata'
 
+    def __init__(self, config=DEFAULT_PDF):
+        self.config = config
+
     def find(self, paper):
         result = PDFProviderResult(self.name)
         for record in source_records(paper):
             metadata = record.get('raw_metadata') or {}
             try:
                 if record.get('source') == 'openalex':
-                    result.candidates.extend(openalex_candidates(paper, metadata, self.name))
+                    result.candidates.extend(openalex_candidates(paper, metadata, self.name, config=self.config))
                     result.landing_pages.extend(openalex_landing_pages(metadata))
                 elif record.get('source') == 'semantic_scholar':
-                    result.candidates.extend(semantic_candidates(paper, metadata, self.name))
+                    result.candidates.extend(semantic_candidates(paper, metadata, self.name, config=self.config))
             except (SourceError, ValueError, TypeError) as exc:
                 result.errors.append(str(exc))
         if result.errors:
@@ -262,9 +298,10 @@ class OpenAlexPDFProvider(MetadataPDFProvider):
     name = 'openalex'
     fields = 'id,doi,title,publication_year,primary_location,best_oa_location,locations'
 
-    def __init__(self, client, sources=DEFAULT_SOURCES, api_key=None):
+    def __init__(self, client, sources=DEFAULT_SOURCES, api_key=None, config=DEFAULT_PDF):
         super().__init__(client, sources)
         self.api_key = api_key
+        self.config = config
 
     def lookups(self, paper):
         identifiers = paper_ids(paper, self.name)
@@ -282,9 +319,11 @@ class OpenAlexPDFProvider(MetadataPDFProvider):
                 continue
             if str(work.get('id', '')).rstrip('/').rsplit('/', 1)[-1] != str(identifier).rstrip('/').rsplit('/', 1)[-1]:
                 continue
-            return openalex_candidates(paper, work, self.name, 'saved_openalex_metadata'), openalex_landing_pages(work)
+            return openalex_candidates(
+                paper, work, self.name, 'saved_openalex_metadata', self.config
+            ), openalex_landing_pages(work)
         work = self.client.get(url, params={'select': self.fields, 'api_key': self.api_key})
-        return openalex_candidates(paper, work, self.name, url), openalex_landing_pages(work)
+        return openalex_candidates(paper, work, self.name, url, self.config), openalex_landing_pages(work)
 
 
 class SemanticScholarPDFProvider(MetadataPDFProvider):
@@ -341,7 +380,9 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
             for work in works:
                 if normalize(work.get('title') or '') == normalize(paper['title']):
                     result.candidates.extend(
-                        semantic_candidates(paper, work, self.name, self.sources.semantic_scholar_url + '/paper/search')
+                        semantic_candidates(
+                            paper, work, self.name, self.sources.semantic_scholar_url + '/paper/search', self.config
+                        )
                     )
             failed = any(
                 item.get('status') == ProviderStatus.ERROR and item.get('error_type') != 'not_found'
@@ -380,9 +421,9 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
     def lookup(self, paper, identifier):
         work = self._saved_work(paper, identifier)
         if work is not None:
-            return semantic_candidates(paper, work, self.name, 'saved_semantic_scholar_metadata'), []
+            return semantic_candidates(paper, work, self.name, 'saved_semantic_scholar_metadata', self.config), []
         work = self.requests.work(identifier)
-        return semantic_candidates(paper, work, self.name, self.requests.url(identifier)), []
+        return semantic_candidates(paper, work, self.name, self.requests.url(identifier), self.config), []
 
 
 class UnpaywallPDFProvider(MetadataPDFProvider):
@@ -417,7 +458,7 @@ class UnpaywallPDFProvider(MetadataPDFProvider):
         work = self.client.get(url, params={'email': self.email})
         if not isinstance(work, dict):
             raise SourceError('Unpaywall metadata must be an object', error_type='malformed_response')
-        identity = metadata_identity(paper, self.name, doi=work.get('doi'), title=work.get('title'))
+        identity = metadata_identity(paper, self.name, doi=work.get('doi'), title=work.get('title'), config=self.config)
         locations = work.get('oa_locations') or []
         if not isinstance(locations, list):
             raise SourceError('Unpaywall OA locations must be a list', error_type='malformed_response')
@@ -462,6 +503,164 @@ class UnpaywallPDFProvider(MetadataPDFProvider):
                     location.get('license'),
                 )
             )
+        return candidates, landing_pages
+
+
+class EuropePMCPDFProvider(MetadataPDFProvider):
+    """Europe PMC's own free full-text PDFs (PubMed Central copies), looked up by DOI."""
+
+    name = 'europepmc'
+
+    def __init__(self, client, sources=DEFAULT_SOURCES, config=DEFAULT_PDF):
+        super().__init__(client, sources)
+        self.config = config
+
+    def lookups(self, paper):
+        return [doi[len('doi:') :] for doi in sorted(paper_dois(paper))]
+
+    def lookup(self, paper, identifier):
+        data = self.client.get(
+            self.sources.europepmc_url,
+            params={'query': f'DOI:"{identifier}"', 'format': 'json', 'resultType': 'core', 'pageSize': 1},
+        )
+        results = ((data or {}).get('resultList') or {}).get('result') or []
+        if not isinstance(results, list):
+            raise SourceError('Europe PMC results must be a list', error_type='malformed_response')
+        candidates: list[Any] = []
+        for work in results:
+            if not isinstance(work, dict):
+                raise SourceError('Europe PMC results must contain objects', error_type='malformed_response')
+            identity = metadata_identity(
+                paper, self.name, doi=work.get('doi'), title=work.get('title'), config=self.config
+            )
+            links = (work.get('fullTextUrlList') or {}).get('fullTextUrl') or []
+            for link in links if isinstance(links, list) else []:
+                if not isinstance(link, dict) or link.get('documentStyle') != 'pdf' or not link.get('url'):
+                    continue
+                if link.get('availabilityCode') not in self.config.europepmc_free_codes:
+                    continue
+                provenance = {
+                    'metadata_url': self.sources.europepmc_url,
+                    'doi': work.get('doi'),
+                    'metadata_title': work.get('title'),
+                    'pmcid': work.get('pmcid'),
+                    'site': link.get('site'),
+                    'availability': link.get('availability'),
+                }
+                candidates.append(
+                    make_candidate(
+                        link['url'],
+                        self.name,
+                        identity,
+                        provenance,
+                        f"Europe PMC full text marked {link.get('availability')}",
+                        'publishedVersion',
+                        work.get('license'),
+                    )
+                )
+        return candidates, []
+
+
+class NBERPDFProvider(MetadataPDFProvider):
+    """NBER working-paper PDFs, named by the NBER DOI of the paper or of an edition related to it.
+
+    Deduplication relates an edition only on the same normalized title and compatible authors, so the working
+    paper of a later journal article is bound to it; the downloaded file must still show the title.
+    """
+
+    name = 'nber'
+
+    def __init__(self, client, config=DEFAULT_PDF):
+        super().__init__(client)
+        self.config = config
+
+    def lookups(self, paper):
+        own = [doi[len('doi:') :] for doi in sorted(paper_dois(paper))]
+        numbers = [self._number(doi) for doi in [*own, *related_dois(paper)]]
+        return list(dict.fromkeys(number for number in numbers if number))
+
+    def lookup(self, paper, identifier):
+        own = {self._number(doi[len('doi:') :]) for doi in paper_dois(paper)}
+        if identifier in own:
+            identity = (IdentityStatus.VERIFIED, ['Exact DOI agreement with saved paper metadata'])
+        else:
+            identity = (
+                IdentityStatus.VERIFIED,
+                ['NBER DOI of an edition deduplication related to this paper (same normalized title and authors)'],
+            )
+        url = self.config.nber_pdf_url_template.format(number=identifier)
+        provenance = {'doi': '10.3386/' + identifier, 'source_paper_id': identifier}
+        candidate = make_candidate(
+            url, self.name, identity, provenance, 'NBER working papers are free to download', 'submittedVersion'
+        )
+        return [candidate], []
+
+    def _number(self, doi):
+        match = re.match(self.config.nber_doi_pattern, doi or '', flags=re.IGNORECASE)
+        return match.group(1).lower() if match else None
+
+
+class OpenAIREPDFProvider(MetadataPDFProvider):
+    """Repository copies the OpenAIRE Graph aggregates for an open-access work, looked up by DOI.
+
+    A URL to a PDF file is a candidate; any other URL is a landing page for the sources after this one.
+    """
+
+    name = 'openaire'
+
+    def __init__(self, client, config=DEFAULT_PDF):
+        super().__init__(client)
+        self.config = config
+
+    def lookups(self, paper):
+        return [doi[len('doi:') :] for doi in sorted(paper_dois(paper))]
+
+    def lookup(self, paper, identifier):
+        data = self.client.get(self.config.openaire_url, params={'pid': identifier})
+        results = (data or {}).get('results') or []
+        if not isinstance(results, list):
+            raise SourceError('OpenAIRE results must be a list', error_type='malformed_response')
+        candidates: list[Any] = []
+        landing_pages: list[Any] = []
+        for work in results:
+            if not isinstance(work, dict):
+                raise SourceError('OpenAIRE results must contain objects', error_type='malformed_response')
+            if (work.get('bestAccessRight') or {}).get('label') not in self.config.openaire_open_labels:
+                continue
+            identity = metadata_identity(
+                paper, self.name, doi=identifier, title=work.get('mainTitle'), config=self.config
+            )
+            for instance in work.get('instances') or []:
+                for url in (instance or {}).get('urls') or []:
+                    if not isinstance(url, str) or not url.startswith(('http://', 'https://')):
+                        continue
+                    if urlsplit(url).path.lower().endswith('.pdf'):
+                        provenance = {
+                            'metadata_url': self.config.openaire_url,
+                            'doi': identifier,
+                            'metadata_title': work.get('mainTitle'),
+                        }
+                        candidates.append(
+                            make_candidate(
+                                url,
+                                self.name,
+                                identity,
+                                provenance,
+                                'OpenAIRE open-access repository copy',
+                                None,
+                                (instance.get('license') or None),
+                            )
+                        )
+                    else:
+                        landing_pages.append(
+                            {
+                                'landing_page_url': url,
+                                'database': self.name,
+                                'doi': identifier,
+                                'title': work.get('mainTitle'),
+                                'is_oa': True,
+                            }
+                        )
         return candidates, landing_pages
 
 
@@ -517,7 +716,14 @@ class ArxivPDFProvider:
         published = entry.findtext(self.atom + 'published') or ''
         authors = [author.findtext(self.atom + 'name') or '' for author in entry.findall(self.atom + 'author')]
         identity = metadata_identity(
-            paper if search else bound_paper, self.name, identifier, doi, title, published[:4], authors
+            paper if search else bound_paper,
+            self.name,
+            identifier,
+            doi,
+            title,
+            published[:4],
+            authors,
+            config=self.config,
         )
         candidates = []
         for link in entry.findall(self.atom + 'link'):
@@ -632,7 +838,7 @@ class LandingPagePDFProvider:
         date = self._single(values, 'citation_publication_date') or self._single(values, 'citation_date')
         year = date[:4] if date and date[:4].isdigit() else None
         identity = metadata_identity(
-            paper, self.name, doi=doi, title=title, year=year, authors=values.get('citation_author')
+            paper, self.name, doi=doi, title=title, year=year, authors=values.get('citation_author'), config=self.config
         )
         for key in ('citation_title', 'citation_doi'):
             if len(set(values.get(key, []))) > 1:
@@ -663,7 +869,12 @@ class LandingPagePDFProvider:
             if binding.get('is_oa') is not True:
                 continue
             identity = metadata_identity(
-                paper, binding['database'], binding.get('source_paper_id'), binding.get('doi'), binding.get('title')
+                paper,
+                binding['database'],
+                binding.get('source_paper_id'),
+                binding.get('doi'),
+                binding.get('title'),
+                config=self.config,
             )
             candidates.append(
                 make_candidate(

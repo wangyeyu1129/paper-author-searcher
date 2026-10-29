@@ -29,7 +29,10 @@ from .pdf_catalogs import JournalCatalogPDFProvider
 from .pdf_crossref import CrossrefPDFProvider
 from .pdf_providers import (
     ArxivPDFProvider,
+    EuropePMCPDFProvider,
     ExistingPDFProvider,
+    NBERPDFProvider,
+    OpenAIREPDFProvider,
     OpenAlexPDFProvider,
     SemanticScholarPDFProvider,
     UnpaywallPDFProvider,
@@ -105,14 +108,17 @@ def _dblp_papers(container: Any, identity: DBLPProvider) -> DBLPPaperProvider:
 
 @PDF_SOURCES.register('existing_metadata')
 def _existing(container: Any) -> ExistingPDFProvider:
-    return ExistingPDFProvider()
+    return ExistingPDFProvider(container.pdf_config)
 
 
 @PDF_SOURCES.register('openalex')
 def _openalex_pdf(container: Any) -> OpenAlexPDFProvider:
     settings = container.settings
     return OpenAlexPDFProvider(
-        container.resource_requests, settings.sources, api_key=settings.credentials.openalex_api_key
+        container.resource_requests,
+        settings.sources,
+        api_key=settings.credentials.openalex_api_key,
+        config=container.pdf_config,
     )
 
 
@@ -138,6 +144,21 @@ def _crossref_pdf(container: Any) -> CrossrefPDFProvider:
 def _unpaywall_pdf(container: Any) -> UnpaywallPDFProvider:
     email = container.options.unpaywall_email or container.settings.credentials.unpaywall_email
     return UnpaywallPDFProvider(container.resource_requests, email, container.pdf_config)
+
+
+@PDF_SOURCES.register('europepmc')
+def _europepmc_pdf(container: Any) -> EuropePMCPDFProvider:
+    return EuropePMCPDFProvider(container.resource_requests, container.settings.sources, container.pdf_config)
+
+
+@PDF_SOURCES.register('openaire')
+def _openaire_pdf(container: Any) -> OpenAIREPDFProvider:
+    return OpenAIREPDFProvider(container.resource_requests, container.pdf_config)
+
+
+@PDF_SOURCES.register('nber')
+def _nber_pdf(container: Any) -> NBERPDFProvider:
+    return NBERPDFProvider(container.resource_requests, container.pdf_config)
 
 
 @PDF_SOURCES.register('arxiv')

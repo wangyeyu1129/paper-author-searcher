@@ -131,7 +131,7 @@ class PDFDownloader:
                 candidates = self._eligible_candidates(paper, record, include_needs_review)
                 if not candidates:
                     continue
-                if self._reuse_existing(root, paper, record, previous_by_key.get(record.paper_key, [])):
+                if self._reuse_existing(root, paper, record, previous_by_key.get(record.paper_key, []), candidates):
                     continue
                 if maximum_downloads is not None and attempted >= maximum_downloads:
                     record.download_status = DownloadStatus.SKIPPED_LIMIT
@@ -212,7 +212,7 @@ class PDFDownloader:
             record.download_status = DownloadStatus.SKIPPED_UNVERIFIED_URL
         return candidates
 
-    def _reuse_existing(self, root, paper, record, entries):
+    def _reuse_existing(self, root, paper, record, entries, candidates=()):
         possible = list(entries)
         filename = paper_filename(paper, self.config)
         for folder in ('', REVIEW_FOLDER, QUARANTINE_FOLDER):
@@ -246,6 +246,12 @@ class PDFDownloader:
                     or validation.identity_status == IdentityStatus.REJECTED
                 ):
                     continue
+                # A file the validator cannot confirm is kept only once no other verified URL is left to try.
+                if validation.validation_status != PDFValidationStatus.VERIFIED and any(
+                    (item.get('final_url') or item.get('url')) not in (entry.get('pdf_url'), entry.get('final_url'))
+                    for item in candidates
+                ):
+                    continue
                 self._apply_validation(record, validation)
                 record.file_size, record.sha256 = size, digest
                 record.local_filename = relative
@@ -267,6 +273,7 @@ class PDFDownloader:
     def _download_paper(self, root, paper, record, candidates, known_files):
         rejected = None
         non_full = None
+        unconfirmed = None
         for candidate in candidates:
             descriptor, temporary_name = tempfile.mkstemp(prefix='.download-', suffix='.part', dir=str(root))
             os.close(descriptor)
@@ -323,6 +330,12 @@ class PDFDownloader:
                     attempt['status'] = AttemptStatus.NON_FULL_DOCUMENT
                     non_full = (candidate, receipt, validation, relative, duplicate)
                     continue
+                # Another URL may hold a copy the validator can confirm: a PMC rendering whose title it cannot
+                # extract stands next to the arXiv preprint whose title it can.
+                if validation.validation_status != PDFValidationStatus.VERIFIED:
+                    attempt['status'] = AttemptStatus.UNCONFIRMED_CONTENT
+                    unconfirmed = unconfirmed or (candidate, receipt, validation, relative, duplicate)
+                    continue
                 self._record_completed(record, paper, candidate, receipt, validation, relative, duplicate)
                 attempt['status'] = AttemptStatus.COMPLETED
                 return
@@ -335,7 +348,9 @@ class PDFDownloader:
             finally:
                 if temporary.exists():
                     temporary.unlink()
-        if non_full is not None:
+        if unconfirmed is not None:
+            self._record_completed(record, paper, *unconfirmed)
+        elif non_full is not None:
             self._record_completed(record, paper, *non_full)
             record.download_status = DownloadStatus.NON_FULL_DOCUMENT
         elif rejected is not None:

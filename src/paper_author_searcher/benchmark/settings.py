@@ -85,6 +85,17 @@ class RunSettings:
     # One shared cap for the whole benchmark run (all people), in estimated USD of metered API requests.
     max_cost_usd: float | None = 0.5
     cost_ledger: str = 'benchmark'
+    # Which collected papers the full-text pass processes. "window": every paper in the person's truth window,
+    # chosen without looking at truth (the default). "truth": only papers that match a truth entry, the only ones
+    # full-text coverage counts; the same coverage for a fraction of the lookups and downloads.
+    fulltext_scope: str = 'window'
+
+    def __post_init__(self) -> None:
+        if self.fulltext_scope not in FULLTEXT_SCOPES:
+            raise ValueError(f'fulltext_scope must be one of {FULLTEXT_SCOPES}')
+
+
+FULLTEXT_SCOPES = ('window', 'truth')
 
 
 @dataclass(frozen=True)

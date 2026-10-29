@@ -86,3 +86,164 @@ class DecoratorChainTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class ScriptedClient(HttpClient):
+    """Answers each probe from a script of responses or errors, redirecting through one hop first."""
+
+    def __init__(self, *outcomes):
+        super().__init__(retries=0)
+        self.outcomes = list(outcomes)
+        self.calls = 0
+
+    def probe(self, url, maximum_bytes=1024, html_bytes=0, maximum_redirects=5, redirect_guard=None):
+        self.calls += 1
+        if redirect_guard:
+            redirect_guard('https://mirror.example.edu/paper.pdf')
+        outcome = self.outcomes.pop(0)
+        if isinstance(outcome, Exception):
+            raise outcome
+        return outcome
+
+
+def pdf_probe(prefix=b'%PDF-1.7 body', **headers):
+    headers = {'Content-Range': 'bytes 0-12/13', 'Set-Cookie': 'session=secret', **headers}
+    return URLProbe('https://mirror.example.edu/paper.pdf', 206, 'application/pdf', headers, prefix, True)
+
+
+class ProbeCacheTests(unittest.TestCase):
+    url = 'https://doi.org/10.1234/x'
+
+    def test_a_recorded_probe_replays_offline_with_its_redirect_hops(self):
+        with tempfile.TemporaryDirectory() as directory:
+            network = ScriptedClient(pdf_probe())
+            recorded = cached_client(network, directory, 'record').probe(self.url)
+            hops = []
+            replayed = cached_client(ScriptedClient(), directory, 'replay').probe(self.url, redirect_guard=hops.append)
+            stored = list(Path(directory).rglob('*.probe.json'))
+            self.assertNotIn('secret', stored[0].read_text())
+        self.assertEqual(network.calls, 1)
+        self.assertEqual(hops, ['https://mirror.example.edu/paper.pdf'])
+        self.assertEqual((replayed.url, replayed.status, replayed.prefix), (recorded.url, 206, b'%PDF-1.7 body'))
+        self.assertEqual(replayed.headers, {'Content-Range': 'bytes 0-12/13'})
+        self.assertTrue(replayed.body_complete)
+
+    def test_a_smaller_read_is_cut_from_the_recorded_prefix(self):
+        with tempfile.TemporaryDirectory() as directory:
+            cached_client(ScriptedClient(pdf_probe()), directory, 'record').probe(self.url)
+            replayed = cached_client(ScriptedClient(), directory, 'replay').probe(self.url, maximum_bytes=4)
+        self.assertEqual((replayed.prefix, replayed.body_complete), (b'%PDF', False))
+
+    def test_a_larger_read_than_recorded_is_a_miss(self):
+        page = URLProbe('https://mirror.example.edu/landing', 200, 'text/html', {}, b'<html>' * 10, False)
+        with tempfile.TemporaryDirectory() as directory:
+            cached_client(ScriptedClient(page), directory, 'record').probe(self.url, html_bytes=60)
+            with self.assertRaises(SourceError) as raised:
+                cached_client(ScriptedClient(), directory, 'replay').probe(self.url, html_bytes=1000)
+        self.assertEqual(raised.exception.error_type, 'cache_miss')
+
+    def test_a_recorded_failure_replays_but_recording_probes_it_again(self):
+        refused = SourceError('HTTP 503', 503, endpoint_host='mirror.example.edu')
+        with tempfile.TemporaryDirectory() as directory:
+            with self.assertRaises(SourceError):
+                cached_client(ScriptedClient(refused), directory, 'record').probe(self.url)
+            with self.assertRaises(SourceError) as raised:
+                cached_client(ScriptedClient(), directory, 'replay').probe(self.url)
+            again = ScriptedClient(pdf_probe())
+            self.assertEqual(cached_client(again, directory, 'record').probe(self.url).status, 206)
+        self.assertEqual((raised.exception.status_code, raised.exception.error_type), (503, 'server_error'))
+        self.assertEqual(raised.exception.endpoint_host, 'mirror.example.edu')
+        self.assertEqual(again.calls, 1)
+
+    def test_scheduler_deferrals_are_not_recorded(self):
+        deferred = SourceError('Host temporarily deferred', error_type='source_deferred')
+        with tempfile.TemporaryDirectory() as directory:
+            with self.assertRaises(SourceError):
+                cached_client(ScriptedClient(deferred), directory, 'record').probe(self.url)
+            self.assertEqual(list(Path(directory).rglob('*.probe.json')), [])
+
+    def test_the_scheduler_does_not_pace_an_answer_from_the_cache(self):
+        clock, sleeps = [0.0], []
+        with tempfile.TemporaryDirectory() as directory:
+            cached_client(ScriptedClient(pdf_probe()), directory, 'record').probe(self.url)
+            requests = PublicResourceRequests(cached_client(ScriptedClient(), directory, 'replay'))
+            requests.pacer = RequestPacer(5.0, clock=lambda: clock[0], sleep=sleeps.append)
+            for _ in range(2):
+                requests.cache.clear()
+                requests.probe(self.url)
+        self.assertEqual(sleeps, [])
+        self.assertIn('mirror.example.edu', requests.redirect_targets['doi.org'])
+
+
+class PostingClient(HttpClient):
+    def __init__(self):
+        super().__init__(retries=0)
+        self.posts = []
+
+    def post_json(self, url, payload, params=None, headers=None, expected_type=dict):
+        self.posts.append((url, payload, params))
+        return [{'paperId': value} for value in payload['ids']]
+
+
+class PostCacheTests(unittest.TestCase):
+    def test_a_recorded_post_replays_offline_and_its_secret_never_reaches_the_key(self):
+        url = 'https://api.semanticscholar.org/graph/v1/paper/batch'
+        with tempfile.TemporaryDirectory() as directory:
+            network = PostingClient()
+            recorded = cached_client(network, directory, 'record')
+            recorded.post_json(url, {'ids': ['a', 'b']}, params={'api_key': 'secret'})
+            recorded.post_json(url, {'ids': ['a', 'b']}, params={'api_key': 'other'})
+            replay = cached_client(PostingClient(), directory, 'replay')
+            self.assertEqual(replay.post_json(url, {'ids': ['a', 'b']}), [{'paperId': 'a'}, {'paperId': 'b'}])
+            with self.assertRaises(SourceError):
+                replay.post_json(url, {'ids': ['c']})
+            self.assertNotIn('secret', ''.join(path.read_text() for path in Path(directory).rglob('*.json')))
+        self.assertEqual(len(network.posts), 1)
+
+
+class ReplaySchedulingTests(unittest.TestCase):
+    def test_a_replayed_failure_cools_no_host_so_later_urls_answer_as_recorded(self):
+        first, second = 'https://repo.example.edu/a.pdf', 'https://repo.example.edu/b.pdf'
+        failure = SourceError('HTTP 503', 503, endpoint_host='repo.example.edu')
+        with tempfile.TemporaryDirectory() as directory:
+            recording = cached_client(ScriptedClient(failure, pdf_probe()), directory, 'record')
+            with self.assertRaises(SourceError):
+                recording.probe(first)
+            recording.probe(second)
+            requests = PublicResourceRequests(cached_client(ScriptedClient(), directory, 'replay'))
+            with self.assertRaises(SourceError) as raised:
+                requests.probe(first)
+            self.assertEqual(raised.exception.request_context['outcome'], 'cached_failure')
+            self.assertEqual(requests.probe(second).status, 206)
+        self.assertEqual(requests.cooldown_remaining({'repo.example.edu'}), 0.0)
+        self.assertEqual(requests.statistics['cooldown_skips'], 0)
+
+
+class FailingClient(HttpClient):
+    def __init__(self, *outcomes):
+        super().__init__(retries=0)
+        self.outcomes = list(outcomes)
+        self.calls = 0
+
+    def get(self, url, params=None, headers=None, xml=False):
+        self.calls += 1
+        outcome = self.outcomes.pop(0)
+        if isinstance(outcome, Exception):
+            raise outcome
+        return outcome
+
+
+class FailedReadTests(unittest.TestCase):
+    url = 'https://api.unpaywall.org/v2/10.1234/x'
+
+    def test_a_recorded_404_replays_and_recording_asks_again(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with self.assertRaises(SourceError):
+                cached_client(FailingClient(SourceError('HTTP 404', 404)), directory, 'record').get(self.url)
+            with self.assertRaises(SourceError) as raised:
+                cached_client(FailingClient(), directory, 'replay').get(self.url)
+            again = FailingClient({'is_oa': True})
+            self.assertEqual(cached_client(again, directory, 'record').get(self.url), {'is_oa': True})
+            self.assertEqual(cached_client(FailingClient(), directory, 'replay').get(self.url), {'is_oa': True})
+        self.assertEqual((raised.exception.status_code, raised.exception.error_type), (404, 'not_found'))
+        self.assertEqual(again.calls, 1)

@@ -719,6 +719,10 @@ class PDFConfig:
     public_page_cache_bytes: int = 8 * 1024 * 1024
     source_maximum_cooldown: float = 900.0
     redirect_failure_budget: int = 3
+    # Identity-bound links that failed transiently (host cooldown, timeout, 5xx, 429) are probed again
+    # after the run, once their hosts' cooldowns expire; the wait for that is capped. 403/404 are final.
+    transient_retry_rounds: int = 1
+    transient_retry_maximum_wait: float = 120.0
     # Papers resolved concurrently; each source still paces its own hosts.
     lookup_workers: int = 4
     # Full collected records live in papers.json; reports keep a bibliographic view plus entry_index.
@@ -732,14 +736,33 @@ class PDFConfig:
         'semantic_scholar',
         'crossref',
         'unpaywall',
+        'europepmc',
+        'openaire',
+        'nber',
         'arxiv',
         'journal_catalog',
         'public_pages',
     )
+    # Europe PMC full-text links accepted as PDFs: availability codes for open access ("OA") and free to read
+    # ("F", e.g. a PubMed Central copy under a funder mandate). Subscription links ("S") are never followed.
+    europepmc_free_codes: tuple[str, ...] = ('OA', 'F')
+    # OpenAIRE Graph (no key): copies of a work in repositories it aggregates, used only when it rates the work's
+    # best access right as one of these labels.
+    openaire_url: str = 'https://api.openaire.eu/graph/v1/researchProducts'
+    openaire_open_labels: tuple[str, ...] = ('OPEN',)
+    # NBER working papers are free to download. Their DOIs carry the paper number ("10.3386/w31185"), which names
+    # the PDF; no lookup request is needed.
+    nber_doi_pattern: str = r'^10\.3386/(w\d+)$'
+    nber_pdf_url_template: str = 'https://www.nber.org/system/files/working_papers/{number}/{number}.pdf'
     bibliography_urls: tuple[str, ...] = ()
     journal_catalogs: tuple[tuple[str, str], ...] = (
         ('Journal of Machine Learning Research', 'https://jmlr.org/papers/'),
     )
+    # Binding a URL to a paper without a shared DOI (pdf_identity.metadata_identity). A preprint is often dated a
+    # year before its venue edition. An own arXiv edition whose title changed needs this many shared author
+    # signatures (all of a shorter list).
+    identity_year_tolerance: int = 1
+    identity_shared_authors: int = 2
     version_preference: tuple[str, ...] = (
         'published_version',
         'accepted_manuscript',
@@ -772,6 +795,10 @@ class PDFConfig:
             raise ValueError('Discovery and cache limits must be positive')
         if self.lookup_workers < 1:
             raise ValueError('lookup_workers must be positive')
+        if self.transient_retry_rounds < 0 or self.transient_retry_maximum_wait < 0:
+            raise ValueError('Transient retry rounds and wait must be nonnegative')
+        if self.identity_year_tolerance < 0 or self.identity_shared_authors < 1:
+            raise ValueError('identity_year_tolerance must be nonnegative and identity_shared_authors positive')
         if self.public_page_maximum_bytes < self.html_metadata_bytes:
             raise ValueError('Public page maximum must cover the initial metadata preview')
         if self.public_page_cache_bytes < self.public_page_maximum_bytes:
@@ -808,6 +835,15 @@ class DownloadConfig:
     title_lines: int = 30
     maximum_extracted_characters: int = 20000
     minimum_title_words_without_doi: int = 4
+    # Words text extraction glues to the end of a DOI ("10.1101/2023.12.14.571777doi: bioRxiv preprint"); one is
+    # dropped when it follows a digit, so the printed DOI is not mistaken for another one.
+    doi_glued_labels: tuple[str, ...] = ('doi', 'http', 'https', 'www')
+    # Typesetting remnants LaTeX leaves in a PDF's title metadata: an \includegraphics option list and image path
+    # ("[width=2em,height=2em]assets/logo.png AxBench: ..."). Removed before the title is compared.
+    title_artifact_pattern: str = r'\[[^\]]*\]\s*\S+\.(?:png|jpe?g|pdf|eps|svg)\b'
+    # A PDF title metadata value shorter than this is a record number, file stem or placeholder ("68605761",
+    # "mcedit_fetal_heart_manuscript", "My title"), not another paper's title, so it never vetoes identity.
+    metadata_title_minimum_words: int = 3
     footer_scan_bytes: int = 4096
     poster_minimum_edge_points: float = 1000
     slide_minimum_aspect_ratio: float = 1.2
@@ -831,6 +867,7 @@ class DownloadConfig:
             self.title_lines,
             self.maximum_extracted_characters,
             self.minimum_title_words_without_doi,
+            self.metadata_title_minimum_words,
             self.footer_scan_bytes,
             self.poster_minimum_edge_points,
             self.slide_minimum_aspect_ratio,

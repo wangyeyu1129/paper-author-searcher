@@ -35,6 +35,43 @@ class FrontMatterTests(unittest.TestCase):
             content_identity(paper, ['Unrelated scientific findings'], [front], front, '')[0], 'needs_review'
         )
 
+    def test_record_numbers_file_stems_and_placeholders_are_not_title_conflicts(self):
+        paper = target()
+        front = paper['title'] + '\nAlex Example\nTaylor Researcher'
+        for value in (
+            '68605761',
+            'mcedit_fetal_heart_manuscript_medrxiv',
+            'My title',
+            'Microsoft Word - draft_v4.docx',
+        ):
+            self.assertEqual(metadata_title_kind(value, paper['title']), 'technical', value)
+            self.assertEqual(content_identity(paper, [value], [front], front, '')[0], 'verified', value)
+
+    def test_escaped_or_glued_metadata_titles_still_match(self):
+        title = 'Directed evolution expands CRISPR–Cas12a genome-editing capacity'
+        self.assertEqual(
+            metadata_title_kind('Directed evolution expands CRISPR&ndash;Cas12a genome-editing capacity', title),
+            'matching',
+        )
+        self.assertEqual(
+            metadata_title_kind(
+                'Even Simple BaselinesOutperform Sparse Autoencoders',
+                'Even Simple Baselines Outperform Sparse Autoencoders',
+            ),
+            'matching',
+        )
+        self.assertEqual(
+            metadata_title_kind("Reconstruction with B\\'ezier Curves", 'Reconstruction with Bézier Curves'), 'matching'
+        )
+
+    def test_a_short_but_real_title_and_a_supplement_still_conflict(self):
+        self.assertEqual(metadata_title_kind('Unrelated scientific findings', target()['title']), 'conflicting')
+        supplement = 'Supplement to "' + target()['title'] + '"'
+        self.assertEqual(metadata_title_kind(supplement, target()['title']), 'conflicting')
+        self.assertEqual(
+            metadata_title_kind('Reusable methods for unrelated research', target()['title']), 'conflicting'
+        )
+
     def test_short_title_threshold_unchanged_despite_cleaner_metadata(self):
         paper = dict(target(), title='Synthetic research')
         front = paper['title'] + '\nAlex Example\nTaylor Researcher'

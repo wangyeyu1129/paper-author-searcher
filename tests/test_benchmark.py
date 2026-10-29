@@ -19,6 +19,7 @@ from paper_author_searcher.benchmark.runner import (
     BenchmarkRunner,
     RecordedRunAnchors,
     WorkflowSearchSystem,
+    truth_archive,
     window_archive,
 )
 from paper_author_searcher.benchmark.scoring import PersonScorer, aggregate, truth_paths
@@ -883,6 +884,38 @@ class WindowedFullTextTests(unittest.TestCase):
         kept = window_archive(archive, (2020, 2025))['collection']
         self.assertEqual([paper['year'] for paper in kept['all_papers']], [2024, None])
         self.assertEqual(len(archive['collection']['all_papers']), 3)
+
+    def test_truth_archive_keeps_only_papers_matching_a_truth_entry(self):
+        truth = {
+            'schema_version': 1,
+            'papers': [
+                {
+                    'evaluation_id': 'p:1',
+                    'title': 'Kept Study',
+                    'year': 2024,
+                    'doi': '10.1004/kept',
+                    'authors': ['Alex Morgan'],
+                    'ownership': 'belongs',
+                }
+            ],
+        }
+        archive = {
+            'collection': {
+                'all_papers': [
+                    {'title': 'Kept Study', 'year': 2024, 'doi': '10.1004/kept', 'authors': ['Alex Morgan']},
+                    {'title': 'Other Study', 'year': 2024, 'doi': '10.1004/other', 'authors': ['Alex Morgan']},
+                ],
+                'benchmark_pdf_scope': {'kept': 2},
+            }
+        }
+        kept = truth_archive(archive, truth)['collection']
+        self.assertEqual([paper['title'] for paper in kept['all_papers']], ['Kept Study'])
+        self.assertEqual(kept['benchmark_pdf_scope'], {'kept': 2, 'truth_matched': 1})
+        self.assertEqual(len(archive['collection']['all_papers']), 2)
+
+    def test_fulltext_scope_is_validated(self):
+        with self.assertRaises(ValueError):
+            RunSettings(fulltext_scope='everything')
 
     def test_full_mode_runs_metadata_then_windowed_pdf_pass(self):
         workspace = Workspace([person('a_one', year_start=2024, year_end=2025)], {})
