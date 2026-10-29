@@ -12,6 +12,7 @@ from paper_author_searcher.pdf_providers import (
     EuropePMCPDFProvider,
     ExistingPDFProvider,
     LandingPagePDFProvider,
+    NBERPDFProvider,
     OpenAIREPDFProvider,
     OpenAlexPDFProvider,
     SemanticScholarPDFProvider,
@@ -445,3 +446,28 @@ class ProviderTests(unittest.TestCase):
         self.assertEqual(LandingPagePDFProvider(client).find(saved).candidates[0].identity_status, 'verified')
         location['is_oa'] = False
         self.assertEqual(LandingPagePDFProvider(client).find(saved).candidates, [])
+
+
+class NBERProviderTests(unittest.TestCase):
+    def paper(self, doi='10.3982/ecta21791', related=('10.3386/w31185',)):
+        versions = [{'identifiers': [{'source': 'crossref', 'paper_id': value, 'doi': value}]} for value in related]
+        return {'title': 'Can Deficits Finance Themselves?', 'doi': doi, 'related_versions': versions}
+
+    def test_a_related_working_paper_names_its_free_pdf_without_a_request(self):
+        client = Mock()
+        result = NBERPDFProvider(client).find(self.paper())
+        candidate = result.candidates[0]
+        self.assertEqual(candidate.url, 'https://www.nber.org/system/files/working_papers/w31185/w31185.pdf')
+        self.assertEqual(candidate.identity_status, 'verified')
+        self.assertIn('edition deduplication related', candidate.identity_evidence[0])
+        self.assertEqual(candidate.version_type, 'submitted_manuscript')
+        client.get.assert_not_called()
+
+    def test_the_papers_own_nber_doi_is_an_exact_match(self):
+        result = NBERPDFProvider(Mock()).find(self.paper(doi='10.3386/W32988', related=()))
+        self.assertEqual(result.candidates[0].url.rsplit('/', 1)[-1], 'w32988.pdf')
+        self.assertEqual(result.candidates[0].identity_evidence, ['Exact DOI agreement with saved paper metadata'])
+
+    def test_other_dois_are_not_applicable(self):
+        result = NBERPDFProvider(Mock()).find(self.paper(related=('10.2139/ssrn.4926054', '10.3386/digest')))
+        self.assertEqual((result.status, result.candidates), ('not_applicable', []))

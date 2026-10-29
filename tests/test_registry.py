@@ -33,7 +33,7 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(
             [p.name for p in container.pdf_providers],
             ['existing_metadata', 'openalex', 'semantic_scholar', 'crossref', 'unpaywall', 'europepmc', 'openaire',
-             'arxiv', 'journal_catalog', 'public_pages'],
+             'nber', 'arxiv', 'journal_catalog', 'public_pages'],
         )  # fmt: skip
         self.assertEqual(set(PDF_SOURCES.names()), {p.name for p in container.pdf_providers})
         self.assertEqual(set(IDENTITY_SOURCES.names()), set(PAPER_SOURCES.names()))
