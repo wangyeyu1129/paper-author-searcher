@@ -173,3 +173,29 @@ class ProbeCacheTests(unittest.TestCase):
                 requests.probe(self.url)
         self.assertEqual(sleeps, [])
         self.assertIn('mirror.example.edu', requests.redirect_targets['doi.org'])
+
+
+class PostingClient(HttpClient):
+    def __init__(self):
+        super().__init__(retries=0)
+        self.posts = []
+
+    def post_json(self, url, payload, params=None, headers=None, expected_type=dict):
+        self.posts.append((url, payload, params))
+        return [{'paperId': value} for value in payload['ids']]
+
+
+class PostCacheTests(unittest.TestCase):
+    def test_a_recorded_post_replays_offline_and_its_secret_never_reaches_the_key(self):
+        url = 'https://api.semanticscholar.org/graph/v1/paper/batch'
+        with tempfile.TemporaryDirectory() as directory:
+            network = PostingClient()
+            recorded = cached_client(network, directory, 'record')
+            recorded.post_json(url, {'ids': ['a', 'b']}, params={'api_key': 'secret'})
+            recorded.post_json(url, {'ids': ['a', 'b']}, params={'api_key': 'other'})
+            replay = cached_client(PostingClient(), directory, 'replay')
+            self.assertEqual(replay.post_json(url, {'ids': ['a', 'b']}), [{'paperId': 'a'}, {'paperId': 'b'}])
+            with self.assertRaises(SourceError):
+                replay.post_json(url, {'ids': ['c']})
+            self.assertNotIn('secret', ''.join(path.read_text() for path in Path(directory).rglob('*.json')))
+        self.assertEqual(len(network.posts), 1)

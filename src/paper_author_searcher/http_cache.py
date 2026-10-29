@@ -28,9 +28,9 @@ class CacheMode(str, Enum):
 
 
 class CachingHttpClient(HttpClientDecorator):
-    """Wraps an HttpClient; ``get`` and ``probe`` are cached. Posts and downloads pass straight through.
+    """Wraps an HttpClient; ``get``, JSON ``post_json`` and ``probe`` are cached. Downloads pass straight through.
 
-    Secrets never reach the cache key or the stored file; failed GETs are not cached.
+    Secrets never reach the cache key or the stored file; failed GETs and posts are not cached.
 
     A probe is stored with its redirect hops and its outcome, failures included, so a replay answers exactly as
     the recorded run did. Recording serves stored successes but probes a stored failure again, since a failure
@@ -86,6 +86,29 @@ class CachingHttpClient(HttpClientDecorator):
                 ensure_ascii=False,
             )
         temporary.replace(path)
+        self.statistics['stored'] += 1
+        return body
+
+    def post_json(
+        self,
+        url: str,
+        payload: Any,
+        params: dict[str, Any] | None = None,
+        headers: dict[str, str] | None = None,
+        expected_type: type = dict,
+    ) -> Any:
+        material = self.key(url, params, False) + json.dumps(payload, sort_keys=True, ensure_ascii=False)
+        key = hashlib.sha256(('post ' + material).encode('utf-8')).hexdigest()
+        path = self.directory / key[:2] / (key + '.post.json')
+        if self.mode is not CacheMode.REFRESH and path.exists():
+            self.statistics['hits'] += 1
+            with path.open(encoding='utf-8') as handle:
+                return json.load(handle)['body']
+        self.statistics['misses'] += 1
+        if self.mode is CacheMode.REPLAY:
+            raise SourceError('Replay cache miss for ' + url, error_type='cache_miss')
+        body = self.client.post_json(url, payload, params=params, headers=headers, expected_type=expected_type)
+        self._store(path, {'url': url, 'body': body})
         self.statistics['stored'] += 1
         return body
 
