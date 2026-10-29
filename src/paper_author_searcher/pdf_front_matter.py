@@ -1,9 +1,11 @@
 """Recover typographic text without fuzzy title or weaker author thresholds."""
 
+import html
 import re
 import unicodedata
 from collections.abc import Sequence
 
+from .config import DEFAULT_DOWNLOAD
 from .matching import normalize
 from .paper_authorship import byline_forms
 from .paper_deduplication import author_signatures_match
@@ -69,17 +71,27 @@ def title_in_region(title: str, region: str, compact: bool = True) -> bool:
     return False
 
 
-def metadata_title_kind(title: str, expected: str) -> str:
-    title = title.strip()
-    if not title or re.search(r'\.(?:dvi|tex|ps|eps|pdf|pptx?)\s*$', title, re.I):
+def metadata_title_kind(
+    title: str, expected: str, minimum_words: int = DEFAULT_DOWNLOAD.metadata_title_minimum_words
+) -> str:
+    title = html.unescape(title).strip()
+    if not title or re.search(r'\.(?:dvi|tex|ps|eps|pdf|pptx?|docx?|odt|rtf)\s*$', title, re.I):
         return 'technical'
-    if normalize(title) == normalize(expected):
+    if normalize(title) == normalize(expected) or _compact(title) == _compact(expected):
         return 'matching'
     # A series/volume prefix is bibliographic decoration, not another paper title.
     prefix = re.match(r'^[A-Z][A-Z0-9. ]*\s+\d+(?:\s*[,/]\s*\d+)*\s*[-:]\s*(.+)$', title)
     if prefix and normalize(prefix.group(1)) == normalize(expected):
         return 'decorated'
+    # Words as written: a file stem's underscores ("manuscript_v4_final") do not make it a title.
+    if min(len(title.split()), len(normalize(title).split())) < minimum_words:
+        return 'technical'
     return 'conflicting'
+
+
+def _compact(title: str) -> str:
+    """A title without LaTeX accent escapes or spacing, for words typesetting glued ("BaselinesOutperform")."""
+    return normalize(re.sub(r'\\[\'`^"~=.]', '', title)).replace(' ', '')
 
 
 def publication_years(text: str) -> list[int]:

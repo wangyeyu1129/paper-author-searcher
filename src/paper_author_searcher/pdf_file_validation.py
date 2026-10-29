@@ -1,5 +1,6 @@
 """Parse PDFs in a bounded worker; distinguish file structure from paper identity."""
 
+import html
 import importlib.util
 import json
 import logging
@@ -107,8 +108,8 @@ def _served_edition(candidate):
     return served, titles
 
 
-def _best_title_kind(title, expected_titles):
-    kinds = [metadata_title_kind(title, expected) for expected in expected_titles]
+def _best_title_kind(title, expected_titles, minimum_words):
+    kinds = [metadata_title_kind(title, expected, minimum_words) for expected in expected_titles]
     return next((kind for kind in ('matching', 'decorated', 'technical') if kind in kinds), 'conflicting')
 
 
@@ -117,7 +118,7 @@ def content_identity(paper, titles, title_regions, text, author_metadata, config
     expected_titles = [paper.get('title') or '', *(paper.get('edition_titles') or [])]
     titles = [_without_artifacts(title, config) for title in titles]
     metadata_match = any(normalize(title) in {normalize(value) for value in expected_titles} for title in titles)
-    metadata_kinds = [_best_title_kind(title, expected_titles) for title in titles]
+    metadata_kinds = [_best_title_kind(title, expected_titles, config.metadata_title_minimum_words) for title in titles]
     normal_title_match = metadata_match
     title_match = metadata_match
     for region in title_regions:
@@ -180,6 +181,7 @@ def content_identity(paper, titles, title_regions, text, author_metadata, config
 
 def _without_artifacts(title, config):
     """A PDF title with typesetting remnants removed ("[width=2em,height=2em]assets/logo.png AxBench: ...")."""
+    title = html.unescape(title)
     return ' '.join(re.sub(config.title_artifact_pattern, ' ', title, flags=re.IGNORECASE).split())
 
 
@@ -285,7 +287,8 @@ def inspect_pdf(path, paper, config=DEFAULT_DOWNLOAD):
                 'publication_years': publication_years(first_page),
                 'expected_year': paper.get('year'),
                 'metadata_title_kinds': [
-                    metadata_title_kind(value, paper.get('title') or '') for value in result.extracted_titles
+                    metadata_title_kind(value, paper.get('title') or '', config.metadata_title_minimum_words)
+                    for value in result.extracted_titles
                 ],
                 'publication_bindings': paper.get('publication_bindings') or [],
                 'full_author_signatures_present': _authors_present(paper.get('authors') or [], title_regions, author),
