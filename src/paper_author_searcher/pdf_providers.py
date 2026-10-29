@@ -82,7 +82,7 @@ def openalex_authors(work):
 
 def openalex_arxiv_ids(locations):
     """arXiv IDs of the copies OpenAlex merged into one work ("pmh:oai:arXiv.org:2404.18021", arxiv.org URLs)."""
-    identifiers = []
+    identifiers: list[str] = []
     for location in locations:
         values = [location.get('landing_page_url'), location.get('pdf_url')]
         source_id = str(location.get('id') or '')
