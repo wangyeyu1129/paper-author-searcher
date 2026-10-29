@@ -1,5 +1,6 @@
 """Independent public metadata providers; no paywall or login workarounds."""
 
+import re
 from abc import ABC, abstractmethod
 from html.parser import HTMLParser
 from typing import Any, ClassVar
@@ -17,6 +18,7 @@ from .pdf_identity import (
     metadata_identity,
     paper_dois,
     paper_ids,
+    related_dois,
     same_arxiv_version,
     source_records,
 )
@@ -557,6 +559,45 @@ class EuropePMCPDFProvider(MetadataPDFProvider):
                     )
                 )
         return candidates, []
+
+
+class NBERPDFProvider(MetadataPDFProvider):
+    """NBER working-paper PDFs, named by the NBER DOI of the paper or of an edition related to it.
+
+    Deduplication relates an edition only on the same normalized title and compatible authors, so the working
+    paper of a later journal article is bound to it; the downloaded file must still show the title.
+    """
+
+    name = 'nber'
+
+    def __init__(self, client, config=DEFAULT_PDF):
+        super().__init__(client)
+        self.config = config
+
+    def lookups(self, paper):
+        own = [doi[len('doi:') :] for doi in sorted(paper_dois(paper))]
+        numbers = [self._number(doi) for doi in [*own, *related_dois(paper)]]
+        return list(dict.fromkeys(number for number in numbers if number))
+
+    def lookup(self, paper, identifier):
+        own = {self._number(doi[len('doi:') :]) for doi in paper_dois(paper)}
+        if identifier in own:
+            identity = (IdentityStatus.VERIFIED, ['Exact DOI agreement with saved paper metadata'])
+        else:
+            identity = (
+                IdentityStatus.VERIFIED,
+                ['NBER DOI of an edition deduplication related to this paper (same normalized title and authors)'],
+            )
+        url = self.config.nber_pdf_url_template.format(number=identifier)
+        provenance = {'doi': '10.3386/' + identifier, 'source_paper_id': identifier}
+        candidate = make_candidate(
+            url, self.name, identity, provenance, 'NBER working papers are free to download', 'submittedVersion'
+        )
+        return [candidate], []
+
+    def _number(self, doi):
+        match = re.match(self.config.nber_doi_pattern, doi or '', flags=re.IGNORECASE)
+        return match.group(1).lower() if match else None
 
 
 class OpenAIREPDFProvider(MetadataPDFProvider):

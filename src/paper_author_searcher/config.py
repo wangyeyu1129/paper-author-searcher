@@ -724,6 +724,7 @@ class PDFConfig:
         'unpaywall',
         'europepmc',
         'openaire',
+        'nber',
         'arxiv',
         'journal_catalog',
         'public_pages',
@@ -735,6 +736,10 @@ class PDFConfig:
     # best access right as one of these labels.
     openaire_url: str = 'https://api.openaire.eu/graph/v1/researchProducts'
     openaire_open_labels: tuple[str, ...] = ('OPEN',)
+    # NBER working papers are free to download. Their DOIs carry the paper number ("10.3386/w31185"), which names
+    # the PDF; no lookup request is needed.
+    nber_doi_pattern: str = r'^10\.3386/(w\d+)$'
+    nber_pdf_url_template: str = 'https://www.nber.org/system/files/working_papers/{number}/{number}.pdf'
     bibliography_urls: tuple[str, ...] = ()
     journal_catalogs: tuple[tuple[str, str], ...] = (
         ('Journal of Machine Learning Research', 'https://jmlr.org/papers/'),

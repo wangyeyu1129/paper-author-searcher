@@ -207,6 +207,17 @@ def arxiv_ids(paper):
     return list(dict.fromkeys(identifiers))
 
 
+def related_dois(paper):
+    """DOIs of the editions deduplication related to the paper (same normalized title, compatible authors)."""
+    dois = []
+    metadata = paper.get('paper_metadata') or {}
+    for related in paper.get('related_versions') or metadata.get('related_versions') or []:
+        for identifier in (related or {}).get('identifiers') or []:
+            if identifier.get('doi'):
+                dois.append(canonical_doi(identifier['doi'])[len('doi:') :])
+    return list(dict.fromkeys(dois))
+
+
 def edition_arxiv_ids(paper):
     """arXiv identifiers of the paper and of the editions deduplication related to it (same normalized title and
     compatible authors). A PDF printing one of them is an edition of this work only if its title also matches."""

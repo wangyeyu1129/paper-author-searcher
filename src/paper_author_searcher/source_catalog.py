@@ -31,6 +31,7 @@ from .pdf_providers import (
     ArxivPDFProvider,
     EuropePMCPDFProvider,
     ExistingPDFProvider,
+    NBERPDFProvider,
     OpenAIREPDFProvider,
     OpenAlexPDFProvider,
     SemanticScholarPDFProvider,
@@ -153,6 +154,11 @@ def _europepmc_pdf(container: Any) -> EuropePMCPDFProvider:
 @PDF_SOURCES.register('openaire')
 def _openaire_pdf(container: Any) -> OpenAIREPDFProvider:
     return OpenAIREPDFProvider(container.resource_requests, container.pdf_config)
+
+
+@PDF_SOURCES.register('nber')
+def _nber_pdf(container: Any) -> NBERPDFProvider:
+    return NBERPDFProvider(container.resource_requests, container.pdf_config)
 
 
 @PDF_SOURCES.register('arxiv')
