@@ -75,8 +75,10 @@ class HttpClientDecorator:
 
 def serves_probe_from_cache(client: Any, url: str, maximum_bytes: int = 1024, html_bytes: int = 0) -> bool:
     """Whether a probe through this client would be answered from a cache below it (False for plain clients)."""
-    serves = getattr(client, 'serves_probe_from_cache', None)
-    return bool(callable(serves) and serves(url, maximum_bytes, html_bytes))
+    # Looked up on the type: a client that merely answers every attribute (a test double) declares no cache.
+    if not callable(getattr(type(client), 'serves_probe_from_cache', None)):
+        return False
+    return client.serves_probe_from_cache(url, maximum_bytes, html_bytes) is True
 
 
 def unwrap(client: Any) -> Any:

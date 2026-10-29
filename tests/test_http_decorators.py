@@ -199,3 +199,21 @@ class PostCacheTests(unittest.TestCase):
                 replay.post_json(url, {'ids': ['c']})
             self.assertNotIn('secret', ''.join(path.read_text() for path in Path(directory).rglob('*.json')))
         self.assertEqual(len(network.posts), 1)
+
+
+class ReplaySchedulingTests(unittest.TestCase):
+    def test_a_replayed_failure_cools_no_host_so_later_urls_answer_as_recorded(self):
+        first, second = 'https://repo.example.edu/a.pdf', 'https://repo.example.edu/b.pdf'
+        failure = SourceError('HTTP 503', 503, endpoint_host='repo.example.edu')
+        with tempfile.TemporaryDirectory() as directory:
+            recording = cached_client(ScriptedClient(failure, pdf_probe()), directory, 'record')
+            with self.assertRaises(SourceError):
+                recording.probe(first)
+            recording.probe(second)
+            requests = PublicResourceRequests(cached_client(ScriptedClient(), directory, 'replay'))
+            with self.assertRaises(SourceError) as raised:
+                requests.probe(first)
+            self.assertEqual(raised.exception.request_context['outcome'], 'cached_failure')
+            self.assertEqual(requests.probe(second).status, 206)
+        self.assertEqual(requests.cooldown_remaining({'repo.example.edu'}), 0.0)
+        self.assertEqual(requests.statistics['cooldown_skips'], 0)
