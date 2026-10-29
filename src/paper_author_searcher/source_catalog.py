@@ -107,14 +107,17 @@ def _dblp_papers(container: Any, identity: DBLPProvider) -> DBLPPaperProvider:
 
 @PDF_SOURCES.register('existing_metadata')
 def _existing(container: Any) -> ExistingPDFProvider:
-    return ExistingPDFProvider()
+    return ExistingPDFProvider(container.pdf_config)
 
 
 @PDF_SOURCES.register('openalex')
 def _openalex_pdf(container: Any) -> OpenAlexPDFProvider:
     settings = container.settings
     return OpenAlexPDFProvider(
-        container.resource_requests, settings.sources, api_key=settings.credentials.openalex_api_key
+        container.resource_requests,
+        settings.sources,
+        api_key=settings.credentials.openalex_api_key,
+        config=container.pdf_config,
     )
 
 
