@@ -179,6 +179,13 @@ class ClaudeBudgetTests(unittest.TestCase):
         self.assertIsNone(completion.complete('s', 'p', {}))
         self.assertEqual(client.beta.messages.create.call_count, 2)
 
+    def test_failed_calls_are_counted_for_the_result_to_mention(self):
+        client = mock.Mock()
+        client.beta.messages.create.side_effect = RuntimeError('credit balance too low')
+        ledger = CostLedger(1.0)
+        self.assertIsNone(ClaudeJsonCompletion(client=client, ledger=ledger).complete('s', 'p', {}))
+        self.assertEqual(ledger.summary()['failed_requests'], 1)
+
     def test_the_container_keeps_claude_apart_from_the_metered_apis(self):
         settings = replace(Settings(), credentials=replace(Settings().credentials, anthropic_api_key='k'))
         name = 'test-claude-ledger'

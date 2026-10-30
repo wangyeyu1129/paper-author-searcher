@@ -20,6 +20,12 @@ from .results import ResultView, candidates
 
 logger = logging.getLogger(__name__)
 
+CLAUDE_UNAVAILABLE = {
+    'code': 'claude_unavailable',
+    'message': 'Claude could not be reached (billing, key or outage): publication lists on pages and scanned PDFs '
+    'were not read, so the paper list or full text may be incomplete.',
+}
+
 
 def query_from_request(request: dict[str, Any]) -> ProfessorQuery:
     hints = request.get('hints') or {}
@@ -90,8 +96,11 @@ class WorkflowRunner:
             )
         finally:
             spent = (release_ledger(ledger) or {}).get('estimated_cost_usd', 0.0)
-            llm_spent = (release_ledger(llm_ledger_name(ledger)) or {}).get('estimated_cost_usd', 0.0)
-        return replace(self.outcome(job, report, spent), llm_cost_usd=llm_spent)
+            llm = release_ledger(llm_ledger_name(ledger)) or {}
+        outcome = self.outcome(job, report, spent)
+        if llm.get('failed_requests') and outcome.result is not None:
+            outcome.result.setdefault('notices', []).append(CLAUDE_UNAVAILABLE)
+        return replace(outcome, llm_cost_usd=llm.get('estimated_cost_usd', 0.0))
 
     @staticmethod
     def available(settings: Settings) -> Settings:

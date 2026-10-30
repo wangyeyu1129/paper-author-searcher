@@ -54,6 +54,7 @@ class CostLedger:
     spent_usd: float = 0.0
     requests: dict[str, int] = field(default_factory=dict)
     refused: int = 0
+    failed: int = 0
     lock: threading.Lock = field(default_factory=threading.Lock, repr=False, compare=False)
 
     def charge(self, kind: str, cost: float) -> None:
@@ -79,6 +80,11 @@ class CostLedger:
             self.spent_usd += cost
             self.requests[kind] = self.requests.get(kind, 0) + 1
 
+    def note_failure(self) -> None:
+        """A paid request that did not get through (billing, auth, outage); results should say so."""
+        with self.lock:
+            self.failed += 1
+
     def exhausted(self) -> bool:
         with self.lock:
             return self.spent_usd >= self.maximum_cost_usd
@@ -89,6 +95,7 @@ class CostLedger:
             'estimated_cost_usd': round(self.spent_usd, 6),
             'metered_requests': dict(self.requests),
             'refused_requests': self.refused,
+            'failed_requests': self.failed,
         }
 
 

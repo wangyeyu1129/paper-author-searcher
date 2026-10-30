@@ -105,6 +105,8 @@ class ClaudeFrontPageReader:
             )
         except Exception as exc:  # network, auth or API errors leave the file for review, as it was
             log_isolated_failure(logger, 'Reading a front page failed: %s', type(exc).__name__)
+            if self.ledger is not None:
+                self.ledger.note_failure()
             return None
         if self.ledger is not None:
             self.ledger.record('claude', token_cost(getattr(response, 'usage', None), self.config))
