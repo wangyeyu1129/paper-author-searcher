@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://paper-author-searcher.local/schemas/v1/error.json",
+  "title": "Error (v1)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["api_version", "error"],
+  "properties": {
+    "api_version": {"const": "v1"},
+    "error": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "message"],
+      "properties": {
+        "code": {"type": "string"},
+        "message": {"type": "string"},
+        "details": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

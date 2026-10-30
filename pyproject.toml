@@ -25,12 +25,13 @@ paper-dblp-index = "paper_author_searcher.dblp_cli:main"
 paper-catalog-index = "paper_author_searcher.catalog_cli:main"
 paper-performance = "paper_author_searcher.performance_cli:main"
 paper-benchmark = "paper_author_searcher.benchmark.cli:main"
+paper-search-api = "paper_author_searcher.api.server:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-paper_author_searcher = ["data/*.txt"]
+paper_author_searcher = ["data/*.txt", "api/schemas/*/*.json"]
 
 [tool.ruff]
 target-version = "py310"
@@ -80,6 +81,8 @@ ignore_missing_imports = true
 # Fully annotated modules stay that way. Remaining modules join as Phase 3 restructures them.
 module = [
     "paper_author_searcher",
+    "paper_author_searcher.api",
+    "paper_author_searcher.api.*",
     "paper_author_searcher.benchmark",
     "paper_author_searcher.benchmark.calibration",
     "paper_author_searcher.benchmark.gate",

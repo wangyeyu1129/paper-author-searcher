@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://paper-author-searcher.local/schemas/v1/search-request.json",
+  "title": "Search request (v1)",
+  "description": "Find every paper by one researcher. Name and school are required; hints sharply reduce namesake ambiguity.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name", "university"],
+  "properties": {
+    "name": {"type": "string", "minLength": 1, "maxLength": 200},
+    "university": {"type": "string", "minLength": 1, "maxLength": 300},
+    "department": {"type": "string", "minLength": 1, "maxLength": 300},
+    "hints": {"$ref": "#/$defs/hints"},
+    "mode": {
+      "description": "metadata: papers only; pdf-urls: also validated open-access links; full: also download and check each file.",
+      "enum": ["metadata", "pdf-urls", "full"],
+      "default": "full"
+    },
+    "on_ambiguity": {
+      "description": "confirm: stop with the candidate list when namesakes cannot be told apart; collect_contenders: collect all close candidates' papers as needs_review.",
+      "enum": ["confirm", "collect_contenders"],
+      "default": "confirm"
+    },
+    "include_needs_review": {
+      "description": "Also return papers whose ownership could not be verified, marked needs_review.",
+      "type": "boolean",
+      "default": false
+    },
+    "limits": {"$ref": "#/$defs/limits"}
+  },
+  "$defs": {
+    "url": {"type": "string", "minLength": 8, "maxLength": 2000, "pattern": "^https?://"},
+    "text_list": {"type": "array", "maxItems": 50, "items": {"type": "string", "minLength": 1, "maxLength": 500}},
+    "url_list": {"type": "array", "maxItems": 20, "items": {"$ref": "#/$defs/url"}},
+    "hints": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "orcid": {"type": "string", "pattern": "^(https?://orcid\\.org/)?[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$"},
+        "homepage": {"$ref": "#/$defs/url"},
+        "email": {"type": "string", "minLength": 3, "maxLength": 320, "pattern": "^[^@\\s]+@[^@\\s]+$"},
+        "scholar_url": {"$ref": "#/$defs/url"},
+        "profile_urls": {"$ref": "#/$defs/url_list"},
+        "publication_pages": {"$ref": "#/$defs/url_list"},
+        "known_papers": {"$ref": "#/$defs/text_list"},
+        "research_interests": {"$ref": "#/$defs/text_list"},
+        "university_aliases": {"$ref": "#/$defs/text_list"}
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "max_pdf_papers": {"type": "integer", "minimum": 1, "maximum": 100000},
+        "max_downloads": {"type": "integer", "minimum": 1, "maximum": 100000}
+      }
+    }
+  }
+}

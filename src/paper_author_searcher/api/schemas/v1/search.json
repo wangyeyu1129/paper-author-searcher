@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://paper-author-searcher.local/schemas/v1/search.json",
+  "title": "Search job (v1)",
+  "description": "One search: its request, where it stands, and (when done) its result.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["api_version", "id", "status", "created_at", "updated_at", "request", "links"],
+  "properties": {
+    "api_version": {"const": "v1"},
+    "id": {"type": "string"},
+    "status": {
+      "description": "queued -> running -> succeeded | failed | needs_confirmation; a confirmation queues it again.",
+      "enum": ["queued", "running", "needs_confirmation", "succeeded", "failed"]
+    },
+    "created_at": {"type": "string"},
+    "updated_at": {"type": "string"},
+    "request": {"type": "object"},
+    "selection": {"type": ["string", "null"]},
+    "progress": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/progress"}]},
+    "candidates": {"type": "array", "items": {"$ref": "#/$defs/candidate"}},
+    "result": {"$ref": "#/$defs/result"},
+    "error": {"$ref": "#/$defs/failure"},
+    "links": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["self"],
+      "properties": {"self": {"type": "string"}, "confirmation": {"type": "string"}}
+    }
+  },
+  "$defs": {
+    "progress": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stage"],
+      "properties": {
+        "stage": {"type": "string"},
+        "completed": {"type": ["integer", "null"]},
+        "total": {"type": ["integer", "null"]}
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "selections", "match_score"],
+      "properties": {
+        "name": {"type": "string"},
+        "selections": {
+          "description": "Values for the confirmation request's selection field.",
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "affiliations": {"type": "array", "items": {"type": "string"}},
+        "orcid": {"type": ["string", "null"]},
+        "match_score": {"type": ["number", "null"]},
+        "evidence": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "failure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "message"],
+      "properties": {
+        "code": {"type": "string"},
+        "message": {"type": "string"},
+        "details": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "paper": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "ownership_status", "full_text"],
+      "properties": {
+        "id": {"type": "string"},
+        "title": {"type": "string"},
+        "authors": {"type": "array", "items": {"type": "string"}},
+        "year": {"type": ["integer", "null"]},
+        "venue": {"type": ["string", "null"]},
+        "doi": {"type": ["string", "null"]},
+        "ownership_status": {"enum": ["verified", "needs_review"]},
+        "full_text": {"$ref": "#/$defs/full_text"},
+        "editions": {
+          "description": "Other editions of the same work (preprint, proceedings, journal), each with its own full text.",
+          "type": "array",
+          "items": {"$ref": "#/$defs/edition"}
+        }
+      }
+    },
+    "edition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "full_text"],
+      "properties": {
+        "id": {"type": "string"},
+        "title": {"type": "string"},
+        "year": {"type": ["integer", "null"]},
+        "venue": {"type": ["string", "null"]},
+        "doi": {"type": ["string", "null"]},
+        "full_text": {"$ref": "#/$defs/full_text"}
+      }
+    },
+    "full_text": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "description": "file: downloaded and checked to be this paper; link: a validated open-access URL; none: neither.",
+          "enum": ["file", "link", "none"]
+        },
+        "url": {"type": ["string", "null"]},
+        "version": {"type": ["string", "null"]},
+        "download": {"type": ["string", "null"]}
+      }
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["run_status", "identity", "papers", "statistics"],
+      "properties": {
+        "run_status": {"enum": ["completed", "partial"]},
+        "identity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "status"],
+          "properties": {
+            "name": {"type": ["string", "null"]},
+            "status": {"type": ["string", "null"]},
+            "orcid": {"type": ["string", "null"]},
+            "author_ids": {"type": "object"},
+            "evidence": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "papers": {"type": "array", "items": {"$ref": "#/$defs/paper"}},
+        "statistics": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["papers", "verified", "full_text_files", "full_text_links"],
+          "properties": {
+            "papers": {"type": "integer"},
+            "verified": {"type": "integer"},
+            "full_text_files": {"type": "integer"},
+            "full_text_links": {"type": "integer"}
+          }
+        },
+        "warnings": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

@@ -8,6 +8,15 @@ Python >= 3.10 的论文检索工具，接入 OpenAlex、Semantic Scholar 和 DB
 
 ## 运行
 
+作为服务运行（异步任务式 HTTP API，API Key 鉴权，幂等，同名者确认）见 [搜索服务 API](docs/api.md)：
+
+```bash
+paper-search-api create-key --name cold-email-agent
+paper-search-api serve --port 8080
+```
+
+命令行：
+
 ```bash
 PYTHONPATH=src python3 -m paper_author_searcher.cli \
   --name 'Geoffrey Hinton' --university 'University of Toronto'
