@@ -13,7 +13,7 @@ from .config import DEFAULT_PDF
 from .http import HttpClient
 from .http_decorators import unwrap
 from .logging_config import log_isolated_failure
-from .matching import normalize
+from .matching import normalize_title
 from .models import PaperPDFResult, PDFProviderResult, PDFResolutionResult
 from .paper_views import bibliographic_view
 from .pdf_resource_requests import PublicResourceRequests
@@ -210,13 +210,13 @@ class PDFResolver:
         if not self.fallbacks:
             return
         covered = {
-            normalize(paper.get('title') or '')
+            normalize_title(paper.get('title') or '')
             for paper, result in jobs
             if result.validation_status == PDFValidationStatus.VERIFIED
         }
         works: dict[str, list[Any]] = {}
         for paper, result in jobs:
-            title = normalize(paper.get('title') or '')
+            title = normalize_title(paper.get('title') or '')
             if title and title not in covered and result.ownership_status == OwnershipStatus.VERIFIED:
                 works.setdefault(title, []).append((paper, result))
         newest = sorted(works.values(), key=lambda work: max(paper.get('year') or 0 for paper, _ in work), reverse=True)

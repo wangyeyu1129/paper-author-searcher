@@ -4,8 +4,9 @@ from unittest.mock import Mock
 
 from paper_author_searcher.config import DEFAULT_PDF
 from paper_author_searcher.http import SourceError
+from paper_author_searcher.matching import normalize, normalize_title
 from paper_author_searcher.models import PDFCandidate, PDFProviderResult
-from paper_author_searcher.pdf_providers import WebSearchPDFProvider
+from paper_author_searcher.pdf_providers import HomepagePDFProvider, WebSearchPDFProvider
 from paper_author_searcher.pdf_resolver import PDFResolver
 from paper_author_searcher.status import IdentityStatus, ProviderStatus
 from paper_author_searcher.web_search import SearchHit
@@ -30,6 +31,33 @@ def pages_finding_nothing():
     pages = Mock()
     pages.find.return_value = PDFProviderResult('public_pages')
     return pages
+
+
+class TitleSpellingTests(unittest.TestCase):
+    def test_british_and_american_titles_compare_equal(self):
+        for british, american in (
+            ('Neighbourhood income and well-being', 'Neighborhood Income and Wellbeing'),
+            ('Modelling organisational behaviour', 'Modeling Organizational Behavior'),
+            ('Analysing labour in the centre', 'Analyzing labor in the center'),
+        ):
+            self.assertEqual(normalize_title(british), normalize_title(american))
+
+    def test_other_words_and_names_stay_distinct(self):
+        self.assertNotEqual(normalize_title('Colonial labor'), normalize_title('Colonial harbor'))
+        self.assertEqual(normalize('Neighbour'), 'neighbour')
+
+    def test_a_homepage_citation_in_the_other_spelling_serves_the_paper(self):
+        provider = HomepagePDFProvider()
+        provider.prepare_profile(
+            {
+                'listed_pdfs': [
+                    {'url': 'https://a.example.edu/n.pdf', 'citation': 'Effects of Neighborhood Income, 2020'}
+                ]
+            }
+        )
+        paper = {'title': 'Effects of neighbourhood income', 'doi': None}
+        provider.prepare([paper])
+        self.assertEqual([item.url for item in provider.find(paper).candidates], ['https://a.example.edu/n.pdf'])
 
 
 class WebSearchProviderTests(unittest.TestCase):

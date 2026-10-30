@@ -6,7 +6,7 @@ from urllib.parse import urljoin, urlsplit, urlunsplit
 from .config import DEFAULT_PDF
 from .html_support import LinkExtractor, decode_response
 from .http import SourceError, has_pdf_signature, require_public_http_url
-from .matching import normalize
+from .matching import normalize_title
 from .models import PDFProviderResult
 from .pdf_identity import metadata_identity
 from .pdf_providers import CitationMetadata, LandingPagePDFProvider, make_candidate
@@ -115,7 +115,9 @@ class PublicPagePDFProvider(LandingPagePDFProvider):
         )
         for link in parser.links:
             alternate_pdf = link.get('type') == 'application/pdf' and 'alternate' in link.get('rel', '').split()
-            title_matches = normalize(link['text'] or link['heading']) == normalize(paper.get('title') or '')
+            title_matches = normalize_title(link['text'] or link['heading']) == normalize_title(
+                paper.get('title') or ''
+            )
             if not alternate_pdf and not title_matches:
                 continue
             try:

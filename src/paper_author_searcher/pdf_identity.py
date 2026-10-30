@@ -4,7 +4,7 @@ import re
 from urllib.parse import urlsplit
 
 from .config import DEFAULT_PDF, PDFConfig
-from .matching import ARXIV_DOI_PREFIX, arxiv_from_doi, canonical_arxiv, canonical_doi, normalize
+from .matching import ARXIV_DOI_PREFIX, arxiv_from_doi, canonical_arxiv, canonical_doi, normalize_title
 from .paper_authorship import byline_forms
 from .paper_deduplication import author_signatures_match
 from .status import IdentityStatus, OwnershipStatus
@@ -68,7 +68,7 @@ def metadata_identity(
     edition = _names_edition(paper, source, identifier, doi, editions)
     if doi and expected_dois and not doi_match and not edition:
         return IdentityStatus.CONFLICTING, ['Source DOI conflicts with saved paper DOI identifiers']
-    title_match = bool(title and normalize(title) == normalize(paper.get('title', '')))
+    title_match = bool(title and normalize_title(title) == normalize_title(paper.get('title', '')))
     shared = _shared_authors(paper, authors or [], config)
     if title and paper.get('title') and not title_match:
         if edition and shared:

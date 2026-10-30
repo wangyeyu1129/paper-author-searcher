@@ -2,6 +2,61 @@
 
 from dataclasses import dataclass
 
+# British spellings a title may carry where another edition, a homepage or the PDF has the American one (or the two
+# forms of one word), as stems of normalized words. Compared titles are rewritten to the right-hand form.
+TITLE_SPELLINGS: tuple[tuple[str, str], ...] = (
+    ('well being', 'wellbeing'),
+    *(
+        (f'{stem}our', f'{stem}or')
+        for stem in ('behavi', 'col', 'fav', 'flav', 'harb', 'hon', 'hum', 'lab', 'neighb', 'od', 'rum', 'tum', 'vap')
+    ),
+    *(
+        (f'{stem}is', f'{stem}iz')
+        for stem in (
+            'categor',
+            'character',
+            'general',
+            'global',
+            'industrial',
+            'maxim',
+            'minim',
+            'mobil',
+            'normal',
+            'optim',
+            'organ',
+            'parameter',
+            'penal',
+            'priorit',
+            'privat',
+            'random',
+            'real',
+            'recogn',
+            'regular',
+            'special',
+            'stabil',
+            'summar',
+            'urban',
+            'util',
+            'visual',
+        )
+    ),
+    ('analys', 'analyz'),
+    ('ageing', 'aging'),
+    ('catalogue', 'catalog'),
+    ('centre', 'center'),
+    ('defence', 'defense'),
+    ('fibre', 'fiber'),
+    ('grey', 'gray'),
+    ('judgement', 'judgment'),
+    ('labell', 'label'),
+    ('licence', 'license'),
+    ('modell', 'model'),
+    ('programme', 'program'),
+    ('signall', 'signal'),
+    ('theatre', 'theater'),
+    ('travell', 'travel'),
+)
+
 
 @dataclass(frozen=True)
 class MatchingConfig:

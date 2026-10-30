@@ -5,7 +5,7 @@ from urllib.parse import urlsplit
 
 from paper_author_searcher.config import DEFAULT_PDF
 from paper_author_searcher.http import SourceError
-from paper_author_searcher.matching import normalize
+from paper_author_searcher.matching import normalize_title
 from paper_author_searcher.models import PDFProviderResult
 from paper_author_searcher.status import IdentityStatus, ProviderStatus
 
@@ -51,7 +51,7 @@ class WebSearchPDFProvider:
             if self.pdf_url.search(hit.url):
                 metadata = {'metadata_url': self.search.name, 'query': query, 'hit_title': hit.title}
                 result.candidates.append(make_candidate(hit.url, self.name, UNBOUND, metadata, 'Public web search hit'))
-            elif normalize(title) in normalize(f'{hit.title} {hit.snippet}'):
+            elif normalize_title(title) in normalize_title(f'{hit.title} {hit.snippet}'):
                 pages.append(hit.url)
         self._read_pages(paper, pages[: self.config.web_search_landing_pages], result)
         return result

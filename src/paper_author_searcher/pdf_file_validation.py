@@ -14,7 +14,7 @@ from typing import Any
 
 from .config import DEFAULT_DOWNLOAD, DownloadConfig
 from .http import has_pdf_signature
-from .matching import arxiv_from_doi, canonical_arxiv, canonical_doi, normalize
+from .matching import arxiv_from_doi, canonical_arxiv, canonical_doi, normalize, normalize_title
 from .models import PDFFileValidation
 from .pdf_document_types import NON_FULL_DOCUMENTS, classify_document
 from .pdf_front_matter import authors_present, front_matter, metadata_title_kind, publication_years, title_in_region
@@ -44,7 +44,7 @@ def validation_target(paper, candidate=None):
             year = provenance.get('metadata_year')
             if not authors or not target['year'] or str(year) != str(target['year']):
                 continue
-            if normalize(title or '') != normalize(target['title'] or ''):
+            if normalize_title(title or '') != normalize_title(target['title'] or ''):
                 continue
             identity, _ = metadata_identity(
                 paper, 'landing_page', doi=provenance.get('doi'), title=title, year=year, authors=authors
@@ -65,7 +65,7 @@ def validation_target(paper, candidate=None):
     ):
         for provenance in candidate.get('provenance') or []:
             title = provenance.get('title') or provenance.get('metadata_title')
-            if normalize(title or '') != normalize(target['title'] or ''):
+            if normalize_title(title or '') != normalize_title(target['title'] or ''):
                 continue
             target['publication_bindings'].append(
                 {
@@ -114,10 +114,12 @@ def _best_title_kind(title, expected_titles, minimum_words):
 
 
 def content_identity(paper, titles, title_regions, text, author_metadata, config=DEFAULT_DOWNLOAD):
-    expected_title = normalize(paper.get('title') or '')
+    expected_title = normalize_title(paper.get('title') or '')
     expected_titles = [paper.get('title') or '', *(paper.get('edition_titles') or [])]
     titles = [_without_artifacts(title, config) for title in titles]
-    metadata_match = any(normalize(title) in {normalize(value) for value in expected_titles} for title in titles)
+    metadata_match = any(
+        normalize_title(title) in {normalize_title(value) for value in expected_titles} for title in titles
+    )
     metadata_kinds = [_best_title_kind(title, expected_titles, config.metadata_title_minimum_words) for title in titles]
     normal_title_match = metadata_match
     title_match = metadata_match

@@ -6,7 +6,7 @@ import unicodedata
 from collections.abc import Sequence
 
 from .config import DEFAULT_DOWNLOAD
-from .matching import normalize
+from .matching import normalize, normalize_title
 from .paper_authorship import byline_forms
 from .paper_deduplication import author_signatures_match
 
@@ -54,7 +54,7 @@ def _author_span(author: str, words: Sequence[str], used: set[int]) -> tuple[int
 
 
 def title_in_region(title: str, region: str, compact: bool = True) -> bool:
-    expected = normalize(title)
+    expected = normalize_title(title)
     if not expected:
         return False
     lines = [line.strip() for line in front_matter(region).splitlines() if line.strip()]
@@ -63,7 +63,7 @@ def title_in_region(title: str, region: str, compact: bool = True) -> bool:
     # have to corroborate this alternative in the identity validator.
     for start in range(len(lines)):
         for end in range(start + 1, len(lines) + 1):
-            observed = normalize(' '.join(lines[start:end]))
+            observed = normalize_title(' '.join(lines[start:end]))
             if observed == expected:
                 return True
             if compact and ''.join(observed.split()) == ''.join(expected.split()):
@@ -77,21 +77,21 @@ def metadata_title_kind(
     title = html.unescape(title).strip()
     if not title or re.search(r'\.(?:dvi|tex|ps|eps|pdf|pptx?|docx?|odt|rtf)\s*$', title, re.I):
         return 'technical'
-    if normalize(title) == normalize(expected) or _compact(title) == _compact(expected):
+    if normalize_title(title) == normalize_title(expected) or _compact(title) == _compact(expected):
         return 'matching'
     # A series/volume prefix is bibliographic decoration, not another paper title.
     prefix = re.match(r'^[A-Z][A-Z0-9. ]*\s+\d+(?:\s*[,/]\s*\d+)*\s*[-:]\s*(.+)$', title)
-    if prefix and normalize(prefix.group(1)) == normalize(expected):
+    if prefix and normalize_title(prefix.group(1)) == normalize_title(expected):
         return 'decorated'
     # Words as written: a file stem's underscores ("manuscript_v4_final") do not make it a title.
-    if min(len(title.split()), len(normalize(title).split())) < minimum_words:
+    if min(len(title.split()), len(normalize_title(title).split())) < minimum_words:
         return 'technical'
     return 'conflicting'
 
 
 def _compact(title: str) -> str:
     """A title without LaTeX accent escapes or spacing, for words typesetting glued ("BaselinesOutperform")."""
-    return normalize(re.sub(r'\\[\'`^"~=.]', '', title)).replace(' ', '')
+    return normalize_title(re.sub(r'\\[\'`^"~=.]', '', title)).replace(' ', '')
 
 
 def publication_years(text: str) -> list[int]:

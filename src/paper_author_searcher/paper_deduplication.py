@@ -6,7 +6,7 @@ from itertools import combinations
 from typing import Any
 
 from .config import DEFAULT_DEDUPLICATION, DeduplicationConfig
-from .matching import canonical_doi, name_similarity, normalize
+from .matching import canonical_doi, name_similarity, normalize, normalize_title
 from .models import Paper, PaperRecord
 from .paper_types import classify_record, publication_form
 
@@ -50,7 +50,7 @@ def shared_authors(left: PaperRecord, right: PaperRecord, config: DeduplicationC
 
 
 def _metadata_agrees(left: PaperRecord, right: PaperRecord, config: DeduplicationConfig) -> bool:
-    if not left.title or normalize(left.title) != normalize(right.title):
+    if not left.title or normalize_title(left.title) != normalize_title(right.title):
         return False
     if left.year is None or left.year != right.year:
         return False
@@ -110,7 +110,7 @@ def deduplicate_papers(
         classify_record(record)
         keys: list[tuple[Any, ...]] = list(_stable_ids(record))
         if record.title:
-            keys.append(('title-year', normalize(record.title), record.year))
+            keys.append(('title-year', normalize_title(record.title), record.year))
         candidates = set()
         for key in keys:
             candidates.update(index.get(key, set()))
@@ -223,7 +223,7 @@ def _combine_authorship_metadata(group: Sequence[PaperRecord]) -> dict[str, Any]
 def _link_related_versions(papers: list[Paper], config: DeduplicationConfig) -> None:
     titles: dict[str, Any] = {}
     for paper in papers:
-        titles.setdefault(normalize(paper.title), []).append(paper)
+        titles.setdefault(normalize_title(paper.title), []).append(paper)
     for candidates in titles.values():
         for left, right in combinations(candidates, 2):
             count = shared_authors(left, right, config)

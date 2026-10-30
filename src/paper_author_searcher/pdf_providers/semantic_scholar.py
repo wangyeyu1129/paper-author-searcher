@@ -2,7 +2,7 @@
 
 from paper_author_searcher.config import DEFAULT_PDF, DEFAULT_SOURCES
 from paper_author_searcher.http import SourceError
-from paper_author_searcher.matching import normalize
+from paper_author_searcher.matching import normalize_title
 from paper_author_searcher.pdf_identity import arxiv_ids, metadata_identity, paper_dois, paper_ids, source_records
 from paper_author_searcher.pdf_source_requests import SemanticScholarRequests
 from paper_author_searcher.status import ProviderStatus
@@ -110,7 +110,7 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
         try:
             works = self.requests.search(paper['title'])
             for work in works:
-                if normalize(work.get('title') or '') == normalize(paper['title']):
+                if normalize_title(work.get('title') or '') == normalize_title(paper['title']):
                     result.candidates.extend(
                         semantic_candidates(
                             paper, work, self.name, self.sources.semantic_scholar_url + '/paper/search', self.config

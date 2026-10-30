@@ -28,7 +28,15 @@ from .homepage_citations import (
 from .html_support import LinkExtractor, decode_response
 from .http import HttpClient, SourceError
 from .identity_discovery import Discovery, NoDiscovery
-from .matching import ARXIV_DOI_PREFIX, canonical_doi, canonical_orcid, name_similarity, normalize, work_keys
+from .matching import (
+    ARXIV_DOI_PREFIX,
+    canonical_doi,
+    canonical_orcid,
+    name_similarity,
+    normalize,
+    normalize_title,
+    work_keys,
+)
 from .models import AnchorEvidence
 from .profile_links import ORCID_SOURCE, ProfileLink, ProfileLinkParser
 from .status import AnchorKind
@@ -406,7 +414,7 @@ class ScholarlyAnchorFinder:
             },
         )
         for work in data.get('results') or []:
-            if normalize(work.get('title') or '') == normalize(title):
+            if normalize_title(work.get('title') or '') == normalize_title(title):
                 self._openalex_authorships(
                     anchors, query, work, f'author of title "{title[:80]}"', _key(titles=[title])
                 )

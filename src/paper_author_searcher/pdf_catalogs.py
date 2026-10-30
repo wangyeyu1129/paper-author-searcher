@@ -7,7 +7,7 @@ from urllib.parse import urljoin, urlsplit
 from .config import DEFAULT_PDF
 from .html_support import LinkExtractor, decode_response
 from .http import SourceError
-from .matching import normalize
+from .matching import normalize, normalize_title
 from .models import PDFProviderResult
 from .pdf_identity import source_records
 from .pdf_providers import LandingPagePDFProvider, openalex_locations
@@ -35,7 +35,7 @@ class JournalCatalogPDFProvider(LandingPagePDFProvider):
                 for volume in volumes:
                     for link in self._links(volume):
                         title = link['heading'] or link['title']
-                        if normalize(title) != normalize(paper.get('title') or ''):
+                        if normalize_title(title) != normalize_title(paper.get('title') or ''):
                             continue
                         page = self._catalog_url(volume, link['url'])
                         if page is None or not urlsplit(page).path.endswith(('.html', '.htm')):
