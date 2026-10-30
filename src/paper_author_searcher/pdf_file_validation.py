@@ -385,6 +385,14 @@ class PDFFileValidator:
             )
 
 
+def layout_text(path, layouts):
+    """The first page's text under each pdfminer layout (keyword arguments of LAParams)."""
+    from pdfminer.high_level import extract_text
+    from pdfminer.layout import LAParams
+
+    return [extract_text(path, page_numbers=[0], maxpages=1, laparams=LAParams(**layout)) for layout in layouts]
+
+
 def extract_pages(path, destination, pages):
     """Copy a PDF's first ``pages`` pages to ``destination`` (a parser worker's job: the file is untrusted)."""
     from pypdf import PdfReader, PdfWriter
@@ -395,6 +403,24 @@ def extract_pages(path, destination, pages):
         writer.add_page(page)
     with open(destination, 'wb') as handle:
         writer.write(handle)
+
+
+def front_page_text(path, layouts, config=DEFAULT_DOWNLOAD):
+    """The first page's text by a second extractor, in a resource-limited worker; [] when it cannot be done."""
+    request = json.dumps({'config': asdict(config), 'layouts': list(layouts)})
+    try:
+        completed = subprocess.run(
+            [sys.executable, '-c', WORKER_BOOTSTRAP, PACKAGE_ROOT, str(path)],
+            input=request,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+            timeout=config.parser_timeout,
+            check=True,
+        )
+        return json.loads(completed.stdout)
+    except (subprocess.SubprocessError, OSError, ValueError):
+        return []
 
 
 def front_pages(path, pages, config=DEFAULT_DOWNLOAD):
@@ -430,6 +456,9 @@ def _worker():
     request = json.load(sys.stdin)
     config = DownloadConfig(**request['config'])
     _apply_worker_limits(config)
+    if request.get('layouts'):
+        print(json.dumps(layout_text(sys.argv[1], request['layouts'])))
+        return
     if request.get('extract_to'):
         extract_pages(sys.argv[1], request['extract_to'], request['pages'])
         return

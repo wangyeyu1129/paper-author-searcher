@@ -1,6 +1,7 @@
 """Full text: PDF link discovery and validation, downloads, storage."""
 
 from dataclasses import dataclass
+from typing import Any
 
 # %PDF- is five bytes.
 MINIMUM_PREVIEW_BYTES = 5
@@ -188,6 +189,10 @@ class DownloadConfig:
     maximum_pages: int = 2000
     maximum_page_content_bytes: int = 8 * 1024 * 1024
     identity_pages: int = 2
+    # A file the first extraction could not place gets its first page read by pdfminer under these layouts (keyword
+    # arguments of LAParams): as the page's text flow runs, and strictly top to bottom. Empty: no second reading.
+    front_page_layouts: tuple[dict[str, Any], ...] = ({}, {'boxes_flow': None})
+    front_page_title_lines: int = 60
     title_lines: int = 30
     maximum_extracted_characters: int = 20000
     minimum_title_words_without_doi: int = 4

@@ -39,7 +39,7 @@ from .pacing import Pacer, RequestPacer
 from .paper_collector import NameSearch, PaperCollector
 from .paper_ownership import PaperOwnershipValidator
 from .pdf_file_validation import PDFFileValidator
-from .pdf_front_page import ClaudeFrontPageReader, FrontPageValidator
+from .pdf_front_page import ClaudeFrontPageReader, FrontPageValidator, LayoutFrontPageReader
 from .pdf_providers import WebSearchPDFProvider
 from .pdf_public_pages import PublicPagePDFProvider
 from .pdf_resolver import PDFResolver
@@ -458,10 +458,13 @@ class ServiceContainer:
 
         config = self.download_config
         validator: Any = PDFFileValidator(config)
+        readers: list[Any] = []
+        if config.front_page_layouts:
+            readers.append(LayoutFrontPageReader(config.front_page_layouts, config.front_page_title_lines, config))
         if self.front_page_reader is not None:
-            validator = FrontPageValidator(
-                validator, self.front_page_reader, self.settings.extraction.front_pages, config
-            )
+            readers.append(self.front_page_reader)
+        if readers:
+            validator = FrontPageValidator(validator, readers, config)
         return PDFDownloader(self.http_client, validator, config, self.settings.storage)
 
     # Pipeline ----------------------------------------------------------------------------------------------------

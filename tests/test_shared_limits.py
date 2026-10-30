@@ -187,7 +187,12 @@ class ClaudeBudgetTests(unittest.TestCase):
         self.assertEqual(ledger.summary()['failed_requests'], 1)
 
     def test_the_container_keeps_claude_apart_from_the_metered_apis(self):
-        settings = replace(Settings(), credentials=replace(Settings().credentials, anthropic_api_key='k'))
+        base = Settings()
+        settings = replace(
+            base,
+            credentials=replace(base.credentials, anthropic_api_key='k'),
+            extraction=replace(base.extraction, enabled=True),
+        )
         name = 'test-claude-ledger'
         completion = ServiceContainer(settings, RunOptions(cost_ledger=name)).extraction_completion
         self.assertIs(completion.ledger, shared_ledger(llm_ledger_name(name), settings.extraction.maximum_cost_usd))

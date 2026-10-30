@@ -1,14 +1,18 @@
-"""A second look at files whose text layer shows nothing: Claude reads the printed first page.
+"""A second look at files the first text extraction could not place: other readers try the first page.
 
-Claude only transcribes. Whether the file is the paper is still decided by ``content_identity``, the same rules that
-judge extracted text, so a confident answer about the wrong paper cannot confirm a file.
+pypdf often breaks a title across text runs or reads two columns as one. pdfminer reconstructs lines from their
+positions and recovers most of these locally, at no cost. Claude can read what is left, if switched on.
+
+Readers only transcribe. Whether the file is the paper is still decided by ``content_identity``, the same rules that
+judge extracted text, so a reader's mistake about the wrong paper cannot confirm a file.
 """
 
 import base64
 import hashlib
 import json
 import logging
-from dataclasses import replace
+from collections.abc import Sequence
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any, Protocol
 
@@ -16,7 +20,7 @@ from .config import DEFAULT_DOWNLOAD, DEFAULT_EXTRACTION, ExtractionConfig
 from .http_budget import CostLedger
 from .logging_config import log_isolated_failure
 from .models import PDFFileValidation
-from .pdf_file_validation import NON_FULL_DOCUMENTS, content_identity, front_pages
+from .pdf_file_validation import NON_FULL_DOCUMENTS, content_identity, front_page_text, front_pages
 from .pdf_front_matter import front_matter
 from .publication_extraction import token_cost
 from .status import FormatStatus, IdentityStatus, PDFValidationStatus
@@ -27,7 +31,7 @@ logger = logging.getLogger(__name__)
 # look. A file held back for another reason (a conflicting DOI, another year, not a full paper) stays held back.
 NOTHING_SEEN = 'File is parseable, but its correspondence to the target paper requires review'
 YEAR_DIFFERS = 'Observed publication year differs or represents another version; retained for review'
-READ_EVIDENCE = 'Title and authors printed on the first page, read by Claude, satisfy the identity rules'
+READ_EVIDENCE = 'Title and authors on the first page, read by {reader}, satisfy the identity rules'
 SYSTEM_PROMPT = (
     'You transcribe what is printed on the first page of a document. Copy the title of the paper, its authors and '
     'any DOI or arXiv identifier exactly as printed. Use an empty string or empty list for anything not printed. '
@@ -45,11 +49,45 @@ SCHEMA = {
 }
 
 
+@dataclass(frozen=True)
+class FrontPage:
+    """What a reader saw: passages that may hold the title and byline, and text that may hold identifiers."""
+
+    regions: tuple[str, ...]
+    identifiers: str = ''
+
+
 class FrontPageReader(Protocol):
-    def read(self, pages: bytes) -> dict[str, Any] | None: ...
+    name: str
+
+    def read(self, path: Any) -> FrontPage | None: ...
+
+
+class LayoutFrontPageReader:
+    """pdfminer: lines rebuilt from their positions on the page. Local and free."""
+
+    name = 'pdfminer'
+
+    def __init__(
+        self, layouts: Sequence[dict[str, Any]], title_lines: int = 60, config: Any = DEFAULT_DOWNLOAD
+    ) -> None:
+        self.layouts = layouts
+        self.title_lines = title_lines
+        self.config = config
+
+    def read(self, path: Any) -> FrontPage | None:
+        texts = [text for text in front_page_text(path, self.layouts, self.config) if text.strip()]
+        if not texts:
+            return None
+        regions = tuple(front_matter('\n'.join(text.splitlines()[: self.title_lines])) for text in texts)
+        return FrontPage(regions, front_matter(texts[0]))
 
 
 class ClaudeFrontPageReader:
+    """Claude reading the rendered page. Costs money per file, so it is off unless configured."""
+
+    name = 'Claude'
+
     def __init__(
         self,
         config: ExtractionConfig = DEFAULT_EXTRACTION,
@@ -72,7 +110,15 @@ class ClaudeFrontPageReader:
             self._client = anthropic.Anthropic(api_key=self.api_key)
         return self._client
 
-    def read(self, pages: bytes) -> dict[str, Any] | None:
+    def read(self, path: Any) -> FrontPage | None:
+        pages = front_pages(path, self.config.front_pages)
+        printed = self.transcribe(pages) if pages else None
+        if not printed or not printed.get('title'):
+            return None
+        byline = ', '.join(printed.get('authors') or [])
+        return FrontPage((front_matter(printed['title'] + '\n' + byline),), '\n'.join(printed.get('identifiers') or []))
+
+    def transcribe(self, pages: bytes) -> dict[str, Any] | None:
         request = json.dumps([self.config.model, self.config.effort, SYSTEM_PROMPT, SCHEMA]).encode()
         cached = None
         if self.cache_directory is not None:
@@ -121,12 +167,11 @@ class ClaudeFrontPageReader:
 
 
 class FrontPageValidator:
-    """Decorates a PDF validator: a file it could see nothing in gets its first page read, then the same rules."""
+    """Decorates a PDF validator: a file it could not place is read by each reader in turn until the rules accept."""
 
-    def __init__(self, validator: Any, reader: FrontPageReader, pages: int = 1, config: Any = DEFAULT_DOWNLOAD) -> None:
+    def __init__(self, validator: Any, readers: Sequence[FrontPageReader], config: Any = DEFAULT_DOWNLOAD) -> None:
         self.validator = validator
-        self.reader = reader
-        self.pages = pages
+        self.readers = readers
         self.config = config
 
     def validate(self, path: Any, paper: dict[str, Any]) -> PDFFileValidation:
@@ -139,24 +184,19 @@ class FrontPageValidator:
             or (YEAR_DIFFERS in result.evidence and paper.get('pdf_version_type') != 'preprint')
         ):
             return result
-        pages = front_pages(path, self.pages, self.config)
-        printed = self.reader.read(pages) if pages else None
-        if not printed or not printed.get('title'):
-            return result
-        identity, dois, _ = content_identity(
-            paper,
-            result.extracted_titles,
-            [front_matter(printed['title'] + '\n' + ', '.join(printed.get('authors') or []))],
-            '\n'.join(printed.get('identifiers') or []),
-            '',
-            self.config,
-        )
-        if identity != IdentityStatus.VERIFIED:
-            return result
-        return replace(
-            result,
-            identity_status=IdentityStatus.VERIFIED,
-            validation_status=PDFValidationStatus.VERIFIED,
-            extracted_dois=sorted({*result.extracted_dois, *dois}),
-            evidence=[*result.evidence, READ_EVIDENCE],
-        )
+        for reader in self.readers:
+            page = reader.read(path)
+            if page is None:
+                continue
+            identity, dois, _ = content_identity(
+                paper, result.extracted_titles, list(page.regions), page.identifiers, '', self.config
+            )
+            if identity == IdentityStatus.VERIFIED:
+                return replace(
+                    result,
+                    identity_status=IdentityStatus.VERIFIED,
+                    validation_status=PDFValidationStatus.VERIFIED,
+                    extracted_dois=sorted({*result.extracted_dois, *dois}),
+                    evidence=[*result.evidence, READ_EVIDENCE.format(reader=reader.name)],
+                )
+        return result

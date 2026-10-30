@@ -182,7 +182,10 @@ class CompositionTests(unittest.TestCase):
     def test_extraction_joins_the_rule_based_parsers_only_with_a_key(self):
         plain = ServiceContainer(Settings(), RunOptions(mode='metadata')).citation_parsers
         self.assertIsInstance(plain[0], HtmlCitationParser)
-        keyed = replace(Settings(), credentials=Credentials(anthropic_api_key='k'))
+        base = Settings()
+        keyed = replace(
+            base, credentials=Credentials(anthropic_api_key='k'), extraction=replace(base.extraction, enabled=True)
+        )
         with tempfile.TemporaryDirectory() as directory:
             container = ServiceContainer(keyed, RunOptions(mode='metadata', http_cache_dir=directory))
             html, pdf = container.citation_parsers

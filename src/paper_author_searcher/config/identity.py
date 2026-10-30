@@ -349,11 +349,12 @@ DEFAULT_DISCOVERY = DiscoveryConfig()
 class ExtractionConfig:
     """LLM extraction of a structured publication list from a homepage, publication page or CV.
 
-    Runs beside the rule-based citation parser (their citations are merged) when ``ANTHROPIC_API_KEY`` is set.
+    Off by default: the rule-based citation parser needs no paid service. When enabled it runs beside that parser
+    (their citations are merged), given ``ANTHROPIC_API_KEY``.
     Page text is split into chunks of at most ``chunk_characters`` on line boundaries; each chunk is one request.
     """
 
-    enabled: bool = True
+    enabled: bool = False
     model: str = 'claude-opus-5-5'
     effort: str = 'low'
     max_tokens: int = 16000
@@ -361,9 +362,9 @@ class ExtractionConfig:
     maximum_chunks: int = 8
     # Extracted publications are cached by request (under the run's HTTP cache directory when it has one).
     cache: bool = True
-    # A file whose text layer shows nothing (a scan, an image title, an unusual font) has its first pages read by
-    # Claude; the printed title, authors and DOI then go through the same identity rules as extracted text.
-    read_front_pages: bool = True
+    # After pdfminer (DownloadConfig.front_page_layouts), Claude may read the first pages of a file still unplaced;
+    # the printed title, authors and DOI go through the same identity rules as extracted text.
+    read_front_pages: bool = False
     front_pages: int = 1
     front_page_max_tokens: int = 4000
     # Claude's spend per run: past it, pages keep only the rule-based parse. The prices (USD per million tokens) are
