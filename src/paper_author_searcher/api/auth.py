@@ -1,7 +1,8 @@
 """API keys: callers send ``Authorization: Bearer <key>``; the server keeps only each key's SHA-256.
 
-A key is shown once, when it is created (``paper-search-api create-key``). The keys file maps a key ID to the
-hash; jobs belong to the key ID that created them, and one caller never sees another's jobs.
+A key is shown once, when it is created (``paper-search-api create-key``). Keys come from the keys file and from
+``PAPER_SEARCH__SERVICE__API_KEY_HASHES`` entries (``id:name:sha256``, for deployments that keep secrets in the
+environment); jobs belong to the key ID that created them, and one caller never sees another's jobs.
 """
 
 import hashlib
@@ -38,6 +39,15 @@ class ApiKeys:
             return cls([])
         data = json.loads(file.read_text(encoding='utf-8'))
         return cls([ApiKey(item['id'], item.get('name', ''), item['sha256']) for item in data.get('keys', [])])
+
+    @classmethod
+    def from_sources(cls, path: str | Path | None, entries: tuple[str, ...] = ()) -> 'ApiKeys':
+        """Keys from the keys file (if any) plus ``id:name:sha256`` entries (service.api_key_hashes)."""
+        keys = cls.load(path).keys if path else []
+        for entry in entries:
+            key_id, name, sha256 = entry.split(':')
+            keys.append(ApiKey(key_id, name, sha256.lower()))
+        return cls(keys)
 
     def save(self, path: str | Path) -> None:
         file = Path(path)

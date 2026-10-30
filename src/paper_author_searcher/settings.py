@@ -40,6 +40,7 @@ from .config import (
     DEFAULT_PDF,
     DEFAULT_PRECISION,
     DEFAULT_PROFILE_LINKS,
+    DEFAULT_SERVICE,
     DEFAULT_SOURCES,
     DEFAULT_STORAGE,
     AnchorConfig,
@@ -60,6 +61,7 @@ from .config import (
     PDFConfig,
     PrecisionGuardConfig,
     ProfileLinkConfig,
+    ServiceConfig,
     SourceConfig,
     StorageConfig,
 )
@@ -102,6 +104,9 @@ class Credentials:
     exa_api_key: str | None = field(default=None, repr=False)
     # Claude for publication-list extraction (identity_anchors pages); unset disables it.
     anthropic_api_key: str | None = field(default=None, repr=False)
+    # The search service's S3-compatible file store (service.file_store = 's3').
+    s3_access_key_id: str | None = field(default=None, repr=False)
+    s3_secret_access_key: str | None = field(default=None, repr=False)
 
     ENVIRONMENT: ClassVar[Mapping[str, str]] = {
         'openalex_api_key': 'OPENALEX_API_KEY',
@@ -114,6 +119,8 @@ class Credentials:
         'tavily_api_key': 'TAVILY_API_KEY',
         'exa_api_key': 'EXA_API_KEY',
         'anthropic_api_key': 'ANTHROPIC_API_KEY',
+        's3_access_key_id': 'AWS_ACCESS_KEY_ID',
+        's3_secret_access_key': 'AWS_SECRET_ACCESS_KEY',
     }
 
     @classmethod
@@ -150,6 +157,7 @@ class Settings:
     pdf: PDFConfig = DEFAULT_PDF
     download: DownloadConfig = DEFAULT_DOWNLOAD
     storage: StorageConfig = DEFAULT_STORAGE
+    service: ServiceConfig = DEFAULT_SERVICE
     credentials: Credentials = field(default_factory=Credentials)
 
     SECRET_SECTIONS: ClassVar[frozenset] = frozenset({'credentials'})
