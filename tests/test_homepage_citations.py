@@ -15,7 +15,7 @@ from paper_author_searcher.homepage_citations import (
     prioritise,
 )
 from paper_author_searcher.http import URLProbe
-from paper_author_searcher.identity_anchors import ScholarlyAnchorFinder
+from paper_author_searcher.identity_anchors import RecordedAnchorFinder, ScholarlyAnchorFinder
 
 TITLE_ONLY_PAGE = """
 <div class="publications">
@@ -167,6 +167,43 @@ class FinderTests(unittest.TestCase):
         client = Client(LAB_PAGE)
         ScholarlyAnchorFinder(client).find(homepage_query())
         self.assertFalse(any(url.endswith('/works') for url, _ in client.requests))
+
+
+PDF_PAGE = """
+<ul>
+  <li><b>Stable Lithium Metal Anodes with Interfacial Engineering</b>, Nature Energy 2024.
+      <a href="files/Anodes%20Paper.pdf">PDF</a> <a href="https://doi.org/10.1000/anode">doi</a></li>
+  <li><b>Measuring Upward Mobility Across American Neighborhoods</b> <a href="/slides.html">slides</a></li>
+</ul>
+"""
+
+
+class ListedPdfTests(unittest.TestCase):
+    def test_a_citation_keeps_its_pdf_links_only(self):
+        citations = HtmlCitationParser().parse(PDF_PAGE)
+        self.assertEqual([c.pdf_links for c in citations], [('files/Anodes%20Paper.pdf',), ()])
+
+    def test_listed_pdfs_resolve_against_the_page_and_keep_the_citation(self):
+        found = ScholarlyAnchorFinder(Client(PDF_PAGE)).find(homepage_query('Yi Cui'))
+        self.assertEqual(len(found.listed_pdfs), 1)
+        listed = found.listed_pdfs[0]
+        self.assertEqual(listed['url'], 'https://lab.example.edu/files/Anodes%20Paper.pdf')
+        self.assertEqual(listed['page'], 'https://lab.example.edu/publications')
+        self.assertEqual(listed['dois'], ['10.1000/anode'])
+        self.assertIn('Stable Lithium Metal Anodes', listed['citation'])
+
+    def test_a_block_holding_several_citations_ties_its_links_to_none(self):
+        page = (
+            '<p>'
+            + ' '.join(f'Paper number {index} of a long list.' for index in range(60))
+            + '<a href="a.pdf">PDF</a></p>'
+        )
+        self.assertEqual(ScholarlyAnchorFinder(Client(page)).find(homepage_query('Yi Cui')).listed_pdfs, [])
+
+    def test_a_replay_restores_the_listed_pdfs(self):
+        listed = [{'url': 'https://lab.example.edu/a.pdf', 'citation': 'A paper'}]
+        replayed = RecordedAnchorFinder.from_identity({'profile': {'listed_pdfs': listed}}).find(homepage_query())
+        self.assertEqual(replayed.listed_pdfs, listed)
 
 
 if __name__ == '__main__':

@@ -11,6 +11,7 @@ from paper_author_searcher.pdf_providers import (
     ArxivPDFProvider,
     EuropePMCPDFProvider,
     ExistingPDFProvider,
+    HomepagePDFProvider,
     LandingPagePDFProvider,
     NBERPDFProvider,
     OpenAIREPDFProvider,
@@ -446,6 +447,55 @@ class ProviderTests(unittest.TestCase):
         self.assertEqual(LandingPagePDFProvider(client).find(saved).candidates[0].identity_status, 'verified')
         location['is_oa'] = False
         self.assertEqual(LandingPagePDFProvider(client).find(saved).candidates, [])
+
+
+class HomepageProviderTests(unittest.TestCase):
+    PAGE = 'https://lab.example.edu/publications'
+
+    def listed(self, url, citation, dois=(), arxiv_ids=()):
+        return {'url': url, 'page': self.PAGE, 'citation': citation, 'dois': list(dois), 'arxiv_ids': list(arxiv_ids)}
+
+    def provider(self, *listed, papers=()):
+        provider = HomepagePDFProvider()
+        provider.prepare_profile({'listed_pdfs': list(listed)})
+        provider.prepare(list(papers))
+        return provider
+
+    def test_a_citation_with_the_full_title_binds_its_pdf_without_a_request(self):
+        paper = {'title': 'Seawater Alkalization via an Energy-Efficient Electrochemical Process'}
+        citation = 'H. Guan, Y. Cui. Seawater alkalization via an energy-efficient electrochemical process. PNAS 2024.'
+        result = self.provider(self.listed('https://lab.example.edu/Guan_PNAS_2024.pdf', citation)).find(paper)
+        candidate = result.candidates[0]
+        self.assertEqual(candidate.url, 'https://lab.example.edu/Guan_PNAS_2024.pdf')
+        self.assertEqual(candidate.identity_status, 'verified')
+        self.assertIn('full title', candidate.identity_evidence[0])
+        self.assertEqual(candidate.provenance[0]['page_url'], self.PAGE)
+
+    def test_identifiers_bind_whatever_the_citation_text(self):
+        paper = {'title': 'Renamed', 'doi': '10.1000/X', 'external_ids': {'ArXiv': '2504.17102'}}
+        provider = self.provider(
+            self.listed('https://a.example/1.pdf', 'Other words', dois=['10.1000/x']),
+            self.listed('https://arxiv.org/pdf/2504.17102', 'Other words', arxiv_ids=['2504.17102']),
+        )
+        self.assertEqual(len(provider.find(paper).candidates), 2)
+
+    def test_a_citation_naming_another_doi_is_another_work(self):
+        paper = {'title': 'Stable Lithium Metal Anodes with Interfacial Engineering', 'doi': '10.1000/anode'}
+        listed = self.listed('https://a.example/x.pdf', paper['title'] + ' (comment)', dois=['10.1000/comment'])
+        self.assertEqual(self.provider(listed).find(paper).candidates, [])
+
+    def test_short_titles_and_unlisted_papers_bind_nothing(self):
+        listed = self.listed('https://a.example/x.pdf', 'Deep Learning. A survey of everything.')
+        self.assertEqual(self.provider(listed).find({'title': 'Deep Learning'}).candidates, [])
+        self.assertEqual(self.provider().find({'title': 'Stable Lithium Metal Anodes Today'}).candidates, [])
+
+    def test_a_pdf_linked_from_citations_of_two_papers_is_tied_to_neither(self):
+        first = {'title': 'Force-Guided Bridge Matching for Full-Atom Dynamics'}
+        second = {'title': 'VidEgoThink: Assessing Egocentric Video Understanding'}
+        both = self.listed('https://a.example/iclr23.pdf', first['title'] + '. ' + second['title'] + '.')
+        provider = self.provider(both, papers=[first, second, dict(first)])
+        self.assertEqual(provider.find(first).candidates, [])
+        self.assertEqual(provider.find(first).diagnostics[0]['reason'], 'linked from citations of several papers')
 
 
 class NBERProviderTests(unittest.TestCase):

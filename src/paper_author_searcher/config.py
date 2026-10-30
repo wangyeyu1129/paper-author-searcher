@@ -132,6 +132,12 @@ class AnchorConfig:
     title_tags: tuple[str, ...] = ('a', 'b', 'strong', 'i', 'em', 'cite')
     title_minimum_words: int = 4
     title_maximum_characters: int = 300
+    # A citation's link to a PDF (its path ends in a suffix or holds a marker) is the author's copy of that paper,
+    # recorded for the PDF source 'homepage'. A longer block is a container of several citations, not one.
+    pdf_link_suffixes: tuple[str, ...] = ('.pdf',)
+    pdf_link_path_markers: tuple[str, ...] = ('/pdf/',)
+    listed_pdf_citation_characters: int = 1500
+    maximum_listed_pdfs: int = 2000
     # Title lookups (one search request each) only fill what identifier anchors left of maximum_anchor_papers.
     maximum_title_anchors: int = 10
     # A supplied ORCID's public works list is the person's own list, like a homepage (one request).
@@ -522,6 +528,10 @@ class DiscoveryConfig:
     orcid_require_department: bool = True
     # The registry's researcher URLs (personal websites) of the supplied or discovered ORCID become candidate pages.
     orcid_researcher_urls: bool = True
+    # With a local DBLP index: the one name-compatible DBLP profile whose own note places the person at the
+    # requested school and department (curated_positions) gives its homepage URLs and its ORCID. Two such profiles,
+    # or none, give nothing. Needs a requested department.
+    dblp_profiles: bool = True
     # Web search provider registered in source_catalog.WEB_SEARCH ('brave', 'tavily', 'exa'); empty disables it.
     # Each provider needs its key (BRAVE_API_KEY, TAVILY_API_KEY, EXA_API_KEY); without it the step is skipped.
     web_search: str = 'brave'
@@ -540,6 +550,7 @@ class DiscoveryConfig:
     weight_publication_page: float = 0.15
     weight_academic_host: float = 0.10
     weight_orcid_listed: float = 0.50
+    weight_dblp_listed: float = 0.50
     # Hosts that never are a person's own page (profiles aggregated by others, social networks, search engines).
     excluded_hosts: tuple[str, ...] = (
         'researchgate.net',
@@ -557,6 +568,15 @@ class DiscoveryConfig:
         'ratemyprofessors.com',
         'zoominfo.com',
         'rocketreach.co',
+        # Profile and index sites a DBLP record links besides the person's homepage.
+        'openreview.net',
+        'ams.org',
+        'acm.org',
+        'scopus.com',
+        'zbmath.org',
+        'wikidata.org',
+        'mathgenealogy.org',
+        'github.com',
     )
     academic_host_suffixes: tuple[str, ...] = ('.edu', '.ac.uk', '.edu.cn', '.ac.jp', '.ac.kr', '.edu.au', 'github.io')
     publication_markers: tuple[str, ...] = ('publication', 'papers', 'research', 'cv', 'vita', 'bibliography')
@@ -728,6 +748,7 @@ class PDFConfig:
         'arxiv',
         'journal_catalog',
         'public_pages',
+        'homepage',
     )
     # Europe PMC full-text links accepted as PDFs: availability codes for open access ("OA") and free to read
     # ("F", e.g. a PubMed Central copy under a funder mandate). Subscription links ("S") are never followed.
@@ -740,6 +761,9 @@ class PDFConfig:
     # the PDF; no lookup request is needed.
     nber_doi_pattern: str = r'^10\.3386/(w\d+)$'
     nber_pdf_url_template: str = 'https://www.nber.org/system/files/working_papers/{number}/{number}.pdf'
+    # A homepage citation names a paper without an identifier only by its full normalized title, of at least this
+    # many words (a shorter title is common enough to appear inside another citation).
+    homepage_title_minimum_words: int = 4
     bibliography_urls: tuple[str, ...] = ()
     journal_catalogs: tuple[tuple[str, str], ...] = (
         ('Journal of Machine Learning Research', 'https://jmlr.org/papers/'),

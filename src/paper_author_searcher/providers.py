@@ -339,6 +339,8 @@ class DBLPProvider:
             for url in person.findall('url'):
                 if url.text and 'orcid.org/' in url.text:
                     candidate.orcid = url.text
+                elif url.text:
+                    candidate.links.append(url.text.strip())
 
     @staticmethod
     def _add_publication_metadata(candidate, root, minimum_title_words=DEFAULT_MATCHING.work_title_minimum_words):
