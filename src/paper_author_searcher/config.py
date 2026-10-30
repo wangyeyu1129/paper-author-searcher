@@ -624,7 +624,8 @@ class PrecisionGuardConfig:
     """Stricter ownership evidence where namesakes share institutions (Tsinghua has many Yang Lius).
 
     Applies only to identities whose name is common (see ``common_surnames``) and only to author IDs not anchored
-    by an ``exempt_anchor_kinds`` anchor; every other identity keeps the ordinary rules.
+    by an ``exempt_anchor_kinds`` anchor; every other identity keeps the ordinary rules. The paper-level unit check
+    exempts only ``unit_exempt_anchor_kinds`` anchors.
     """
 
     enabled: bool = True
@@ -632,6 +633,10 @@ class PrecisionGuardConfig:
     common_surnames: str = 'common_chinese_surnames.txt'
     maximum_name_tokens: int = 3
     exempt_anchor_kinds: tuple[str, ...] = ('orcid', 'profile')
+    # A database's ORCID belongs to its author cluster, and the cluster can hold a same-school namesake's papers
+    # (OpenAlex filed a Tsinghua electronics and an industrial-engineering paper under Yang Liu's ORCID), so a paper
+    # whose own byline names another unit is not claimed on the institution alone even under an ORCID anchor.
+    unit_exempt_anchor_kinds: tuple[str, ...] = ()
     # Department phrases are the comma-separated parts of a raw affiliation string that name a unit.
     department_keywords: tuple[str, ...] = (
         'department',
