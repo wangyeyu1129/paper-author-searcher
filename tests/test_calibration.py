@@ -22,7 +22,8 @@ class CountingProvider:
 
 
 def person(person_id):
-    query = ProfessorQuery('Mei Lin', 'Example University')
+    # Calibration data always names a department; without one a margin never settles same-school namesakes.
+    query = ProfessorQuery('Mei Lin', 'Example University', department='Computer Science')
     return SimpleNamespace(person_id=person_id, search_input=SimpleNamespace(to_query=lambda: query))
 
 
