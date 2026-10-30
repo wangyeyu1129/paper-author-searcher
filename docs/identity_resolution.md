@@ -51,6 +51,16 @@ paper-search --name 'Mei Lin' --university 'Example University' \
 
 `--ambiguity-policy collect_contenders`（工作流 CLI 和评测的默认值）：身份未确认时，收集分数在 `ambiguity_margin` 内、学校不冲突的前 `maximum_contenders` 个候选的论文，**全部标为 needs_review，绝不 verified**，并在报告中给出警告。这样能提升"检索到"的召回，不损失 verified 的精度。`--ambiguity-policy stop` 保留原来的停止行为；库默认仍是 `stop`。
 
+## 5a. 同名裁决的判定层
+
+前几名分数接近、都没有锚点、又都在所请求的学校时，由 `BylineDisambiguator` 按责任链依次运行各判定层（`contest_layers.ContestLayer`）。每层要么指定胜者，要么放行给下一层，第一个给出结论的层生效：
+
+1. `DepartmentBylines`：本人论文署名印着"所请求院系 + 学校"的篇数远多于其他同名者。
+2. `CuratedPositions`：只有一个同名者的人工维护记录（DBLP 备注、ORCID 任职）显示他现在就在这个院系。
+3. `SchoolBylines`：署名只印学校（`school_fallback`，默认关闭）。
+
+要加一种新证据，就写一个实现 `decide(contest)` 的类，加进 `default_layers()` 或通过 `layers=` 注入，不需要改动已有的层。
+
 ## 6. LLM 裁决（可选，默认关闭）
 
 `--llm-adjudication` 会让 Claude（`claude-opus-5-5`，结构化 JSON 输出，启用服务端拒答回退）只对"前两名分数接近且都没有锚点"的情况判断：两个档案是否同一人、哪个是目标。置信度低于 `adjudication_minimum_confidence` 或回答 `unsure` 时不采纳。裁决只影响身份选择，不会让任何论文直接 verified。需要安装 `.[llm]`（Anthropic SDK 1.x 需要 Python ≥ 3.10）和 Anthropic 凭据。

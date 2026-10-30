@@ -19,43 +19,30 @@ Department of Computer Science and Technology"; his namesake's reads "Tsinghua U
 Industry Research". Exactly one contender must hold a current position at the school in the requested department
 (or, failing any such, in a broader unit related to it), and no rival may have more department bylines once
 they count (``minimum_works``).
+
+Each kind of evidence is one layer in ``contest_layers``; ``BylineDisambiguator`` runs them in order and the first
+verdict wins.
 """
 
-import logging
 from collections.abc import Callable, Sequence
-from dataclasses import dataclass, field
-from typing import Any
 
 from .config import DEFAULT_DISAMBIGUATION, DEFAULT_MATCHING, DisambiguationConfig, MatchingConfig
+from .contest_layers import (
+    BylineCounter,
+    BylineEvidence,
+    BylineVerdict,
+    Contest,
+    ContestLayer,
+    CuratedPositions,
+    DepartmentBylines,
+    SchoolBylines,
+)
 from .curated_positions import PositionFit, PositionMatcher
-from .logging_config import log_isolated_failure
-from .matching import canonical_orcid, institution_mentioned, name_similarity
 from .models import AuthorCandidate, CuratedPosition, ProfessorProfile, ProfessorQuery
 from .precision_guards import DepartmentMatcher
 from .status import UniversityStatus
 
-logger = logging.getLogger(__name__)
-
-
-class _Abstain(Exception):
-    """A rival's curated record could not be read, so no contender can be shown to be the only one."""
-
-
-@dataclass(frozen=True)
-class BylineEvidence:
-    department: int
-    school: int
-
-
-@dataclass(frozen=True)
-class BylineVerdict:
-    """The contender (index into the scored list) the bylines favour, and why."""
-
-    index: int
-    note: str
-    # Author IDs whose own curated record (a DBLP note) placed the person there: paper ownership may trust them
-    # like an ORCID-anchored profile. Empty for byline verdicts and for positions read from ORCID.
-    curated_author_ids: dict[str, list[str]] = field(default_factory=dict)
+__all__ = ['BylineDisambiguator', 'BylineEvidence', 'BylineVerdict']
 
 
 class BylineDisambiguator:
@@ -65,157 +52,52 @@ class BylineDisambiguator:
         matching: MatchingConfig = DEFAULT_MATCHING,
         departments: DepartmentMatcher | None = None,
         orcid_positions: Callable[[str], list[CuratedPosition]] | None = None,
+        layers: Sequence[ContestLayer] | None = None,
     ) -> None:
         self.config = config
         self.matching = matching
         self.departments = departments or DepartmentMatcher()
         self.positions = PositionMatcher(config, matching, self.departments)
+        self.counter = BylineCounter(matching, self.departments)
         # Reads an ORCID record's positions (orcid_affiliations.OrcidAffiliations.positions); None reads none.
         self.orcid_positions = orcid_positions
+        self.layers = list(layers) if layers is not None else self.default_layers()
+
+    def default_layers(self) -> list[ContestLayer]:
+        """Department bylines, then curated positions, then (if enabled) bylines that print the school alone."""
+        layers: list[ContestLayer] = [DepartmentBylines(self.config)]
+        if self.config.curated_positions:
+            layers.append(
+                CuratedPositions(self.config, self.matching, self.positions, self.counter, self.orcid_positions)
+            )
+        if self.config.school_fallback:
+            layers.append(SchoolBylines(self.config))
+        return layers
 
     def evidence(self, query: ProfessorQuery, group: Sequence[AuthorCandidate]) -> BylineEvidence:
-        schools = [query.university, *query.university_aliases]
-        department = school = 0
-        for candidate in group:
-            for byline in candidate.bylines:
-                at_school = [line for line in byline if self._names_school(line, schools)]
-                if not at_school:
-                    continue
-                school += 1
-                if query.department and any(self._names_department(line, query.department) for line in at_school):
-                    department += 1
-        return BylineEvidence(department, school)
+        return self.counter.evidence(query, group)
 
     def choose(
         self, query: ProfessorQuery, scored: Sequence[tuple[ProfessorProfile, Sequence[AuthorCandidate]]]
     ) -> BylineVerdict | None:
-        """The contender whose bylines dominate the close, unanchored contest at the top, if one does."""
+        """The contender the first deciding layer favours in the close, unanchored contest at the top, if any."""
         if not self.config.enabled or len(scored) < 2:
             return None
-        contest = self._contest(scored)
-        if len(contest) < 2:
+        entrants = self._entrants(scored)
+        if len(entrants) < 2:
             return None
-        evidence = {index: self.evidence(query, group) for index, group in contest}
-        departments = {index: item.department for index, item in evidence.items()}
-        if any(departments.values()):
-            verdict = self._dominant(departments, 'department', query)
+        bylines = {index: self.evidence(query, group) for index, group in entrants}
+        contest = Contest(query, scored, entrants, bylines, {index: item.department for index, item in bylines.items()})
+        for layer in self.layers:
+            verdict = layer.decide(contest)
             if verdict is not None:
                 return verdict
-        verdict = self._curated(query, scored, contest, departments)
-        if verdict is not None or any(departments.values()) or not self.config.school_fallback:
-            return verdict
-        schools = {index: item.school for index, item in evidence.items()}
-        return self._dominant(schools, 'school', query) if any(schools.values()) else None
+        return None
 
     def fit(self, position: CuratedPosition, query: ProfessorQuery) -> PositionFit:
         return self.positions.fit(position, query)
 
-    def _curated(
-        self,
-        query: ProfessorQuery,
-        scored: Sequence[tuple[ProfessorProfile, Any]],
-        contest: list[tuple[int, Any]],
-        departments: dict[int, int],
-    ) -> BylineVerdict | None:
-        if not self.config.curated_positions:
-            return None
-        reach = self._curated_reach(query, scored, {index for index, _ in contest})
-        if reach is None:
-            return None
-        try:
-            positions = self._contest_positions(contest)
-        except _Abstain:
-            return None
-        groups = dict(contest) | dict(reach)
-        for index, group in reach:
-            positions[index] = [position for candidate in group for position in candidate.positions]
-            departments[index] = self.evidence(query, group).department
-        fits = {
-            index: max((self.fit(position, query) for position in held), default=PositionFit.NONE)
-            for index, held in positions.items()
-        }
-        for level in (PositionFit.DEPARTMENT, PositionFit.BROADER_UNIT):
-            holders = [index for index, value in fits.items() if value == level]
-            if not holders:
-                continue
-            if len(holders) > 1:
-                return None
-            winner = holders[0]
-            if self._bylines_favour_rival(winner, departments):
-                return None
-            unit = query.department if level == PositionFit.DEPARTMENT else 'a broader unit'
-            curated: dict[str, list[str]] = {}
-            for candidate in groups[winner]:
-                if any(self.fit(position, query) == level for position in candidate.positions):
-                    curated.setdefault(candidate.source, []).append(candidate.author_id)
-            return BylineVerdict(
-                winner,
-                f'Curated position: the only contender whose own record (DBLP note or ORCID) places it at '
-                f'{query.university} in {unit} now',
-                curated,
-            )
-        return None
-
-    def _curated_reach(
-        self, query: ProfessorQuery, scored: Sequence[tuple[ProfessorProfile, Any]], contest: set[int]
-    ) -> list[tuple[int, Any]] | None:
-        """Candidates behind the contest band, within ``curated_band``, whose own record names the department.
-
-        None when one of them is anchored: an anchor outranks any position record.
-        """
-        leader = scored[0][0].match_score
-        reach = []
-        for index, (profile, group) in enumerate(scored):
-            if index in contest or profile.match_score < leader - self.config.curated_band:
-                continue
-            if profile.university_status != UniversityStatus.MATCHED or not self._names_agree(query, profile):
-                continue
-            held = [position for candidate in group for position in candidate.positions]
-            if any(self.fit(position, query) == PositionFit.DEPARTMENT for position in held):
-                if profile.identity_anchors:
-                    return None
-                reach.append((index, group))
-        return reach
-
-    def _names_agree(self, query: ProfessorQuery, profile: ProfessorProfile) -> bool:
-        return any(
-            name_similarity(query.name, name, self.matching) >= self.matching.compatible_name
-            for name in [profile.name, *profile.name_aliases]
-        )
-
-    def _contest_positions(self, contest: list[tuple[int, Any]]) -> dict[int, list[CuratedPosition]]:
-        orcids = {index: sorted(self._orcids(group)) for index, group in contest}
-        if len({orcid for values in orcids.values() for orcid in values}) > self.config.maximum_orcid_lookups:
-            raise _Abstain
-        records: dict[str, list[CuratedPosition]] = {}
-        positions = {}
-        for index, group in contest:
-            held = [position for candidate in group for position in candidate.positions]
-            for orcid in orcids[index] if self.orcid_positions is not None else ():
-                if orcid not in records:
-                    records[orcid] = self._read_orcid(orcid)
-                held.extend(records[orcid])
-            positions[index] = held
-        return positions
-
-    @staticmethod
-    def _orcids(group: Sequence[AuthorCandidate]) -> set[str]:
-        return {orcid for orcid in (canonical_orcid(candidate.orcid) for candidate in group) if orcid}
-
-    def _read_orcid(self, orcid: str) -> list[CuratedPosition]:
-        assert self.orcid_positions is not None
-        try:
-            return self.orcid_positions(orcid)
-        except Exception as exc:
-            log_isolated_failure(logger, 'ORCID record %s unreadable: %s', orcid, exc)
-            raise _Abstain from exc
-
-    def _bylines_favour_rival(self, winner: int, departments: dict[int, int]) -> bool:
-        """A rival's bylines name the department often enough to count, and more often than the record holder's."""
-        strongest = max((count for index, count in departments.items() if index != winner), default=0)
-        return strongest >= self.config.minimum_works and strongest > departments[winner]
-
-    def _contest(self, scored: Sequence[tuple[ProfessorProfile, Any]]) -> list[tuple[int, Any]]:
+    def _entrants(self, scored: Sequence[tuple[ProfessorProfile, Sequence[AuthorCandidate]]]) -> list:
         """Contenders near the leader at the requested school; none if an anchor already speaks for one."""
         leader = scored[0][0].match_score
         contest = [
@@ -227,21 +109,3 @@ class BylineDisambiguator:
         if any(scored[index][0].identity_anchors for index, _ in contest):
             return []
         return contest
-
-    def _dominant(self, counts: dict[int, int], tier: str, query: ProfessorQuery) -> BylineVerdict | None:
-        ranked = sorted(counts.items(), key=lambda item: (-item[1], item[0]))
-        (winner, best), (_, rival) = ranked[0], ranked[1]
-        if best < self.config.minimum_works or best < self.config.dominance_ratio * rival:
-            return None
-        place = f'{query.department}, {query.university}' if tier == 'department' else query.university
-        return BylineVerdict(
-            winner,
-            f'Byline disambiguation: {best} sampled works print {place} on this profile, '
-            f'at most {rival} on any rival profile',
-        )
-
-    def _names_school(self, line: str, schools: Sequence[str]) -> bool:
-        return any(institution_mentioned(school, line, self.matching) for school in schools if school)
-
-    def _names_department(self, line: str, department: str) -> bool:
-        return any(self.departments.agree(phrase, department) for phrase in self.departments.phrases(line))
