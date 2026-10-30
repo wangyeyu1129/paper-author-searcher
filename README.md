@@ -34,7 +34,7 @@ print(result.to_dict())
 ## 结构与迁移配置
 
 - `models.py`：统一输入、候选和输出模型。
-- `config.py`：匹配策略、HTTP 参数、来源地址及查询上限。
+- `config/`：各模块的默认参数，按关注点分为 `identity`（匹配、锚点、同名裁决、发现）、`sources`（HTTP 与各来源）、`collection`（收集、归属、精度检查、去重）、`fulltext`（原文链接、下载、存储）。
 - `matching.py`：姓名、学校、研究方向比较与标识符规范化。
 - `identity.py`：结构化跨来源身份证据，不依赖展示字符串。
 - `resolver.py`：收集、分组、评分与歧义判定。
@@ -72,7 +72,7 @@ OpenAlex 默认搜索 25 个候选，并为最多 8 个姓名兼容候选查询�
 
 ## 配置
 
-所有可调参数集中在 `paper_author_searcher.settings.Settings`（各分区即 `config.py` 中的 dataclass：`matching`、`anchors`、`http`、`sources`、`collection`、`ownership`、`deduplication`、`pdf`、`download`）。优先级从低到高：
+所有可调参数集中在 `paper_author_searcher.settings.Settings`（各分区即 `config/` 中的 dataclass：`matching`、`anchors`、`http`、`sources`、`collection`、`ownership`、`deduplication`、`pdf`、`download`）。优先级从低到高：
 
 1. 代码默认值；
 2. JSON 配置文件：`--settings path.json` 或 `$PAPER_SEARCH_SETTINGS`，例如 `{"http": {"timeout": 30}, "collection": {"maximum_contenders": 5}}`；
