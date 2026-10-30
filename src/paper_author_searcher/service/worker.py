@@ -5,6 +5,7 @@ of worker threads or processes (``paper-search-api worker``) can share one queue
 running job whose worker stops reporting is queued again by whichever worker notices first.
 """
 
+import contextlib
 import logging
 import secrets
 import shutil
@@ -132,6 +133,9 @@ class SearchWorker:
                 shutil.rmtree(work, ignore_errors=True)
                 if outcome is not None and outcome.run_directory is not None:
                     shutil.rmtree(outcome.run_directory, ignore_errors=True)
+                    # The job's folder of runs, once its last run is gone.
+                    with contextlib.suppress(OSError):
+                        outcome.run_directory.parent.rmdir()
             self._heartbeat(None, force=True)
         return True
 

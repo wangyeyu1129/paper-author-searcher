@@ -235,6 +235,17 @@ class WorkerTests(unittest.TestCase):
         done = core.repository.get('srch_1')
         self.assertEqual((done.status, done.candidates, done.attempts), ('succeeded', CANDIDATES, 2))
 
+    def test_finished_runs_leave_no_directories_behind(self):
+        core = Core(self.directory.name, [])
+        run = core.root / 'runs' / 'srch_1' / 'search_x'
+        run.mkdir(parents=True)
+        (run / 'report.json').write_text('{}')
+        core.runner.outcomes.append(SearchOutcome(JobStatus.SUCCEEDED, result=result_with_files(), run_directory=run))
+        core.repository.create(Job('srch_1', 'k', REQUEST))
+        core.worker.run_once()
+        self.assertEqual(list((core.root / 'runs').iterdir()), [])
+        self.assertEqual(list((core.root / 'scratch').iterdir()), [])
+
     def test_a_crashing_run_fails_the_job(self):
         core = Core(self.directory.name, [RuntimeError('boom')])
         core.repository.create(Job('srch_1', 'k', REQUEST))
