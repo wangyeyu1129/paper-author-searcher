@@ -130,9 +130,21 @@ class GuardTests(unittest.TestCase):
         self.assertEqual(statuses(records, target, None)['Unitless Paper'], 'verified')
         self.assertEqual(statuses(records, target, PrecisionGuard())['Unitless Paper'], 'needs_review')
 
-    def test_orcid_anchored_fragments_are_exempt(self):
+    def test_orcid_anchored_fragments_are_not_foreign_but_their_papers_keep_the_unit_check(self):
+        # The ORCID is the cluster's: it may also hold a same-school namesake's papers, which name their own unit.
         target = profile([own_anchor(), AnchorEvidence('openalex', 'B1', 'ORCID 0000-0001', AnchorKind.ORCID)])
-        self.assertEqual(statuses(corpus(), target, PrecisionGuard())['Traffic Paper 3'], 'verified')
+        records = [*corpus(), record('Unitless Paper', 'B1', None, ('Peter Brown',))]
+        context = PrecisionGuard().prepare(deduplicate_papers(records), target)
+        self.assertFalse(context.foreign(records[-1]))
+        guarded = statuses(records, target, PrecisionGuard())
+        self.assertEqual(guarded['Traffic Paper 3'], 'needs_review')
+        self.assertEqual(guarded['Unitless Paper'], 'verified')
+        self.assertEqual(guarded['Misfiled Own Paper'], 'verified')
+
+    def test_unit_exempt_anchor_kinds_restore_the_exemption(self):
+        target = profile([own_anchor(), AnchorEvidence('openalex', 'B1', 'ORCID 0000-0001', AnchorKind.ORCID)])
+        guard = PrecisionGuard(PrecisionGuardConfig(unit_exempt_anchor_kinds=('orcid',)))
+        self.assertEqual(statuses(corpus(), target, guard)['Traffic Paper 3'], 'verified')
 
     def test_the_guard_is_configurable(self):
         target = profile([own_anchor(), own_anchor('B1', 'Misfiled Own Paper')])

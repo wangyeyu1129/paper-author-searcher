@@ -170,6 +170,7 @@ class ActiveGuard(GuardContext):
         confirmed_coauthors: frozenset[str] = frozenset(),
         departments_observed: bool = True,
         history: frozenset[str] = frozenset(),
+        unit_exempt: frozenset[tuple[str, str]] = frozenset(),
     ) -> None:
         self.config = config
         self.institution_similarity = institution_similarity
@@ -184,6 +185,8 @@ class ActiveGuard(GuardContext):
         self.fragments = fragments
         self.target_departments = target_departments
         self.exempt = exempt
+        # Author IDs whose papers skip the unit check (a subset of ``exempt``).
+        self.unit_exempt = unit_exempt
         # Names on the person's own papers: trusted even when they collide easily (an advisor called "Lu Lu").
         self.confirmed_coauthors = confirmed_coauthors
 
@@ -200,7 +203,7 @@ class ActiveGuard(GuardContext):
 
     def department_agrees(self, record: PaperRecord, author: Mapping[str, Any]) -> bool:
         """Unit-level agreement; an affiliation that names no unit is neutral, one naming another unit is not."""
-        if not self.guarded(record) or not self.departments_observed:
+        if self._key(record) in self.unit_exempt or not self.departments_observed:
             return True
         phrases = [
             phrase
@@ -262,11 +265,8 @@ class PrecisionGuard:
         if not self.config.enabled or not self.names.is_common(profile.requested_name or profile.name):
             return GuardContext()
         anchors = [AnchorEvidence.coerce(item) for item in profile.identity_anchors]
-        exempt = {
-            (anchor.source, canonical_author_id(anchor.source, anchor.author_id))
-            for anchor in anchors
-            if anchor.kind in self.config.exempt_anchor_kinds
-        }
+        exempt = self._exempt(anchors, self.config.exempt_anchor_kinds)
+        unit_exempt = self._exempt(anchors, self.config.unit_exempt_anchor_kinds)
         fragments = self._fragments(papers, profile, anchors)
         own = self._own_records(papers, profile, anchors)
         targets, observed = self._target_departments(profile, own)
@@ -286,7 +286,16 @@ class PrecisionGuard:
             frozenset(normalize(name) for record in own for name in record.authors),
             observed,
             frozenset(institution for record in own for institution in paper_institutions(_targets(record))),
+            frozenset(unit_exempt),
         )
+
+    @staticmethod
+    def _exempt(anchors: Sequence[AnchorEvidence], kinds: Sequence[str]) -> set[tuple[str, str]]:
+        return {
+            (anchor.source, canonical_author_id(anchor.source, anchor.author_id))
+            for anchor in anchors
+            if anchor.kind in kinds
+        }
 
     def _fragments(
         self, papers: Sequence[Paper], profile: ProfessorProfile, anchors: Sequence[AnchorEvidence]
