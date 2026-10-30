@@ -57,8 +57,9 @@ class WebSearchPDFProvider:
         return result
 
     def _query(self, paper):
-        authors = paper.get('authors') or ['']
-        return ' '.join(self.config.web_search_query.format(title=paper['title'], author=authors[0]).split())
+        names = (paper.get('authors') or [])[: self.config.web_search_query_authors]
+        surnames = ' '.join(name.split()[-1] for name in names if name.split())
+        return ' '.join(self.config.web_search_query.format(title=paper['title'], authors=surnames).split())
 
     def _allowed(self, url):
         host = (urlsplit(url).hostname or '').lower()

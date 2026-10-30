@@ -66,6 +66,9 @@ def title_in_region(title: str, region: str, compact: bool = True) -> bool:
             observed = normalize_title(' '.join(lines[start:end]))
             if observed == expected:
                 return True
+            remainder = observed[len(expected) :].split() if observed.startswith(expected + ' ') else []
+            if remainder and remainder[0] in DEFAULT_DOWNLOAD.title_byline_labels:
+                return True
             if compact and ''.join(observed.split()) == ''.join(expected.split()):
                 return True
     return False

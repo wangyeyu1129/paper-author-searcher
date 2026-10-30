@@ -71,7 +71,8 @@ class PDFConfig:
     # it. A hit is only ever a candidate: the downloaded file's own title and authors decide (pdf_file_validation).
     web_search_maximum_papers: int = 25
     web_search_results: int = 10
-    web_search_query: str = '{title} {author} pdf'
+    web_search_query: str = '{title} {authors}'
+    web_search_query_authors: int = 3
     # A hit's URL names a file when this matches; any other hit is read as a landing page, if it names the paper.
     web_search_pdf_url_pattern: str = r'\.pdf(?:$|[?#/])|/pdf(?:$|[/?#])|/download(?:$|[/?#])|/bitstream/'
     web_search_landing_pages: int = 2
@@ -192,6 +193,8 @@ class DownloadConfig:
     # A PDF title metadata value shorter than this is a record number, file stem or placeholder ("68605761",
     # "mcedit_fetal_heart_manuscript", "My title"), not another paper's title, so it never vetoes identity.
     metadata_title_minimum_words: int = 3
+    # Words that end a title when extraction runs it into the next line ("<title> Authors: A, B").
+    title_byline_labels: tuple[str, ...] = ('author', 'authors', 'by')
     footer_scan_bytes: int = 4096
     poster_minimum_edge_points: float = 1000
     slide_minimum_aspect_ratio: float = 1.2

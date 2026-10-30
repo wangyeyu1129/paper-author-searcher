@@ -8,6 +8,7 @@ from paper_author_searcher.config import DEFAULT_PDF
 from paper_author_searcher.http import SourceError
 from paper_author_searcher.matching import normalize, normalize_title
 from paper_author_searcher.models import PDFCandidate, PDFProviderResult
+from paper_author_searcher.pdf_front_matter import title_in_region
 from paper_author_searcher.pdf_providers import HomepagePDFProvider, WebSearchPDFProvider
 from paper_author_searcher.pdf_resolver import PDFResolver
 from paper_author_searcher.status import WEB_SEARCH_OFF, IdentityStatus, ProviderStatus
@@ -63,11 +64,18 @@ class TitleSpellingTests(unittest.TestCase):
         self.assertEqual([item.url for item in provider.find(paper).candidates], ['https://a.example.edu/n.pdf'])
 
 
+class TitleRegionTests(unittest.TestCase):
+    def test_a_title_run_into_its_byline_label_is_found_but_not_one_run_into_other_words(self):
+        title = 'Effects of many things'
+        self.assertTrue(title_in_region(title, f'1\n{title} Authors: Ada Lovelace'))
+        self.assertFalse(title_in_region(title, f'{title} on the economy of nations'))
+
+
 class WebSearchProviderTests(unittest.TestCase):
-    def test_a_pdf_hit_is_an_unverified_candidate_and_the_query_names_title_and_author(self):
+    def test_a_pdf_hit_is_an_unverified_candidate_and_the_query_names_title_and_authors(self):
         search = FakeSearch([SearchHit('https://people.example.edu/~ada/study.pdf', 'study.pdf')])
         found = WebSearchPDFProvider(search, pages_finding_nothing()).find(PAPER)
-        self.assertEqual(search.queries, ['A study of many things Ada Lovelace pdf'])
+        self.assertEqual(search.queries, ['A study of many things Lovelace Turing'])
         self.assertEqual([item.url for item in found.candidates], ['https://people.example.edu/~ada/study.pdf'])
         self.assertEqual(found.candidates[0].identity_status, IdentityStatus.UNVERIFIED)
 
