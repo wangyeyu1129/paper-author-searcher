@@ -22,8 +22,24 @@ class ServiceConfig:
     api_key_hashes: tuple[str, ...] = ()
     # Worker threads inside `serve`; 0 leaves every search to separate `paper-search-api worker` processes.
     workers: int = 1
-    # Searches pace requests per host within one run only: each worker adds proportionally more source traffic.
     maximum_cost_usd: float = 0.5
+    # Every worker of a deployment shares these (host, seconds between requests) intervals and daily budgets, so
+    # adding workers does not add traffic past what a source allows. They replace http.host_request_intervals.
+    shared_host_intervals: tuple[tuple[str, float], ...] = (
+        ('api.openalex.org', 0.1),
+        ('api.semanticscholar.org', 1.0),
+        ('api.crossref.org', 0.1),
+        ('api.unpaywall.org', 0.1),
+        ('www.ebi.ac.uk', 0.1),
+        ('api.openaire.eu', 0.5),
+        ('export.arxiv.org', 3.0),
+        ('api.tavily.com', 0.5),
+        ('api.search.brave.com', 1.0),
+        ('api.exa.ai', 0.5),
+    )
+    # A metered host's spend per day (UTC) across all searches; past it, that source is refused for the day and
+    # results say a source did not respond. OpenAlex's free quota is $1 a day. Raise it after buying more.
+    maximum_daily_cost_usd: float = 1.0
     maximum_body_bytes: int = 64 * 1024
     idempotency_hours: float = 24.0
     # Where checked PDFs, zips and identity checkpoints are kept: 'local' (DATA_DIRECTORY/files) or 's3'
@@ -83,6 +99,7 @@ class ServiceConfig:
             raise ValueError('workers must not be negative and port must be a TCP port')
         for name in (
             'maximum_cost_usd',
+            'maximum_daily_cost_usd',
             'idempotency_hours',
             'worker_poll_seconds',
             'heartbeat_seconds',

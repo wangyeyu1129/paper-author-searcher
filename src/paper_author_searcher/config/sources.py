@@ -16,6 +16,8 @@ class HttpConfig:
     # Minimum seconds between requests to a host, as its terms require (arXiv asks for 3 s). Applied below the
     # cache, so cached and replayed requests never wait.
     host_request_intervals: tuple[tuple[str, float], ...] = (('export.arxiv.org', 3.0),)
+    # A host's 429 Retry-After holds back its later requests for at most this long (a daily quota says hours).
+    maximum_host_hold_seconds: float = 60.0
 
 
 @dataclass(frozen=True)

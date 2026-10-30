@@ -20,7 +20,7 @@ from .dblp_discovery import DblpProfileDiscovery
 from .dblp_dump import DblpDumpIndex
 from .homepage_citations import DocumentParser, HtmlCitationParser, PdfCitationParser
 from .http import HttpClient
-from .http_budget import budgeted_client
+from .http_budget import DailyBudget, budgeted_client
 from .http_cache import cached_client
 from .http_decorators import PacedHttpClient
 from .identity_anchors import AnchorFinder, ScholarlyAnchorFinder
@@ -33,6 +33,7 @@ from .identity_discovery import (
 )
 from .listed_works import ListedWorkRetriever
 from .orcid_affiliations import OrcidAffiliations
+from .pacing import Pacer, RequestPacer
 from .paper_collector import NameSearch, PaperCollector
 from .paper_ownership import PaperOwnershipValidator
 from .pdf_providers import WebSearchPDFProvider
@@ -102,6 +103,14 @@ class RunOptions:
         return cls(**values)
 
 
+@dataclass(frozen=True)
+class TransportLimits:
+    """Limits shared beyond one run: the host pacing and daily budgets every worker of a deployment keeps together."""
+
+    pacer_factory: Callable[[float], Pacer] = RequestPacer
+    daily_budget: DailyBudget | None = None
+
+
 class ServiceContainer:
     """Builds each service once per container from ``Settings`` and ``RunOptions``."""
 
@@ -111,16 +120,20 @@ class ServiceContainer:
         options: RunOptions | None = None,
         adjudicator_factory: Callable[[], Any] | None = None,
         anchor_finder: AnchorFinder | None = None,
+        transport_limits: TransportLimits | None = None,
     ) -> None:
         self.settings = settings
         self.options = options or RunOptions()
         self.adjudicator_factory = adjudicator_factory or _claude_adjudicator
         # Overrides how caller hints become anchors (an offline replay supplies the anchors a run recorded).
         self.anchor_finder_override = anchor_finder
+        self.transport_limits = transport_limits or TransportLimits()
 
     def with_settings(self, settings: Settings) -> 'ServiceContainer':
         """A fresh container (new clients, providers and caches) for a variant of the settings."""
-        return ServiceContainer(settings, self.options, self.adjudicator_factory, self.anchor_finder_override)
+        return ServiceContainer(
+            settings, self.options, self.adjudicator_factory, self.anchor_finder_override, self.transport_limits
+        )
 
     # Transport ---------------------------------------------------------------------------------------------------
 
@@ -130,8 +143,12 @@ class ServiceContainer:
         and keep each host's interval."""
         options = self.options
         network = HttpClient(timeout=options.timeout, retries=options.retries, config=self.settings.http)
-        paced = PacedHttpClient(network, self.settings.http.host_request_intervals)
-        metered = budgeted_client(paced, options.max_cost_usd, options.cost_ledger)
+        limits = self.transport_limits
+        http = self.settings.http
+        paced = PacedHttpClient(
+            network, http.host_request_intervals, limits.pacer_factory, http.maximum_host_hold_seconds
+        )
+        metered = budgeted_client(paced, options.max_cost_usd, options.cost_ledger, limits.daily_budget)
         return cached_client(metered, options.http_cache_dir, options.http_cache_mode)
 
     @cached_property

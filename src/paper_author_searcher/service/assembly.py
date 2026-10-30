@@ -2,9 +2,11 @@
 
 import threading
 from collections.abc import Callable
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
+from functools import partial
 from pathlib import Path
 
+from paper_author_searcher.composition import ServiceContainer, TransportLimits
 from paper_author_searcher.settings import Settings
 
 from .facade import SearchService
@@ -12,8 +14,18 @@ from .files import LocalFileStore, S3FileStore
 from .ports import FileStore, SearchRunner
 from .runner import RunnerOptions, WorkflowRunner
 from .s3 import S3Location
+from .shared_limits import SqliteSharedLimits
 from .sqlite import SqliteJobRepository
 from .worker import SearchWorker
+
+
+def _shared_transport(settings: Settings, data: Path) -> tuple[Settings, Callable[..., ServiceContainer]]:
+    """Settings with the deployment's host intervals, and a container factory that keeps them across all workers."""
+    service = settings.service
+    shared = SqliteSharedLimits(data / 'limits.sqlite', service.maximum_daily_cost_usd)
+    limits = TransportLimits(pacer_factory=shared.pacer, daily_budget=shared)
+    paced = replace(settings, http=replace(settings.http, host_request_intervals=service.shared_host_intervals))
+    return paced, partial(ServiceContainer, transport_limits=limits)
 
 
 def file_store(settings: Settings) -> FileStore:
@@ -63,8 +75,9 @@ def assemble(
     data = Path(service_config.data_directory)
     repository = SqliteJobRepository(data / 'jobs.sqlite', service_config.idempotency_hours)
     store = files or file_store(settings)
+    run_settings, container = _shared_transport(settings, data)
     runner = runner or WorkflowRunner(
-        settings,
+        run_settings,
         RunnerOptions(
             data / 'runs',
             maximum_cost_usd=service_config.maximum_cost_usd,
@@ -72,6 +85,7 @@ def assemble(
             http_cache_mode=service_config.http_cache_mode,
         ),
         download_link,
+        container,
     )
     pool = [
         SearchWorker(

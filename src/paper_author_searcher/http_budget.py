@@ -6,7 +6,7 @@ Place it inside the response cache (cache -> budget -> client) so cached replays
 import logging
 import threading
 from dataclasses import dataclass, field
-from typing import Any
+from typing import Any, Protocol
 from urllib.parse import urlsplit
 
 from .http import SourceError
@@ -40,6 +40,12 @@ class BudgetExceeded(SourceError):
         super().__init__(message, error_type='budget_exceeded')
 
 
+class DailyBudget(Protocol):
+    """A cap on one host's spend per day, across every run; raises BudgetExceeded past it."""
+
+    def charge(self, host: str, cost: float) -> None: ...
+
+
 @dataclass
 class CostLedger:
     """Shared by every client in one run so the cap covers the whole run, not each request path."""
@@ -66,6 +72,16 @@ class CostLedger:
                 )
             self.spent_usd += cost
             self.requests[kind] = self.requests.get(kind, 0) + 1
+
+    def record(self, kind: str, cost: float) -> None:
+        """Add a cost only known after the fact (an LLM call's tokens); ``exhausted`` refuses the next one."""
+        with self.lock:
+            self.spent_usd += cost
+            self.requests[kind] = self.requests.get(kind, 0) + 1
+
+    def exhausted(self) -> bool:
+        with self.lock:
+            return self.spent_usd >= self.maximum_cost_usd
 
     def summary(self) -> dict:
         return {
@@ -112,12 +128,15 @@ def classify(url: str, params: dict | None) -> str:
 
 
 class BudgetedHttpClient(HttpClientDecorator):
-    """Prices each metered GET before sending it and refuses requests past the shared run budget."""
+    """Prices each metered GET before sending it and refuses requests past the run's budget or the day's."""
 
-    def __init__(self, client: Any, ledger: CostLedger, config: BudgetConfig | None = None) -> None:
+    def __init__(
+        self, client: Any, ledger: CostLedger, config: BudgetConfig | None = None, daily: DailyBudget | None = None
+    ) -> None:
         config = config or BudgetConfig()
         super().__init__(client)
         self.ledger = ledger
+        self.daily = daily
         self.hosts = {host.host: host for host in config.hosts}
 
     def get(
@@ -130,13 +149,18 @@ class BudgetedHttpClient(HttpClientDecorator):
         host = self.hosts.get(urlsplit(url).hostname or '')
         if host is not None:
             kind = classify(url, params)
-            self.ledger.charge(f'{host.host}:{kind}', getattr(host, kind))
+            cost = getattr(host, kind)
+            self.ledger.charge(f'{host.host}:{kind}', cost)
+            if self.daily is not None and cost > 0:
+                self.daily.charge(host.host, cost)
         return self.client.get(url, params, headers, xml)
 
 
-def budgeted_client(client: Any, maximum_cost_usd: float | None, ledger_name: str = 'default') -> Any:
+def budgeted_client(
+    client: Any, maximum_cost_usd: float | None, ledger_name: str = 'default', daily: DailyBudget | None = None
+) -> Any:
     if maximum_cost_usd is None:
         return client
     return BudgetedHttpClient(
-        client, shared_ledger(ledger_name, maximum_cost_usd), BudgetConfig(maximum_cost_usd=maximum_cost_usd)
+        client, shared_ledger(ledger_name, maximum_cost_usd), BudgetConfig(maximum_cost_usd=maximum_cost_usd), daily
     )
