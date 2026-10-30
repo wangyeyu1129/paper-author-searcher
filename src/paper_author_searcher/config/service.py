@@ -30,6 +30,9 @@ class ServiceConfig:
     # (any S3-compatible store: AWS, MinIO, R2). Downloads from S3 are redirects to short-lived signed URLs.
     file_store: str = 'local'
     s3_endpoint: str = ''
+    # Where callers reach the store, if not s3_endpoint (inside compose the service uses http://minio:9000, a
+    # browser http://localhost:9000). Download links are signed for this host.
+    s3_public_endpoint: str = ''
     s3_bucket: str = ''
     s3_region: str = 'us-east-1'
     s3_prefix: str = 'paper-search/'

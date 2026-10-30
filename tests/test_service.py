@@ -426,6 +426,10 @@ class S3Tests(unittest.TestCase):
             self.assertFalse(store.fetch('searches/s/missing.json', copy))
             located = store.locate('searches/s/papers/0.pdf', 'Paper 0.pdf')
             self.assertIn('response-content-disposition=attachment', located.url)
+            public = S3FileStore(location, 'id', 'secret', prefix='ps/', public_endpoint='https://files.example')
+            self.assertTrue(
+                public.locate('searches/s/papers/0.pdf', 'x').url.startswith('https://files.example/papers/ps/')
+            )
             self.assertIsNone(store.locate('searches/s/papers/1.pdf', 'x'))
 
     def test_the_store_needs_credentials(self):

@@ -3,6 +3,7 @@
 import shutil
 import urllib.error
 import urllib.request
+from dataclasses import replace
 from pathlib import Path
 from urllib.parse import quote
 
@@ -71,18 +72,28 @@ class S3FileStore:
         prefix: str = '',
         presign_seconds: int = 900,
         timeout: float = 60,
+        public_endpoint: str = '',
     ) -> None:
         if not (access_key_id and secret_access_key):
             raise ValueError('The S3 file store needs AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY')
         self.location = location
+        # Links handed to callers are signed for the host they will use.
+        self.public = replace(location, endpoint=public_endpoint) if public_endpoint else location
         self.credentials = (access_key_id, secret_access_key)
         self.prefix = prefix
         self.presign_seconds = presign_seconds
         self.timeout = timeout
 
-    def _url(self, method: str, key: str, query: dict[str, str] | None = None, expires: int = 300) -> str:
+    def _url(
+        self,
+        method: str,
+        key: str,
+        query: dict[str, str] | None = None,
+        expires: int = 300,
+        location: S3Location | None = None,
+    ) -> str:
         object_key = self.prefix + _safe_key(key) if key else ''
-        return presign(self.location, method, object_key, *self.credentials, expires=expires, query=query)
+        return presign(location or self.location, method, object_key, *self.credentials, expires=expires, query=query)
 
     def put(self, key: str, source: Path, content_type: str) -> None:
         size = source.stat().st_size
@@ -124,7 +135,7 @@ class S3FileStore:
             return None
         disposition = f"attachment; filename*=UTF-8''{quote(download_name)}"
         query = {'response-content-disposition': disposition}
-        return StoredFile(url=self._url('GET', key, query=query, expires=self.presign_seconds))
+        return StoredFile(url=self._url('GET', key, query=query, expires=self.presign_seconds, location=self.public))
 
     def check(self) -> None:
         """The bucket is reachable with these credentials (HEAD bucket)."""

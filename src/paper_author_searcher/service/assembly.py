@@ -25,6 +25,7 @@ def file_store(settings: Settings) -> FileStore:
             settings.credentials.s3_secret_access_key or '',
             prefix=service.s3_prefix,
             presign_seconds=service.presign_seconds,
+            public_endpoint=service.s3_public_endpoint,
         )
     return LocalFileStore(Path(service.data_directory) / 'files')
 
