@@ -41,6 +41,18 @@ class ServiceConfig:
     # results say a source did not respond. OpenAlex's free quota is $1 a day. Raise it after buying more.
     maximum_daily_cost_usd: float = 1.0
     maximum_body_bytes: int = 64 * 1024
+    # Per API key: searches waiting or running at once, and submitted in the last hour (0: no limit). A refusal is
+    # 429 with Retry-After. Each search costs real money, so a runaway caller must stop by itself.
+    maximum_active_searches: int = 20
+    maximum_searches_per_hour: int = 60
+    rate_limit_retry_seconds: int = 60
+    # A search that took down its worker this many times fails instead of being queued again.
+    maximum_attempts: int = 3
+    # Finished searches and their files are deleted after retention_days, HTTP cache entries older than
+    # http_cache_retention_days (0 keeps them). Workers check every housekeeping_hours between searches.
+    retention_days: float = 30.0
+    http_cache_retention_days: float = 90.0
+    housekeeping_hours: float = 6.0
     idempotency_hours: float = 24.0
     # Where checked PDFs, zips and identity checkpoints are kept: 'local' (DATA_DIRECTORY/files) or 's3'
     # (any S3-compatible store: AWS, MinIO, R2). Downloads from S3 are redirects to short-lived signed URLs.
@@ -104,11 +116,22 @@ class ServiceConfig:
             'worker_poll_seconds',
             'heartbeat_seconds',
             'refresh_hours',
+            'rate_limit_retry_seconds',
+            'maximum_attempts',
+            'housekeeping_hours',
         ):
             if getattr(self, name) <= 0:
                 raise ValueError(f'{name} must be positive')
         if self.stale_after_seconds <= self.heartbeat_seconds:
             raise ValueError('stale_after_seconds must exceed heartbeat_seconds')
+        for name in (
+            'maximum_active_searches',
+            'maximum_searches_per_hour',
+            'retention_days',
+            'http_cache_retention_days',
+        ):
+            if getattr(self, name) < 0:
+                raise ValueError(f'{name} must not be negative')
         for entry in self.api_key_hashes:
             if entry.count(':') != 2:
                 raise ValueError('api_key_hashes entries look like id:name:sha256')

@@ -20,7 +20,7 @@ from .dblp_discovery import DblpProfileDiscovery
 from .dblp_dump import DblpDumpIndex
 from .homepage_citations import DocumentParser, HtmlCitationParser, PdfCitationParser
 from .http import HttpClient
-from .http_budget import DailyBudget, budgeted_client
+from .http_budget import DailyBudget, budgeted_client, shared_ledger
 from .http_cache import cached_client
 from .http_decorators import PacedHttpClient
 from .identity_anchors import AnchorFinder, ScholarlyAnchorFinder
@@ -62,6 +62,11 @@ from .workflow import PaperSearchWorkflow
 FULL_MODE = 'full'
 BYTES_PER_MEGABYTE = 1024 * 1024
 DEFAULT_COST_LEDGER = 'default'
+
+
+def llm_ledger_name(cost_ledger: str) -> str:
+    """Claude's spend is kept apart from the metered APIs': neither may use up the other's budget."""
+    return f'{cost_ledger}:llm'
 
 
 @dataclass(frozen=True)
@@ -215,7 +220,8 @@ class ServiceContainer:
         key = settings.credentials.anthropic_api_key
         if not settings.extraction.enabled or not key:
             return None
-        completion: JsonCompletion = ClaudeJsonCompletion(settings.extraction, api_key=key)
+        ledger = shared_ledger(llm_ledger_name(self.options.cost_ledger), settings.extraction.maximum_cost_usd)
+        completion: JsonCompletion = ClaudeJsonCompletion(settings.extraction, api_key=key, ledger=ledger)
         if settings.extraction.cache and self.options.http_cache_dir:
             namespace = f'{settings.extraction.model}:{settings.extraction.effort}'
             completion = CachedJsonCompletion(completion, Path(self.options.http_cache_dir) / 'llm', namespace)

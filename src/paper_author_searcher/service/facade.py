@@ -13,7 +13,16 @@ from pathlib import Path
 from typing import Any
 
 from .agent import agent_view
-from .model import ErrorKind, IdempotencyConflict, Job, JobStatus, ServiceError, seconds_since
+from .model import (
+    ErrorKind,
+    IdempotencyConflict,
+    Job,
+    JobStatus,
+    ServiceError,
+    SubmissionLimits,
+    checked_file_ids,
+    seconds_since,
+)
 from .ports import FileStore, JobRepository, StoredFile
 from .results import selections
 from .sqlite import new_job_id
@@ -43,6 +52,7 @@ class SearchService:
         expect_workers: bool = True,
         required_paths: dict[str, str] | None = None,
         on_submit: Callable[[], None] | None = None,
+        limits: SubmissionLimits | None = None,
     ) -> None:
         self.repository = repository
         self.files = files
@@ -53,6 +63,7 @@ class SearchService:
         self.required_paths = required_paths or {}
         # Wakes in-process workers early; separate worker processes find new jobs by polling.
         self.on_submit = on_submit
+        self.limits = limits or SubmissionLimits()
 
     # Commands
 
@@ -60,6 +71,7 @@ class SearchService:
         """Queue a search (an already validated request)."""
 
         def create() -> Job:
+            self._check_limits(client)
             job = self.repository.create(Job(new_job_id(), client, request))
             self._wake()
             return job
@@ -105,7 +117,7 @@ class SearchService:
 
     def paper_file(self, client: str, job_id: str, paper_id: str) -> StoredFile:
         job = self.job(client, job_id)
-        known = job.status == JobStatus.SUCCEEDED and paper_id in _file_ids(job)
+        known = job.status == JobStatus.SUCCEEDED and paper_id in checked_file_ids(job)
         stored = self.files.locate(paper_key(job.id, paper_id), f'{job.id}-{paper_id}.pdf') if known else None
         if stored is None:
             raise ServiceError(ErrorKind.NOT_FOUND, 'not_found', 'This search has no checked PDF for that paper')
@@ -115,7 +127,7 @@ class SearchService:
         job = self.job(client, job_id)
         stored = (
             self.files.locate(job_key(job.id, ARCHIVE_KEY), f'{job.id}-pdfs.zip')
-            if job.status == JobStatus.SUCCEEDED and _file_ids(job)
+            if job.status == JobStatus.SUCCEEDED and checked_file_ids(job)
             else None
         )
         if stored is None:
@@ -179,6 +191,19 @@ class SearchService:
         self.repository.remember(client, key, 1, {'job_id': job.id})
         return Submission(job)
 
+    def _check_limits(self, client: str) -> None:
+        limits = self.limits
+        if not (limits.maximum_active or limits.maximum_per_hour):
+            return
+        activity = self.repository.client_activity(client)
+        if limits.maximum_active and activity.active >= limits.maximum_active:
+            self._refuse('too_many_active_searches', f'At most {limits.maximum_active} searches may run at once')
+        if limits.maximum_per_hour and activity.last_hour >= limits.maximum_per_hour:
+            self._refuse('too_many_searches', f'At most {limits.maximum_per_hour} searches per hour')
+
+    def _refuse(self, code: str, message: str) -> None:
+        raise ServiceError(ErrorKind.RATE_LIMITED, code, message, retry_after_seconds=self.limits.retry_after_seconds)
+
     def _wake(self) -> None:
         if self.on_submit is not None:
             self.on_submit()
@@ -190,14 +215,3 @@ class SearchService:
         except Exception as exc:
             return ReadinessCheck(name, False, str(exc))
         return ReadinessCheck(name, True)
-
-
-def _file_ids(job: Job) -> set[str]:
-    """IDs of the result's papers and editions that have a checked file."""
-    papers = (job.result or {}).get('papers') or []
-    return {
-        edition['id']
-        for paper in papers
-        for edition in [paper, *(paper.get('editions') or [])]
-        if edition['full_text']['status'] == 'file'
-    }

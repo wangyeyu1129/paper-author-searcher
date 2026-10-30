@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Protocol
 
-from .model import IdempotentResponse, Job, WorkerState
+from .model import ClientActivity, IdempotentResponse, Job, WorkerState
 
 Progress = Callable[[str, int | None, int | None], None]
 
@@ -28,7 +28,13 @@ class JobRepository(Protocol):
 
     def claim_next(self, worker_id: str) -> Job | None: ...
 
-    def requeue_stale(self, stale_after_seconds: float) -> list[str]: ...
+    def requeue_stale(self, stale_after_seconds: float, maximum_attempts: int = 0) -> list[str]: ...
+
+    def client_activity(self, client: str) -> ClientActivity: ...
+
+    def finished_before(self, moment: str, limit: int) -> list[Job]: ...
+
+    def delete(self, job_id: str) -> None: ...
 
     def heartbeat(self, worker_id: str, job_id: str | None) -> None: ...
 
@@ -62,6 +68,8 @@ class FileStore(Protocol):
 
     def exists(self, key: str) -> bool: ...
 
+    def delete(self, key: str) -> None: ...
+
     def locate(self, key: str, download_name: str) -> StoredFile | None: ...
 
     def check(self) -> None: ...
@@ -82,6 +90,7 @@ class SearchOutcome:
     # Checked PDFs by result paper ID (local files of this run).
     files: dict[str, Path] = field(default_factory=dict)
     cost_usd: float = 0.0
+    llm_cost_usd: float = 0.0
     run_directory: Path | None = None
 
 

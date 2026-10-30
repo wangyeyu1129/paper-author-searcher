@@ -3,13 +3,23 @@
 import multiprocessing
 import tempfile
 import unittest
+from dataclasses import replace
 from pathlib import Path
+from types import SimpleNamespace
+from unittest import mock
 
-from paper_author_searcher.composition import RunOptions, ServiceContainer, TransportLimits
+from paper_author_searcher.composition import RunOptions, ServiceContainer, TransportLimits, llm_ledger_name
 from paper_author_searcher.http import SourceError
-from paper_author_searcher.http_budget import BudgetedHttpClient, BudgetExceeded, CostLedger
+from paper_author_searcher.http_budget import (
+    BudgetedHttpClient,
+    BudgetExceeded,
+    CostLedger,
+    release_ledger,
+    shared_ledger,
+)
 from paper_author_searcher.http_decorators import PacedHttpClient
 from paper_author_searcher.pacing import RequestPacer
+from paper_author_searcher.publication_extraction import ClaudeJsonCompletion
 from paper_author_searcher.service.shared_limits import SqliteSharedLimits
 from paper_author_searcher.settings import Settings
 
@@ -145,6 +155,37 @@ class PacedClientTests(unittest.TestCase):
         self.assertIs(container.with_settings(Settings()).transport_limits, container.transport_limits)
         self.assertIsNotNone(container.http_client)
         self.assertEqual(used, [3.0])
+
+
+class ClaudeBudgetTests(unittest.TestCase):
+    def client(self, usage):
+        message = SimpleNamespace(
+            stop_reason='end_turn', content=[SimpleNamespace(type='text', text='{}')], usage=usage
+        )
+        client = mock.Mock()
+        client.beta.messages.create.return_value = message
+        return client
+
+    def test_spend_is_priced_from_usage_and_stops_at_the_cap(self):
+        usage = SimpleNamespace(
+            input_tokens=1000, output_tokens=1000, cache_read_input_tokens=1000, cache_creation_input_tokens=1000
+        )
+        client = self.client(usage)
+        ledger = CostLedger(0.03)
+        completion = ClaudeJsonCompletion(client=client, ledger=ledger)
+        self.assertEqual(completion.complete('s', 'p', {}), {})
+        self.assertAlmostEqual(ledger.spent_usd, (4 + 20 + 0.2 + 5) / 1000)
+        self.assertEqual(completion.complete('s', 'p', {}), {})
+        self.assertIsNone(completion.complete('s', 'p', {}))
+        self.assertEqual(client.beta.messages.create.call_count, 2)
+
+    def test_the_container_keeps_claude_apart_from_the_metered_apis(self):
+        settings = replace(Settings(), credentials=replace(Settings().credentials, anthropic_api_key='k'))
+        name = 'test-claude-ledger'
+        completion = ServiceContainer(settings, RunOptions(cost_ledger=name)).extraction_completion
+        self.assertIs(completion.ledger, shared_ledger(llm_ledger_name(name), settings.extraction.maximum_cost_usd))
+        self.assertIsNone(release_ledger(name))
+        self.assertIsNotNone(release_ledger(llm_ledger_name(name)))
 
 
 if __name__ == '__main__':

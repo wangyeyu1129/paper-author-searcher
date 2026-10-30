@@ -352,6 +352,13 @@ class ExtractionConfig:
     maximum_chunks: int = 8
     # Extracted publications are cached by request (under the run's HTTP cache directory when it has one).
     cache: bool = True
+    # Claude's spend per run: past it, pages keep only the rule-based parse. The prices (USD per million tokens) are
+    # those of `model`; change them together.
+    maximum_cost_usd: float = 1.0
+    input_usd_per_mtok: float = 4.0
+    output_usd_per_mtok: float = 20.0
+    cache_read_usd_per_mtok: float = 0.2
+    cache_write_usd_per_mtok: float = 5.0
 
     def __post_init__(self) -> None:
         if self.chunk_characters < 1000 or self.maximum_chunks < 1 or self.max_tokens < 1024:

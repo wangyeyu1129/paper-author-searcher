@@ -18,6 +18,20 @@ class JobStatus(StrEnum):
 FINISHED = (JobStatus.SUCCEEDED, JobStatus.FAILED, JobStatus.NEEDS_CONFIRMATION)
 
 
+FILE_BEARING_FULL_TEXT = 'file'
+
+
+def checked_file_ids(job: 'Job') -> set[str]:
+    """IDs of the result's papers and editions that have a checked file."""
+    papers = (job.result or {}).get('papers') or []
+    return {
+        edition['id']
+        for paper in papers
+        for edition in [paper, *(paper.get('editions') or [])]
+        if edition['full_text']['status'] == FILE_BEARING_FULL_TEXT
+    }
+
+
 def now() -> str:
     return datetime.now(timezone.utc).isoformat(timespec='seconds')
 
@@ -50,6 +64,7 @@ class Job:
     finished_at: str | None = None
     attempts: int = 0
     cost_usd: float = 0.0
+    llm_cost_usd: float = 0.0
 
 
 @dataclass(frozen=True)
@@ -77,12 +92,36 @@ class ErrorKind(StrEnum):
     CONFLICT = 'conflict'
     IDEMPOTENCY_REUSED = 'idempotency_reused'
     IDEMPOTENCY_IN_PROGRESS = 'idempotency_in_progress'
+    RATE_LIMITED = 'rate_limited'
 
 
 class ServiceError(Exception):
-    def __init__(self, kind: str, code: str, message: str, details: list[str] | None = None) -> None:
+    def __init__(
+        self,
+        kind: str,
+        code: str,
+        message: str,
+        details: list[str] | None = None,
+        retry_after_seconds: int | None = None,
+    ) -> None:
         super().__init__(message)
         self.kind, self.code, self.message, self.details = kind, code, message, details or []
+        self.retry_after_seconds = retry_after_seconds
+
+
+@dataclass(frozen=True)
+class SubmissionLimits:
+    """What one API key may submit (0: no limit)."""
+
+    maximum_active: int = 0
+    maximum_per_hour: int = 0
+    retry_after_seconds: int = 60
+
+
+@dataclass(frozen=True)
+class ClientActivity:
+    active: int
+    last_hour: int
 
 
 @dataclass(frozen=True)

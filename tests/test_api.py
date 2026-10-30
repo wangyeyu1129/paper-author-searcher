@@ -16,7 +16,7 @@ from paper_author_searcher.api.auth import ApiKeys
 from paper_author_searcher.api.schema import SCHEMA_NAMES, SchemaError, Validator, schema, validator
 from paper_author_searcher.api.server import build, handler_for
 from paper_author_searcher.service.facade import SearchService
-from paper_author_searcher.service.model import JobStatus
+from paper_author_searcher.service.model import JobStatus, SubmissionLimits
 from paper_author_searcher.service.ports import SearchOutcome, StoredFile
 from paper_author_searcher.settings import Settings
 from test_service import CANDIDATES, REQUEST, Core
@@ -332,6 +332,19 @@ class AssemblyTests(unittest.TestCase):
             self.assertTrue((Path(directory) / 'jobs.sqlite').exists())
             submitted = deployment.service.submit('key_env', REQUEST)
             self.assertEqual(submitted.job.status, JobStatus.QUEUED)
+
+
+class RateLimitTests(unittest.TestCase):
+    def test_refused_submissions_are_429_with_retry_after(self):
+        with tempfile.TemporaryDirectory() as directory:
+            harness = Harness(directory, [])
+            harness.core.service.on_submit = None
+            harness.core.service.limits = SubmissionLimits(maximum_active=1, retry_after_seconds=9)
+            self.assertEqual(harness.call('POST', '/v1/searches', REQUEST).status, 202)
+            refused = harness.call('POST', '/v1/searches', REQUEST)
+            self.assertEqual(refused.status, 429)
+            self.assertEqual(refused.headers['Retry-After'], '9')
+            self.assertEqual(refused.body['error']['code'], 'too_many_active_searches')
 
 
 if __name__ == '__main__':

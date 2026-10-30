@@ -58,6 +58,9 @@ def render(snapshot: dict[str, Any], requests: RequestCounter | None = None) -> 
         f'# HELP {PREFIX}_cost_usd_total Estimated metered-API spend of all searches.',
         f'# TYPE {PREFIX}_cost_usd_total counter',
         _line('cost_usd_total', round(snapshot['cost_usd'], 6)),
+        f'# HELP {PREFIX}_llm_cost_usd_total Estimated Claude spend of all searches.',
+        f'# TYPE {PREFIX}_llm_cost_usd_total counter',
+        _line('llm_cost_usd_total', round(snapshot.get('llm_cost_usd', 0.0), 6)),
     ]
     if requests is not None:
         lines += [
