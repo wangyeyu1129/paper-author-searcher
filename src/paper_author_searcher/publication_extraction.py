@@ -65,6 +65,17 @@ class JsonCompletion(Protocol):
     def complete(self, system: str, prompt: str, schema: dict) -> dict | None: ...
 
 
+def token_cost(usage: Any, config: ExtractionConfig) -> float:
+    """What a response cost, from its usage and the configured prices."""
+    tokens = (
+        (getattr(usage, 'input_tokens', 0) or 0, config.input_usd_per_mtok),
+        (getattr(usage, 'output_tokens', 0) or 0, config.output_usd_per_mtok),
+        (getattr(usage, 'cache_read_input_tokens', 0) or 0, config.cache_read_usd_per_mtok),
+        (getattr(usage, 'cache_creation_input_tokens', 0) or 0, config.cache_write_usd_per_mtok),
+    )
+    return sum(count * price for count, price in tokens) / TOKENS_PER_MTOK
+
+
 class ClaudeJsonCompletion:
     """Claude through the Anthropic SDK (optional extra ``llm``), with structured output and refusal fallback."""
 
@@ -79,16 +90,6 @@ class ClaudeJsonCompletion:
         self.api_key = api_key
         self.config = config
         self.ledger = ledger
-
-    def _cost(self, usage: Any) -> float:
-        config = self.config
-        tokens = (
-            (getattr(usage, 'input_tokens', 0) or 0, config.input_usd_per_mtok),
-            (getattr(usage, 'output_tokens', 0) or 0, config.output_usd_per_mtok),
-            (getattr(usage, 'cache_read_input_tokens', 0) or 0, config.cache_read_usd_per_mtok),
-            (getattr(usage, 'cache_creation_input_tokens', 0) or 0, config.cache_write_usd_per_mtok),
-        )
-        return sum(count * price for count, price in tokens) / TOKENS_PER_MTOK
 
     @property
     def client(self) -> Any:
@@ -121,7 +122,7 @@ class ClaudeJsonCompletion:
             log_isolated_failure(logger, 'Publication extraction request failed: %s', type(exc).__name__)
             return None
         if self.ledger is not None:
-            self.ledger.record('claude', self._cost(getattr(response, 'usage', None)))
+            self.ledger.record('claude', token_cost(getattr(response, 'usage', None), self.config))
         if response.stop_reason in ('refusal', 'max_tokens'):
             logger.warning('Publication extraction stopped: %s', response.stop_reason)
             return None

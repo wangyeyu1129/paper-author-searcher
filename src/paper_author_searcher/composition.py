@@ -20,7 +20,7 @@ from .dblp_discovery import DblpProfileDiscovery
 from .dblp_dump import DblpDumpIndex
 from .homepage_citations import DocumentParser, HtmlCitationParser, PdfCitationParser
 from .http import HttpClient
-from .http_budget import DailyBudget, budgeted_client, shared_ledger
+from .http_budget import CostLedger, DailyBudget, budgeted_client, shared_ledger
 from .http_cache import cached_client
 from .http_decorators import PacedHttpClient
 from .identity_anchors import AnchorFinder, ScholarlyAnchorFinder
@@ -36,6 +36,8 @@ from .orcid_affiliations import OrcidAffiliations
 from .pacing import Pacer, RequestPacer
 from .paper_collector import NameSearch, PaperCollector
 from .paper_ownership import PaperOwnershipValidator
+from .pdf_file_validation import PDFFileValidator
+from .pdf_front_page import ClaudeFrontPageReader, FrontPageValidator
 from .pdf_providers import WebSearchPDFProvider
 from .pdf_public_pages import PublicPagePDFProvider
 from .pdf_resolver import PDFResolver
@@ -220,12 +222,25 @@ class ServiceContainer:
         key = settings.credentials.anthropic_api_key
         if not settings.extraction.enabled or not key:
             return None
-        ledger = shared_ledger(llm_ledger_name(self.options.cost_ledger), settings.extraction.maximum_cost_usd)
-        completion: JsonCompletion = ClaudeJsonCompletion(settings.extraction, api_key=key, ledger=ledger)
+        completion: JsonCompletion = ClaudeJsonCompletion(settings.extraction, api_key=key, ledger=self.claude_ledger)
         if settings.extraction.cache and self.options.http_cache_dir:
             namespace = f'{settings.extraction.model}:{settings.extraction.effort}'
             completion = CachedJsonCompletion(completion, Path(self.options.http_cache_dir) / 'llm', namespace)
         return completion
+
+    @cached_property
+    def claude_ledger(self) -> CostLedger:
+        return shared_ledger(llm_ledger_name(self.options.cost_ledger), self.settings.extraction.maximum_cost_usd)
+
+    @cached_property
+    def front_page_reader(self) -> ClaudeFrontPageReader | None:
+        """Claude reading the printed first pages of files whose text layer shows nothing; None without a key."""
+        settings = self.settings
+        key = settings.credentials.anthropic_api_key
+        if not settings.extraction.read_front_pages or not key:
+            return None
+        cache = Path(self.options.http_cache_dir) / 'llm' / 'front_pages' if self.options.http_cache_dir else None
+        return ClaudeFrontPageReader(settings.extraction, api_key=key, ledger=self.claude_ledger, cache_directory=cache)
 
     @cached_property
     def citation_parsers(self) -> tuple[DocumentParser, DocumentParser]:
@@ -413,8 +428,13 @@ class ServiceContainer:
     def downloader(self) -> Any:
         from .pdf_downloader import PDFDownloader  # deferred: needs the optional "download" extra (pypdf)
 
-        # The file validator is a local, configuration-driven parser the downloader derives from its config.
-        return PDFDownloader(client=self.http_client, config=self.download_config, storage=self.settings.storage)
+        config = self.download_config
+        validator: Any = PDFFileValidator(config)
+        if self.front_page_reader is not None:
+            validator = FrontPageValidator(
+                validator, self.front_page_reader, self.settings.extraction.front_pages, config
+            )
+        return PDFDownloader(self.http_client, validator, config, self.settings.storage)
 
     # Pipeline ----------------------------------------------------------------------------------------------------
 

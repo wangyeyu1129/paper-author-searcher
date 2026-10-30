@@ -357,6 +357,11 @@ class ExtractionConfig:
     maximum_chunks: int = 8
     # Extracted publications are cached by request (under the run's HTTP cache directory when it has one).
     cache: bool = True
+    # A file whose text layer shows nothing (a scan, an image title, an unusual font) has its first pages read by
+    # Claude; the printed title, authors and DOI then go through the same identity rules as extracted text.
+    read_front_pages: bool = True
+    front_pages: int = 1
+    front_page_max_tokens: int = 4000
     # Claude's spend per run: past it, pages keep only the rule-based parse. The prices (USD per million tokens) are
     # those of `model`; change them together.
     maximum_cost_usd: float = 1.0

@@ -7,6 +7,7 @@ import logging
 import re
 import subprocess
 import sys
+import tempfile
 import unicodedata
 from dataclasses import asdict
 from pathlib import Path
@@ -384,6 +385,38 @@ class PDFFileValidator:
             )
 
 
+def extract_pages(path, destination, pages):
+    """Copy a PDF's first ``pages`` pages to ``destination`` (a parser worker's job: the file is untrusted)."""
+    from pypdf import PdfReader, PdfWriter
+
+    reader = PdfReader(path, strict=False)
+    writer = PdfWriter()
+    for page in reader.pages[:pages]:
+        writer.add_page(page)
+    with open(destination, 'wb') as handle:
+        writer.write(handle)
+
+
+def front_pages(path, pages, config=DEFAULT_DOWNLOAD):
+    """The PDF's first pages as bytes, cut in a resource-limited worker; None when it cannot be done."""
+    with tempfile.TemporaryDirectory() as directory:
+        destination = Path(directory) / 'front.pdf'
+        request = json.dumps({'config': asdict(config), 'extract_to': str(destination), 'pages': pages})
+        try:
+            subprocess.run(
+                [sys.executable, '-c', WORKER_BOOTSTRAP, PACKAGE_ROOT, str(path)],
+                input=request,
+                text=True,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                timeout=config.parser_timeout,
+                check=True,
+            )
+            return destination.read_bytes()
+        except (subprocess.SubprocessError, OSError):
+            return None
+
+
 def _apply_worker_limits(config):
     try:
         import resource
@@ -397,6 +430,9 @@ def _worker():
     request = json.load(sys.stdin)
     config = DownloadConfig(**request['config'])
     _apply_worker_limits(config)
+    if request.get('extract_to'):
+        extract_pages(sys.argv[1], request['extract_to'], request['pages'])
+        return
     result = inspect_pdf(sys.argv[1], request['paper'], config)
     print(json.dumps(asdict(result)))
 
