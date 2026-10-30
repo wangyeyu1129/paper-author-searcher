@@ -12,6 +12,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from .agent import agent_view
 from .model import ErrorKind, IdempotencyConflict, Job, JobStatus, ServiceError, seconds_since
 from .ports import FileStore, JobRepository, StoredFile
 from .results import selections
@@ -97,6 +98,10 @@ class SearchService:
         if job is None or job.client != client:
             raise ServiceError(ErrorKind.NOT_FOUND, 'not_found', 'No such search')
         return job
+
+    def agent_view(self, client: str, job_id: str) -> dict[str, Any]:
+        """The search as the cold-email agent may use it (agent.agent_view)."""
+        return agent_view(self.job(client, job_id))
 
     def paper_file(self, client: str, job_id: str, paper_id: str) -> StoredFile:
         job = self.job(client, job_id)

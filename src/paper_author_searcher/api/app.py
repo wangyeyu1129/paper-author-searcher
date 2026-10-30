@@ -6,6 +6,7 @@ GET  /v1/searches/{id}                   the job: status, progress, candidates, 
 POST /v1/searches/{id}/confirmation      pick a candidate of a ``needs_confirmation`` job; it runs again
 GET  /v1/searches/{id}/papers/{pid}/pdf  a returned paper's checked PDF (streamed, or a redirect to storage)
 GET  /v1/searches/{id}/pdfs.zip          every checked PDF of the result in one zip
+GET  /v1/searches/{id}/agent             what the cold-email agent may cite, and what it must not (agent-result)
 GET  /v1/schemas/{name}                  the request and response JSON Schemas (no key needed)
 GET  /v1/health                          liveness: the process answers (no key needed)
 GET  /v1/ready                           readiness: database, file store, workers, indexes (no key needed)
@@ -29,6 +30,7 @@ from paper_author_searcher.service.facade import SearchService
 from paper_author_searcher.service.metrics import RequestCounter, render
 from paper_author_searcher.service.model import ErrorKind, Job, JobStatus, ServiceError
 from paper_author_searcher.service.ports import StoredFile
+from paper_author_searcher.service.results import ResultView
 
 from .auth import ApiKey, ApiKeys
 from .schema import API_VERSION, SCHEMA_NAMES, schema, validator
@@ -107,6 +109,7 @@ class SearchAPI:
             ('POST', 'confirm', re.compile(r'^/v1/searches/(?P<id>[\w-]+)/confirmation$'), self._confirm),
             ('GET', 'pdf', re.compile(r'^/v1/searches/(?P<id>[\w-]+)/papers/(?P<paper>\d+)/pdf$'), self._pdf),
             ('GET', 'zip', re.compile(r'^/v1/searches/(?P<id>[\w-]+)/pdfs\.zip$'), self._archive),
+            ('GET', 'agent', re.compile(r'^/v1/searches/(?P<id>[\w-]+)/agent$'), self._agent),
         ]
 
     def handle(self, request: Request) -> Response:
@@ -187,6 +190,9 @@ class SearchAPI:
         submission = self.service.confirm(key.id, params['id'], body['selection'], self._idempotency_key(request))
         return self._accepted(submission.job, submission.replayed)
 
+    def _agent(self, _: Request, key: ApiKey, params: dict[str, str]) -> Response:
+        return Response(200, self.service.agent_view(key.id, params['id']))
+
     def _pdf(self, _: Request, key: ApiKey, params: dict[str, str]) -> Response:
         return self._stored(self.service.paper_file(key.id, params['id'], params['paper']), 'application/pdf', None)
 
@@ -253,7 +259,7 @@ def resource(job: Job) -> dict[str, Any]:
     if job.status == JobStatus.NEEDS_CONFIRMATION:
         body['links']['confirmation'] = link(job) + '/confirmation'
     if job.status == JobStatus.SUCCEEDED and job.result is not None:
-        body['result'] = job.result
+        body['result'] = ResultView.visible(job.result, bool(job.request.get('include_needs_review')))
     if job.status == JobStatus.FAILED and job.error is not None:
         body['error'] = job.error
     return body

@@ -1,5 +1,6 @@
 """Turn a workflow run (its report and artifacts) into the API's candidates and result (schema v1 ``search``)."""
 
+import re
 from collections.abc import Callable
 from pathlib import Path
 from typing import Any
@@ -18,6 +19,9 @@ MAXIMUM_CANDIDATES = 10
 # arXiv DOIs name a preprint edition; another edition of the same work is preferred as the work's main entry.
 PREPRINT_DOI_PREFIX = '10.48550/'
 FULL_TEXT_RANK = {'file': 0, 'link': 1, 'none': 2}
+CONFIDENCE_RANK = {'high': 0, 'medium': 1, 'low': 2}
+# Ownership findings are prefixed with the record they came from ("openalex:https://openalex.org/W1: ...").
+RECORD_PREFIX = re.compile(r'^[a-z_]+:\S+: ')
 
 
 def candidates(identity: dict[str, Any], limit: int = MAXIMUM_CANDIDATES) -> list[dict[str, Any]]:
@@ -60,10 +64,20 @@ class ResultView:
     ``editions``. ``download_link(paper_id)`` gives the API path that serves a paper's checked file.
     """
 
-    def __init__(self, download_link: Callable[[str], str]) -> None:
+    def __init__(
+        self,
+        download_link: Callable[[str], str],
+        strong_evidence: tuple[str, ...] = (),
+        supporting_evidence: tuple[str, ...] = (),
+        maximum_evidence: int = 3,
+    ) -> None:
         self.download_link = download_link
+        # Findings that make a verified paper 'high' confidence, and the other findings worth showing.
+        self.strong_evidence = strong_evidence
+        self.supporting_evidence = supporting_evidence
+        self.maximum_evidence = maximum_evidence
 
-    def build(self, report: dict[str, Any], include_needs_review: bool) -> dict[str, Any]:
+    def build(self, report: dict[str, Any], include_needs_review: bool = True) -> dict[str, Any]:
         root = Path(report['output_directory'])
         artifacts = report.get('artifacts') or {}
         archive = self._read(root, artifacts.get('papers')) or {}
@@ -89,6 +103,7 @@ class ResultView:
                 'status': identity.get('status'),
                 'orcid': identity.get('orcid'),
                 'author_ids': dict(identity.get('author_ids') or {}),
+                'confidence': identity.get('identity_confidence', identity.get('confidence')),
                 'evidence': list(identity.get('evidence') or [])[:MAXIMUM_EVIDENCE],
             },
             'papers': papers,
@@ -100,6 +115,21 @@ class ResultView:
             },
             'warnings': [str(item.get('warning') or item) for item in report.get('warnings') or []],
         }
+
+    @staticmethod
+    def visible(result: dict[str, Any], include_needs_review: bool) -> dict[str, Any]:
+        """The result as a caller asked for it: needs-review papers only on request, statistics to match."""
+        if include_needs_review:
+            return result
+        papers = [paper for paper in result['papers'] if paper['ownership_status'] == OwnershipStatus.VERIFIED]
+        statuses = [paper['full_text']['status'] for paper in papers]
+        statistics = {
+            'papers': len(papers),
+            'verified': len(papers),
+            'full_text_files': statuses.count('file'),
+            'full_text_links': statuses.count('link'),
+        }
+        return {**result, 'papers': papers, 'statistics': statistics}
 
     @staticmethod
     def _editions(entries: list[dict[str, Any]], returned: list[tuple[int, dict[str, Any]]]) -> list[list[dict]]:
@@ -143,6 +173,10 @@ class ResultView:
         work = dict(main)
         if any(paper['ownership_status'] == OwnershipStatus.VERIFIED for paper in editions):
             work['ownership_status'] = OwnershipStatus.VERIFIED
+        # The work is as certain as its best-attested edition, and carries any edition's abstract.
+        best = min(editions, key=lambda paper: CONFIDENCE_RANK[paper['confidence']])
+        work['confidence'], work['evidence'] = best['confidence'], best['evidence']
+        work['abstract'] = next((paper['abstract'] for paper in ranked if paper['abstract']), None)
         if others:
             work['editions'] = [
                 {name: paper[name] for name in ('id', 'title', 'year', 'venue', 'doi', 'full_text')}
@@ -165,6 +199,7 @@ class ResultView:
         url = file.get('final_url') or file.get('pdf_url') if checked else None
         if not url and link.get('validation_status') == PDFValidationStatus.VERIFIED:
             url = link.get('best_pdf_url')
+        confidence, evidence = self._ownership(entry)
         return {
             'id': paper_id,
             'title': entry.get('title') or '',
@@ -172,7 +207,10 @@ class ResultView:
             'year': entry.get('year') if isinstance(entry.get('year'), int) else None,
             'venue': entry.get('venue') if isinstance(entry.get('venue'), str) else None,
             'doi': entry.get('doi'),
+            'abstract': entry.get('abstract') if isinstance(entry.get('abstract'), str) and entry['abstract'] else None,
             'ownership_status': entry.get('ownership_status'),
+            'confidence': confidence,
+            'evidence': evidence,
             'full_text': {
                 'status': 'file' if checked else 'link' if url else 'none',
                 'url': url,
@@ -180,6 +218,18 @@ class ResultView:
                 'download': self.download_link(paper_id) if checked else None,
             },
         }
+
+    def _ownership(self, entry: dict[str, Any]) -> tuple[str, list[str]]:
+        """How sure the paper is the person's ('high', 'medium', 'low') and the findings that say so."""
+        findings = list(
+            dict.fromkeys(RECORD_PREFIX.sub('', str(item)) for item in entry.get('ownership_evidence') or [])
+        )
+        if entry.get('ownership_status') != OwnershipStatus.VERIFIED:
+            # Why it was not verified: the last findings are the deciding ones.
+            return 'low', findings[-self.maximum_evidence :] if self.maximum_evidence else []
+        strong = [item for item in findings if any(item.startswith(phrase) for phrase in self.strong_evidence)]
+        supporting = [item for item in findings if any(item.startswith(phrase) for phrase in self.supporting_evidence)]
+        return ('high' if strong else 'medium'), [*strong, *supporting][: self.maximum_evidence]
 
     @staticmethod
     def _checked_file(file: dict[str, Any], root: Path) -> Path | None:

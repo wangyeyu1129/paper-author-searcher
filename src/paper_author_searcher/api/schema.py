@@ -13,7 +13,7 @@ from importlib import resources
 from typing import Any
 
 API_VERSION = 'v1'
-SCHEMA_NAMES = ('search-request', 'confirmation-request', 'search', 'error')
+SCHEMA_NAMES = ('search-request', 'confirmation-request', 'search', 'error', 'agent-result')
 
 # Keywords that only describe; validation never reads them.
 ANNOTATIONS = frozenset({'$schema', '$id', '$defs', 'title', 'description', 'default'})

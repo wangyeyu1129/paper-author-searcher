@@ -77,7 +77,13 @@
         "year": {"type": ["integer", "null"]},
         "venue": {"type": ["string", "null"]},
         "doi": {"type": ["string", "null"]},
+        "abstract": {"type": ["string", "null"]},
         "ownership_status": {"enum": ["verified", "needs_review"]},
+        "confidence": {
+          "description": "high: the person's own list, a paper-level ORCID or a curated profile backs it; medium: author ID, byline and institution agree; low: not verified (needs_review).",
+          "enum": ["high", "medium", "low"]
+        },
+        "evidence": {"description": "The ownership findings behind the confidence.", "type": "array", "items": {"type": "string"}},
         "full_text": {"$ref": "#/$defs/full_text"},
         "editions": {
           "description": "Other editions of the same work (preprint, proceedings, journal), each with its own full text.",
@@ -128,6 +134,7 @@
             "status": {"type": ["string", "null"]},
             "orcid": {"type": ["string", "null"]},
             "author_ids": {"type": "object"},
+            "confidence": {"type": ["number", "null"]},
             "evidence": {"type": "array", "items": {"type": "string"}}
           }
         },

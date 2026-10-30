@@ -123,8 +123,16 @@ class WorkflowRunner:
                 cost_usd=cost_usd,
                 run_directory=directory,
             )
-        view = ResultView(lambda paper_id: self.download_link(job.id, paper_id))
-        result = view.build(report, bool(job.request.get('include_needs_review')))
+        # The whole result is kept (needs-review papers included): the agent view lists what it withholds, and
+        # the search view drops them unless the request asked for them.
+        service = self.settings.service
+        view = ResultView(
+            lambda paper_id: self.download_link(job.id, paper_id),
+            service.strong_ownership_evidence,
+            service.supporting_ownership_evidence,
+            service.maximum_paper_evidence,
+        )
+        result = view.build(report)
         files = {}
         for paper in result['papers']:
             for edition in [paper, *(paper.get('editions') or [])]:
