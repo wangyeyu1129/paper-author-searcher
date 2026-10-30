@@ -9,6 +9,7 @@ from collections.abc import Iterable
 
 from .config import DEFAULT_MATCHING, MatchingConfig
 from .models import ProfessorProfile
+from .status import UniversityStatus
 
 
 class IdentityRanking:
@@ -34,7 +35,9 @@ class IdentityRanking:
 
     def uncontested(self, best: ProfessorProfile, runner_up: ProfessorProfile) -> bool:
         """The leader needs no review against the runner-up."""
-        if best.match_score - runner_up.match_score >= self.config.ambiguity_margin:
+        if best.match_score - runner_up.match_score >= self.config.ambiguity_margin and not self._school_namesakes(
+            best, runner_up
+        ):
             return True
         if self.has_precedence(best) and not self.has_precedence(runner_up):
             return True
@@ -44,6 +47,15 @@ class IdentityRanking:
         if best.disambiguation and not runner_up.disambiguation:
             return True
         return bool(best.adjudication and not runner_up.adjudication)
+
+    def _school_namesakes(self, best: ProfessorProfile, runner_up: ProfessorProfile) -> bool:
+        """Both at the requested school, and no department asked for to tell them apart by score."""
+        return (
+            self.config.margin_requires_department
+            and not best.requested_department
+            and best.university_status == UniversityStatus.MATCHED
+            and runner_up.university_status == UniversityStatus.MATCHED
+        )
 
     def resolves(self, profile: ProfessorProfile, name_similarity: float) -> bool:
         """A precedence anchor with a compatible name confirms the identity whatever the school score says."""
