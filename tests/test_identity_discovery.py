@@ -284,7 +284,14 @@ class PageDiscoveryTests(unittest.TestCase):
         search = Search()
         found = Discovery()
         WebPageSearch(search, PageRanker()).discover(query(), found)
-        self.assertEqual(search.queries, ['"Mei Lin" Example University', '"Mei Lin" Example University publications'])
+        self.assertEqual(
+            search.queries,
+            [
+                '"Mei Lin" Example University',
+                '"Mei Lin" Example University publications',
+                '"Mei Lin" lab publications list',
+            ],
+        )
         self.assertEqual([page.url for page in found.pages], ['https://cs.example.edu/~meilin/pubs'])
 
     def test_a_failing_step_is_recorded_and_later_steps_still_run(self):
