@@ -110,6 +110,21 @@ class OwnershipConfig:
     )
     # Records that are not research publications: kept for review, never verified, so they stay out of the output
     # and the PDF stage. Values are paper_types.TYPE_LABELS categories.
+    # Titles that name something other than a paper one could cite for its findings, whatever type the source gives.
+    non_publication_title_prefixes: tuple[str, ...] = (
+        'author correction',
+        'publisher correction',
+        'correction to',
+        'correction:',
+        'erratum',
+        'corrigendum',
+        'retraction',
+        'data from',
+        'supplementary',
+        'supplemental',
+        'code and data',
+        'replication data',
+    )
     non_publication_types: tuple[str, ...] = (
         'dataset',
         'book_review',

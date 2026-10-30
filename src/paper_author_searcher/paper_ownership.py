@@ -117,6 +117,9 @@ class PaperOwnershipValidator:
     def _non_publication_reasons(self, record):
         if record.paper_type in self.config.non_publication_types:
             return ['Not a research publication: ' + record.paper_type]
+        title = (record.title or '').strip().lower()
+        if title.startswith(self.config.non_publication_title_prefixes):
+            return ['Not a research publication: the title names a correction or a data supplement']
         return []
 
     def _verification_blockers(self, record):

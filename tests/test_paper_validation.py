@@ -61,6 +61,21 @@ def validate(records):
     return PaperOwnershipValidator().validate(papers, profile())
 
 
+class NonPublicationTitleTests(unittest.TestCase):
+    def test_corrections_and_data_supplements_are_not_verified_even_with_a_paper_orcid(self):
+        for title in (
+            'Author Correction: Pan-cancer analysis',
+            'Data from Loss of Regulation',
+            'Erratum: Moral Hazard',
+        ):
+            paper = validate([record(title=title, orcid='https://orcid.org/profile-orcid')])[0]
+            self.assertEqual(paper.ownership_status, 'needs_review', title)
+
+    def test_a_paper_that_merely_mentions_data_is_not_caught(self):
+        paper = validate([record(title='Big data from cities', orcid='https://orcid.org/profile-orcid')])[0]
+        self.assertEqual(paper.ownership_status, 'verified')
+
+
 class RareNameTests(unittest.TestCase):
     """Under a rare name, papers in the person's proven fields go through; another field's stay under review."""
 
