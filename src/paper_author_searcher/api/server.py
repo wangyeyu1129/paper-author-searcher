@@ -1,7 +1,8 @@
 """HTTP front end (stdlib ``ThreadingHTTPServer``) and the ``paper-search-api`` command.
 
-    paper-search-api create-key --name cold-email-agent     # prints the key once
-    paper-search-api serve --port 8080                      # needs at least one key
+    paper-search-api serve --open                           # web page in the browser, no key to copy
+    paper-search-api create-key --name cold-email-agent     # a key for programs; printed once
+    paper-search-api serve --port 8080                      # API only; needs at least one key
 
 Run it behind a TLS-terminating proxy: API keys travel in a header.
 """
@@ -11,6 +12,7 @@ import json
 import logging
 import shutil
 import sys
+import webbrowser
 from collections.abc import Sequence
 from dataclasses import dataclass
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -114,12 +116,23 @@ def build(options: ServerOptions, backend: Any = None) -> tuple[SearchAPI, JobEx
     return api, executor
 
 
-def serve(options: ServerOptions) -> None:
+def serve(options: ServerOptions, open_browser: bool = False) -> None:
     api, executor = build(options)
+    browser_secret = None
+    if open_browser:
+        # A key for this session's browser tab only: kept in memory, handed over in the URL fragment (which the
+        # browser never sends to the server, so it reaches no log), gone when the server stops.
+        _, browser_secret = api.keys.create('browser (this session)')
     if not api.keys.keys:
-        raise SystemExit(f'No API keys in {options.keys_path}; create one with: paper-search-api create-key')
+        raise SystemExit(
+            f'No API keys in {options.keys_path}; create one with: paper-search-api create-key, or serve --open'
+        )
     recovered = executor.recover()
     server = ThreadingHTTPServer((options.host, options.port), handler_for(api, options.maximum_body_bytes))
+    if browser_secret is not None:
+        address = f'http://{options.host}:{server.server_address[1]}/'
+        print(f'Open {address} (this browser tab is signed in for this session)', flush=True)
+        webbrowser.open(address + '#key=' + browser_secret)
     logger.warning(
         'Serving on http://%s:%s with %s worker(s); %s unfinished search(es) queued again',
         options.host,
@@ -146,6 +159,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     run.add_argument('--port', type=int, default=8080)
     run.add_argument('--workers', type=int, default=1, help='Searches run at once (each paces its own requests)')
     run.add_argument('--max-cost-usd', type=float, default=0.5, help='Metered-API spend cap per search')
+    run.add_argument('--open', action='store_true', help='Open the web page in a browser, signed in for this session')
     run.add_argument('--verbose', action='store_true')
     create = commands.add_parser('create-key', help='Create an API key and print it once')
     create.add_argument('--name', required=True)
@@ -180,7 +194,8 @@ def main(argv: Sequence[str] | None = None) -> int:
             keys_file=keys_file,
             workers=args.workers,
             maximum_cost_usd=args.max_cost_usd,
-        )
+        ),
+        open_browser=args.open,
     )
     return 0
 

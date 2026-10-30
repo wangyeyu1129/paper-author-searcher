@@ -8,12 +8,13 @@ Python >= 3.10 的论文检索工具，接入 OpenAlex、Semantic Scholar 和 DB
 
 ## 运行
 
-作为服务运行（异步任务式 HTTP API，API Key 鉴权，幂等，同名者确认）见 [搜索服务 API](docs/api.md)：
+**最简单的用法：网页。** 运行下面这条命令，浏览器会打开一个页面。填姓名和学校，点"搜索"，完成后就能下载 PDF（单篇或整个 zip）：
 
 ```bash
-paper-search-api create-key --name cold-email-agent
-paper-search-api serve --port 8080
+paper-search-api serve --open
 ```
+
+给程序调用的异步 HTTP API（API Key 鉴权、幂等、同名者确认）见 [搜索服务 API](docs/api.md)。
 
 命令行：
 

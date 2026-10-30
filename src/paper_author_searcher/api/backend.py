@@ -1,5 +1,6 @@
 """What runs a search for a job: the ``SearchBackend`` interface and the workflow-backed implementation."""
 
+import zipfile
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -7,6 +8,7 @@ from typing import Any, Protocol
 
 from paper_author_searcher.composition import RunOptions, ServiceContainer
 from paper_author_searcher.config import AmbiguityPolicy
+from paper_author_searcher.jsonio import read_json
 from paper_author_searcher.models import ProfessorQuery
 from paper_author_searcher.settings import Settings, load_settings
 from paper_author_searcher.status import RunStatus
@@ -14,6 +16,9 @@ from paper_author_searcher.workflow import load_checkpoint
 
 from .jobs import Job, JobStatus
 from .results import ResultView, candidates
+
+# PDFs are already compressed; the archive only bundles them.
+ARCHIVE_NAME = 'pdfs.zip'
 
 Progress = Callable[[str, int | None, int | None], None]
 
@@ -34,6 +39,8 @@ class SearchBackend(Protocol):
     def run(self, job: Job, progress: Progress) -> SearchOutcome: ...
 
     def file_path(self, job: Job, paper_id: str) -> Path | None: ...
+
+    def archive(self, job: Job) -> Path | None: ...
 
 
 def query_from_request(request: dict[str, Any]) -> ProfessorQuery:
@@ -139,7 +146,30 @@ class WorkflowBackend:
         report_path = Path(job.run_directory) / 'report.json'
         if not report_path.exists():
             return None
-        return self._view(job).file_path(load_checkpoint(report_path), paper_id)
+        return self._view(job).file_path(read_json(report_path), paper_id)
+
+    def archive(self, job: Job) -> Path | None:
+        """A zip of every checked PDF the job's result offers (built once, beside the run), or None if none."""
+        if not job.run_directory or not job.result:
+            return None
+        target = Path(job.run_directory) / ARCHIVE_NAME
+        if target.exists():
+            return target
+        files = []
+        for paper in job.result.get('papers') or []:
+            for edition in [paper, *(paper.get('editions') or [])]:
+                if edition['full_text']['status'] == 'file':
+                    path = self.file_path(job, edition['id'])
+                    if path is not None:
+                        files.append(path)
+        if not files:
+            return None
+        partial = target.with_suffix('.part')
+        with zipfile.ZipFile(partial, 'w', compression=zipfile.ZIP_STORED) as bundle:
+            for path in dict.fromkeys(files):
+                bundle.write(path, path.name)
+        partial.replace(target)
+        return target
 
     def _view(self, job: Job) -> ResultView:
         return self.results or ResultView(lambda paper_id: f'/v1/searches/{job.id}/papers/{paper_id}/pdf')

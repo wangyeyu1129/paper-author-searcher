@@ -31,7 +31,7 @@ paper-search-api = "paper_author_searcher.api.server:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-paper_author_searcher = ["data/*.txt", "api/schemas/*/*.json"]
+paper_author_searcher = ["data/*.txt", "api/schemas/*/*.json", "api/static/*.html"]
 
 [tool.ruff]
 target-version = "py310"

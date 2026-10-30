@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>论文检索</title>
+<style>
+  :root {
+    --bg: #f7f7f5; --panel: #ffffff; --text: #1d1d1b; --muted: #6b6b66; --line: #e3e2dd;
+    --accent: #2f5bd3; --accent-text: #ffffff; --ok: #1f7a4d; --warn: #9a6200; --bad: #b3261e;
+    --chip: #eef1fb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #151514; --panel: #1f1f1d; --text: #ecebe6; --muted: #a3a29b; --line: #34332f;
+      --accent: #7d9cff; --accent-text: #0f1220; --ok: #5cc28f; --warn: #e0a84a; --bad: #ff8a80;
+      --chip: #262b3d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 15px/1.55 -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Segoe UI", sans-serif; }
+  main { max-width: 920px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+  form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+  label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
+  input { font: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--line); border-radius: 7px; padding: 9px 11px; }
+  input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  .full { grid-column: 1 / -1; }
+  button, .button { font: inherit; border: 0; border-radius: 7px; padding: 9px 16px; cursor: pointer;
+                    background: var(--accent); color: var(--accent-text); text-decoration: none; display: inline-block; }
+  button.secondary { white-space: nowrap; background: transparent; color: var(--accent); border: 1px solid var(--line); padding: 5px 10px; font-size: 13px; }
+  button:disabled { opacity: .55; cursor: default; }
+  .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .status { font-weight: 600; }
+  .muted { color: var(--muted); font-size: 13px; }
+  .bar { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; margin-top: 10px; }
+  .bar > div { height: 100%; width: 0; background: var(--accent); transition: width .4s; }
+  .stats { display: flex; gap: 24px; flex-wrap: wrap; margin: 4px 0 14px; }
+  .stats b { font-size: 20px; display: block; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 6px; border-top: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 500; font-size: 12px; border-top: 0; }
+  td.year { white-space: nowrap; color: var(--muted); }
+  .chip { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 10px; background: var(--chip); }
+  .ok { color: var(--ok); } .warn { color: var(--warn); } .bad { color: var(--bad); }
+  .candidate { border-top: 1px solid var(--line); padding: 12px 0; }
+  .candidate:first-of-type { border-top: 0; }
+  .hidden { display: none; }
+  @media (max-width: 640px) { form { grid-template-columns: 1fr; } td.venue, th.venue { display: none; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>论文检索</h1>
+  <p class="sub">输入研究者的姓名和学校，找出他/她的论文，并下载能合法公开获取的 PDF。</p>
+
+  <section class="panel">
+    <form id="search">
+      <label>姓名<input name="name" required maxlength="200" placeholder="例如 Julie Kallini" autocomplete="off"></label>
+      <label>学校<input name="university" required maxlength="300" placeholder="例如 Stanford University" autocomplete="off"></label>
+      <label class="full">院系（可选，填写后同名者更少）<input name="department" maxlength="300" placeholder="例如 Computer Science" autocomplete="off"></label>
+      <label class="full hidden" id="key-field">API 密钥（只需填写一次，保存在本浏览器）<input name="key" type="password" autocomplete="off"></label>
+      <div class="full row"><button type="submit" id="go">搜索</button><span class="muted" id="hint">一次搜索通常需要几分钟到几十分钟，可以离开页面稍后再回来。</span></div>
+    </form>
+  </section>
+
+  <section class="panel hidden" id="job">
+    <div class="row"><span class="status" id="status"></span><span class="muted" id="who"></span></div>
+    <div class="muted" id="detail"></div>
+    <div class="bar" id="bar"><div></div></div>
+  </section>
+
+  <section class="panel hidden" id="confirm">
+    <div class="status">有几位同名者，请选出你要找的那一位</div>
+    <div id="candidates"></div>
+  </section>
+
+  <section class="panel hidden" id="result">
+    <div class="stats" id="stats"></div>
+    <div class="row" style="margin-bottom:12px"><button id="zip">下载全部 PDF（zip）</button><span class="muted" id="zip-note"></span></div>
+    <table>
+      <thead><tr><th>年份</th><th>论文</th><th class="venue">发表于</th><th>原文</th></tr></thead>
+      <tbody id="papers"></tbody>
+    </table>
+  </section>
+</main>
+<script>
+(() => {
+  const STAGES = {
+    'Starting': '准备中', 'Resolving professor identity': '识别身份', 'Collecting papers': '收集论文',
+    'Deduplicating papers': '合并重复', 'Validating ownership': '核对论文归属', 'Finding PDF URLs': '查找原文链接',
+    'Downloading PDFs': '下载并核对 PDF', 'Generating report': '整理结果', 'Reusing collected papers': '复用已收集的论文',
+  };
+  const STATUS = { queued: '排队中', running: '搜索中', needs_confirmation: '需要你确认', succeeded: '完成', failed: '失败' };
+  const store = {
+    get(name) { try { return localStorage.getItem(name); } catch { return null; } },
+    set(name, value) { try { value === null ? localStorage.removeItem(name) : localStorage.setItem(name, value); } catch {} },
+  };
+  const $ = (id) => document.getElementById(id);
+  const form = $('search');
+  let timer = null;
+
+  // A key handed over by `paper-search-api serve --open` arrives in the URL fragment, never sent to the server.
+  const handed = new URLSearchParams(location.hash.slice(1)).get('key');
+  if (handed) { store.set('pas-key', handed); history.replaceState(null, '', location.pathname); }
+  const key = () => store.get('pas-key') || form.key.value.trim();
+  if (!key()) $('key-field').classList.remove('hidden');
+
+  async function api(method, path, body) {
+    const headers = { Authorization: 'Bearer ' + key() };
+    if (body) { headers['Content-Type'] = 'application/json'; headers['Idempotency-Key'] = crypto.randomUUID(); }
+    const response = await fetch(path, { method, headers, body: body ? JSON.stringify(body) : undefined });
+    if (response.status === 401) {
+      store.set('pas-key', null);
+      $('key-field').classList.remove('hidden');
+      throw new Error('API 密钥无效，请重新填写');
+    }
+    const data = await response.json();
+    if (!response.ok) {
+      const failure = new Error((data.error && data.error.message) || ('HTTP ' + response.status));
+      failure.status = response.status;
+      throw failure;
+    }
+    return data;
+  }
+
+  async function download(path, name) {
+    const response = await fetch(path, { headers: { Authorization: 'Bearer ' + key() } });
+    if (!response.ok) throw new Error('下载失败（HTTP ' + response.status + '）');
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(await response.blob());
+    link.download = name;
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(link.href), 10000);
+  }
+
+  function show(id, visible) { $(id).classList.toggle('hidden', !visible); }
+
+  function progressText(progress) {
+    if (!progress) return '';
+    const stage = STAGES[progress.stage] || progress.stage;
+    return progress.total ? `${stage}：${progress.completed ?? 0} / ${progress.total}` : stage;
+  }
+
+  function render(job) {
+    store.set('pas-job', job.id);
+    show('job', true);
+    const status = $('status');
+    status.textContent = STATUS[job.status] || job.status;
+    status.className = 'status ' + ({ succeeded: 'ok', failed: 'bad', needs_confirmation: 'warn' }[job.status] || '');
+    const request = job.request;
+    $('who').textContent = [request.name, request.department, request.university].filter(Boolean).join(' · ');
+    $('detail').textContent = job.status === 'failed' ? (job.error.message + (job.error.details ? '：' + job.error.details.join('；') : ''))
+      : progressText(job.progress);
+    const bar = job.progress && job.progress.total ? (100 * (job.progress.completed || 0) / job.progress.total) : (job.status === 'succeeded' ? 100 : 0);
+    $('bar').firstElementChild.style.width = bar + '%';
+    show('bar', job.status === 'queued' || job.status === 'running');
+    show('confirm', job.status === 'needs_confirmation');
+    show('result', job.status === 'succeeded');
+    if (job.status === 'needs_confirmation') renderCandidates(job);
+    if (job.status === 'succeeded') renderResult(job);
+    $('go').disabled = job.status === 'queued' || job.status === 'running';
+  }
+
+  function renderCandidates(job) {
+    const list = $('candidates');
+    list.replaceChildren();
+    for (const candidate of job.candidates || []) {
+      const item = document.createElement('div');
+      item.className = 'candidate';
+      const title = document.createElement('div');
+      title.innerHTML = '<b></b> <span class="muted"></span>';
+      title.querySelector('b').textContent = candidate.name;
+      title.querySelector('span').textContent = [(candidate.affiliations || []).join('，'), candidate.orcid ? 'ORCID ' + candidate.orcid : '',
+        candidate.match_score != null ? '匹配度 ' + candidate.match_score.toFixed(2) : ''].filter(Boolean).join(' · ');
+      const evidence = document.createElement('div');
+      evidence.className = 'muted';
+      evidence.textContent = (candidate.evidence || []).join('；');
+      const pick = document.createElement('button');
+      pick.className = 'secondary';
+      pick.textContent = '就是这位';
+      pick.onclick = async () => {
+        pick.disabled = true;
+        try { render(await api('POST', job.links.confirmation, { selection: candidate.selections[0] })); poll(job.id); }
+        catch (error) { alert(error.message); pick.disabled = false; }
+      };
+      item.append(title, evidence, pick);
+      list.append(item);
+    }
+  }
+
+  function renderResult(job) {
+    const result = job.result;
+    const stats = result.statistics;
+    $('stats').innerHTML = '';
+    for (const [label, value] of [['篇论文', stats.papers], ['篇有 PDF', stats.full_text_files], ['篇只有在线链接', stats.full_text_links]]) {
+      const cell = document.createElement('div');
+      cell.innerHTML = '<b></b><span class="muted"></span>';
+      cell.querySelector('b').textContent = value;
+      cell.querySelector('span').textContent = label;
+      $('stats').append(cell);
+    }
+    $('zip').disabled = !stats.full_text_files;
+    $('zip').onclick = () => download(`/v1/searches/${job.id}/pdfs.zip`, `${result.identity.name || 'papers'}-pdfs.zip`).catch((e) => alert(e.message));
+    $('zip-note').textContent = result.run_status === 'partial' ? '部分来源这次没有响应，结果可能不完整。' : '';
+    const rows = $('papers');
+    rows.replaceChildren();
+    for (const paper of result.papers) {
+      const row = document.createElement('tr');
+      row.innerHTML = '<td class="year"></td><td></td><td class="venue muted"></td><td></td>';
+      const [year, title, venue, text] = row.children;
+      year.textContent = paper.year ?? '';
+      title.textContent = paper.title;
+      if (paper.editions && paper.editions.length) {
+        const more = document.createElement('div');
+        more.className = 'muted';
+        more.textContent = '另有版本：' + paper.editions.map((edition) => edition.venue || edition.year || '').filter(Boolean).join('，');
+        title.append(more);
+      }
+      venue.textContent = paper.venue ?? '';
+      const full = paper.full_text;
+      if (full.status === 'file') {
+        const button = document.createElement('button');
+        button.className = 'secondary';
+        button.textContent = '下载 PDF';
+        button.onclick = () => download(full.download, `${paper.year || ''}_${paper.title}`.slice(0, 120) + '.pdf').catch((e) => alert(e.message));
+        text.append(button);
+      } else if (full.status === 'link') {
+        const link = document.createElement('a');
+        link.href = full.url; link.target = '_blank'; link.rel = 'noopener'; link.textContent = '打开链接';
+        text.append(link);
+      } else {
+        text.innerHTML = '<span class="chip">无公开原文</span>';
+      }
+      rows.append(row);
+    }
+  }
+
+  async function poll(id) {
+    clearTimeout(timer);
+    try {
+      const job = await api('GET', '/v1/searches/' + id);
+      render(job);
+      if (job.status === 'queued' || job.status === 'running') timer = setTimeout(() => poll(id), 3000);
+    } catch (error) {
+      if (error.status === 404) { store.set('pas-job', null); show('job', false); return; }
+      $('detail').textContent = error.message;
+      timer = setTimeout(() => poll(id), 10000);
+    }
+  }
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (form.key.value.trim()) store.set('pas-key', form.key.value.trim());
+    if (!key()) { $('key-field').classList.remove('hidden'); form.key.focus(); return; }
+    const body = { name: form.name.value.trim(), university: form.university.value.trim(), mode: 'full' };
+    if (form.department.value.trim()) body.department = form.department.value.trim();
+    $('go').disabled = true;
+    show('result', false); show('confirm', false);
+    try {
+      const job = await api('POST', '/v1/searches', body);
+      $('key-field').classList.add('hidden');
+      render(job);
+      poll(job.id);
+    } catch (error) {
+      show('job', true);
+      $('status').textContent = '无法提交';
+      $('detail').textContent = error.message;
+      $('go').disabled = false;
+    }
+  });
+
+  const last = store.get('pas-job');
+  if (last && key()) poll(last);
+})();
+</script>
+</body>
+</html>

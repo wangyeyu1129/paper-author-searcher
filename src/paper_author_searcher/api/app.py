@@ -4,6 +4,8 @@ POST /v1/searches                        submit a search; 202 with the job (stat
 GET  /v1/searches/{id}                   the job: status, progress, candidates, result
 POST /v1/searches/{id}/confirmation      pick a candidate of a ``needs_confirmation`` job; it runs again
 GET  /v1/searches/{id}/papers/{pid}/pdf  a returned paper's checked PDF
+GET  /v1/searches/{id}/pdfs.zip          every checked PDF of the result in one zip
+GET  /                                   a web page: enter a name and school, get the PDFs (no key needed to load)
 GET  /v1/schemas/{name}                  the request and response JSON Schemas (no key needed)
 GET  /v1/health                          liveness (no key needed)
 
@@ -13,9 +15,11 @@ key and body gets the first response again instead of a second job.
 
 import hashlib
 import json
+import logging
 import re
 from collections.abc import Callable
 from dataclasses import dataclass, field
+from importlib import resources
 from pathlib import Path
 from typing import Any
 
@@ -25,7 +29,14 @@ from .jobs import IdempotencyConflict, Job, JobStatus, JobStore
 from .results import selections
 from .schema import API_VERSION, SCHEMA_NAMES, schema, validator
 
+logger = logging.getLogger(__name__)
+
 MAXIMUM_IDEMPOTENCY_KEY = 255
+
+
+def page() -> Path:
+    """The web page (static/index.html): a form over this API that needs no tools beyond a browser."""
+    return Path(str(resources.files(__package__).joinpath('static').joinpath('index.html')))
 
 
 @dataclass(frozen=True)
@@ -74,6 +85,7 @@ class SearchAPI:
             ('GET', re.compile(r'^/v1/searches/(?P<id>[\w-]+)$'), self._show),
             ('POST', re.compile(r'^/v1/searches/(?P<id>[\w-]+)/confirmation$'), self._confirm),
             ('GET', re.compile(r'^/v1/searches/(?P<id>[\w-]+)/papers/(?P<paper>\d+)/pdf$'), self._pdf),
+            ('GET', re.compile(r'^/v1/searches/(?P<id>[\w-]+)/pdfs\.zip$'), self._archive),
         ]
 
     def handle(self, request: Request) -> Response:
@@ -81,11 +93,16 @@ class SearchAPI:
             return self._dispatch(request)
         except ApiError as error:
             return error.response()
+        except Exception:
+            logger.exception('Unhandled error for %s %s', request.method, request.path.split('?', 1)[0])
+            return ApiError(500, 'internal_error', 'The server could not answer this request').response()
 
     def _dispatch(self, request: Request) -> Response:
         path = request.path.split('?', 1)[0].rstrip('/') or '/'
         if request.method == 'GET' and path == '/v1/health':
             return Response(200, {'api_version': API_VERSION, 'status': 'ok'})
+        if request.method == 'GET' and path in ('/', '/index.html'):
+            return Response(200, None, {'Content-Type': 'text/html; charset=utf-8'}, file=page())
         if request.method == 'GET' and path.startswith('/v1/schemas/'):
             return self._schema(path.removeprefix('/v1/schemas/').removesuffix('.json'))
         allowed = []
@@ -153,6 +170,14 @@ class SearchAPI:
         if path is None:
             raise ApiError(404, 'not_found', 'This search has no checked PDF for that paper')
         return Response(200, None, {'Content-Type': 'application/pdf'}, file=path)
+
+    def _archive(self, _: Request, key: ApiKey, params: dict[str, str]) -> Response:
+        job = self._job(key, params['id'])
+        path = self.backend.archive(job) if job.status == JobStatus.SUCCEEDED else None
+        if path is None:
+            raise ApiError(404, 'not_found', 'This search has no checked PDFs')
+        disposition = f'attachment; filename="{job.id}-pdfs.zip"'
+        return Response(200, None, {'Content-Type': 'application/zip', 'Content-Disposition': disposition}, file=path)
 
     def _job(self, key: ApiKey, job_id: str) -> Job:
         job = self.store.get(job_id)

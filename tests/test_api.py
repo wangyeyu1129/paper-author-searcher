@@ -9,6 +9,7 @@ import threading
 import unittest
 import urllib.error
 import urllib.request
+import zipfile
 from concurrent.futures import Executor, Future
 from datetime import datetime, timedelta, timezone
 from http.server import ThreadingHTTPServer
@@ -73,6 +74,9 @@ class FakeBackend:
 
     def file_path(self, job, paper_id):
         return self.pdf if paper_id == '0' else None
+
+    def archive(self, job):
+        return self.pdf
 
 
 class Harness:
@@ -521,3 +525,92 @@ class EditionTests(unittest.TestCase):
         identity = {'candidates': [{'name': f'N{i}', 'author_ids': {'openalex': f'A{i}'}} for i in range(30)]}
         self.assertEqual(len(candidates(identity)), 10)
         self.assertEqual(len(candidates(identity, limit=3)), 3)
+
+
+class PageAndArchiveTests(unittest.TestCase):
+    def setUp(self):
+        self.directory = tempfile.TemporaryDirectory()
+        self.root = Path(self.directory.name)
+
+    def tearDown(self):
+        self.directory.cleanup()
+
+    def test_the_web_page_needs_no_key(self):
+        api = Harness(self.directory.name, [])
+        page = api.call('GET', '/', secret=False)
+        self.assertEqual((page.status, page.headers['Content-Type']), (200, 'text/html; charset=utf-8'))
+        self.assertIn('/v1/searches', page.file.read_text(encoding='utf-8'))
+
+    def test_the_zip_route_serves_the_archive(self):
+        bundle = self.root / 'x.zip'
+        bundle.write_bytes(b'PK')
+        api = Harness(self.directory.name, [SearchOutcome(JobStatus.SUCCEEDED, result=RESULT)], pdf=bundle)
+        created = api.call('POST', '/v1/searches', REQUEST)
+        served = api.call('GET', created.body['links']['self'] + '/pdfs.zip')
+        self.assertEqual((served.status, served.file, served.headers['Content-Type']), (200, bundle, 'application/zip'))
+        self.assertIn('attachment', served.headers['Content-Disposition'])
+
+    def test_the_archive_bundles_every_checked_file_once(self):
+        run = self.root / 'run'
+        (run / 'papers').mkdir(parents=True)
+        for name in ('a.pdf', 'b.pdf'):
+            (run / 'papers' / name).write_bytes(b'%PDF ' + name.encode())
+        checked = {'format_status': 'valid', 'identity_status': 'verified', 'validation_status': 'verified'}
+        (run / 'manifest.json').write_text(
+            json.dumps({'papers': [dict(checked, local_filename='a.pdf'), dict(checked, local_filename='b.pdf'), {}]})
+        )
+        (run / 'report.json').write_text(
+            json.dumps({'output_directory': str(run), 'artifacts': {'manifest': 'manifest.json'}})
+        )
+        file = {'status': 'file', 'url': None, 'version': None, 'download': 'x'}
+        none = {'status': 'none', 'url': None, 'version': None, 'download': None}
+        result = dict(
+            RESULT,
+            papers=[
+                dict(
+                    RESULT['papers'][0], id='0', full_text=file, editions=[{'id': '1', 'title': 'v', 'full_text': file}]
+                ),
+                dict(RESULT['papers'][0], id='2', full_text=none),
+            ],
+        )
+        backend = WorkflowBackend(BackendOptions(self.root))
+        job = Job('srch_1', 'k', REQUEST, status=JobStatus.SUCCEEDED, run_directory=str(run), result=result)
+        archive = backend.archive(job)
+        with zipfile.ZipFile(archive) as bundle:
+            self.assertEqual(sorted(bundle.namelist()), ['a.pdf', 'b.pdf'])
+        self.assertEqual(backend.archive(job), archive)  # built once
+        self.assertIsNone(backend.archive(Job('srch_2', 'k', REQUEST)))
+
+
+class FailureTests(unittest.TestCase):
+    def test_unexpected_errors_become_a_500_error_body(self):
+        with tempfile.TemporaryDirectory() as directory:
+            api = Harness(directory, [SearchOutcome(JobStatus.SUCCEEDED, result=RESULT)])
+            created = api.call('POST', '/v1/searches', REQUEST)
+
+            def broken(job, paper_id):
+                raise KeyError('output_directory')
+
+            api.backend.file_path = broken
+            with self.assertLogs('paper_author_searcher.api.app', 'ERROR'):
+                response = api.call('GET', created.body['links']['self'] + '/papers/0/pdf')
+            self.assertEqual((response.status, response.body['error']['code']), (500, 'internal_error'))
+
+    def test_files_are_found_from_a_real_run_report(self):
+        with tempfile.TemporaryDirectory() as directory:
+            run = Path(directory)
+            (run / 'papers').mkdir()
+            (run / 'papers' / 'a.pdf').write_bytes(b'%PDF')
+            checked = {'format_status': 'valid', 'identity_status': 'verified', 'validation_status': 'verified'}
+            (run / 'manifest.json').write_text(json.dumps({'papers': [dict(checked, local_filename='a.pdf')]}))
+            report = {
+                'report_type': 'paper_search_workflow',
+                'output_directory': str(run),
+                'artifacts': {'manifest': 'manifest.json'},
+                'identity': {'profile': {'name': 'A'}},
+            }
+            (run / 'report.json').write_text(json.dumps(report))
+            job = Job('srch_1', 'k', REQUEST, status=JobStatus.SUCCEEDED, run_directory=str(run))
+            self.assertEqual(
+                WorkflowBackend(BackendOptions(run)).file_path(job, '0'), (run / 'papers' / 'a.pdf').resolve()
+            )

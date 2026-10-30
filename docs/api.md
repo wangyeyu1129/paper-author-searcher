@@ -4,7 +4,24 @@
 
 服务只用 Python 标准库（`http.server`、`sqlite3`），不引入运行时依赖。
 
-## 启动
+## 网页：输入姓名和学校，拿到 PDF
+
+```bash
+paper-search-api serve --open
+```
+
+浏览器会自动打开 `http://127.0.0.1:8080/`，不用自己填密钥：
+- 服务启动时为这个浏览器生成一个本次会话专用的密钥，只存在内存里。
+- 密钥放在网址的 `#` 片段中交给页面。浏览器不会把片段发给服务器，所以它不会出现在任何日志里。
+- 页面把密钥存在本浏览器，并从地址栏抹掉。
+- 服务停止后，这个密钥就失效了。
+
+页面的用法：
+- 填姓名、学校（院系可选，填了同名者更少），点"搜索"。页面会显示进度，可以关掉页面，稍后再回来看。
+- 遇到分不清的同名者，页面列出候选人，点"就是这位"后继续。
+- 完成后列出论文，每篇可以单独下载 PDF；也可以点"下载全部 PDF（zip）"，一次下载全部。
+
+## 启动（给程序调用）
 
 ```bash
 paper-search-api create-key --name cold-email-agent
@@ -27,7 +44,7 @@ paper-search-api serve --port 8080 --workers 1 --max-cost-usd 0.5
 
 ## 鉴权与幂等
 
-- 除 `/v1/health` 和 `/v1/schemas/*` 外，所有请求都要带 `Authorization: Bearer <key>`。缺少或无效时返回 401。
+- 除 `/`、`/v1/health` 和 `/v1/schemas/*` 外，所有请求都要带 `Authorization: Bearer <key>`。缺少或无效时返回 401。
 - 每个密钥只能看到自己创建的任务；别人的任务一律返回 404。
 - 两个 POST 接口都支持 `Idempotency-Key` 请求头（1–255 个字符），在 24 小时内有效：
   - 用同一个键重试同样的请求，返回第一次的响应，并带上 `Idempotent-Replayed: true`，不会创建第二个任务；
@@ -43,6 +60,8 @@ paper-search-api serve --port 8080 --workers 1 --max-cost-usd 0.5
 | `GET /v1/searches/{id}` | 任务状态、进度、候选名单、结果 | 200 |
 | `POST /v1/searches/{id}/confirmation` | 在 `needs_confirmation` 时选定一个候选 | 202，任务重新排队 |
 | `GET /v1/searches/{id}/papers/{pid}/pdf` | 下载结果中某篇论文已核对的 PDF | 200，`application/pdf` |
+| `GET /v1/searches/{id}/pdfs.zip` | 结果中所有已核对 PDF 的 zip | 200，`application/zip` |
+| `GET /` | 网页（加载页面不需要密钥） | 200 |
 | `GET /v1/schemas/{name}` | JSON Schema：`search-request`、`confirmation-request`、`search`、`error` | 200 |
 | `GET /v1/health` | 存活检查 | 200 |
 
