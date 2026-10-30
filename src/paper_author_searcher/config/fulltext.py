@@ -66,6 +66,34 @@ class PDFConfig:
     # the PDF; no lookup request is needed.
     nber_doi_pattern: str = r'^10\.3386/(w\d+)$'
     nber_pdf_url_template: str = 'https://www.nber.org/system/files/working_papers/{number}/{number}.pdf'
+    # Web search (the provider chosen by DiscoveryConfig.web_search) for verified papers still without a PDF once
+    # every source above has answered. Works are searched newest first, each once, up to this many per run; 0 disables
+    # it. A hit is only ever a candidate: the downloaded file's own title and authors decide (pdf_file_validation).
+    web_search_maximum_papers: int = 25
+    web_search_results: int = 10
+    web_search_query: str = '{title} {author} pdf'
+    # A hit's URL names a file when this matches; any other hit is read as a landing page, if it names the paper.
+    web_search_pdf_url_pattern: str = r'\.pdf(?:$|[?#/])|/pdf(?:$|[/?#])|/download(?:$|[/?#])|/bitstream/'
+    web_search_landing_pages: int = 2
+    # The service keeps to legal copies. Hosts of shadow libraries (their domains change, so by name) and of
+    # third-party uploads are never queried.
+    web_search_excluded_host_words: tuple[str, ...] = ('sci-hub', 'scihub', 'libgen', 'annas-archive', 'z-lib', 'zlib')
+    web_search_excluded_hosts: tuple[str, ...] = (
+        'academia.edu',
+        'blogspot.com',
+        'coursehero.com',
+        'dokumen.pub',
+        'github.com',
+        'githubusercontent.com',
+        'huggingface.co',
+        'pdfdrive.com',
+        'scribd.com',
+        'studocu.com',
+        'vdoc.pub',
+        'wordpress.com',
+    )
+    # Answers that mean the key or its quota is unusable: the rest of the run does not search.
+    web_search_stop_statuses: tuple[int, ...] = (401, 402, 403, 429, 432, 433)
     # A homepage citation names a paper without an identifier only by its full normalized title, of at least this
     # many words (a shorter title is common enough to appear inside another citation).
     homepage_title_minimum_words: int = 4
@@ -108,6 +136,8 @@ class PDFConfig:
             < 1
         ):
             raise ValueError('Discovery and cache limits must be positive')
+        if self.web_search_maximum_papers < 0 or self.web_search_results < 1 or self.web_search_landing_pages < 0:
+            raise ValueError('Web search limits must be nonnegative and return at least one result')
         if self.lookup_workers < 1:
             raise ValueError('lookup_workers must be positive')
         if self.transient_retry_rounds < 0 or self.transient_retry_maximum_wait < 0:

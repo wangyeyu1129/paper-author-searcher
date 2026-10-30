@@ -35,6 +35,8 @@ from .listed_works import ListedWorkRetriever
 from .orcid_affiliations import OrcidAffiliations
 from .paper_collector import NameSearch, PaperCollector
 from .paper_ownership import PaperOwnershipValidator
+from .pdf_providers import WebSearchPDFProvider
+from .pdf_public_pages import PublicPagePDFProvider
 from .pdf_resolver import PDFResolver
 from .pdf_resource_requests import PublicResourceRequests
 from .pdf_validation import PDFURLValidator
@@ -361,7 +363,20 @@ class ServiceContainer:
 
     @cached_property
     def pdf_resolver(self) -> PDFResolver:
-        return PDFResolver(self.pdf_providers, self.pdf_validator, self.resource_requests, self.pdf_config)
+        return PDFResolver(
+            self.pdf_providers,
+            self.pdf_validator,
+            self.resource_requests,
+            self.pdf_config,
+            fallbacks=self.pdf_fallbacks,
+        )
+
+    @cached_property
+    def pdf_fallbacks(self) -> list[Any]:
+        if self.web_search is None or not self.pdf_config.web_search_maximum_papers:
+            return []
+        pages = PublicPagePDFProvider(self.resource_requests, self.pdf_config)
+        return [WebSearchPDFProvider(self.web_search, pages, self.pdf_config)]
 
     @cached_property
     def download_config(self) -> DownloadConfig:
