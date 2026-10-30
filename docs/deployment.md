@@ -36,7 +36,7 @@ docker compose -f deploy/compose.yaml run --rm api create-key --name cold-email-
 | `api` | HTTP API 和网页（端口 8080），只负责排队和应答，不运行搜索 |
 | `worker` | 运行搜索。`--scale worker=3` 同时跑 3 个 |
 | `indexer` | 每周检查 DBLP 是否发布了新 dump：有新的才重建索引，然后原子替换；同时更新书目库 |
-| `minio`、`bucket` | 可选（`--profile s3`）：用 S3 兼容存储保存 PDF |
+| `storage`、`bucket` | 可选（`--profile s3`）：S3 兼容存储（Versity S3 Gateway，会校验签名），用来保存 PDF；`bucket` 负责建桶 |
 | `prometheus` | 可选（`--profile monitoring`）：采集指标，加载告警规则 |
 
 所有服务共用 `data` 卷，里面有任务库、本地文件、HTTP 缓存和索引。

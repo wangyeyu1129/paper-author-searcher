@@ -55,6 +55,9 @@ class LocalFileStore:
         path = self._path(key)
         return StoredFile(path=path) if path.is_file() else None
 
+    def create_bucket(self) -> bool:
+        return False
+
     def check(self) -> None:
         probe = self.root / '.ready'
         probe.write_text('ok')
@@ -136,6 +139,18 @@ class S3FileStore:
         disposition = f"attachment; filename*=UTF-8''{quote(download_name)}"
         query = {'response-content-disposition': disposition}
         return StoredFile(url=self._url('GET', key, query=query, expires=self.presign_seconds, location=self.public))
+
+    def create_bucket(self) -> bool:
+        """Create the bucket; False if it already exists (and is ours)."""
+        request = urllib.request.Request(self._url('PUT', ''), method='PUT', headers={'Content-Length': '0'}, data=b'')
+        try:
+            with urllib.request.urlopen(request, timeout=self.timeout) as response:
+                response.read()
+        except urllib.error.HTTPError as error:
+            if error.code == 409:
+                return False
+            raise
+        return True
 
     def check(self) -> None:
         """The bucket is reachable with these credentials (HEAD bucket)."""

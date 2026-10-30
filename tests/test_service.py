@@ -408,6 +408,10 @@ class S3Tests(unittest.TestCase):
                 self.end_headers()
                 self.wfile.write(data or b'')
 
+            def do_DELETE(self):
+                self.send_response(204)
+                self.end_headers()
+
             def do_HEAD(self):
                 path = self.path.split('?')[0]
                 self.send_response(200 if path in objects or path == '/papers' else 404)
@@ -426,9 +430,11 @@ class S3Tests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / 'a.pdf'
             source.write_bytes(b'%PDF s3')
+            self.assertTrue(store.create_bucket())
+            self.assertIn('/papers', objects)
             store.check()
             store.put('searches/s/papers/0.pdf', source, 'application/pdf')
-            self.assertEqual(objects, {'/papers/ps/searches/s/papers/0.pdf': b'%PDF s3'})
+            self.assertEqual(objects['/papers/ps/searches/s/papers/0.pdf'], b'%PDF s3')
             self.assertTrue(store.exists('searches/s/papers/0.pdf'))
             self.assertFalse(store.exists('searches/s/papers/1.pdf'))
             copy = Path(directory) / 'copy.pdf'
@@ -607,6 +613,22 @@ class RunnerOutcomeTests(unittest.TestCase):
             outcome = self.runner.outcome(self.job, report, cost_usd=0.02)
         self.assertEqual((outcome.status, list(outcome.files), outcome.cost_usd), ('succeeded', ['0'], 0.02))
         self.assertEqual(outcome.result['papers'][0]['full_text']['download'], '/0')
+
+    def test_indexes_not_built_yet_are_left_out(self):
+        with tempfile.TemporaryDirectory() as directory:
+            built = Path(directory) / 'dblp.sqlite'
+            built.write_text('index')
+            settings = Settings.load(
+                environ={
+                    'PAPER_SEARCH__DBLP_DUMP__INDEX_PATH': str(built),
+                    'PAPER_SEARCH__CATALOGS__STORE_PATH': str(Path(directory) / 'catalogs.sqlite'),
+                }
+            )
+            with self.assertLogs('paper_author_searcher.service.runner', 'WARNING'):
+                usable = WorkflowRunner.available(settings)
+        self.assertEqual((usable.dblp_dump.index_path, usable.catalogs.store_path), (str(built), ''))
+        plain = Settings()
+        self.assertIs(WorkflowRunner.available(plain), plain)
 
     def test_requests_become_queries(self):
         query = query_from_request(dict(REQUEST, hints={'orcid': '0000-0002-1825-0097', 'profile_urls': ['https://p']}))

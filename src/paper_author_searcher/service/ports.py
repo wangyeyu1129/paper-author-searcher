@@ -66,6 +66,8 @@ class FileStore(Protocol):
 
     def check(self) -> None: ...
 
+    def create_bucket(self) -> bool: ...
+
 
 @dataclass(frozen=True)
 class SearchOutcome:
