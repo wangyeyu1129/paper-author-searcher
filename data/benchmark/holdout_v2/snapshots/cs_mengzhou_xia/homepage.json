@@ -1,0 +1,78 @@
+{
+ "snapshot_schema_version": 1,
+ "source_url": "https://xiamengzhou.github.io/",
+ "captured_at": "2026-10-30",
+ "captured_by": "Assistant transcription of the public page; pending human review",
+ "scope_note": "Public list on the page, read by the assistant. Not read from this system's output.",
+ "transcription_notes": [],
+ "entries": [
+  {
+   "title": "SimPO: Simple Preference Optimization with a Reference-Free Reward",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2024",
+   "authors": [
+    "Yu Meng",
+    "Mengzhou Xia",
+    "Danqi Chen"
+   ]
+  },
+  {
+   "title": "CharXiv: Charting Gaps in Realistic Chart Understanding in Multimodal LLMs",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2024",
+   "authors": [
+    "Zirui Wang",
+    "Mengzhou Xia",
+    "Luxi He",
+    "Howard Chen",
+    "Yitao Liu",
+    "Richard Zhu",
+    "Kaiqu Liang",
+    "Xindi Wu",
+    "Haotian Liu",
+    "Sadhika Malladi",
+    "Alexis Chevalier",
+    "Sanjeev Arora",
+    "Danqi Chen"
+   ]
+  },
+  {
+   "title": "LESS: Selecting Influential Data for Targeted Instruction Tuning",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ICML 2024",
+   "authors": [
+    "Mengzhou Xia",
+    "Sadhika Malladi",
+    "Suchin Gururangan",
+    "Sanjeev Arora",
+    "Danqi Chen"
+   ]
+  },
+  {
+   "title": "What is in Your Safe Data? Identifying Benign Data that Breaks Safety",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "COLM 2024",
+   "authors": [
+    "Luxi He",
+    "Mengzhou Xia",
+    "Peter Henderson"
+   ]
+  },
+  {
+   "title": "Sheared LLaMA: Accelerating Language Model Pre-training via Structured Pruning",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ICLR 2024",
+   "authors": [
+    "Mengzhou Xia",
+    "Tianyu Gao",
+    "Zhiyuan Zeng",
+    "Danqi Chen"
+   ]
+  }
+ ]
+}

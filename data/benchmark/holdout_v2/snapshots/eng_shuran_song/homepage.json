@@ -1,0 +1,278 @@
+{
+ "snapshot_schema_version": 1,
+ "source_url": "https://shurans.github.io/",
+ "captured_at": "2026-10-30",
+ "captured_by": "Assistant transcription of the public page; pending human review",
+ "scope_note": "Public list on the page, read by the assistant. Not read from this system's output.",
+ "transcription_notes": [],
+ "entries": [
+  {
+   "title": "Latent Policy Barrier: Learning Robust Visuomotor Policies by Staying In-Distribution",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2025",
+   "authors": [
+    "Zhanyi Sun",
+    "Shuran Song"
+   ]
+  },
+  {
+   "title": "DynaGuide: Steering Diffusion Policies with Active Dynamic Guidance",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2025",
+   "authors": [
+    "Max Du",
+    "Shuran Song"
+   ]
+  },
+  {
+   "title": "Compliant Residual DAgger: Improving Real-World Contact-Rich Manipulation with Human Corrections",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2025",
+   "authors": [
+    "Xiaomeng Xu",
+    "Yifan Hou",
+    "Chendong Xin",
+    "Zeyi Liu",
+    "Shuran Song"
+   ]
+  },
+  {
+   "title": "A Practical Guide for Incorporating Symmetry in Diffusion Policy",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2025",
+   "authors": [
+    "Dian Wang",
+    "Boce Hu",
+    "Shuran Song",
+    "Robin Walters",
+    "Robert Platt"
+   ]
+  },
+  {
+   "title": "DexUMI: Using Human Hand as the Universal Manipulation Interface for Dexterous Manipulation",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "CoRL 2025",
+   "authors": [
+    "Mengda Xu",
+    "Han Zhang",
+    "Yifan Hou",
+    "Zhenjia Xu",
+    "Linxi Fan",
+    "Manuela Veloso",
+    "Shuran Song"
+   ]
+  },
+  {
+   "title": "Vision in Action: Learning Active Perception from Human Demonstrations",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "CoRL 2025",
+   "authors": [
+    "Haoyu Xiong",
+    "Xiaomeng Xu",
+    "Jimmy Wu",
+    "Yifan Hou",
+    "Jeannette Bohg",
+    "Shuran Song"
+   ]
+  },
+  {
+   "title": "ToddlerBot: Open-Source ML-Compatible Humanoid Platform for Loco-Manipulation",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "CoRL 2025",
+   "authors": [
+    "Haochen Shi",
+    "Weizhuo Wang",
+    "Shuran Song",
+    "C. Karen Liu"
+   ]
+  },
+  {
+   "title": "Unified Video Action Model",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "RSS 2025",
+   "authors": [
+    "Shuang Li",
+    "Yihuai Gao",
+    "Dorsa Sadigh",
+    "Shuran Song"
+   ]
+  },
+  {
+   "title": "RoboPanoptes: The All-Seeing Robot with Whole-body Dexterity",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "RSS 2025",
+   "authors": [
+    "Xiaomeng Xu",
+    "Dominik Bauer",
+    "Shuran Song"
+   ]
+  },
+  {
+   "title": "Self-Improving Autonomous Underwater Manipulation",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICRA 2025",
+   "authors": [
+    "Ruoshi Liu",
+    "Huy Ha",
+    "Mengxue Hou",
+    "Shuran Song",
+    "Carl Vondrick"
+   ]
+  },
+  {
+   "title": "Adaptive Compliance Policy: Learning Approximate Compliance for Diffusion Guided Control",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICRA 2025",
+   "authors": [
+    "Yifan Hou",
+    "Zeyi Liu",
+    "Cheng Chi",
+    "Eric Cousineau",
+    "Naveen Kuppuswamy",
+    "Siyuan Feng",
+    "Benjamin Burchfiel",
+    "Shuran Song"
+   ]
+  },
+  {
+   "title": "GET-Zero: Graph Embodiment Transformer for Zero-shot Embodiment Generalization",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICRA 2025",
+   "authors": [
+    "Austin Patel",
+    "Shuran Song"
+   ]
+  },
+  {
+   "title": "TidyBot++: An Open-Source Holonomic Mobile Manipulator for Robot Learning",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "CoRL 2024",
+   "authors": [
+    "Jimmy Wu",
+    "William Chong",
+    "Robert Holmberg",
+    "Aaditya Prasad",
+    "Yihuai Gao",
+    "Oussama Khatib",
+    "Shuran Song",
+    "Szymon Rusinkiewicz",
+    "Jeannette Bohg"
+   ]
+  },
+  {
+   "title": "Differentiable Robot Rendering",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "CoRL 2024",
+   "authors": [
+    "Ruoshi Liu",
+    "Alper Canberk",
+    "Shuran Song",
+    "Carl Vondrick"
+   ]
+  },
+  {
+   "title": "UMI on Legs: Making Manipulation Policies Mobile with Manipulation-Centric Whole-body Controllers",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "CoRL 2024",
+   "authors": [
+    "Huy Ha",
+    "Yihuai Gao",
+    "Zipeng Fu",
+    "Jie Tan",
+    "Shuran Song"
+   ]
+  },
+  {
+   "title": "ManiWAV: Learning Robot Manipulation from In-the-Wild Audio-Visual Data",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "CoRL 2024",
+   "authors": [
+    "Zeyi Liu",
+    "Cheng Chi",
+    "Eric Cousineau",
+    "Naveen Kuppuswamy",
+    "Benjamin Burchfiel",
+    "Shuran Song"
+   ]
+  },
+  {
+   "title": "EquiBot: SIM(3)-Equivariant Diffusion Policy for Generalizable and Data Efficient Learning",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "CoRL 2024",
+   "authors": [
+    "Jingyun Yang",
+    "Zi-ang Cao",
+    "Congyue Deng",
+    "Rika Antonova",
+    "Shuran Song",
+    "Jeannette Bohg"
+   ]
+  },
+  {
+   "title": "Dynamics-Guided Diffusion Model for Robot Manipulator Design",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "CoRL 2024",
+   "authors": [
+    "Xiaomeng Xu",
+    "Huy Ha",
+    "Shuran Song"
+   ]
+  },
+  {
+   "title": "DoughNet: A Visual Predictive Model for Topological Manipulation of Deformable Objects",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ECCV 2024",
+   "authors": [
+    "Dominik Bauer",
+    "Zhenjia Xu",
+    "Shuran Song"
+   ]
+  },
+  {
+   "title": "Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "RSS 2024",
+   "authors": [
+    "Cheng Chi",
+    "Zhenjia Xu",
+    "Chuer Pan",
+    "Eric Cousineau",
+    "Ben Burchfiel",
+    "Siyuan Feng",
+    "Russ Tedrake",
+    "Shuran Song"
+   ]
+  },
+  {
+   "title": "RoCo: Dialectic Multi-Robot Collaboration with Large Language Models",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ICRA 2024",
+   "authors": [
+    "Zhao Mandi",
+    "Shreeya Jain",
+    "Shuran Song"
+   ]
+  }
+ ]
+}

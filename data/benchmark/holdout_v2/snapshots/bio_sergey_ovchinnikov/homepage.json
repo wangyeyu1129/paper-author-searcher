@@ -1,0 +1,341 @@
+{
+ "snapshot_schema_version": 1,
+ "source_url": "https://www.solab.org/publications",
+ "captured_at": "2026-10-30",
+ "captured_by": "Assistant transcription of the public page; pending human review",
+ "scope_note": "Public list on the page, read by the assistant. Not read from this system's output.",
+ "transcription_notes": [],
+ "entries": [
+  {
+   "title": "Hit or Miss: Understanding Emergence and Absence of Homo-oligomeric Contacts in Protein Language Models",
+   "year": 2025,
+   "type": "preprint",
+   "venue": "bioRxiv",
+   "authors": [
+    "Z Zhang",
+    "Y Akiyama",
+    "Y Cho",
+    "S Jajoo",
+    "S Ovchinnikov"
+   ]
+  },
+  {
+   "title": "SoftAlign: End-to-end protein structures alignment",
+   "year": 2025,
+   "type": "preprint",
+   "venue": "bioRxiv",
+   "authors": [
+    "J Trinquier",
+    "S Petti",
+    "S Park",
+    "K Herath",
+    "M van Kempen",
+    "S Feng",
+    "J Söding",
+    "M Steinegger",
+    "S Ovchinnikov"
+   ]
+  },
+  {
+   "title": "The OMG dataset: An Open MetaGenomic corpus for mixed-modality genomic language modeling",
+   "year": 2024,
+   "type": "preprint",
+   "venue": "bioRxiv",
+   "authors": [
+    "A Cornman",
+    "J West-Roberts",
+    "AP Camargo",
+    "S Roux",
+    "M Beracochea",
+    "M Mirdita",
+    "S Ovchinnikov",
+    "Y Hwang"
+   ]
+  },
+  {
+   "title": "Disentanglement of Evolutionary Constraints in Statistical Models of Proteins",
+   "year": 2024,
+   "type": "journal_article",
+   "venue": "PRX Life",
+   "authors": [
+    "H Wang",
+    "S Feng",
+    "K Tsuboyama",
+    "S Liu",
+    "GJ Rocklin",
+    "S Ovchinnikov"
+   ]
+  },
+  {
+   "title": "Protein language models learn evolutionary statistics of interacting sequence motifs",
+   "year": 2024,
+   "type": "preprint",
+   "venue": "bioRxiv",
+   "authors": [
+    "Z Zhang",
+    "HK Wayment-Steele",
+    "G Brixi",
+    "H Wang",
+    "M Dal Peraro",
+    "D Kern",
+    "S Ovchinnikov"
+   ]
+  },
+  {
+   "title": "Differentiable Search of Evolutionary Trees from Leaves",
+   "year": 2023,
+   "type": "preprint",
+   "venue": "bioRxiv",
+   "authors": [
+    "R Hettiarachchi",
+    "A Swartz",
+    "S Ovchinnikov"
+   ]
+  },
+  {
+   "title": "Genomic language model predicts protein co-regulation and function",
+   "year": 2023,
+   "type": "preprint",
+   "venue": "bioRxiv",
+   "authors": [
+    "Y Hwang",
+    "AL Cornman",
+    "EH Kellogg",
+    "S Ovchinnikov",
+    "PR Girguis"
+   ]
+  },
+  {
+   "title": "End-to-end learning of multiple sequence alignments with differentiable Smith-Waterman",
+   "year": 2022,
+   "type": "journal_article",
+   "venue": "Bioinformatics",
+   "authors": [
+    "S Petti",
+    "N Bhattacharya",
+    "R Rao",
+    "J Dauparas",
+    "N Thomas",
+    "J Zhou",
+    "AM Rush",
+    "PK Koo",
+    "S Ovchinnikov"
+   ]
+  },
+  {
+   "title": "Global statistical models of protein coevolution reveal higher-order sectors beyond those obtained from structure alone",
+   "year": 2022,
+   "type": "preprint",
+   "venue": "bioRxiv",
+   "authors": [
+    "C Shiau",
+    "H Wang",
+    "Y Lee",
+    "S Ovchinnikov"
+   ]
+  },
+  {
+   "title": "State-of-the-Art estimation of protein model accuracy using AlphaFold",
+   "year": 2022,
+   "type": "journal_article",
+   "venue": "Physical Review Letters",
+   "authors": [
+    "JP Roney",
+    "S Ovchinnikov"
+   ]
+  },
+  {
+   "title": "Protein Hunter: exploiting structure hallucination within diffusion for protein design",
+   "year": 2025,
+   "type": "preprint",
+   "venue": "bioRxiv",
+   "authors": [
+    "Y Cho",
+    "G Rangel",
+    "G Bhardwaj",
+    "S Ovchinnikov"
+   ]
+  },
+  {
+   "title": "BoltzDesign1: Inverting all-atom structure prediction model for generalized biomolecular binder design",
+   "year": 2025,
+   "type": "preprint",
+   "venue": "bioRxiv",
+   "authors": [
+    "Y Cho",
+    "M Pacesa",
+    "Z Zhang",
+    "BE Correia",
+    "S Ovchinnikov"
+   ]
+  },
+  {
+   "title": "Stable de novo protein design via joint conformational landscape and sequence optimization",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "Nature Communications",
+   "authors": [
+    "Y Cho",
+    "J Dauparas",
+    "K Tsuboyama",
+    "GJ Rocklin",
+    "S Ovchinnikov"
+   ]
+  },
+  {
+   "title": "Designing novel solenoid proteins with in silico evolution",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "Communications Chemistry",
+   "authors": [
+    "D Pretorius",
+    "GI Nikov",
+    "K Washio",
+    "SW Florent",
+    "HN Taunt",
+    "S Ovchinnikov",
+    "JW Murray"
+   ]
+  },
+  {
+   "title": "Artificial intelligence methods for protein folding and design",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "Current Opinion in Structural Biology",
+   "authors": [
+    "Z Zhang",
+    "C Ou",
+    "Y Cho",
+    "Y Akiyama",
+    "S Ovchinnikov"
+   ]
+  },
+  {
+   "title": "Validation of de novo designed water-soluble and transmembrane β-barrels by in silico folding and melting",
+   "year": 2024,
+   "type": "journal_article",
+   "venue": "Protein Science",
+   "authors": [
+    "AM Hermosilla",
+    "C Berner",
+    "S Ovchinnikov",
+    "AA Vorobieva"
+   ]
+  },
+  {
+   "title": "Computational design of constitutively active cGAS",
+   "year": 2022,
+   "type": "journal_article",
+   "venue": "Nature Structural & Molecular Biology",
+   "authors": [
+    "Q Dowling",
+    "HE Volkman",
+    "EE Gray",
+    "S Ovchinnikov"
+   ]
+  },
+  {
+   "title": "Protein Diffusion Models as Statistical Potentials",
+   "year": 2025,
+   "type": "preprint",
+   "venue": "bioRxiv",
+   "authors": [
+    "JP Roney",
+    "C Ou",
+    "S Ovchinnikov"
+   ]
+  },
+  {
+   "title": "Does sequence clustering confound AlphaFold2?",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "Journal of Molecular Biology",
+   "authors": [
+    "HK Wayment-Steele",
+    "S Ovchinnikov",
+    "L Colwell",
+    "D Kern"
+   ]
+  },
+  {
+   "title": "actifpTM: a refined confidence metric of AlphaFold2 predictions involving flexible regions",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "Bioinformatics",
+   "authors": [
+    "JK Varga",
+    "S Ovchinnikov",
+    "O Schueler-Furman"
+   ]
+  },
+  {
+   "title": "AF2χ: Predicting protein side-chain rotamer distributions with AlphaFold2",
+   "year": 2025,
+   "type": "preprint",
+   "venue": "bioRxiv",
+   "authors": [
+    "M Cagiada",
+    "FE Thomasen",
+    "S Ovchinnikov",
+    "CM Deane",
+    "K Lindorff-Larsen"
+   ]
+  },
+  {
+   "title": "Predicting absolute protein folding stability using generative models",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "Protein Science",
+   "authors": [
+    "M Cagiada",
+    "S Ovchinnikov",
+    "K Lindorff-Larsen"
+   ]
+  },
+  {
+   "title": "NMPFamsDB: a database of novel protein families from microbial metagenomes and metatranscriptomes",
+   "year": 2024,
+   "type": "journal_article",
+   "venue": "Nucleic Acids Research",
+   "authors": [
+    "FA Baltoumas",
+    "E Karatzas",
+    "S Liu",
+    "S Ovchinnikov",
+    "Y Sofianatos",
+    "IM Chen",
+    "NC Kyrpides",
+    "GA Pavlopoulos"
+   ]
+  },
+  {
+   "title": "Integrated structure prediction of protein-protein docking with experimental restraints using ColabDock",
+   "year": 2024,
+   "type": "journal_article",
+   "venue": "Nature Machine Intelligence",
+   "authors": [
+    "S Feng",
+    "Z Chen",
+    "C Zhang",
+    "Y Xie",
+    "S Ovchinnikov",
+    "YQ Gao",
+    "S Liu"
+   ]
+  },
+  {
+   "title": "ColabFold: making protein folding accessible to all",
+   "year": 2022,
+   "type": "journal_article",
+   "venue": "Nature Methods",
+   "authors": [
+    "M Mirdita",
+    "K Schütze",
+    "Y Moriwaki",
+    "L Heo",
+    "S Ovchinnikov",
+    "M Steinegger"
+   ]
+  }
+ ]
+}

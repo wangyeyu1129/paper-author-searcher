@@ -1,0 +1,313 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "cs_mengzhou_xia",
+    "dataset_id": "holdout_v2",
+    "search_input": {
+      "name": "Mengzhou Xia",
+      "university": "Princeton University"
+    },
+    "scope": {
+      "year_start": 2021,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-30T22:24:55.993165+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://xiamengzhou.github.io/",
+        "records": 5
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "cs_mengzhou_xia:b1994e5fee56",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "CharXiv: Charting Gaps in Realistic Chart Understanding in Multimodal LLMs",
+      "year": 2024,
+      "authors": [
+        "Zirui Wang",
+        "Mengzhou Xia",
+        "Luxi He",
+        "Howard Chen",
+        "Yitao Liu",
+        "Richard Zhu",
+        "Kaiqu Liang",
+        "Xindi Wu",
+        "Haotian Liu",
+        "Sadhika Malladi",
+        "Alexis Chevalier",
+        "Sanjeev Arora",
+        "Danqi Chen"
+      ],
+      "listed_venue": "NeurIPS 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://xiamengzhou.github.io/ entry 2 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "CharXiv: Charting Gaps in Realistic Chart Understanding in Multimodal LLMs",
+          "year": 2023,
+          "authors": [
+            "Zirui Wang",
+            "Mengzhou Xia",
+            "Luxi He",
+            "Howard Chen",
+            "Yitao Liu",
+            "Richard Zhu",
+            "Kaiqu Liang",
+            "Xindi Wu",
+            "Haotian Liu",
+            "Sadhika Malladi",
+            "Alexis Chevalier",
+            "Sanjeev Arora",
+            "Danqi Chen"
+          ]
+        },
+        {
+          "title": "CharXiv: Charting Gaps in Realistic Chart Understanding in Multimodal LLMs",
+          "year": 2025,
+          "authors": [
+            "Zirui Wang",
+            "Mengzhou Xia",
+            "Luxi He",
+            "Howard Chen",
+            "Yitao Liu",
+            "Richard Zhu",
+            "Kaiqu Liang",
+            "Xindi Wu",
+            "Haotian Liu",
+            "Sadhika Malladi",
+            "Alexis Chevalier",
+            "Sanjeev Arora",
+            "Danqi Chen"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_mengzhou_xia:33bd3fab19d2",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "LESS: Selecting Influential Data for Targeted Instruction Tuning",
+      "year": 2024,
+      "authors": [
+        "Mengzhou Xia",
+        "Sadhika Malladi",
+        "Suchin Gururangan",
+        "Sanjeev Arora",
+        "Danqi Chen"
+      ],
+      "listed_venue": "ICML 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://xiamengzhou.github.io/ entry 3 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "LESS: Selecting Influential Data for Targeted Instruction Tuning",
+          "year": 2023,
+          "authors": [
+            "Mengzhou Xia",
+            "Sadhika Malladi",
+            "Suchin Gururangan",
+            "Sanjeev Arora",
+            "Danqi Chen"
+          ]
+        },
+        {
+          "title": "LESS: Selecting Influential Data for Targeted Instruction Tuning",
+          "year": 2025,
+          "authors": [
+            "Mengzhou Xia",
+            "Sadhika Malladi",
+            "Suchin Gururangan",
+            "Sanjeev Arora",
+            "Danqi Chen"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_mengzhou_xia:eac7dd436447",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Sheared LLaMA: Accelerating Language Model Pre-training via Structured Pruning",
+      "year": 2024,
+      "authors": [
+        "Mengzhou Xia",
+        "Tianyu Gao",
+        "Zhiyuan Zeng",
+        "Danqi Chen"
+      ],
+      "listed_venue": "ICLR 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://xiamengzhou.github.io/ entry 5 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Sheared LLaMA: Accelerating Language Model Pre-training via Structured Pruning",
+          "year": 2023,
+          "authors": [
+            "Mengzhou Xia",
+            "Tianyu Gao",
+            "Zhiyuan Zeng",
+            "Danqi Chen"
+          ]
+        },
+        {
+          "title": "Sheared LLaMA: Accelerating Language Model Pre-training via Structured Pruning",
+          "year": 2025,
+          "authors": [
+            "Mengzhou Xia",
+            "Tianyu Gao",
+            "Zhiyuan Zeng",
+            "Danqi Chen"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_mengzhou_xia:a6ebc75d0276",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "SimPO: Simple Preference Optimization with a Reference-Free Reward",
+      "year": 2024,
+      "authors": [
+        "Yu Meng",
+        "Mengzhou Xia",
+        "Danqi Chen"
+      ],
+      "listed_venue": "NeurIPS 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://xiamengzhou.github.io/ entry 1 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "SimPO: Simple Preference Optimization with a Reference-Free Reward",
+          "year": 2023,
+          "authors": [
+            "Yu Meng",
+            "Mengzhou Xia",
+            "Danqi Chen"
+          ]
+        },
+        {
+          "title": "SimPO: Simple Preference Optimization with a Reference-Free Reward",
+          "year": 2025,
+          "authors": [
+            "Yu Meng",
+            "Mengzhou Xia",
+            "Danqi Chen"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_mengzhou_xia:1b6a60d730dd",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "What is in Your Safe Data? Identifying Benign Data that Breaks Safety",
+      "year": 2024,
+      "authors": [
+        "Luxi He",
+        "Mengzhou Xia",
+        "Peter Henderson"
+      ],
+      "listed_venue": "COLM 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://xiamengzhou.github.io/ entry 4 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "What is in Your Safe Data? Identifying Benign Data that Breaks Safety",
+          "year": 2023,
+          "authors": [
+            "Luxi He",
+            "Mengzhou Xia",
+            "Peter Henderson"
+          ]
+        },
+        {
+          "title": "What is in Your Safe Data? Identifying Benign Data that Breaks Safety",
+          "year": 2025,
+          "authors": [
+            "Luxi He",
+            "Mengzhou Xia",
+            "Peter Henderson"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

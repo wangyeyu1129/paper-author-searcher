@@ -1,0 +1,668 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "cs_yangsibo_huang",
+    "dataset_id": "holdout_v2",
+    "search_input": {
+      "name": "Yangsibo Huang",
+      "university": "Princeton University"
+    },
+    "scope": {
+      "year_start": 2021,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-30T22:24:55.994935+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://hazelsuko07.github.io/yangsibo/",
+        "records": 10
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "cs_yangsibo_huang:f437ec4875c3",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Evaluating Gradient Inversion Attacks and Defenses in Federated Learning",
+      "year": 2021,
+      "authors": [
+        "Yangsibo Huang",
+        "Samyak Gupta",
+        "Zhao Song",
+        "Kai Li",
+        "Sanjeev Arora"
+      ],
+      "listed_venue": "NeurIPS 2021",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://hazelsuko07.github.io/yangsibo/ entry 10 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Evaluating Gradient Inversion Attacks and Defenses in Federated Learning",
+          "year": 2020,
+          "authors": [
+            "Yangsibo Huang",
+            "Samyak Gupta",
+            "Zhao Song",
+            "Kai Li",
+            "Sanjeev Arora"
+          ]
+        },
+        {
+          "title": "Evaluating Gradient Inversion Attacks and Defenses in Federated Learning",
+          "year": 2022,
+          "authors": [
+            "Yangsibo Huang",
+            "Samyak Gupta",
+            "Zhao Song",
+            "Kai Li",
+            "Sanjeev Arora"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yangsibo_huang:889c088d22a6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A Safe Harbor for AI Evaluation and Red Teaming",
+      "year": 2024,
+      "authors": [
+        "Shayne Longpre",
+        "Sayash Kapoor",
+        "Kevin Klyman",
+        "Ashwin Ramaswami",
+        "Rishi Bommasani",
+        "Borhane Blili-Hamelin",
+        "Yangsibo Huang",
+        "Aviya Skowron",
+        "Zheng-Xin Yong",
+        "Suhas Kotha"
+      ],
+      "listed_venue": "ICML 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://hazelsuko07.github.io/yangsibo/ entry 6 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "A Safe Harbor for AI Evaluation and Red Teaming",
+          "year": 2023,
+          "authors": [
+            "Shayne Longpre",
+            "Sayash Kapoor",
+            "Kevin Klyman",
+            "Ashwin Ramaswami",
+            "Rishi Bommasani",
+            "Borhane Blili-Hamelin",
+            "Yangsibo Huang",
+            "Aviya Skowron",
+            "Zheng-Xin Yong",
+            "Suhas Kotha"
+          ]
+        },
+        {
+          "title": "A Safe Harbor for AI Evaluation and Red Teaming",
+          "year": 2025,
+          "authors": [
+            "Shayne Longpre",
+            "Sayash Kapoor",
+            "Kevin Klyman",
+            "Ashwin Ramaswami",
+            "Rishi Bommasani",
+            "Borhane Blili-Hamelin",
+            "Yangsibo Huang",
+            "Aviya Skowron",
+            "Zheng-Xin Yong",
+            "Suhas Kotha"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yangsibo_huang:c36874bf543d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "An Adversarial Perspective on Machine Unlearning for AI Safety",
+      "year": 2024,
+      "authors": [
+        "Jakub Łucki",
+        "Boyi Wei",
+        "Yangsibo Huang",
+        "Peter Henderson",
+        "Florian Tramèr",
+        "Javier Rando"
+      ],
+      "listed_venue": "NeurIPS SoLaR 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://hazelsuko07.github.io/yangsibo/ entry 5 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "An Adversarial Perspective on Machine Unlearning for AI Safety",
+          "year": 2023,
+          "authors": [
+            "Jakub Łucki",
+            "Boyi Wei",
+            "Yangsibo Huang",
+            "Peter Henderson",
+            "Florian Tramèr",
+            "Javier Rando"
+          ]
+        },
+        {
+          "title": "An Adversarial Perspective on Machine Unlearning for AI Safety",
+          "year": 2025,
+          "authors": [
+            "Jakub Łucki",
+            "Boyi Wei",
+            "Yangsibo Huang",
+            "Peter Henderson",
+            "Florian Tramèr",
+            "Javier Rando"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yangsibo_huang:1046ae0ef79e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Assessing the Brittleness of Safety Alignment via Pruning and Low-Rank Modifications",
+      "year": 2024,
+      "authors": [
+        "Boyi Wei",
+        "Kaixuan Huang",
+        "Yangsibo Huang",
+        "Tinghao Xie",
+        "Xiangyu Qi",
+        "Mengzhou Xia",
+        "Prateek Mittal",
+        "Mengdi Wang",
+        "Peter Henderson"
+      ],
+      "listed_venue": "ICML 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://hazelsuko07.github.io/yangsibo/ entry 7 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Assessing the Brittleness of Safety Alignment via Pruning and Low-Rank Modifications",
+          "year": 2023,
+          "authors": [
+            "Boyi Wei",
+            "Kaixuan Huang",
+            "Yangsibo Huang",
+            "Tinghao Xie",
+            "Xiangyu Qi",
+            "Mengzhou Xia",
+            "Prateek Mittal",
+            "Mengdi Wang",
+            "Peter Henderson"
+          ]
+        },
+        {
+          "title": "Assessing the Brittleness of Safety Alignment via Pruning and Low-Rank Modifications",
+          "year": 2025,
+          "authors": [
+            "Boyi Wei",
+            "Kaixuan Huang",
+            "Yangsibo Huang",
+            "Tinghao Xie",
+            "Xiangyu Qi",
+            "Mengzhou Xia",
+            "Prateek Mittal",
+            "Mengdi Wang",
+            "Peter Henderson"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yangsibo_huang:f4720b3425fe",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Catastrophic Jailbreak of Open-source LLMs via Exploiting Generation",
+      "year": 2024,
+      "authors": [
+        "Yangsibo Huang",
+        "Samyak Gupta",
+        "Mengzhou Xia",
+        "Kai Li",
+        "Danqi Chen"
+      ],
+      "listed_venue": "ICLR 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://hazelsuko07.github.io/yangsibo/ entry 8 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Catastrophic Jailbreak of Open-source LLMs via Exploiting Generation",
+          "year": 2023,
+          "authors": [
+            "Yangsibo Huang",
+            "Samyak Gupta",
+            "Mengzhou Xia",
+            "Kai Li",
+            "Danqi Chen"
+          ]
+        },
+        {
+          "title": "Catastrophic Jailbreak of Open-source LLMs via Exploiting Generation",
+          "year": 2025,
+          "authors": [
+            "Yangsibo Huang",
+            "Samyak Gupta",
+            "Mengzhou Xia",
+            "Kai Li",
+            "Danqi Chen"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yangsibo_huang:ad7d3a391950",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Detecting Pretraining Data from Large Language Models",
+      "year": 2024,
+      "authors": [
+        "Weijia Shi",
+        "Anirudh Ajith",
+        "Mengzhou Xia",
+        "Yangsibo Huang",
+        "Daogao Liu",
+        "Terra Blevins",
+        "Danqi Chen",
+        "Luke Zettlemoyer"
+      ],
+      "listed_venue": "ICLR 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://hazelsuko07.github.io/yangsibo/ entry 9 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Detecting Pretraining Data from Large Language Models",
+          "year": 2023,
+          "authors": [
+            "Weijia Shi",
+            "Anirudh Ajith",
+            "Mengzhou Xia",
+            "Yangsibo Huang",
+            "Daogao Liu",
+            "Terra Blevins",
+            "Danqi Chen",
+            "Luke Zettlemoyer"
+          ]
+        },
+        {
+          "title": "Detecting Pretraining Data from Large Language Models",
+          "year": 2025,
+          "authors": [
+            "Weijia Shi",
+            "Anirudh Ajith",
+            "Mengzhou Xia",
+            "Yangsibo Huang",
+            "Daogao Liu",
+            "Terra Blevins",
+            "Danqi Chen",
+            "Luke Zettlemoyer"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yangsibo_huang:4797103c7bf5",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "On Memorization of Large Language Models in Logical Reasoning",
+      "year": 2024,
+      "authors": [
+        "Chulin Xie",
+        "Yangsibo Huang",
+        "Chiyuan Zhang",
+        "Da Yu",
+        "Xinyun Chen",
+        "Bill Yuchen Lin",
+        "Bo Li",
+        "Badih Ghazi",
+        "Ravi Kumar"
+      ],
+      "listed_venue": "Preprint 2024",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://hazelsuko07.github.io/yangsibo/ entry 4 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "On Memorization of Large Language Models in Logical Reasoning",
+          "year": 2023,
+          "authors": [
+            "Chulin Xie",
+            "Yangsibo Huang",
+            "Chiyuan Zhang",
+            "Da Yu",
+            "Xinyun Chen",
+            "Bill Yuchen Lin",
+            "Bo Li",
+            "Badih Ghazi",
+            "Ravi Kumar"
+          ]
+        },
+        {
+          "title": "On Memorization of Large Language Models in Logical Reasoning",
+          "year": 2025,
+          "authors": [
+            "Chulin Xie",
+            "Yangsibo Huang",
+            "Chiyuan Zhang",
+            "Da Yu",
+            "Xinyun Chen",
+            "Bill Yuchen Lin",
+            "Bo Li",
+            "Badih Ghazi",
+            "Ravi Kumar"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yangsibo_huang:41909911c7f9",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Exploring and Mitigating Adversarial Manipulation of Voting-Based Leaderboards",
+      "year": 2025,
+      "authors": [
+        "Yangsibo Huang",
+        "Milad Nasr",
+        "Anastasios Angelopoulos",
+        "Nicholas Carlini",
+        "Wei-Lin Chiang",
+        "Christopher A Choquette-Choo",
+        "Daphne Ippolito",
+        "Matthew Jagielski",
+        "Katherine Lee",
+        "Ken Ziyu Liu"
+      ],
+      "listed_venue": "ICML 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://hazelsuko07.github.io/yangsibo/ entry 1 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Exploring and Mitigating Adversarial Manipulation of Voting-Based Leaderboards",
+          "year": 2024,
+          "authors": [
+            "Yangsibo Huang",
+            "Milad Nasr",
+            "Anastasios Angelopoulos",
+            "Nicholas Carlini",
+            "Wei-Lin Chiang",
+            "Christopher A Choquette-Choo",
+            "Daphne Ippolito",
+            "Matthew Jagielski",
+            "Katherine Lee",
+            "Ken Ziyu Liu"
+          ]
+        },
+        {
+          "title": "Exploring and Mitigating Adversarial Manipulation of Voting-Based Leaderboards",
+          "year": 2026,
+          "authors": [
+            "Yangsibo Huang",
+            "Milad Nasr",
+            "Anastasios Angelopoulos",
+            "Nicholas Carlini",
+            "Wei-Lin Chiang",
+            "Christopher A Choquette-Choo",
+            "Daphne Ippolito",
+            "Matthew Jagielski",
+            "Katherine Lee",
+            "Ken Ziyu Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yangsibo_huang:aa230d16985a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "MUSE: Machine Unlearning Six-Way Evaluation for Language Models",
+      "year": 2025,
+      "authors": [
+        "Weijia Shi",
+        "Jaechan Lee",
+        "Yangsibo Huang",
+        "Sadhika Malladi",
+        "Jieyu Zhao",
+        "Ari Holtzman",
+        "Daogao Liu",
+        "Luke Zettlemoyer",
+        "Noah A Smith",
+        "Chiyuan Zhang"
+      ],
+      "listed_venue": "ICLR 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://hazelsuko07.github.io/yangsibo/ entry 2 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "MUSE: Machine Unlearning Six-Way Evaluation for Language Models",
+          "year": 2024,
+          "authors": [
+            "Weijia Shi",
+            "Jaechan Lee",
+            "Yangsibo Huang",
+            "Sadhika Malladi",
+            "Jieyu Zhao",
+            "Ari Holtzman",
+            "Daogao Liu",
+            "Luke Zettlemoyer",
+            "Noah A Smith",
+            "Chiyuan Zhang"
+          ]
+        },
+        {
+          "title": "MUSE: Machine Unlearning Six-Way Evaluation for Language Models",
+          "year": 2026,
+          "authors": [
+            "Weijia Shi",
+            "Jaechan Lee",
+            "Yangsibo Huang",
+            "Sadhika Malladi",
+            "Jieyu Zhao",
+            "Ari Holtzman",
+            "Daogao Liu",
+            "Luke Zettlemoyer",
+            "Noah A Smith",
+            "Chiyuan Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_yangsibo_huang:82c6c282ec4e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "SORRY-Bench: Systematically Evaluating Large Language Model Safety Refusal Behaviors",
+      "year": 2025,
+      "authors": [
+        "Tinghao Xie",
+        "Xiangyu Qi",
+        "Yi Zeng",
+        "Yangsibo Huang",
+        "Udari Madhushani Sehwag",
+        "Kaixuan Huang",
+        "Luxi He",
+        "Boyi Wei",
+        "Dacheng Li",
+        "Ying Sheng",
+        "Ruoxi Jia",
+        "Bo Li",
+        "Kai Li",
+        "Danqi Chen",
+        "Peter Henderson",
+        "Prateek Mittal"
+      ],
+      "listed_venue": "ICLR 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://hazelsuko07.github.io/yangsibo/ entry 3 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "SORRY-Bench: Systematically Evaluating Large Language Model Safety Refusal Behaviors",
+          "year": 2024,
+          "authors": [
+            "Tinghao Xie",
+            "Xiangyu Qi",
+            "Yi Zeng",
+            "Yangsibo Huang",
+            "Udari Madhushani Sehwag",
+            "Kaixuan Huang",
+            "Luxi He",
+            "Boyi Wei",
+            "Dacheng Li",
+            "Ying Sheng",
+            "Ruoxi Jia",
+            "Bo Li",
+            "Kai Li",
+            "Danqi Chen",
+            "Peter Henderson",
+            "Prateek Mittal"
+          ]
+        },
+        {
+          "title": "SORRY-Bench: Systematically Evaluating Large Language Model Safety Refusal Behaviors",
+          "year": 2026,
+          "authors": [
+            "Tinghao Xie",
+            "Xiangyu Qi",
+            "Yi Zeng",
+            "Yangsibo Huang",
+            "Udari Madhushani Sehwag",
+            "Kaixuan Huang",
+            "Luxi He",
+            "Boyi Wei",
+            "Dacheng Li",
+            "Ying Sheng",
+            "Ruoxi Jia",
+            "Bo Li",
+            "Kai Li",
+            "Danqi Chen",
+            "Peter Henderson",
+            "Prateek Mittal"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}
