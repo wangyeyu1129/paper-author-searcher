@@ -7,6 +7,7 @@ from typing import Any
 
 from paper_author_searcher.jsonio import read_json
 from paper_author_searcher.status import (
+    WEB_SEARCH_OFF,
     FormatStatus,
     IdentityStatus,
     OwnershipStatus,
@@ -15,6 +16,8 @@ from paper_author_searcher.status import (
 )
 
 MAXIMUM_EVIDENCE = 5
+# Warnings about the whole result that a caller should see, as opposed to one paper's lookup details.
+NOTICE_CODES = {WEB_SEARCH_OFF}
 MAXIMUM_CANDIDATES = 10
 # arXiv DOIs name a preprint edition; another edition of the same work is preferred as the work's main entry.
 PREPRINT_DOI_PREFIX = '10.48550/'
@@ -114,6 +117,11 @@ class ResultView:
                 'full_text_links': statuses.count('link'),
             },
             'warnings': [str(item.get('warning') or item) for item in report.get('warnings') or []],
+            'notices': [
+                {'code': item['code'], 'message': str(item.get('warning'))}
+                for item in report.get('warnings') or []
+                if item.get('code') in NOTICE_CODES
+            ],
         }
 
     @staticmethod

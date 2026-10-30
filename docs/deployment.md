@@ -52,6 +52,7 @@ docker compose -f deploy/compose.yaml run --rm api create-key --name cold-email-
 - 普通配置：`PAPER_SEARCH__<分区>__<字段>`，见 `Settings`。服务相关的在 `service` 分区（`config/service.py`）。
 - 密钥只从各自约定的环境变量读取，不会写进配置文件或日志：
   - 数据源密钥：`OPENALEX_API_KEY`、`SEMANTIC_SCHOLAR_API_KEY` 等；
+  - 网页搜索密钥：`TAVILY_API_KEY`、`BRAVE_API_KEY`、`EXA_API_KEY`，配一个即可。没有配置时，只存放在作者主页或其他网站上的 PDF 找不到，结果里的 `notices` 会说明这一点；
   - 对象存储密钥：`AWS_ACCESS_KEY_ID`、`AWS_SECRET_ACCESS_KEY`。
 
 常用项：

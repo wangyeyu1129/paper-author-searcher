@@ -674,7 +674,10 @@ class ResultTests(unittest.TestCase):
             'run_status': 'partial',
             'artifacts': {'papers': 'papers.json', 'pdf_urls': 'pdf_urls.json', 'manifest': 'manifest.json'},
             'identity': {'profile': {'name': 'A', 'status': 'resolved', 'author_ids': {'openalex': 'A1'}}},
-            'warnings': [{'stage': 'x', 'warning': 'careful'}],
+            'warnings': [
+                {'stage': 'x', 'warning': 'careful'},
+                {'stage': 'y', 'code': 'web_search_off', 'warning': 'No web search'},
+            ],
         }
         self.view = ResultView(lambda paper_id: f'/pdf/{paper_id}')
 
@@ -693,7 +696,8 @@ class ResultTests(unittest.TestCase):
         # A file outside the run's folder is never served, but the paper keeps its validated link.
         self.assertEqual(linked['full_text']['status'], 'link')
         self.assertEqual(result['statistics'], {'papers': 2, 'verified': 2, 'full_text_files': 1, 'full_text_links': 1})
-        self.assertEqual((result['run_status'], result['warnings']), ('partial', ['careful']))
+        self.assertEqual((result['run_status'], result['warnings']), ('partial', ['careful', 'No web search']))
+        self.assertEqual(result['notices'], [{'code': 'web_search_off', 'message': 'No web search'}])
         self.assertEqual(self.view.file_path(self.report, '0'), (self.root / 'papers' / 'a.pdf').resolve())
         self.assertIsNone(self.view.file_path(self.report, '1'))
         self.assertIsNone(self.view.file_path(self.report, '9'))

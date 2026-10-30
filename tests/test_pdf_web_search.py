@@ -1,5 +1,7 @@
+import tempfile
 import unittest
 from dataclasses import replace
+from pathlib import Path
 from unittest.mock import Mock
 
 from paper_author_searcher.config import DEFAULT_PDF
@@ -8,8 +10,9 @@ from paper_author_searcher.matching import normalize, normalize_title
 from paper_author_searcher.models import PDFCandidate, PDFProviderResult
 from paper_author_searcher.pdf_providers import HomepagePDFProvider, WebSearchPDFProvider
 from paper_author_searcher.pdf_resolver import PDFResolver
-from paper_author_searcher.status import IdentityStatus, ProviderStatus
+from paper_author_searcher.status import WEB_SEARCH_OFF, IdentityStatus, ProviderStatus
 from paper_author_searcher.web_search import SearchHit
+from paper_author_searcher.workflow.stages import PDFDiscoveryStage
 
 PAPER = {'title': 'A study of many things', 'authors': ['Ada Lovelace', 'Alan Turing'], 'ownership_status': 'verified'}
 
@@ -174,6 +177,24 @@ class FallbackStageTests(unittest.TestCase):
         validator.validate.side_effect = lambda candidate, paper: candidate
         report = PDFResolver([primary], validator, fallbacks=[fallback]).resolve({'papers': papers})
         self.assertEqual([len(item.pdf_candidates) for item in report.papers], [1, 1])
+
+
+class DisabledSearchWarningTests(unittest.TestCase):
+    def stage_warnings(self, fallbacks):
+        resolver = PDFResolver([], Mock(), fallbacks=fallbacks)
+        with tempfile.TemporaryDirectory() as folder:
+            context = Mock(pdf=None, archive={'papers': []}, root=Path(folder))
+            context.request = Mock(include_needs_review=False, maximum_pdf_papers=None, saved=None)
+            context.report = {'stages': [], 'warnings': [], 'errors': [], 'candidate_decisions': []}
+            PDFDiscoveryStage(resolver).run(context)
+        return [item.get('code') for item in context.report['warnings']]
+
+    def test_a_run_without_web_search_says_so(self):
+        with self.assertLogs('paper_author_searcher.workflow.stages', 'WARNING'):
+            self.assertEqual(self.stage_warnings([]), [WEB_SEARCH_OFF])
+
+    def test_a_run_with_web_search_does_not(self):
+        self.assertEqual(self.stage_warnings([Mock()]), [])
 
 
 if __name__ == '__main__':

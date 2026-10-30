@@ -67,6 +67,7 @@ def agent_view(job: Job) -> dict[str, Any]:
             view['papers'].append(_paper(paper))
     if confirmed_by is None:
         view['notes'].append('The identity was not confirmed; every paper is withheld until a person is confirmed')
+    view['notes'].extend(notice['message'] for notice in result.get('notices') or [])
     if result.get('run_status') != 'completed':
         view['notes'].append('Some sources did not answer; the list may be incomplete')
     view['usable'] = bool(view['papers'])
