@@ -219,16 +219,16 @@ class DiscoveryConfig:
     # requested school and department (curated_positions) gives its homepage URLs and its ORCID. Two such profiles,
     # or none, give nothing. Needs a requested department.
     dblp_profiles: bool = True
-    # Web search provider registered in source_catalog.WEB_SEARCH ('brave', 'tavily', 'exa'); empty disables it.
-    # Each provider needs its key (BRAVE_API_KEY, TAVILY_API_KEY, EXA_API_KEY); without it the step is skipped.
-    web_search: str = 'brave'
+    # Web search providers registered in source_catalog.WEB_SEARCH, in order of preference; the first whose key is
+    # set runs (TAVILY_API_KEY, BRAVE_API_KEY, EXA_API_KEY). Empty disables web search.
+    web_search: tuple[str, ...] = ('tavily', 'brave', 'exa')
     web_search_results: int = 10
     brave_url: str = 'https://api.search.brave.com/res/v1/web/search'
     tavily_url: str = 'https://api.tavily.com/search'
     exa_url: str = 'https://api.exa.ai/search'
     # Query templates; {name}, {university} and {department} are filled from the query.
     web_queries: tuple[str, ...] = ('"{name}" {university}', '"{name}" {university} publications')
-    maximum_pages: int = 3
+    maximum_pages: int = 5
     minimum_page_score: float = 0.5
     # Page ranking weights (PageRanker): each feature is 0..1 and the score is their weighted sum.
     weight_name_in_title: float = 0.35

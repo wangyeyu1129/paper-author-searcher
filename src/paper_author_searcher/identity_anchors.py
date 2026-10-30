@@ -240,6 +240,9 @@ class ScholarlyAnchorFinder:
             except (SourceError, ValueError) as exc:
                 anchors.errors.append(f'page {page.url}: {exc}')
                 continue
+            # Every citation's PDF stays available: a personal page's citations often omit the person's own name
+            # ("with A and B"), and a PDF only ever serves a paper its citation names and its content shows.
+            pdf_citations = citations
             if page.strict:
                 citations = own_citations(citations, query.name, strict=True)
             # The caller's own hints first, then the page's citations that name the person, then the rest.
@@ -248,7 +251,7 @@ class ScholarlyAnchorFinder:
             page_titles = _merge(page_titles, [title for item in citations for title in item.titles])
             anchors.listed_works = sorted(set(anchors.listed_works) | _listed_works(citations, query.name))
             known = {item['url'] for item in anchors.listed_pdfs}
-            new = [item for item in listed_pdfs(citations, page.url, self.config) if item['url'] not in known]
+            new = [item for item in listed_pdfs(pdf_citations, page.url, self.config) if item['url'] not in known]
             anchors.listed_pdfs += new[: max(0, self.config.maximum_listed_pdfs - len(anchors.listed_pdfs))]
         for source in self.listed_sources:
             try:

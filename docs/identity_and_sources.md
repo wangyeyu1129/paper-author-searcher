@@ -21,7 +21,7 @@
 
 1. **ORCID 注册表检索**（免费）：先按邮箱，再按 姓 + 名 + 机构。只有当注册表里恰好一个姓名兼容、机构匹配的人，**且**其 ORCID 记录本身有一条**当前**（无结束年份或未过期）的就职或教育经历在所请求的机构、院系（若给出）一致时，才采用。"注册表中唯一" 不等于 "唯一的人"：真正的 Yi Cui 没有列出 Stanford 的 ORCID，而同校的 Yi Shun Cui 有，只检查唯一性会认错人。
 2. **ORCID 个人网站**：所给或所发现 ORCID 记录中的个人网站。
-3. **网页搜索**（需密钥）：Brave / Tavily / Exa 三选一（`discovery.web_search`，密钥 `BRAVE_API_KEY` / `TAVILY_API_KEY` / `EXA_API_KEY`）。没有密钥时跳过。
+3. **网页搜索**（需密钥）：按 `discovery.web_search` 的顺序（默认 Tavily、Brave、Exa）使用第一个设置了密钥的服务（`TAVILY_API_KEY` / `BRAVE_API_KEY` / `EXA_API_KEY`）。全都没有时跳过，结果里会给出警告。
 
 候选页面由 `PageRanker` 打分：标题含姓名、URL 含姓名、标题或摘要含机构（或主机名即邮箱域名）、发表/CV 标记、学术主机，各项 0–1，按配置权重加权求和，低于 `minimum_page_score` 的丢弃；聚合站点（ResearchGate、LinkedIn、Scholar 等）计 0 分。发现的页面只采用其中**写到本人姓名**的条目；每个页面会跟随一次同站点的 "Publications" / CV 链接。发现结果记录在档案的 `discovered` 字段，离线重放会恢复。
 

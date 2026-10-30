@@ -390,11 +390,18 @@ class CompositionTests(unittest.TestCase):
         container = ServiceContainer(Settings(), RunOptions(mode='metadata'))
         self.assertEqual([step.name for step in container.discovery.steps], ['orcid_search', 'orcid_researcher_urls'])
         keyed = replace(Settings(), credentials=Credentials(tavily_api_key='k'))
-        keyed = replace(keyed, discovery=DiscoveryConfig(web_search='tavily'))
         steps = ServiceContainer(keyed, RunOptions(mode='metadata')).discovery.steps
         self.assertIsInstance(steps[-1].search, TavilySearch)
         disabled = replace(Settings(), discovery=DiscoveryConfig(enabled=False))
         self.assertEqual(ServiceContainer(disabled).discovery.steps, [])
+
+    def test_web_search_uses_the_first_provider_with_a_key(self):
+        keys = Credentials(tavily_api_key='t', exa_api_key='e')
+        preferred = replace(Settings(), credentials=keys, discovery=DiscoveryConfig(web_search=('exa', 'tavily')))
+        self.assertIsInstance(ServiceContainer(preferred).web_search, ExaSearch)
+        self.assertIsNone(ServiceContainer(replace(preferred, credentials=Credentials())).web_search)
+        off = replace(preferred, discovery=DiscoveryConfig(web_search=()))
+        self.assertIsNone(ServiceContainer(off).web_search)
 
     def test_every_web_search_provider_is_registered(self):
         self.assertEqual(set(WEB_SEARCH.names()), {'brave', 'tavily', 'exa'})

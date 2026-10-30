@@ -242,10 +242,15 @@ class ServiceContainer:
             )
         if config.orcid_researcher_urls:
             steps.append(OrcidResearcherUrls(self.http_client, ranker, settings.sources))
-        search = WEB_SEARCH.factory(config.web_search)(self) if config.web_search else None
-        if search is not None:
-            steps.append(WebPageSearch(search, ranker, config))
+        if self.web_search is not None:
+            steps.append(WebPageSearch(self.web_search, ranker, config))
         return IdentityDiscovery(steps)
+
+    @cached_property
+    def web_search(self) -> Any:
+        """The first configured web search provider whose key is set; None when there is none."""
+        names = self.settings.discovery.web_search
+        return next(filter(None, (WEB_SEARCH.factory(name)(self) for name in names)), None)
 
     @cached_property
     def resolver(self) -> ProfessorResolver:
