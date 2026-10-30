@@ -2,6 +2,8 @@
 
 from dataclasses import dataclass
 
+MAXIMUM_ZLIB_LEVEL = 9
+
 
 @dataclass(frozen=True)
 class HttpConfig:
@@ -172,7 +174,7 @@ class DblpDumpConfig:
     compression_level: int = 6
 
     def __post_init__(self) -> None:
-        if self.batch_size < 1 or not 1 <= self.compression_level <= 9:
+        if self.batch_size < 1 or not 1 <= self.compression_level <= MAXIMUM_ZLIB_LEVEL:
             raise ValueError('batch_size must be positive and compression_level between 1 and 9')
 
 

@@ -10,6 +10,10 @@ LABELS = frozenset({'belongs', 'not_belongs', 'uncertain'})
 MATCHING_RULES_VERSION = 2
 
 
+# A name of this many words or more has a given and a family name.
+FULL_NAME_WORDS = 2
+
+
 @dataclass
 class GroundTruth:
     papers: list[dict]
@@ -243,7 +247,7 @@ def bibliographic_name_agrees(left, right):
     second = normalize(byline_forms(right)[-1]).split()
     if first == second:
         return True
-    if len(first) < 2 or len(second) < 2 or first[-1] != second[-1]:
+    if len(first) < FULL_NAME_WORDS or len(second) < FULL_NAME_WORDS or first[-1] != second[-1]:
         return False
     if not _name_token_agrees(first[0], second[0]):
         return False

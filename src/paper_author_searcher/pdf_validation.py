@@ -2,10 +2,12 @@
 
 import re
 from collections.abc import Mapping
+from http import HTTPStatus
 from typing import Any
 
 from .config import DEFAULT_PDF, PDFConfig
 from .http import SourceError, has_pdf_signature
+from .http_status import is_success
 from .json_types import JSONObject
 from .models import PDFCandidate
 from .pdf_identity import arxiv_id, arxiv_ids, same_arxiv_version
@@ -36,15 +38,15 @@ class PDFURLValidator:
         candidate.http_status = response.status
         candidate.content_type = response.content_type
         candidate.bytes_read = len(response.prefix)
-        if not 200 <= response.status < 300:
+        if not is_success(response.status):
             candidate.access_status = AccessStatus.UNREACHABLE
             candidate.error_details.append(f'HTTP {response.status}')
             return candidate
         candidate.access_status = AccessStatus.PUBLICLY_ACCESSIBLE
-        if response.status == 206 and not self._starts_at_zero(response.headers):
+        if response.status == HTTPStatus.PARTIAL_CONTENT and not self._starts_at_zero(response.headers):
             candidate.error_details.append('Partial response does not confirm byte offset zero')
             return candidate
-        if response.status == 206:
+        if response.status == HTTPStatus.PARTIAL_CONTENT:
             candidate.validation_evidence.append('Content-Range confirms a partial response beginning at byte zero')
         if response.content_type in ('text/html', 'application/xhtml+xml'):
             candidate.validation_status = PDFValidationStatus.INVALID

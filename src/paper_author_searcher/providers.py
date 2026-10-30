@@ -272,6 +272,8 @@ class SemanticScholarProvider:
 
 class DBLPProvider:
     name = 'dblp'
+    # Its profiles carry affiliation notes and homepages, so name searches on it can discover a person's pages.
+    discovers_profiles = True
 
     def __init__(
         self, client, limit=None, source_config=DEFAULT_SOURCES, matching_config=DEFAULT_MATCHING, departments=None

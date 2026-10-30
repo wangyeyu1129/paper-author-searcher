@@ -6,6 +6,8 @@ Every field can be set as ``PAPER_SEARCH__SERVICE__<FIELD>``; object-store crede
 
 from dataclasses import dataclass
 
+MAXIMUM_TCP_PORT = 65535
+API_KEY_ENTRY_SEPARATORS = 2
 FILE_STORES = ('local', 's3')
 S3_ADDRESSING = ('path', 'virtual')
 
@@ -107,7 +109,7 @@ class ServiceConfig:
             raise ValueError(f's3_addressing must be one of {", ".join(S3_ADDRESSING)}')
         if self.file_store == 's3' and not (self.s3_endpoint and self.s3_bucket):
             raise ValueError('file_store s3 needs s3_endpoint and s3_bucket')
-        if self.workers < 0 or not 0 < self.port < 65536:
+        if self.workers < 0 or not 0 < self.port <= MAXIMUM_TCP_PORT:
             raise ValueError('workers must not be negative and port must be a TCP port')
         for name in (
             'maximum_cost_usd',
@@ -133,7 +135,7 @@ class ServiceConfig:
             if getattr(self, name) < 0:
                 raise ValueError(f'{name} must not be negative')
         for entry in self.api_key_hashes:
-            if entry.count(':') != 2:
+            if entry.count(':') != API_KEY_ENTRY_SEPARATORS:
                 raise ValueError('api_key_hashes entries look like id:name:sha256')
 
 

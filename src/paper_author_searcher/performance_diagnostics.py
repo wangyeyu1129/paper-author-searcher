@@ -3,8 +3,10 @@
 import re
 import typing
 from collections import Counter
+from http import HTTPStatus
 
 from .config import DEFAULT_OWNERSHIP, OwnershipConfig
+from .http_status import is_server_error
 from .json_types import JSONList, JSONObject
 from .paper_authorship import canonical_author_id
 from .status import (
@@ -112,13 +114,13 @@ def pdf_failure_reasons(paper: JSONObject) -> list[str]:
         code = candidate.get('http_status')
         if candidate.get('query_error_type') == 'source_deferred':
             reasons.add('source_temporarily_deferred')
-        elif code == 403:
+        elif code == HTTPStatus.FORBIDDEN:
             reasons.add('access_restricted')
-        elif code == 404:
+        elif code == HTTPStatus.NOT_FOUND:
             reasons.add('url_not_found')
-        elif code == 429:
+        elif code == HTTPStatus.TOO_MANY_REQUESTS:
             reasons.add('rate_limited')
-        elif code is not None and 500 <= code <= 599:
+        elif code is not None and is_server_error(code):
             reasons.add('server_error')
         if candidate.get('identity_status') in (IdentityStatus.CONFLICTING, IdentityStatus.REJECTED):
             reasons.add('source_identity_mismatch')

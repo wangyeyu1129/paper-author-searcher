@@ -4,6 +4,10 @@ from dataclasses import dataclass
 
 from paper_author_searcher.status import StrEnum
 
+# The sources' own limits.
+OPENALEX_MAXIMUM_PAGE_SIZE = 200
+SEMANTIC_SCHOLAR_MAXIMUM_PAGE_SIZE = 1000
+
 
 class AmbiguityPolicy(StrEnum):
     STOP = 'stop'
@@ -52,9 +56,9 @@ class CollectionConfig:
             raise ValueError(f'raw_metadata must be one of {RawMetadataPolicy.values()}')
         if any(limit < 1 for _, limit in self.source_concurrency):
             raise ValueError('source_concurrency limits must be positive')
-        if not 1 <= self.openalex_page_size <= 200:
+        if not 1 <= self.openalex_page_size <= OPENALEX_MAXIMUM_PAGE_SIZE:
             raise ValueError('openalex_page_size must be between 1 and 200')
-        if not 1 <= self.semantic_scholar_page_size <= 1000:
+        if not 1 <= self.semantic_scholar_page_size <= SEMANTIC_SCHOLAR_MAXIMUM_PAGE_SIZE:
             raise ValueError('semantic_scholar_page_size must be between 1 and 1000')
         if self.maximum_pages is not None and self.maximum_pages < 1:
             raise ValueError('maximum_pages must be positive or None')

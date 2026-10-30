@@ -130,7 +130,7 @@ class S3FileStore:
                 with destination.open('wb') as handle:
                     shutil.copyfileobj(response, handle, CHUNK)
         except urllib.error.HTTPError as error:
-            if error.code == 404:
+            if error.code == HTTPStatus.NOT_FOUND:
                 return False
             raise
         return True
@@ -169,7 +169,7 @@ class S3FileStore:
             with urllib.request.urlopen(request, timeout=self.timeout) as response:
                 response.read()
         except urllib.error.HTTPError as error:
-            if error.code == 409:
+            if error.code == HTTPStatus.CONFLICT:
                 return False
             raise
         return True

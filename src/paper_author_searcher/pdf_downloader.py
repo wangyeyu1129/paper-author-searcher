@@ -45,6 +45,10 @@ IDENTITY_FOLDERS = {IdentityStatus.NEEDS_REVIEW: REVIEW_FOLDER, IdentityStatus.R
 CONTENT_ONLY = 'content_only'
 
 
+# A manifest filename is a file, or a file in the review or quarantine folder.
+MAXIMUM_MANIFEST_PATH_PARTS = 2
+
+
 def _content_confirms(validation):
     return (
         validation.identity_status == IdentityStatus.VERIFIED
@@ -443,9 +447,9 @@ class PDFDownloader:
         if not isinstance(relative, str) or '\\' in relative:
             raise ValueError('Unsafe manifest filename')
         parts = PurePosixPath(relative).parts
-        if not parts or len(parts) > 2 or any(part in ('..', '.', '/') for part in parts):
+        if not parts or len(parts) > MAXIMUM_MANIFEST_PATH_PARTS or any(part in ('..', '.', '/') for part in parts):
             raise ValueError('Unsafe manifest filename')
-        if len(parts) == 2 and parts[0] not in (REVIEW_FOLDER, QUARANTINE_FOLDER):
+        if len(parts) == MAXIMUM_MANIFEST_PATH_PARTS and parts[0] not in (REVIEW_FOLDER, QUARANTINE_FOLDER):
             raise ValueError('Unexpected manifest subdirectory')
         path = root.joinpath(*parts)
         if path.is_symlink() or path.parent.is_symlink() or root not in path.resolve().parents:

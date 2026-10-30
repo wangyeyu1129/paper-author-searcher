@@ -13,10 +13,13 @@ import http.client
 import io
 import ssl
 import threading
+from http import HTTPStatus
 from typing import Any
 from urllib.error import HTTPError
 from urllib.parse import urljoin, urlsplit
 from urllib.request import Request, getproxies, proxy_bypass, urlopen
+
+from .http_status import is_success
 
 REDIRECT_STATUSES = frozenset({301, 302, 303, 307, 308})
 # Credentials a redirect must never carry to another host.
@@ -92,13 +95,15 @@ class KeepAliveTransport:
                     raise HTTPError(url, response.status, 'Redirect to a non-HTTP URL', response.headers, None)
                 if urlsplit(target).netloc != urlsplit(url).netloc:
                     headers = {name: value for name, value in headers.items() if name.lower() not in SENSITIVE_HEADERS}
-                if response.status == 303 or (response.status in (301, 302) and method == 'POST'):
+                if response.status == HTTPStatus.SEE_OTHER or (
+                    response.status in (HTTPStatus.MOVED_PERMANENTLY, HTTPStatus.FOUND) and method == 'POST'
+                ):
                     method, body = 'GET', None
                     headers = {name: value for name, value in headers.items() if name.lower() != 'content-type'}
                 url = target
                 self._count('redirects')
                 continue
-            if not 200 <= response.status < 300:
+            if not is_success(response.status):
                 payload = response.read(ERROR_BODY_BYTES)
                 if not response.isclosed():
                     self._discard(key)

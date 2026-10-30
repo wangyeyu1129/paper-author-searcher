@@ -58,6 +58,11 @@ TITLE_SPELLINGS: tuple[tuple[str, str], ...] = (
 )
 
 
+# Smaller limits could not hold one publication and its answer.
+MINIMUM_CHUNK_CHARACTERS = 1000
+MINIMUM_ANSWER_TOKENS = 1024
+
+
 @dataclass(frozen=True)
 class MatchingConfig:
     compatible_name: float = 0.9
@@ -361,7 +366,11 @@ class ExtractionConfig:
     cache_write_usd_per_mtok: float = 5.0
 
     def __post_init__(self) -> None:
-        if self.chunk_characters < 1000 or self.maximum_chunks < 1 or self.max_tokens < 1024:
+        if (
+            self.chunk_characters < MINIMUM_CHUNK_CHARACTERS
+            or self.maximum_chunks < 1
+            or self.max_tokens < MINIMUM_ANSWER_TOKENS
+        ):
             raise ValueError('Extraction chunks and token limits are too small')
 
 

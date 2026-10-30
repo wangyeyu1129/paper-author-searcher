@@ -256,11 +256,13 @@ class ServiceContainer:
         ranker = PageRanker(config, settings.matching)
         departments = DepartmentMatcher(settings.precision)
         steps: list[Any] = []
-        dblp = next((provider for provider in self.identity_providers if provider.name == 'dblp'), None)
+        profiles = next(
+            (provider for provider in self.identity_providers if getattr(provider, 'discovers_profiles', False)), None
+        )
         # Only from the local index: the DBLP API refuses automated clients.
-        if config.dblp_profiles and dblp is not None and self.dblp_index is not None:
+        if config.dblp_profiles and profiles is not None and self.dblp_index is not None:
             positions = PositionMatcher(settings.disambiguation, settings.matching, departments)
-            steps.append(DblpProfileDiscovery(dblp, positions, ranker, settings.matching))
+            steps.append(DblpProfileDiscovery(profiles, positions, ranker, settings.matching))
         if config.orcid_search:
             steps.append(
                 OrcidRegistrySearch(self.http_client, settings.sources, config, settings.matching, departments.agree)

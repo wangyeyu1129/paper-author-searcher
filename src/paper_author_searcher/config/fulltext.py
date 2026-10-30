@@ -2,6 +2,16 @@
 
 from dataclasses import dataclass
 
+# %PDF- is five bytes.
+MINIMUM_PREVIEW_BYTES = 5
+# Semantic Scholar's batch limit.
+SEMANTIC_SCHOLAR_MAXIMUM_BATCH = 500
+MINIMUM_FILE_BYTES = 1024
+MINIMUM_FILENAME_BYTES = 64
+MINIMUM_HASH_CHARACTERS = 8
+MAXIMUM_HASH_CHARACTERS = 64
+MAXIMUM_TCP_PORT = 65535
+
 
 @dataclass(frozen=True)
 class PDFConfig:
@@ -116,13 +126,13 @@ class PDFConfig:
     )
 
     def __post_init__(self) -> None:
-        if self.preview_bytes < 5 or self.html_metadata_bytes < self.preview_bytes:
+        if self.preview_bytes < MINIMUM_PREVIEW_BYTES or self.html_metadata_bytes < self.preview_bytes:
             raise ValueError('PDF preview must fit the signature and HTML limit must cover the preview')
         if self.maximum_redirects < 0 or self.arxiv_request_interval < 0:
             raise ValueError('Redirect and interval limits must be nonnegative')
         if self.arxiv_search_results < 1 or self.catalog_preview_bytes < self.html_metadata_bytes:
             raise ValueError('Search and catalog limits must be positive and sufficient')
-        if not 1 <= self.semantic_scholar_batch_size <= 500:
+        if not 1 <= self.semantic_scholar_batch_size <= SEMANTIC_SCHOLAR_MAXIMUM_BATCH:
             raise ValueError('Semantic Scholar batch size must be between 1 and 500')
         if self.semantic_scholar_request_interval < 0 or self.semantic_scholar_cooldown < 0:
             raise ValueError('Semantic Scholar request intervals must be nonnegative')
@@ -200,13 +210,15 @@ class DownloadConfig:
     slide_minimum_aspect_ratio: float = 1.2
 
     def __post_init__(self) -> None:
-        if self.maximum_file_bytes < 1024 or self.chunk_bytes < 1024:
+        if self.maximum_file_bytes < MINIMUM_FILE_BYTES or self.chunk_bytes < MINIMUM_FILE_BYTES:
             raise ValueError('Download and chunk limits must be at least 1024 bytes')
-        if self.filename_bytes < 64 or not 8 <= self.filename_hash_characters <= 64:
+        if self.filename_bytes < MINIMUM_FILENAME_BYTES or not (
+            MINIMUM_HASH_CHARACTERS <= self.filename_hash_characters <= MAXIMUM_HASH_CHARACTERS
+        ):
             raise ValueError('Filename limits cannot safely accommodate a stable identifier')
         if self.maximum_redirects < 0 or not self.allowed_ports:
             raise ValueError('Redirect and port policy is invalid')
-        if any(not 1 <= port <= 65535 for port in self.allowed_ports):
+        if any(not 1 <= port <= MAXIMUM_TCP_PORT for port in self.allowed_ports):
             raise ValueError('Invalid allowed port')
         limits = (
             self.maximum_transfer_seconds,

@@ -13,6 +13,10 @@ from .pdf_providers import CitationMetadata, LandingPagePDFProvider, make_candid
 from .pdf_resource_requests import PublicResourceRequests
 from .status import IdentityStatus, ProviderStatus, RequestOutcome
 
+# University hosts under a country code look like x.ac.uk: three labels, the last two letters.
+COUNTRY_ACADEMIC_LABELS = 3
+COUNTRY_CODE_LETTERS = 2
+
 
 def secure_page_url(url):
     """Prefer TLS for a supplied HTTP path; do not guess any new resource path."""
@@ -196,7 +200,11 @@ class PublicPagePDFProvider(LandingPagePDFProvider):
         configured_hosts = {urlsplit(url).hostname for url in self.config.bibliography_urls}
         hostname = urlsplit(response.url).hostname or ''
         labels = hostname.split('.')
-        country_academic = len(labels) >= 3 and len(labels[-1]) == 2 and labels[-2] in ('ac', 'edu')
+        country_academic = (
+            len(labels) >= COUNTRY_ACADEMIC_LABELS
+            and len(labels[-1]) == COUNTRY_CODE_LETTERS
+            and labels[-2] in ('ac', 'edu')
+        )
         institutional = hostname.endswith('.edu') or country_academic
         for binding in bindings:
             if binding.get('is_oa') is True:

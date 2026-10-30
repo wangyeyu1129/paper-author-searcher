@@ -14,6 +14,9 @@ from .pdf_downloader import file_digest, paper_key
 from .performance_diagnostics import ownership_diagnostics, pdf_failure_reasons
 from .status import AnnotationState, DownloadStatus, FormatStatus, IdentityStatus, OwnershipStatus, PDFValidationStatus
 
+# The release target for verified-paper recall.
+RECALL_TARGET = 0.8
+
 
 def rate(numerator: int, denominator: int) -> JSONObject:
     return {
@@ -286,7 +289,10 @@ class PerformanceEvaluator:
             'ground_truth_fingerprint': fingerprint,
             'reference_metadata': metadata,
             'metrics': metrics,
-            'recall_target': {'target': 0.8, 'formally_met': bool(formal and recall is not None and recall >= 0.8)},
+            'recall_target': {
+                'target': RECALL_TARGET,
+                'formally_met': bool(formal and recall is not None and recall >= RECALL_TARGET),
+            },
             'ownership_evaluation': baseline,
             'needs_review_diagnostics': ownership_diagnostics(_papers(collection)),
             'pdf_failure_reason_counts': dict(pdf_reasons),

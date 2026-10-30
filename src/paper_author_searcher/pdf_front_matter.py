@@ -10,6 +10,9 @@ from .matching import normalize, normalize_title
 from .paper_authorship import byline_forms
 from .paper_deduplication import author_signatures_match
 
+# A name of this many words or more has a given and a family name.
+FULL_NAME_WORDS = 2
+
 
 def front_matter(text: str) -> str:
     # Keep bylines out of the abstract, main text and reference list.
@@ -40,9 +43,9 @@ def authors_present(authors: Sequence[str], regions: Sequence[str], author_metad
 def _author_span(author: str, words: Sequence[str], used: set[int]) -> tuple[int, int] | None:
     for form in byline_forms(author):
         length = len(normalize(form).split())
-        if length < 2:
+        if length < FULL_NAME_WORDS:
             continue
-        for size in range(max(2, length - 1), length + 2):
+        for size in range(max(FULL_NAME_WORDS, length - 1), length + 2):
             for start in range(len(words) - size + 1):
                 end = start + size
                 if used.intersection(range(start, end)):

@@ -40,7 +40,7 @@ src = ["src", "tests", "scripts"]
 extend-exclude = ["output", "data", "reports", "tmp"]
 
 [tool.ruff.lint]
-select = ["E", "W", "F", "I", "B", "UP", "C4", "SIM", "RUF", "PIE", "RET", "TID"]
+select = ["E", "W", "F", "I", "B", "UP", "C4", "SIM", "RUF", "PIE", "RET", "TID", "PLR2004"]
 ignore = [
     "RUF001", "RUF002", "RUF003",  # non-ASCII text is intentional (author names, Chinese docs)
     "SIM108",                       # ternaries are not always clearer
@@ -58,7 +58,8 @@ quote-style = "single"
 
 [tool.ruff.lint.per-file-ignores]
 # Nested mock.patch blocks in tests read better than one combined `with`.
-"tests/**" = ["SIM117"]
+"tests/**" = ["SIM117", "PLR2004"]
+"scripts/**" = ["PLR2004"]
 
 [tool.mypy]
 python_version = "3.10"

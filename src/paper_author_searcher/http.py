@@ -12,17 +12,25 @@ import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field, replace
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
+from http import HTTPStatus
 from http.client import HTTPException
 from urllib.error import HTTPError
 from urllib.parse import urlencode, urlsplit
 from urllib.request import HTTPRedirectHandler, Request
 
 from .config import DEFAULT_DOWNLOAD, DEFAULT_HTTP
+from .http_status import is_server_error, is_success
 from .http_transport import KeepAliveTransport
 from .network_safety import secure_download_opener
 from .redaction import redact
 
 logger = logging.getLogger(__name__)
+
+
+# Characters up to this one (space) never appear in a URL we should fetch.
+LAST_CONTROL_CHARACTER = 32
+# A download whose first bytes, this many of them, show no PDF signature is not a PDF.
+PDF_SIGNATURE_WINDOW = 1024
 
 
 class SourceError(RuntimeError):
@@ -48,13 +56,13 @@ class SourceError(RuntimeError):
         }
         if status in categories:
             return categories[status]
-        if status is not None and 500 <= status <= 599:
+        if status is not None and is_server_error(status):
             return 'server_error'
         return 'source_error'
 
 
 def require_public_http_url(url):
-    if not isinstance(url, str) or any(ord(character) <= 32 for character in url):
+    if not isinstance(url, str) or any(ord(character) <= LAST_CONTROL_CHARACTER for character in url):
         raise SourceError('Malformed resource URL')
     parsed = urlsplit(url)
     if parsed.scheme not in ('http', 'https') or not parsed.hostname or parsed.username or parsed.password:
@@ -239,9 +247,9 @@ class HttpClient:
                 require_public_http_url(final_url)
                 complete = len(prefix) < limit
                 length = response.headers.get('Content-Length', '')
-                if response.status == 200 and length.isdigit() and int(length) == len(prefix):
+                if response.status == HTTPStatus.OK and length.isdigit() and int(length) == len(prefix):
                     complete = True
-                if response.status == 206:
+                if response.status == HTTPStatus.PARTIAL_CONTENT:
                     value = response.headers.get('Content-Range', '')
                     match = re.fullmatch(r'bytes 0-(\d+)/(\d+)', value)
                     if match and int(match.group(1)) + 1 == int(match.group(2)) == len(prefix):
@@ -286,9 +294,9 @@ class HttpClient:
                         if not block:
                             break
                         if not signature_confirmed:
-                            prefix.extend(block[: max(0, 1024 - len(prefix))])
+                            prefix.extend(block[: max(0, PDF_SIGNATURE_WINDOW - len(prefix))])
                             signature_confirmed = has_pdf_signature(prefix)
-                            if len(prefix) >= 1024 and not signature_confirmed:
+                            if len(prefix) >= PDF_SIGNATURE_WINDOW and not signature_confirmed:
                                 raise SourceError('Download does not begin with a PDF file signature')
                         size += len(block)
                         if size > config.maximum_file_bytes:
@@ -319,7 +327,7 @@ class HttpClient:
             if not length.isdigit():
                 raise SourceError('Invalid Content-Length')
             expected = int(length)
-        if response.status == 206:
+        if response.status == HTTPStatus.PARTIAL_CONTENT:
             match = re.fullmatch(r'bytes 0-(\d+)/(\d+)', response.headers.get('Content-Range', ''))
             if not match or int(match.group(1)) + 1 != int(match.group(2)):
                 raise SourceError('Unexpected partial download; a complete response is required')
@@ -358,7 +366,7 @@ class HttpClient:
             status,
             content_type or 'missing',
         )
-        if not 200 <= status < 300:
+        if not is_success(status):
             raise SourceError(diagnostic, status_code=status)
         return self._parse_response(data, content_type, diagnostic, xml, expected_type)
 

@@ -9,6 +9,10 @@ from .config import DEFAULT_DEDUPLICATION, DeduplicationConfig
 from .matching import canonical_doi, name_similarity, normalize, normalize_title
 from .models import Paper, PaperRecord
 from .paper_types import classify_record, publication_form
+from .source_traits import traits_of
+
+# A name of this many words or more has a given and a family name.
+FULL_NAME_WORDS = 2
 
 
 def author_signatures_match(left: str, right: str, config: DeduplicationConfig = DEFAULT_DEDUPLICATION) -> bool:
@@ -18,7 +22,7 @@ def author_signatures_match(left: str, right: str, config: DeduplicationConfig =
         return False
     left_words = normalize(left).split()
     right_words = normalize(right).split()
-    if len(left_words) < 2 or len(right_words) < 2:
+    if len(left_words) < FULL_NAME_WORDS or len(right_words) < FULL_NAME_WORDS:
         return False
     if left_words[-1] != right_words[-1] or left_words[0][0] != right_words[0][0]:
         return False
@@ -68,8 +72,9 @@ def _stable_ids(record: PaperRecord) -> set[tuple[str, str]]:
     for namespace, value in record.external_ids.items():
         if value and namespace.lower() != 'doi':
             ids.add((namespace.lower(), str(value).strip()))
-    if record.source == 'dblp':
-        ids.add(('dblp', record.source_paper_id))
+    shared_namespace = traits_of(record.source).shared_paper_namespace
+    if shared_namespace:
+        ids.add((shared_namespace, record.source_paper_id))
     if record.doi:
         ids.add(('doi', canonical_doi(record.doi)))
     return ids
