@@ -10,6 +10,10 @@ class MatchingConfig:
     matched_school: float = 0.8
     resolved_confidence: float = 0.8
     ambiguity_margin: float = 0.03  # calibrated 2026-10-18: holdout coverage 33% -> 45%, purity 100%
+    # The margin was calibrated on queries that name a department. Without one, every namesake at the school scores
+    # alike (26 Yang Lius at Tsinghua, the top two 0.032 apart), so a score margin alone does not settle a contest
+    # between two school-matched profiles; anchors, bylines or adjudication still can.
+    margin_requires_department: bool = True
     review_cap: float = 0.69
     confidence_cap: float = 0.99
     confidence_precision: int = 3
