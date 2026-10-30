@@ -83,6 +83,8 @@ module = [
     "paper_author_searcher",
     "paper_author_searcher.api",
     "paper_author_searcher.api.*",
+    "paper_author_searcher.service",
+    "paper_author_searcher.service.*",
     "paper_author_searcher.benchmark",
     "paper_author_searcher.benchmark.calibration",
     "paper_author_searcher.benchmark.gate",

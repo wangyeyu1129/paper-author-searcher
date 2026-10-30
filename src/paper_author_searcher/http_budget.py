@@ -93,6 +93,13 @@ def ledger_summary(name: str) -> dict | None:
     return ledger.summary() if ledger else None
 
 
+def release_ledger(name: str) -> dict | None:
+    """Drop a finished run's ledger (a long-running worker would otherwise keep one per run) and return its summary."""
+    with _LEDGERS_LOCK:
+        ledger = _LEDGERS.pop(name, None)
+    return ledger.summary() if ledger else None
+
+
 def classify(url: str, params: dict | None) -> str:
     """'search', 'listing' or 'single' for a metered request."""
     params = params or {}

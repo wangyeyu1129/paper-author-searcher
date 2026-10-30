@@ -32,6 +32,7 @@ from .identity import (
     MatchingConfig,
     ProfileLinkConfig,
 )
+from .service import DEFAULT_SERVICE, FILE_STORES, S3_ADDRESSING, ServiceConfig
 from .sources import (
     DEFAULT_CATALOGS,
     DEFAULT_CS_SOURCES,
@@ -67,8 +68,11 @@ __all__ = [
     'DEFAULT_PDF',
     'DEFAULT_PRECISION',
     'DEFAULT_PROFILE_LINKS',
+    'DEFAULT_SERVICE',
     'DEFAULT_SOURCES',
     'DEFAULT_STORAGE',
+    'FILE_STORES',
+    'S3_ADDRESSING',
     'AmbiguityPolicy',
     'AnchorConfig',
     'CSSourcesConfig',
@@ -89,6 +93,7 @@ __all__ = [
     'PrecisionGuardConfig',
     'ProfileLinkConfig',
     'RawMetadataPolicy',
+    'ServiceConfig',
     'SourceConfig',
     'StorageConfig',
 ]
