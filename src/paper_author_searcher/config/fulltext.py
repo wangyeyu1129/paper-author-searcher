@@ -180,6 +180,9 @@ class DownloadConfig:
     title_lines: int = 30
     maximum_extracted_characters: int = 20000
     minimum_title_words_without_doi: int = 4
+    # Public PDFs whose URL metadata could not name the paper (a repository copy, a web search hit), downloaded per
+    # paper when no bound URL confirms it. Such a file counts only if its own content shows the paper.
+    maximum_content_checks: int = 6
     # Words text extraction glues to the end of a DOI ("10.1101/2023.12.14.571777doi: bioRxiv preprint"); one is
     # dropped when it follows a digit, so the printed DOI is not mistaken for another one.
     doi_glued_labels: tuple[str, ...] = ('doi', 'http', 'https', 'www')
@@ -212,6 +215,7 @@ class DownloadConfig:
             self.title_lines,
             self.maximum_extracted_characters,
             self.minimum_title_words_without_doi,
+            self.maximum_content_checks,
             self.metadata_title_minimum_words,
             self.footer_scan_bytes,
             self.poster_minimum_edge_points,

@@ -32,7 +32,7 @@ class PDFResolver:
 
     ``requests`` is the shared public-resource scheduler the providers and validator use; when given, its
     probe statistics are reported. Build the full source set with ``composition.ServiceContainer``.
-    ``fallbacks`` are costly sources asked only for verified papers no other source found a PDF for (``_ask_fallbacks``).
+    ``fallbacks`` are costly sources asked only for verified papers no other source has a PDF for (``_ask_fallbacks``).
     """
 
     def __init__(

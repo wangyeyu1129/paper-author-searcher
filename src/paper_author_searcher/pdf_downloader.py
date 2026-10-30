@@ -25,7 +25,15 @@ from .pdf_file_validation import PDFFileValidator, validation_target
 from .pdf_identity import native_id
 from .pdf_search_status import search_satisfaction
 from .performance_diagnostics import pdf_failure_reasons
-from .status import AttemptStatus, DownloadStatus, FormatStatus, IdentityStatus, OwnershipStatus, PDFValidationStatus
+from .status import (
+    AccessStatus,
+    AttemptStatus,
+    DownloadStatus,
+    FormatStatus,
+    IdentityStatus,
+    OwnershipStatus,
+    PDFValidationStatus,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -33,6 +41,16 @@ logger = logging.getLogger(__name__)
 REVIEW_FOLDER = 'needs_review'
 QUARANTINE_FOLDER = 'quarantine'
 IDENTITY_FOLDERS = {IdentityStatus.NEEDS_REVIEW: REVIEW_FOLDER, IdentityStatus.REJECTED: QUARANTINE_FOLDER}
+# Marks a candidate no metadata ties to the paper: its file is kept only if its own content confirms the paper.
+CONTENT_ONLY = 'content_only'
+
+
+def _content_confirms(validation):
+    return (
+        validation.identity_status == IdentityStatus.VERIFIED
+        and validation.validation_status == PDFValidationStatus.VERIFIED
+        and validation.document_type not in NON_FULL_DOCUMENTS
+    )
 
 
 def paper_key(paper):
@@ -208,9 +226,27 @@ class PDFDownloader:
                     seen_urls.add(url)
         best = paper.get('best_pdf_url')
         candidates.sort(key=lambda candidate: (candidate.get('final_url') or candidate.get('url')) != best)
+        candidates += self._unbound_candidates(paper, seen_urls)
         if not candidates:
             record.download_status = DownloadStatus.SKIPPED_UNVERIFIED_URL
         return candidates
+
+    def _unbound_candidates(self, paper, seen_urls):
+        """Public PDFs that no metadata ties to the paper, tried last: only their content can (``CONTENT_ONLY``)."""
+        unbound = []
+        for candidate in paper.get('pdf_candidates') or []:
+            url = candidate.get('final_url') or candidate.get('url')
+            if (
+                candidate.get('pdf_signature_confirmed')
+                and candidate.get('access_status') == AccessStatus.PUBLICLY_ACCESSIBLE
+                and candidate.get('identity_status') == IdentityStatus.UNVERIFIED
+                and candidate.get('validation_status') == PDFValidationStatus.UNVERIFIED
+                and isinstance(url, str)
+                and url not in seen_urls
+            ):
+                seen_urls.add(url)
+                unbound.append(dict(candidate, url=url, final_url=None, **{CONTENT_ONLY: True}))
+        return unbound[: self.config.maximum_content_checks]
 
     def _reuse_existing(self, root, paper, record, entries, candidates=()):
         possible = list(entries)
@@ -315,6 +351,9 @@ class PDFDownloader:
                     raise ValueError(
                         'Downloaded file could not pass PDF structure parsing: ' + '; '.join(validation.error_details)
                     )
+                if candidate.get(CONTENT_ONLY) and not _content_confirms(validation):
+                    attempt['status'] = AttemptStatus.UNCONFIRMED_CONTENT
+                    continue
                 duplicate = self._duplicate_file(root, receipt.sha256, known_files)
                 if duplicate:
                     relative = duplicate
@@ -356,6 +395,9 @@ class PDFDownloader:
         elif rejected is not None:
             self._record_completed(record, paper, *rejected)
             record.download_status = DownloadStatus.REJECTED_CONTENT
+        elif all(candidate.get(CONTENT_ONLY) for candidate in candidates):
+            record.download_status = DownloadStatus.SKIPPED_UNVERIFIED_URL
+            record.pdf_url, record.pdf_source = None, None
         else:
             record.download_status = DownloadStatus.FAILED
             if record.format_status == FormatStatus.INVALID:

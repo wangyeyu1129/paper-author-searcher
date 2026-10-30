@@ -122,7 +122,9 @@ class FallbackStageTests(unittest.TestCase):
         self.assertEqual(fallback.find.call_count, 1)
 
     def test_the_run_limit_applies(self):
-        papers = [{'title': f'Work {index}', 'year': 2000 + index, 'ownership_status': 'verified'} for index in range(5)]
+        papers = [
+            {'title': f'Work {index}', 'year': 2000 + index, 'ownership_status': 'verified'} for index in range(5)
+        ]
         fallback, _ = self.resolve(papers, {}, maximum=2)
         self.assertEqual([call.args[0]['title'] for call in fallback.find.call_args_list], ['Work 4', 'Work 3'])
 
