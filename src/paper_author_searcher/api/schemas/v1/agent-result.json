@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://paper-author-searcher.local/schemas/v1/agent-result.json",
+  "title": "Agent result (v1)",
+  "description": "What the cold-email agent may use from one search. Cite only `papers`; never cite `withheld`.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["api_version", "search_id", "status", "usable", "researcher", "papers", "withheld", "notes"],
+  "properties": {
+    "api_version": {"const": "v1"},
+    "search_id": {"type": "string"},
+    "status": {
+      "description": "ready: papers to cite; nothing_usable: finished, but nothing passed the checks; pending: still running; needs_confirmation: a person must pick among namesakes; failed.",
+      "enum": ["ready", "nothing_usable", "pending", "needs_confirmation", "failed"]
+    },
+    "usable": {"description": "True only when `papers` is not empty.", "type": "boolean"},
+    "researcher": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requested", "identity"],
+      "properties": {
+        "requested": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {"type": ["string", "null"]},
+            "university": {"type": ["string", "null"]},
+            "department": {"type": ["string", "null"]}
+          }
+        },
+        "identity": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["confirmed", "confirmed_by", "name", "evidence"],
+              "properties": {
+                "confirmed": {"type": "boolean"},
+                "confirmed_by": {
+                  "description": "evidence: resolved from the sources; caller: a person picked it; null: unconfirmed.",
+                  "enum": ["evidence", "caller", null]
+                },
+                "name": {"type": ["string", "null"]},
+                "orcid": {"type": ["string", "null"]},
+                "author_ids": {"type": "object"},
+                "confidence": {"type": ["number", "null"]},
+                "evidence": {"type": "array", "items": {"type": "string"}}
+              }
+            }
+          ]
+        }
+      }
+    },
+    "papers": {"type": "array", "items": {"$ref": "#/$defs/paper"}},
+    "withheld": {"type": "array", "items": {"$ref": "#/$defs/withheld"}},
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "paper": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "year", "venue", "abstract", "doi", "url", "full_text", "confidence", "evidence"],
+      "properties": {
+        "id": {"type": "string"},
+        "title": {"type": "string"},
+        "year": {"type": ["integer", "null"]},
+        "venue": {"type": ["string", "null"]},
+        "authors": {"type": "array", "items": {"type": "string"}},
+        "abstract": {"type": ["string", "null"]},
+        "doi": {"type": ["string", "null"]},
+        "url": {"description": "The DOI link, when there is a DOI.", "type": ["string", "null"]},
+        "full_text": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status"],
+          "properties": {
+            "status": {"enum": ["file", "link", "none"]},
+            "url": {"type": ["string", "null"]},
+            "download": {"description": "API path of the checked PDF (status file).", "type": ["string", "null"]}
+          }
+        },
+        "confidence": {
+          "description": "high: the person's own list, a paper-level ORCID or a curated profile backs it; medium: author ID, byline and institution agree.",
+          "enum": ["high", "medium"]
+        },
+        "evidence": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "withheld": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "reason"],
+      "properties": {
+        "id": {"type": "string"},
+        "title": {"type": "string"},
+        "year": {"type": ["integer", "null"]},
+        "reason": {"enum": ["identity_unconfirmed", "ownership_unverified"]},
+        "evidence": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

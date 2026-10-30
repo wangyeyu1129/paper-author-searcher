@@ -1,0 +1,17 @@
+.git
+.venv
+.hypothesis
+**/__pycache__
+**/*.egg-info
+output
+tmp
+data
+reports
+docs
+tests
+scripts
+schemas
+deploy
+*.json
+.env
+.env.*

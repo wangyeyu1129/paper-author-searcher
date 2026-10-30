@@ -61,8 +61,11 @@ paper-search-api serve --port 8080 --workers 1 --max-cost-usd 0.5
 | `POST /v1/searches/{id}/confirmation` | 在 `needs_confirmation` 时选定一个候选 | 202，任务重新排队 |
 | `GET /v1/searches/{id}/papers/{pid}/pdf` | 下载结果中某篇论文已核对的 PDF | 200，`application/pdf` |
 | `GET /v1/searches/{id}/pdfs.zip` | 结果中所有已核对 PDF 的 zip | 200，`application/zip` |
+| `GET /v1/searches/{id}/agent` | 给 cold-email agent 的视图：可以引用的论文和被扣下的论文（见 [输出契约](agent-contract.md)） | 200 |
+| `GET /v1/ready` | 就绪检查：任务库、文件存储、worker、索引（不需要密钥） | 200 / 503 |
+| `GET /metrics` | Prometheus 指标（不需要密钥，只在内网暴露） | 200 |
 | `GET /` | 网页（加载页面不需要密钥） | 200 |
-| `GET /v1/schemas/{name}` | JSON Schema：`search-request`、`confirmation-request`、`search`、`error` | 200 |
+| `GET /v1/schemas/{name}` | JSON Schema：`search-request`、`confirmation-request`、`search`、`error`、`agent-result` | 200 |
 | `GET /v1/health` | 存活检查 | 200 |
 
 请求体上限 64 KB，超出返回 413。错误统一用 `error` schema：`{"api_version": "v1", "error": {"code", "message", "details"}}`。

@@ -30,6 +30,9 @@ class ServiceConfig:
     # (any S3-compatible store: AWS, MinIO, R2). Downloads from S3 are redirects to short-lived signed URLs.
     file_store: str = 'local'
     s3_endpoint: str = ''
+    # Where callers reach the store, if not s3_endpoint (inside compose the service uses http://minio:9000, a
+    # browser http://localhost:9000). Download links are signed for this host.
+    s3_public_endpoint: str = ''
     s3_bucket: str = ''
     s3_region: str = 'us-east-1'
     s3_prefix: str = 'paper-search/'
@@ -51,6 +54,23 @@ class ServiceConfig:
     # Index refresh (paper-search-api refresh-indexes): the dump to download and how often to rebuild.
     dblp_dump_url: str = 'https://dblp.org/xml/dblp.xml.gz'
     refresh_hours: float = 168.0
+    # Agent contract (GET /v1/searches/{id}/agent): a verified paper is 'high' confidence when one of these
+    # ownership findings backs it (the person's own list, a paper-level ORCID, a curated DBLP profile), otherwise
+    # 'medium' (author ID with matching byline and institution, verified coauthors). Needs-review papers are
+    # withheld. Each paper carries at most maximum_paper_evidence of its findings.
+    strong_ownership_evidence: tuple[str, ...] = (
+        "Listed on the researcher's own publication list",
+        "Retrieved because the researcher's own publication list names this work",
+        'Target authorship ORCID agrees with confirmed professor ORCID',
+        "Curated dblp author profile carrying the person's ORCID",
+        'Curated dblp author profile whose own affiliation record placed the person',
+    )
+    supporting_ownership_evidence: tuple[str, ...] = (
+        'Explicit target Author ID, compatible byline and paper-level institution agree',
+        'Compatible signature plus recurring independently verified coauthors',
+        'Cross-source stable work identity and confirmed source-scoped target Author IDs',
+    )
+    maximum_paper_evidence: int = 3
 
     def __post_init__(self) -> None:
         if self.file_store not in FILE_STORES:

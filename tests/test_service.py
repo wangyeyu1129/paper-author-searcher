@@ -235,6 +235,17 @@ class WorkerTests(unittest.TestCase):
         done = core.repository.get('srch_1')
         self.assertEqual((done.status, done.candidates, done.attempts), ('succeeded', CANDIDATES, 2))
 
+    def test_finished_runs_leave_no_directories_behind(self):
+        core = Core(self.directory.name, [])
+        run = core.root / 'runs' / 'srch_1' / 'search_x'
+        run.mkdir(parents=True)
+        (run / 'report.json').write_text('{}')
+        core.runner.outcomes.append(SearchOutcome(JobStatus.SUCCEEDED, result=result_with_files(), run_directory=run))
+        core.repository.create(Job('srch_1', 'k', REQUEST))
+        core.worker.run_once()
+        self.assertEqual(list((core.root / 'runs').iterdir()), [])
+        self.assertEqual(list((core.root / 'scratch').iterdir()), [])
+
     def test_a_crashing_run_fails_the_job(self):
         core = Core(self.directory.name, [RuntimeError('boom')])
         core.repository.create(Job('srch_1', 'k', REQUEST))
@@ -397,6 +408,10 @@ class S3Tests(unittest.TestCase):
                 self.end_headers()
                 self.wfile.write(data or b'')
 
+            def do_DELETE(self):
+                self.send_response(204)
+                self.end_headers()
+
             def do_HEAD(self):
                 path = self.path.split('?')[0]
                 self.send_response(200 if path in objects or path == '/papers' else 404)
@@ -415,9 +430,11 @@ class S3Tests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / 'a.pdf'
             source.write_bytes(b'%PDF s3')
+            self.assertTrue(store.create_bucket())
+            self.assertIn('/papers', objects)
             store.check()
             store.put('searches/s/papers/0.pdf', source, 'application/pdf')
-            self.assertEqual(objects, {'/papers/ps/searches/s/papers/0.pdf': b'%PDF s3'})
+            self.assertEqual(objects['/papers/ps/searches/s/papers/0.pdf'], b'%PDF s3')
             self.assertTrue(store.exists('searches/s/papers/0.pdf'))
             self.assertFalse(store.exists('searches/s/papers/1.pdf'))
             copy = Path(directory) / 'copy.pdf'
@@ -426,6 +443,10 @@ class S3Tests(unittest.TestCase):
             self.assertFalse(store.fetch('searches/s/missing.json', copy))
             located = store.locate('searches/s/papers/0.pdf', 'Paper 0.pdf')
             self.assertIn('response-content-disposition=attachment', located.url)
+            public = S3FileStore(location, 'id', 'secret', prefix='ps/', public_endpoint='https://files.example')
+            self.assertTrue(
+                public.locate('searches/s/papers/0.pdf', 'x').url.startswith('https://files.example/papers/ps/')
+            )
             self.assertIsNone(store.locate('searches/s/papers/1.pdf', 'x'))
 
     def test_the_store_needs_credentials(self):
@@ -592,6 +613,22 @@ class RunnerOutcomeTests(unittest.TestCase):
             outcome = self.runner.outcome(self.job, report, cost_usd=0.02)
         self.assertEqual((outcome.status, list(outcome.files), outcome.cost_usd), ('succeeded', ['0'], 0.02))
         self.assertEqual(outcome.result['papers'][0]['full_text']['download'], '/0')
+
+    def test_indexes_not_built_yet_are_left_out(self):
+        with tempfile.TemporaryDirectory() as directory:
+            built = Path(directory) / 'dblp.sqlite'
+            built.write_text('index')
+            settings = Settings.load(
+                environ={
+                    'PAPER_SEARCH__DBLP_DUMP__INDEX_PATH': str(built),
+                    'PAPER_SEARCH__CATALOGS__STORE_PATH': str(Path(directory) / 'catalogs.sqlite'),
+                }
+            )
+            with self.assertLogs('paper_author_searcher.service.runner', 'WARNING'):
+                usable = WorkflowRunner.available(settings)
+        self.assertEqual((usable.dblp_dump.index_path, usable.catalogs.store_path), (str(built), ''))
+        plain = Settings()
+        self.assertIs(WorkflowRunner.available(plain), plain)
 
     def test_requests_become_queries(self):
         query = query_from_request(dict(REQUEST, hints={'orcid': '0000-0002-1825-0097', 'profile_urls': ['https://p']}))

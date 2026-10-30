@@ -25,7 +25,7 @@ from pathlib import Path
 from typing import Any
 
 from paper_author_searcher.logging_config import add_logging_arguments, configure_from_arguments
-from paper_author_searcher.service.assembly import Deployment, assemble
+from paper_author_searcher.service.assembly import Deployment, assemble, file_store
 from paper_author_searcher.service.indexes import IndexRefresher, refresh_forever
 from paper_author_searcher.settings import Settings, add_settings_argument, load_settings
 
@@ -182,6 +182,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     create.add_argument('--name', required=True)
     revoke = commands.add_parser('revoke-key', help='Revoke an API key by its ID')
     revoke.add_argument('key_id')
+    commands.add_parser('create-bucket', help='Create the S3 bucket of service.file_store = s3 (if missing)')
     refresh = commands.add_parser('refresh-indexes', help='Download and rebuild the DBLP index and catalogs')
     refresh.add_argument('--only', choices=('dblp', 'catalogs'), action='append', help='Refresh only this index')
     refresh.add_argument('--every-hours', type=float, help='Keep running and refresh this often')
@@ -213,6 +214,10 @@ def main(argv: Sequence[str] | None = None) -> int:
             return 1
         keys.save(keys_path(settings))
         print(f'Revoked {args.key_id}; restart the server for it to take effect')
+        return 0
+    if args.command == 'create-bucket':
+        created = file_store(settings).create_bucket()
+        print('Bucket created' if created else 'Nothing to create (bucket exists, or the store is local)')
         return 0
     if args.command == 'refresh-indexes':
         which = tuple(args.only or ('dblp', 'catalogs'))

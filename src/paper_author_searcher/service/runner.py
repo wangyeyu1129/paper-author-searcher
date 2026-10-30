@@ -1,7 +1,8 @@
 """SearchRunner adapter: one search through the paper-search workflow, in a scratch run directory."""
 
+import logging
 from collections.abc import Callable
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any
 
@@ -16,6 +17,8 @@ from paper_author_searcher.workflow import load_checkpoint
 from .model import Job, JobStatus
 from .ports import Progress, SearchOutcome
 from .results import ResultView, candidates
+
+logger = logging.getLogger(__name__)
 
 
 def query_from_request(request: dict[str, Any]) -> ProfessorQuery:
@@ -69,7 +72,9 @@ class WorkflowRunner:
     def run(self, job: Job, identity_checkpoint: Path | None, progress: Progress) -> SearchOutcome:
         request = job.request
         ledger = f'service:{job.id}:{job.attempts}'
-        workflow = self.container(self.settings, self._run_options(job, ledger)).workflow(progress=progress)
+        workflow = self.container(self.available(self.settings), self._run_options(job, ledger)).workflow(
+            progress=progress
+        )
         limits = request.get('limits') or {}
         continuing = job.selection is not None and identity_checkpoint is not None
         try:
@@ -86,6 +91,20 @@ class WorkflowRunner:
         finally:
             spent = (release_ledger(ledger) or {}).get('estimated_cost_usd', 0.0)
         return self.outcome(job, report, spent)
+
+    @staticmethod
+    def available(settings: Settings) -> Settings:
+        """Settings without local indexes that are configured but not built yet: until the indexer has built them
+        (a new deployment), searches use the online sources instead of failing. Readiness can require them
+        (service.require_indexes)."""
+        changes: dict[str, Any] = {}
+        if settings.dblp_dump.index_path and not Path(settings.dblp_dump.index_path).is_file():
+            logger.warning('DBLP index %s not built yet; using the online DBLP sources', settings.dblp_dump.index_path)
+            changes['dblp_dump'] = replace(settings.dblp_dump, index_path='')
+        if settings.catalogs.store_path and not Path(settings.catalogs.store_path).is_file():
+            logger.warning('Catalog store %s not built yet; searching without it', settings.catalogs.store_path)
+            changes['catalogs'] = replace(settings.catalogs, store_path='')
+        return replace(settings, **changes) if changes else settings
 
     def outcome(self, job: Job, report: dict[str, Any], cost_usd: float = 0.0) -> SearchOutcome:
         directory = Path(str(report['output_directory'])) if report.get('output_directory') else None
@@ -123,8 +142,16 @@ class WorkflowRunner:
                 cost_usd=cost_usd,
                 run_directory=directory,
             )
-        view = ResultView(lambda paper_id: self.download_link(job.id, paper_id))
-        result = view.build(report, bool(job.request.get('include_needs_review')))
+        # The whole result is kept (needs-review papers included): the agent view lists what it withholds, and
+        # the search view drops them unless the request asked for them.
+        service = self.settings.service
+        view = ResultView(
+            lambda paper_id: self.download_link(job.id, paper_id),
+            service.strong_ownership_evidence,
+            service.supporting_ownership_evidence,
+            service.maximum_paper_evidence,
+        )
+        result = view.build(report)
         files = {}
         for paper in result['papers']:
             for edition in [paper, *(paper.get('editions') or [])]:

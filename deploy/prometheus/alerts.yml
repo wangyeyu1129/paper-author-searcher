@@ -1,0 +1,55 @@
+groups:
+  - name: paper-search
+    rules:
+      - alert: PaperSearchApiDown
+        expr: up{job="paper-search"} == 0
+        for: 2m
+        labels: {severity: critical}
+        annotations:
+          summary: The search API does not answer /metrics.
+
+      - alert: PaperSearchNoWorkers
+        expr: paper_search_workers_alive == 0
+        for: 5m
+        labels: {severity: critical}
+        annotations:
+          summary: No worker has reported for 5 minutes; searches are not running.
+
+      - alert: PaperSearchQueueStuck
+        expr: paper_search_queue_oldest_seconds > 1800
+        for: 10m
+        labels: {severity: warning}
+        annotations:
+          summary: A search has waited over 30 minutes to start; add workers (docker compose up --scale worker=N).
+
+      - alert: PaperSearchFailures
+        expr: |
+          sum(increase(paper_search_job_runs_finished_total{status="failed"}[1h]))
+            / clamp_min(sum(increase(paper_search_job_runs_finished_total[1h])), 1) > 0.25
+          and sum(increase(paper_search_job_runs_finished_total[1h])) >= 4
+        for: 15m
+        labels: {severity: warning}
+        annotations:
+          summary: Over a quarter of searches failed in the last hour; check the worker logs and source outages.
+
+      - alert: PaperSearchServerErrors
+        expr: sum(rate(paper_search_http_requests_total{code=~"5.."}[5m])) > 0.05
+        for: 10m
+        labels: {severity: warning}
+        annotations:
+          summary: The API keeps answering with server errors.
+
+      - alert: PaperSearchSlowSearches
+        expr: |
+          increase(paper_search_job_run_seconds_total{status="succeeded"}[6h])
+            / clamp_min(increase(paper_search_job_runs_finished_total{status="succeeded"}[6h]), 1) > 3600
+        for: 30m
+        labels: {severity: info}
+        annotations:
+          summary: Searches average over an hour; sources may be throttling.
+
+      - alert: PaperSearchSpend
+        expr: increase(paper_search_cost_usd_total[24h]) > 0.9
+        labels: {severity: warning}
+        annotations:
+          summary: Metered-API spend in the last day is near OpenAlex's free daily quota ($1).
