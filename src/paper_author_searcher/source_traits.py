@@ -11,6 +11,8 @@ class SourceTraits:
     case_insensitive_paper_ids: bool = False
     # Paper IDs name the same work across every record of this source, so they prove two records are duplicates.
     shared_paper_namespace: str | None = None
+    # The research field every record of this source is in (named as OpenAlex's topics name it).
+    implied_field: str | None = None
 
 
 OPENALEX = 'openalex'
@@ -20,7 +22,7 @@ ARXIV = 'arxiv'
 
 SOURCE_TRAITS: dict[str, SourceTraits] = {
     OPENALEX: SourceTraits(url_shaped_ids=True, case_insensitive_paper_ids=True),
-    DBLP: SourceTraits(shared_paper_namespace=DBLP),
+    DBLP: SourceTraits(shared_paper_namespace=DBLP, implied_field='Computer Science'),
 }
 NO_TRAITS = SourceTraits()
 

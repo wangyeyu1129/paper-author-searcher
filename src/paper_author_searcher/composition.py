@@ -31,7 +31,9 @@ from .identity_discovery import (
     PageRanker,
     WebPageSearch,
 )
+from .institution_names import InstitutionNames
 from .listed_works import ListedWorkRetriever
+from .name_rarity import NameRarity
 from .orcid_affiliations import OrcidAffiliations
 from .pacing import Pacer, RequestPacer
 from .paper_collector import NameSearch, PaperCollector
@@ -43,7 +45,7 @@ from .pdf_public_pages import PublicPagePDFProvider
 from .pdf_resolver import PDFResolver
 from .pdf_resource_requests import PublicResourceRequests
 from .pdf_validation import PDFURLValidator
-from .precision_guards import DepartmentMatcher, PrecisionGuard
+from .precision_guards import CommonNamePolicy, DepartmentMatcher, PrecisionGuard
 from .profile_links import ProfileLinkParser
 from .progress import ProgressReporter
 from .publication_extraction import (
@@ -344,7 +346,26 @@ class ServiceContainer:
 
     @cached_property
     def ownership_validator(self) -> PaperOwnershipValidator:
-        return PaperOwnershipValidator(self.settings.ownership, self.precision_guard)
+        return PaperOwnershipValidator(self.settings.ownership, self.precision_guard, self.name_rarity)
+
+    @cached_property
+    def institution_names(self) -> InstitutionNames:
+        settings = self.settings
+        return InstitutionNames(
+            self.http_client, settings.sources.openalex_url, settings.credentials.openalex_api_key, settings.matching
+        )
+
+    @cached_property
+    def name_rarity(self) -> NameRarity:
+        settings = self.settings
+        names = CommonNamePolicy.from_config(settings.precision)
+        return NameRarity(
+            self.http_client,
+            settings.sources.openalex_url,
+            settings.credentials.openalex_api_key,
+            lambda name: names.collides_easily(name, settings.precision.collision_given_name_letters),
+            settings.ownership.rare_name_minimum_share,
+        )
 
     @cached_property
     def collector(self) -> PaperCollector:
@@ -448,6 +469,7 @@ class ServiceContainer:
             collection_config=self.collection_config,
             matching_config=self.settings.matching,
             storage=self.settings.storage,
+            query_expander=self.institution_names.expand,
         )
 
 

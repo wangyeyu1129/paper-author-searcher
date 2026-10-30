@@ -9,6 +9,7 @@ from .models import AnchorEvidence
 from .paper_authorship import byline_forms, canonical_author_id, signature_names
 from .paper_deduplication import author_signatures_match, duplicate_evidence
 from .precision_guards import GuardContext, PrecisionGuard
+from .source_traits import OPENALEX, traits_of
 from .status import AnchorKind, OwnershipStatus
 
 FOREIGN_FRAGMENT = (
@@ -17,18 +18,30 @@ FOREIGN_FRAGMENT = (
 )
 
 
+RARITY_SOURCE = OPENALEX
+RARE_NAME_EVIDENCE = 'Explicit target Author ID and compatible byline under a name no other author holds in the source'
 LISTED_CLAIM = "Listed on the researcher's own publication list (homepage or supplied ORCID) with a compatible byline"
+
+
+def record_fields(record):
+    """The research fields a record states: OpenAlex's topic field, or what its source only covers."""
+    topic = (record.raw_metadata or {}).get('primary_topic') if isinstance(record.raw_metadata, dict) else None
+    field = ((topic or {}).get('field') or {}).get('display_name')
+    implied = traits_of(record.source).implied_field
+    return {value for value in (field, implied) if value}
 
 
 class PaperOwnershipValidator:
     """``validate`` prepares a per-identity precision-guard context for the duration of the call; one instance
     validates one identity at a time."""
 
-    def __init__(self, config=DEFAULT_OWNERSHIP, guard: PrecisionGuard | None = None):
+    def __init__(self, config=DEFAULT_OWNERSHIP, guard: PrecisionGuard | None = None, name_rarity=None):
         self.config = config
         # Optional stricter evidence for common names (precision_guards); without it every rule is the ordinary one.
         self.guard = guard
         self._guard: GuardContext = GuardContext()
+        self.name_rarity = name_rarity
+        self._rare_name = False
 
     @staticmethod
     def _selected_ids(profile, source):
@@ -332,6 +345,8 @@ class PaperOwnershipValidator:
 
     def validate(self, papers, profile):
         self._guard = self.guard.prepare(papers, profile) if self.guard else GuardContext()
+        own_ids = self._selected_ids(profile, RARITY_SOURCE)
+        self._rare_name = bool(self.name_rarity and own_ids and self.name_rarity.rare(profile.name, own_ids))
         try:
             return self._validate(papers, profile)
         finally:
@@ -361,7 +376,55 @@ class PaperOwnershipValidator:
                         + ', '.join(sorted(overlap))
                     )
             self._aggregate(paper)
+        self._verify_rare_name_papers(papers, profile)
         return papers
+
+    def _verify_rare_name_papers(self, papers, profile):
+        """Under a rare name, papers under the person's author ID in fields their proven papers are in.
+
+        A rare name is not enough: a source may merge two people into one ID (MIT economist Christian Wolf's holds a
+        robotics researcher's papers too), and then nobody else holds the name. The other person's papers show in
+        another field. Records without a real author ID (found by a name search) never qualify.
+        """
+        if not self._rare_name:
+            return
+        fields = self._proven_fields(papers)
+        for paper in papers:
+            if {record.ownership_status for record in paper.records} & {OwnershipStatus.REJECTED}:
+                continue
+            paper_fields = {field for record in paper.records for field in record_fields(record)}
+            if not paper_fields & fields:
+                continue
+            for record in paper.records:
+                if record.ownership_status == OwnershipStatus.NEEDS_REVIEW and self._rare_name_eligible(
+                    record, profile
+                ):
+                    record.ownership_status = OwnershipStatus.VERIFIED
+                    record.ownership_evidence.append(RARE_NAME_EVIDENCE)
+            self._aggregate(paper)
+
+    def _proven_fields(self, papers):
+        """Fields holding a real share of the papers verified so far; too few of them prove nothing."""
+        counts: typing.Counter[str] = Counter()
+        for paper in papers:
+            if any(record.ownership_status == OwnershipStatus.VERIFIED for record in paper.records):
+                counts.update({field for record in paper.records for field in record_fields(record)})
+        total = sum(counts.values())
+        if total < self.config.rare_name_minimum_proven_papers:
+            return set()
+        return {field for field, count in counts.items() if count / total >= self.config.rare_name_minimum_field_share}
+
+    def _rare_name_eligible(self, record, profile):
+        details = self._target_details(record, profile)
+        return (
+            any(author.get('author_id') for author in details)
+            and self._identity_eligible(record, profile)
+            and self._compatible_signature(record, profile)
+            and not self._guard.foreign(record)
+            and not self._guard.contradicted(record, details)
+            and not self._coauthor_blockers(record)
+            and not self._non_publication_reasons(record)
+        )
 
     def _listed_claim(self, record, profile):
         """Evidence that the person's own list (homepage, supplied ORCID) names this work with their byline."""

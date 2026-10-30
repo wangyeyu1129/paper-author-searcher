@@ -99,6 +99,7 @@ class ServiceConfig:
         'Explicit target Author ID, compatible byline and paper-level institution agree',
         'Compatible signature plus recurring independently verified coauthors',
         'Cross-source stable work identity and confirmed source-scoped target Author IDs',
+        'Explicit target Author ID and compatible byline under a name no other author holds in the source',
     )
     maximum_paper_evidence: int = 3
 

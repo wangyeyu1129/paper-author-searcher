@@ -69,6 +69,12 @@ DEFAULT_COLLECTION = CollectionConfig()
 
 @dataclass(frozen=True)
 class OwnershipConfig:
+    # A name is rare when the person's own author IDs hold at least this share of the works under that exact name.
+    rare_name_minimum_share: float = 0.9
+    # Papers it frees must be in a field holding this share of the person's proven papers, of which at least this
+    # many must carry a field.
+    rare_name_minimum_field_share: float = 0.1
+    rare_name_minimum_proven_papers: int = 3
     name_similarity: float = 0.9
     incompatible_name: float = 0.5
     minimum_shared_coauthors: int = 1
