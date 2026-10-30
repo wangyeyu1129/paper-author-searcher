@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://paper-author-searcher.local/schemas/v1/confirmation-request.json",
+  "title": "Identity confirmation (v1)",
+  "description": "Pick one of a waiting search's candidates by one of its selections; the search then continues for that person.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["selection"],
+  "properties": {
+    "selection": {"type": "string", "minLength": 3, "maxLength": 300, "pattern": "^[a-z_]+:.+$"}
+  }
+}
