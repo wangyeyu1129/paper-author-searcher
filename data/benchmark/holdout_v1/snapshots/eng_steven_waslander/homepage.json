@@ -1,0 +1,373 @@
+{
+ "snapshot_schema_version": 1,
+ "source_url": "https://www.trailab.utias.utoronto.ca/publications",
+ "captured_at": "2026-10-30",
+ "captured_by": "Assistant transcription of the public page; pending human review",
+ "scope_note": "Public list on the page; Claude transcription, spot-checked by the assistant. Not read from this system's output.",
+ "transcription_notes": [],
+ "entries": [
+  {
+   "title": "ForeSight: Multi-View Streaming Joint Object Detection and Trajectory Forecasting",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)",
+   "authors": [
+    "Sandro Papais",
+    "Letian Wang",
+    "Brian Cheong",
+    "Steven L. Waslander"
+   ]
+  },
+  {
+   "title": "OpenNav: Open-World Navigation with Multimodal Large Language Models",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+   "authors": [
+    "Mingfeng Yuan",
+    "Letian Wang",
+    "Steven L. Waslander"
+   ]
+  },
+  {
+   "title": "Large Self-Supervised Models Bridge the Gap in Domain Adaptive Object Detection",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE conference on computer vision and pattern recognition (CVPR)",
+   "authors": [
+    "Marc-Antoine Lavoie",
+    "Anas Mahmoud",
+    "Steven L. Waslander"
+   ]
+  },
+  {
+   "title": "PSA-SSL: Pose and Size-Aware Self-Supervised Learning for 3D Point Clouds",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE conference on computer vision and pattern recognition (CVPR)",
+   "authors": [
+    "Barza Nisar",
+    "Steven L. Waslander"
+   ]
+  },
+  {
+   "title": "SmartPretrain: Model-Agnostic and Dataset-Agnostic Representation Learning for Motion Prediction",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "International Conference on Learning Representations (ICLR)",
+   "authors": [
+    "Yang Zhou",
+    "Hao Shao",
+    "Letian Wang",
+    "Steven L. Waslander",
+    "Hongsheng Li",
+    "Yu Liu"
+   ]
+  },
+  {
+   "title": "DistillNeRF: Perceiving 3D Scenes from Single-Glance Images by Distilling Neural Fields and Foundation Model Features",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Advances in Neural Information Processing Systems (NeurIPS)",
+   "authors": [
+    "Letian Wang",
+    "Seung Wook Kim",
+    "Jiawei Yang",
+    "Cunjun Yu",
+    "Boris Ivanovic",
+    "Steven L. Waslander",
+    "Yue Wang",
+    "Sanja Fidler",
+    "Marco Pavone",
+    "Peter Karkus"
+   ]
+  },
+  {
+   "title": "Toward General Object-level Mapping from Sparse Views with 3D Diffusion Priors",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "8th Annual Conference on Robot Learning (CoRL)",
+   "authors": [
+    "Ziwei Liao",
+    "Binbin Xu",
+    "Steven L. Waslander"
+   ]
+  },
+  {
+   "title": "Active Pose Refinement for Textureless Shiny Objects using the Structured Light Camera",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+   "authors": [
+    "Jun Yang",
+    "Jian Yao",
+    "Steven L. Waslander"
+   ]
+  },
+  {
+   "title": "Image-to-Lidar Relational Distillation for Autonomous Driving Data",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "European Conference on Computer Vision (ECCV)",
+   "authors": [
+    "Anas Mahmoud",
+    "Ali Harakeh",
+    "Steven Waslander"
+   ]
+  },
+  {
+   "title": "JDT3D: Addressing the Gaps in LiDAR-Based Tracking-by-Attention",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "European Conference on Computer Vision (ECCV)",
+   "authors": [
+    "Brian Cheong",
+    "Jiachen Zhou",
+    "Steven Waslander"
+   ]
+  },
+  {
+   "title": "LMDrive: Closed-Loop End-to-End Driving with Large Language Models",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE conference on computer vision and pattern recognition (CVPR)",
+   "authors": [
+    "Hao Shao",
+    "Yuxuan Hu",
+    "Letian Wang",
+    "Steven L. Waslander",
+    "Yu Liu",
+    "Hongsheng Li"
+   ]
+  },
+  {
+   "title": "Multiple View Geometry Transformers for 3D Human Pose Estimation",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE conference on computer vision and pattern recognition (CVPR)",
+   "authors": [
+    "Ziwei Liao",
+    "Jialiang Zhu",
+    "Chunyu Wang",
+    "Han Hu",
+    "Steven L. Waslander"
+   ]
+  },
+  {
+   "title": "SmartRefine: A Scenario-Adaptive Refinement Framework for Efficient Motion Prediction",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE conference on computer vision and pattern recognition (CVPR)",
+   "authors": [
+    "Yang Zhou",
+    "Hao Shao",
+    "Letian Wang",
+    "Steven L. Waslander",
+    "Hongsheng Li",
+    "Yu Liu"
+   ]
+  },
+  {
+   "title": "Uncertainty-aware 3D Object-Level Mapping with Deep Shape Priors",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "International Conference on Robotics and Automation (ICRA)",
+   "authors": [
+    "Ziwei Liao",
+    "Jun Yang",
+    "Jingxing Qian",
+    "Angela P Schoellig",
+    "Steven L. Waslander"
+   ]
+  },
+  {
+   "title": "SWTrack: Multiple Hypothesis Sliding Window 3D Multi-Object Tracking",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "International Conference on Robotics and Automation (ICRA)",
+   "authors": [
+    "Sandro Papais",
+    "Robert Ren",
+    "Steven L. Waslander"
+   ]
+  },
+  {
+   "title": "UncertaintyTrack: Exploiting Detection and Localization Uncertainty in Multi-Object Tracking",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "International Conference on Robotics and Automation (ICRA)",
+   "authors": [
+    "Chang Won Lee",
+    "Steven L. Waslander"
+   ]
+  },
+  {
+   "title": "Active Pose Refinement for Textureless Shiny Objects using the Structured Light Camera",
+   "year": 2024,
+   "type": "journal_article",
+   "venue": "IEEE Sensors Journal, submitted",
+   "authors": [
+    "Jun Yang",
+    "Jian Yao",
+    "Steven L Waslander"
+   ]
+  },
+  {
+   "title": "Multi-view 3D Object Reconstruction and Uncertainty Modelling with Neural Shape Prior",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+   "authors": [
+    "Ziwei Liao",
+    "Steven L Waslander"
+   ]
+  },
+  {
+   "title": "Efficient Reinforcement Learning for Autonomous Driving with Parameterized Skills and Priors",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "Robotics: Science and Systems (RSS)",
+   "authors": [
+    "Letian Wang",
+    "Jie Liu",
+    "Hao Shao",
+    "Wenshuo Wang",
+    "Ruobing Chen",
+    "Yu Liu",
+    "Steven L Waslander"
+   ]
+  },
+  {
+   "title": "POV-SLAM: Probabilistic Object-Aware Variational SLAM in Semi-Static Environments",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "Robotics: Science and Systems (RSS)",
+   "authors": [
+    "Jingxing Qian",
+    "Veronica Chatrath",
+    "James Servos",
+    "Aaron Mavrinac",
+    "Wolfram Burgard",
+    "Steven L Waslander",
+    "Angela P Schoellig"
+   ]
+  },
+  {
+   "title": "Self-Supervised Image-to-Point Distillation via Semantically Tolerant Contrastive Loss",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE conference on computer vision and pattern recognition (CVPR)",
+   "authors": [
+    "Anas Mahmoud",
+    "Jordan SK Hu",
+    "Tianshu Kuai",
+    "Ali Harakeh",
+    "Liam Paull",
+    "Steven L Waslander"
+   ]
+  },
+  {
+   "title": "ReasonNet: End-to-End Driving with Temporal and Global Reasoning",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE conference on computer vision and pattern recognition (CVPR)",
+   "authors": [
+    "Hao Shao",
+    "Letian Wang",
+    "Ruobing Chen",
+    "Steven Waslander",
+    "Hongsheng Li",
+    "Yu Liu"
+   ]
+  },
+  {
+   "title": "ProPanDL: A Modular Architecture for Uncertainty-Aware Panoptic Segmentation",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "20th Conference on Robots and Vision (CRV). IEEE",
+   "authors": [
+    "Jacob Deery",
+    "Chang Won Lee",
+    "Steven Waslander"
+   ]
+  },
+  {
+   "title": "Gradient-based Maximally Interfered Retrieval for Domain Adaptive 3D Object Detection",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "20th Conference on Robots and Vision (CRV). IEEE",
+   "authors": [
+    "Barza Nisar",
+    "Hruday Vishal Kanna Anand",
+    "Steven L. Waslander"
+   ]
+  },
+  {
+   "title": "HyperMODEST: Self-Supervised 3D Object Detection with Confidence Score Filtering",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "20th Conference on Robots and Vision (CRV). IEEE",
+   "authors": [
+    "Jenny Xu",
+    "Steven L. Waslander"
+   ]
+  },
+  {
+   "title": "Next-Best-View Selection for Robot Eye-in-Hand Calibration",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "20th Conference on Robots and Vision (CRV). IEEE",
+   "authors": [
+    "Jun Yang",
+    "Jason Rebello",
+    "Steven L Waslander"
+   ]
+  },
+  {
+   "title": "Intertrack: Interaction transformer for 3d multi-object tracking",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "20th Conference on Robots and Vision (CRV). IEEE",
+   "authors": [
+    "J Willes",
+    "C Reading",
+    "SL Waslander"
+   ]
+  },
+  {
+   "title": "6D Pose Estimation for Textureless Objects on RGB Frames using Multi-View Optimization",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "International Conference on Robotics and Automation (ICRA)",
+   "authors": [
+    "Jun Yang",
+    "Wenjie Xue",
+    "Sahar Ghavidel",
+    "Steven L. Waslander"
+   ]
+  },
+  {
+   "title": "Estimating Regression Predictive Distributions with Sample Networks",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+   "authors": [
+    "Ali Harakeh",
+    "Jordan Hu",
+    "Naiqing Guan",
+    "Steven L. Waslander",
+    "Liam Paull"
+   ]
+  },
+  {
+   "title": "Dense Voxel Fusion for 3D Object Detection",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision",
+   "authors": [
+    "Anas Mahmoud",
+    "Steven L. Waslander"
+   ]
+  }
+ ]
+}

@@ -287,7 +287,11 @@ class DiscoveryConfig:
     tavily_url: str = 'https://api.tavily.com/search'
     exa_url: str = 'https://api.exa.ai/search'
     # Query templates; {name}, {university} and {department} are filled from the query.
-    web_queries: tuple[str, ...] = ('"{name}" {university}', '"{name}" {university} publications')
+    web_queries: tuple[str, ...] = (
+        '"{name}" {university}',
+        '"{name}" {university} publications',
+        '"{name}" lab publications list',
+    )
     maximum_pages: int = 5
     minimum_page_score: float = 0.5
     # Page ranking weights (PageRanker): each feature is 0..1 and the score is their weighted sum.

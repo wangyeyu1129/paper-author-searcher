@@ -174,6 +174,14 @@ class OrcidRegistrySearchTests(unittest.TestCase):
         unnamed, _ = self.search([registry_person(ORCID)], jobs=(('Example University', None, None),))
         self.assertIsNone(self.adopted(unnamed, department='Physics').orcid)
 
+    def test_an_uncommon_name_needs_no_agreeing_department(self):
+        step, _ = self.search([registry_person(ORCID)])
+        step.name_is_common = lambda name: False
+        self.assertEqual(self.adopted(step, department='Computer Science').orcid, ORCID)
+        step, _ = self.search([registry_person(ORCID)])
+        step.name_is_common = lambda name: True
+        self.assertIsNone(self.adopted(step, department='Computer Science').orcid)
+
     def test_the_only_compatible_person_at_the_institution_is_adopted(self):
         step, client = self.search([registry_person(ORCID)])
         found = Discovery()
@@ -373,6 +381,20 @@ class AnchorFinderIntegrationTests(unittest.TestCase):
     def test_a_supplied_page_follows_its_publication_link_on_the_same_site(self):
         page = 'https://cs.example.edu/~meilin/'
         client = Client(pages={page: PERSONAL_PAGE, page + 'publications.html': PUBLICATIONS_PAGE})
+        anchors = self.finder(client).find(query(homepage=page))
+        self.assertIn('doi:10.1000/listed', anchors.listed_works)
+
+    def test_a_redirected_page_resolves_its_links_against_where_it_was_served(self):
+        page = 'https://cs.example.edu/~meilin'
+        served = page + '/'
+        client = Client(pages={page: PERSONAL_PAGE, served + 'publications.html': PUBLICATIONS_PAGE})
+        answer = client.probe
+
+        def probe(url, *args, **kwargs):
+            response = answer(url, *args, **kwargs)
+            return replace(response, url=served) if url == page else response
+
+        client.probe = probe
         anchors = self.finder(client).find(query(homepage=page))
         self.assertIn('doi:10.1000/listed', anchors.listed_works)
 

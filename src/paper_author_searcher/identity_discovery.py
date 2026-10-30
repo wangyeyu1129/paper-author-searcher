@@ -116,6 +116,7 @@ class OrcidRegistrySearch:
         config: DiscoveryConfig = DEFAULT_DISCOVERY,
         matching: MatchingConfig = DEFAULT_MATCHING,
         department_agrees: Callable[[str, str], bool] | None = None,
+        name_is_common: Callable[[str], bool] | None = None,
         current_year: int | None = None,
     ) -> None:
         self.client, self.config, self.matching = client, config, matching
@@ -123,6 +124,8 @@ class OrcidRegistrySearch:
         self.url = self.records.base_url + '/expanded-search/'
         # (printed department, requested department) -> same unit; without one, departments are not compared.
         self.department_agrees = department_agrees
+        # Without namesakes to tell apart, a department worded differently is no reason to doubt the record.
+        self.name_is_common = name_is_common
 
     def discover(self, query: Any, found: Discovery) -> None:
         if query.orcid or found.orcid:
@@ -189,6 +192,8 @@ class OrcidRegistrySearch:
             return 'no current affiliation at the requested institution'
         wanted = getattr(query, 'department', None)
         if not wanted or not self.config.orcid_require_department or self.department_agrees is None:
+            return None
+        if self.name_is_common is not None and not self.name_is_common(query.name):
             return None
         if any(department and self.department_agrees(department, wanted) for department in departments):
             return None

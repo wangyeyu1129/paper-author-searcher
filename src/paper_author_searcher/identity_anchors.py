@@ -295,18 +295,20 @@ class ScholarlyAnchorFinder:
 
     def _read_page(self, url: str) -> list[HomepageCitation]:
         """The page's citations, plus those of the publication list or CV it links to on the same site."""
-        citations, html = self._read_citations(url)
+        citations, html, served = self._read_citations(url)
         if html is None or not self.discovery_config.follow_publication_links:
             return citations
-        for link in publication_links(html, url, self.discovery_config)[: self.discovery_config.maximum_followed_links]:
+        for link in publication_links(html, served, self.discovery_config)[
+            : self.discovery_config.maximum_followed_links
+        ]:
             try:
                 citations += self._read_citations(link)[0]
             except (SourceError, ValueError) as exc:
                 logger.debug('Publication link %s unreadable: %s', link, exc)
         return citations
 
-    def _read_citations(self, url: str) -> tuple[list[HomepageCitation], str | None]:
-        """Citations of one page, and its HTML (None for a PDF) for link following."""
+    def _read_citations(self, url: str) -> tuple[list[HomepageCitation], str | None, str]:
+        """Citations of one page, its HTML (None for a PDF) for link following, and the URL it was served from."""
         # One limit for both kinds: an HTML page's text and a PDF CV's whole body.
         limit = self.config.homepage_bytes
         response = self.client.probe(url, limit, limit, self.config.maximum_redirects)
@@ -323,7 +325,7 @@ class ScholarlyAnchorFinder:
             replace(item, pdf_links=tuple(urljoin(base, unescape(link)) for link in item.pdf_links))
             for item in citations
         ]
-        return citations, decoded[-1] if decoded else None
+        return citations, decoded[-1] if decoded else None, base
 
     def _compatible(self, query, name: str | None) -> bool:
         if not name:

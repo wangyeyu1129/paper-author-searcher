@@ -282,7 +282,14 @@ class ServiceContainer:
             steps.append(DblpProfileDiscovery(profiles, positions, ranker, settings.matching))
         if config.orcid_search:
             steps.append(
-                OrcidRegistrySearch(self.http_client, settings.sources, config, settings.matching, departments.agree)
+                OrcidRegistrySearch(
+                    self.http_client,
+                    settings.sources,
+                    config,
+                    settings.matching,
+                    departments.agree,
+                    CommonNamePolicy.from_config(settings.precision).is_common,
+                )
             )
         if config.orcid_researcher_urls:
             steps.append(OrcidResearcherUrls(self.http_client, ranker, settings.sources))

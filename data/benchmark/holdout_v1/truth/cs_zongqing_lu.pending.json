@@ -1,0 +1,3944 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "cs_zongqing_lu",
+    "dataset_id": "holdout_v1",
+    "search_input": {
+      "name": "Zongqing Lu",
+      "university": "Peking University"
+    },
+    "scope": {
+      "year_start": 2023,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-30T21:04:27.632542+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://z0ngqing.github.io/publication/",
+        "records": 68
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "cs_zongqing_lu:81821b488f72",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A Survey on Transformers in Reinforcement Learning",
+      "year": 2023,
+      "authors": [
+        "Wenzhe Li",
+        "Hao Luo",
+        "Zichuan Lin",
+        "Chongjie Zhang",
+        "Zongqing Lu",
+        "Deheng Ye"
+      ],
+      "listed_venue": "Transactions on Machine Learning Research (TMLR)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 65 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "A Survey on Transformers in Reinforcement Learning",
+          "year": 2022,
+          "authors": [
+            "Wenzhe Li",
+            "Hao Luo",
+            "Zichuan Lin",
+            "Chongjie Zhang",
+            "Zongqing Lu",
+            "Deheng Ye"
+          ]
+        },
+        {
+          "title": "A Survey on Transformers in Reinforcement Learning",
+          "year": 2024,
+          "authors": [
+            "Wenzhe Li",
+            "Hao Luo",
+            "Zichuan Lin",
+            "Chongjie Zhang",
+            "Zongqing Lu",
+            "Deheng Ye"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:c8dbfe311895",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Adaptive Learning Rates for Multi-Agent Reinforcement Learning",
+      "year": 2023,
+      "authors": [
+        "Jiechuan Jiang",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Twenty-Second International Conference on Autonomous Agents and Multiagent Systems (AAMAS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 57 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Adaptive Learning Rates for Multi-Agent Reinforcement Learning",
+          "year": 2022,
+          "authors": [
+            "Jiechuan Jiang",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Adaptive Learning Rates for Multi-Agent Reinforcement Learning",
+          "year": 2024,
+          "authors": [
+            "Jiechuan Jiang",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:6dc33e2feb3e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Bi-DexHands: Towards Human-Level Bimanual Dexterous Manipulation",
+      "year": 2023,
+      "authors": [
+        "Yuanpei Chen",
+        "Yiran Geng",
+        "Fangwei Zhong",
+        "Jiaming Ji",
+        "Jiechuang Jiang",
+        "Zongqing Lu",
+        "Hao Dong",
+        "Yaodong Yang"
+      ],
+      "listed_venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 64 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/tpami.2023.3339515"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Bi-DexHands: Towards Human-Level Bimanual Dexterous Manipulation",
+          "year": 2022,
+          "authors": [
+            "Yuanpei Chen",
+            "Yiran Geng",
+            "Fangwei Zhong",
+            "Jiaming Ji",
+            "Jiechuang Jiang",
+            "Zongqing Lu",
+            "Hao Dong",
+            "Yaodong Yang"
+          ]
+        },
+        {
+          "title": "Bi-DexHands: Towards Human-Level Bimanual Dexterous Manipulation",
+          "year": 2024,
+          "authors": [
+            "Yuanpei Chen",
+            "Yiran Geng",
+            "Fangwei Zhong",
+            "Jiaming Ji",
+            "Jiechuang Jiang",
+            "Zongqing Lu",
+            "Hao Dong",
+            "Yaodong Yang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/tpami.2023.3339515",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Bi-DexHands: Towards Human-Level Bimanual Dexterous Manipulation",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:b13e7bb8dd34",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Entity Divider with Language Grounding in Multi-Agent Reinforcement Learning",
+      "year": 2023,
+      "authors": [
+        "Ziluo Ding",
+        "Wanpeng Zhang",
+        "Junpeng Yue",
+        "Xiangjun Wang",
+        "Tiejun Huang",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Fortieth International Conference on Machine Learning (ICML)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 53 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Entity Divider with Language Grounding in Multi-Agent Reinforcement Learning",
+          "year": 2022,
+          "authors": [
+            "Ziluo Ding",
+            "Wanpeng Zhang",
+            "Junpeng Yue",
+            "Xiangjun Wang",
+            "Tiejun Huang",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Entity Divider with Language Grounding in Multi-Agent Reinforcement Learning",
+          "year": 2024,
+          "authors": [
+            "Ziluo Ding",
+            "Wanpeng Zhang",
+            "Junpeng Yue",
+            "Xiangjun Wang",
+            "Tiejun Huang",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:5028bbdb50e0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Learning from Visual Observation via Offline Pretrained State-to-Go Transformer",
+      "year": 2023,
+      "authors": [
+        "Bohan Zhou",
+        "Ke Li",
+        "Jiechuan Jiang",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Thirty-Seventh Conference on Neural Information Processing Systems (NeurIPS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 48 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/075280-2604"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Learning from Visual Observation via Offline Pretrained State-to-Go Transformer",
+          "year": 2022,
+          "authors": [
+            "Bohan Zhou",
+            "Ke Li",
+            "Jiechuan Jiang",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Learning from Visual Observation via Offline Pretrained State-to-Go Transformer",
+          "year": 2024,
+          "authors": [
+            "Bohan Zhou",
+            "Ke Li",
+            "Jiechuan Jiang",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/075280-2604",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Learning from Visual Observation via Offline Pretrained State-to-Go Transformer",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:c011caad9043",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "MetaVIM: Meta Variationally Intrinsic Motivated Reinforcement Learning for Decentralized Traffic Signal Control",
+      "year": 2023,
+      "authors": [
+        "Liwen Zhu",
+        "Peixi Peng",
+        "Zongqing Lu",
+        "Yonghong Tian"
+      ],
+      "listed_venue": "IEEE Transactions on Knowledge and Data Engineering (TKDE)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 66 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/tkde.2022.3232711"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "MetaVIM: Meta Variationally Intrinsic Motivated Reinforcement Learning for Decentralized Traffic Signal Control",
+          "year": 2022,
+          "authors": [
+            "Liwen Zhu",
+            "Peixi Peng",
+            "Zongqing Lu",
+            "Yonghong Tian"
+          ]
+        },
+        {
+          "title": "MetaVIM: Meta Variationally Intrinsic Motivated Reinforcement Learning for Decentralized Traffic Signal Control",
+          "year": 2024,
+          "authors": [
+            "Liwen Zhu",
+            "Peixi Peng",
+            "Zongqing Lu",
+            "Yonghong Tian"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/tkde.2022.3232711",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "MetaVIM: Meta Variationally Intrinsic Motivated Reinforcement Learning for Decentralized Traffic Signal Control",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:696c02b4b5cf",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "More Centralized Training, Still Decentralized Execution: Multi-Agent Conditional Policy Factorization",
+      "year": 2023,
+      "authors": [
+        "Jiangxing Wang",
+        "Deheng Ye",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Eleventh International Conference on Learning Representations (ICLR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 56 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "More Centralized Training, Still Decentralized Execution: Multi-Agent Conditional Policy Factorization",
+          "year": 2022,
+          "authors": [
+            "Jiangxing Wang",
+            "Deheng Ye",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "More Centralized Training, Still Decentralized Execution: Multi-Agent Conditional Policy Factorization",
+          "year": 2024,
+          "authors": [
+            "Jiangxing Wang",
+            "Deheng Ye",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:72203fdd0e0d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Multi-Agent Automated Machine Learning",
+      "year": 2023,
+      "authors": [
+        "Zhaozhi Wang",
+        "Kefan Su",
+        "Jian Zhang",
+        "Huizhu Jia",
+        "Qixiang Ye",
+        "Xiaodong Xie",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "IEEE / CVF Computer Vision and Pattern Recognition Conference (CVPR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 54 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Multi-Agent Automated Machine Learning",
+          "year": 2022,
+          "authors": [
+            "Zhaozhi Wang",
+            "Kefan Su",
+            "Jian Zhang",
+            "Huizhu Jia",
+            "Qixiang Ye",
+            "Xiaodong Xie",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Multi-Agent Automated Machine Learning",
+          "year": 2024,
+          "authors": [
+            "Zhaozhi Wang",
+            "Kefan Su",
+            "Jian Zhang",
+            "Huizhu Jia",
+            "Qixiang Ye",
+            "Xiaodong Xie",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:646e654856a4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Multi-Agent Language Learning: Symbolic Mapping",
+      "year": 2023,
+      "authors": [
+        "Yicheng Feng",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "61st Annual Meeting of the Association for Computational Linguistics (ACL), Findings",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 52 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2023.findings-acl.491"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Multi-Agent Language Learning: Symbolic Mapping",
+          "year": 2022,
+          "authors": [
+            "Yicheng Feng",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Multi-Agent Language Learning: Symbolic Mapping",
+          "year": 2024,
+          "authors": [
+            "Yicheng Feng",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.18653/v1/2023.findings-acl.491",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Multi-Agent Language Learning: Symbolic Mapping",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:b04703dd79d3",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Mutual-Information Regularized Multi-Agent Policy Iteration",
+      "year": 2023,
+      "authors": [
+        "Jiangxing Wang",
+        "Deheng Ye",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Thirty-Seventh Conference on Neural Information Processing Systems (NeurIPS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 49 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/075280-0118"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Mutual-Information Regularized Multi-Agent Policy Iteration",
+          "year": 2022,
+          "authors": [
+            "Jiangxing Wang",
+            "Deheng Ye",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Mutual-Information Regularized Multi-Agent Policy Iteration",
+          "year": 2024,
+          "authors": [
+            "Jiangxing Wang",
+            "Deheng Ye",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/075280-0118",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Mutual-Information Regularized Multi-Agent Policy Iteration",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:a8c5c0e200f7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Offline Decentralized Multi-Agent Reinforcement Learning",
+      "year": 2023,
+      "authors": [
+        "Jiechuan Jiang",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "26th European Conference on Artificial Intelligence (ECAI)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 51 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Offline Decentralized Multi-Agent Reinforcement Learning",
+          "year": 2022,
+          "authors": [
+            "Jiechuan Jiang",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Offline Decentralized Multi-Agent Reinforcement Learning",
+          "year": 2024,
+          "authors": [
+            "Jiechuan Jiang",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:53bd1ea71115",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Online Tuning for Offline Decentralized Multi-Agent Reinforcement Learning",
+      "year": 2023,
+      "authors": [
+        "Jiechuan Jiang",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Thirty-Seventh AAAI Conference on Artificial Intelligence (AAAI)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 58 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1609/aaai.v37i7.25973"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Online Tuning for Offline Decentralized Multi-Agent Reinforcement Learning",
+          "year": 2022,
+          "authors": [
+            "Jiechuan Jiang",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Online Tuning for Offline Decentralized Multi-Agent Reinforcement Learning",
+          "year": 2024,
+          "authors": [
+            "Jiechuan Jiang",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1609/aaai.v37i7.25973",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Online Tuning for Offline Decentralized Multi-Agent Reinforcement Learning",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:86aa46602b56",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "ReLeaPS: Reinforcement Learning-based Illumination Planning for Generalized Photometric Stereo",
+      "year": 2023,
+      "authors": [
+        "Junhoong Chan",
+        "Bohan Yu",
+        "Heng Guo",
+        "Jieji Ren",
+        "Zongqing Lu",
+        "Boxin Shi"
+      ],
+      "listed_venue": "International Conference on Computer Vision (ICCV)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 50 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/iccv51070.2023.00841"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "ReLeaPS: Reinforcement Learning-based Illumination Planning for Generalized Photometric Stereo",
+          "year": 2022,
+          "authors": [
+            "Junhoong Chan",
+            "Bohan Yu",
+            "Heng Guo",
+            "Jieji Ren",
+            "Zongqing Lu",
+            "Boxin Shi"
+          ]
+        },
+        {
+          "title": "ReLeaPS: Reinforcement Learning-based Illumination Planning for Generalized Photometric Stereo",
+          "year": 2024,
+          "authors": [
+            "Junhoong Chan",
+            "Bohan Yu",
+            "Heng Guo",
+            "Jieji Ren",
+            "Zongqing Lu",
+            "Boxin Shi"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/iccv51070.2023.00841",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "ReLeaPS : Reinforcement Learning-based Illumination Planning for Generalized Photometric Stereo",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:880e1e37f31f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Skill Reinforcement Learning and Planning for Open-World Long-Horizon Tasks",
+      "year": 2023,
+      "authors": [
+        "Haoqi Yuan",
+        "Chi Zhang",
+        "Hongcheng Wang",
+        "Feiyang Xie",
+        "Penglin Cai",
+        "Hao Dong",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "NeurIPS 2023 Workshop on Foundation Models for Decision Making",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 68 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Skill Reinforcement Learning and Planning for Open-World Long-Horizon Tasks",
+          "year": 2022,
+          "authors": [
+            "Haoqi Yuan",
+            "Chi Zhang",
+            "Hongcheng Wang",
+            "Feiyang Xie",
+            "Penglin Cai",
+            "Hao Dong",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Skill Reinforcement Learning and Planning for Open-World Long-Horizon Tasks",
+          "year": 2024,
+          "authors": [
+            "Haoqi Yuan",
+            "Chi Zhang",
+            "Hongcheng Wang",
+            "Feiyang Xie",
+            "Penglin Cai",
+            "Hao Dong",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:a6b6bab8b221",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "State Advantage Weighting for Offline RL",
+      "year": 2023,
+      "authors": [
+        "Jiafei Lyu",
+        "Aicheng Gong",
+        "Le Wan",
+        "Zongqing Lu",
+        "Xiu Li"
+      ],
+      "listed_venue": "Eleventh International Conference on Learning Representations (ICLR), Tiny Papers",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 55 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "State Advantage Weighting for Offline RL",
+          "year": 2022,
+          "authors": [
+            "Jiafei Lyu",
+            "Aicheng Gong",
+            "Le Wan",
+            "Zongqing Lu",
+            "Xiu Li"
+          ]
+        },
+        {
+          "title": "State Advantage Weighting for Offline RL",
+          "year": 2024,
+          "authors": [
+            "Jiafei Lyu",
+            "Aicheng Gong",
+            "Le Wan",
+            "Zongqing Lu",
+            "Xiu Li"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:42d2987e47db",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A Fully Decentralized Surrogate for Multi-Agent Policy Optimization",
+      "year": 2024,
+      "authors": [
+        "Kefan Su",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Transactions on Machine Learning Research (TMLR)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 63 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "A Fully Decentralized Surrogate for Multi-Agent Policy Optimization",
+          "year": 2023,
+          "authors": [
+            "Kefan Su",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "A Fully Decentralized Surrogate for Multi-Agent Policy Optimization",
+          "year": 2025,
+          "authors": [
+            "Kefan Su",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:878ff3749676",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A Novel Benchmark for Decision-Making in Uncertain and Competitive Games",
+      "year": 2024,
+      "authors": [
+        "Kefan Su",
+        "Yusen Huo",
+        "Zhilin Zhang",
+        "Shuai Dou",
+        "Chuan Yu",
+        "Jian Xu",
+        "Zongqing Lu",
+        "Bo Zheng"
+      ],
+      "listed_venue": "Thirty-Eighth Conference on Neural Information Processing Systems (NeurIPS), Datasets and Benchmarks",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 27 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "A Novel Benchmark for Decision-Making in Uncertain and Competitive Games",
+          "year": 2023,
+          "authors": [
+            "Kefan Su",
+            "Yusen Huo",
+            "Zhilin Zhang",
+            "Shuai Dou",
+            "Chuan Yu",
+            "Jian Xu",
+            "Zongqing Lu",
+            "Bo Zheng"
+          ]
+        },
+        {
+          "title": "A Novel Benchmark for Decision-Making in Uncertain and Competitive Games",
+          "year": 2025,
+          "authors": [
+            "Kefan Su",
+            "Yusen Huo",
+            "Zhilin Zhang",
+            "Shuai Dou",
+            "Chuan Yu",
+            "Jian Xu",
+            "Zongqing Lu",
+            "Bo Zheng"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:79a77305f92c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "AdaRefiner: Refining Decisions of Language Models with Adaptive Feedback",
+      "year": 2024,
+      "authors": [
+        "Wanpeng Zhang",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Annual Conference of the North American Chapter of the Association for Computational Linguistics (NAACL), Findings",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 39 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2024.findings-naacl.50"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "AdaRefiner: Refining Decisions of Language Models with Adaptive Feedback",
+          "year": 2023,
+          "authors": [
+            "Wanpeng Zhang",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "AdaRefiner: Refining Decisions of Language Models with Adaptive Feedback",
+          "year": 2025,
+          "authors": [
+            "Wanpeng Zhang",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.18653/v1/2024.findings-naacl.50",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "AdaRefiner: Refining Decisions of Language Models with Adaptive Feedback",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:806eb8787e7e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Cross-Domain Policy Adaptation by Capturing Representation Mismatch",
+      "year": 2024,
+      "authors": [
+        "Jiafei Lyu",
+        "Chenjia Bai",
+        "Jing-Wen Yang",
+        "Zongqing Lu",
+        "Xiu Li"
+      ],
+      "listed_venue": "Forty-first International Conference on Machine Learning (ICML)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 37 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Cross-Domain Policy Adaptation by Capturing Representation Mismatch",
+          "year": 2023,
+          "authors": [
+            "Jiafei Lyu",
+            "Chenjia Bai",
+            "Jing-Wen Yang",
+            "Zongqing Lu",
+            "Xiu Li"
+          ]
+        },
+        {
+          "title": "Cross-Domain Policy Adaptation by Capturing Representation Mismatch",
+          "year": 2025,
+          "authors": [
+            "Jiafei Lyu",
+            "Chenjia Bai",
+            "Jing-Wen Yang",
+            "Zongqing Lu",
+            "Xiu Li"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:2e571c8aeb73",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Language Model Adaption for Reinforcement Learning with Natural Language Action Space",
+      "year": 2024,
+      "authors": [
+        "Jiangxing Wang",
+        "Jiachen Li",
+        "Xiao Han",
+        "Deheng Ye",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Annual Meeting of the Association for Computational Linguistics",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 36 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2024.acl-long.89"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Language Model Adaption for Reinforcement Learning with Natural Language Action Space",
+          "year": 2023,
+          "authors": [
+            "Jiangxing Wang",
+            "Jiachen Li",
+            "Xiao Han",
+            "Deheng Ye",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Language Model Adaption for Reinforcement Learning with Natural Language Action Space",
+          "year": 2025,
+          "authors": [
+            "Jiangxing Wang",
+            "Jiachen Li",
+            "Xiao Han",
+            "Deheng Ye",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.18653/v1/2024.acl-long.89",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Language Model Adaption for Reinforcement Learning with Natural Language Action Space",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:e715fc8b27c6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Learning Multi-Object Positional Relationships via Emergent Communication",
+      "year": 2024,
+      "authors": [
+        "Yicheng Feng",
+        "Boshi An",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Thirty-Eighth AAAI Conference on Artificial Intelligence (AAAI)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 46 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1609/aaai.v38i16.29685"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Learning Multi-Object Positional Relationships via Emergent Communication",
+          "year": 2023,
+          "authors": [
+            "Yicheng Feng",
+            "Boshi An",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Learning Multi-Object Positional Relationships via Emergent Communication",
+          "year": 2025,
+          "authors": [
+            "Yicheng Feng",
+            "Boshi An",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1609/aaai.v38i16.29685",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Learning Multi-Object Positional Relationships via Emergent Communication",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:a17a88a7b0e8",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "LLaMA Rider: Spurring Large Language Models to Explore the Open World",
+      "year": 2024,
+      "authors": [
+        "Yicheng Feng",
+        "Yuxuan Wang",
+        "Jiazheng Liu",
+        "Sipeng Zheng",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Annual Conference of the North American Chapter of the Association for Computational Linguistics (NAACL), Findings",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 40 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2024.findings-naacl.292"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "LLaMA Rider: Spurring Large Language Models to Explore the Open World",
+          "year": 2023,
+          "authors": [
+            "Yicheng Feng",
+            "Yuxuan Wang",
+            "Jiazheng Liu",
+            "Sipeng Zheng",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "LLaMA Rider: Spurring Large Language Models to Explore the Open World",
+          "year": 2025,
+          "authors": [
+            "Yicheng Feng",
+            "Yuxuan Wang",
+            "Jiazheng Liu",
+            "Sipeng Zheng",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.18653/v1/2024.findings-naacl.292",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "LLaMA-Rider: Spurring Large Language Models to Explore the Open World",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:af11b2c05378",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Multi-Agent Alternate Q-Learning",
+      "year": 2024,
+      "authors": [
+        "Kefan Su",
+        "Siyuan Zhou",
+        "Jiechuan Jiang",
+        "Chuang Gan",
+        "Xiangjun Wang",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Twenty-Third International Conference on Autonomous Agents and Multiagent Systems (AAMAS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 44 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Multi-Agent Alternate Q-Learning",
+          "year": 2023,
+          "authors": [
+            "Kefan Su",
+            "Siyuan Zhou",
+            "Jiechuan Jiang",
+            "Chuang Gan",
+            "Xiangjun Wang",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Multi-Agent Alternate Q-Learning",
+          "year": 2025,
+          "authors": [
+            "Kefan Su",
+            "Siyuan Zhou",
+            "Jiechuan Jiang",
+            "Chuang Gan",
+            "Xiangjun Wang",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:6ddb4ace55ca",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Multi-Agent Coordination via Multi-Level Communication",
+      "year": 2024,
+      "authors": [
+        "Ziluo Ding",
+        "Zeyuan Liu",
+        "Zhirui Fang",
+        "Kefan Su",
+        "Liwen Zhu",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Thirty-Eighth Conference on Neural Information Processing Systems (NeurIPS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 28 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/079017-3763"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Multi-Agent Coordination via Multi-Level Communication",
+          "year": 2023,
+          "authors": [
+            "Ziluo Ding",
+            "Zeyuan Liu",
+            "Zhirui Fang",
+            "Kefan Su",
+            "Liwen Zhu",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Multi-Agent Coordination via Multi-Level Communication",
+          "year": 2025,
+          "authors": [
+            "Ziluo Ding",
+            "Zeyuan Liu",
+            "Zhirui Fang",
+            "Kefan Su",
+            "Liwen Zhu",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/079017-3763",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Multi-Agent Coordination via Multi-Level Communication",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:61f802a57276",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "ODRL: A Benchmark for Off-Dynamics Reinforcement Learning",
+      "year": 2024,
+      "authors": [
+        "Jiafei Lyu",
+        "Kang Xu",
+        "Jiacheng Xu",
+        "Mengbei Yan",
+        "Jing-Wen Yang",
+        "Zongzhang Zhang",
+        "Chenjia Bai",
+        "Zongqing Lu",
+        "Xiu Li"
+      ],
+      "listed_venue": "Thirty-Eighth Conference on Neural Information Processing Systems (NeurIPS), Datasets and Benchmarks",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 29 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/079017-1912"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "ODRL: A Benchmark for Off-Dynamics Reinforcement Learning",
+          "year": 2023,
+          "authors": [
+            "Jiafei Lyu",
+            "Kang Xu",
+            "Jiacheng Xu",
+            "Mengbei Yan",
+            "Jing-Wen Yang",
+            "Zongzhang Zhang",
+            "Chenjia Bai",
+            "Zongqing Lu",
+            "Xiu Li"
+          ]
+        },
+        {
+          "title": "ODRL: A Benchmark for Off-Dynamics Reinforcement Learning",
+          "year": 2025,
+          "authors": [
+            "Jiafei Lyu",
+            "Kang Xu",
+            "Jiacheng Xu",
+            "Mengbei Yan",
+            "Jing-Wen Yang",
+            "Zongzhang Zhang",
+            "Chenjia Bai",
+            "Zongqing Lu",
+            "Xiu Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/079017-1912",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "ODRL: A Benchmark for Off-Dynamics Reinforcement Learning",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:c360080864d6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Opponent Modeling based on Subgoal Inference",
+      "year": 2024,
+      "authors": [
+        "Xiaopeng Yu",
+        "Jiechuan Jiang",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Thirty-Eighth Conference on Neural Information Processing Systems (NeurIPS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 30 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/079017-1936"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Opponent Modeling based on Subgoal Inference",
+          "year": 2023,
+          "authors": [
+            "Xiaopeng Yu",
+            "Jiechuan Jiang",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Opponent Modeling based on Subgoal Inference",
+          "year": 2025,
+          "authors": [
+            "Xiaopeng Yu",
+            "Jiechuan Jiang",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/079017-1936",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Opponent Modeling based on Subgoal Inference",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:5ec3d6c21d79",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Pre-Trained Multi-Goal Transformers with Prompt Optimization for Efficient Online Adaptation",
+      "year": 2024,
+      "authors": [
+        "Haoqi Yuan",
+        "Yuhui Fu",
+        "Feiyang Xie",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Thirty-Eighth Conference on Neural Information Processing Systems (NeurIPS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 26 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/079017-1748"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Pre-Trained Multi-Goal Transformers with Prompt Optimization for Efficient Online Adaptation",
+          "year": 2023,
+          "authors": [
+            "Haoqi Yuan",
+            "Yuhui Fu",
+            "Feiyang Xie",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Pre-Trained Multi-Goal Transformers with Prompt Optimization for Efficient Online Adaptation",
+          "year": 2025,
+          "authors": [
+            "Haoqi Yuan",
+            "Yuhui Fu",
+            "Feiyang Xie",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/079017-1748",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Pre-Trained Multi-Goal Transformers with Prompt Optimization for Efficient Online Adaptation",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:766aed63cd6a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Pre-Trained Visual Dynamics Representations for Efficient Policy Learning",
+      "year": 2024,
+      "authors": [
+        "Hao Luo",
+        "Bohan Zhou",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "European Conference on Computer Vision (ECCV)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 34 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/978-3-031-73004-7_15"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Pre-Trained Visual Dynamics Representations for Efficient Policy Learning",
+          "year": 2023,
+          "authors": [
+            "Hao Luo",
+            "Bohan Zhou",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Pre-Trained Visual Dynamics Representations for Efficient Policy Learning",
+          "year": 2025,
+          "authors": [
+            "Hao Luo",
+            "Bohan Zhou",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1007/978-3-031-73004-7_15",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Pre-trained Visual Dynamics Representations for Efficient Policy Learning",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:931da120c696",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Pre-Training Goal-Based Models for Sample-Efficient Reinforcement Learning",
+      "year": 2024,
+      "authors": [
+        "Haoqi Yuan",
+        "Zhancun Mu",
+        "Feiyang Xie",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Eighth International Conference on Learning Representations (ICLR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 41 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Pre-Training Goal-Based Models for Sample-Efficient Reinforcement Learning",
+          "year": 2023,
+          "authors": [
+            "Haoqi Yuan",
+            "Zhancun Mu",
+            "Feiyang Xie",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Pre-Training Goal-Based Models for Sample-Efficient Reinforcement Learning",
+          "year": 2025,
+          "authors": [
+            "Haoqi Yuan",
+            "Zhancun Mu",
+            "Feiyang Xie",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:5b6d54f2c89c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Reinforcement Learning Friendly Vision-Language Model for Minecraft",
+      "year": 2024,
+      "authors": [
+        "Haobin Jiang",
+        "Junpeng Yue",
+        "Hao Luo",
+        "Ziluo Ding",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "European Conference on Computer Vision (ECCV)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 35 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/978-3-031-73113-6_1"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Reinforcement Learning Friendly Vision-Language Model for Minecraft",
+          "year": 2023,
+          "authors": [
+            "Haobin Jiang",
+            "Junpeng Yue",
+            "Hao Luo",
+            "Ziluo Ding",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Reinforcement Learning Friendly Vision-Language Model for Minecraft",
+          "year": 2025,
+          "authors": [
+            "Haobin Jiang",
+            "Junpeng Yue",
+            "Hao Luo",
+            "Ziluo Ding",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1007/978-3-031-73113-6_1",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Reinforcement Learning Friendly Vision-Language Model for Minecraft",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:e8ad6e5a62df",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "RL-GPT: Integrating Reinforcement Learning and Code-as-policy",
+      "year": 2024,
+      "authors": [
+        "Shaoteng Liu",
+        "Haoqi Yuan",
+        "Minda Hu",
+        "Yanwei Li",
+        "Yukang Chen",
+        "Shu Liu",
+        "Zongqing Lu",
+        "Jiaya Jia"
+      ],
+      "listed_venue": "Thirty-Eighth Conference on Neural Information Processing Systems (NeurIPS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 31 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/079017-0892"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "RL-GPT: Integrating Reinforcement Learning and Code-as-policy",
+          "year": 2023,
+          "authors": [
+            "Shaoteng Liu",
+            "Haoqi Yuan",
+            "Minda Hu",
+            "Yanwei Li",
+            "Yukang Chen",
+            "Shu Liu",
+            "Zongqing Lu",
+            "Jiaya Jia"
+          ]
+        },
+        {
+          "title": "RL-GPT: Integrating Reinforcement Learning and Code-as-policy",
+          "year": 2025,
+          "authors": [
+            "Shaoteng Liu",
+            "Haoqi Yuan",
+            "Minda Hu",
+            "Yanwei Li",
+            "Yukang Chen",
+            "Shu Liu",
+            "Zongqing Lu",
+            "Jiaya Jia"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/079017-0892",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "RL-GPT: Integrating Reinforcement Learning and Code-as-policy",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:f1ab217e5b42",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "SEABO: A Simple Search-Based Method for Offline Imitation Learning",
+      "year": 2024,
+      "authors": [
+        "Jiafei Lyu",
+        "Xiaoteng Ma",
+        "Le Wan",
+        "Runze Liu",
+        "Xiu Li",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Eighth International Conference on Learning Representations (ICLR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 42 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "SEABO: A Simple Search-Based Method for Offline Imitation Learning",
+          "year": 2023,
+          "authors": [
+            "Jiafei Lyu",
+            "Xiaoteng Ma",
+            "Le Wan",
+            "Runze Liu",
+            "Xiu Li",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "SEABO: A Simple Search-Based Method for Offline Imitation Learning",
+          "year": 2025,
+          "authors": [
+            "Jiafei Lyu",
+            "Xiaoteng Ma",
+            "Le Wan",
+            "Runze Liu",
+            "Xiu Li",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:7ad250d0331d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Settling Decentralized Multi-Agent Coordinated Exploration by Novelty Sharing",
+      "year": 2024,
+      "authors": [
+        "Haobin Jiang",
+        "Ziluo Ding",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Thirty-Eighth AAAI Conference on Artificial Intelligence (AAAI)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 47 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1609/aaai.v38i16.29693"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Settling Decentralized Multi-Agent Coordinated Exploration by Novelty Sharing",
+          "year": 2023,
+          "authors": [
+            "Haobin Jiang",
+            "Ziluo Ding",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Settling Decentralized Multi-Agent Coordinated Exploration by Novelty Sharing",
+          "year": 2025,
+          "authors": [
+            "Haobin Jiang",
+            "Ziluo Ding",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1609/aaai.v38i16.29693",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Settling Decentralized Multi-Agent Coordinated Exploration by Novelty Sharing",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:a83a012108af",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Steve-Eye: Equipping LLM-based Embodied Agents with Visual Perception in Open Worlds",
+      "year": 2024,
+      "authors": [
+        "Sipeng Zheng",
+        "Jiazheng Liu",
+        "Yicheng Feng",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Eighth International Conference on Learning Representations (ICLR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 43 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Steve-Eye: Equipping LLM-based Embodied Agents with Visual Perception in Open Worlds",
+          "year": 2023,
+          "authors": [
+            "Sipeng Zheng",
+            "Jiazheng Liu",
+            "Yicheng Feng",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Steve-Eye: Equipping LLM-based Embodied Agents with Visual Perception in Open Worlds",
+          "year": 2025,
+          "authors": [
+            "Sipeng Zheng",
+            "Jiazheng Liu",
+            "Yicheng Feng",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:20ebf8cb0bd6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Tackling Non-Stationarity in Reinforcement Learning via Causal-Origin Representation",
+      "year": 2024,
+      "authors": [
+        "Wanpeng Zhang",
+        "Yilin Li",
+        "Boyu Yang",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Forty-first International Conference on Machine Learning (ICML)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 38 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Tackling Non-Stationarity in Reinforcement Learning via Causal-Origin Representation",
+          "year": 2023,
+          "authors": [
+            "Wanpeng Zhang",
+            "Yilin Li",
+            "Boyu Yang",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Tackling Non-Stationarity in Reinforcement Learning via Causal-Origin Representation",
+          "year": 2025,
+          "authors": [
+            "Wanpeng Zhang",
+            "Yilin Li",
+            "Boyu Yang",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:04e5efa6df5a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Towards General Computer Control: A Multimodal Agent for Red Dead Redemption II as a Case Study",
+      "year": 2024,
+      "authors": [
+        "Weihao Tan",
+        "Ziluo Ding",
+        "Wentao Zhang",
+        "Boyu Li",
+        "Bohan Zhou",
+        "Junpeng Yue",
+        "Haochong Xia",
+        "Jiechuan Jiang",
+        "Longtao Zheng",
+        "Xinrun Xu",
+        "Yifei Bi",
+        "Pengjie Gu",
+        "Xinrun Wang",
+        "Börje F Karlsson",
+        "Bo An",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "ICLR 2024 Workshop on LLM Agents",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 67 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Towards General Computer Control: A Multimodal Agent for Red Dead Redemption II as a Case Study",
+          "year": 2023,
+          "authors": [
+            "Weihao Tan",
+            "Ziluo Ding",
+            "Wentao Zhang",
+            "Boyu Li",
+            "Bohan Zhou",
+            "Junpeng Yue",
+            "Haochong Xia",
+            "Jiechuan Jiang",
+            "Longtao Zheng",
+            "Xinrun Xu",
+            "Yifei Bi",
+            "Pengjie Gu",
+            "Xinrun Wang",
+            "Börje F Karlsson",
+            "Bo An",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Towards General Computer Control: A Multimodal Agent for Red Dead Redemption II as a Case Study",
+          "year": 2025,
+          "authors": [
+            "Weihao Tan",
+            "Ziluo Ding",
+            "Wentao Zhang",
+            "Boyu Li",
+            "Bohan Zhou",
+            "Junpeng Yue",
+            "Haochong Xia",
+            "Jiechuan Jiang",
+            "Longtao Zheng",
+            "Xinrun Xu",
+            "Yifei Bi",
+            "Pengjie Gu",
+            "Xinrun Wang",
+            "Börje F Karlsson",
+            "Bo An",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:dff800c19d64",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Towards Understanding How to Reduce Generalization Gap in Visual Reinforcement Learning",
+      "year": 2024,
+      "authors": [
+        "Jiafei Lyu",
+        "Le Wan",
+        "Xiu Li",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Twenty-Third International Conference on Autonomous Agents and Multiagent Systems (AAMAS), extended abstract",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 45 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.65109/vpxt6298"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Towards Understanding How to Reduce Generalization Gap in Visual Reinforcement Learning",
+          "year": 2023,
+          "authors": [
+            "Jiafei Lyu",
+            "Le Wan",
+            "Xiu Li",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Towards Understanding How to Reduce Generalization Gap in Visual Reinforcement Learning",
+          "year": 2025,
+          "authors": [
+            "Jiafei Lyu",
+            "Le Wan",
+            "Xiu Li",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.65109/vpxt6298",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Towards Understanding How to Reduce Generalization Gap in Visual Reinforcement Learning",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:f8ba1f8eaa5e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Understanding What Affects the Generalization Gap in Visual Reinforcement Learning: Theory and Empirical Evidence",
+      "year": 2024,
+      "authors": [
+        "Jiafei Lyu",
+        "Le Wan",
+        "Xiu Li",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Journal of Artificial Intelligence Research (JAIR)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 62 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1613/jair.1.16422"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Understanding What Affects the Generalization Gap in Visual Reinforcement Learning: Theory and Empirical Evidence",
+          "year": 2023,
+          "authors": [
+            "Jiafei Lyu",
+            "Le Wan",
+            "Xiu Li",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Understanding What Affects the Generalization Gap in Visual Reinforcement Learning: Theory and Empirical Evidence",
+          "year": 2025,
+          "authors": [
+            "Jiafei Lyu",
+            "Le Wan",
+            "Xiu Li",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1613/jair.1.16422",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Understanding What Affects the Generalization Gap in Visual Reinforcement Learning: Theory and Empirical Evidence",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:3666ef480af7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "UniCode: Learning a Unified Codebook for Multimodal Large Language Models",
+      "year": 2024,
+      "authors": [
+        "Sipeng Zheng",
+        "Bohan Zhou",
+        "Yicheng Feng",
+        "Ye Wang",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "European Conference on Computer Vision (ECCV)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 32 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/978-3-031-73242-3_24"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "UniCode: Learning a Unified Codebook for Multimodal Large Language Models",
+          "year": 2023,
+          "authors": [
+            "Sipeng Zheng",
+            "Bohan Zhou",
+            "Yicheng Feng",
+            "Ye Wang",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "UniCode: Learning a Unified Codebook for Multimodal Large Language Models",
+          "year": 2025,
+          "authors": [
+            "Sipeng Zheng",
+            "Bohan Zhou",
+            "Yicheng Feng",
+            "Ye Wang",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1007/978-3-031-73242-3_24",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "UniCode: Learning a Unified Codebook for Multimodal Large Language Models",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:60088b4984f8",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Visual Grounding for Object-Level Generalization in Reinforcement Learning",
+      "year": 2024,
+      "authors": [
+        "Haobin Jiang",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "European Conference on Computer Vision (ECCV)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 33 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/978-3-031-73404-5_4"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Visual Grounding for Object-Level Generalization in Reinforcement Learning",
+          "year": 2023,
+          "authors": [
+            "Haobin Jiang",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Visual Grounding for Object-Level Generalization in Reinforcement Learning",
+          "year": 2025,
+          "authors": [
+            "Haobin Jiang",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1007/978-3-031-73404-5_4",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Visual Grounding for Object-Level Generalization in Reinforcement Learning",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:9bef7f28cf1e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Best Possible Q-Learning",
+      "year": 2025,
+      "authors": [
+        "Jiechuan Jiang",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Conference on Uncertainty in Artificial Intelligence (UAI)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 12 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Best Possible Q-Learning",
+          "year": 2024,
+          "authors": [
+            "Jiechuan Jiang",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Best Possible Q-Learning",
+          "year": 2026,
+          "authors": [
+            "Jiechuan Jiang",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:360eb0b23061",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Beyond Outcomes: Transparent Assessment of LLM Reasoning in Games",
+      "year": 2025,
+      "authors": [
+        "Wenye Lin",
+        "Jonathan Roberts",
+        "Yunhan Yang",
+        "Samuel Albanie",
+        "Zongqing Lu",
+        "Kai Han"
+      ],
+      "listed_venue": "The 63rd Annual Meeting of the Association for Computational Linguistics (ACL)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 11 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Beyond Outcomes: Transparent Assessment of LLM Reasoning in Games",
+          "year": 2024,
+          "authors": [
+            "Wenye Lin",
+            "Jonathan Roberts",
+            "Yunhan Yang",
+            "Samuel Albanie",
+            "Zongqing Lu",
+            "Kai Han"
+          ]
+        },
+        {
+          "title": "Beyond Outcomes: Transparent Assessment of LLM Reasoning in Games",
+          "year": 2026,
+          "authors": [
+            "Wenye Lin",
+            "Jonathan Roberts",
+            "Yunhan Yang",
+            "Samuel Albanie",
+            "Zongqing Lu",
+            "Kai Han"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:57add6d8ee5e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Cradle: Empowering Foundation Agents towards General Computer Control",
+      "year": 2025,
+      "authors": [
+        "Weihao Tan",
+        "Wentao Zhang",
+        "Xinrun Xu",
+        "Haochong Xia",
+        "Ziluo Ding",
+        "Boyu Li",
+        "Bohan Zhou",
+        "Junpeng Yue",
+        "Jiechuan Jiang",
+        "Yewen Li",
+        "Ruyi An",
+        "Molei Qin",
+        "Chuqiao Zong",
+        "Longtao Zheng",
+        "YuJie Wu",
+        "Xiaoqiang Chai",
+        "Yifei Bi",
+        "Tianbao Xie",
+        "Pengjie Gu",
+        "Xiyun Li",
+        "Ceyao Zhang",
+        "Long Tian",
+        "Chaojie Wang",
+        "Xinrun Wang",
+        "Börje F. Karlsson",
+        "Bo An",
+        "Y. A. N. Shuicheng",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Forty-Second International Conference on Machine Learning (ICML)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 15 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Cradle: Empowering Foundation Agents towards General Computer Control",
+          "year": 2024,
+          "authors": [
+            "Weihao Tan",
+            "Wentao Zhang",
+            "Xinrun Xu",
+            "Haochong Xia",
+            "Ziluo Ding",
+            "Boyu Li",
+            "Bohan Zhou",
+            "Junpeng Yue",
+            "Jiechuan Jiang",
+            "Yewen Li",
+            "Ruyi An",
+            "Molei Qin",
+            "Chuqiao Zong",
+            "Longtao Zheng",
+            "YuJie Wu",
+            "Xiaoqiang Chai",
+            "Yifei Bi",
+            "Tianbao Xie",
+            "Pengjie Gu",
+            "Xiyun Li",
+            "Ceyao Zhang",
+            "Long Tian",
+            "Chaojie Wang",
+            "Xinrun Wang",
+            "Börje F. Karlsson",
+            "Bo An",
+            "Y. A. N. Shuicheng",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Cradle: Empowering Foundation Agents towards General Computer Control",
+          "year": 2026,
+          "authors": [
+            "Weihao Tan",
+            "Wentao Zhang",
+            "Xinrun Xu",
+            "Haochong Xia",
+            "Ziluo Ding",
+            "Boyu Li",
+            "Bohan Zhou",
+            "Junpeng Yue",
+            "Jiechuan Jiang",
+            "Yewen Li",
+            "Ruyi An",
+            "Molei Qin",
+            "Chuqiao Zong",
+            "Longtao Zheng",
+            "YuJie Wu",
+            "Xiaoqiang Chai",
+            "Yifei Bi",
+            "Tianbao Xie",
+            "Pengjie Gu",
+            "Xiyun Li",
+            "Ceyao Zhang",
+            "Long Tian",
+            "Chaojie Wang",
+            "Xinrun Wang",
+            "Börje F. Karlsson",
+            "Bo An",
+            "Y. A. N. Shuicheng",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:739e4afbf5e2",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Creative Agents: Empowering Agents with Imagination for Creative Tasks",
+      "year": 2025,
+      "authors": [
+        "Penglin Cai",
+        "Chi Zhang",
+        "Yuhui Fu",
+        "Haoqi Yuan",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Conference on Uncertainty in Artificial Intelligence (UAI)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 13 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Creative Agents: Empowering Agents with Imagination for Creative Tasks",
+          "year": 2024,
+          "authors": [
+            "Penglin Cai",
+            "Chi Zhang",
+            "Yuhui Fu",
+            "Haoqi Yuan",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Creative Agents: Empowering Agents with Imagination for Creative Tasks",
+          "year": 2026,
+          "authors": [
+            "Penglin Cai",
+            "Chi Zhang",
+            "Yuhui Fu",
+            "Haoqi Yuan",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:b36484190961",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Cross-Domain Offline Policy Adaptation with Optimal Transport and Dataset Constraint",
+      "year": 2025,
+      "authors": [
+        "Jiafei Lyu",
+        "Mengbei Yan",
+        "Zhongjian Qiao",
+        "Runze Liu",
+        "Xiaoteng Ma",
+        "Deheng Ye",
+        "Jing-Wen Yang",
+        "Zongqing Lu",
+        "Xiu Li"
+      ],
+      "listed_venue": "The Thirteenth International Conference on Learning Representations (ICLR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 20 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Cross-Domain Offline Policy Adaptation with Optimal Transport and Dataset Constraint",
+          "year": 2024,
+          "authors": [
+            "Jiafei Lyu",
+            "Mengbei Yan",
+            "Zhongjian Qiao",
+            "Runze Liu",
+            "Xiaoteng Ma",
+            "Deheng Ye",
+            "Jing-Wen Yang",
+            "Zongqing Lu",
+            "Xiu Li"
+          ]
+        },
+        {
+          "title": "Cross-Domain Offline Policy Adaptation with Optimal Transport and Dataset Constraint",
+          "year": 2026,
+          "authors": [
+            "Jiafei Lyu",
+            "Mengbei Yan",
+            "Zhongjian Qiao",
+            "Runze Liu",
+            "Xiaoteng Ma",
+            "Deheng Ye",
+            "Jing-Wen Yang",
+            "Zongqing Lu",
+            "Xiu Li"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:f42fdbd4bf0f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Cross-Embodiment Dexterous Grasping with Reinforcement Learning",
+      "year": 2025,
+      "authors": [
+        "Haoqi Yuan",
+        "Bohan Zhou",
+        "Yuhui Fu",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "The Thirteenth International Conference on Learning Representations (ICLR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 17 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Cross-Embodiment Dexterous Grasping with Reinforcement Learning",
+          "year": 2024,
+          "authors": [
+            "Haoqi Yuan",
+            "Bohan Zhou",
+            "Yuhui Fu",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Cross-Embodiment Dexterous Grasping with Reinforcement Learning",
+          "year": 2026,
+          "authors": [
+            "Haoqi Yuan",
+            "Bohan Zhou",
+            "Yuhui Fu",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:c9823877ebd3",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "CROSSER: Learning Generalizable Humanoid Locomotion Through Inverse Dynamics-Guided Cross-Simulator Adaptation",
+      "year": 2025,
+      "authors": [
+        "Zepeng Wang",
+        "Xiaochuan Shi",
+        "Ziluo Ding",
+        "Yuxuan Wang",
+        "Zhenguo Sun",
+        "Chao Ma",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "IEEE Robotics and Automation Letters",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 59 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/lra.2025.3630544"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "CROSSER: Learning Generalizable Humanoid Locomotion Through Inverse Dynamics-Guided Cross-Simulator Adaptation",
+          "year": 2024,
+          "authors": [
+            "Zepeng Wang",
+            "Xiaochuan Shi",
+            "Ziluo Ding",
+            "Yuxuan Wang",
+            "Zhenguo Sun",
+            "Chao Ma",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "CROSSER: Learning Generalizable Humanoid Locomotion Through Inverse Dynamics-Guided Cross-Simulator Adaptation",
+          "year": 2026,
+          "authors": [
+            "Zepeng Wang",
+            "Xiaochuan Shi",
+            "Ziluo Ding",
+            "Yuxuan Wang",
+            "Zhenguo Sun",
+            "Chao Ma",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/lra.2025.3630544",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "CROSSER: Learning Generalizable Humanoid Locomotion Through Inverse Dynamics-Guided Cross-Simulator Adaptation",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:ef7974e6b308",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Discrete Latent Plans via Semantic Skill Abstractions",
+      "year": 2025,
+      "authors": [
+        "Haobin Jiang",
+        "Jiangxing Wang",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "The Thirteenth International Conference on Learning Representations (ICLR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 21 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Discrete Latent Plans via Semantic Skill Abstractions",
+          "year": 2024,
+          "authors": [
+            "Haobin Jiang",
+            "Jiangxing Wang",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Discrete Latent Plans via Semantic Skill Abstractions",
+          "year": 2026,
+          "authors": [
+            "Haobin Jiang",
+            "Jiangxing Wang",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:1dc9354dde21",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Efficient Residual Learning with Mixture-of-Experts for Universal Dexterous Grasping",
+      "year": 2025,
+      "authors": [
+        "Ziye Huang",
+        "Haoqi Yuan",
+        "Yuhui Fu",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "The Thirteenth International Conference on Learning Representations (ICLR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 18 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Efficient Residual Learning with Mixture-of-Experts for Universal Dexterous Grasping",
+          "year": 2024,
+          "authors": [
+            "Ziye Huang",
+            "Haoqi Yuan",
+            "Yuhui Fu",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Efficient Residual Learning with Mixture-of-Experts for Universal Dexterous Grasping",
+          "year": 2026,
+          "authors": [
+            "Ziye Huang",
+            "Haoqi Yuan",
+            "Yuhui Fu",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:29d5b6af2f1e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "$f$-Divergence Policy Optimization in Fully Decentralized Cooperative MARL",
+      "year": 2025,
+      "authors": [
+        "Kefan Su",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Transactions on Machine Learning Research (TMLR)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 61 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "$f$-Divergence Policy Optimization in Fully Decentralized Cooperative MARL",
+          "year": 2024,
+          "authors": [
+            "Kefan Su",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "$f$-Divergence Policy Optimization in Fully Decentralized Cooperative MARL",
+          "year": 2026,
+          "authors": [
+            "Kefan Su",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:c64a5236e1e1",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "From Experts to a Generalist: Toward General Whole-Body Control for Humanoid Robots",
+      "year": 2025,
+      "authors": [
+        "Yuxuan Wang",
+        "Ming Yang",
+        "Weishuai Zeng",
+        "Yu Zhang",
+        "Xinrun Xu",
+        "Haobin Jiang",
+        "Ziluo Ding",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Thirty-Ninth Conference on Neural Information Processing Systems (NeurIPS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 1 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/085713-4941"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "From Experts to a Generalist: Toward General Whole-Body Control for Humanoid Robots",
+          "year": 2024,
+          "authors": [
+            "Yuxuan Wang",
+            "Ming Yang",
+            "Weishuai Zeng",
+            "Yu Zhang",
+            "Xinrun Xu",
+            "Haobin Jiang",
+            "Ziluo Ding",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "From Experts to a Generalist: Toward General Whole-Body Control for Humanoid Robots",
+          "year": 2026,
+          "authors": [
+            "Yuxuan Wang",
+            "Ming Yang",
+            "Weishuai Zeng",
+            "Yu Zhang",
+            "Xinrun Xu",
+            "Haobin Jiang",
+            "Ziluo Ding",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/085713-4941",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "From Experts to a Generalist: Toward General Whole-Body Control for Humanoid Robots",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:87adcf8ecb7d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "From Pixels to Tokens: Byte-Pair Encoding on Quantized Visual Modalities",
+      "year": 2025,
+      "authors": [
+        "Wanpeng Zhang",
+        "Zilong Xie",
+        "Yicheng Feng",
+        "Yijiang Li",
+        "Xingrun Xing",
+        "Sipeng Zheng",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "The Thirteenth International Conference on Learning Representations (ICLR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 19 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "From Pixels to Tokens: Byte-Pair Encoding on Quantized Visual Modalities",
+          "year": 2024,
+          "authors": [
+            "Wanpeng Zhang",
+            "Zilong Xie",
+            "Yicheng Feng",
+            "Yijiang Li",
+            "Xingrun Xing",
+            "Sipeng Zheng",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "From Pixels to Tokens: Byte-Pair Encoding on Quantized Visual Modalities",
+          "year": 2026,
+          "authors": [
+            "Wanpeng Zhang",
+            "Zilong Xie",
+            "Yicheng Feng",
+            "Yijiang Li",
+            "Xingrun Xing",
+            "Sipeng Zheng",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:094e9d40c4c1",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "GTR: Guided Thought Reinforcement Prevents Thought Collapse in RL-based VLM Agent Training",
+      "year": 2025,
+      "authors": [
+        "Tong Wei",
+        "Yijun Yang",
+        "Junliang Xing",
+        "Yuanchun Shi",
+        "Zongqing Lu",
+        "Deheng Ye"
+      ],
+      "listed_venue": "International Conference on Computer Vision (ICCV)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 9 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/iccv51701.2025.01752"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "GTR: Guided Thought Reinforcement Prevents Thought Collapse in RL-based VLM Agent Training",
+          "year": 2024,
+          "authors": [
+            "Tong Wei",
+            "Yijun Yang",
+            "Junliang Xing",
+            "Yuanchun Shi",
+            "Zongqing Lu",
+            "Deheng Ye"
+          ]
+        },
+        {
+          "title": "GTR: Guided Thought Reinforcement Prevents Thought Collapse in RL-based VLM Agent Training",
+          "year": 2026,
+          "authors": [
+            "Tong Wei",
+            "Yijun Yang",
+            "Junliang Xing",
+            "Yuanchun Shi",
+            "Zongqing Lu",
+            "Deheng Ye"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/iccv51701.2025.01752",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "GTR: Guided Thought Reinforcement Prevents Thought Collapse in RL-Based VLM Agent Training",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:08911505d567",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Learning Video-Conditioned Policy on Unlabelled Data with Joint Embedding Predictive Transformer",
+      "year": 2025,
+      "authors": [
+        "Hao Luo",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "The Thirteenth International Conference on Learning Representations (ICLR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 22 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Learning Video-Conditioned Policy on Unlabelled Data with Joint Embedding Predictive Transformer",
+          "year": 2024,
+          "authors": [
+            "Hao Luo",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Learning Video-Conditioned Policy on Unlabelled Data with Joint Embedding Predictive Transformer",
+          "year": 2026,
+          "authors": [
+            "Hao Luo",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:78e2d17344ee",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "LLM-Based Explicit Models of Opponents for Multi-Agent Games",
+      "year": 2025,
+      "authors": [
+        "Xiaopeng Yu",
+        "Wanpeng Zhang",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Annual Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics (NAACL)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 25 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2025.naacl-long.41"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "LLM-Based Explicit Models of Opponents for Multi-Agent Games",
+          "year": 2024,
+          "authors": [
+            "Xiaopeng Yu",
+            "Wanpeng Zhang",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "LLM-Based Explicit Models of Opponents for Multi-Agent Games",
+          "year": 2026,
+          "authors": [
+            "Xiaopeng Yu",
+            "Wanpeng Zhang",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.18653/v1/2025.naacl-long.41",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "LLM-Based Explicit Models of Opponents for Multi-Agent Games",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:99f6ad37450f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "MEgoHand: Multi-Modal Egocentric Hand-Object Interaction Motion Generation",
+      "year": 2025,
+      "authors": [
+        "Bohan Zhou",
+        "Yi Zhan",
+        "Zhongbin Zhang",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Thirty-Ninth Conference on Neural Information Processing Systems (NeurIPS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 2 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "MEgoHand: Multi-Modal Egocentric Hand-Object Interaction Motion Generation",
+          "year": 2024,
+          "authors": [
+            "Bohan Zhou",
+            "Yi Zhan",
+            "Zhongbin Zhang",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "MEgoHand: Multi-Modal Egocentric Hand-Object Interaction Motion Generation",
+          "year": 2026,
+          "authors": [
+            "Bohan Zhou",
+            "Yi Zhan",
+            "Zhongbin Zhang",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:b6af7f921781",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "MLLM as Retriever: Interactively Learning Multimodal Retrieval for Embodied Agents",
+      "year": 2025,
+      "authors": [
+        "Junpeng Yue",
+        "Xinrun Xu",
+        "Börje F. Karlsson",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "The Thirteenth International Conference on Learning Representations (ICLR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 23 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "MLLM as Retriever: Interactively Learning Multimodal Retrieval for Embodied Agents",
+          "year": 2024,
+          "authors": [
+            "Junpeng Yue",
+            "Xinrun Xu",
+            "Börje F. Karlsson",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "MLLM as Retriever: Interactively Learning Multimodal Retrieval for Embodied Agents",
+          "year": 2026,
+          "authors": [
+            "Junpeng Yue",
+            "Xinrun Xu",
+            "Börje F. Karlsson",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:b91bfe8b916e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "MotionCtrl: A Real-Time Controllable Vision-Language-Motion Model",
+      "year": 2025,
+      "authors": [
+        "Bin Cao",
+        "Sipeng Zheng",
+        "Ye Wang",
+        "Lujie Xia",
+        "Qianshan Wei",
+        "Qin Jin",
+        "Jing Liu",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "International Conference on Computer Vision (ICCV)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 6 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/iccv51701.2025.01139"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "MotionCtrl: A Real-Time Controllable Vision-Language-Motion Model",
+          "year": 2024,
+          "authors": [
+            "Bin Cao",
+            "Sipeng Zheng",
+            "Ye Wang",
+            "Lujie Xia",
+            "Qianshan Wei",
+            "Qin Jin",
+            "Jing Liu",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "MotionCtrl: A Real-Time Controllable Vision-Language-Motion Model",
+          "year": 2026,
+          "authors": [
+            "Bin Cao",
+            "Sipeng Zheng",
+            "Ye Wang",
+            "Lujie Xia",
+            "Qianshan Wei",
+            "Qin Jin",
+            "Jing Liu",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/iccv51701.2025.01139",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "MotionCtrl: A Real-Time Controllable Vision-Language-Motion Model",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:704db8b1d877",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "NOLO: Navigate Only Look Once",
+      "year": 2025,
+      "authors": [
+        "Bohan Zhou",
+        "Zhongbin Zhang",
+        "Jiangxing Wang",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 10 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/iros60139.2025.11246428"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "NOLO: Navigate Only Look Once",
+          "year": 2024,
+          "authors": [
+            "Bohan Zhou",
+            "Zhongbin Zhang",
+            "Jiangxing Wang",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "NOLO: Navigate Only Look Once",
+          "year": 2026,
+          "authors": [
+            "Bohan Zhou",
+            "Zhongbin Zhang",
+            "Jiangxing Wang",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/iros60139.2025.11246428",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "NOLO: Navigate Only Look Once",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:986a9971f03e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "OpenMMEgo: Enhancing Egocentric Understanding for LMMs with Open Weights and Data",
+      "year": 2025,
+      "authors": [
+        "Hao Luo",
+        "Zihao Yue",
+        "Wanpeng Zhang",
+        "Yicheng Feng",
+        "Sipeng Zheng",
+        "Deheng Ye",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Thirty-Ninth Conference on Neural Information Processing Systems (NeurIPS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 3 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/085713-0868"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "OpenMMEgo: Enhancing Egocentric Understanding for LMMs with Open Weights and Data",
+          "year": 2024,
+          "authors": [
+            "Hao Luo",
+            "Zihao Yue",
+            "Wanpeng Zhang",
+            "Yicheng Feng",
+            "Sipeng Zheng",
+            "Deheng Ye",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "OpenMMEgo: Enhancing Egocentric Understanding for LMMs with Open Weights and Data",
+          "year": 2026,
+          "authors": [
+            "Hao Luo",
+            "Zihao Yue",
+            "Wanpeng Zhang",
+            "Yicheng Feng",
+            "Sipeng Zheng",
+            "Deheng Ye",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/085713-0868",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "OpenMMEgo: Enhancing Egocentric Understanding for LMMs with Open Weights and Data",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:23cacb959487",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Planning with Quantized Opponent Models",
+      "year": 2025,
+      "authors": [
+        "Xiaopeng Yu",
+        "Kefan Su",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Thirty-Ninth Conference on Neural Information Processing Systems (NeurIPS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 4 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/085713-0874"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Planning with Quantized Opponent Models",
+          "year": 2024,
+          "authors": [
+            "Xiaopeng Yu",
+            "Kefan Su",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Planning with Quantized Opponent Models",
+          "year": 2026,
+          "authors": [
+            "Xiaopeng Yu",
+            "Kefan Su",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/085713-0874",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Planning with Quantized Opponent Models",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:cd7b5ed74068",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Revisiting Cooperative Off-Policy Multi-Agent Reinforcement Learning",
+      "year": 2025,
+      "authors": [
+        "Yueheng Li",
+        "Guangming Xie",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Forty-Second International Conference on Machine Learning (ICML)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 16 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Revisiting Cooperative Off-Policy Multi-Agent Reinforcement Learning",
+          "year": 2024,
+          "authors": [
+            "Yueheng Li",
+            "Guangming Xie",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Revisiting Cooperative Off-Policy Multi-Agent Reinforcement Learning",
+          "year": 2026,
+          "authors": [
+            "Yueheng Li",
+            "Guangming Xie",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:d5a719bd5874",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Scaling Large Motion Models with Million-Level Human Motions",
+      "year": 2025,
+      "authors": [
+        "Ye Wang",
+        "Sipeng Zheng",
+        "Bin Cao",
+        "Qianshan Wei",
+        "Weishuai Zeng",
+        "Qin Jin",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Forty-Second International Conference on Machine Learning (ICML)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 14 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Scaling Large Motion Models with Million-Level Human Motions",
+          "year": 2024,
+          "authors": [
+            "Ye Wang",
+            "Sipeng Zheng",
+            "Bin Cao",
+            "Qianshan Wei",
+            "Weishuai Zeng",
+            "Qin Jin",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Scaling Large Motion Models with Million-Level Human Motions",
+          "year": 2026,
+          "authors": [
+            "Ye Wang",
+            "Sipeng Zheng",
+            "Bin Cao",
+            "Qianshan Wei",
+            "Weishuai Zeng",
+            "Qin Jin",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:f9a74a8d06a2",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "SELU: Self-Learning Embodied Multimodal Large Language Models in Unknown Environments",
+      "year": 2025,
+      "authors": [
+        "Boyu Li",
+        "Haobin Jiang",
+        "Ziluo Ding",
+        "Xinrun Xu",
+        "Haoran Li",
+        "Dongbin Zhao",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Transactions on Machine Learning Research (TMLR)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 60 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "SELU: Self-Learning Embodied Multimodal Large Language Models in Unknown Environments",
+          "year": 2024,
+          "authors": [
+            "Boyu Li",
+            "Haobin Jiang",
+            "Ziluo Ding",
+            "Xinrun Xu",
+            "Haoran Li",
+            "Dongbin Zhao",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "SELU: Self-Learning Embodied Multimodal Large Language Models in Unknown Environments",
+          "year": 2026,
+          "authors": [
+            "Boyu Li",
+            "Haobin Jiang",
+            "Ziluo Ding",
+            "Xinrun Xu",
+            "Haoran Li",
+            "Dongbin Zhao",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:14452a90d0a5",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Taking Notes Brings Focus? Towards Multi-Turn Multimodal Dialogue Learning",
+      "year": 2025,
+      "authors": [
+        "Jiazheng liu",
+        "Sipeng Zheng",
+        "Börje F. Karlsson",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 5 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2025.emnlp-main.1690"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Taking Notes Brings Focus? Towards Multi-Turn Multimodal Dialogue Learning",
+          "year": 2024,
+          "authors": [
+            "Jiazheng liu",
+            "Sipeng Zheng",
+            "Börje F. Karlsson",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Taking Notes Brings Focus? Towards Multi-Turn Multimodal Dialogue Learning",
+          "year": 2026,
+          "authors": [
+            "Jiazheng liu",
+            "Sipeng Zheng",
+            "Börje F. Karlsson",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.18653/v1/2025.emnlp-main.1690",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Taking Notes Brings Focus? Towards Multi-Turn Multimodal Dialogue Learning",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:557051984376",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Unified Multimodal Understanding via Byte-Pair Visual Encoding",
+      "year": 2025,
+      "authors": [
+        "Wanpeng Zhang",
+        "Yicheng Feng",
+        "Hao Luo",
+        "Yijiang Li",
+        "Zihao Yue",
+        "Sipeng Zheng",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "International Conference on Computer Vision (ICCV)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 7 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/iccv51701.2025.01206"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Unified Multimodal Understanding via Byte-Pair Visual Encoding",
+          "year": 2024,
+          "authors": [
+            "Wanpeng Zhang",
+            "Yicheng Feng",
+            "Hao Luo",
+            "Yijiang Li",
+            "Zihao Yue",
+            "Sipeng Zheng",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Unified Multimodal Understanding via Byte-Pair Visual Encoding",
+          "year": 2026,
+          "authors": [
+            "Wanpeng Zhang",
+            "Yicheng Feng",
+            "Hao Luo",
+            "Yijiang Li",
+            "Zihao Yue",
+            "Sipeng Zheng",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/iccv51701.2025.01206",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Unified Multimodal Understanding via Byte-Pair Visual Encoding",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:58448bfcb4b6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "VideoOrion: Tokenizing Object Dynamics in Videos",
+      "year": 2025,
+      "authors": [
+        "Yicheng Feng",
+        "Yijiang Li",
+        "Wanpeng Zhang",
+        "Sipeng Zheng",
+        "Hao Luo",
+        "Zihao Yue",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "International Conference on Computer Vision (ICCV)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 8 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/iccv51701.2025.01897"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "VideoOrion: Tokenizing Object Dynamics in Videos",
+          "year": 2024,
+          "authors": [
+            "Yicheng Feng",
+            "Yijiang Li",
+            "Wanpeng Zhang",
+            "Sipeng Zheng",
+            "Hao Luo",
+            "Zihao Yue",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "VideoOrion: Tokenizing Object Dynamics in Videos",
+          "year": 2026,
+          "authors": [
+            "Yicheng Feng",
+            "Yijiang Li",
+            "Wanpeng Zhang",
+            "Sipeng Zheng",
+            "Hao Luo",
+            "Zihao Yue",
+            "Zongqing Lu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/iccv51701.2025.01897",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "VideoOrion: Tokenizing Object Dynamics in Videos",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_zongqing_lu:79eca35ef3a5",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Watch Less, Do More: Implicit Skill Discovery for Video-Conditioned Policy",
+      "year": 2025,
+      "authors": [
+        "Jiangxing Wang",
+        "Zongqing Lu"
+      ],
+      "listed_venue": "The Thirteenth International Conference on Learning Representations (ICLR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://z0ngqing.github.io/publication/ entry 24 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Watch Less, Do More: Implicit Skill Discovery for Video-Conditioned Policy",
+          "year": 2024,
+          "authors": [
+            "Jiangxing Wang",
+            "Zongqing Lu"
+          ]
+        },
+        {
+          "title": "Watch Less, Do More: Implicit Skill Discovery for Video-Conditioned Policy",
+          "year": 2026,
+          "authors": [
+            "Jiangxing Wang",
+            "Zongqing Lu"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

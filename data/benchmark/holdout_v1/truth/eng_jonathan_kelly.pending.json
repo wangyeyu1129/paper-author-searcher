@@ -1,0 +1,1799 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "eng_jonathan_kelly",
+    "dataset_id": "holdout_v1",
+    "search_input": {
+      "name": "Jonathan Kelly",
+      "university": "University of Toronto"
+    },
+    "scope": {
+      "year_start": 2023,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-30T21:04:27.649011+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://starslab.ca/publications/",
+        "records": 31
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "eng_jonathan_kelly:9510501ac98d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "All About the Galilean Group SGal(3)",
+      "year": 2023,
+      "authors": [
+        "J. Kelly"
+      ],
+      "listed_venue": "University of Toronto, STARS-2023-001",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 22 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "All About the Galilean Group SGal(3)",
+          "year": 2022,
+          "authors": [
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "All About the Galilean Group SGal(3)",
+          "year": 2024,
+          "authors": [
+            "J. Kelly"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:389cb55ceeed",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "aUToLights: A Robust Multi-Camera Traffic Light Detection and Tracking System",
+      "year": 2023,
+      "authors": [
+        "S. Wu",
+        "N. Amenta",
+        "J. Zhou",
+        "S. Papais",
+        "J. Kelly"
+      ],
+      "listed_venue": "Proceedings of the Conference on Robots and Vision (CRV)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 30 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/crv60082.2023.00019"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "aUToLights: A Robust Multi-Camera Traffic Light Detection and Tracking System",
+          "year": 2022,
+          "authors": [
+            "S. Wu",
+            "N. Amenta",
+            "J. Zhou",
+            "S. Papais",
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "aUToLights: A Robust Multi-Camera Traffic Light Detection and Tracking System",
+          "year": 2024,
+          "authors": [
+            "S. Wu",
+            "N. Amenta",
+            "J. Zhou",
+            "S. Papais",
+            "J. Kelly"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/crv60082.2023.00019",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "aUToLights: A Robust Multi-Camera Traffic Light Detection and Tracking System",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:4ef48ea028c0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "CIDGIKc: Distance-Geometric Inverse Kinematics for Continuum Robots",
+      "year": 2023,
+      "authors": [
+        "H. J. Zhang",
+        "M. Giamou",
+        "F. Mari'c",
+        "J. Kelly",
+        "J. Burgner-Kahrs"
+      ],
+      "listed_venue": "IEEE Robotics and Automation Letters",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 31 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/lra.2023.3322078"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "CIDGIKc: Distance-Geometric Inverse Kinematics for Continuum Robots",
+          "year": 2022,
+          "authors": [
+            "H. J. Zhang",
+            "M. Giamou",
+            "F. Mari'c",
+            "J. Kelly",
+            "J. Burgner-Kahrs"
+          ]
+        },
+        {
+          "title": "CIDGIKc: Distance-Geometric Inverse Kinematics for Continuum Robots",
+          "year": 2024,
+          "authors": [
+            "H. J. Zhang",
+            "M. Giamou",
+            "F. Mari'c",
+            "J. Kelly",
+            "J. Burgner-Kahrs"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/lra.2023.3322078",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "CIDGIKc: Distance-Geometric Inverse Kinematics for Continuum Robots",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:94565b7c53b7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Contrastive Learning for Self-Supervised Pre-Training of Point Cloud Segmentation Networks With Image Data",
+      "year": 2023,
+      "authors": [
+        "A. Janda",
+        "B. Wagstaff",
+        "E. G. Ng",
+        "J. Kelly"
+      ],
+      "listed_venue": "Proceedings of the Conference on Robots and Vision (CRV)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 20 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/crv60082.2023.00026"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Contrastive Learning for Self-Supervised Pre-Training of Point Cloud Segmentation Networks With Image Data",
+          "year": 2022,
+          "authors": [
+            "A. Janda",
+            "B. Wagstaff",
+            "E. G. Ng",
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "Contrastive Learning for Self-Supervised Pre-Training of Point Cloud Segmentation Networks With Image Data",
+          "year": 2024,
+          "authors": [
+            "A. Janda",
+            "B. Wagstaff",
+            "E. G. Ng",
+            "J. Kelly"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/crv60082.2023.00026",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Contrastive Learning for Self-Supervised Pre-Training of Point Cloud Segmentation Networks With Image Data",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:6df3c4f84f0d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Euclidean Equivariant Models for Generative Graphical Inverse Kinematics",
+      "year": 2023,
+      "authors": [
+        "O. Limoyo",
+        "F. Mari'c",
+        "M. Giamou",
+        "P. Alexson",
+        "I. Petrovi'c",
+        "J. Kelly"
+      ],
+      "listed_venue": "Proceedings of the Robotics: Science and Systems (RSS) Workshop on Symmetries in Robot Learning",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 24 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Euclidean Equivariant Models for Generative Graphical Inverse Kinematics",
+          "year": 2022,
+          "authors": [
+            "O. Limoyo",
+            "F. Mari'c",
+            "M. Giamou",
+            "P. Alexson",
+            "I. Petrovi'c",
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "Euclidean Equivariant Models for Generative Graphical Inverse Kinematics",
+          "year": 2024,
+          "authors": [
+            "O. Limoyo",
+            "F. Mari'c",
+            "M. Giamou",
+            "P. Alexson",
+            "I. Petrovi'c",
+            "J. Kelly"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:32a638314c1d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Extrinsic Calibration of 2D Millimetre-Wavelength Radar Pairs Using Ego-Velocity Estimates",
+      "year": 2023,
+      "authors": [
+        "Q. Cheng",
+        "E. Wise",
+        "J. Kelly"
+      ],
+      "listed_venue": "Proceedings of the IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 19 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/aim46323.2023.10196187"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Extrinsic Calibration of 2D Millimetre-Wavelength Radar Pairs Using Ego-Velocity Estimates",
+          "year": 2022,
+          "authors": [
+            "Q. Cheng",
+            "E. Wise",
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "Extrinsic Calibration of 2D Millimetre-Wavelength Radar Pairs Using Ego-Velocity Estimates",
+          "year": 2024,
+          "authors": [
+            "Q. Cheng",
+            "E. Wise",
+            "J. Kelly"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/aim46323.2023.10196187",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Extrinsic Calibration of 2D Millimetre-Wavelength Radar Pairs Using Ego-Velocity Estimates",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:f20480117c09",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Learning from Guided Play: Improving Exploration for Adversarial Imitation Learning with Simple Auxiliary Tasks",
+      "year": 2023,
+      "authors": [
+        "T. Ablett",
+        "B. Chan",
+        "J. Kelly"
+      ],
+      "listed_venue": "IEEE Robotics and Automation Letters",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 18 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/lra.2023.3236882"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Learning from Guided Play: Improving Exploration for Adversarial Imitation Learning with Simple Auxiliary Tasks",
+          "year": 2022,
+          "authors": [
+            "T. Ablett",
+            "B. Chan",
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "Learning from Guided Play: Improving Exploration for Adversarial Imitation Learning with Simple Auxiliary Tasks",
+          "year": 2024,
+          "authors": [
+            "T. Ablett",
+            "B. Chan",
+            "J. Kelly"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/lra.2023.3236882",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Learning From Guided Play: Improving Exploration for Adversarial Imitation Learning With Simple Auxiliary Tasks",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:537855fb3d3f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Learning Sequential Latent Variable Models from Multimodal Time Series Data",
+      "year": 2023,
+      "authors": [
+        "O. Limoyo",
+        "T. Ablett",
+        "J. Kelly"
+      ],
+      "listed_venue": "Intelligent Autonomous Systems 17",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 25 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/978-3-031-22216-0_35"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Learning Sequential Latent Variable Models from Multimodal Time Series Data",
+          "year": 2022,
+          "authors": [
+            "O. Limoyo",
+            "T. Ablett",
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "Learning Sequential Latent Variable Models from Multimodal Time Series Data",
+          "year": 2024,
+          "authors": [
+            "O. Limoyo",
+            "T. Ablett",
+            "J. Kelly"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1007/978-3-031-22216-0_35",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Learning Sequential Latent Variable Models from Multimodal Time Series Data",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:0a06a61300d5",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Living in a Material World: Learning Material Properties from Full-Waveform Flash Lidar Data for Semantic Segmentation",
+      "year": 2023,
+      "authors": [
+        "A. Janda",
+        "P. Merriaux",
+        "P. Olivier",
+        "J. Kelly"
+      ],
+      "listed_venue": "Proceedings of the Conference on Robots and Vision (CRV)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 21 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/crv60082.2023.00033"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Living in a Material World: Learning Material Properties from Full-Waveform Flash Lidar Data for Semantic Segmentation",
+          "year": 2022,
+          "authors": [
+            "A. Janda",
+            "P. Merriaux",
+            "P. Olivier",
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "Living in a Material World: Learning Material Properties from Full-Waveform Flash Lidar Data for Semantic Segmentation",
+          "year": 2024,
+          "authors": [
+            "A. Janda",
+            "P. Merriaux",
+            "P. Olivier",
+            "J. Kelly"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/crv60082.2023.00033",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Living in a Material World: Learning Material Properties from Full-Waveform Flash Lidar Data for Semantic Segmentation",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:a773a4370874",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Recovery Policies for Safe Exploration of Lunar Permanently Shadowed Regions by a Solar-Powered Rover",
+      "year": 2023,
+      "authors": [
+        "O. Lamarre",
+        "S. Malhotra",
+        "J. Kelly"
+      ],
+      "listed_venue": "Acta Astronautica",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 23 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.actaastro.2023.09.028"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Recovery Policies for Safe Exploration of Lunar Permanently Shadowed Regions by a Solar-Powered Rover",
+          "year": 2022,
+          "authors": [
+            "O. Lamarre",
+            "S. Malhotra",
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "Recovery Policies for Safe Exploration of Lunar Permanently Shadowed Regions by a Solar-Powered Rover",
+          "year": 2024,
+          "authors": [
+            "O. Lamarre",
+            "S. Malhotra",
+            "J. Kelly"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.actaastro.2023.09.028",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Recovery policies for safe exploration of lunar permanently shadowed regions by a solar-powered rover",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:ab11fd0e07fe",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Reference-guided Controllable Inpainting of Neural Radiance Fields",
+      "year": 2023,
+      "authors": [
+        "A. Mirzaei",
+        "T. Aumentado-Armstrong",
+        "M. A. Brubaker",
+        "J. Kelly",
+        "A. Levinshtein",
+        "K. G. Derpanis",
+        "I. Gilitschenski"
+      ],
+      "listed_venue": "Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 26 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/iccv51070.2023.01633"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Reference-guided Controllable Inpainting of Neural Radiance Fields",
+          "year": 2022,
+          "authors": [
+            "A. Mirzaei",
+            "T. Aumentado-Armstrong",
+            "M. A. Brubaker",
+            "J. Kelly",
+            "A. Levinshtein",
+            "K. G. Derpanis",
+            "I. Gilitschenski"
+          ]
+        },
+        {
+          "title": "Reference-guided Controllable Inpainting of Neural Radiance Fields",
+          "year": 2024,
+          "authors": [
+            "A. Mirzaei",
+            "T. Aumentado-Armstrong",
+            "M. A. Brubaker",
+            "J. Kelly",
+            "A. Levinshtein",
+            "K. G. Derpanis",
+            "I. Gilitschenski"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/iccv51070.2023.01633",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Reference-guided Controllable Inpainting of Neural Radiance Fields",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:12f3649cdf2d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Spatiotemporal Calibration of 3D Millimetre-Wavelength Radar-Camera Pairs",
+      "year": 2023,
+      "authors": [
+        "E. Wise",
+        "Q. Cheng",
+        "J. Kelly"
+      ],
+      "listed_venue": "IEEE Transactions on Robotics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 29 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Spatiotemporal Calibration of 3D Millimetre-Wavelength Radar-Camera Pairs",
+          "year": 2022,
+          "authors": [
+            "E. Wise",
+            "Q. Cheng",
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "Spatiotemporal Calibration of 3D Millimetre-Wavelength Radar-Camera Pairs",
+          "year": 2024,
+          "authors": [
+            "E. Wise",
+            "Q. Cheng",
+            "J. Kelly"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:03d52a9d8a7a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "SPIn-NeRF: Multiview Segmentation and Perceptual Inpainting with Neural Radiance Fields",
+      "year": 2023,
+      "authors": [
+        "A. Mirzaei",
+        "T. Aumentado-Armstrong",
+        "K. G. Derpanis",
+        "J. Kelly",
+        "M. A. Brubaker",
+        "I. Gilitschenski",
+        "A. Levinshtein"
+      ],
+      "listed_venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 27 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/cvpr52729.2023.01980"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "SPIn-NeRF: Multiview Segmentation and Perceptual Inpainting with Neural Radiance Fields",
+          "year": 2022,
+          "authors": [
+            "A. Mirzaei",
+            "T. Aumentado-Armstrong",
+            "K. G. Derpanis",
+            "J. Kelly",
+            "M. A. Brubaker",
+            "I. Gilitschenski",
+            "A. Levinshtein"
+          ]
+        },
+        {
+          "title": "SPIn-NeRF: Multiview Segmentation and Perceptual Inpainting with Neural Radiance Fields",
+          "year": 2024,
+          "authors": [
+            "A. Mirzaei",
+            "T. Aumentado-Armstrong",
+            "K. G. Derpanis",
+            "J. Kelly",
+            "M. A. Brubaker",
+            "I. Gilitschenski",
+            "A. Levinshtein"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/cvpr52729.2023.01980",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "SPIn-NeRF: Multiview Segmentation and Perceptual Inpainting with Neural Radiance Fields",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:130522c2fe91",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The Sum of Its Parts: Visual Part Segmentation for Inertial Parameter Identification of Manipulated Objects",
+      "year": 2023,
+      "authors": [
+        "P. Nadeau",
+        "M. Giamou",
+        "J. Kelly"
+      ],
+      "listed_venue": "Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 28 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/icra48891.2023.10160394"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "The Sum of Its Parts: Visual Part Segmentation for Inertial Parameter Identification of Manipulated Objects",
+          "year": 2022,
+          "authors": [
+            "P. Nadeau",
+            "M. Giamou",
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "The Sum of Its Parts: Visual Part Segmentation for Inertial Parameter Identification of Manipulated Objects",
+          "year": 2024,
+          "authors": [
+            "P. Nadeau",
+            "M. Giamou",
+            "J. Kelly"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/icra48891.2023.10160394",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "The Sum of Its Parts: Visual Part Segmentation for Inertial Parameter Identification of Manipulated Objects",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:da53665cf60c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Fast Reinforcement Learning without Rewards or Demonstrations via Auxiliary Task Examples",
+      "year": 2024,
+      "authors": [
+        "T. Ablett",
+        "B. Chan",
+        "J. H. Wang",
+        "J. Kelly"
+      ],
+      "listed_venue": "Proceedings of the Conference on Robot Learning (CoRL) Workshop on Mastering Robot Manipulation in a World of Abundant Data",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 11 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Fast Reinforcement Learning without Rewards or Demonstrations via Auxiliary Task Examples",
+          "year": 2023,
+          "authors": [
+            "T. Ablett",
+            "B. Chan",
+            "J. H. Wang",
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "Fast Reinforcement Learning without Rewards or Demonstrations via Auxiliary Task Examples",
+          "year": 2025,
+          "authors": [
+            "T. Ablett",
+            "B. Chan",
+            "J. H. Wang",
+            "J. Kelly"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:8af82b1df5ae",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Making Space for Time: The Special Galilean Group and Its Application to Some Robotics Problems",
+      "year": 2024,
+      "authors": [
+        "J. Kelly"
+      ],
+      "listed_venue": "Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) Workshop From Geometry to General Autonomy of Robotic Systems",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 12 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Making Space for Time: The Special Galilean Group and Its Application to Some Robotics Problems",
+          "year": 2023,
+          "authors": [
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "Making Space for Time: The Special Galilean Group and Its Application to Some Robotics Problems",
+          "year": 2025,
+          "authors": [
+            "J. Kelly"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:e233434df659",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "PhotoBot: Reference-Guided Interactive Photography via Natural Language",
+      "year": 2024,
+      "authors": [
+        "O. Limoyo",
+        "J. Li",
+        "D. Rivkin",
+        "J. Kelly",
+        "G. Dudek"
+      ],
+      "listed_venue": "Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 15 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/iros58592.2024.10801790"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "PhotoBot: Reference-Guided Interactive Photography via Natural Language",
+          "year": 2023,
+          "authors": [
+            "O. Limoyo",
+            "J. Li",
+            "D. Rivkin",
+            "J. Kelly",
+            "G. Dudek"
+          ]
+        },
+        {
+          "title": "PhotoBot: Reference-Guided Interactive Photography via Natural Language",
+          "year": 2025,
+          "authors": [
+            "O. Limoyo",
+            "J. Li",
+            "D. Rivkin",
+            "J. Kelly",
+            "G. Dudek"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/iros58592.2024.10801790",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "PhotoBot: Reference-Guided Interactive Photography via Natural Language",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:c05a202e77aa",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Reference-Guided Robotic Photography Through Natural Language Interaction",
+      "year": 2024,
+      "authors": [
+        "O. Limoyo",
+        "J. Li",
+        "D. Rivkhin",
+        "J. Kelly",
+        "G. Dudek"
+      ],
+      "listed_venue": "Proceedings of the ACM/IEEE International Conference on Human Robot Interaction (HRI) Workshop on Human-Large Language Model Interaction: The Dawn of a New Era or the End of it All?",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 16 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Reference-Guided Robotic Photography Through Natural Language Interaction",
+          "year": 2023,
+          "authors": [
+            "O. Limoyo",
+            "J. Li",
+            "D. Rivkhin",
+            "J. Kelly",
+            "G. Dudek"
+          ]
+        },
+        {
+          "title": "Reference-Guided Robotic Photography Through Natural Language Interaction",
+          "year": 2025,
+          "authors": [
+            "O. Limoyo",
+            "J. Li",
+            "D. Rivkhin",
+            "J. Kelly",
+            "G. Dudek"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:98ca6b830b4a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Safe Mission-Level Path Planning for Exploration of Lunar Shadowed Regions by a Solar-Powered Rover",
+      "year": 2024,
+      "authors": [
+        "O. Lamarre",
+        "S. Malhotra",
+        "J. Kelly"
+      ],
+      "listed_venue": "Proceedings of the IEEE Aerospace Conference",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 14 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/aero58975.2024.10521136"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Safe Mission-Level Path Planning for Exploration of Lunar Shadowed Regions by a Solar-Powered Rover",
+          "year": 2023,
+          "authors": [
+            "O. Lamarre",
+            "S. Malhotra",
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "Safe Mission-Level Path Planning for Exploration of Lunar Shadowed Regions by a Solar-Powered Rover",
+          "year": 2025,
+          "authors": [
+            "O. Lamarre",
+            "S. Malhotra",
+            "J. Kelly"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/aero58975.2024.10521136",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Safe Mission-Level Path Planning for Exploration of Lunar Shadowed Regions by a Solar-Powered Rover",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:1298a33ad37b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The Importance of Adaptive Decision-Making for Autonomous Long-Range Planetary Surface Mobility",
+      "year": 2024,
+      "authors": [
+        "O. Lamarre",
+        "J. Kelly"
+      ],
+      "listed_venue": "Proceedings of the International Symposium on Artificial Intelligence, Robotics and Automation in Space (i-SAIRAS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 13 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "The Importance of Adaptive Decision-Making for Autonomous Long-Range Planetary Surface Mobility",
+          "year": 2023,
+          "authors": [
+            "O. Lamarre",
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "The Importance of Adaptive Decision-Making for Autonomous Long-Range Planetary Surface Mobility",
+          "year": 2025,
+          "authors": [
+            "O. Lamarre",
+            "J. Kelly"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:dd5edc6a89c0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Working Backwards: Learning to Place by Picking",
+      "year": 2024,
+      "authors": [
+        "O. Limoyo",
+        "A. Konar",
+        "T. Ablett",
+        "J. Kelly",
+        "F. R. Hogan",
+        "G. Dudek"
+      ],
+      "listed_venue": "Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 17 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/iros58592.2024.10802173"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Working Backwards: Learning to Place by Picking",
+          "year": 2023,
+          "authors": [
+            "O. Limoyo",
+            "A. Konar",
+            "T. Ablett",
+            "J. Kelly",
+            "F. R. Hogan",
+            "G. Dudek"
+          ]
+        },
+        {
+          "title": "Working Backwards: Learning to Place by Picking",
+          "year": 2025,
+          "authors": [
+            "O. Limoyo",
+            "A. Konar",
+            "T. Ablett",
+            "J. Kelly",
+            "F. R. Hogan",
+            "G. Dudek"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/iros58592.2024.10802173",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Working Backwards: Learning to Place by Picking",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:f4a5bf470c03",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Automated Planning Domain Inference for Task and Motion Planning",
+      "year": 2025,
+      "authors": [
+        "J. Huang",
+        "A. Tao",
+        "R. Marco",
+        "M. Bogdanovic",
+        "J. Kelly",
+        "F. Shkurti"
+      ],
+      "listed_venue": "Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 5 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/icra55743.2025.11127817"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Automated Planning Domain Inference for Task and Motion Planning",
+          "year": 2024,
+          "authors": [
+            "J. Huang",
+            "A. Tao",
+            "R. Marco",
+            "M. Bogdanovic",
+            "J. Kelly",
+            "F. Shkurti"
+          ]
+        },
+        {
+          "title": "Automated Planning Domain Inference for Task and Motion Planning",
+          "year": 2026,
+          "authors": [
+            "J. Huang",
+            "A. Tao",
+            "R. Marco",
+            "M. Bogdanovic",
+            "J. Kelly",
+            "F. Shkurti"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/icra55743.2025.11127817",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Automated Planning Domain Inference for Task and Motion Planning",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:73131a7186b5",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Efficient Imitation Without Demonstrations via Value-Penalized Auxiliary Control from Examples",
+      "year": 2025,
+      "authors": [
+        "T. Ablett",
+        "B. Chan",
+        "H. Wang",
+        "J. Kelly"
+      ],
+      "listed_venue": "Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 2 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Efficient Imitation Without Demonstrations via Value-Penalized Auxiliary Control from Examples",
+          "year": 2024,
+          "authors": [
+            "T. Ablett",
+            "B. Chan",
+            "H. Wang",
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "Efficient Imitation Without Demonstrations via Value-Penalized Auxiliary Control from Examples",
+          "year": 2026,
+          "authors": [
+            "T. Ablett",
+            "B. Chan",
+            "H. Wang",
+            "J. Kelly"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:e769c69a3702",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "FaVoR: Features via Voxel Rendering for Camera Relocalization",
+      "year": 2025,
+      "authors": [
+        "V. Polizzi",
+        "M. Cannici",
+        "D. Scaramuzza",
+        "J. Kelly"
+      ],
+      "listed_venue": "Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 9 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/wacv61041.2025.00015"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "FaVoR: Features via Voxel Rendering for Camera Relocalization",
+          "year": 2024,
+          "authors": [
+            "V. Polizzi",
+            "M. Cannici",
+            "D. Scaramuzza",
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "FaVoR: Features via Voxel Rendering for Camera Relocalization",
+          "year": 2026,
+          "authors": [
+            "V. Polizzi",
+            "M. Cannici",
+            "D. Scaramuzza",
+            "J. Kelly"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/wacv61041.2025.00015",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "FaVoR: Features via Voxel Rendering for Camera Relocalization",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:11a7ba188625",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Galilean Symmetry in Robotics",
+      "year": 2025,
+      "authors": [
+        "R. Mahony",
+        "J. Kelly",
+        "S. Weiss"
+      ],
+      "listed_venue": "IEEE Robotics & Automation Magazine",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 7 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Galilean Symmetry in Robotics",
+          "year": 2024,
+          "authors": [
+            "R. Mahony",
+            "J. Kelly",
+            "S. Weiss"
+          ]
+        },
+        {
+          "title": "Galilean Symmetry in Robotics",
+          "year": 2026,
+          "authors": [
+            "R. Mahony",
+            "J. Kelly",
+            "S. Weiss"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:fcf10f921101",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Generative Graphical Inverse Kinematics",
+      "year": 2025,
+      "authors": [
+        "O. Limoyo",
+        "F. Mari'c",
+        "M. Giamou",
+        "P. Alexson",
+        "I. Petrovi'c",
+        "J. Kelly"
+      ],
+      "listed_venue": "IEEE Transactions on Robotics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 6 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/tro.2024.3521862"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Generative Graphical Inverse Kinematics",
+          "year": 2024,
+          "authors": [
+            "O. Limoyo",
+            "F. Mari'c",
+            "M. Giamou",
+            "P. Alexson",
+            "I. Petrovi'c",
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "Generative Graphical Inverse Kinematics",
+          "year": 2026,
+          "authors": [
+            "O. Limoyo",
+            "F. Mari'c",
+            "M. Giamou",
+            "P. Alexson",
+            "I. Petrovi'c",
+            "J. Kelly"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/tro.2024.3521862",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Generative Graphical Inverse Kinematics",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:cd842aac7ddd",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Learning Cross-Spectral Point Features with Task-Oriented Training",
+      "year": 2025,
+      "authors": [
+        "M. Thomas",
+        "T. Ablett",
+        "J. Kelly"
+      ],
+      "listed_venue": "Proceedings of the IEEE International Conference on Robotics and Automation (ICRA) Thermal Infrared in Robotics (TIRO) Workshop",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 10 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Learning Cross-Spectral Point Features with Task-Oriented Training",
+          "year": 2024,
+          "authors": [
+            "M. Thomas",
+            "T. Ablett",
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "Learning Cross-Spectral Point Features with Task-Oriented Training",
+          "year": 2026,
+          "authors": [
+            "M. Thomas",
+            "T. Ablett",
+            "J. Kelly"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:279c036090e8",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Multimodal and Force-Matched Imitation Learning with a See-Through Visuotactile Sensor",
+      "year": 2025,
+      "authors": [
+        "T. Ablett",
+        "O. Limoyo",
+        "A. Sigal",
+        "A. Jilani",
+        "J. Kelly",
+        "K. Siddiqi",
+        "F. Hogan",
+        "G. Dudek"
+      ],
+      "listed_venue": "IEEE Transactions on Robotics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 3 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/tro.2024.3521864"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Multimodal and Force-Matched Imitation Learning with a See-Through Visuotactile Sensor",
+          "year": 2024,
+          "authors": [
+            "T. Ablett",
+            "O. Limoyo",
+            "A. Sigal",
+            "A. Jilani",
+            "J. Kelly",
+            "K. Siddiqi",
+            "F. Hogan",
+            "G. Dudek"
+          ]
+        },
+        {
+          "title": "Multimodal and Force-Matched Imitation Learning with a See-Through Visuotactile Sensor",
+          "year": 2026,
+          "authors": [
+            "T. Ablett",
+            "O. Limoyo",
+            "A. Sigal",
+            "A. Jilani",
+            "J. Kelly",
+            "K. Siddiqi",
+            "F. Hogan",
+            "G. Dudek"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/tro.2024.3521864",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Multimodal and Force-Matched Imitation Learning With a See-Through Visuotactile Sensor",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:1b62e0db732c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Stable Object Placement Planning from Contact Point Robustness",
+      "year": 2025,
+      "authors": [
+        "P. Nadeau",
+        "J. Kelly"
+      ],
+      "listed_venue": "IEEE Transactions on Robotics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 8 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/tro.2025.3577049"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Stable Object Placement Planning from Contact Point Robustness",
+          "year": 2024,
+          "authors": [
+            "P. Nadeau",
+            "J. Kelly"
+          ]
+        },
+        {
+          "title": "Stable Object Placement Planning from Contact Point Robustness",
+          "year": 2026,
+          "authors": [
+            "P. Nadeau",
+            "J. Kelly"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/tro.2025.3577049",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Stable Object Placement Planning From Contact Point Robustness",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:5bd8df2455ba",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Structured Pneumatic Fingerpads for Actively Tunable Grip Friction",
+      "year": 2025,
+      "authors": [
+        "K. Allison",
+        "J. Kelly",
+        "B. Hatton"
+      ],
+      "listed_venue": "Proceedings of the IEEE International Conference on Soft Robotics (RoboSoft)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 4 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/robosoft63089.2025.11020883"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Structured Pneumatic Fingerpads for Actively Tunable Grip Friction",
+          "year": 2024,
+          "authors": [
+            "K. Allison",
+            "J. Kelly",
+            "B. Hatton"
+          ]
+        },
+        {
+          "title": "Structured Pneumatic Fingerpads for Actively Tunable Grip Friction",
+          "year": 2026,
+          "authors": [
+            "K. Allison",
+            "J. Kelly",
+            "B. Hatton"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/robosoft63089.2025.11020883",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Structured Pneumatic Fingerpads for Actively Tunable Grip Friction",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_jonathan_kelly:f17164df22ad",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Watch Your Steps: Local Image and Scene Editing by Text Instructions",
+      "year": 2025,
+      "authors": [
+        "A. Mirzaei",
+        "T. Aumentado-Armstrong",
+        "M. A. Brubaker",
+        "J. Kelly",
+        "A. Levinshtein",
+        "K. G. Derpanis",
+        "I. Gilitschenski"
+      ],
+      "listed_venue": "Computer Vision -- ECCV 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://starslab.ca/publications/ entry 1 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/978-3-031-72920-1_7"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Watch Your Steps: Local Image and Scene Editing by Text Instructions",
+          "year": 2024,
+          "authors": [
+            "A. Mirzaei",
+            "T. Aumentado-Armstrong",
+            "M. A. Brubaker",
+            "J. Kelly",
+            "A. Levinshtein",
+            "K. G. Derpanis",
+            "I. Gilitschenski"
+          ]
+        },
+        {
+          "title": "Watch Your Steps: Local Image and Scene Editing by Text Instructions",
+          "year": 2026,
+          "authors": [
+            "A. Mirzaei",
+            "T. Aumentado-Armstrong",
+            "M. A. Brubaker",
+            "J. Kelly",
+            "A. Levinshtein",
+            "K. G. Derpanis",
+            "I. Gilitschenski"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1007/978-3-031-72920-1_7",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Watch Your Steps: Local Image and Scene Editing by Text Instructions",
+          "crossref_year": 2024
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

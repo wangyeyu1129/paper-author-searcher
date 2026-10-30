@@ -1,0 +1,1764 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "eng_steven_waslander",
+    "dataset_id": "holdout_v1",
+    "search_input": {
+      "name": "Steven Waslander",
+      "university": "University of Toronto"
+    },
+    "scope": {
+      "year_start": 2023,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-30T21:04:27.645745+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://www.trailab.utias.utoronto.ca/publications",
+        "records": 30
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "eng_steven_waslander:5b5f9f19cb4a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "6D Pose Estimation for Textureless Objects on RGB Frames using Multi-View Optimization",
+      "year": 2023,
+      "authors": [
+        "Jun Yang",
+        "Wenjie Xue",
+        "Sahar Ghavidel",
+        "Steven L. Waslander"
+      ],
+      "listed_venue": "International Conference on Robotics and Automation (ICRA)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 28 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/icra48891.2023.10160529"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "6D Pose Estimation for Textureless Objects on RGB Frames using Multi-View Optimization",
+          "year": 2022,
+          "authors": [
+            "Jun Yang",
+            "Wenjie Xue",
+            "Sahar Ghavidel",
+            "Steven L. Waslander"
+          ]
+        },
+        {
+          "title": "6D Pose Estimation for Textureless Objects on RGB Frames using Multi-View Optimization",
+          "year": 2024,
+          "authors": [
+            "Jun Yang",
+            "Wenjie Xue",
+            "Sahar Ghavidel",
+            "Steven L. Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/icra48891.2023.10160529",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "6D Pose Estimation for Textureless Objects on RGB Frames using Multi-View Optimization",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:f974e5864ce5",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Dense Voxel Fusion for 3D Object Detection",
+      "year": 2023,
+      "authors": [
+        "Anas Mahmoud",
+        "Steven L. Waslander"
+      ],
+      "listed_venue": "Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 30 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/wacv56688.2023.00073"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Dense Voxel Fusion for 3D Object Detection",
+          "year": 2022,
+          "authors": [
+            "Anas Mahmoud",
+            "Steven L. Waslander"
+          ]
+        },
+        {
+          "title": "Dense Voxel Fusion for 3D Object Detection",
+          "year": 2024,
+          "authors": [
+            "Anas Mahmoud",
+            "Steven L. Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/wacv56688.2023.00073",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Dense Voxel Fusion for 3D Object Detection",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:5290981ca60f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Efficient Reinforcement Learning for Autonomous Driving with Parameterized Skills and Priors",
+      "year": 2023,
+      "authors": [
+        "Letian Wang",
+        "Jie Liu",
+        "Hao Shao",
+        "Wenshuo Wang",
+        "Ruobing Chen",
+        "Yu Liu",
+        "Steven L Waslander"
+      ],
+      "listed_venue": "Robotics: Science and Systems (RSS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 19 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.15607/rss.2023.xix.102"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Efficient Reinforcement Learning for Autonomous Driving with Parameterized Skills and Priors",
+          "year": 2022,
+          "authors": [
+            "Letian Wang",
+            "Jie Liu",
+            "Hao Shao",
+            "Wenshuo Wang",
+            "Ruobing Chen",
+            "Yu Liu",
+            "Steven L Waslander"
+          ]
+        },
+        {
+          "title": "Efficient Reinforcement Learning for Autonomous Driving with Parameterized Skills and Priors",
+          "year": 2024,
+          "authors": [
+            "Letian Wang",
+            "Jie Liu",
+            "Hao Shao",
+            "Wenshuo Wang",
+            "Ruobing Chen",
+            "Yu Liu",
+            "Steven L Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.15607/rss.2023.xix.102",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Efficient Reinforcement Learning for Autonomous Driving with Parameterized Skills and Priors",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:bde40f3718ce",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Estimating Regression Predictive Distributions with Sample Networks",
+      "year": 2023,
+      "authors": [
+        "Ali Harakeh",
+        "Jordan Hu",
+        "Naiqing Guan",
+        "Steven L. Waslander",
+        "Liam Paull"
+      ],
+      "listed_venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 29 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1609/aaai.v37i6.25948"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Estimating Regression Predictive Distributions with Sample Networks",
+          "year": 2022,
+          "authors": [
+            "Ali Harakeh",
+            "Jordan Hu",
+            "Naiqing Guan",
+            "Steven L. Waslander",
+            "Liam Paull"
+          ]
+        },
+        {
+          "title": "Estimating Regression Predictive Distributions with Sample Networks",
+          "year": 2024,
+          "authors": [
+            "Ali Harakeh",
+            "Jordan Hu",
+            "Naiqing Guan",
+            "Steven L. Waslander",
+            "Liam Paull"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1609/aaai.v37i6.25948",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Estimating Regression Predictive Distributions with Sample Networks",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:983d5506dd6a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Gradient-based Maximally Interfered Retrieval for Domain Adaptive 3D Object Detection",
+      "year": 2023,
+      "authors": [
+        "Barza Nisar",
+        "Hruday Vishal Kanna Anand",
+        "Steven L. Waslander"
+      ],
+      "listed_venue": "20th Conference on Robots and Vision (CRV). IEEE",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 24 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Gradient-based Maximally Interfered Retrieval for Domain Adaptive 3D Object Detection",
+          "year": 2022,
+          "authors": [
+            "Barza Nisar",
+            "Hruday Vishal Kanna Anand",
+            "Steven L. Waslander"
+          ]
+        },
+        {
+          "title": "Gradient-based Maximally Interfered Retrieval for Domain Adaptive 3D Object Detection",
+          "year": 2024,
+          "authors": [
+            "Barza Nisar",
+            "Hruday Vishal Kanna Anand",
+            "Steven L. Waslander"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:c34540b114a7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "HyperMODEST: Self-Supervised 3D Object Detection with Confidence Score Filtering",
+      "year": 2023,
+      "authors": [
+        "Jenny Xu",
+        "Steven L. Waslander"
+      ],
+      "listed_venue": "20th Conference on Robots and Vision (CRV). IEEE",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 25 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/crv60082.2023.00035"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "HyperMODEST: Self-Supervised 3D Object Detection with Confidence Score Filtering",
+          "year": 2022,
+          "authors": [
+            "Jenny Xu",
+            "Steven L. Waslander"
+          ]
+        },
+        {
+          "title": "HyperMODEST: Self-Supervised 3D Object Detection with Confidence Score Filtering",
+          "year": 2024,
+          "authors": [
+            "Jenny Xu",
+            "Steven L. Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/crv60082.2023.00035",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "HyperMODEST: Self-Supervised 3D Object Detection with Confidence Score Filtering",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:ebcf25c44990",
+      "ownership": "uncertain",
+      "proposed_ownership": "uncertain",
+      "annotation_status": "pending_human_review",
+      "title": "Intertrack: Interaction transformer for 3d multi-object tracking",
+      "year": 2023,
+      "authors": [
+        "J Willes",
+        "C Reading",
+        "SL Waslander"
+      ],
+      "listed_venue": "20th Conference on Robots and Vision (CRV). IEEE",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 27 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "target_name_not_found_in_byline"
+      ],
+      "dois": [
+        "10.1109/crv60082.2023.00017"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Intertrack: Interaction transformer for 3d multi-object tracking",
+          "year": 2022,
+          "authors": [
+            "J Willes",
+            "C Reading",
+            "SL Waslander"
+          ]
+        },
+        {
+          "title": "Intertrack: Interaction transformer for 3d multi-object tracking",
+          "year": 2024,
+          "authors": [
+            "J Willes",
+            "C Reading",
+            "SL Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/crv60082.2023.00017",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "InterTrack: Interaction Transformer for 3D Multi-Object Tracking",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:387f37b8e8e1",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Next-Best-View Selection for Robot Eye-in-Hand Calibration",
+      "year": 2023,
+      "authors": [
+        "Jun Yang",
+        "Jason Rebello",
+        "Steven L Waslander"
+      ],
+      "listed_venue": "20th Conference on Robots and Vision (CRV). IEEE",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 26 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/crv60082.2023.00028"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Next-Best-View Selection for Robot Eye-in-Hand Calibration",
+          "year": 2022,
+          "authors": [
+            "Jun Yang",
+            "Jason Rebello",
+            "Steven L Waslander"
+          ]
+        },
+        {
+          "title": "Next-Best-View Selection for Robot Eye-in-Hand Calibration",
+          "year": 2024,
+          "authors": [
+            "Jun Yang",
+            "Jason Rebello",
+            "Steven L Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/crv60082.2023.00028",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Next-Best-View Selection for Robot Eye-in-Hand Calibration",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:ec668f4e130d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "POV-SLAM: Probabilistic Object-Aware Variational SLAM in Semi-Static Environments",
+      "year": 2023,
+      "authors": [
+        "Jingxing Qian",
+        "Veronica Chatrath",
+        "James Servos",
+        "Aaron Mavrinac",
+        "Wolfram Burgard",
+        "Steven L Waslander",
+        "Angela P Schoellig"
+      ],
+      "listed_venue": "Robotics: Science and Systems (RSS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 20 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.15607/rss.2023.xix.069"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "POV-SLAM: Probabilistic Object-Aware Variational SLAM in Semi-Static Environments",
+          "year": 2022,
+          "authors": [
+            "Jingxing Qian",
+            "Veronica Chatrath",
+            "James Servos",
+            "Aaron Mavrinac",
+            "Wolfram Burgard",
+            "Steven L Waslander",
+            "Angela P Schoellig"
+          ]
+        },
+        {
+          "title": "POV-SLAM: Probabilistic Object-Aware Variational SLAM in Semi-Static Environments",
+          "year": 2024,
+          "authors": [
+            "Jingxing Qian",
+            "Veronica Chatrath",
+            "James Servos",
+            "Aaron Mavrinac",
+            "Wolfram Burgard",
+            "Steven L Waslander",
+            "Angela P Schoellig"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.15607/rss.2023.xix.069",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "POV-SLAM: Probabilistic Object-Aware Variational SLAM in Semi-Static Environments",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:b2778bd3415e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "ProPanDL: A Modular Architecture for Uncertainty-Aware Panoptic Segmentation",
+      "year": 2023,
+      "authors": [
+        "Jacob Deery",
+        "Chang Won Lee",
+        "Steven Waslander"
+      ],
+      "listed_venue": "20th Conference on Robots and Vision (CRV). IEEE",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 23 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/crv60082.2023.00025"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "ProPanDL: A Modular Architecture for Uncertainty-Aware Panoptic Segmentation",
+          "year": 2022,
+          "authors": [
+            "Jacob Deery",
+            "Chang Won Lee",
+            "Steven Waslander"
+          ]
+        },
+        {
+          "title": "ProPanDL: A Modular Architecture for Uncertainty-Aware Panoptic Segmentation",
+          "year": 2024,
+          "authors": [
+            "Jacob Deery",
+            "Chang Won Lee",
+            "Steven Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/crv60082.2023.00025",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "ProPanDL: A Modular Architecture for Uncertainty-Aware Panoptic Segmentation",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:1f3d495027e7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "ReasonNet: End-to-End Driving with Temporal and Global Reasoning",
+      "year": 2023,
+      "authors": [
+        "Hao Shao",
+        "Letian Wang",
+        "Ruobing Chen",
+        "Steven Waslander",
+        "Hongsheng Li",
+        "Yu Liu"
+      ],
+      "listed_venue": "Proceedings of the IEEE conference on computer vision and pattern recognition (CVPR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 22 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/cvpr52729.2023.01319"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "ReasonNet: End-to-End Driving with Temporal and Global Reasoning",
+          "year": 2022,
+          "authors": [
+            "Hao Shao",
+            "Letian Wang",
+            "Ruobing Chen",
+            "Steven Waslander",
+            "Hongsheng Li",
+            "Yu Liu"
+          ]
+        },
+        {
+          "title": "ReasonNet: End-to-End Driving with Temporal and Global Reasoning",
+          "year": 2024,
+          "authors": [
+            "Hao Shao",
+            "Letian Wang",
+            "Ruobing Chen",
+            "Steven Waslander",
+            "Hongsheng Li",
+            "Yu Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/cvpr52729.2023.01319",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "ReasonNet: End-to-End Driving with Temporal and Global Reasoning",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:e83909af7485",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Self-Supervised Image-to-Point Distillation via Semantically Tolerant Contrastive Loss",
+      "year": 2023,
+      "authors": [
+        "Anas Mahmoud",
+        "Jordan SK Hu",
+        "Tianshu Kuai",
+        "Ali Harakeh",
+        "Liam Paull",
+        "Steven L Waslander"
+      ],
+      "listed_venue": "Proceedings of the IEEE conference on computer vision and pattern recognition (CVPR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 21 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/cvpr52729.2023.00686"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Self-Supervised Image-to-Point Distillation via Semantically Tolerant Contrastive Loss",
+          "year": 2022,
+          "authors": [
+            "Anas Mahmoud",
+            "Jordan SK Hu",
+            "Tianshu Kuai",
+            "Ali Harakeh",
+            "Liam Paull",
+            "Steven L Waslander"
+          ]
+        },
+        {
+          "title": "Self-Supervised Image-to-Point Distillation via Semantically Tolerant Contrastive Loss",
+          "year": 2024,
+          "authors": [
+            "Anas Mahmoud",
+            "Jordan SK Hu",
+            "Tianshu Kuai",
+            "Ali Harakeh",
+            "Liam Paull",
+            "Steven L Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/cvpr52729.2023.00686",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Self-Supervised Image-to-Point Distillation via Semantically Tolerant Contrastive Loss",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:e577c58b184a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Active Pose Refinement for Textureless Shiny Objects using the Structured Light Camera",
+      "year": 2024,
+      "authors": [
+        "Jun Yang",
+        "Jian Yao",
+        "Steven L. Waslander"
+      ],
+      "listed_venue": "Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+      "work_types": [
+        "conference_paper",
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 17 captured 2026-10-30",
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 8 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1109/iros58592.2024.10801300"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Active Pose Refinement for Textureless Shiny Objects using the Structured Light Camera",
+          "year": 2023,
+          "authors": [
+            "Jun Yang",
+            "Jian Yao",
+            "Steven L. Waslander"
+          ]
+        },
+        {
+          "title": "Active Pose Refinement for Textureless Shiny Objects using the Structured Light Camera",
+          "year": 2025,
+          "authors": [
+            "Jun Yang",
+            "Jian Yao",
+            "Steven L. Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/iros58592.2024.10801300",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Active Pose Refinement for Textureless Shiny Objects using the Structured Light Camera",
+          "crossref_year": 2024
+        },
+        {
+          "doi": "10.1109/iros58592.2024.10801300",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Active Pose Refinement for Textureless Shiny Objects using the Structured Light Camera",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:82d62a23fdb4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "DistillNeRF: Perceiving 3D Scenes from Single-Glance Images by Distilling Neural Fields and Foundation Model Features",
+      "year": 2024,
+      "authors": [
+        "Letian Wang",
+        "Seung Wook Kim",
+        "Jiawei Yang",
+        "Cunjun Yu",
+        "Boris Ivanovic",
+        "Steven L. Waslander",
+        "Yue Wang",
+        "Sanja Fidler",
+        "Marco Pavone",
+        "Peter Karkus"
+      ],
+      "listed_venue": "Advances in Neural Information Processing Systems (NeurIPS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 6 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/079017-1992"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "DistillNeRF: Perceiving 3D Scenes from Single-Glance Images by Distilling Neural Fields and Foundation Model Features",
+          "year": 2023,
+          "authors": [
+            "Letian Wang",
+            "Seung Wook Kim",
+            "Jiawei Yang",
+            "Cunjun Yu",
+            "Boris Ivanovic",
+            "Steven L. Waslander",
+            "Yue Wang",
+            "Sanja Fidler",
+            "Marco Pavone",
+            "Peter Karkus"
+          ]
+        },
+        {
+          "title": "DistillNeRF: Perceiving 3D Scenes from Single-Glance Images by Distilling Neural Fields and Foundation Model Features",
+          "year": 2025,
+          "authors": [
+            "Letian Wang",
+            "Seung Wook Kim",
+            "Jiawei Yang",
+            "Cunjun Yu",
+            "Boris Ivanovic",
+            "Steven L. Waslander",
+            "Yue Wang",
+            "Sanja Fidler",
+            "Marco Pavone",
+            "Peter Karkus"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/079017-1992",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "DistillNeRF: Perceiving 3D Scenes from Single-Glance Images by Distilling Neural Fields and Foundation Model Features",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:aa0fe8fb8e08",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Image-to-Lidar Relational Distillation for Autonomous Driving Data",
+      "year": 2024,
+      "authors": [
+        "Anas Mahmoud",
+        "Ali Harakeh",
+        "Steven Waslander"
+      ],
+      "listed_venue": "European Conference on Computer Vision (ECCV)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 9 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/978-3-031-73033-7_26"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Image-to-Lidar Relational Distillation for Autonomous Driving Data",
+          "year": 2023,
+          "authors": [
+            "Anas Mahmoud",
+            "Ali Harakeh",
+            "Steven Waslander"
+          ]
+        },
+        {
+          "title": "Image-to-Lidar Relational Distillation for Autonomous Driving Data",
+          "year": 2025,
+          "authors": [
+            "Anas Mahmoud",
+            "Ali Harakeh",
+            "Steven Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1007/978-3-031-73033-7_26",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Image-to-Lidar Relational Distillation for Autonomous Driving Data",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:9a6a62e59510",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "JDT3D: Addressing the Gaps in LiDAR-Based Tracking-by-Attention",
+      "year": 2024,
+      "authors": [
+        "Brian Cheong",
+        "Jiachen Zhou",
+        "Steven Waslander"
+      ],
+      "listed_venue": "European Conference on Computer Vision (ECCV)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 10 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/978-3-031-72848-8_10"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "JDT3D: Addressing the Gaps in LiDAR-Based Tracking-by-Attention",
+          "year": 2023,
+          "authors": [
+            "Brian Cheong",
+            "Jiachen Zhou",
+            "Steven Waslander"
+          ]
+        },
+        {
+          "title": "JDT3D: Addressing the Gaps in LiDAR-Based Tracking-by-Attention",
+          "year": 2025,
+          "authors": [
+            "Brian Cheong",
+            "Jiachen Zhou",
+            "Steven Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1007/978-3-031-72848-8_10",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "JDT3D: Addressing the Gaps in LiDAR-Based Tracking-by-Attention",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:f7f874481882",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "LMDrive: Closed-Loop End-to-End Driving with Large Language Models",
+      "year": 2024,
+      "authors": [
+        "Hao Shao",
+        "Yuxuan Hu",
+        "Letian Wang",
+        "Steven L. Waslander",
+        "Yu Liu",
+        "Hongsheng Li"
+      ],
+      "listed_venue": "Proceedings of the IEEE conference on computer vision and pattern recognition (CVPR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 11 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/cvpr52733.2024.01432"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "LMDrive: Closed-Loop End-to-End Driving with Large Language Models",
+          "year": 2023,
+          "authors": [
+            "Hao Shao",
+            "Yuxuan Hu",
+            "Letian Wang",
+            "Steven L. Waslander",
+            "Yu Liu",
+            "Hongsheng Li"
+          ]
+        },
+        {
+          "title": "LMDrive: Closed-Loop End-to-End Driving with Large Language Models",
+          "year": 2025,
+          "authors": [
+            "Hao Shao",
+            "Yuxuan Hu",
+            "Letian Wang",
+            "Steven L. Waslander",
+            "Yu Liu",
+            "Hongsheng Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/cvpr52733.2024.01432",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "LMDrive: Closed-Loop End-to-End Driving with Large Language Models",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:51cc8ca1486c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Multi-view 3D Object Reconstruction and Uncertainty Modelling with Neural Shape Prior",
+      "year": 2024,
+      "authors": [
+        "Ziwei Liao",
+        "Steven L Waslander"
+      ],
+      "listed_venue": "Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 18 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/wacv57701.2024.00307"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Multi-view 3D Object Reconstruction and Uncertainty Modelling with Neural Shape Prior",
+          "year": 2023,
+          "authors": [
+            "Ziwei Liao",
+            "Steven L Waslander"
+          ]
+        },
+        {
+          "title": "Multi-view 3D Object Reconstruction and Uncertainty Modelling with Neural Shape Prior",
+          "year": 2025,
+          "authors": [
+            "Ziwei Liao",
+            "Steven L Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/wacv57701.2024.00307",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Multi-view 3D Object Reconstruction and Uncertainty Modelling with Neural Shape Prior",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:4a9f2b113357",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Multiple View Geometry Transformers for 3D Human Pose Estimation",
+      "year": 2024,
+      "authors": [
+        "Ziwei Liao",
+        "Jialiang Zhu",
+        "Chunyu Wang",
+        "Han Hu",
+        "Steven L. Waslander"
+      ],
+      "listed_venue": "Proceedings of the IEEE conference on computer vision and pattern recognition (CVPR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 12 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/cvpr52733.2024.00074"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Multiple View Geometry Transformers for 3D Human Pose Estimation",
+          "year": 2023,
+          "authors": [
+            "Ziwei Liao",
+            "Jialiang Zhu",
+            "Chunyu Wang",
+            "Han Hu",
+            "Steven L. Waslander"
+          ]
+        },
+        {
+          "title": "Multiple View Geometry Transformers for 3D Human Pose Estimation",
+          "year": 2025,
+          "authors": [
+            "Ziwei Liao",
+            "Jialiang Zhu",
+            "Chunyu Wang",
+            "Han Hu",
+            "Steven L. Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/cvpr52733.2024.00074",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Multiple View Geometry Transformers for 3D Human Pose Estimation",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:24740b1ac806",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "SmartRefine: A Scenario-Adaptive Refinement Framework for Efficient Motion Prediction",
+      "year": 2024,
+      "authors": [
+        "Yang Zhou",
+        "Hao Shao",
+        "Letian Wang",
+        "Steven L. Waslander",
+        "Hongsheng Li",
+        "Yu Liu"
+      ],
+      "listed_venue": "Proceedings of the IEEE conference on computer vision and pattern recognition (CVPR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 13 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/cvpr52733.2024.01447"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "SmartRefine: A Scenario-Adaptive Refinement Framework for Efficient Motion Prediction",
+          "year": 2023,
+          "authors": [
+            "Yang Zhou",
+            "Hao Shao",
+            "Letian Wang",
+            "Steven L. Waslander",
+            "Hongsheng Li",
+            "Yu Liu"
+          ]
+        },
+        {
+          "title": "SmartRefine: A Scenario-Adaptive Refinement Framework for Efficient Motion Prediction",
+          "year": 2025,
+          "authors": [
+            "Yang Zhou",
+            "Hao Shao",
+            "Letian Wang",
+            "Steven L. Waslander",
+            "Hongsheng Li",
+            "Yu Liu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/cvpr52733.2024.01447",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "SmartRefine: A Scenario-Adaptive Refinement Framework for Efficient Motion Prediction",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:de1a288644e3",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "SWTrack: Multiple Hypothesis Sliding Window 3D Multi-Object Tracking",
+      "year": 2024,
+      "authors": [
+        "Sandro Papais",
+        "Robert Ren",
+        "Steven L. Waslander"
+      ],
+      "listed_venue": "International Conference on Robotics and Automation (ICRA)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 15 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/icra57147.2024.10611067"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "SWTrack: Multiple Hypothesis Sliding Window 3D Multi-Object Tracking",
+          "year": 2023,
+          "authors": [
+            "Sandro Papais",
+            "Robert Ren",
+            "Steven L. Waslander"
+          ]
+        },
+        {
+          "title": "SWTrack: Multiple Hypothesis Sliding Window 3D Multi-Object Tracking",
+          "year": 2025,
+          "authors": [
+            "Sandro Papais",
+            "Robert Ren",
+            "Steven L. Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/icra57147.2024.10611067",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "SWTrack: Multiple Hypothesis Sliding Window 3D Multi-Object Tracking",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:a75c50fcc6a8",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Toward General Object-level Mapping from Sparse Views with 3D Diffusion Priors",
+      "year": 2024,
+      "authors": [
+        "Ziwei Liao",
+        "Binbin Xu",
+        "Steven L. Waslander"
+      ],
+      "listed_venue": "8th Annual Conference on Robot Learning (CoRL)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 7 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Toward General Object-level Mapping from Sparse Views with 3D Diffusion Priors",
+          "year": 2023,
+          "authors": [
+            "Ziwei Liao",
+            "Binbin Xu",
+            "Steven L. Waslander"
+          ]
+        },
+        {
+          "title": "Toward General Object-level Mapping from Sparse Views with 3D Diffusion Priors",
+          "year": 2025,
+          "authors": [
+            "Ziwei Liao",
+            "Binbin Xu",
+            "Steven L. Waslander"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:d79465d99cb7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Uncertainty-aware 3D Object-Level Mapping with Deep Shape Priors",
+      "year": 2024,
+      "authors": [
+        "Ziwei Liao",
+        "Jun Yang",
+        "Jingxing Qian",
+        "Angela P Schoellig",
+        "Steven L. Waslander"
+      ],
+      "listed_venue": "International Conference on Robotics and Automation (ICRA)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 14 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/icra57147.2024.10611206"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Uncertainty-aware 3D Object-Level Mapping with Deep Shape Priors",
+          "year": 2023,
+          "authors": [
+            "Ziwei Liao",
+            "Jun Yang",
+            "Jingxing Qian",
+            "Angela P Schoellig",
+            "Steven L. Waslander"
+          ]
+        },
+        {
+          "title": "Uncertainty-aware 3D Object-Level Mapping with Deep Shape Priors",
+          "year": 2025,
+          "authors": [
+            "Ziwei Liao",
+            "Jun Yang",
+            "Jingxing Qian",
+            "Angela P Schoellig",
+            "Steven L. Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/icra57147.2024.10611206",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Uncertainty-aware 3D Object-Level Mapping with Deep Shape Priors",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:10f32262fdf6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "UncertaintyTrack: Exploiting Detection and Localization Uncertainty in Multi-Object Tracking",
+      "year": 2024,
+      "authors": [
+        "Chang Won Lee",
+        "Steven L. Waslander"
+      ],
+      "listed_venue": "International Conference on Robotics and Automation (ICRA)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 16 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/icra57147.2024.10610458"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "UncertaintyTrack: Exploiting Detection and Localization Uncertainty in Multi-Object Tracking",
+          "year": 2023,
+          "authors": [
+            "Chang Won Lee",
+            "Steven L. Waslander"
+          ]
+        },
+        {
+          "title": "UncertaintyTrack: Exploiting Detection and Localization Uncertainty in Multi-Object Tracking",
+          "year": 2025,
+          "authors": [
+            "Chang Won Lee",
+            "Steven L. Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/icra57147.2024.10610458",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "UncertaintyTrack: Exploiting Detection and Localization Uncertainty in Multi-Object Tracking",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:dcaaf4cb7fbf",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "ForeSight: Multi-View Streaming Joint Object Detection and Trajectory Forecasting",
+      "year": 2025,
+      "authors": [
+        "Sandro Papais",
+        "Letian Wang",
+        "Brian Cheong",
+        "Steven L. Waslander"
+      ],
+      "listed_venue": "Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 1 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/iccv51701.2025.02363"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "ForeSight: Multi-View Streaming Joint Object Detection and Trajectory Forecasting",
+          "year": 2024,
+          "authors": [
+            "Sandro Papais",
+            "Letian Wang",
+            "Brian Cheong",
+            "Steven L. Waslander"
+          ]
+        },
+        {
+          "title": "ForeSight: Multi-View Streaming Joint Object Detection and Trajectory Forecasting",
+          "year": 2026,
+          "authors": [
+            "Sandro Papais",
+            "Letian Wang",
+            "Brian Cheong",
+            "Steven L. Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/iccv51701.2025.02363",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "ForeSight: Multi-View Streaming Joint Object Detection and Trajectory Forecasting",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:beff09a5b745",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Large Self-Supervised Models Bridge the Gap in Domain Adaptive Object Detection",
+      "year": 2025,
+      "authors": [
+        "Marc-Antoine Lavoie",
+        "Anas Mahmoud",
+        "Steven L. Waslander"
+      ],
+      "listed_venue": "Proceedings of the IEEE conference on computer vision and pattern recognition (CVPR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 3 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/cvpr52734.2025.00442"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Large Self-Supervised Models Bridge the Gap in Domain Adaptive Object Detection",
+          "year": 2024,
+          "authors": [
+            "Marc-Antoine Lavoie",
+            "Anas Mahmoud",
+            "Steven L. Waslander"
+          ]
+        },
+        {
+          "title": "Large Self-Supervised Models Bridge the Gap in Domain Adaptive Object Detection",
+          "year": 2026,
+          "authors": [
+            "Marc-Antoine Lavoie",
+            "Anas Mahmoud",
+            "Steven L. Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/cvpr52734.2025.00442",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Large Self-Supervised Models Bridge the Gap in Domain Adaptive Object Detection",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:74d759946bd1",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "OpenNav: Open-World Navigation with Multimodal Large Language Models",
+      "year": 2025,
+      "authors": [
+        "Mingfeng Yuan",
+        "Letian Wang",
+        "Steven L. Waslander"
+      ],
+      "listed_venue": "Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 2 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/iros60139.2025.11247593"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "OpenNav: Open-World Navigation with Multimodal Large Language Models",
+          "year": 2024,
+          "authors": [
+            "Mingfeng Yuan",
+            "Letian Wang",
+            "Steven L. Waslander"
+          ]
+        },
+        {
+          "title": "OpenNav: Open-World Navigation with Multimodal Large Language Models",
+          "year": 2026,
+          "authors": [
+            "Mingfeng Yuan",
+            "Letian Wang",
+            "Steven L. Waslander"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/iros60139.2025.11247593",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "OpenNav: Open-World Navigation with Multimodal Large Language Models",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:7b3672a960ba",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "PSA-SSL: Pose and Size-Aware Self-Supervised Learning for 3D Point Clouds",
+      "year": 2025,
+      "authors": [
+        "Barza Nisar",
+        "Steven L. Waslander"
+      ],
+      "listed_venue": "Proceedings of the IEEE conference on computer vision and pattern recognition (CVPR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 4 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "PSA-SSL: Pose and Size-Aware Self-Supervised Learning for 3D Point Clouds",
+          "year": 2024,
+          "authors": [
+            "Barza Nisar",
+            "Steven L. Waslander"
+          ]
+        },
+        {
+          "title": "PSA-SSL: Pose and Size-Aware Self-Supervised Learning for 3D Point Clouds",
+          "year": 2026,
+          "authors": [
+            "Barza Nisar",
+            "Steven L. Waslander"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_steven_waslander:1aeeaf3c0241",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "SmartPretrain: Model-Agnostic and Dataset-Agnostic Representation Learning for Motion Prediction",
+      "year": 2025,
+      "authors": [
+        "Yang Zhou",
+        "Hao Shao",
+        "Letian Wang",
+        "Steven L. Waslander",
+        "Hongsheng Li",
+        "Yu Liu"
+      ],
+      "listed_venue": "International Conference on Learning Representations (ICLR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.trailab.utias.utoronto.ca/publications entry 5 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "SmartPretrain: Model-Agnostic and Dataset-Agnostic Representation Learning for Motion Prediction",
+          "year": 2024,
+          "authors": [
+            "Yang Zhou",
+            "Hao Shao",
+            "Letian Wang",
+            "Steven L. Waslander",
+            "Hongsheng Li",
+            "Yu Liu"
+          ]
+        },
+        {
+          "title": "SmartPretrain: Model-Agnostic and Dataset-Agnostic Representation Learning for Motion Prediction",
+          "year": 2026,
+          "authors": [
+            "Yang Zhou",
+            "Hao Shao",
+            "Letian Wang",
+            "Steven L. Waslander",
+            "Hongsheng Li",
+            "Yu Liu"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

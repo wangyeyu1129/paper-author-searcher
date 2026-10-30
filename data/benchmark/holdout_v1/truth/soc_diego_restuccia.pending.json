@@ -1,0 +1,1017 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "soc_diego_restuccia",
+    "dataset_id": "holdout_v1",
+    "search_input": {
+      "name": "Diego Restuccia",
+      "university": "University of Toronto"
+    },
+    "scope": {
+      "year_start": 2018,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-30T21:04:27.677190+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://www.economics.utoronto.ca/diegor/published-papers.html",
+        "records": 18
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "soc_diego_restuccia:bcc8df1991df",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Financial Frictions and the Rule of Law",
+      "year": 2018,
+      "authors": [
+        "Diego Restuccia",
+        "Ashantha Ranasinghe"
+      ],
+      "listed_venue": "Journal of Development Economics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.economics.utoronto.ca/diegor/published-papers.html entry 18 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3386/w24546"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Financial Frictions and the Rule of Law",
+          "year": 2017,
+          "authors": [
+            "Diego Restuccia",
+            "Ashantha Ranasinghe"
+          ]
+        },
+        {
+          "title": "Financial Frictions and the Rule of Law",
+          "year": 2019,
+          "authors": [
+            "Diego Restuccia",
+            "Ashantha Ranasinghe"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3386/w24546",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Financial Frictions and the Rule of Law",
+          "crossref_year": 2018
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_diego_restuccia:0612e03d2016",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Firing Costs, Misallocation, and Aggregate Productivity",
+      "year": 2019,
+      "authors": [
+        "Diego Restuccia",
+        "Jose-Maria Da-Rocha",
+        "Marina M. Tavares"
+      ],
+      "listed_venue": "Journal of Economic Dynamics and Control",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.economics.utoronto.ca/diegor/published-papers.html entry 17 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.jedc.2018.09.005"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Firing Costs, Misallocation, and Aggregate Productivity",
+          "year": 2018,
+          "authors": [
+            "Diego Restuccia",
+            "Jose-Maria Da-Rocha",
+            "Marina M. Tavares"
+          ]
+        },
+        {
+          "title": "Firing Costs, Misallocation, and Aggregate Productivity",
+          "year": 2020,
+          "authors": [
+            "Diego Restuccia",
+            "Jose-Maria Da-Rocha",
+            "Marina M. Tavares"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.jedc.2018.09.005",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Firing costs, misallocation, and aggregate productivity",
+          "crossref_year": 2019
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_diego_restuccia:f805dcc4af93",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Misallocation and Aggregate Productivity across Time and Space",
+      "year": 2019,
+      "authors": [
+        "Diego Restuccia"
+      ],
+      "listed_venue": "Canadian Journal of Economics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.economics.utoronto.ca/diegor/published-papers.html entry 16 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1111/caje.12364"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Misallocation and Aggregate Productivity across Time and Space",
+          "year": 2018,
+          "authors": [
+            "Diego Restuccia"
+          ]
+        },
+        {
+          "title": "Misallocation and Aggregate Productivity across Time and Space",
+          "year": 2020,
+          "authors": [
+            "Diego Restuccia"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1111/caje.12364",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Misallocation and aggregate productivity across time and space",
+          "crossref_year": 2019
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_diego_restuccia:bfe5cea885c2",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Land Reform and Productivity: A Quantitative Analysis with Micro Data",
+      "year": 2020,
+      "authors": [
+        "Diego Restuccia",
+        "Tasso Adamopoulos"
+      ],
+      "listed_venue": "American Economic Journal: Macroeconomics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.economics.utoronto.ca/diegor/published-papers.html entry 14 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3386/w25780"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Land Reform and Productivity: A Quantitative Analysis with Micro Data",
+          "year": 2019,
+          "authors": [
+            "Diego Restuccia",
+            "Tasso Adamopoulos"
+          ]
+        },
+        {
+          "title": "Land Reform and Productivity: A Quantitative Analysis with Micro Data",
+          "year": 2021,
+          "authors": [
+            "Diego Restuccia",
+            "Tasso Adamopoulos"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3386/w25780",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Land Reform and Productivity: A Quantitative Analysis with Micro Data",
+          "crossref_year": 2019
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_diego_restuccia:503f1bfe78f6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Market Constraints, Misallocation, and Productivity in Vietnam Agriculture",
+      "year": 2020,
+      "authors": [
+        "Diego Restuccia",
+        "Stephen Ayrest",
+        "Loren Brandt"
+      ],
+      "listed_venue": "Food Policy",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.economics.utoronto.ca/diegor/published-papers.html entry 13 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.foodpol.2020.101840"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Market Constraints, Misallocation, and Productivity in Vietnam Agriculture",
+          "year": 2019,
+          "authors": [
+            "Diego Restuccia",
+            "Stephen Ayrest",
+            "Loren Brandt"
+          ]
+        },
+        {
+          "title": "Market Constraints, Misallocation, and Productivity in Vietnam Agriculture",
+          "year": 2021,
+          "authors": [
+            "Diego Restuccia",
+            "Stephen Ayrest",
+            "Loren Brandt"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.foodpol.2020.101840",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Market constraints, misallocation, and productivity in Vietnam agriculture",
+          "crossref_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_diego_restuccia:56f7247959b8",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Relative Prices and Sectoral Productivity",
+      "year": 2020,
+      "authors": [
+        "Diego Restuccia",
+        "Margarida Duarte"
+      ],
+      "listed_venue": "Journal of the European Economic Association",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.economics.utoronto.ca/diegor/published-papers.html entry 15 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1093/jeea/jvz022"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Relative Prices and Sectoral Productivity",
+          "year": 2019,
+          "authors": [
+            "Diego Restuccia",
+            "Margarida Duarte"
+          ]
+        },
+        {
+          "title": "Relative Prices and Sectoral Productivity",
+          "year": 2021,
+          "authors": [
+            "Diego Restuccia",
+            "Margarida Duarte"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1093/jeea/jvz022",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Relative Prices and Sectoral Productivity",
+          "crossref_year": 2019
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_diego_restuccia:4e050d7ded10",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The Impact of Land Institutions and Misallocation on Agricultural Productivity",
+      "year": 2020,
+      "authors": [
+        "Diego Restuccia"
+      ],
+      "listed_venue": "NBER Reporter",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.economics.utoronto.ca/diegor/published-papers.html entry 11 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "The Impact of Land Institutions and Misallocation on Agricultural Productivity",
+          "year": 2019,
+          "authors": [
+            "Diego Restuccia"
+          ]
+        },
+        {
+          "title": "The Impact of Land Institutions and Misallocation on Agricultural Productivity",
+          "year": 2021,
+          "authors": [
+            "Diego Restuccia"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_diego_restuccia:4d7d955b9300",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "On Average Establishment Size across Sectors and Countries",
+      "year": 2021,
+      "authors": [
+        "Diego Restuccia",
+        "Pedro Bento"
+      ],
+      "listed_venue": "Journal of Monetary Economics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.economics.utoronto.ca/diegor/published-papers.html entry 12 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.jmoneco.2020.01.001"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "On Average Establishment Size across Sectors and Countries",
+          "year": 2020,
+          "authors": [
+            "Diego Restuccia",
+            "Pedro Bento"
+          ]
+        },
+        {
+          "title": "On Average Establishment Size across Sectors and Countries",
+          "year": 2022,
+          "authors": [
+            "Diego Restuccia",
+            "Pedro Bento"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.jmoneco.2020.01.001",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "On average establishment size across sectors and countries",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_diego_restuccia:5c73b2211f3e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Are Small Farms Really more Productive than Large Farms?",
+      "year": 2022,
+      "authors": [
+        "Diego Restuccia",
+        "Fernando Aragon",
+        "Juan Pablo Rud"
+      ],
+      "listed_venue": "Food Policy",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.economics.utoronto.ca/diegor/published-papers.html entry 10 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.foodpol.2021.102168"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Are Small Farms Really more Productive than Large Farms?",
+          "year": 2021,
+          "authors": [
+            "Diego Restuccia",
+            "Fernando Aragon",
+            "Juan Pablo Rud"
+          ]
+        },
+        {
+          "title": "Are Small Farms Really more Productive than Large Farms?",
+          "year": 2023,
+          "authors": [
+            "Diego Restuccia",
+            "Fernando Aragon",
+            "Juan Pablo Rud"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.foodpol.2021.102168",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Are small farms really more productive than large farms?",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_diego_restuccia:1c650b13bfd6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Geography and Agricultural Productivity: Cross-Country Evidence from Micro Plot-Level Data",
+      "year": 2022,
+      "authors": [
+        "Diego Restuccia",
+        "Tasso Adamopoulos"
+      ],
+      "listed_venue": "The Review of Economic Studies",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.economics.utoronto.ca/diegor/published-papers.html entry 7 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1093/restud/rdab059"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Geography and Agricultural Productivity: Cross-Country Evidence from Micro Plot-Level Data",
+          "year": 2021,
+          "authors": [
+            "Diego Restuccia",
+            "Tasso Adamopoulos"
+          ]
+        },
+        {
+          "title": "Geography and Agricultural Productivity: Cross-Country Evidence from Micro Plot-Level Data",
+          "year": 2023,
+          "authors": [
+            "Diego Restuccia",
+            "Tasso Adamopoulos"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1093/restud/rdab059",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Geography and Agricultural Productivity: Cross-Country Evidence from Micro Plot-Level Data",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_diego_restuccia:1fdba9dbbdba",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Misallocation, Selection, and Productivity: A Quantitative Analysis with Micro Data from China",
+      "year": 2022,
+      "authors": [
+        "Diego Restuccia",
+        "Tasso Adamopoulos",
+        "Loren Brandt",
+        "Jessica Leight"
+      ],
+      "listed_venue": "Econometrica",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.economics.utoronto.ca/diegor/published-papers.html entry 9 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Misallocation, Selection, and Productivity: A Quantitative Analysis with Micro Data from China",
+          "year": 2021,
+          "authors": [
+            "Diego Restuccia",
+            "Tasso Adamopoulos",
+            "Loren Brandt",
+            "Jessica Leight"
+          ]
+        },
+        {
+          "title": "Misallocation, Selection, and Productivity: A Quantitative Analysis with Micro Data from China",
+          "year": 2023,
+          "authors": [
+            "Diego Restuccia",
+            "Tasso Adamopoulos",
+            "Loren Brandt",
+            "Jessica Leight"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_diego_restuccia:97cf239fc693",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The Effects of Land Markets on Resource Allocation and Agricultural Productivity",
+      "year": 2022,
+      "authors": [
+        "Diego Restuccia",
+        "Chaoran Chen",
+        "Raul Santaeulalia-Llopis"
+      ],
+      "listed_venue": "Review of Economic Dynamics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.economics.utoronto.ca/diegor/published-papers.html entry 8 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.red.2021.04.006"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "The Effects of Land Markets on Resource Allocation and Agricultural Productivity",
+          "year": 2021,
+          "authors": [
+            "Diego Restuccia",
+            "Chaoran Chen",
+            "Raul Santaeulalia-Llopis"
+          ]
+        },
+        {
+          "title": "The Effects of Land Markets on Resource Allocation and Agricultural Productivity",
+          "year": 2023,
+          "authors": [
+            "Diego Restuccia",
+            "Chaoran Chen",
+            "Raul Santaeulalia-Llopis"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.red.2021.04.006",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "The effects of land markets on resource allocation and agricultural productivity",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_diego_restuccia:b8400f7a1e71",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Land Misallocation and Productivity",
+      "year": 2023,
+      "authors": [
+        "Diego Restuccia",
+        "Chaoran Chen",
+        "Raul Santaeulalia-Llopis"
+      ],
+      "listed_venue": "American Economic Journal: Macroeconomics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.economics.utoronto.ca/diegor/published-papers.html entry 6 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Land Misallocation and Productivity",
+          "year": 2022,
+          "authors": [
+            "Diego Restuccia",
+            "Chaoran Chen",
+            "Raul Santaeulalia-Llopis"
+          ]
+        },
+        {
+          "title": "Land Misallocation and Productivity",
+          "year": 2024,
+          "authors": [
+            "Diego Restuccia",
+            "Chaoran Chen",
+            "Raul Santaeulalia-Llopis"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_diego_restuccia:cb422e05e241",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Policy Distortions and Aggregate Productivity with Endogenous Establishment-Level Productivity",
+      "year": 2023,
+      "authors": [
+        "Diego Restuccia",
+        "Jose-Maria Da-Rocha",
+        "Marina M. Tavares"
+      ],
+      "listed_venue": "European Economic Review",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.economics.utoronto.ca/diegor/published-papers.html entry 5 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.euroecorev.2023.104444"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Policy Distortions and Aggregate Productivity with Endogenous Establishment-Level Productivity",
+          "year": 2022,
+          "authors": [
+            "Diego Restuccia",
+            "Jose-Maria Da-Rocha",
+            "Marina M. Tavares"
+          ]
+        },
+        {
+          "title": "Policy Distortions and Aggregate Productivity with Endogenous Establishment-Level Productivity",
+          "year": 2024,
+          "authors": [
+            "Diego Restuccia",
+            "Jose-Maria Da-Rocha",
+            "Marina M. Tavares"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.euroecorev.2023.104444",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Policy distortions and aggregate productivity with endogenous establishment-level productivity",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_diego_restuccia:8eb4d6655559",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Assessing Misallocation in Agriculture: Plots versus Farms",
+      "year": 2024,
+      "authors": [
+        "Diego Restuccia",
+        "Fernando Aragon",
+        "Juan Pablo Rud"
+      ],
+      "listed_venue": "Food Policy",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.economics.utoronto.ca/diegor/published-papers.html entry 2 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.foodpol.2024.102678"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Assessing Misallocation in Agriculture: Plots versus Farms",
+          "year": 2023,
+          "authors": [
+            "Diego Restuccia",
+            "Fernando Aragon",
+            "Juan Pablo Rud"
+          ]
+        },
+        {
+          "title": "Assessing Misallocation in Agriculture: Plots versus Farms",
+          "year": 2025,
+          "authors": [
+            "Diego Restuccia",
+            "Fernando Aragon",
+            "Juan Pablo Rud"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.foodpol.2024.102678",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Assessing misallocation in agriculture: Plots versus farms",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_diego_restuccia:db5e3b60f742",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Land Security and Mobility Frictions",
+      "year": 2024,
+      "authors": [
+        "Diego Restuccia",
+        "Tasso Adamopoulos",
+        "Loren Brandt",
+        "Chaoran Chen",
+        "Xiaoyun Wei"
+      ],
+      "listed_venue": "Quarterly Journal of Economics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.economics.utoronto.ca/diegor/published-papers.html entry 4 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1093/qje/qjae010"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Land Security and Mobility Frictions",
+          "year": 2023,
+          "authors": [
+            "Diego Restuccia",
+            "Tasso Adamopoulos",
+            "Loren Brandt",
+            "Chaoran Chen",
+            "Xiaoyun Wei"
+          ]
+        },
+        {
+          "title": "Land Security and Mobility Frictions",
+          "year": 2025,
+          "authors": [
+            "Diego Restuccia",
+            "Tasso Adamopoulos",
+            "Loren Brandt",
+            "Chaoran Chen",
+            "Xiaoyun Wei"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1093/qje/qjae010",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Land Security and Mobility Frictions",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_diego_restuccia:cb5cb9fdd76c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Symposium on Misallocation and Structural Transformation: Introduction",
+      "year": 2024,
+      "authors": [
+        "Diego Restuccia",
+        "Tasso Adamopoulos"
+      ],
+      "listed_venue": "Canadian Journal of Economics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.economics.utoronto.ca/diegor/published-papers.html entry 3 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1111/caje.12720"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Symposium on Misallocation and Structural Transformation: Introduction",
+          "year": 2023,
+          "authors": [
+            "Diego Restuccia",
+            "Tasso Adamopoulos"
+          ]
+        },
+        {
+          "title": "Symposium on Misallocation and Structural Transformation: Introduction",
+          "year": 2025,
+          "authors": [
+            "Diego Restuccia",
+            "Tasso Adamopoulos"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1111/caje.12720",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Symposium on Misallocation and Structural Transformation: Introduction",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_diego_restuccia:7d17d7df6bcb",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The Role of Nonemployers in Business Dynamism and Aggregate Productivity",
+      "year": 2025,
+      "authors": [
+        "Diego Restuccia",
+        "Pedro Bento"
+      ],
+      "listed_venue": "Journal of Political Economy Macroeconomics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.economics.utoronto.ca/diegor/published-papers.html entry 1 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1086/735032"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "The Role of Nonemployers in Business Dynamism and Aggregate Productivity",
+          "year": 2024,
+          "authors": [
+            "Diego Restuccia",
+            "Pedro Bento"
+          ]
+        },
+        {
+          "title": "The Role of Nonemployers in Business Dynamism and Aggregate Productivity",
+          "year": 2026,
+          "authors": [
+            "Diego Restuccia",
+            "Pedro Bento"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1086/735032",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "The Role of Nonemployers in Business Dynamism and Aggregate Productivity",
+          "crossref_year": 2025
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

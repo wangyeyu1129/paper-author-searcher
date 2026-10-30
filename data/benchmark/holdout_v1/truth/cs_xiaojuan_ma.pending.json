@@ -1,0 +1,2997 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "cs_xiaojuan_ma",
+    "dataset_id": "holdout_v1",
+    "search_input": {
+      "name": "Xiaojuan Ma",
+      "university": "Hong Kong University of Science and Technology"
+    },
+    "scope": {
+      "year_start": 2023,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-30T21:04:27.638343+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://cse.hkust.edu.hk/~mxj/publications.html",
+        "records": 44
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "cs_xiaojuan_ma:91b81d545b85",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Care Workers' Wellbeing in Data-Driven Healthcare Workplace: Identity, Agency, and Social Justice",
+      "year": 2023,
+      "authors": [
+        "Y. Sun",
+        "X. Ma",
+        "S. Lindtner",
+        "L. He"
+      ],
+      "listed_venue": "Proceedings of the ACM on Human-Computer Interaction",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 10 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3610178"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Care Workers' Wellbeing in Data-Driven Healthcare Workplace: Identity, Agency, and Social Justice",
+          "year": 2022,
+          "authors": [
+            "Y. Sun",
+            "X. Ma",
+            "S. Lindtner",
+            "L. He"
+          ]
+        },
+        {
+          "title": "Care Workers' Wellbeing in Data-Driven Healthcare Workplace: Identity, Agency, and Social Justice",
+          "year": 2024,
+          "authors": [
+            "Y. Sun",
+            "X. Ma",
+            "S. Lindtner",
+            "L. He"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3610178",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Care Workers' Wellbeing in Data-Driven Healthcare Workplace: Identity, Agency, and Social Justice",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:6ec5e97dc460",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "CoArgue: Fostering Lurkers Contribution to Collective Arguments in Community-based QA Platforms",
+      "year": 2023,
+      "authors": [
+        "C. Liu",
+        "S. Zhou",
+        "D. Liu",
+        "J. Li",
+        "Z. Huang",
+        "X. Ma"
+      ],
+      "listed_venue": "CHI2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 40 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3544548.3580932"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "CoArgue: Fostering Lurkers Contribution to Collective Arguments in Community-based QA Platforms",
+          "year": 2022,
+          "authors": [
+            "C. Liu",
+            "S. Zhou",
+            "D. Liu",
+            "J. Li",
+            "Z. Huang",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "CoArgue: Fostering Lurkers Contribution to Collective Arguments in Community-based QA Platforms",
+          "year": 2024,
+          "authors": [
+            "C. Liu",
+            "S. Zhou",
+            "D. Liu",
+            "J. Li",
+            "Z. Huang",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3544548.3580932",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "CoArgue : Fostering Lurkers’ Contribution to Collective Arguments in Community-based QA Platforms",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:48a17b0d8f66",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Competent but Rigid: Identifying the Gap in Empowering AI to Participate Equally in Group Decision-Making",
+      "year": 2023,
+      "authors": [
+        "C. Zheng",
+        "Y. Wu",
+        "C. Shi",
+        "S. Ma",
+        "J. Luo",
+        "X. Ma"
+      ],
+      "listed_venue": "CHI2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 39 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3544548.3581131"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Competent but Rigid: Identifying the Gap in Empowering AI to Participate Equally in Group Decision-Making",
+          "year": 2022,
+          "authors": [
+            "C. Zheng",
+            "Y. Wu",
+            "C. Shi",
+            "S. Ma",
+            "J. Luo",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "Competent but Rigid: Identifying the Gap in Empowering AI to Participate Equally in Group Decision-Making",
+          "year": 2024,
+          "authors": [
+            "C. Zheng",
+            "Y. Wu",
+            "C. Shi",
+            "S. Ma",
+            "J. Luo",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3544548.3581131",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Competent but Rigid: Identifying the Gap in Empowering AI to Participate Equally in Group Decision-Making",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:998283badbfa",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "CriTrainer: An Adaptive Training Tool for Critical Paper Reading",
+      "year": 2023,
+      "authors": [
+        "K. Yuan",
+        "H. Lin",
+        "S. Cao",
+        "Z. Peng",
+        "Q. Guo",
+        "X. Ma"
+      ],
+      "listed_venue": "UIST2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 36 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3586183.3606816"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "CriTrainer: An Adaptive Training Tool for Critical Paper Reading",
+          "year": 2022,
+          "authors": [
+            "K. Yuan",
+            "H. Lin",
+            "S. Cao",
+            "Z. Peng",
+            "Q. Guo",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "CriTrainer: An Adaptive Training Tool for Critical Paper Reading",
+          "year": 2024,
+          "authors": [
+            "K. Yuan",
+            "H. Lin",
+            "S. Cao",
+            "Z. Peng",
+            "Q. Guo",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3586183.3606816",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "CriTrainer: An Adaptive Training Tool for Critical Paper Reading",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:bb3232b9555f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Exploring the Effects of Event-induced Sudden Influx of Newcomers to Online Pop Music Fandom Communities: Content, Interaction, and Engagement",
+      "year": 2023,
+      "authors": [
+        "Q. Guo",
+        "C. Shi",
+        "Z. Yin",
+        "C. Liu",
+        "X. Ma"
+      ],
+      "listed_venue": "Proceedings of the ACM on Human-Computer Interaction",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 9 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3610063"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Exploring the Effects of Event-induced Sudden Influx of Newcomers to Online Pop Music Fandom Communities: Content, Interaction, and Engagement",
+          "year": 2022,
+          "authors": [
+            "Q. Guo",
+            "C. Shi",
+            "Z. Yin",
+            "C. Liu",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "Exploring the Effects of Event-induced Sudden Influx of Newcomers to Online Pop Music Fandom Communities: Content, Interaction, and Engagement",
+          "year": 2024,
+          "authors": [
+            "Q. Guo",
+            "C. Shi",
+            "Z. Yin",
+            "C. Liu",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3610063",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Exploring the Effects of Event-induced Sudden Influx of Newcomers to Online Pop Music Fandom Communities: Content, Interaction, and Engagement",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:5c48c2a64c21",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "IntimaSea: Exploring Shared Stress Display in Close Relationships",
+      "year": 2023,
+      "authors": [
+        "Y. Jiang",
+        "X. Ding",
+        "X. Ma",
+        "Z. Sun",
+        "N. Gu"
+      ],
+      "listed_venue": "CHI2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 44 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3544548.3581000"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "IntimaSea: Exploring Shared Stress Display in Close Relationships",
+          "year": 2022,
+          "authors": [
+            "Y. Jiang",
+            "X. Ding",
+            "X. Ma",
+            "Z. Sun",
+            "N. Gu"
+          ]
+        },
+        {
+          "title": "IntimaSea: Exploring Shared Stress Display in Close Relationships",
+          "year": 2024,
+          "authors": [
+            "Y. Jiang",
+            "X. Ding",
+            "X. Ma",
+            "Z. Sun",
+            "N. Gu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3544548.3581000",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "IntimaSea: Exploring Shared Stress Display in Close Relationships",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:f3cbaea70f67",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "PopBlends: Strategies for Conceptual Blending with Large Language Models",
+      "year": 2023,
+      "authors": [
+        "S. Wang",
+        "S. Petridis",
+        "T. Kwon",
+        "X. Ma",
+        "L.B. Chilton"
+      ],
+      "listed_venue": "CHI2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 43 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3544548.3580948"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "PopBlends: Strategies for Conceptual Blending with Large Language Models",
+          "year": 2022,
+          "authors": [
+            "S. Wang",
+            "S. Petridis",
+            "T. Kwon",
+            "X. Ma",
+            "L.B. Chilton"
+          ]
+        },
+        {
+          "title": "PopBlends: Strategies for Conceptual Blending with Large Language Models",
+          "year": 2024,
+          "authors": [
+            "S. Wang",
+            "S. Petridis",
+            "T. Kwon",
+            "X. Ma",
+            "L.B. Chilton"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3544548.3580948",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "PopBlends: Strategies for Conceptual Blending with Large Language Models",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:93af8a9bf931",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "RetroLens: A Human-AI Collaborative System for Multi-step Retrosynthetic Route Planning",
+      "year": 2023,
+      "authors": [
+        "C. Shi",
+        "Y. Hu",
+        "S. Wang",
+        "S. Ma",
+        "C. Zheng",
+        "X. Ma",
+        "Q. Luo"
+      ],
+      "listed_venue": "CHI2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 42 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3544548.3581469"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "RetroLens: A Human-AI Collaborative System for Multi-step Retrosynthetic Route Planning",
+          "year": 2022,
+          "authors": [
+            "C. Shi",
+            "Y. Hu",
+            "S. Wang",
+            "S. Ma",
+            "C. Zheng",
+            "X. Ma",
+            "Q. Luo"
+          ]
+        },
+        {
+          "title": "RetroLens: A Human-AI Collaborative System for Multi-step Retrosynthetic Route Planning",
+          "year": 2024,
+          "authors": [
+            "C. Shi",
+            "Y. Hu",
+            "S. Wang",
+            "S. Ma",
+            "C. Zheng",
+            "X. Ma",
+            "Q. Luo"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3544548.3581469",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "RetroLens: A Human-AI Collaborative System for Multi-step Retrosynthetic Route Planning",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:9564cef92c5a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Storyfier: Exploring Vocabulary Learning Support with Text Generation Models",
+      "year": 2023,
+      "authors": [
+        "Z. Peng",
+        "X. Wang",
+        "Q. Han",
+        "J. Zhu",
+        "X. Ma",
+        "H. Qu"
+      ],
+      "listed_venue": "UIST2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 37 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3586183.3606786"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Storyfier: Exploring Vocabulary Learning Support with Text Generation Models",
+          "year": 2022,
+          "authors": [
+            "Z. Peng",
+            "X. Wang",
+            "Q. Han",
+            "J. Zhu",
+            "X. Ma",
+            "H. Qu"
+          ]
+        },
+        {
+          "title": "Storyfier: Exploring Vocabulary Learning Support with Text Generation Models",
+          "year": 2024,
+          "authors": [
+            "Z. Peng",
+            "X. Wang",
+            "Q. Han",
+            "J. Zhu",
+            "X. Ma",
+            "H. Qu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3586183.3606786",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Storyfier: Exploring Vocabulary Learning Support with Text Generation Models",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:58242d8d20dd",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "What Makes Creators Engage with Online Critiques? Understanding the Role of Artifacts Creation Stage, Characteristics of Community Comments, and their Interactions",
+      "year": 2023,
+      "authors": [
+        "Q. Guo",
+        "C. Zhang",
+        "H. Lyu",
+        "Z. Peng",
+        "X. Ma"
+      ],
+      "listed_venue": "CHI2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 41 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3544548.3581054"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "What Makes Creators Engage with Online Critiques? Understanding the Role of Artifacts Creation Stage, Characteristics of Community Comments, and their Interactions",
+          "year": 2022,
+          "authors": [
+            "Q. Guo",
+            "C. Zhang",
+            "H. Lyu",
+            "Z. Peng",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "What Makes Creators Engage with Online Critiques? Understanding the Role of Artifacts Creation Stage, Characteristics of Community Comments, and their Interactions",
+          "year": 2024,
+          "authors": [
+            "Q. Guo",
+            "C. Zhang",
+            "H. Lyu",
+            "Z. Peng",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3544548.3581054",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "What Makes Creators Engage with Online Critiques? Understanding the Role of Artifacts’ Creation Stage, Characteristics of Community Comments, and their Interactions",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:263f11d8dbf1",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Who Should I Trust: AI or Myself? Leveraging Human and AI Correctness Likelihood to Promote Appropriate Trust in AI-Assisted Decision-Making",
+      "year": 2023,
+      "authors": [
+        "S. Ma",
+        "Y. Lei",
+        "X. Wang",
+        "C. Zheng",
+        "C. Shi",
+        "M. Yin",
+        "X. Ma"
+      ],
+      "listed_venue": "CHI2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 38 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3544548.3581058"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Who Should I Trust: AI or Myself? Leveraging Human and AI Correctness Likelihood to Promote Appropriate Trust in AI-Assisted Decision-Making",
+          "year": 2022,
+          "authors": [
+            "S. Ma",
+            "Y. Lei",
+            "X. Wang",
+            "C. Zheng",
+            "C. Shi",
+            "M. Yin",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "Who Should I Trust: AI or Myself? Leveraging Human and AI Correctness Likelihood to Promote Appropriate Trust in AI-Assisted Decision-Making",
+          "year": 2024,
+          "authors": [
+            "S. Ma",
+            "Y. Lei",
+            "X. Wang",
+            "C. Zheng",
+            "C. Shi",
+            "M. Yin",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3544548.3581058",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Who Should I Trust: AI or Myself? Leveraging Human and AI Correctness Likelihood to Promote Appropriate Trust in AI-Assisted Decision-Making",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:6158e27b585c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "\"Are You Really Sure?'' Understanding the Effects of Human Self-Confidence Calibration in AI-Assisted Decision Making",
+      "year": 2024,
+      "authors": [
+        "S. Ma",
+        "X. Wang",
+        "Y. Lei",
+        "C. Shi",
+        "M. Yin",
+        "X. Ma"
+      ],
+      "listed_venue": "CHI2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 28 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3613904.3642671"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "\"Are You Really Sure?'' Understanding the Effects of Human Self-Confidence Calibration in AI-Assisted Decision Making",
+          "year": 2023,
+          "authors": [
+            "S. Ma",
+            "X. Wang",
+            "Y. Lei",
+            "C. Shi",
+            "M. Yin",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "\"Are You Really Sure?'' Understanding the Effects of Human Self-Confidence Calibration in AI-Assisted Decision Making",
+          "year": 2025,
+          "authors": [
+            "S. Ma",
+            "X. Wang",
+            "Y. Lei",
+            "C. Shi",
+            "M. Yin",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3613904.3642671",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "“Are You Really Sure?” Understanding the Effects of Human Self-Confidence Calibration in AI-Assisted Decision Making",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:61cc6748f80c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Charting the Future of AI in Project-Based Learning: A Co-Design Exploration with Students",
+      "year": 2024,
+      "authors": [
+        "C. Zheng",
+        "K. Yuan",
+        "B. Guo",
+        "R.H. Mogavi",
+        "Z. Peng",
+        "S. Ma",
+        "X. Ma"
+      ],
+      "listed_venue": "CHI2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 30 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3613904.3642807"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Charting the Future of AI in Project-Based Learning: A Co-Design Exploration with Students",
+          "year": 2023,
+          "authors": [
+            "C. Zheng",
+            "K. Yuan",
+            "B. Guo",
+            "R.H. Mogavi",
+            "Z. Peng",
+            "S. Ma",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "Charting the Future of AI in Project-Based Learning: A Co-Design Exploration with Students",
+          "year": 2025,
+          "authors": [
+            "C. Zheng",
+            "K. Yuan",
+            "B. Guo",
+            "R.H. Mogavi",
+            "Z. Peng",
+            "S. Ma",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3613904.3642807",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Charting the Future of AI in Project-Based Learning: A Co-Design Exploration with Students",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:b4e866a6bd33",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "CompositingVis: Exploring Interactions for Creating Composite Visualizations in Immersive Environments",
+      "year": 2024,
+      "authors": [
+        "Q. Zhu",
+        "T. Lu",
+        "S. Guo",
+        "X. Ma",
+        "Y. Yang"
+      ],
+      "listed_venue": "IEEE Transactions on Visualization and Computer Graphics (TVCG)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 5 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/tvcg.2024.3456210"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "CompositingVis: Exploring Interactions for Creating Composite Visualizations in Immersive Environments",
+          "year": 2023,
+          "authors": [
+            "Q. Zhu",
+            "T. Lu",
+            "S. Guo",
+            "X. Ma",
+            "Y. Yang"
+          ]
+        },
+        {
+          "title": "CompositingVis: Exploring Interactions for Creating Composite Visualizations in Immersive Environments",
+          "year": 2025,
+          "authors": [
+            "Q. Zhu",
+            "T. Lu",
+            "S. Guo",
+            "X. Ma",
+            "Y. Yang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/tvcg.2024.3456210",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "CompositingVis: Exploring Interactions for Creating Composite Visualizations in Immersive Environments",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:72ad79ab00c8",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Deciphering Explicit and Implicit Features for Reliable, Interpretable, and Actionable User Churn Prediction in Online Video Games",
+      "year": 2024,
+      "authors": [
+        "X. Wang",
+        "L. Xie",
+        "H. Wang",
+        "X. Xing",
+        "W. Wan",
+        "Z. Wu",
+        "X. Ma",
+        "Q. Li"
+      ],
+      "listed_venue": "IEEE Transactions on Visualization and Computer Graphics (TVCG)",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 6 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/tvcg.2024.3487974"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Deciphering Explicit and Implicit Features for Reliable, Interpretable, and Actionable User Churn Prediction in Online Video Games",
+          "year": 2023,
+          "authors": [
+            "X. Wang",
+            "L. Xie",
+            "H. Wang",
+            "X. Xing",
+            "W. Wan",
+            "Z. Wu",
+            "X. Ma",
+            "Q. Li"
+          ]
+        },
+        {
+          "title": "Deciphering Explicit and Implicit Features for Reliable, Interpretable, and Actionable User Churn Prediction in Online Video Games",
+          "year": 2025,
+          "authors": [
+            "X. Wang",
+            "L. Xie",
+            "H. Wang",
+            "X. Xing",
+            "W. Wan",
+            "Z. Wu",
+            "X. Ma",
+            "Q. Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/tvcg.2024.3487974",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Deciphering Explicit and Implicit Features for Reliable, Interpretable, and Actionable User Churn Prediction in Online Video Games",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:617662196081",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Designing Scaffolding Strategies for Conversational Agents in Dialog Task of Neurocognitive Disorders Screening",
+      "year": 2024,
+      "authors": [
+        "J. Hu",
+        "J. Li",
+        "Y. Zeng",
+        "D. Yang",
+        "D. Liang",
+        "H. Meng",
+        "X. Ma"
+      ],
+      "listed_venue": "CHI2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 26 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3613904.3642960"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Designing Scaffolding Strategies for Conversational Agents in Dialog Task of Neurocognitive Disorders Screening",
+          "year": 2023,
+          "authors": [
+            "J. Hu",
+            "J. Li",
+            "Y. Zeng",
+            "D. Yang",
+            "D. Liang",
+            "H. Meng",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "Designing Scaffolding Strategies for Conversational Agents in Dialog Task of Neurocognitive Disorders Screening",
+          "year": 2025,
+          "authors": [
+            "J. Hu",
+            "J. Li",
+            "Y. Zeng",
+            "D. Yang",
+            "D. Liang",
+            "H. Meng",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3613904.3642960",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Designing Scaffolding Strategies for Conversational Agents in Dialog Task of Neurocognitive Disorders Screening",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:ec9023493ddb",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Designing the Conversational Agent: Asking Follow-up Questions for Information Elicitation",
+      "year": 2024,
+      "authors": [
+        "J. Hu",
+        "J. Guo",
+        "N. Tang",
+        "X. Ma",
+        "Y. Yao",
+        "C. Yang",
+        "Y. Xu"
+      ],
+      "listed_venue": "Proceedings of the ACM on Human-Computer Interaction",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 8 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3637320"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Designing the Conversational Agent: Asking Follow-up Questions for Information Elicitation",
+          "year": 2023,
+          "authors": [
+            "J. Hu",
+            "J. Guo",
+            "N. Tang",
+            "X. Ma",
+            "Y. Yao",
+            "C. Yang",
+            "Y. Xu"
+          ]
+        },
+        {
+          "title": "Designing the Conversational Agent: Asking Follow-up Questions for Information Elicitation",
+          "year": 2025,
+          "authors": [
+            "J. Hu",
+            "J. Guo",
+            "N. Tang",
+            "X. Ma",
+            "Y. Yao",
+            "C. Yang",
+            "Y. Xu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3637320",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Designing the Conversational Agent: Asking Follow-up Questions for Information Elicitation",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:dcb4bc89010f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "DesignQuizzer: A Community-Powered Conversational Agent for Learning Visual Design",
+      "year": 2024,
+      "authors": [
+        "Z. Peng",
+        "Q. Chen",
+        "Z. Shen",
+        "X. Ma",
+        "A. Oulasvirta"
+      ],
+      "listed_venue": "Proceedings of the ACM on Human-Computer Interaction",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 7 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3637321"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "DesignQuizzer: A Community-Powered Conversational Agent for Learning Visual Design",
+          "year": 2023,
+          "authors": [
+            "Z. Peng",
+            "Q. Chen",
+            "Z. Shen",
+            "X. Ma",
+            "A. Oulasvirta"
+          ]
+        },
+        {
+          "title": "DesignQuizzer: A Community-Powered Conversational Agent for Learning Visual Design",
+          "year": 2025,
+          "authors": [
+            "Z. Peng",
+            "Q. Chen",
+            "Z. Shen",
+            "X. Ma",
+            "A. Oulasvirta"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3637321",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "DesignQuizzer: A Community-Powered Conversational Agent for Learning Visual Design",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:1a16f5ae0274",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "DiaryHelper: Exploring the Use of an Automatic Contextual Information Recording Agent for Elicitation Diary Study",
+      "year": 2024,
+      "authors": [
+        "J. Li",
+        "C. He",
+        "J. Hu",
+        "B. Jia",
+        "A. Halevy",
+        "X. Ma"
+      ],
+      "listed_venue": "CHI2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 29 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3613904.3642853"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "DiaryHelper: Exploring the Use of an Automatic Contextual Information Recording Agent for Elicitation Diary Study",
+          "year": 2023,
+          "authors": [
+            "J. Li",
+            "C. He",
+            "J. Hu",
+            "B. Jia",
+            "A. Halevy",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "DiaryHelper: Exploring the Use of an Automatic Contextual Information Recording Agent for Elicitation Diary Study",
+          "year": 2025,
+          "authors": [
+            "J. Li",
+            "C. He",
+            "J. Hu",
+            "B. Jia",
+            "A. Halevy",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3613904.3642853",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "DiaryHelper: Exploring the Use of an Automatic Contextual Information Recording Agent for Elicitation Diary Study",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:21edc083dc26",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "DiscipLink: Unfolding Interdisciplinary Information Seeking Process via Human-AI Co-Exploration",
+      "year": 2024,
+      "authors": [
+        "C. Zheng",
+        "Y. Zhang",
+        "Z. Huang",
+        "C. Shi",
+        "M. Xu",
+        "X. Ma"
+      ],
+      "listed_venue": "UIST2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 25 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3654777.3676366"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "DiscipLink: Unfolding Interdisciplinary Information Seeking Process via Human-AI Co-Exploration",
+          "year": 2023,
+          "authors": [
+            "C. Zheng",
+            "Y. Zhang",
+            "Z. Huang",
+            "C. Shi",
+            "M. Xu",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "DiscipLink: Unfolding Interdisciplinary Information Seeking Process via Human-AI Co-Exploration",
+          "year": 2025,
+          "authors": [
+            "C. Zheng",
+            "Y. Zhang",
+            "Z. Huang",
+            "C. Shi",
+            "M. Xu",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3654777.3676366",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "DiscipLink: Unfolding Interdisciplinary Information Seeking Process via Human-AI Co-Exploration",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:8fb20bc65b55",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Exploring Parent's Needs for Children-Centered AI to Support Preschoolers' Interactive Storytelling and Reading Activities",
+      "year": 2024,
+      "authors": [
+        "Y. Sun",
+        "J. Chen",
+        "B. Yao",
+        "J. Liu",
+        "D. Wang",
+        "X. Ma",
+        "Y. Lu",
+        "Y. Xu",
+        "L. He"
+      ],
+      "listed_venue": "Proceedings of the ACM on Human-Computer Interaction",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 4 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3687035"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Exploring Parent's Needs for Children-Centered AI to Support Preschoolers' Interactive Storytelling and Reading Activities",
+          "year": 2023,
+          "authors": [
+            "Y. Sun",
+            "J. Chen",
+            "B. Yao",
+            "J. Liu",
+            "D. Wang",
+            "X. Ma",
+            "Y. Lu",
+            "Y. Xu",
+            "L. He"
+          ]
+        },
+        {
+          "title": "Exploring Parent's Needs for Children-Centered AI to Support Preschoolers' Interactive Storytelling and Reading Activities",
+          "year": 2025,
+          "authors": [
+            "Y. Sun",
+            "J. Chen",
+            "B. Yao",
+            "J. Liu",
+            "D. Wang",
+            "X. Ma",
+            "Y. Lu",
+            "Y. Xu",
+            "L. He"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3687035",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Exploring Parent's Needs for Children-Centered AI to Support Preschoolers' Interactive Storytelling and Reading Activities",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:7778ff3f888d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "FARPLS: A Feature-Augmented Robot Trajectory Preference Labeling System to Assist Human Labelers Preference Elicitation",
+      "year": 2024,
+      "authors": [
+        "H. Lyu",
+        "Y. Bai",
+        "X. Liang",
+        "U. Das",
+        "C. Shi",
+        "L. Gong",
+        "Y. Li",
+        "M. Sun",
+        "M. Ge",
+        "X. Ma"
+      ],
+      "listed_venue": "IUI2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 35 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3640543.3645145"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "FARPLS: A Feature-Augmented Robot Trajectory Preference Labeling System to Assist Human Labelers Preference Elicitation",
+          "year": 2023,
+          "authors": [
+            "H. Lyu",
+            "Y. Bai",
+            "X. Liang",
+            "U. Das",
+            "C. Shi",
+            "L. Gong",
+            "Y. Li",
+            "M. Sun",
+            "M. Ge",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "FARPLS: A Feature-Augmented Robot Trajectory Preference Labeling System to Assist Human Labelers Preference Elicitation",
+          "year": 2025,
+          "authors": [
+            "H. Lyu",
+            "Y. Bai",
+            "X. Liang",
+            "U. Das",
+            "C. Shi",
+            "L. Gong",
+            "Y. Li",
+            "M. Sun",
+            "M. Ge",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3640543.3645145",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "FARPLS: A Feature-Augmented Robot Trajectory Preference Labeling System to Assist Human Labelers’ Preference Elicitation",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:808a4c296503",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "\"It is hard to remove from my eye\": Design Makeup Residue Visualization System for Chinese Traditional Opera (Xiqu) Performers",
+      "year": 2024,
+      "authors": [
+        "Z. Xiong",
+        "S. Fu",
+        "Y. Zhu",
+        "C. Zhu",
+        "X. Ma",
+        "M. Fan"
+      ],
+      "listed_venue": "CHI2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 33 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3613904.3642261"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "\"It is hard to remove from my eye\": Design Makeup Residue Visualization System for Chinese Traditional Opera (Xiqu) Performers",
+          "year": 2023,
+          "authors": [
+            "Z. Xiong",
+            "S. Fu",
+            "Y. Zhu",
+            "C. Zhu",
+            "X. Ma",
+            "M. Fan"
+          ]
+        },
+        {
+          "title": "\"It is hard to remove from my eye\": Design Makeup Residue Visualization System for Chinese Traditional Opera (Xiqu) Performers",
+          "year": 2025,
+          "authors": [
+            "Z. Xiong",
+            "S. Fu",
+            "Y. Zhu",
+            "C. Zhu",
+            "X. Ma",
+            "M. Fan"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3613904.3642261",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "“It is hard to remove from my eye”: Design Makeup Residue Visualization System for Chinese Traditional Opera (Xiqu) Performers",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:e2802efb2df3",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Make Interaction Situated: Designing User Acceptable Interaction for Situated Visualization in Public Environments",
+      "year": 2024,
+      "authors": [
+        "Q. Zhu",
+        "Z. Wang",
+        "W. Zeng",
+        "T. Wai",
+        "W. Lin",
+        "X. Ma"
+      ],
+      "listed_venue": "CHI2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 31 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3613904.3642049"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Make Interaction Situated: Designing User Acceptable Interaction for Situated Visualization in Public Environments",
+          "year": 2023,
+          "authors": [
+            "Q. Zhu",
+            "Z. Wang",
+            "W. Zeng",
+            "T. Wai",
+            "W. Lin",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "Make Interaction Situated: Designing User Acceptable Interaction for Situated Visualization in Public Environments",
+          "year": 2025,
+          "authors": [
+            "Q. Zhu",
+            "Z. Wang",
+            "W. Zeng",
+            "T. Wai",
+            "W. Lin",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3613904.3642049",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Make Interaction Situated: Designing User Acceptable Interaction for Situated Visualization in Public Environments",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:e532a67cf921",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Sharing Frissons among Online Video Viewers: Exploring the Design of Affective Communication for Aesthetic Chills",
+      "year": 2024,
+      "authors": [
+        "Z. Huang",
+        "X. Cao",
+        "Y. Zhang",
+        "X. Ma"
+      ],
+      "listed_venue": "CHI2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 27 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3613904.3642818"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Sharing Frissons among Online Video Viewers: Exploring the Design of Affective Communication for Aesthetic Chills",
+          "year": 2023,
+          "authors": [
+            "Z. Huang",
+            "X. Cao",
+            "Y. Zhang",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "Sharing Frissons among Online Video Viewers: Exploring the Design of Affective Communication for Aesthetic Chills",
+          "year": 2025,
+          "authors": [
+            "Z. Huang",
+            "X. Cao",
+            "Y. Zhang",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3613904.3642818",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Sharing Frissons among Online Video Viewers: Exploring the Design of Affective Communication for Aesthetic Chills",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:5390cf15fb80",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Technology-Mediated Non-pharmacological Interventions for Dementia: Needs for and Challenges in Professional, Personalized and Multi-Stakeholder Collaborative Interventions",
+      "year": 2024,
+      "authors": [
+        "Y. Sun",
+        "Z. Yi",
+        "X. Ma",
+        "J. Mao",
+        "X. Tong"
+      ],
+      "listed_venue": "CHI2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 32 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3613904.3641977"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Technology-Mediated Non-pharmacological Interventions for Dementia: Needs for and Challenges in Professional, Personalized and Multi-Stakeholder Collaborative Interventions",
+          "year": 2023,
+          "authors": [
+            "Y. Sun",
+            "Z. Yi",
+            "X. Ma",
+            "J. Mao",
+            "X. Tong"
+          ]
+        },
+        {
+          "title": "Technology-Mediated Non-pharmacological Interventions for Dementia: Needs for and Challenges in Professional, Personalized and Multi-Stakeholder Collaborative Interventions",
+          "year": 2025,
+          "authors": [
+            "Y. Sun",
+            "Z. Yi",
+            "X. Ma",
+            "J. Mao",
+            "X. Tong"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3613904.3641977",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Technology-Mediated Non-pharmacological Interventions for Dementia: Needs for and Challenges in Professional, Personalized and Multi-Stakeholder Collaborative Interventions",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:8bd8a4d43297",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "TypeDance: Creating Semantic Typographic Logos from Image through Personalized Generation",
+      "year": 2024,
+      "authors": [
+        "S. Xiao",
+        "L. Wang",
+        "X. Ma",
+        "W. Zeng"
+      ],
+      "listed_venue": "CHI2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 34 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3613904.3642185"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "TypeDance: Creating Semantic Typographic Logos from Image through Personalized Generation",
+          "year": 2023,
+          "authors": [
+            "S. Xiao",
+            "L. Wang",
+            "X. Ma",
+            "W. Zeng"
+          ]
+        },
+        {
+          "title": "TypeDance: Creating Semantic Typographic Logos from Image through Personalized Generation",
+          "year": 2025,
+          "authors": [
+            "S. Xiao",
+            "L. Wang",
+            "X. Ma",
+            "W. Zeng"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3613904.3642185",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "TypeDance: Creating Semantic Typographic Logos from Image through Personalized Generation",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:c008282704e4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A design space of animating data-driven transitions in data videos",
+      "year": 2025,
+      "authors": [
+        "C. Zheng",
+        "T. Gao",
+        "S. Guo",
+        "Y. Shi",
+        "X. Ma",
+        "N. Cao"
+      ],
+      "listed_venue": "Journal of Visualization",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 1 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/s12650-025-01066-5"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A design space of animating data-driven transitions in data videos",
+          "year": 2024,
+          "authors": [
+            "C. Zheng",
+            "T. Gao",
+            "S. Guo",
+            "Y. Shi",
+            "X. Ma",
+            "N. Cao"
+          ]
+        },
+        {
+          "title": "A design space of animating data-driven transitions in data videos",
+          "year": 2026,
+          "authors": [
+            "C. Zheng",
+            "T. Gao",
+            "S. Guo",
+            "Y. Shi",
+            "X. Ma",
+            "N. Cao"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1007/s12650-025-01066-5",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "A design space of animating data-driven transitions in data videos",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:6a6ed5db8491",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "ACKnowledge: A Computational Framework for Human Compatible Affordance-based Interaction Planning in Real-world Contexts",
+      "year": 2025,
+      "authors": [
+        "Z. Pan",
+        "X. Zhang",
+        "Z. Li",
+        "Z. Peng",
+        "M. Fan",
+        "X. Ma"
+      ],
+      "listed_venue": "CHI2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 14 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3706598.3713791"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "ACKnowledge: A Computational Framework for Human Compatible Affordance-based Interaction Planning in Real-world Contexts",
+          "year": 2024,
+          "authors": [
+            "Z. Pan",
+            "X. Zhang",
+            "Z. Li",
+            "Z. Peng",
+            "M. Fan",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "ACKnowledge: A Computational Framework for Human Compatible Affordance-based Interaction Planning in Real-world Contexts",
+          "year": 2026,
+          "authors": [
+            "Z. Pan",
+            "X. Zhang",
+            "Z. Li",
+            "Z. Peng",
+            "M. Fan",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3706598.3713791",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "ACKnowledge: A Computational Framework for Human Compatible Affordance-based Interaction Planning in Real-world Contexts",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:5646e1aa6f2b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "\"AI Afterlife\" as Digital Legacy: Perceptions, Expectations, and Concerns",
+      "year": 2025,
+      "authors": [
+        "Y. Lei",
+        "S. Ma",
+        "Y. Sun",
+        "X. Ma"
+      ],
+      "listed_venue": "CHI2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 13 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3706598.3713933"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "\"AI Afterlife\" as Digital Legacy: Perceptions, Expectations, and Concerns",
+          "year": 2024,
+          "authors": [
+            "Y. Lei",
+            "S. Ma",
+            "Y. Sun",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "\"AI Afterlife\" as Digital Legacy: Perceptions, Expectations, and Concerns",
+          "year": 2026,
+          "authors": [
+            "Y. Lei",
+            "S. Ma",
+            "Y. Sun",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3706598.3713933",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "\"AI Afterlife\" as Digital Legacy: Perceptions, Expectations, and Concerns",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:35f3a31bcb35",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "AmplitudeArrow: On-the-Go AR Menu Selection Using Consecutive Simple Head Gestures and Amplitude Visualization",
+      "year": 2025,
+      "authors": [
+        "Y. Tian",
+        "Y. Zhang",
+        "Y. Yan",
+        "S. Zhao",
+        "X. Ma",
+        "Y. Shi"
+      ],
+      "listed_venue": "IEEE Transactions on Visualization and Computer Graphics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 2 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/tvcg.2025.3531378"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "AmplitudeArrow: On-the-Go AR Menu Selection Using Consecutive Simple Head Gestures and Amplitude Visualization",
+          "year": 2024,
+          "authors": [
+            "Y. Tian",
+            "Y. Zhang",
+            "Y. Yan",
+            "S. Zhao",
+            "X. Ma",
+            "Y. Shi"
+          ]
+        },
+        {
+          "title": "AmplitudeArrow: On-the-Go AR Menu Selection Using Consecutive Simple Head Gestures and Amplitude Visualization",
+          "year": 2026,
+          "authors": [
+            "Y. Tian",
+            "Y. Zhang",
+            "Y. Yan",
+            "S. Zhao",
+            "X. Ma",
+            "Y. Shi"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/tvcg.2025.3531378",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "AmplitudeArrow: On-the-Go AR Menu Selection Using Consecutive Simple Head Gestures and Amplitude Visualization",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:9fd9b9037ccc",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Characterizing LLM-Empowered Personalized Story-Reading and Interaction for Children: Insights from Multi-Stakeholder Perspectives",
+      "year": 2025,
+      "authors": [
+        "J. Chen",
+        "M. Tang",
+        "Y. Lu",
+        "B. Yao",
+        "E. Fan",
+        "X. Ma",
+        "Y. Xu",
+        "D. Wang",
+        "Y. Sun",
+        "L. He"
+      ],
+      "listed_venue": "CHI2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 22 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3706598.3713275"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Characterizing LLM-Empowered Personalized Story-Reading and Interaction for Children: Insights from Multi-Stakeholder Perspectives",
+          "year": 2024,
+          "authors": [
+            "J. Chen",
+            "M. Tang",
+            "Y. Lu",
+            "B. Yao",
+            "E. Fan",
+            "X. Ma",
+            "Y. Xu",
+            "D. Wang",
+            "Y. Sun",
+            "L. He"
+          ]
+        },
+        {
+          "title": "Characterizing LLM-Empowered Personalized Story-Reading and Interaction for Children: Insights from Multi-Stakeholder Perspectives",
+          "year": 2026,
+          "authors": [
+            "J. Chen",
+            "M. Tang",
+            "Y. Lu",
+            "B. Yao",
+            "E. Fan",
+            "X. Ma",
+            "Y. Xu",
+            "D. Wang",
+            "Y. Sun",
+            "L. He"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3706598.3713275",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Characterizing LLM-Empowered Personalized Story Reading and Interaction for Children: Insights From Multi-Stakeholder Perspectives",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:e7f3f0975cd4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "CoKnowledge: Supporting Assimilation of Time-synced Collective Knowledge in Online Science Videos",
+      "year": 2025,
+      "authors": [
+        "Y. Zhang",
+        "Y. Wang",
+        "X. Wang",
+        "C. He",
+        "C. Huang",
+        "X. Ma"
+      ],
+      "listed_venue": "CHI2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 15 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3706598.3713682"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "CoKnowledge: Supporting Assimilation of Time-synced Collective Knowledge in Online Science Videos",
+          "year": 2024,
+          "authors": [
+            "Y. Zhang",
+            "Y. Wang",
+            "X. Wang",
+            "C. He",
+            "C. Huang",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "CoKnowledge: Supporting Assimilation of Time-synced Collective Knowledge in Online Science Videos",
+          "year": 2026,
+          "authors": [
+            "Y. Zhang",
+            "Y. Wang",
+            "X. Wang",
+            "C. He",
+            "C. Huang",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3706598.3713682",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "CoKnowledge: Supporting Assimilation of Time-synced Collective Knowledge in Online Science Videos",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:c58f37b45761",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "DBox: Scaffolding Algorithmic Programming Learning through Learner-LLM Co-Decomposition",
+      "year": 2025,
+      "authors": [
+        "S. Ma",
+        "J. Wang",
+        "Y. Zhang",
+        "X. Ma",
+        "A. Y. Wang"
+      ],
+      "listed_venue": "CHI2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 18 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3706598.3713748"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "DBox: Scaffolding Algorithmic Programming Learning through Learner-LLM Co-Decomposition",
+          "year": 2024,
+          "authors": [
+            "S. Ma",
+            "J. Wang",
+            "Y. Zhang",
+            "X. Ma",
+            "A. Y. Wang"
+          ]
+        },
+        {
+          "title": "DBox: Scaffolding Algorithmic Programming Learning through Learner-LLM Co-Decomposition",
+          "year": 2026,
+          "authors": [
+            "S. Ma",
+            "J. Wang",
+            "Y. Zhang",
+            "X. Ma",
+            "A. Y. Wang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3706598.3713748",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "DBox: Scaffolding Algorithmic Programming Learning through Learner-LLM Co-Decomposition",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:4494a9d7bebd",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "InsightBridge: Enhancing Empathizing with Users through Real-Time Information Synthesis and Visual Communication",
+      "year": 2025,
+      "authors": [
+        "J. Li",
+        "Y. Zhang",
+        "C. Zheng",
+        "D. Liu",
+        "Z. Huang",
+        "X. Ma"
+      ],
+      "listed_venue": "CHI2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 16 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3706598.3713640"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "InsightBridge: Enhancing Empathizing with Users through Real-Time Information Synthesis and Visual Communication",
+          "year": 2024,
+          "authors": [
+            "J. Li",
+            "Y. Zhang",
+            "C. Zheng",
+            "D. Liu",
+            "Z. Huang",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "InsightBridge: Enhancing Empathizing with Users through Real-Time Information Synthesis and Visual Communication",
+          "year": 2026,
+          "authors": [
+            "J. Li",
+            "Y. Zhang",
+            "C. Zheng",
+            "D. Liu",
+            "Z. Huang",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3706598.3713640",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "InsightBridge: Enhancing Empathizing with Users through Real-Time Information Synthesis and Visual Communication",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:f475bc9ca18a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "InteRecon: Towards Reconstructing Interactivity of Personal Memorable Items in Mixed Reality",
+      "year": 2025,
+      "authors": [
+        "Z. Li",
+        "J. Li",
+        "Z. Xiong",
+        "S. Zhang",
+        "F. Faruqi",
+        "S. Mueller",
+        "C. Liang",
+        "X. Ma",
+        "M. Fan"
+      ],
+      "listed_venue": "CHI2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 19 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3706598.3713882"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "InteRecon: Towards Reconstructing Interactivity of Personal Memorable Items in Mixed Reality",
+          "year": 2024,
+          "authors": [
+            "Z. Li",
+            "J. Li",
+            "Z. Xiong",
+            "S. Zhang",
+            "F. Faruqi",
+            "S. Mueller",
+            "C. Liang",
+            "X. Ma",
+            "M. Fan"
+          ]
+        },
+        {
+          "title": "InteRecon: Towards Reconstructing Interactivity of Personal Memorable Items in Mixed Reality",
+          "year": 2026,
+          "authors": [
+            "Z. Li",
+            "J. Li",
+            "Z. Xiong",
+            "S. Zhang",
+            "F. Faruqi",
+            "S. Mueller",
+            "C. Liang",
+            "X. Ma",
+            "M. Fan"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3706598.3713882",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "InteRecon: Towards Reconstructing Interactivity of Personal Memorable Items in Mixed Reality",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:12e118beaf25",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "JournalAIde: Empowering Older Adults in Digital Journal Writing",
+      "year": 2025,
+      "authors": [
+        "S. Zhou",
+        "W. Lin",
+        "Z. Xu",
+        "X. Wei",
+        "R. Huang",
+        "X. Ma",
+        "M. Fan"
+      ],
+      "listed_venue": "CHI2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 20 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3706598.3713339"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "JournalAIde: Empowering Older Adults in Digital Journal Writing",
+          "year": 2024,
+          "authors": [
+            "S. Zhou",
+            "W. Lin",
+            "Z. Xu",
+            "X. Wei",
+            "R. Huang",
+            "X. Ma",
+            "M. Fan"
+          ]
+        },
+        {
+          "title": "JournalAIde: Empowering Older Adults in Digital Journal Writing",
+          "year": 2026,
+          "authors": [
+            "S. Zhou",
+            "W. Lin",
+            "Z. Xu",
+            "X. Wei",
+            "R. Huang",
+            "X. Ma",
+            "M. Fan"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3706598.3713339",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "JournalAIde: Empowering Older Adults in Digital Journal Writing",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:95048a565a80",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Live-Streaming-Based Dual-Teacher Classes for Equitable Education: Insights and Challenges From Local Teachers' Perspective in Disadvantaged Areas",
+      "year": 2025,
+      "authors": [
+        "Y. Sun",
+        "J. Chen",
+        "X. Zhou",
+        "X. Ma",
+        "B. Yao",
+        "K. Zhang",
+        "L. He",
+        "D. Wang"
+      ],
+      "listed_venue": "CHI2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 23 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3706598.3714232"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Live-Streaming-Based Dual-Teacher Classes for Equitable Education: Insights and Challenges From Local Teachers' Perspective in Disadvantaged Areas",
+          "year": 2024,
+          "authors": [
+            "Y. Sun",
+            "J. Chen",
+            "X. Zhou",
+            "X. Ma",
+            "B. Yao",
+            "K. Zhang",
+            "L. He",
+            "D. Wang"
+          ]
+        },
+        {
+          "title": "Live-Streaming-Based Dual-Teacher Classes for Equitable Education: Insights and Challenges From Local Teachers' Perspective in Disadvantaged Areas",
+          "year": 2026,
+          "authors": [
+            "Y. Sun",
+            "J. Chen",
+            "X. Zhou",
+            "X. Ma",
+            "B. Yao",
+            "K. Zhang",
+            "L. He",
+            "D. Wang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3706598.3714232",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Live-Streaming-Based Dual-Teacher Classes for Equitable Education: Insights and Challenges From Local Teachers' Perspective in Disadvantaged Areas",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:d65d13381537",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "MetapathVis: Inspecting the Effect of Metapath in Heterogeneous Network Embedding via Visual Analytics",
+      "year": 2025,
+      "authors": [
+        "Q. Li",
+        "Y. Tian",
+        "X. Wang",
+        "L. Xie",
+        "D. Lin",
+        "L. Yi",
+        "X. Ma"
+      ],
+      "listed_venue": "Computer Graphics Forum",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 3 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1111/cgf.15285"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "MetapathVis: Inspecting the Effect of Metapath in Heterogeneous Network Embedding via Visual Analytics",
+          "year": 2024,
+          "authors": [
+            "Q. Li",
+            "Y. Tian",
+            "X. Wang",
+            "L. Xie",
+            "D. Lin",
+            "L. Yi",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "MetapathVis: Inspecting the Effect of Metapath in Heterogeneous Network Embedding via Visual Analytics",
+          "year": 2026,
+          "authors": [
+            "Q. Li",
+            "Y. Tian",
+            "X. Wang",
+            "L. Xie",
+            "D. Lin",
+            "L. Yi",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1111/cgf.15285",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "MetapathVis: Inspecting the Effect of Metapath in Heterogeneous Network Embedding via Visual Analytics",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:60f483af0d22",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "QCM: A Curvature Manipulation Method to Suppress Discomfort in Redirected Walking",
+      "year": 2025,
+      "authors": [
+        "X. Bao",
+        "G. Lv",
+        "Y. Bian",
+        "W. Gai",
+        "S. Xin",
+        "H. Luan",
+        "X. Ma",
+        "C. Yang"
+      ],
+      "listed_venue": "CHI2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 24 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3706598.3714116"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "QCM: A Curvature Manipulation Method to Suppress Discomfort in Redirected Walking",
+          "year": 2024,
+          "authors": [
+            "X. Bao",
+            "G. Lv",
+            "Y. Bian",
+            "W. Gai",
+            "S. Xin",
+            "H. Luan",
+            "X. Ma",
+            "C. Yang"
+          ]
+        },
+        {
+          "title": "QCM: A Curvature Manipulation Method to Suppress Discomfort in Redirected Walking",
+          "year": 2026,
+          "authors": [
+            "X. Bao",
+            "G. Lv",
+            "Y. Bian",
+            "W. Gai",
+            "S. Xin",
+            "H. Luan",
+            "X. Ma",
+            "C. Yang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3706598.3714116",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "QCM: A Curvature Manipulation Method to Suppress Discomfort in Redirected Walking",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:80be2ab46d89",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Scaffolded Turns and Logical Conversations: Designing Humanized LLM-Powered Conversational Agents for Hospital Admission Interviews",
+      "year": 2025,
+      "authors": [
+        "D. Liu",
+        "Y. Zhang",
+        "B. Zhao",
+        "S. Ma",
+        "C. Shi",
+        "X. Ma"
+      ],
+      "listed_venue": "CHI2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 17 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3706598.3714196"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Scaffolded Turns and Logical Conversations: Designing Humanized LLM-Powered Conversational Agents for Hospital Admission Interviews",
+          "year": 2024,
+          "authors": [
+            "D. Liu",
+            "Y. Zhang",
+            "B. Zhao",
+            "S. Ma",
+            "C. Shi",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "Scaffolded Turns and Logical Conversations: Designing Humanized LLM-Powered Conversational Agents for Hospital Admission Interviews",
+          "year": 2026,
+          "authors": [
+            "D. Liu",
+            "Y. Zhang",
+            "B. Zhao",
+            "S. Ma",
+            "C. Shi",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3706598.3714196",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Scaffolded Turns and Logical Conversations: Designing Humanized LLM-Powered Conversational Agents for Hospital Admission Interviews",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:9f652dfff95f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Signaling Human Intentions to Service Robots: Understanding the Use of Social Cues during In-Person Conversations",
+      "year": 2025,
+      "authors": [
+        "H. Lyu",
+        "X. Wang",
+        "N. Zhang",
+        "S. Ma",
+        "Q. Zhu",
+        "Y. Luo",
+        "F. Tsung",
+        "X. Ma"
+      ],
+      "listed_venue": "CHI2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 11 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3706598.3714235"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Signaling Human Intentions to Service Robots: Understanding the Use of Social Cues during In-Person Conversations",
+          "year": 2024,
+          "authors": [
+            "H. Lyu",
+            "X. Wang",
+            "N. Zhang",
+            "S. Ma",
+            "Q. Zhu",
+            "Y. Luo",
+            "F. Tsung",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "Signaling Human Intentions to Service Robots: Understanding the Use of Social Cues during In-Person Conversations",
+          "year": 2026,
+          "authors": [
+            "H. Lyu",
+            "X. Wang",
+            "N. Zhang",
+            "S. Ma",
+            "Q. Zhu",
+            "Y. Luo",
+            "F. Tsung",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3706598.3714235",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Signaling Human Intentions to Service Robots: Understanding the Use of Social Cues during In-Person Conversations",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:6956cdad483a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Towards human-ai deliberation: Design and evaluation of LLM-empowered deliberative ai for ai-assisted decision-making",
+      "year": 2025,
+      "authors": [
+        "S. Ma",
+        "Q. Chen",
+        "X. Wang",
+        "C. Zheng",
+        "Z. Peng",
+        "M. Yin",
+        "X. Ma"
+      ],
+      "listed_venue": "CHI2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 12 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.2139/ssrn.4772689"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Towards human-ai deliberation: Design and evaluation of LLM-empowered deliberative ai for ai-assisted decision-making",
+          "year": 2024,
+          "authors": [
+            "S. Ma",
+            "Q. Chen",
+            "X. Wang",
+            "C. Zheng",
+            "Z. Peng",
+            "M. Yin",
+            "X. Ma"
+          ]
+        },
+        {
+          "title": "Towards human-ai deliberation: Design and evaluation of LLM-empowered deliberative ai for ai-assisted decision-making",
+          "year": 2026,
+          "authors": [
+            "S. Ma",
+            "Q. Chen",
+            "X. Wang",
+            "C. Zheng",
+            "Z. Peng",
+            "M. Yin",
+            "X. Ma"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.2139/ssrn.4772689",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Towards Human-Ai Deliberation: Design and Evaluation of Llm-Empowered Deliberative Ai for Ai-Assisted Decision-Making",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_xiaojuan_ma:e00fdce39fe0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Understanding Screenwriters' Practices, Attitudes, and Future Expectations in Human-AI Co-Creation",
+      "year": 2025,
+      "authors": [
+        "Y. Tang",
+        "H. Li",
+        "M. Lan",
+        "X. Ma",
+        "H. Qu"
+      ],
+      "listed_venue": "CHI2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://cse.hkust.edu.hk/~mxj/publications.html entry 21 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3706598.3714120"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Understanding Screenwriters' Practices, Attitudes, and Future Expectations in Human-AI Co-Creation",
+          "year": 2024,
+          "authors": [
+            "Y. Tang",
+            "H. Li",
+            "M. Lan",
+            "X. Ma",
+            "H. Qu"
+          ]
+        },
+        {
+          "title": "Understanding Screenwriters' Practices, Attitudes, and Future Expectations in Human-AI Co-Creation",
+          "year": 2026,
+          "authors": [
+            "Y. Tang",
+            "H. Li",
+            "M. Lan",
+            "X. Ma",
+            "H. Qu"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3706598.3714120",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Understanding Screenwriters' Practices, Attitudes, and Future Expectations in Human-AI Co-Creation",
+          "crossref_year": 2025
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}
