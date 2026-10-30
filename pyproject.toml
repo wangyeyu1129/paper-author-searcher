@@ -108,6 +108,8 @@ module = [
     "paper_author_searcher.html_support",
     "paper_author_searcher.identity",
     "paper_author_searcher.contender_adjudication",
+    "paper_author_searcher.contest_layers",
+    "paper_author_searcher.byline_disambiguation",
     "paper_author_searcher.cs_sources",
     "paper_author_searcher.homepage_citations",
     "paper_author_searcher.identity_adjudication",

@@ -4,6 +4,7 @@ from dataclasses import replace
 from paper_author_searcher import AuthorCandidate, ProfessorQuery, ProfessorResolver
 from paper_author_searcher.byline_disambiguation import BylineDisambiguator
 from paper_author_searcher.config import DEFAULT_DISAMBIGUATION
+from paper_author_searcher.contest_layers import BylineVerdict, DepartmentBylines
 from paper_author_searcher.curated_positions import PositionFit
 from paper_author_searcher.http import SourceError
 from paper_author_searcher.identity_anchors import IdentityAnchors
@@ -237,3 +238,53 @@ class BroaderUnitTests(unittest.TestCase):
         exact.positions = [CuratedPosition('orcid', ('Harvard University',), ('Department of Bioengineering',), True)]
         contest = [contender('Jia Liu', 0.87, [broader]), contender('Jia Liu', 0.85, [exact])]
         self.assertEqual(BylineDisambiguator().choose(query, contest).index, 1)
+
+
+class ContestChainTests(unittest.TestCase):
+    """The layers run as a chain of responsibility: the first verdict wins, and layers can be added or replaced."""
+
+    @staticmethod
+    def scored():
+        home = [namesake('A1', [HOME] * 8)]
+        rival = [namesake('B1', [MEDICINE] * 8)]
+        return [contender('Alex Morgan', 0.9, home), contender('Alex Morgan', 0.89, rival)]
+
+    def test_default_layers_follow_the_configuration(self):
+        names = [type(layer).__name__ for layer in BylineDisambiguator().layers]
+        self.assertEqual(names, ['DepartmentBylines', 'CuratedPositions'])
+        config = replace(DEFAULT_DISAMBIGUATION, curated_positions=False, school_fallback=True)
+        names = [type(layer).__name__ for layer in BylineDisambiguator(config).layers]
+        self.assertEqual(names, ['DepartmentBylines', 'SchoolBylines'])
+
+    def test_the_first_layer_with_a_verdict_wins(self):
+        calls = []
+
+        class Recording:
+            def __init__(self, name, verdict):
+                self.name, self.verdict = name, verdict
+
+            def decide(self, contest):
+                calls.append(self.name)
+                return self.verdict
+
+        first = Recording('first', None)
+        second = Recording('second', BylineVerdict(1, 'second layer'))
+        third = Recording('third', BylineVerdict(0, 'third layer'))
+        verdict = BylineDisambiguator(layers=[first, second, third]).choose(QUERY, self.scored())
+        self.assertEqual((verdict.index, verdict.note), (1, 'second layer'))
+        self.assertEqual(calls, ['first', 'second'])
+
+    def test_layers_see_the_contest_evidence(self):
+        seen = {}
+
+        class Inspect:
+            def decide(self, contest):
+                seen.update(contest.departments)
+
+        BylineDisambiguator(layers=[Inspect()]).choose(QUERY, self.scored())
+        self.assertEqual(seen, {0: 8, 1: 0})
+
+    def test_department_layer_alone_settles_a_byline_contest(self):
+        verdict = BylineDisambiguator(layers=[DepartmentBylines(DEFAULT_DISAMBIGUATION)]).choose(QUERY, self.scored())
+        self.assertEqual(verdict.index, 0)
+        self.assertIn('Byline disambiguation', verdict.note)
