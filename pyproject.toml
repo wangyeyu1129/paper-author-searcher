@@ -98,6 +98,7 @@ module = [
     "paper_author_searcher.cli",
     "paper_author_searcher.composition",
     "paper_author_searcher.config",
+    "paper_author_searcher.config.*",
     "paper_author_searcher.download_cli",
     "paper_author_searcher.evaluation_cli",
     "paper_author_searcher.http_budget",
@@ -150,6 +151,7 @@ module = [
     "paper_author_searcher.source_catalog",
     "paper_author_searcher.status",
     "paper_author_searcher.workflow",
+    "paper_author_searcher.workflow.*",
 ]
 disallow_untyped_defs = true
 disallow_incomplete_defs = true
