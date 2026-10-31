@@ -319,6 +319,69 @@ class TransientRetryTests(unittest.TestCase):
         self.assertEqual(result.papers[0].validation_status, 'unverified')
 
 
+class SourceRetryTests(unittest.TestCase):
+    def failing(self, error_type='rate_limited', status_code=429):
+        return PDFProviderResult(
+            'public_api',
+            status='error',
+            errors=['10.1234/first: HTTP 429'],
+            diagnostics=[
+                {'identifier': '10.1234/first', 'status': 'error', 'status_code': status_code, 'error_type': error_type}
+            ],
+        )
+
+    def resolve(self, source, client=None, **changes):
+        clock = Clock()
+        config = replace(DEFAULT_PDF, public_page_request_interval=0, **changes)
+        requests = PublicResourceRequests(client or FlakyClient(), config)
+        resolver = PDFResolver([source], PDFURLValidator(requests, config), requests, config, clock.sleep)
+        with patch('paper_author_searcher.pdf_resource_requests.time.monotonic', clock.monotonic):
+            return resolver.resolve(saved_collection()), clock
+
+    def test_a_throttled_source_is_asked_again_and_its_failure_forgotten(self):
+        source = provider()
+        answer = source.find.return_value
+        source.find.side_effect = [self.failing(), answer]
+        result, clock = self.resolve(source)
+        paper = result.papers[0]
+        self.assertEqual(paper.validation_status, 'verified')
+        self.assertEqual(clock.slept, [DEFAULT_PDF.source_retry_wait])
+        self.assertEqual([entry['status'] for entry in paper.providers], [answer.status])
+        self.assertFalse(paper.error_details)
+        self.assertEqual(result.statistics['transient_retry']['source_recovered_papers'], 1)
+
+    def test_a_definitive_answer_is_not_asked_again(self):
+        source = provider()
+        source.find.side_effect = [self.failing('not_found', 404)]
+        result, clock = self.resolve(source)
+        self.assertEqual(source.find.call_count, 1)
+        self.assertEqual(clock.slept, [])
+        self.assertEqual(result.statistics['transient_retry']['reasked_sources'], 0)
+
+    def test_a_source_still_failing_stays_reported_and_rounds_are_bounded(self):
+        source = provider()
+        source.find.side_effect = [self.failing(), self.failing()]
+        result, _ = self.resolve(source)
+        self.assertEqual(source.find.call_count, 2)
+        self.assertEqual(len(result.papers[0].providers), 1)
+        self.assertTrue(result.papers[0].error_details)
+
+    def test_retries_can_be_disabled(self):
+        source = provider()
+        source.find.side_effect = [self.failing()]
+        _, clock = self.resolve(source, source_retry_rounds=0)
+        self.assertEqual((source.find.call_count, clock.slept), (1, []))
+
+    def test_a_link_from_the_second_answer_can_itself_be_retried(self):
+        source = provider()
+        answer = source.find.return_value
+        source.find.side_effect = [self.failing(), answer]
+        client = FlakyClient(SourceError('timed out', error_type='timeout', endpoint_host='repo.example.edu'))
+        result, _ = self.resolve(source, client)
+        self.assertEqual(result.papers[0].validation_status, 'verified')
+        self.assertEqual(len(client.urls), 2)
+
+
 class CLITests(unittest.TestCase):
     def test_saved_archive_cli_writes_url_report_without_api_rerun(self):
         with tempfile.TemporaryDirectory() as directory:

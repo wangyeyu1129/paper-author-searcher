@@ -99,7 +99,9 @@ class PDFResolver:
         for processed in self._run_lookups(jobs):
             if progress:
                 progress('Finding PDF URLs', processed, progress_total)
+        source_retries = self._reask_failed_sources(jobs)
         self._retry_transient(jobs)
+        self.retry_statistics.update(source_retries)
         self._ask_fallbacks(jobs)
         for result in results:
             result.failure_reasons = pdf_failure_reasons(asdict(result))
@@ -129,6 +131,73 @@ class PDFResolver:
             )
             result.validation_status = PDFValidationStatus.UNVERIFIED
             result.error_details.append({'source': 'pdf_validation', 'error': str(exc)})
+
+    def _reask_failed_sources(self, jobs):
+        """Ask a source again about papers still without a link, when its lookup failed only transiently.
+
+        A throttled source returns no links at all, so there is nothing for ``_retry_transient`` to probe again.
+        """
+        stats = {'source_retry_rounds': 0, 'reasked_sources': 0, 'source_recovered_papers': 0}
+        by_name = {provider.name: provider for provider in self.providers}
+        pending = self._failed_source_jobs(jobs, by_name)
+        for _ in range(self.config.source_retry_rounds):
+            if not pending:
+                break
+            self.sleep(self.config.source_retry_wait)
+            stats['source_retry_rounds'] += 1
+            stats['reasked_sources'] += sum(len(providers) for _, _, providers in pending)
+            for _ in self._run_lookups(pending, self._reask_isolated):
+                pass
+            stats['source_recovered_papers'] += sum(
+                result.validation_status == PDFValidationStatus.VERIFIED for _, result, _ in pending
+            )
+            pending = self._failed_source_jobs([(paper, result) for paper, result, _ in pending], by_name)
+        return stats
+
+    @staticmethod
+    def _failed_source_jobs(jobs, by_name):
+        pending = []
+        for paper, result in jobs:
+            if result.validation_status == PDFValidationStatus.VERIFIED:
+                continue
+            providers = [
+                by_name[entry['source']]
+                for entry in result.providers
+                if entry['source'] in by_name
+                and any(item.get('error_type') in TRANSIENT_ERRORS for item in entry.get('diagnostics') or [])
+            ]
+            if providers:
+                pending.append((paper, result, providers))
+        return pending
+
+    def _reask_isolated(self, paper, result, providers):
+        for provider in providers:
+            try:
+                found = provider.find(dict(paper, _pdf_landing_pages=[]))
+            except Exception as exc:
+                log_isolated_failure(logger, 'PDF provider %s retry failed: %s', provider.name, exc)
+                continue
+            # The new answer replaces the failed one, so a recovered source is not reported as failed.
+            result.providers = [entry for entry in result.providers if entry['source'] != provider.name]
+            result.error_details = [
+                entry for entry in result.error_details if entry.get('source') != provider.name or 'url' in entry
+            ]
+            result.warnings = [
+                entry for entry in result.warnings if entry.get('source') != provider.name or 'url' in entry
+            ]
+            self._add_candidates(found, paper, result)
+
+    def _add_candidates(self, found, paper, result):
+        self._record_provider(result, found)
+        known = {urldefrag(candidate.url)[0] for candidate in result.pdf_candidates}
+        fresh = [item for item in self._merge_urls(found.candidates) if urldefrag(item.url)[0] not in known]
+        result.pdf_candidates.extend(fresh)
+        with self._unprobed_lock:
+            if id(result) in self._unprobed:
+                self._unprobed[id(result)].extend(deepcopy(fresh))
+        for candidate in fresh:
+            self._validate(candidate, paper, result)
+        self._settle(result)
 
     def _retry_transient(self, jobs):
         """Probe again, once host cooldowns expire, the identity-bound links that failed only transiently.
@@ -232,13 +301,7 @@ class PDFResolver:
                 log_isolated_failure(logger, 'PDF fallback %s failed: %s', provider.name, exc)
                 found = PDFProviderResult(provider.name, status=ProviderStatus.ERROR, errors=[str(exc)])
             for paper, result in work:
-                self._record_provider(result, found)
-                known = {urldefrag(candidate.url)[0] for candidate in result.pdf_candidates}
-                fresh = [item for item in self._merge_urls(found.candidates) if urldefrag(item.url)[0] not in known]
-                result.pdf_candidates.extend(fresh)
-                for candidate in fresh:
-                    self._validate(candidate, paper, result)
-                self._settle(result)
+                self._add_candidates(found, paper, result)
 
     def _prepare_providers(self, papers, profile=None):
         """Each provider that prepares sees the person's resolved profile (prepare_profile), then the papers."""
