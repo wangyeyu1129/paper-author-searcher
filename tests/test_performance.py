@@ -321,6 +321,18 @@ class PerformanceTests(unittest.TestCase):
         candidate = self.unidentified(doi='10.1000/journal')
         self.assertEqual(self.match_transcribed(candidate, label).evaluation_id, 'a')
 
+    def test_another_doi_is_an_edition_even_when_the_whole_byline_matches(self):
+        authors = ['Jane Smith', 'Alex B. Morgan']
+        label = self.transcribed(doi='10.1101/preprint', authors=authors)
+        match = self.match_transcribed(self.unidentified(doi='10.1000/journal', authors=authors), label)
+        self.assertEqual((match.evaluation_id, match.decision), ('a', 'metadata'))
+
+    def test_another_doi_still_conflicts_for_an_entry_from_another_source(self):
+        authors = ['Jane Smith', 'Alex B. Morgan']
+        label = self.transcribed(doi='10.1101/preprint', authors=authors, truth_sources=['orcid'])
+        match = self.match_transcribed(self.unidentified(doi='10.1000/journal', authors=authors), label)
+        self.assertEqual(match.decision, 'identifier_conflict')
+
     def test_an_entry_from_another_source_still_needs_the_complete_signature(self):
         label = self.transcribed(truth_sources=['orcid'])
         self.assertIsNone(self.match_transcribed(self.unidentified(), label).evaluation_id)
