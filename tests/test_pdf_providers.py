@@ -313,9 +313,12 @@ class ProviderTests(unittest.TestCase):
         result = EuropePMCPDFProvider(client).find(paper())
         self.assertEqual(
             [candidate.url for candidate in result.candidates],
-            ['https://europepmc.org/articles/PMC11194069?pdf=render'],
+            [
+                'https://europepmc.org/articles/PMC11194069?pdf=render',
+                'https://pmc-oa-opendata.s3.amazonaws.com/PMC11194069.1/PMC11194069.1.pdf',
+            ],
         )
-        self.assertEqual(result.candidates[0].identity_status, 'verified')
+        self.assertEqual({candidate.identity_status for candidate in result.candidates}, {'verified'})
         self.assertEqual(client.get.call_args[1]['params']['query'], 'DOI:"10.1234/example"')
 
     def test_europepmc_needs_a_doi(self):
