@@ -83,6 +83,7 @@ class PDFConfig:
         'academia.edu',
         'blogspot.com',
         'coursehero.com',
+        'docdrop.org',
         'dokumen.pub',
         'github.com',
         'githubusercontent.com',
@@ -198,6 +199,8 @@ class DownloadConfig:
     footer_scan_bytes: int = 4096
     poster_minimum_edge_points: float = 1000
     slide_minimum_aspect_ratio: float = 1.2
+    # A multi-page document this wide is a deck whatever made it; a two-up scan of a paper stays below (about 1.41).
+    widescreen_minimum_aspect_ratio: float = 1.5
 
     def __post_init__(self) -> None:
         if self.maximum_file_bytes < 1024 or self.chunk_bytes < 1024:
@@ -223,6 +226,7 @@ class DownloadConfig:
             self.footer_scan_bytes,
             self.poster_minimum_edge_points,
             self.slide_minimum_aspect_ratio,
+            self.widescreen_minimum_aspect_ratio,
         )
         if any(limit <= 0 for limit in limits):
             raise ValueError('Parsing limits must be positive')

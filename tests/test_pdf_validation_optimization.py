@@ -137,7 +137,12 @@ class DocumentTypeTests(unittest.TestCase):
 
     def test_abstract_alone_cannot_prove_oversized_page_or_landscape_deck_is_full_text(self):
         self.assertEqual(self.classify({}, pages=1, size=(2500, 3400)), 'unknown')
-        self.assertEqual(self.classify({}, pages=10, size=(800, 450)), 'unknown')
+        self.assertEqual(self.classify({}, pages=10, size=(800, 600)), 'unknown')
+
+    def test_a_widescreen_document_is_a_deck_but_a_two_up_scan_is_not(self):
+        self.assertEqual(self.classify({}, pages=20, size=(960, 540)), 'slides')
+        self.assertEqual(self.classify({}, pages=1, size=(960, 540)), 'unknown')
+        self.assertEqual(self.classify({}, pages=10, size=(842, 595)), 'unknown')
 
 
 class PublicRequestTests(unittest.TestCase):
