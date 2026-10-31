@@ -11,6 +11,7 @@ from functools import cached_property
 from pathlib import Path
 from typing import Any, ClassVar
 
+from .authorship_places import AuthorshipPlaces
 from .byline_disambiguation import BylineDisambiguator
 from .config import CollectionConfig, DownloadConfig, PDFConfig
 from .contender_adjudication import DepartmentAdjudicator
@@ -353,7 +354,14 @@ class ServiceContainer:
 
     @cached_property
     def ownership_validator(self) -> PaperOwnershipValidator:
-        return PaperOwnershipValidator(self.settings.ownership, self.precision_guard, self.name_rarity)
+        return PaperOwnershipValidator(
+            self.settings.ownership, self.precision_guard, self.name_rarity, self.authorship_places
+        )
+
+    @cached_property
+    def authorship_places(self) -> AuthorshipPlaces:
+        settings = self.settings
+        return AuthorshipPlaces(self.http_client, settings.sources.openalex_url, settings.credentials.openalex_api_key)
 
     @cached_property
     def institution_names(self) -> InstitutionNames:
