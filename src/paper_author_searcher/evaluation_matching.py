@@ -265,7 +265,7 @@ class GroundTruthMatcher:
 
     @staticmethod
     def _resolve_transcribed(ids):
-        """Unlike ``_resolve``, another DOI is no conflict: same title, nearby year and a shared author make an edition."""
+        """Unlike ``_resolve``, another DOI is no conflict: title, nearby year and a shared author make an edition."""
         evidence = ['Title of a transcribed truth entry, a nearby year and at least one author agree']
         if len(ids) != 1:
             return TruthMatch(
