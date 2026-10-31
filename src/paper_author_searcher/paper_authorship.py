@@ -3,14 +3,17 @@
 from collections.abc import Mapping, Sequence
 from typing import Any
 
+from .source_traits import bare_id
+
+# "Family, Given" splits into this many parts on its comma.
+FAMILY_COMMA_GIVEN_PARTS = 2
+
 
 def canonical_author_id(source: str, value: Any) -> str:
     if value is None:
         return ''
     value = str(value).strip()
-    if source == 'openalex':
-        return value.rstrip('/').rsplit('/', 1)[-1]
-    return value
+    return bare_id(source, value)
 
 
 def target_membership(
@@ -40,7 +43,7 @@ def signature_names(author: Mapping[str, Any]) -> list[str]:
 def byline_forms(name: str) -> list[str]:
     forms = [name]
     parts = name.split(',')
-    if len(parts) == 2 and all(part.strip() for part in parts):
+    if len(parts) == FAMILY_COMMA_GIVEN_PARTS and all(part.strip() for part in parts):
         # Bibliographic bylines commonly put the family name before a comma.
         forms.append(parts[1].strip() + ' ' + parts[0].strip())
     return forms

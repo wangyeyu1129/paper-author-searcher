@@ -1,0 +1,1258 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "eng_sida_peng",
+    "dataset_id": "holdout_v2",
+    "search_input": {
+      "name": "Sida Peng",
+      "university": "Zhejiang University"
+    },
+    "scope": {
+      "year_start": 2023,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-30T22:24:55.999010+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://pengsida.net/",
+        "records": 20
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "eng_sida_peng:7a4f04118f73",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Grid-guided Neural Radiance Fields for Large Urban Scenes",
+      "year": 2023,
+      "authors": [
+        "Linning Xu",
+        "Yuanbo Xiangli",
+        "Sida Peng",
+        "Xingang Pan",
+        "Nanxuan Zhao",
+        "Christian Theobalt",
+        "Bo Dai",
+        "Dahua Lin"
+      ],
+      "listed_venue": "CVPR 2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 19 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Grid-guided Neural Radiance Fields for Large Urban Scenes",
+          "year": 2022,
+          "authors": [
+            "Linning Xu",
+            "Yuanbo Xiangli",
+            "Sida Peng",
+            "Xingang Pan",
+            "Nanxuan Zhao",
+            "Christian Theobalt",
+            "Bo Dai",
+            "Dahua Lin"
+          ]
+        },
+        {
+          "title": "Grid-guided Neural Radiance Fields for Large Urban Scenes",
+          "year": 2024,
+          "authors": [
+            "Linning Xu",
+            "Yuanbo Xiangli",
+            "Sida Peng",
+            "Xingang Pan",
+            "Nanxuan Zhao",
+            "Christian Theobalt",
+            "Bo Dai",
+            "Dahua Lin"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:56902560606d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Im4D: High-Fidelity and Real-Time Novel View Synthesis for Dynamic Scenes",
+      "year": 2023,
+      "authors": [
+        "Haotong Lin",
+        "Sida Peng",
+        "Zhen Xu",
+        "Tao Xie",
+        "Xingyi He",
+        "Hujun Bao",
+        "Xiaowei Zhou"
+      ],
+      "listed_venue": "SIGGRAPH Asia 2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 16 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Im4D: High-Fidelity and Real-Time Novel View Synthesis for Dynamic Scenes",
+          "year": 2022,
+          "authors": [
+            "Haotong Lin",
+            "Sida Peng",
+            "Zhen Xu",
+            "Tao Xie",
+            "Xingyi He",
+            "Hujun Bao",
+            "Xiaowei Zhou"
+          ]
+        },
+        {
+          "title": "Im4D: High-Fidelity and Real-Time Novel View Synthesis for Dynamic Scenes",
+          "year": 2024,
+          "authors": [
+            "Haotong Lin",
+            "Sida Peng",
+            "Zhen Xu",
+            "Tao Xie",
+            "Xingyi He",
+            "Hujun Bao",
+            "Xiaowei Zhou"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:2462708de429",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Implicit Neural Representations with Structured Latent Codes for Human Body Modeling",
+      "year": 2023,
+      "authors": [
+        "Sida Peng",
+        "Chen Geng",
+        "Yuanqing Zhang",
+        "Yinghao Xu",
+        "Qianqian Wang",
+        "Qing Shuai",
+        "Xiaowei Zhou",
+        "Hujun Bao"
+      ],
+      "listed_venue": "TPAMI 2023",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 20 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Implicit Neural Representations with Structured Latent Codes for Human Body Modeling",
+          "year": 2022,
+          "authors": [
+            "Sida Peng",
+            "Chen Geng",
+            "Yuanqing Zhang",
+            "Yinghao Xu",
+            "Qianqian Wang",
+            "Qing Shuai",
+            "Xiaowei Zhou",
+            "Hujun Bao"
+          ]
+        },
+        {
+          "title": "Implicit Neural Representations with Structured Latent Codes for Human Body Modeling",
+          "year": 2024,
+          "authors": [
+            "Sida Peng",
+            "Chen Geng",
+            "Yuanqing Zhang",
+            "Yinghao Xu",
+            "Qianqian Wang",
+            "Qing Shuai",
+            "Xiaowei Zhou",
+            "Hujun Bao"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:be2a495b3f94",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Learning Neural Volumetric Representations of Dynamic Humans in Minutes",
+      "year": 2023,
+      "authors": [
+        "Chen Geng",
+        "Sida Peng",
+        "Zhen Xu",
+        "Hujun Bao",
+        "Xiaowei Zhou"
+      ],
+      "listed_venue": "CVPR 2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 18 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Learning Neural Volumetric Representations of Dynamic Humans in Minutes",
+          "year": 2022,
+          "authors": [
+            "Chen Geng",
+            "Sida Peng",
+            "Zhen Xu",
+            "Hujun Bao",
+            "Xiaowei Zhou"
+          ]
+        },
+        {
+          "title": "Learning Neural Volumetric Representations of Dynamic Humans in Minutes",
+          "year": 2024,
+          "authors": [
+            "Chen Geng",
+            "Sida Peng",
+            "Zhen Xu",
+            "Hujun Bao",
+            "Xiaowei Zhou"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:4a91cd974dca",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Representing Volumetric Videos as Dynamic MLP Maps",
+      "year": 2023,
+      "authors": [
+        "Sida Peng",
+        "Yunzhi Yan",
+        "Qing Shuai",
+        "Hujun Bao",
+        "Xiaowei Zhou"
+      ],
+      "listed_venue": "CVPR 2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 17 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Representing Volumetric Videos as Dynamic MLP Maps",
+          "year": 2022,
+          "authors": [
+            "Sida Peng",
+            "Yunzhi Yan",
+            "Qing Shuai",
+            "Hujun Bao",
+            "Xiaowei Zhou"
+          ]
+        },
+        {
+          "title": "Representing Volumetric Videos as Dynamic MLP Maps",
+          "year": 2024,
+          "authors": [
+            "Sida Peng",
+            "Yunzhi Yan",
+            "Qing Shuai",
+            "Hujun Bao",
+            "Xiaowei Zhou"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:0cec4d331537",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "4K4D: Real-Time 4D View Synthesis at 4K Resolution",
+      "year": 2024,
+      "authors": [
+        "Zhen Xu",
+        "Sida Peng",
+        "Haotong Lin",
+        "Guangzhao He",
+        "Jiaming Sun",
+        "Yujun Shen",
+        "Hujun Bao",
+        "Xiaowei Zhou"
+      ],
+      "listed_venue": "CVPR 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 11 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "4K4D: Real-Time 4D View Synthesis at 4K Resolution",
+          "year": 2023,
+          "authors": [
+            "Zhen Xu",
+            "Sida Peng",
+            "Haotong Lin",
+            "Guangzhao He",
+            "Jiaming Sun",
+            "Yujun Shen",
+            "Hujun Bao",
+            "Xiaowei Zhou"
+          ]
+        },
+        {
+          "title": "4K4D: Real-Time 4D View Synthesis at 4K Resolution",
+          "year": 2025,
+          "authors": [
+            "Zhen Xu",
+            "Sida Peng",
+            "Haotong Lin",
+            "Guangzhao He",
+            "Jiaming Sun",
+            "Yujun Shen",
+            "Hujun Bao",
+            "Xiaowei Zhou"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:ea50ccae650d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Animatable Implicit Neural Representations for Creating Realistic Avatars from Videos",
+      "year": 2024,
+      "authors": [
+        "Xiaowei Zhou",
+        "Sida Peng",
+        "Zhen Xu",
+        "Junting Dong",
+        "Qianqian Wang",
+        "Shangzhan Zhang",
+        "Qing Shuai",
+        "Hujun Bao"
+      ],
+      "listed_venue": "TPAMI 2024",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 15 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Animatable Implicit Neural Representations for Creating Realistic Avatars from Videos",
+          "year": 2023,
+          "authors": [
+            "Xiaowei Zhou",
+            "Sida Peng",
+            "Zhen Xu",
+            "Junting Dong",
+            "Qianqian Wang",
+            "Shangzhan Zhang",
+            "Qing Shuai",
+            "Hujun Bao"
+          ]
+        },
+        {
+          "title": "Animatable Implicit Neural Representations for Creating Realistic Avatars from Videos",
+          "year": 2025,
+          "authors": [
+            "Xiaowei Zhou",
+            "Sida Peng",
+            "Zhen Xu",
+            "Junting Dong",
+            "Qianqian Wang",
+            "Shangzhan Zhang",
+            "Qing Shuai",
+            "Hujun Bao"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:77bc7ee6afcb",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Detector-Free Structure from Motion",
+      "year": 2024,
+      "authors": [
+        "Xingyi He",
+        "Jiaming Sun",
+        "Yifan Wang",
+        "Sida Peng",
+        "Qixing Huang",
+        "Hujun Bao",
+        "Xiaowei Zhou"
+      ],
+      "listed_venue": "CVPR 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 12 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Detector-Free Structure from Motion",
+          "year": 2023,
+          "authors": [
+            "Xingyi He",
+            "Jiaming Sun",
+            "Yifan Wang",
+            "Sida Peng",
+            "Qixing Huang",
+            "Hujun Bao",
+            "Xiaowei Zhou"
+          ]
+        },
+        {
+          "title": "Detector-Free Structure from Motion",
+          "year": 2025,
+          "authors": [
+            "Xingyi He",
+            "Jiaming Sun",
+            "Yifan Wang",
+            "Sida Peng",
+            "Qixing Huang",
+            "Hujun Bao",
+            "Xiaowei Zhou"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:4528e140e35f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Efficient LoFTR: Semi-Dense Local Feature Matching with Sparse-Like Speed",
+      "year": 2024,
+      "authors": [
+        "Yifan Wang",
+        "Xingyi He",
+        "Sida Peng",
+        "Dongli Tan",
+        "Xiaowei Zhou"
+      ],
+      "listed_venue": "CVPR 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 14 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Efficient LoFTR: Semi-Dense Local Feature Matching with Sparse-Like Speed",
+          "year": 2023,
+          "authors": [
+            "Yifan Wang",
+            "Xingyi He",
+            "Sida Peng",
+            "Dongli Tan",
+            "Xiaowei Zhou"
+          ]
+        },
+        {
+          "title": "Efficient LoFTR: Semi-Dense Local Feature Matching with Sparse-Like Speed",
+          "year": 2025,
+          "authors": [
+            "Yifan Wang",
+            "Xingyi He",
+            "Sida Peng",
+            "Dongli Tan",
+            "Xiaowei Zhou"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:9fbb170f7fa6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "GRM: Large Gaussian Reconstruction Model for Efficient 3D Reconstruction and Generation",
+      "year": 2024,
+      "authors": [
+        "Yinghao Xu",
+        "Zifan Shi",
+        "Yifan Wang",
+        "Hansheng Chen",
+        "Ceyuan Yang",
+        "Sida Peng",
+        "Yujun Shen",
+        "Gordon Wetzstein"
+      ],
+      "listed_venue": "ECCV 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 9 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "GRM: Large Gaussian Reconstruction Model for Efficient 3D Reconstruction and Generation",
+          "year": 2023,
+          "authors": [
+            "Yinghao Xu",
+            "Zifan Shi",
+            "Yifan Wang",
+            "Hansheng Chen",
+            "Ceyuan Yang",
+            "Sida Peng",
+            "Yujun Shen",
+            "Gordon Wetzstein"
+          ]
+        },
+        {
+          "title": "GRM: Large Gaussian Reconstruction Model for Efficient 3D Reconstruction and Generation",
+          "year": 2025,
+          "authors": [
+            "Yinghao Xu",
+            "Zifan Shi",
+            "Yifan Wang",
+            "Hansheng Chen",
+            "Ceyuan Yang",
+            "Sida Peng",
+            "Yujun Shen",
+            "Gordon Wetzstein"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:4eca2e293f7a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Neural 3D Scene Reconstruction with Indoor Planar Priors",
+      "year": 2024,
+      "authors": [
+        "Xiaowei Zhou",
+        "Haoyu Guo",
+        "Sida Peng",
+        "Yuxi Xiao",
+        "Haotong Lin",
+        "Qianqian Wang",
+        "Guofeng Zhang",
+        "Hujun Bao"
+      ],
+      "listed_venue": "TPAMI 2024",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 10 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Neural 3D Scene Reconstruction with Indoor Planar Priors",
+          "year": 2023,
+          "authors": [
+            "Xiaowei Zhou",
+            "Haoyu Guo",
+            "Sida Peng",
+            "Yuxi Xiao",
+            "Haotong Lin",
+            "Qianqian Wang",
+            "Guofeng Zhang",
+            "Hujun Bao"
+          ]
+        },
+        {
+          "title": "Neural 3D Scene Reconstruction with Indoor Planar Priors",
+          "year": 2025,
+          "authors": [
+            "Xiaowei Zhou",
+            "Haoyu Guo",
+            "Sida Peng",
+            "Yuxi Xiao",
+            "Haotong Lin",
+            "Qianqian Wang",
+            "Guofeng Zhang",
+            "Hujun Bao"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:efc21de2d552",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "SpatialTracker: Tracking Any 2D Pixels in 3D Space",
+      "year": 2024,
+      "authors": [
+        "Yuxi Xiao",
+        "Qianqian Wang",
+        "Shangzhan Zhang",
+        "Nan Xue",
+        "Sida Peng",
+        "Yujun Shen",
+        "Xiaowei Zhou"
+      ],
+      "listed_venue": "CVPR 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 13 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "SpatialTracker: Tracking Any 2D Pixels in 3D Space",
+          "year": 2023,
+          "authors": [
+            "Yuxi Xiao",
+            "Qianqian Wang",
+            "Shangzhan Zhang",
+            "Nan Xue",
+            "Sida Peng",
+            "Yujun Shen",
+            "Xiaowei Zhou"
+          ]
+        },
+        {
+          "title": "SpatialTracker: Tracking Any 2D Pixels in 3D Space",
+          "year": 2025,
+          "authors": [
+            "Yuxi Xiao",
+            "Qianqian Wang",
+            "Shangzhan Zhang",
+            "Nan Xue",
+            "Sida Peng",
+            "Yujun Shen",
+            "Xiaowei Zhou"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:5d7ea5360a56",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Street Gaussians for Modeling Dynamic Urban Scenes",
+      "year": 2024,
+      "authors": [
+        "Yunzhi Yan",
+        "Haotong Lin",
+        "Chenxu Zhou",
+        "Weijie Wang",
+        "Haiyang Sun",
+        "Kun Zhan",
+        "Xianpeng Lang",
+        "Xiaowei Zhou",
+        "Sida Peng"
+      ],
+      "listed_venue": "ECCV 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 8 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Street Gaussians for Modeling Dynamic Urban Scenes",
+          "year": 2023,
+          "authors": [
+            "Yunzhi Yan",
+            "Haotong Lin",
+            "Chenxu Zhou",
+            "Weijie Wang",
+            "Haiyang Sun",
+            "Kun Zhan",
+            "Xianpeng Lang",
+            "Xiaowei Zhou",
+            "Sida Peng"
+          ]
+        },
+        {
+          "title": "Street Gaussians for Modeling Dynamic Urban Scenes",
+          "year": 2025,
+          "authors": [
+            "Yunzhi Yan",
+            "Haotong Lin",
+            "Chenxu Zhou",
+            "Weijie Wang",
+            "Haiyang Sun",
+            "Kun Zhan",
+            "Xianpeng Lang",
+            "Xiaowei Zhou",
+            "Sida Peng"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:9bc1667c8434",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "FreeTimeGS: Free Gaussian Primitives at Anytime Anywhere for Dynamic Scene Reconstruction",
+      "year": 2025,
+      "authors": [
+        "Yifan Wang",
+        "Peishan Yang",
+        "Zhen Xu",
+        "Jiaming Sun",
+        "Zhanhua Zhang",
+        "Yong Chen",
+        "Hujun Bao",
+        "Sida Peng",
+        "Xiaowei Zhou"
+      ],
+      "listed_venue": "CVPR 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 7 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "FreeTimeGS: Free Gaussian Primitives at Anytime Anywhere for Dynamic Scene Reconstruction",
+          "year": 2024,
+          "authors": [
+            "Yifan Wang",
+            "Peishan Yang",
+            "Zhen Xu",
+            "Jiaming Sun",
+            "Zhanhua Zhang",
+            "Yong Chen",
+            "Hujun Bao",
+            "Sida Peng",
+            "Xiaowei Zhou"
+          ]
+        },
+        {
+          "title": "FreeTimeGS: Free Gaussian Primitives at Anytime Anywhere for Dynamic Scene Reconstruction",
+          "year": 2026,
+          "authors": [
+            "Yifan Wang",
+            "Peishan Yang",
+            "Zhen Xu",
+            "Jiaming Sun",
+            "Zhanhua Zhang",
+            "Yong Chen",
+            "Hujun Bao",
+            "Sida Peng",
+            "Xiaowei Zhou"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:b1d62816da47",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Multi-view Reconstruction via SfM-guided Monocular Depth Estimation",
+      "year": 2025,
+      "authors": [
+        "Haoyu Guo",
+        "He Zhu",
+        "Sida Peng",
+        "Haotong Lin",
+        "Yunzhi Yan",
+        "Tao Xie",
+        "Wenguan Wang",
+        "Xiaowei Zhou",
+        "Hujun Bao"
+      ],
+      "listed_venue": "CVPR 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 6 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Multi-view Reconstruction via SfM-guided Monocular Depth Estimation",
+          "year": 2024,
+          "authors": [
+            "Haoyu Guo",
+            "He Zhu",
+            "Sida Peng",
+            "Haotong Lin",
+            "Yunzhi Yan",
+            "Tao Xie",
+            "Wenguan Wang",
+            "Xiaowei Zhou",
+            "Hujun Bao"
+          ]
+        },
+        {
+          "title": "Multi-view Reconstruction via SfM-guided Monocular Depth Estimation",
+          "year": 2026,
+          "authors": [
+            "Haoyu Guo",
+            "He Zhu",
+            "Sida Peng",
+            "Haotong Lin",
+            "Yunzhi Yan",
+            "Tao Xie",
+            "Wenguan Wang",
+            "Xiaowei Zhou",
+            "Hujun Bao"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:6d73bb8f6cdd",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Prompting Depth Anything for 4K Resolution Accurate Metric Depth Estimation",
+      "year": 2025,
+      "authors": [
+        "Haotong Lin",
+        "Sida Peng",
+        "Jingxiao Chen",
+        "Songyou Peng",
+        "Jiaming Sun",
+        "Minghuan Liu",
+        "Hujun Bao",
+        "Jiashi Feng",
+        "Xiaowei Zhou",
+        "Bingyi Kang"
+      ],
+      "listed_venue": "CVPR 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 5 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Prompting Depth Anything for 4K Resolution Accurate Metric Depth Estimation",
+          "year": 2024,
+          "authors": [
+            "Haotong Lin",
+            "Sida Peng",
+            "Jingxiao Chen",
+            "Songyou Peng",
+            "Jiaming Sun",
+            "Minghuan Liu",
+            "Hujun Bao",
+            "Jiashi Feng",
+            "Xiaowei Zhou",
+            "Bingyi Kang"
+          ]
+        },
+        {
+          "title": "Prompting Depth Anything for 4K Resolution Accurate Metric Depth Estimation",
+          "year": 2026,
+          "authors": [
+            "Haotong Lin",
+            "Sida Peng",
+            "Jingxiao Chen",
+            "Songyou Peng",
+            "Jiaming Sun",
+            "Minghuan Liu",
+            "Hujun Bao",
+            "Jiashi Feng",
+            "Xiaowei Zhou",
+            "Bingyi Kang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:2b8a939ab75c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "ReTracker: Exploring Image Matching for Robust Online Any Point Tracking",
+      "year": 2025,
+      "authors": [
+        "Dongli Tan",
+        "Xingyi He",
+        "Sida Peng",
+        "Yiqing Gong",
+        "Xing Zhu",
+        "Jiaming Sun",
+        "Ruizhen Hu",
+        "Yujun Shen",
+        "Hujun Bao",
+        "Xiaowei Zhou"
+      ],
+      "listed_venue": "ICCV 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 3 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "ReTracker: Exploring Image Matching for Robust Online Any Point Tracking",
+          "year": 2024,
+          "authors": [
+            "Dongli Tan",
+            "Xingyi He",
+            "Sida Peng",
+            "Yiqing Gong",
+            "Xing Zhu",
+            "Jiaming Sun",
+            "Ruizhen Hu",
+            "Yujun Shen",
+            "Hujun Bao",
+            "Xiaowei Zhou"
+          ]
+        },
+        {
+          "title": "ReTracker: Exploring Image Matching for Robust Online Any Point Tracking",
+          "year": 2026,
+          "authors": [
+            "Dongli Tan",
+            "Xingyi He",
+            "Sida Peng",
+            "Yiqing Gong",
+            "Xing Zhu",
+            "Jiaming Sun",
+            "Ruizhen Hu",
+            "Yujun Shen",
+            "Hujun Bao",
+            "Xiaowei Zhou"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:ee0bee480d68",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Street Gaussians: Modeling Dynamic Urban Scenes with Gaussian Primitives",
+      "year": 2025,
+      "authors": [
+        "Sida Peng",
+        "Yushi Long",
+        "Yunzhi Yan",
+        "Haotong Lin",
+        "Chenxu Zhou",
+        "Haiyang Sun",
+        "Kun Zhan",
+        "Xianpeng Lang",
+        "Hujun Bao",
+        "Xiaowei Zhou"
+      ],
+      "listed_venue": "TPAMI 2025",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 1 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Street Gaussians: Modeling Dynamic Urban Scenes with Gaussian Primitives",
+          "year": 2024,
+          "authors": [
+            "Sida Peng",
+            "Yushi Long",
+            "Yunzhi Yan",
+            "Haotong Lin",
+            "Chenxu Zhou",
+            "Haiyang Sun",
+            "Kun Zhan",
+            "Xianpeng Lang",
+            "Hujun Bao",
+            "Xiaowei Zhou"
+          ]
+        },
+        {
+          "title": "Street Gaussians: Modeling Dynamic Urban Scenes with Gaussian Primitives",
+          "year": 2026,
+          "authors": [
+            "Sida Peng",
+            "Yushi Long",
+            "Yunzhi Yan",
+            "Haotong Lin",
+            "Chenxu Zhou",
+            "Haiyang Sun",
+            "Kun Zhan",
+            "Xianpeng Lang",
+            "Hujun Bao",
+            "Xiaowei Zhou"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:6658d2236328",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "StreetCrafter: Street View Synthesis with Controllable Video Diffusion Models",
+      "year": 2025,
+      "authors": [
+        "Yunzhi Yan",
+        "Zhen Xu",
+        "Haotong Lin",
+        "Haian Jin",
+        "Haoyu Guo",
+        "Yida Wang",
+        "Kun Zhan",
+        "Xianpeng Lang",
+        "Hujun Bao",
+        "Xiaowei Zhou",
+        "Sida Peng"
+      ],
+      "listed_venue": "CVPR 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 4 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "StreetCrafter: Street View Synthesis with Controllable Video Diffusion Models",
+          "year": 2024,
+          "authors": [
+            "Yunzhi Yan",
+            "Zhen Xu",
+            "Haotong Lin",
+            "Haian Jin",
+            "Haoyu Guo",
+            "Yida Wang",
+            "Kun Zhan",
+            "Xianpeng Lang",
+            "Hujun Bao",
+            "Xiaowei Zhou",
+            "Sida Peng"
+          ]
+        },
+        {
+          "title": "StreetCrafter: Street View Synthesis with Controllable Video Diffusion Models",
+          "year": 2026,
+          "authors": [
+            "Yunzhi Yan",
+            "Zhen Xu",
+            "Haotong Lin",
+            "Haian Jin",
+            "Haoyu Guo",
+            "Yida Wang",
+            "Kun Zhan",
+            "Xianpeng Lang",
+            "Hujun Bao",
+            "Xiaowei Zhou",
+            "Sida Peng"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "eng_sida_peng:fd6c4b2ffcea",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Towards Depth Foundation Model: Recent Trends in Vision-Based Depth Estimation",
+      "year": 2025,
+      "authors": [
+        "Zhen Xu",
+        "Hongyu Zhou",
+        "Sida Peng",
+        "Haotong Lin",
+        "Haoyu Guo",
+        "Jiahao Shao",
+        "Peishan Yang",
+        "Qinglin Yang",
+        "Sheng Miao",
+        "Xingyi He",
+        "Yifan Wang",
+        "Yue Wang",
+        "Ruizhen Hu",
+        "Yiyi Liao",
+        "Xiaowei Zhou",
+        "Hujun Bao"
+      ],
+      "listed_venue": "CVMJ 2025",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://pengsida.net/ entry 2 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Towards Depth Foundation Model: Recent Trends in Vision-Based Depth Estimation",
+          "year": 2024,
+          "authors": [
+            "Zhen Xu",
+            "Hongyu Zhou",
+            "Sida Peng",
+            "Haotong Lin",
+            "Haoyu Guo",
+            "Jiahao Shao",
+            "Peishan Yang",
+            "Qinglin Yang",
+            "Sheng Miao",
+            "Xingyi He",
+            "Yifan Wang",
+            "Yue Wang",
+            "Ruizhen Hu",
+            "Yiyi Liao",
+            "Xiaowei Zhou",
+            "Hujun Bao"
+          ]
+        },
+        {
+          "title": "Towards Depth Foundation Model: Recent Trends in Vision-Based Depth Estimation",
+          "year": 2026,
+          "authors": [
+            "Zhen Xu",
+            "Hongyu Zhou",
+            "Sida Peng",
+            "Haotong Lin",
+            "Haoyu Guo",
+            "Jiahao Shao",
+            "Peishan Yang",
+            "Qinglin Yang",
+            "Sheng Miao",
+            "Xingyi He",
+            "Yifan Wang",
+            "Yue Wang",
+            "Ruizhen Hu",
+            "Yiyi Liao",
+            "Xiaowei Zhou",
+            "Hujun Bao"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

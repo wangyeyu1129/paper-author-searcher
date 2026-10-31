@@ -28,7 +28,15 @@ from .homepage_citations import (
 from .html_support import LinkExtractor, decode_response
 from .http import HttpClient, SourceError
 from .identity_discovery import Discovery, NoDiscovery
-from .matching import ARXIV_DOI_PREFIX, canonical_doi, canonical_orcid, name_similarity, normalize, work_keys
+from .matching import (
+    ARXIV_DOI_PREFIX,
+    canonical_doi,
+    canonical_orcid,
+    name_similarity,
+    normalize,
+    normalize_title,
+    work_keys,
+)
 from .models import AnchorEvidence
 from .profile_links import ORCID_SOURCE, ProfileLink, ProfileLinkParser
 from .status import AnchorKind
@@ -240,6 +248,9 @@ class ScholarlyAnchorFinder:
             except (SourceError, ValueError) as exc:
                 anchors.errors.append(f'page {page.url}: {exc}')
                 continue
+            # Every citation's PDF stays available: a personal page's citations often omit the person's own name
+            # ("with A and B"), and a PDF only ever serves a paper its citation names and its content shows.
+            pdf_citations = citations
             if page.strict:
                 citations = own_citations(citations, query.name, strict=True)
             # The caller's own hints first, then the page's citations that name the person, then the rest.
@@ -248,7 +259,7 @@ class ScholarlyAnchorFinder:
             page_titles = _merge(page_titles, [title for item in citations for title in item.titles])
             anchors.listed_works = sorted(set(anchors.listed_works) | _listed_works(citations, query.name))
             known = {item['url'] for item in anchors.listed_pdfs}
-            new = [item for item in listed_pdfs(citations, page.url, self.config) if item['url'] not in known]
+            new = [item for item in listed_pdfs(pdf_citations, page.url, self.config) if item['url'] not in known]
             anchors.listed_pdfs += new[: max(0, self.config.maximum_listed_pdfs - len(anchors.listed_pdfs))]
         for source in self.listed_sources:
             try:
@@ -284,18 +295,20 @@ class ScholarlyAnchorFinder:
 
     def _read_page(self, url: str) -> list[HomepageCitation]:
         """The page's citations, plus those of the publication list or CV it links to on the same site."""
-        citations, html = self._read_citations(url)
+        citations, html, served = self._read_citations(url)
         if html is None or not self.discovery_config.follow_publication_links:
             return citations
-        for link in publication_links(html, url, self.discovery_config)[: self.discovery_config.maximum_followed_links]:
+        for link in publication_links(html, served, self.discovery_config)[
+            : self.discovery_config.maximum_followed_links
+        ]:
             try:
                 citations += self._read_citations(link)[0]
             except (SourceError, ValueError) as exc:
                 logger.debug('Publication link %s unreadable: %s', link, exc)
         return citations
 
-    def _read_citations(self, url: str) -> tuple[list[HomepageCitation], str | None]:
-        """Citations of one page, and its HTML (None for a PDF) for link following."""
+    def _read_citations(self, url: str) -> tuple[list[HomepageCitation], str | None, str]:
+        """Citations of one page, its HTML (None for a PDF) for link following, and the URL it was served from."""
         # One limit for both kinds: an HTML page's text and a PDF CV's whole body.
         limit = self.config.homepage_bytes
         response = self.client.probe(url, limit, limit, self.config.maximum_redirects)
@@ -312,7 +325,7 @@ class ScholarlyAnchorFinder:
             replace(item, pdf_links=tuple(urljoin(base, unescape(link)) for link in item.pdf_links))
             for item in citations
         ]
-        return citations, decoded[-1] if decoded else None
+        return citations, decoded[-1] if decoded else None, base
 
     def _compatible(self, query, name: str | None) -> bool:
         if not name:
@@ -403,7 +416,7 @@ class ScholarlyAnchorFinder:
             },
         )
         for work in data.get('results') or []:
-            if normalize(work.get('title') or '') == normalize(title):
+            if normalize_title(work.get('title') or '') == normalize_title(title):
                 self._openalex_authorships(
                     anchors, query, work, f'author of title "{title[:80]}"', _key(titles=[title])
                 )

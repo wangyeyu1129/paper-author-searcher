@@ -4,7 +4,7 @@ import re
 
 from paper_author_searcher.config import DEFAULT_PDF
 from paper_author_searcher.http import SourceError
-from paper_author_searcher.matching import normalize
+from paper_author_searcher.matching import normalize_title
 from paper_author_searcher.models import PDFProviderResult
 from paper_author_searcher.pacing import RequestPacer
 from paper_author_searcher.pdf_identity import (
@@ -87,7 +87,9 @@ class ArxivPDFProvider:
             if not entries and not search:
                 raise SourceError('arXiv returned no matching entries')
             for entry in entries:
-                if search and normalize(entry.findtext(self.atom + 'title') or '') != normalize(paper['title']):
+                if search and normalize_title(entry.findtext(self.atom + 'title') or '') != normalize_title(
+                    paper['title']
+                ):
                     continue
                 result.candidates.extend(self._entry_candidates(paper, identifiers, entry, search))
         except (SourceError, ValueError, TypeError) as exc:

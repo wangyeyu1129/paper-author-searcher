@@ -15,11 +15,24 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
-from .model import FINISHED, IdempotencyConflict, IdempotentResponse, Job, JobStatus, WorkerState, now
+from .model import (
+    FINISHED,
+    ClientActivity,
+    IdempotencyConflict,
+    IdempotentResponse,
+    Job,
+    JobStatus,
+    WorkerState,
+    now,
+)
 
 JSON_COLUMNS = ('request', 'progress', 'candidates', 'result', 'error')
 COLUMNS = tuple(item.name for item in fields(Job))
-COLUMN_TYPES = {'attempts': 'INTEGER NOT NULL DEFAULT 0', 'cost_usd': 'REAL NOT NULL DEFAULT 0'}
+COLUMN_TYPES = {
+    'attempts': 'INTEGER NOT NULL DEFAULT 0',
+    'cost_usd': 'REAL NOT NULL DEFAULT 0',
+    'llm_cost_usd': 'REAL NOT NULL DEFAULT 0',
+}
 
 
 def new_job_id() -> str:
@@ -45,6 +58,12 @@ class SqliteJobRepository:
                 if name not in present:
                     db.execute(f'ALTER TABLE jobs ADD COLUMN {name} {COLUMN_TYPES.get(name, "TEXT")}')
             db.execute('CREATE INDEX IF NOT EXISTS jobs_status ON jobs (status, created_at)')
+            db.execute('CREATE INDEX IF NOT EXISTS jobs_client ON jobs (client, created_at)')
+            # What deleted jobs contributed, so the counters in metrics never go backwards.
+            db.execute(
+                'CREATE TABLE IF NOT EXISTS retired (status TEXT PRIMARY KEY, runs INTEGER NOT NULL,'
+                ' seconds REAL NOT NULL, cost_usd REAL NOT NULL, llm_cost_usd REAL NOT NULL)'
+            )
             db.execute(
                 'CREATE TABLE IF NOT EXISTS idempotency (client TEXT NOT NULL, key TEXT NOT NULL,'
                 ' fingerprint TEXT NOT NULL, status INTEGER, body TEXT, created_at TEXT NOT NULL,'
@@ -121,23 +140,83 @@ class SqliteJobRepository:
             )
             return self._fetch(db, row[0])
 
-    def requeue_stale(self, stale_after_seconds: float) -> list[str]:
-        """Queue again the running jobs whose worker stopped reporting (it died); returns their IDs."""
+    def requeue_stale(self, stale_after_seconds: float, maximum_attempts: int = 0) -> list[str]:
+        """Queue again the running jobs whose worker stopped reporting (it died); returns their IDs.
+
+        A job already tried ``maximum_attempts`` times fails instead (it may be what kills its workers).
+        """
         cutoff = (datetime.now(timezone.utc) - timedelta(seconds=stale_after_seconds)).isoformat(timespec='seconds')
         with self._transaction() as db:
             rows = db.execute(
-                'SELECT jobs.id FROM jobs LEFT JOIN workers ON workers.id = jobs.worker_id'
+                'SELECT jobs.id, jobs.attempts FROM jobs LEFT JOIN workers ON workers.id = jobs.worker_id'
                 ' WHERE jobs.status = ? AND (workers.id IS NULL OR workers.heartbeat_at < ?)',
                 (JobStatus.RUNNING, cutoff),
             ).fetchall()
-            ids = [row[0] for row in rows]
-            for job_id in ids:
+            ids = []
+            for job_id, attempts in rows:
+                if maximum_attempts and attempts >= maximum_attempts:
+                    error = {
+                        'code': 'worker_lost',
+                        'message': f'The worker running this search stopped {attempts} times',
+                    }
+                    db.execute(
+                        'UPDATE jobs SET status = ?, worker_id = NULL, progress = NULL, error = ?, finished_at = ?,'
+                        ' updated_at = ? WHERE id = ?',
+                        (JobStatus.FAILED, json.dumps(error), now(), now(), job_id),
+                    )
+                    continue
+                ids.append(job_id)
                 db.execute(
                     'UPDATE jobs SET status = ?, worker_id = NULL, progress = NULL, updated_at = ? WHERE id = ?',
                     (JobStatus.QUEUED, now(), job_id),
                 )
             db.execute('DELETE FROM workers WHERE heartbeat_at < ?', (cutoff,))
         return ids
+
+    def client_activity(self, client: str) -> ClientActivity:
+        """How many of this caller's searches are waiting or running, and how many it submitted in the last hour."""
+        since = (datetime.now(timezone.utc) - timedelta(hours=1)).isoformat(timespec='seconds')
+        with self._transaction() as db:
+            active = db.execute(
+                'SELECT COUNT(*) FROM jobs WHERE client = ? AND status IN (?, ?)',
+                (client, JobStatus.QUEUED, JobStatus.RUNNING),
+            ).fetchone()[0]
+            recent = db.execute(
+                'SELECT COUNT(*) FROM jobs WHERE client = ? AND created_at >= ?', (client, since)
+            ).fetchone()[0]
+        return ClientActivity(active, recent)
+
+    # Retention
+
+    def finished_before(self, moment: str, limit: int) -> list[Job]:
+        """Jobs that ended (or stopped waiting for anyone) before ``moment``, oldest first."""
+        placeholders = ', '.join('?' for _ in FINISHED)
+        with self._transaction() as db:
+            rows = db.execute(
+                f'SELECT {", ".join(COLUMNS)} FROM jobs WHERE status IN ({placeholders}) AND updated_at < ?'
+                ' ORDER BY updated_at LIMIT ?',
+                (*FINISHED, moment, limit),
+            ).fetchall()
+        return [self._job(row) for row in rows]
+
+    def delete(self, job_id: str) -> None:
+        with self._transaction() as db:
+            row = db.execute(
+                'SELECT status, finished_at IS NOT NULL,'
+                ' COALESCE((julianday(finished_at) - julianday(started_at)) * 86400.0, 0), cost_usd, llm_cost_usd'
+                ' FROM jobs WHERE id = ?',
+                (job_id,),
+            ).fetchone()
+            if row is None:
+                return
+            status, ran, seconds, cost, llm_cost = row
+            db.execute(
+                'INSERT INTO retired (status, runs, seconds, cost_usd, llm_cost_usd) VALUES (?, ?, ?, ?, ?)'
+                ' ON CONFLICT (status) DO UPDATE SET runs = runs + excluded.runs, seconds = seconds + excluded.seconds,'
+                ' cost_usd = cost_usd + excluded.cost_usd, llm_cost_usd = llm_cost_usd + excluded.llm_cost_usd',
+                (status, 1 if ran else 0, seconds, cost, llm_cost),
+            )
+            db.execute('DELETE FROM jobs WHERE id = ?', (job_id,))
 
     # Workers
 
@@ -170,12 +249,23 @@ class SqliteJobRepository:
                 FINISHED,
             ).fetchall()
             oldest = db.execute('SELECT MIN(created_at) FROM jobs WHERE status = ?', (JobStatus.QUEUED,)).fetchone()[0]
-            spend = db.execute('SELECT COALESCE(SUM(cost_usd), 0) FROM jobs').fetchone()[0]
+            spend, llm_spend = db.execute(
+                'SELECT COALESCE(SUM(cost_usd), 0), COALESCE(SUM(llm_cost_usd), 0) FROM jobs'
+            ).fetchone()
+            retired = db.execute('SELECT status, runs, seconds, cost_usd, llm_cost_usd FROM retired').fetchall()
+        runs = {row[0]: {'count': row[1], 'seconds': row[2] or 0.0} for row in finished}
+        for status, count, seconds, cost, llm_cost in retired:
+            entry = runs.setdefault(status, {'count': 0, 'seconds': 0.0})
+            entry['count'] += count
+            entry['seconds'] += seconds
+            spend += cost
+            llm_spend += llm_cost
         return {
             'by_status': {status: by_status.get(status, 0) for status in JobStatus.values()},
-            'finished': {row[0]: {'count': row[1], 'seconds': row[2] or 0.0} for row in finished},
+            'finished': runs,
             'oldest_queued_at': oldest,
             'cost_usd': spend,
+            'llm_cost_usd': llm_spend,
         }
 
     def ping(self) -> None:

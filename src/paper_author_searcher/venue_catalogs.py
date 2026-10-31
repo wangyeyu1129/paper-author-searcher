@@ -33,7 +33,7 @@ from .config import DEFAULT_MATCHING, CatalogConfig, MatchingConfig
 from .homepage_citations import DOI_IN_TEXT
 from .listed_works import AuthorMatcher, relabel_choice
 from .logging_config import log_isolated_failure
-from .matching import best_similarity, canonical_doi, institution_similarity, normalize, work_keys
+from .matching import DOI_URL, best_similarity, canonical_doi, institution_similarity, normalize, work_keys
 from .models import PaperRecord, PaperSourceResult, ProfessorProfile
 from .paper_providers import parse_year
 
@@ -48,6 +48,10 @@ OAI_CATALOG_PREFIX = 'oai_pmh:'
 OAI = '{http://www.openarchives.org/OAI/2.0/}'
 DC = '{http://purl.org/dc/elements/1.1/}'
 OAI_DC = '{http://www.openarchives.org/OAI/2.0/oai_dc/}'
+
+
+# (name, endpoint, set); the set may be left out.
+OAI_REPOSITORY_WITH_SET = 3
 
 
 @dataclass(frozen=True)
@@ -469,7 +473,7 @@ def catalog_record(
         source=source,
         source_paper_id=entry.key,
         source_author_id=author_id,
-        paper_url=entry.url or ('https://doi.org/' + doi if doi else None),
+        paper_url=entry.url or (DOI_URL + doi if doi else None),
         publication_type=None,
         author_details=details,
         target_author_present=True,
@@ -535,7 +539,7 @@ def catalog_sources(config: CatalogConfig, fetch: Fetch, client: Any) -> list[Ca
                 client,
                 repository[0],
                 repository[1],
-                repository[2] if len(repository) > 2 else '',
+                repository[2] if len(repository) >= OAI_REPOSITORY_WITH_SET else '',
                 config.oai_from,
                 config.oai_maximum_pages,
             )

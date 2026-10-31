@@ -5,6 +5,7 @@ import logging
 import typing
 from collections import Counter
 from collections.abc import Sequence
+from http import HTTPStatus
 from pathlib import Path
 from typing import Any
 
@@ -48,7 +49,7 @@ def _resource_statistics(statistics: JSONObject | None) -> JSONObject:
         'terminal_request_failures': statistics.get('request_failures', len(failures)),
         'failure_types': dict(Counter(event.get('error_type') for event in failures)),
         'failure_hosts': dict(Counter(event.get('host') for event in failures)),
-        'terminal_429_failures': sum(event.get('status_code') == 429 for event in failures),
+        'terminal_429_failures': sum(event.get('status_code') == HTTPStatus.TOO_MANY_REQUESTS for event in failures),
         'cooldown_skips': statistics.get('cooldown_skips', 0),
         'recorded_redirect_deferrals': statistics.get('deferred_after_redirect', len(legacy_deferrals)),
         'cache_hits': statistics.get('cache_hits', 0),

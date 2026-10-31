@@ -1,0 +1,167 @@
+{
+  "benchmark_schema_version": 1,
+  "dataset_id": "holdout_v2",
+  "year_window": {
+    "start": 2020,
+    "end": 2025
+  },
+  "paths": {
+    "roster": "roster.json",
+    "snapshots": "snapshots",
+    "truth": "truth",
+    "runs": "../../../output/benchmark/runs",
+    "reports": "../../../reports/benchmark"
+  },
+  "dimensions": {
+    "seniority": [
+      "renowned_senior",
+      "established_faculty",
+      "assistant_professor",
+      "phd_student"
+    ],
+    "field": [
+      "computer_science",
+      "biomedicine",
+      "engineering",
+      "social_science"
+    ],
+    "name_profile": [
+      "common_chinese",
+      "other"
+    ]
+  },
+  "publication_types": {
+    "included": [
+      "journal_article",
+      "conference_paper",
+      "review",
+      "preprint",
+      "working_paper",
+      "book_chapter"
+    ],
+    "excluded": [
+      "poster",
+      "slides",
+      "dataset",
+      "software",
+      "thesis",
+      "abstract",
+      "book",
+      "report"
+    ],
+    "unknown_included": true,
+    "non_publication_output": [
+      "dataset",
+      "book_review",
+      "dissertation",
+      "conference_abstract"
+    ]
+  },
+  "reported_metrics": [
+    "identity_resolution_rate",
+    "identity_precision",
+    "verified_paper_recall",
+    "paper_discovery_recall",
+    "author_match_precision",
+    "actual_download_coverage"
+  ],
+  "gate": {
+    "aggregation": "macro",
+    "minimum_people_per_stratum": 1,
+    "require_human_review": true,
+    "rules": [
+      {
+        "metric": "identity_precision",
+        "minimum": 1.0,
+        "label": "right person"
+      },
+      {
+        "metric": "verified_paper_recall",
+        "minimum": 0.8,
+        "label": "recall"
+      },
+      {
+        "metric": "verified_paper_recall",
+        "minimum": 0.8,
+        "label": "recall (pooled)",
+        "aggregation": "micro"
+      },
+      {
+        "metric": "author_match_precision",
+        "minimum": 0.95,
+        "label": "precision"
+      },
+      {
+        "metric": "author_match_precision",
+        "minimum": 0.95,
+        "label": "precision (pooled)",
+        "aggregation": "micro"
+      }
+    ],
+    "minimum_truth_positives": {
+      "verified_paper_recall": 3,
+      "paper_discovery_recall": 3,
+      "actual_download_coverage": 3
+    }
+  },
+  "identity": {
+    "minimum_truth_share": 0.2
+  },
+  "provisional_closed_world": true,
+  "version_grouping_year_tolerance": 2,
+  "run": {
+    "mode": "full",
+    "timeout": 15,
+    "retries": 2,
+    "http_cache_dir": "../../../output/benchmark/http_cache",
+    "http_cache_mode": "record",
+    "ambiguity_policy": "collect_contenders",
+    "max_cost_usd": 0.7
+  },
+  "sources": {
+    "orcid_api_url": "https://pub.orcid.org/v3.0",
+    "orcid_bulk_size": 100,
+    "crossref_api_url": "https://api.crossref.org",
+    "crossref_rows": 5,
+    "crossref_year_tolerance": 1,
+    "arxiv_api_url": "https://export.arxiv.org/api/query",
+    "arxiv_rows": 5,
+    "arxiv_delay_seconds": 3.0
+  },
+  "metadata_year_tolerance": 1,
+  "calibration": {
+    "splits": [
+      "dev",
+      "test"
+    ],
+    "tune_split": "dev",
+    "holdout_split": "test",
+    "minimum_purity": 0.95,
+    "grid": {
+      "merge_split_profiles": [
+        true,
+        false
+      ],
+      "split_profile_coauthors": [
+        3,
+        5,
+        8,
+        12
+      ],
+      "split_profile_topics": [
+        2,
+        5
+      ],
+      "split_profile_coauthor_overlap": [
+        0.0,
+        0.1,
+        0.2
+      ],
+      "ambiguity_margin": [
+        0.03,
+        0.05,
+        0.1
+      ]
+    }
+  }
+}

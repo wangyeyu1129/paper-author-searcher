@@ -6,6 +6,8 @@ Every field can be set as ``PAPER_SEARCH__SERVICE__<FIELD>``; object-store crede
 
 from dataclasses import dataclass
 
+MAXIMUM_TCP_PORT = 65535
+API_KEY_ENTRY_SEPARATORS = 2
 FILE_STORES = ('local', 's3')
 S3_ADDRESSING = ('path', 'virtual')
 
@@ -22,9 +24,37 @@ class ServiceConfig:
     api_key_hashes: tuple[str, ...] = ()
     # Worker threads inside `serve`; 0 leaves every search to separate `paper-search-api worker` processes.
     workers: int = 1
-    # Searches pace requests per host within one run only: each worker adds proportionally more source traffic.
     maximum_cost_usd: float = 0.5
+    # Every worker of a deployment shares these (host, seconds between requests) intervals and daily budgets, so
+    # adding workers does not add traffic past what a source allows. They replace http.host_request_intervals.
+    shared_host_intervals: tuple[tuple[str, float], ...] = (
+        ('api.openalex.org', 0.1),
+        ('api.semanticscholar.org', 1.0),
+        ('api.crossref.org', 0.1),
+        ('api.unpaywall.org', 0.1),
+        ('www.ebi.ac.uk', 0.1),
+        ('api.openaire.eu', 0.5),
+        ('export.arxiv.org', 3.0),
+        ('api.tavily.com', 0.5),
+        ('api.search.brave.com', 1.0),
+        ('api.exa.ai', 0.5),
+    )
+    # A metered host's spend per day (UTC) across all searches; past it, that source is refused for the day and
+    # results say a source did not respond. OpenAlex's free quota is $1 a day. Raise it after buying more.
+    maximum_daily_cost_usd: float = 1.0
     maximum_body_bytes: int = 64 * 1024
+    # Per API key: searches waiting or running at once, and submitted in the last hour (0: no limit). A refusal is
+    # 429 with Retry-After. Each search costs real money, so a runaway caller must stop by itself.
+    maximum_active_searches: int = 20
+    maximum_searches_per_hour: int = 60
+    rate_limit_retry_seconds: int = 60
+    # A search that took down its worker this many times fails instead of being queued again.
+    maximum_attempts: int = 3
+    # Finished searches and their files are deleted after retention_days, HTTP cache entries older than
+    # http_cache_retention_days (0 keeps them). Workers check every housekeeping_hours between searches.
+    retention_days: float = 30.0
+    http_cache_retention_days: float = 90.0
+    housekeeping_hours: float = 6.0
     idempotency_hours: float = 24.0
     # Where checked PDFs, zips and identity checkpoints are kept: 'local' (DATA_DIRECTORY/files) or 's3'
     # (any S3-compatible store: AWS, MinIO, R2). Downloads from S3 are redirects to short-lived signed URLs.
@@ -69,6 +99,7 @@ class ServiceConfig:
         'Explicit target Author ID, compatible byline and paper-level institution agree',
         'Compatible signature plus recurring independently verified coauthors',
         'Cross-source stable work identity and confirmed source-scoped target Author IDs',
+        'Explicit target Author ID and compatible byline under a name no other author holds in the source',
     )
     maximum_paper_evidence: int = 3
 
@@ -79,21 +110,33 @@ class ServiceConfig:
             raise ValueError(f's3_addressing must be one of {", ".join(S3_ADDRESSING)}')
         if self.file_store == 's3' and not (self.s3_endpoint and self.s3_bucket):
             raise ValueError('file_store s3 needs s3_endpoint and s3_bucket')
-        if self.workers < 0 or not 0 < self.port < 65536:
+        if self.workers < 0 or not 0 < self.port <= MAXIMUM_TCP_PORT:
             raise ValueError('workers must not be negative and port must be a TCP port')
         for name in (
             'maximum_cost_usd',
+            'maximum_daily_cost_usd',
             'idempotency_hours',
             'worker_poll_seconds',
             'heartbeat_seconds',
             'refresh_hours',
+            'rate_limit_retry_seconds',
+            'maximum_attempts',
+            'housekeeping_hours',
         ):
             if getattr(self, name) <= 0:
                 raise ValueError(f'{name} must be positive')
         if self.stale_after_seconds <= self.heartbeat_seconds:
             raise ValueError('stale_after_seconds must exceed heartbeat_seconds')
+        for name in (
+            'maximum_active_searches',
+            'maximum_searches_per_hour',
+            'retention_days',
+            'http_cache_retention_days',
+        ):
+            if getattr(self, name) < 0:
+                raise ValueError(f'{name} must not be negative')
         for entry in self.api_key_hashes:
-            if entry.count(':') != 2:
+            if entry.count(':') != API_KEY_ENTRY_SEPARATORS:
                 raise ValueError('api_key_hashes entries look like id:name:sha256')
 
 

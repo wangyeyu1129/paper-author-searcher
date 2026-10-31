@@ -1,6 +1,7 @@
 """The search service core: repository, worker, facade, results, file stores, S3 signing, metrics, index refresh."""
 
 import json
+import os
 import sqlite3
 import tempfile
 import threading
@@ -18,9 +19,17 @@ from paper_author_searcher.service.facade import SearchService
 from paper_author_searcher.service.files import LocalFileStore, S3FileStore
 from paper_author_searcher.service.indexes import IndexRefresher
 from paper_author_searcher.service.metrics import RequestCounter, render
-from paper_author_searcher.service.model import ErrorKind, IdempotencyConflict, Job, JobStatus, ServiceError
+from paper_author_searcher.service.model import (
+    ErrorKind,
+    IdempotencyConflict,
+    Job,
+    JobStatus,
+    ServiceError,
+    SubmissionLimits,
+)
 from paper_author_searcher.service.ports import SearchOutcome
 from paper_author_searcher.service.results import ResultView, candidates
+from paper_author_searcher.service.retention import RetentionSweeper
 from paper_author_searcher.service.runner import RunnerOptions, WorkflowRunner, query_from_request
 from paper_author_searcher.service.s3 import S3Location, presign
 from paper_author_searcher.service.sqlite import SqliteJobRepository
@@ -346,6 +355,153 @@ class FacadeTests(unittest.TestCase):
         service = SearchService(core.repository, core.files, on_submit=lambda: woken.append(True))
         service.submit('k', REQUEST)
         self.assertEqual(woken, [True])
+
+
+class SubmissionLimitTests(unittest.TestCase):
+    def setUp(self):
+        self.directory = tempfile.TemporaryDirectory()
+        self.addCleanup(self.directory.cleanup)
+        self.core = Core(self.directory.name, [])
+
+    def service(self, **limits):
+        return SearchService(self.core.repository, self.core.files, limits=SubmissionLimits(**limits))
+
+    def test_active_searches_are_limited_per_key(self):
+        service = self.service(maximum_active=2, retry_after_seconds=7)
+        service.submit('a', REQUEST)
+        service.submit('a', REQUEST)
+        with self.assertRaises(ServiceError) as refused:
+            service.submit('a', REQUEST)
+        self.assertEqual(refused.exception.kind, ErrorKind.RATE_LIMITED)
+        self.assertEqual(refused.exception.code, 'too_many_active_searches')
+        self.assertEqual(refused.exception.retry_after_seconds, 7)
+        service.submit('b', REQUEST)
+
+    def test_finished_searches_free_the_active_limit_but_not_the_hourly_one(self):
+        service = self.service(maximum_active=1, maximum_per_hour=2)
+        first = service.submit('a', REQUEST).job
+        self.core.repository.update(first.id, status=JobStatus.SUCCEEDED)
+        service.submit('a', REQUEST)
+        with self.assertRaises(ServiceError) as refused:
+            service.submit('a', REQUEST)
+        self.assertEqual(refused.exception.code, 'too_many_active_searches')
+        self.core.repository.update(service.job('a', self._newest('a')).id, status=JobStatus.SUCCEEDED)
+        with self.assertRaises(ServiceError) as refused:
+            service.submit('a', REQUEST)
+        self.assertEqual(refused.exception.code, 'too_many_searches')
+
+    def _newest(self, client):
+        with sqlite3.connect(self.core.repository.path) as db:
+            return db.execute(
+                'SELECT id FROM jobs WHERE client = ? AND status = ?', (client, JobStatus.QUEUED)
+            ).fetchone()[0]
+
+    def test_a_refusal_frees_its_idempotency_key(self):
+        service = self.service(maximum_active=1)
+        service.submit('a', REQUEST)
+        with self.assertRaises(ServiceError):
+            service.submit('a', REQUEST, 'k')
+        self.core.repository.update(self._newest('a'), status=JobStatus.SUCCEEDED)
+        self.assertFalse(service.submit('a', REQUEST, 'k').replayed)
+
+
+class WorkerLossTests(unittest.TestCase):
+    def setUp(self):
+        self.directory = tempfile.TemporaryDirectory()
+        self.addCleanup(self.directory.cleanup)
+        self.repository = SqliteJobRepository(Path(self.directory.name) / 'jobs.sqlite')
+
+    def test_a_search_that_keeps_killing_workers_fails(self):
+        self.repository.create(Job('srch_1', 'c', REQUEST))
+        for attempt in (1, 2):
+            self.assertEqual(self.repository.claim_next('gone').attempts, attempt)
+            self.assertEqual(self.repository.requeue_stale(120, maximum_attempts=3), ['srch_1'])
+        self.repository.claim_next('gone')
+        self.assertEqual(self.repository.requeue_stale(120, maximum_attempts=3), [])
+        job = self.repository.get('srch_1')
+        self.assertEqual(job.status, JobStatus.FAILED)
+        self.assertEqual(job.error['code'], 'worker_lost')
+        self.assertIsNotNone(job.finished_at)
+
+
+class RetentionTests(unittest.TestCase):
+    def setUp(self):
+        self.directory = tempfile.TemporaryDirectory()
+        self.addCleanup(self.directory.cleanup)
+        self.core = Core(self.directory.name, [])
+        self.repository, self.files = self.core.repository, self.core.files
+
+    def finished(self, job_id, days_old, status=JobStatus.SUCCEEDED, files=('0',)):
+        moment = (datetime.now(timezone.utc) - timedelta(days=days_old)).isoformat(timespec='seconds')
+        self.repository.create(Job(job_id, 'c', REQUEST))
+        for paper_id in files:
+            self.files.put(paper_key(job_id, paper_id), self.core.pdf(f'{paper_id}.pdf'), 'application/pdf')
+        self.files.put(job_key(job_id, 'pdfs.zip'), self.core.pdf('a.zip'), 'application/zip')
+        self.repository.update(
+            job_id,
+            status=status,
+            result=result_with_files(*files),
+            started_at=moment,
+            finished_at=moment,
+            cost_usd=0.25,
+            llm_cost_usd=0.5,
+        )
+        with sqlite3.connect(self.repository.path) as db:
+            db.execute('UPDATE jobs SET updated_at = ? WHERE id = ?', (moment, job_id))
+
+    def test_expired_searches_and_only_those_are_deleted_with_their_files(self):
+        self.finished('srch_old', 40)
+        self.finished('srch_new', 5)
+        self.repository.create(Job('srch_waiting', 'c', REQUEST))
+        self.assertEqual(RetentionSweeper(self.repository, self.files, 30).sweep(), (1, 0))
+        self.assertIsNone(self.repository.get('srch_old'))
+        self.assertFalse(self.files.exists(paper_key('srch_old', '0')))
+        self.assertFalse((self.files.root / 'searches' / 'srch_old').exists())
+        self.assertIsNotNone(self.repository.get('srch_new'))
+        self.assertTrue(self.files.exists(paper_key('srch_new', '0')))
+        self.assertIsNotNone(self.repository.get('srch_waiting'))
+
+    def test_metric_counters_do_not_go_backwards(self):
+        self.finished('srch_old', 40)
+        before = self.repository.counts()
+        RetentionSweeper(self.repository, self.files, 30).sweep()
+        after = self.repository.counts()
+        self.assertEqual(
+            after['finished'][JobStatus.SUCCEEDED]['count'], before['finished'][JobStatus.SUCCEEDED]['count']
+        )
+        self.assertAlmostEqual(after['cost_usd'], before['cost_usd'])
+        self.assertAlmostEqual(after['llm_cost_usd'], 0.5)
+        self.assertEqual(after['by_status'][JobStatus.SUCCEEDED], 0)
+
+    def test_zero_keeps_everything(self):
+        self.finished('srch_old', 400)
+        self.assertEqual(RetentionSweeper(self.repository, self.files, 0).sweep(), (0, 0))
+
+    def test_old_http_cache_files_are_removed(self):
+        cache = Path(self.directory.name) / 'cache' / 'ab'
+        cache.mkdir(parents=True)
+        old, fresh = cache / 'old.json', cache / 'fresh.json'
+        old.write_text('{}')
+        fresh.write_text('{}')
+        stamp = (datetime.now(timezone.utc) - timedelta(days=100)).timestamp()
+        os.utime(old, (stamp, stamp))
+        self.assertEqual(RetentionSweeper(self.repository, self.files, 0, cache.parent, 90).sweep(), (0, 1))
+        self.assertFalse(old.exists())
+        self.assertTrue(fresh.exists())
+
+    def test_a_failing_sweep_does_not_stop_the_worker(self):
+        calls = []
+
+        def broken():
+            calls.append(1)
+            raise OSError('storage down')
+
+        worker = SearchWorker(
+            self.repository, FakeRunner([]), self.files, self.core.root / 'scratch', housekeeping=broken
+        )
+        worker._keep_house()
+        worker._keep_house()
+        self.assertEqual(len(calls), 1)
 
 
 class MetricsTests(unittest.TestCase):
@@ -674,7 +830,10 @@ class ResultTests(unittest.TestCase):
             'run_status': 'partial',
             'artifacts': {'papers': 'papers.json', 'pdf_urls': 'pdf_urls.json', 'manifest': 'manifest.json'},
             'identity': {'profile': {'name': 'A', 'status': 'resolved', 'author_ids': {'openalex': 'A1'}}},
-            'warnings': [{'stage': 'x', 'warning': 'careful'}],
+            'warnings': [
+                {'stage': 'x', 'warning': 'careful'},
+                {'stage': 'y', 'code': 'web_search_off', 'warning': 'No web search'},
+            ],
         }
         self.view = ResultView(lambda paper_id: f'/pdf/{paper_id}')
 
@@ -693,7 +852,8 @@ class ResultTests(unittest.TestCase):
         # A file outside the run's folder is never served, but the paper keeps its validated link.
         self.assertEqual(linked['full_text']['status'], 'link')
         self.assertEqual(result['statistics'], {'papers': 2, 'verified': 2, 'full_text_files': 1, 'full_text_links': 1})
-        self.assertEqual((result['run_status'], result['warnings']), ('partial', ['careful']))
+        self.assertEqual((result['run_status'], result['warnings']), ('partial', ['careful', 'No web search']))
+        self.assertEqual(result['notices'], [{'code': 'web_search_off', 'message': 'No web search'}])
         self.assertEqual(self.view.file_path(self.report, '0'), (self.root / 'papers' / 'a.pdf').resolve())
         self.assertIsNone(self.view.file_path(self.report, '1'))
         self.assertIsNone(self.view.file_path(self.report, '9'))

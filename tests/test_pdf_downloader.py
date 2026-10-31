@@ -145,6 +145,64 @@ class DownloaderTests(unittest.TestCase):
     def run_download(self, papers=None, **kwargs):
         return self.downloader.download({'papers': papers or [target()]}, self.root, **kwargs)
 
+    def unbound_paper(self):
+        paper = target()
+        paper['best_pdf_url'] = None
+        paper['pdf_candidates'] = [
+            {
+                'url': 'https://www.example.org/copy.pdf',
+                'source': 'public_pages',
+                'pdf_signature_confirmed': True,
+                'access_status': 'publicly_accessible',
+                'validation_status': 'unverified',
+                'identity_status': 'unverified',
+            }
+        ]
+        return paper
+
+    def test_a_public_pdf_no_metadata_binds_is_kept_when_its_content_confirms_the_paper(self):
+        entry = self.run_download([self.unbound_paper()])['papers'][0]
+        self.assertEqual(entry['download_status'], 'downloaded')
+        self.assertEqual(entry['identity_status'], 'verified')
+        self.assertEqual(entry['pdf_url'], 'https://www.example.org/copy.pdf')
+        self.assertTrue((self.root / entry['local_filename']).exists())
+
+    def test_a_public_pdf_no_metadata_binds_leaves_no_file_when_its_content_does_not_confirm(self):
+        for status in ('needs_review', 'rejected'):
+            self.downloader = PDFDownloader(self.client, fake_validator(status))
+            entry = self.run_download([self.unbound_paper()])['papers'][0]
+            self.assertEqual(entry['download_status'], 'skipped_unverified_url')
+            self.assertIsNone(entry['local_filename'])
+            self.assertIsNone(entry['pdf_url'])
+            self.assertEqual(entry['attempts'][0]['status'], 'unconfirmed_content')
+            self.assertEqual(list(self.root.rglob('*.pdf')), [])
+
+    def test_conflicting_or_unreachable_candidates_are_never_tried_by_content(self):
+        for change in (
+            {'identity_status': 'conflicting'},
+            {'pdf_signature_confirmed': False},
+            {'access_status': 'unreachable'},
+        ):
+            paper = self.unbound_paper()
+            paper['pdf_candidates'][0].update(change)
+            entry = self.run_download([paper])['papers'][0]
+            self.assertEqual(entry['download_status'], 'skipped_unverified_url')
+        self.client.stream_pdf.assert_not_called()
+
+    def test_a_bound_url_is_tried_before_an_unbound_one(self):
+        paper = target()
+        paper['pdf_candidates'].insert(0, self.unbound_paper()['pdf_candidates'][0])
+        entry = self.run_download([paper])['papers'][0]
+        self.assertEqual(entry['pdf_url'], 'https://repo.example.edu/document')
+
+    def test_the_number_of_content_checks_per_paper_is_limited(self):
+        paper = self.unbound_paper()
+        template = paper['pdf_candidates'][0]
+        paper['pdf_candidates'] = [dict(template, url=f'https://www.example.org/{n}.pdf') for n in range(9)]
+        self.downloader = PDFDownloader(self.client, fake_validator('needs_review'))
+        self.run_download([paper])
+        self.assertEqual(self.client.stream_pdf.call_count, DEFAULT_DOWNLOAD.maximum_content_checks)
+
     def test_verified_download_manifest_and_original_input_preserved(self):
         saved = {'papers': [target()]}
         before = deepcopy(saved)

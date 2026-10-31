@@ -1,13 +1,27 @@
 """Ground-truth matching independent of retrieval/ownership heuristics."""
 
 from dataclasses import dataclass, field
+from difflib import SequenceMatcher
 from typing import Any
 
-from .matching import arxiv_from_doi, canonical_arxiv, canonical_doi, normalize
+from .matching import arxiv_from_doi, canonical_arxiv, canonical_doi, normalize, normalize_title
 from .paper_authorship import byline_forms
 
 LABELS = frozenset({'belongs', 'not_belongs', 'uncertain'})
-MATCHING_RULES_VERSION = 2
+MATCHING_RULES_VERSION = 3
+
+
+# A name of this many words or more has a given and a family name.
+FULL_NAME_WORDS = 2
+
+# Truth copied from a public page: it states the title, but its author lists are often shortened ('et al.', initials,
+# only the researcher), so the complete author signature cannot be required of these entries.
+TRANSCRIBED_SOURCES = frozenset({'manual'})
+TRANSCRIBED_TITLE_SIMILARITY = 0.93
+# A page may leave out the subtitle; a shorter match than this could be a different paper.
+TRANSCRIBED_PREFIX_MINIMUM_WORDS = 4
+# A page may list one version and the output another, as in version grouping.
+TRANSCRIBED_YEAR_TOLERANCE = 2
 
 
 @dataclass
@@ -165,6 +179,9 @@ class GroundTruthMatcher:
         self.identifiers = {}
         self.metadata: dict[Any, dict[str, set[str]]] = {}
         self.title_year: dict[tuple[str, Any], list[Any]] = {}
+        self.transcribed = [
+            paper for paper in truth.papers if TRANSCRIBED_SOURCES & set(paper.get('truth_sources') or [])
+        ]
         for paper in truth.papers:
             evaluation_id = paper['evaluation_id']
             for key in stable_identifiers(paper):
@@ -218,7 +235,44 @@ class GroundTruthMatcher:
                 ],
                 'metadata_signatures',
             )
+        same, close = self._transcribed_candidates(paper)
+        if same or close:
+            return self._resolve_transcribed(same or close)
         return TruthMatch(evidence=['No adjudicated ground-truth match'])
+
+    def _transcribed_candidates(self, paper):
+        """Evaluation IDs of transcribed entries with the same title, and of those with a close one."""
+        title = normalize_title(paper.get('title') or '')
+        authors = paper.get('authors') or []
+        same: set[str] = set()
+        close: set[str] = set()
+        if not title or not authors or paper.get('year') is None:
+            return same, close
+        for entry in self.transcribed:
+            expected = normalize_title(entry.get('title') or '')
+            if (
+                not expected
+                or entry.get('year') is None
+                or abs(entry['year'] - paper['year']) > TRANSCRIBED_YEAR_TOLERANCE
+            ):
+                continue
+            exact = expected == title
+            if not exact and not _titles_close(expected, title):
+                continue
+            if any(bibliographic_name_agrees(left, right) for left in authors for right in entry.get('authors') or []):
+                (same if exact else close).add(entry['evaluation_id'])
+        return same, close
+
+    @staticmethod
+    def _resolve_transcribed(ids):
+        """Unlike ``_resolve``, another DOI is no conflict: title, nearby year and a shared author make an edition."""
+        evidence = ['Title of a transcribed truth entry, a nearby year and at least one author agree']
+        if len(ids) != 1:
+            return TruthMatch(
+                candidates=sorted(ids), evidence=[*evidence, 'Multiple truth identities match'], decision='ambiguous'
+            )
+        evaluation_id = next(iter(ids))
+        return TruthMatch(evaluation_id, [evaluation_id], evidence, 'transcribed_title')
 
     def _resolve(self, paper, ids, evidence, method):
         if len(ids) != 1:
@@ -237,13 +291,22 @@ class GroundTruthMatcher:
         return TruthMatch(evaluation_id, [evaluation_id], evidence, method)
 
 
+def _titles_close(left, right):
+    """One title is the other without its subtitle, or they differ only by a typo."""
+    shorter, longer = sorted((left, right), key=len)
+    if len(shorter.split()) >= TRANSCRIBED_PREFIX_MINIMUM_WORDS and longer.startswith(shorter + ' '):
+        return True
+    matcher = SequenceMatcher(None, left, right)
+    return matcher.quick_ratio() >= TRANSCRIBED_TITLE_SIMILARITY and matcher.ratio() >= TRANSCRIBED_TITLE_SIMILARITY
+
+
 def bibliographic_name_agrees(left, right):
     """Same family name and compatible given names/initials, e.g. 'M. Zhu' and 'Min Zhu'."""
     first = normalize(byline_forms(left)[-1]).split()
     second = normalize(byline_forms(right)[-1]).split()
     if first == second:
         return True
-    if len(first) < 2 or len(second) < 2 or first[-1] != second[-1]:
+    if len(first) < FULL_NAME_WORDS or len(second) < FULL_NAME_WORDS or first[-1] != second[-1]:
         return False
     if not _name_token_agrees(first[0], second[0]):
         return False

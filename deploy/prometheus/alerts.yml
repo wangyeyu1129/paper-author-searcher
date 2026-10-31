@@ -53,3 +53,9 @@ groups:
         labels: {severity: warning}
         annotations:
           summary: Metered-API spend in the last day is near OpenAlex's free daily quota ($1).
+
+      - alert: PaperSearchLlmSpend
+        expr: increase(paper_search_llm_cost_usd_total[24h]) > 20
+        labels: {severity: warning}
+        annotations:
+          summary: Claude spend in the last day is over $20; check for a caller submitting far more than expected.

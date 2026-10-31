@@ -52,7 +52,9 @@ class PaperSearchWorkflow:
         matching_config: Any = DEFAULT_MATCHING,
         stages: Sequence[WorkflowStage] | None = None,
         storage: StorageConfig = DEFAULT_STORAGE,
+        query_expander: Callable[[ProfessorQuery], ProfessorQuery] | None = None,
     ) -> None:
+        self.query_expander = query_expander
         self.resolver = resolver
         self.collector = collector
         self.collection_config = collection_config
@@ -114,6 +116,8 @@ class PaperSearchWorkflow:
         for limit in (maximum_pdf_papers, maximum_downloads):
             if limit is not None and limit < 1:
                 raise ValueError('Workflow limits must be positive')
+        if query is not None and self.query_expander is not None:
+            query = self.query_expander(query)
         request = RunRequest(
             query, saved, mode, selected_author, include_needs_review, maximum_pdf_papers, maximum_downloads
         )

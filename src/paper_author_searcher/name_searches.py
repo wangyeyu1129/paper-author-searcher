@@ -24,7 +24,7 @@ from typing import Any
 from .config import DEFAULT_MATCHING, DEFAULT_NAME_SEARCHES, ListedWorksConfig, MatchingConfig, NameSearchConfig
 from .listed_works import AuthorMatcher, crossref_item_record, relabel_choice, same_title, split_key
 from .logging_config import log_isolated_failure
-from .matching import canonical_doi, institution_mentioned, normalize, split_name
+from .matching import DOI_URL, canonical_doi, institution_mentioned, normalize, split_name
 from .models import PaperRecord, PaperSourceResult, ProfessorProfile
 from .paper_providers import parse_year
 
@@ -134,7 +134,7 @@ def europepmc_record(
         source='europepmc',
         source_paper_id=identifier,
         source_author_id=author_id,
-        paper_url='https://doi.org/' + doi if doi else f'https://europepmc.org/article/{identifier.replace(":", "/")}',
+        paper_url=DOI_URL + doi if doi else f'https://europepmc.org/article/{identifier.replace(":", "/")}',
         publication_type=types[0] if types else None,
         author_details=details,
         target_author_present=True,
@@ -320,7 +320,7 @@ def core_record(work: dict, choose: Callable[[list[dict[str, Any]]], str | None]
         source='core',
         source_paper_id=identifier,
         source_author_id=author_id,
-        paper_url='https://doi.org/' + doi if doi else work.get('downloadUrl'),
+        paper_url=DOI_URL + doi if doi else work.get('downloadUrl'),
         publication_type=None,
         author_details=details,
         target_author_present=True,

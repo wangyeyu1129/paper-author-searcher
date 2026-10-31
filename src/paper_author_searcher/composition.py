@@ -20,7 +20,7 @@ from .dblp_discovery import DblpProfileDiscovery
 from .dblp_dump import DblpDumpIndex
 from .homepage_citations import DocumentParser, HtmlCitationParser, PdfCitationParser
 from .http import HttpClient
-from .http_budget import budgeted_client
+from .http_budget import CostLedger, DailyBudget, budgeted_client, shared_ledger
 from .http_cache import cached_client
 from .http_decorators import PacedHttpClient
 from .identity_anchors import AnchorFinder, ScholarlyAnchorFinder
@@ -31,14 +31,21 @@ from .identity_discovery import (
     PageRanker,
     WebPageSearch,
 )
+from .institution_names import InstitutionNames
 from .listed_works import ListedWorkRetriever
+from .name_rarity import NameRarity
 from .orcid_affiliations import OrcidAffiliations
+from .pacing import Pacer, RequestPacer
 from .paper_collector import NameSearch, PaperCollector
 from .paper_ownership import PaperOwnershipValidator
+from .pdf_file_validation import PDFFileValidator
+from .pdf_front_page import ClaudeFrontPageReader, FrontPageValidator, LayoutFrontPageReader
+from .pdf_providers import WebSearchPDFProvider
+from .pdf_public_pages import PublicPagePDFProvider
 from .pdf_resolver import PDFResolver
 from .pdf_resource_requests import PublicResourceRequests
 from .pdf_validation import PDFURLValidator
-from .precision_guards import DepartmentMatcher, PrecisionGuard
+from .precision_guards import CommonNamePolicy, DepartmentMatcher, PrecisionGuard
 from .profile_links import ProfileLinkParser
 from .progress import ProgressReporter
 from .publication_extraction import (
@@ -59,6 +66,11 @@ from .workflow import PaperSearchWorkflow
 FULL_MODE = 'full'
 BYTES_PER_MEGABYTE = 1024 * 1024
 DEFAULT_COST_LEDGER = 'default'
+
+
+def llm_ledger_name(cost_ledger: str) -> str:
+    """Claude's spend is kept apart from the metered APIs': neither may use up the other's budget."""
+    return f'{cost_ledger}:llm'
 
 
 @dataclass(frozen=True)
@@ -100,6 +112,14 @@ class RunOptions:
         return cls(**values)
 
 
+@dataclass(frozen=True)
+class TransportLimits:
+    """Limits shared beyond one run: the host pacing and daily budgets every worker of a deployment keeps together."""
+
+    pacer_factory: Callable[[float], Pacer] = RequestPacer
+    daily_budget: DailyBudget | None = None
+
+
 class ServiceContainer:
     """Builds each service once per container from ``Settings`` and ``RunOptions``."""
 
@@ -109,16 +129,20 @@ class ServiceContainer:
         options: RunOptions | None = None,
         adjudicator_factory: Callable[[], Any] | None = None,
         anchor_finder: AnchorFinder | None = None,
+        transport_limits: TransportLimits | None = None,
     ) -> None:
         self.settings = settings
         self.options = options or RunOptions()
         self.adjudicator_factory = adjudicator_factory or _claude_adjudicator
         # Overrides how caller hints become anchors (an offline replay supplies the anchors a run recorded).
         self.anchor_finder_override = anchor_finder
+        self.transport_limits = transport_limits or TransportLimits()
 
     def with_settings(self, settings: Settings) -> 'ServiceContainer':
         """A fresh container (new clients, providers and caches) for a variant of the settings."""
-        return ServiceContainer(settings, self.options, self.adjudicator_factory, self.anchor_finder_override)
+        return ServiceContainer(
+            settings, self.options, self.adjudicator_factory, self.anchor_finder_override, self.transport_limits
+        )
 
     # Transport ---------------------------------------------------------------------------------------------------
 
@@ -128,8 +152,12 @@ class ServiceContainer:
         and keep each host's interval."""
         options = self.options
         network = HttpClient(timeout=options.timeout, retries=options.retries, config=self.settings.http)
-        paced = PacedHttpClient(network, self.settings.http.host_request_intervals)
-        metered = budgeted_client(paced, options.max_cost_usd, options.cost_ledger)
+        limits = self.transport_limits
+        http = self.settings.http
+        paced = PacedHttpClient(
+            network, http.host_request_intervals, limits.pacer_factory, http.maximum_host_hold_seconds
+        )
+        metered = budgeted_client(paced, options.max_cost_usd, options.cost_ledger, limits.daily_budget)
         return cached_client(metered, options.http_cache_dir, options.http_cache_mode)
 
     @cached_property
@@ -196,11 +224,25 @@ class ServiceContainer:
         key = settings.credentials.anthropic_api_key
         if not settings.extraction.enabled or not key:
             return None
-        completion: JsonCompletion = ClaudeJsonCompletion(settings.extraction, api_key=key)
+        completion: JsonCompletion = ClaudeJsonCompletion(settings.extraction, api_key=key, ledger=self.claude_ledger)
         if settings.extraction.cache and self.options.http_cache_dir:
             namespace = f'{settings.extraction.model}:{settings.extraction.effort}'
             completion = CachedJsonCompletion(completion, Path(self.options.http_cache_dir) / 'llm', namespace)
         return completion
+
+    @cached_property
+    def claude_ledger(self) -> CostLedger:
+        return shared_ledger(llm_ledger_name(self.options.cost_ledger), self.settings.extraction.maximum_cost_usd)
+
+    @cached_property
+    def front_page_reader(self) -> ClaudeFrontPageReader | None:
+        """Claude reading the printed first pages of files whose text layer shows nothing; None without a key."""
+        settings = self.settings
+        key = settings.credentials.anthropic_api_key
+        if not settings.extraction.read_front_pages or not key:
+            return None
+        cache = Path(self.options.http_cache_dir) / 'llm' / 'front_pages' if self.options.http_cache_dir else None
+        return ClaudeFrontPageReader(settings.extraction, api_key=key, ledger=self.claude_ledger, cache_directory=cache)
 
     @cached_property
     def citation_parsers(self) -> tuple[DocumentParser, DocumentParser]:
@@ -231,21 +273,35 @@ class ServiceContainer:
         ranker = PageRanker(config, settings.matching)
         departments = DepartmentMatcher(settings.precision)
         steps: list[Any] = []
-        dblp = next((provider for provider in self.identity_providers if provider.name == 'dblp'), None)
+        profiles = next(
+            (provider for provider in self.identity_providers if getattr(provider, 'discovers_profiles', False)), None
+        )
         # Only from the local index: the DBLP API refuses automated clients.
-        if config.dblp_profiles and dblp is not None and self.dblp_index is not None:
+        if config.dblp_profiles and profiles is not None and self.dblp_index is not None:
             positions = PositionMatcher(settings.disambiguation, settings.matching, departments)
-            steps.append(DblpProfileDiscovery(dblp, positions, ranker, settings.matching))
+            steps.append(DblpProfileDiscovery(profiles, positions, ranker, settings.matching))
         if config.orcid_search:
             steps.append(
-                OrcidRegistrySearch(self.http_client, settings.sources, config, settings.matching, departments.agree)
+                OrcidRegistrySearch(
+                    self.http_client,
+                    settings.sources,
+                    config,
+                    settings.matching,
+                    departments.agree,
+                    CommonNamePolicy.from_config(settings.precision).is_common,
+                )
             )
         if config.orcid_researcher_urls:
             steps.append(OrcidResearcherUrls(self.http_client, ranker, settings.sources))
-        search = WEB_SEARCH.factory(config.web_search)(self) if config.web_search else None
-        if search is not None:
-            steps.append(WebPageSearch(search, ranker, config))
+        if self.web_search is not None:
+            steps.append(WebPageSearch(self.web_search, ranker, config))
         return IdentityDiscovery(steps)
+
+    @cached_property
+    def web_search(self) -> Any:
+        """The first configured web search provider whose key is set; None when there is none."""
+        names = self.settings.discovery.web_search
+        return next(filter(None, (WEB_SEARCH.factory(name)(self) for name in names)), None)
 
     @cached_property
     def resolver(self) -> ProfessorResolver:
@@ -297,7 +353,26 @@ class ServiceContainer:
 
     @cached_property
     def ownership_validator(self) -> PaperOwnershipValidator:
-        return PaperOwnershipValidator(self.settings.ownership, self.precision_guard)
+        return PaperOwnershipValidator(self.settings.ownership, self.precision_guard, self.name_rarity)
+
+    @cached_property
+    def institution_names(self) -> InstitutionNames:
+        settings = self.settings
+        return InstitutionNames(
+            self.http_client, settings.sources.openalex_url, settings.credentials.openalex_api_key, settings.matching
+        )
+
+    @cached_property
+    def name_rarity(self) -> NameRarity:
+        settings = self.settings
+        names = CommonNamePolicy.from_config(settings.precision)
+        return NameRarity(
+            self.http_client,
+            settings.sources.openalex_url,
+            settings.credentials.openalex_api_key,
+            lambda name: names.collides_easily(name, settings.precision.collision_given_name_letters),
+            settings.ownership.rare_name_minimum_share,
+        )
 
     @cached_property
     def collector(self) -> PaperCollector:
@@ -356,7 +431,20 @@ class ServiceContainer:
 
     @cached_property
     def pdf_resolver(self) -> PDFResolver:
-        return PDFResolver(self.pdf_providers, self.pdf_validator, self.resource_requests, self.pdf_config)
+        return PDFResolver(
+            self.pdf_providers,
+            self.pdf_validator,
+            self.resource_requests,
+            self.pdf_config,
+            fallbacks=self.pdf_fallbacks,
+        )
+
+    @cached_property
+    def pdf_fallbacks(self) -> list[Any]:
+        if self.web_search is None or not self.pdf_config.web_search_maximum_papers:
+            return []
+        pages = PublicPagePDFProvider(self.resource_requests, self.pdf_config)
+        return [WebSearchPDFProvider(self.web_search, pages, self.pdf_config)]
 
     @cached_property
     def download_config(self) -> DownloadConfig:
@@ -368,8 +456,16 @@ class ServiceContainer:
     def downloader(self) -> Any:
         from .pdf_downloader import PDFDownloader  # deferred: needs the optional "download" extra (pypdf)
 
-        # The file validator is a local, configuration-driven parser the downloader derives from its config.
-        return PDFDownloader(client=self.http_client, config=self.download_config, storage=self.settings.storage)
+        config = self.download_config
+        validator: Any = PDFFileValidator(config)
+        readers: list[Any] = []
+        if config.front_page_layouts:
+            readers.append(LayoutFrontPageReader(config.front_page_layouts, config.front_page_title_lines, config))
+        if self.front_page_reader is not None:
+            readers.append(self.front_page_reader)
+        if readers:
+            validator = FrontPageValidator(validator, readers, config)
+        return PDFDownloader(self.http_client, validator, config, self.settings.storage)
 
     # Pipeline ----------------------------------------------------------------------------------------------------
 
@@ -383,6 +479,7 @@ class ServiceContainer:
             collection_config=self.collection_config,
             matching_config=self.settings.matching,
             storage=self.settings.storage,
+            query_expander=self.institution_names.expand,
         )
 
 

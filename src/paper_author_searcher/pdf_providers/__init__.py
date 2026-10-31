@@ -18,6 +18,7 @@ from .openalex import (
 )
 from .repositories import ArxivPDFProvider, NBERPDFProvider
 from .semantic_scholar import SemanticScholarPDFProvider, semantic_candidates
+from .web_search import WebSearchPDFProvider
 
 __all__ = [
     'OPENALEX_ARXIV_LOCATION',
@@ -34,6 +35,7 @@ __all__ = [
     'OpenAlexPDFProvider',
     'SemanticScholarPDFProvider',
     'UnpaywallPDFProvider',
+    'WebSearchPDFProvider',
     'make_candidate',
     'openalex_arxiv_ids',
     'openalex_authors',

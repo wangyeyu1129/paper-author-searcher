@@ -20,7 +20,7 @@ GET /v1/searches/{id}/agent      Authorization: Bearer <key>
 | `researcher.identity` | 系统确认的身份：`confirmed`、`confirmed_by`（`evidence` 表示按证据确认，`caller` 表示由人选定）、姓名、ORCID、各来源的作者 ID、置信度、证据 |
 | `papers[]` | **agent 可以引用的论文**（字段见下表） |
 | `withheld[]` | **不可引用的论文**，每篇附 `reason` 和证据，供人工复核 |
-| `notes[]` | 需要注意的情况，例如部分来源没有响应，列表可能不完整 |
+| `notes[]` | 需要注意的情况，例如部分来源没有响应、未启用网页搜索，列表或全文可能不完整 |
 
 `papers[]` 中每篇论文的字段：
 

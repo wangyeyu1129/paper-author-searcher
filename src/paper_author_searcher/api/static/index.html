@@ -80,6 +80,7 @@
 
   <section class="panel hidden" id="result">
     <div class="stats" id="stats"></div>
+    <div class="muted" id="notices" style="margin-bottom:12px"></div>
     <div class="row" style="margin-bottom:12px"><button id="zip">下载全部 PDF（zip）</button><span class="muted" id="zip-note"></span></div>
     <table>
       <thead><tr><th>年份</th><th>论文</th><th class="venue">发表于</th><th>原文</th></tr></thead>
@@ -195,6 +196,8 @@
   function renderResult(job) {
     const result = job.result;
     const stats = result.statistics;
+    const noticeText = {web_search_off: '未启用网页搜索（没有配置搜索密钥），只存放在作者主页或其他网站上的 PDF 找不到，全文覆盖率会降低。'};
+    $('notices').textContent = (result.notices || []).map((notice) => noticeText[notice.code] || notice.message).join(' ');
     $('stats').innerHTML = '';
     for (const [label, value] of [['篇论文', stats.papers], ['篇有 PDF', stats.full_text_files], ['篇只有在线链接', stats.full_text_links]]) {
       const cell = document.createElement('div');

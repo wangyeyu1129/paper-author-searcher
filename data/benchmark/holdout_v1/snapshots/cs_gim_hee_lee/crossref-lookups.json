@@ -1,0 +1,5515 @@
+{
+  "lookups": {
+    "4d3r motion aware neural reconstruction and rendering of dynamic scenes from monocular videos": {
+      "title": "4D3R: Motion-Aware Neural Reconstruction and Rendering of Dynamic Scenes from Monocular Videos",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.52202/085713-5661",
+          "title": "4D3R: Motion-Aware Neural Reconstruction and Rendering of Dynamic Scenes from Monocular Videos",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "Guo",
+            "Xu",
+            "Li",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/tvcg.2026.3727639/mm1",
+          "title": "Dynamic View Synthesis from Monocular Videos via Motion-aware Gaussian Splatting_supp1-3727639.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1109/3dv69130.2026.00104",
+          "title": "MoAngelo: Motion-Aware Neural Surface Reconstruction for Dynamic Scenes",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "2026 International Conference on 3D Vision (3DV)",
+          "family_names": [
+            "Ebbed",
+            "Lähner"
+          ]
+        },
+        {
+          "doi": "10.52202/085713-5074",
+          "title": "Feed-Forward Bullet-Time Reconstruction of Dynamic Scenes from Monocular Videos",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "liang",
+            "Ren",
+            "Mirzaei",
+            "Torralba",
+            "Liu",
+            "Gilitschenski",
+            "Fidler",
+            "Oztireli",
+            "Ling",
+            "Gojcic",
+            "Huang"
+          ]
+        },
+        {
+          "doi": "10.52202/085713-2391",
+          "title": "Dynamic Gaussian Splatting from Defocused  and Motion-blurred Monocular Videos",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "Zhang",
+            "Xiao",
+            "Zhang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:25.597412+00:00"
+    },
+    "adasfm from coarse global to fine incremental adaptive structure from motion": {
+      "title": "AdaSfM: From Coarse Global to Fine Incremental Adaptive Structure from Motion",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/icra48891.2023.10161140",
+          "title": "AdaSfM: From Coarse Global to Fine Incremental Adaptive Structure from Motion",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE International Conference on Robotics and Automation (ICRA)",
+          "family_names": [
+            "Chen",
+            "Yu",
+            "Song",
+            "Yu",
+            "Li",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.5244/c.28.64",
+          "title": "Semi-Global 3D Line Modeling for Incremental Structure-from-Motion",
+          "year": 2014,
+          "type": "proceedings-article",
+          "container": "Proceedings of the British Machine Vision Conference 2014",
+          "family_names": [
+            "Hofer",
+            "Donoser",
+            "Bischof"
+          ]
+        },
+        {
+          "doi": "10.1109/cvpr.2008.4587694",
+          "title": "Coarse-to-fine low-rank structure-from-motion",
+          "year": 2008,
+          "type": "proceedings-article",
+          "container": "2008 IEEE Conference on Computer Vision and Pattern Recognition",
+          "family_names": [
+            "Bartoli",
+            "Gay-Bellile",
+            "Castellani",
+            "Peyras",
+            "Olsen",
+            "Sayd"
+          ]
+        },
+        {
+          "doi": "10.1016/j.image.2015.07.008",
+          "title": "Coarse-to-fine outlier correction with applications in structure from motion",
+          "year": 2015,
+          "type": "journal-article",
+          "container": "Signal Processing: Image Communication",
+          "family_names": [
+            "Du",
+            "Liu",
+            "Huang",
+            "Wu",
+            "Li"
+          ]
+        },
+        {
+          "doi": "10.1109/3dv.2013.25",
+          "title": "Towards Linear-Time Incremental Structure from Motion",
+          "year": 2013,
+          "type": "proceedings-article",
+          "container": "2013 International Conference on 3D Vision",
+          "family_names": [
+            "Wu"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:25.763964+00:00"
+    },
+    "boosting long tailed object detection via step wise learning on smooth tail data": {
+      "title": "Boosting Long-tailed Object Detection via Step-wise Learning on Smooth-tail Data",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/iccv51070.2023.00639",
+          "title": "Boosting Long-tailed Object Detection via Step-wise Learning on Smooth-tail Data",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Dong",
+            "Zhang",
+            "Ding",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.5412687",
+          "title": "TailBoost: Tail-synthetic Learning for Boosting Long-tailed Skin Cancer Image Classification",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Wei",
+            "Huang",
+            "Lin",
+            "Cheng",
+            "Tang"
+          ]
+        },
+        {
+          "doi": "10.3390/s26113343",
+          "title": "TailBoost: Tail-Synthetic Learning for Boosting Long-Tailed Skin Cancer Image Classification",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Sensors",
+          "family_names": [
+            "Wei",
+            "Huang",
+            "Lin",
+            "Cheng",
+            "Tang"
+          ]
+        },
+        {
+          "doi": "10.1016/j.patcog.2023.110061",
+          "title": "Objformer: Boosting 3D object detection via instance-wise interaction",
+          "year": 2024,
+          "type": "journal-article",
+          "container": "Pattern Recognition",
+          "family_names": [
+            "Tao",
+            "Zhao",
+            "Tang",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.4297453",
+          "title": "Distance Metric-Based Learning for Long-Tail Object Detection",
+          "year": 2022,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Shao",
+            "Peng",
+            "Sun",
+            "Li",
+            "Liu"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:26.965697+00:00"
+    },
+    "clair clip aided weakly supervised zero shot cross domain image retrieval": {
+      "title": "CLAIR: CLIP-Aided Weakly Supervised Zero-Shot Cross-Domain Image Retrieval",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.21275/sr221231230330",
+          "title": "Enhancing Fashion Image Retrieval with Multi-Modal Query and Zero-Shot Learning for Cross-Domain",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "International Journal of Science and Research (IJSR)",
+          "family_names": [
+            "S"
+          ]
+        },
+        {
+          "doi": "10.1016/j.asoc.2026.115128",
+          "title": "Fine-grained attention CLIP for zero-shot composed image retrieval",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Applied Soft Computing",
+          "family_names": [
+            "Zhang",
+            "Ao"
+          ]
+        },
+        {
+          "doi": "10.1145/3664647.3680702",
+          "title": "Dr. CLIP: CLIP-Driven Universal Framework for Zero-Shot Sketch Image Retrieval",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 32nd ACM International Conference on Multimedia",
+          "family_names": [
+            "Li",
+            "Yu",
+            "Li",
+            "Lu",
+            "Yuan"
+          ]
+        },
+        {
+          "doi": "10.1109/ijcnn64981.2025.11227640",
+          "title": "Cross-Domain Matrix Compression Adaptation for Zero-Shot Sketch-Based Image Retrieval",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 International Joint Conference on Neural Networks (IJCNN)",
+          "family_names": [
+            "Liu",
+            "Luo",
+            "Zheng",
+            "Peng"
+          ]
+        },
+        {
+          "doi": "10.1109/tcsvt.2026.3656817/mm1",
+          "title": "Retrieval-augmented Pseudo-image Guided Alignment and Text Domain-aware Memory Recall for Continual Zero-shot Captioning_supp1-3656817.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Liu"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:27.044524+00:00"
+    },
+    "closely interactive human reconstruction with proxemics and physics guided adaption": {
+      "title": "Closely Interactive Human Reconstruction with Proxemics and Physics-Guided Adaption",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52733.2024.00102",
+          "title": "Closely Interactive Human Reconstruction with Proxemics and Physics-Guided Adaption",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Huang",
+            "Li",
+            "Xu",
+            "Pan",
+            "Wang",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/ro-man53752.2022.9900821",
+          "title": "Extending Quantitative Proxemics and Trust to HRI",
+          "year": 2022,
+          "type": "proceedings-article",
+          "container": "2022 31st IEEE International Conference on Robot and Human Interactive Communication (RO-MAN)",
+          "family_names": [
+            "Camara",
+            "Fox"
+          ]
+        },
+        {
+          "doi": "10.1109/roman.2018.8525731",
+          "title": "Investigating Deep Learning Approaches for Human-Robot Proxemics",
+          "year": 2018,
+          "type": "proceedings-article",
+          "container": "2018 27th IEEE International Symposium on Robot and Human Interactive Communication (RO-MAN)",
+          "family_names": [
+            "Gao",
+            "Wallkotter",
+            "Obaid",
+            "Castellano"
+          ]
+        },
+        {
+          "doi": "10.1109/ro-man53752.2022.9900801",
+          "title": "Measuring Visual Social Engagement from Proxemics and Gaze",
+          "year": 2022,
+          "type": "proceedings-article",
+          "container": "2022 31st IEEE International Conference on Robot and Human Interactive Communication (RO-MAN)",
+          "family_names": [
+            "Webb",
+            "Giuliani",
+            "Lemaignan"
+          ]
+        },
+        {
+          "doi": "10.1109/ro-man57019.2023.10309333",
+          "title": "Come Closer: The Effects of Robot Personality on Human Proxemics Behaviours",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 32nd IEEE International Conference on Robot and Human Interactive Communication (RO-MAN)",
+          "family_names": [
+            "Moujahid",
+            "Robb",
+            "Dondrup",
+            "Hastie"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:28.300438+00:00"
+    },
+    "compc completing a 3d point cloud with 2d diffusion priors": {
+      "title": "ComPC: Completing a 3D Point Cloud with 2D Diffusion Priors",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/tpami.2024.3421359/mm2",
+          "title": "Dynamic 3D Point Cloud Sequences as 2D Videos_supp1-3421359.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Hou"
+          ]
+        },
+        {
+          "doi": "10.7717/peerjcs.529/fig-9",
+          "title": "Figure 9: 3D point cloud mapped to 2D KITTI image (Geiger, 2013).",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1109/tpami.2024.3421359/mm1",
+          "title": "Dynamic 3D Point Cloud Sequences as 2D Videos_supp2-3421359.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Hou"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.4314622",
+          "title": "Completing 3d Point Cloud of Thin Corn Leaves Using 3d Gridding Convolutional Neural Networks",
+          "year": 2022,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Zhang",
+            "Su",
+            "Tao",
+            "Li",
+            "Li"
+          ]
+        },
+        {
+          "doi": "10.1109/icassp55912.2026.11461695",
+          "title": "MVP-Diff: Multi-View Priors Learning for Diffusion-Based Single-View 3D Point Cloud Reconstruction",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "ICASSP 2026 - 2026 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+          "family_names": [
+            "Li",
+            "Li",
+            "Wang",
+            "Wu",
+            "Li"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:28.388505+00:00"
+    },
+    "contranerf generalizable neural radiance fields for synthetic to real novel view synthesis via contrastive learning": {
+      "title": "ContraNeRF: Generalizable Neural Radiance Fields for Synthetic-to-Real Novel View Synthesis via Contrastive Learning",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52729.2023.01584",
+          "title": "ContraNeRF: Generalizable Neural Radiance Fields for Synthetic-to-real Novel View Synthesis via Contrastive Learning",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Yang",
+            "Hong",
+            "Li",
+            "Hu",
+            "Li",
+            "Lee",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1016/j.cag.2025.104171",
+          "title": "FreqSpace-NeRF: A fourier-enhanced Neural Radiance Fields method via dual-domain contrastive learning for novel view synthesis",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "Computers &amp; Graphics",
+          "family_names": [
+            "Yu",
+            "Tian",
+            "Chen",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1109/cvidl70130.2026.11637758",
+          "title": "Cross-View Token-Enhanced Neural Radiance Fields for Sparse-View Novel View Synthesis",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "2026 7th International Conference on Computer Vision, Image and Deep Learning (CVIDL)",
+          "family_names": [
+            "Zhou"
+          ]
+        },
+        {
+          "doi": "10.1109/tpami.2024.3381001/mm1",
+          "title": "Baking Neural Radiance Fields for Real-Time View Synthesis_supp1-3381001.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Hedman"
+          ]
+        },
+        {
+          "doi": "10.5220/0013244200003912",
+          "title": "Segmentation-Guided Neural Radiance Fields for Novel Street View Synthesis",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 20th International Joint Conference on Computer Vision, Imaging and Computer Graphics Theory and Applications",
+          "family_names": [
+            "Li",
+            "Monno",
+            "Okutomi",
+            "Tanaka",
+            "Kataoka",
+            "Kosiba"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:29.544635+00:00"
+    },
+    "dbarf deep bundle adjusting generalizable neural radiance field": {
+      "title": "DBARF: Deep Bundle-Adjusting Generalizable Neural Radiance Field",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52729.2023.00011",
+          "title": "DBARF: Deep Bundle-Adjusting Generalizable Neural Radiance Fields",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Chen",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/cvpr52734.2025.01048",
+          "title": "Depth-Guided Bundle Sampling for Efficient Generalizable Neural Radiance Field Reconstruction*",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Fang",
+            "Zhu",
+            "Chen",
+            "Hu",
+            "Ye",
+            "Ma"
+          ]
+        },
+        {
+          "doi": "10.1109/iccv51070.2023.00304",
+          "title": "Adaptive Positional Encoding for Bundle-Adjusting Neural Radiance Fields",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Gao",
+            "Dai",
+            "Zhang"
+          ]
+        },
+        {
+          "doi": "10.1109/iccv48922.2021.00569",
+          "title": "BARF: Bundle-Adjusting Neural Radiance Fields",
+          "year": 2021,
+          "type": "proceedings-article",
+          "container": "2021 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Lin",
+            "Ma",
+            "Torralba",
+            "Lucey"
+          ]
+        },
+        {
+          "doi": "10.1109/tpami.2025.3598711/mm2",
+          "title": "Explicit Correspondence Matching for Generalizable Neural Radiance Fields_supp2-3598711.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Chen"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:29.748143+00:00"
+    },
+    "dreg nerf deep registration for neural radiance fields": {
+      "title": "DReg-NeRF: Deep Registration for Neural Radiance Fields",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/iccv51070.2023.02075",
+          "title": "DReg-NeRF: Deep Registration for Neural Radiance Fields",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Chen",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.5220/0014632600004084",
+          "title": "PGT-NeRF: Physics-Guided Thermal Neural Radiance Fields",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 21st International Conference on Computer Vision Theory and Applications",
+          "family_names": [
+            "Mahalingam",
+            "Sigatapu",
+            "Doshi",
+            "Sistu"
+          ]
+        },
+        {
+          "doi": "10.32388/b3vsx3",
+          "title": "Review of: \"MLI-NeRF: Multi-Light Intrinsic-Aware Neural Radiance Fields\"",
+          "year": 2025,
+          "type": "peer-review",
+          "container": "",
+          "family_names": [
+            "Pintus"
+          ]
+        },
+        {
+          "doi": "10.1109/tvcg.2025.3546290/mm1",
+          "title": "MC-NeRF: Multi-Camera Neural Radiance Fields for Multi-Camera Image Acquisition Systems_supp1-3546290.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Yang"
+          ]
+        },
+        {
+          "doi": "10.32388/uea1c5",
+          "title": "Review of: \"NeRF-VIO: Map-Based Visual-Inertial Odometry with Initialization Leveraging Neural Radiance Fields\"",
+          "year": 2025,
+          "type": "peer-review",
+          "container": "",
+          "family_names": [
+            "Pan"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:30.878676+00:00"
+    },
+    "deblur e nerf nerf from motion blurred events under high speed or low light conditions": {
+      "title": "Deblur e-NeRF: NeRF from Motion-Blurred Events under High-speed or Low-light Conditions",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1007/978-3-031-73232-4_11",
+          "title": "Deblur e-NeRF: NeRF from Motion-Blurred Events under High-speed or Low-light Conditions",
+          "year": 2024,
+          "type": "book-chapter",
+          "container": "Lecture Notes in Computer Science",
+          "family_names": [
+            "Low",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/iccv51070.2023.01681",
+          "title": "Robust e-NeRF: NeRF from Sparse &amp; Noisy Events under Non-Uniform Motion",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Low",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1038/s41598-025-88614-z",
+          "title": "MBS-NeRF: reconstruction of sharp neural radiance fields from motion-blurred sparse images",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "Scientific Reports",
+          "family_names": [
+            "Gao",
+            "Sun",
+            "Zhu",
+            "Chen"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.6878452",
+          "title": "RT-NeRF: Retinex-Transformer for NeRF-Based 3D Reconstructionfrom a Low-Light Single Image",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Wang",
+            "Hong",
+            "Lin",
+            "Li",
+            "Chen",
+            "Li"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.4968918",
+          "title": "Glonerf: Boosting Nerf Capabilities and Multi-View Consistency in Low-Light Environments",
+          "year": 2024,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Liu"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:31.059220+00:00"
+    },
+    "deep gaussian from motion exploring 3d geometric foundation models for gaussian splatting": {
+      "title": "Deep Gaussian from Motion: Exploring 3D Geometric Foundation Models for Gaussian Splatting",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.52202/085713-0659",
+          "title": "Deep Gaussian from Motion: Exploring 3D Geometric Foundation Models for Gaussian Splatting",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "Chen",
+            "Potamias",
+            "Ververas",
+            "Song",
+            "Deng",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/tcsvt.2026.3731452/mm1",
+          "title": "GPM-GS: 3D Gaussian Splatting Guided by Geometric Probability Models for Surface Reconstruction_supp1-3731452.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Yao"
+          ]
+        },
+        {
+          "doi": "10.1088/2631-8695/ae874c/v3/review1",
+          "title": "Review for \"Enhance 3D Gaussian Splatting for Dynamic Scenes: Integrating Semantic and Geometric Consistency\"",
+          "year": 2026,
+          "type": "peer-review",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1088/2631-8695/ae874c/v1/review2",
+          "title": "Review for \"Enhance 3D Gaussian Splatting for Dynamic Scenes: Integrating Semantic and Geometric Consistency\"",
+          "year": 2026,
+          "type": "peer-review",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1088/2631-8695/ae874c/v2/review1",
+          "title": "Review for \"Enhance 3D Gaussian Splatting for Dynamic Scenes: Integrating Semantic and Geometric Consistency\"",
+          "year": 2026,
+          "type": "peer-review",
+          "container": "",
+          "family_names": []
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:32.368624+00:00"
+    },
+    "diet gs diffusion prior and event stream assisted motion deblurring 3d gaussian splatting": {
+      "title": "DiET-GS: Diffusion Prior and Event Stream-Assisted Motion Deblurring 3D Gaussian Splatting",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52734.2025.02025",
+          "title": "DiET-GS: Diffusion Prior and Event Stream-Assisted Motion Deblurring 3D Gaussian Splatting",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Lee",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1016/j.eswa.2025.129802",
+          "title": "E2D-GS: Event-enhanced deblurring gaussian splatting",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Expert Systems with Applications",
+          "family_names": [
+            "Lin",
+            "Yuan",
+            "Yang"
+          ]
+        },
+        {
+          "doi": "10.1109/tvcg.2025.3549576/mm1",
+          "title": "Fov-GS: Foveated 3D Gaussian Splatting for Dynamic Scenes_supp1-3549576.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Fan"
+          ]
+        },
+        {
+          "doi": "10.1145/3746027.3755449",
+          "title": "BSGS: Bi-Stage 3D Gaussian Splatting for Camera Motion Deblurring",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 33rd ACM International Conference on Multimedia",
+          "family_names": [
+            "Zhao",
+            "Yu",
+            "Zhu",
+            "Wei"
+          ]
+        },
+        {
+          "doi": "10.1109/icassp55912.2026.11461578",
+          "title": "ARAP-GS: Drag-Driven As-Rigid-As-Possible 3D Gaussian Splatting Editing with Diffusion Prior",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "ICASSP 2026 - 2026 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+          "family_names": [
+            "Han",
+            "Tian",
+            "Tong",
+            "Yu",
+            "Liu",
+            "Zhang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:32.547050+00:00"
+    },
+    "dihur diffusion guided generalizable human reconstruction": {
+      "title": "DiHuR: Diffusion-Guided Generalizable Human Reconstruction",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/wacv61041.2025.00588",
+          "title": "DiHuR: Diffusion-Guided Generalizable Human Reconstruction",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+          "family_names": [
+            "Chen",
+            "Li",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/icra57385.2026.11696540",
+          "title": "Diffusion-guided Generalizable Enhancer for Urban Scene Reconstruction",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "2026 IEEE International Conference on Robotics and Automation (ICRA)",
+          "family_names": [
+            "Che",
+            "Wang",
+            "Chen",
+            "Yang",
+            "Manivasagam",
+            "Urtasun"
+          ]
+        },
+        {
+          "doi": "10.21203/rs.3.rs-10151422/v1",
+          "title": "Adaptive Reconstruction-Aware Evidence Fusion for Generalizable Diffusion-Generated Image Detection",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Shen",
+            "He",
+            "Ji",
+            "Wei"
+          ]
+        },
+        {
+          "doi": "10.3390/bioengineering10101117",
+          "title": "Dual-Guided Brain Diffusion Model: Natural Image Reconstruction from Human Visual Stimulus fMRI",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "Bioengineering",
+          "family_names": [
+            "Meng",
+            "Yang"
+          ]
+        },
+        {
+          "doi": "10.1109/gcce65946.2025.11274920",
+          "title": "Seed Selection for Human-Oriented Image Reconstruction via Guided Diffusion",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE 14th Global Conference on Consumer Electronics (GCCE)",
+          "family_names": [
+            "Tatsumi",
+            "Zeng",
+            "Watanabe"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:32.641630+00:00"
+    },
+    "disr nerf diffusion guided view consistent super resolution nerf": {
+      "title": "DiSR-NeRF: Diffusion-Guided View-Consistent Super-Resolution NeRF",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52733.2024.01943",
+          "title": "DiSR-NeRF: Diffusion-Guided View-Consistent Super-Resolution NeRF",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Lee",
+            "Li",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/tvcg.2024.3490840",
+          "title": "Super-NeRF: View-Consistent Detail Generation for NeRF Super-Resolution",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "IEEE Transactions on Visualization and Computer Graphics",
+          "family_names": [
+            "Han",
+            "Yu",
+            "Yu",
+            "Xu",
+            "Zheng",
+            "Dai",
+            "Yang",
+            "Wang",
+            "Dai"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.5132582",
+          "title": "Combining Efficient Latent Diffusion Model and Transformer for Super-Resolution Nerf",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Li",
+            "Sun",
+            "Zhao"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.6835718",
+          "title": "Combining Efficient Latent Diffusion Model and Transformer for Super-Resolution NeRF",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Li",
+            "Ping",
+            "Sun",
+            "Zhao"
+          ]
+        },
+        {
+          "doi": "10.1109/tpami.2025.3531417/mm2",
+          "title": "VD-NeRF: Visibility-aware Decoupled Neural Radiance Fields for View-Consistent Editing and High-Frequency Relighting_supp1-3531417.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Gao"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:32.770363+00:00"
+    },
+    "distil e2d distilling image to depth priors for event based monocular depth estimation": {
+      "title": "Distil-E2D: Distilling Image-to-Depth Priors for Event-Based Monocular Depth Estimation",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.52202/085713-4192",
+          "title": "Distil-E2D: Distilling Image-to-Depth Priors for Event-Based Monocular Depth Estimation",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "Lee",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.36227/techrxiv.176704422.21389177/v1",
+          "title": "Leveraging Synthetic Priors for Monocular Depth Estimation in Specular Surgical Environments",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Aich",
+            "R"
+          ]
+        },
+        {
+          "doi": "10.1016/j.knosys.2026.116207",
+          "title": "SCFP-Depth: Achieving robust self-supervised monocular depth estimation via static compensation and frequency-domain priors",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Knowledge-Based Systems",
+          "family_names": [
+            "Yang",
+            "Lu",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1109/icip.2019.8803551",
+          "title": "Monocular Segment-Wise Depth: Monocular Depth Estimation Based on a Semantic Segmentation Prior",
+          "year": 2019,
+          "type": "proceedings-article",
+          "container": "2019 IEEE International Conference on Image Processing (ICIP)",
+          "family_names": [
+            "Atapour-Abarghouei",
+            "Breckon"
+          ]
+        },
+        {
+          "doi": "10.1109/tmi.2026.3690379",
+          "title": "Beyond Foundation Models: Distilling Geometric Priors for Lightweight Monocular Depth Estimation in Endoscopy",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "IEEE Transactions on Medical Imaging",
+          "family_names": [
+            "Zhu",
+            "Shao",
+            "Yang",
+            "Tian",
+            "Zhang",
+            "Min"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:35.937038+00:00"
+    },
+    "dogaussian distributed oriented gaussian splatting for large scale 3d reconstruction via gaussian consensus": {
+      "title": "DoGaussian: Distributed-Oriented Gaussian Splatting for Large-Scale 3D Reconstruction Via Gaussian Consensus",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.52202/079017-1087",
+          "title": "DOGS: Distributed-Oriented Gaussian Splatting for Large-Scale 3D Reconstruction  Via Gaussian Consensus",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 37",
+          "family_names": [
+            "Chen",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.21203/rs.3.rs-11014476/v1",
+          "title": "PanoramicSplat: Scaling 3D Gaussian Splatting for Single-View Large-Scale Outdoor Reconstruction",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Wu",
+            "Ye"
+          ]
+        },
+        {
+          "doi": "10.1109/cac67268.2025.11487266",
+          "title": "Block-wise 3D Gaussian Splatting for Airdrop-Oriented Large-Scale Reconstruction",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 China Automation Congress (CAC)",
+          "family_names": [
+            "Li",
+            "Xiong",
+            "Wang",
+            "Han",
+            "Gao",
+            "Jin"
+          ]
+        },
+        {
+          "doi": "10.1016/j.cag.2026.104622",
+          "title": "Efficient large-scale 3D Gaussian splatting reconstruction via scene-aware subscene training",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Computers &amp; Graphics",
+          "family_names": [
+            "Zhu",
+            "Wang",
+            "Hong",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1109/access.2025.3631472/mm1",
+          "title": "Low-Altitude UAV Photogrammetry for Large-Scale Scene Reconstruction with Gaussian-Splatting Representation_supp1-3631472.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Mei"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:36.149678+00:00"
+    },
+    "ducos duality constrained depth super resolution via foundation model": {
+      "title": "DuCos: Duality Constrained Depth Super-Resolution via Foundation Model",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/iccv51701.2025.00783",
+          "title": "DuCos: Duality Constrained Depth Super-Resolution via Foundation Model",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Yan",
+            "Wang",
+            "Dong",
+            "Li",
+            "Yang",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/lsp.2025.3582190/mm1",
+          "title": "Bit-depth color recovery via off-the-shelf super-resolution models_supp1-3582190.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Xue"
+          ]
+        },
+        {
+          "doi": "10.1016/j.patcog.2026.114424",
+          "title": "An interpretable depth map super-resolution method via unrolling dual-boundary consistency constrained optimization",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Pattern Recognition",
+          "family_names": [
+            "Zhao",
+            "Ren",
+            "Zhang",
+            "Bai",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1109/icmew.2015.7169851",
+          "title": "Single depth image super resolution via a dual sparsity model",
+          "year": 2015,
+          "type": "proceedings-article",
+          "container": "2015 IEEE International Conference on Multimedia &amp; Expo Workshops (ICMEW)",
+          "family_names": [
+            "Yulun Zhang",
+            "Yongbing Zhang",
+            "Qionghai Dai"
+          ]
+        },
+        {
+          "doi": "10.1016/j.sigpro.2023.109368",
+          "title": "Depth map super-resolution via learned nonlocal model and enhanced local regularization",
+          "year": 2024,
+          "type": "journal-article",
+          "container": "Signal Processing",
+          "family_names": [
+            "Zhang",
+            "He",
+            "Chen",
+            "Ren"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:39.337029+00:00"
+    },
+    "dynam3d dynamic layered 3d tokens empower vlm for vision and language navigation": {
+      "title": "Dynam3D: Dynamic Layered 3D Tokens Empower VLM for Vision-and-Language Navigation",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.52202/085713-5133",
+          "title": "Dynam3D: Dynamic Layered 3D Tokens Empower VLM for Vision-and-Language Navigation",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "Wang",
+            "Lee",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/lra.2024.3511409/mm1",
+          "title": "VLM-Social-Nav: Socially Aware Robot Navigation through Scoring using Vision-Language Models_supp1-3511409.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Song"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.5231854",
+          "title": "Vlm-Nav: Mapless Uav-Navigation Using Monocular Vision Driven by Vision-Language Model",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Sarker",
+            "Azad",
+            "Rahman",
+            "Hasan"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.7304333",
+          "title": "MePUni3D-VLM: Feed-Forward Gaussian Evidence Tokenization for Unified 3D Medical Vision-Language Understanding",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Wei",
+            "He",
+            "He",
+            "Li"
+          ]
+        },
+        {
+          "doi": "10.1371/journal.pone.0345778",
+          "title": "VLM-Nav: Mapless UAV navigation using monocular vision driven by vision-language models",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "PLOS One",
+          "family_names": [
+            "Sarker",
+            "Azad",
+            "Rahman",
+            "Hasan"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:39.527675+00:00"
+    },
+    "escape encoding super keypoints for category agnostic pose estimation": {
+      "title": "ESCAPE: Encoding Super-keypoints for Category-Agnostic Pose Estimation",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52733.2024.02217",
+          "title": "ESCAPE: Encoding Super-keypoints for Category-Agnostic Pose Estimation",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Nguyen",
+            "Li",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1145/3743093.3770954",
+          "title": "SuPACape: Graph-based Category-Agnostic Pose Estimation with Super-Category and Pose Adaptivity",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 7th ACM International Conference on Multimedia in Asia",
+          "family_names": [
+            "Lu",
+            "Chu"
+          ]
+        },
+        {
+          "doi": "10.1111/cgf.70368",
+          "title": "Enhancing Robust Category‐Agnostic Pose Estimation through Multi‐Modal Feature Alignment",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Computer Graphics Forum",
+          "family_names": [
+            "Li",
+            "Liu"
+          ]
+        },
+        {
+          "doi": "10.1109/icip51287.2024.10647988",
+          "title": "Category-Agnostic Pose Estimation for Point Clouds",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE International Conference on Image Processing (ICIP)",
+          "family_names": [
+            "Liu",
+            "Liu",
+            "Chen",
+            "Xie",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1109/icassp48485.2024.10447754",
+          "title": "SIANet: Support Information-Aware Network for Category-Agnostic Pose Estimation",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "ICASSP 2024 - 2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+          "family_names": [
+            "Li",
+            "Yuan"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:42.639569+00:00"
+    },
+    "enhancing generalizability of representation learning for data efficient 3d scene understanding": {
+      "title": "Enhancing Generalizability of Representation Learning for Data-Efficient 3D Scene Understanding",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1109/3dv62453.2024.00048",
+          "title": "Enhancing Generalizability of Representation Learning for Data-Efficient 3D Scene Understanding",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 International Conference on 3D Vision (3DV)",
+          "family_names": [
+            "Wang",
+            "Zhao",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/cvpr52734.2025.00841",
+          "title": "Video-3D LLM: Learning Position-Aware Video Representation for 3D Scene Understanding",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Zheng",
+            "Huang",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1109/icip55913.2025.11084453",
+          "title": "Enhancing 3D Scene Representation with Structural Dissimilarity-Aware Learning",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE International Conference on Image Processing (ICIP)",
+          "family_names": [
+            "Lee",
+            "Kim",
+            "Kim"
+          ]
+        },
+        {
+          "doi": "10.1109/cvpr46437.2021.01533",
+          "title": "Exploring Data-Efficient 3D Scene Understanding with Contrastive Scene Contexts",
+          "year": 2021,
+          "type": "proceedings-article",
+          "container": "2021 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Hou",
+            "Graham",
+            "Niesner",
+            "Xie"
+          ]
+        },
+        {
+          "doi": "10.1016/j.patrec.2026.09.044",
+          "title": "DC-Scene: Data-centric learning for 3D scene understanding",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Pattern Recognition Letters",
+          "family_names": [
+            "Huang",
+            "Zhang",
+            "Zhang",
+            "Zhao"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:42.855090+00:00"
+    },
+    "event driven dynamic scene depth completion": {
+      "title": "Event-Driven Dynamic Scene Depth Completion",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.52202/085713-4786",
+          "title": "Event-Driven Dynamic Scene Depth Completion",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "Yan",
+            "Jiao",
+            "Wang",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.4939645",
+          "title": "Depth Completion and Semantic Fusion Network For Indoor Semantic Scene Completion",
+          "year": 2024,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Li",
+            "Song",
+            "Yan",
+            "Li",
+            "Chen",
+            "Huang"
+          ]
+        },
+        {
+          "doi": "10.1109/tase.2025.3604455/mm1",
+          "title": "RASP: Robot Active Scene Perception with Joint Viewpoint Planning and Depth Completion in Cluttered Environments_supp1-3604455.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Jia"
+          ]
+        },
+        {
+          "doi": "10.1109/icpr48806.2021.9412403",
+          "title": "In Depth Bayesian Semantic Scene Completion",
+          "year": 2021,
+          "type": "proceedings-article",
+          "container": "2020 25th International Conference on Pattern Recognition (ICPR)",
+          "family_names": [
+            "Gillsjo",
+            "Astrom"
+          ]
+        },
+        {
+          "doi": "10.5220/0008877700360046",
+          "title": "Semantic Scene Completion from a Single 360-Degree Image and Depth Map",
+          "year": 2020,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 15th International Joint Conference on Computer Vision, Imaging and Computer Graphics Theory and Applications",
+          "family_names": [
+            "Dourado",
+            "Kim",
+            "E. de Campos",
+            "Hilton"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:42.974916+00:00"
+    },
+    "event aided dense and continuous point tracking everywhere and anytime": {
+      "title": "Event-aided Dense and Continuous Point Tracking: Everywhere and Anytime",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/iccv51701.2025.00744",
+          "title": "Event-Aided Dense and Continuous Point Tracking: Everywhere and Anytime",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Wan",
+            "Luo",
+            "Dai",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.24834/urbanmatters.2026.06.1",
+          "title": "Everywhere // Anytime: The Past, Present and Future of Urban Palestine",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Urban Matters",
+          "family_names": []
+        },
+        {
+          "doi": "10.21203/rs.3.rs-368717/v1",
+          "title": "Toward Supplying Internet Everywhere and Anytime",
+          "year": 2021,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Kadhim"
+          ]
+        },
+        {
+          "doi": "10.1109/tpami.2024.3361671/mm1",
+          "title": "Dense Continuous-Time Optical Flow from Event Cameras_supp1-3361671.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Gehrig"
+          ]
+        },
+        {
+          "doi": "10.5194/egusphere-egu24-8642",
+          "title": "Scientific challenges when using SAR images for mapping of water bodies and floods everywhere and anytime",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Wagner"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:44.271057+00:00"
+    },
+    "flexevent towards flexible event frame object detection at varying operational frequencies": {
+      "title": "FlexEvent: Towards Flexible Event-Frame Object Detection at Varying Operational Frequencies",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.52202/085713-2978",
+          "title": "FlexEvent: Towards Flexible Event-Frame Object Detection at Varying Operational Frequencies",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "Lu",
+            "Kong",
+            "Lee",
+            "Simon Chane",
+            "Ooi"
+          ]
+        },
+        {
+          "doi": "10.1109/cvpr.2004.335",
+          "title": "Event Detection by Eigenvector Decomposition Using Object and Frame Features",
+          "year": null,
+          "type": "proceedings-article",
+          "container": "2004 Conference on Computer Vision and Pattern Recognition Workshop",
+          "family_names": [
+            "Porikli",
+            "Haga"
+          ]
+        },
+        {
+          "doi": "10.1109/itsc57777.2023.10422570",
+          "title": "Advancing Frame-Dropping in Multi-Object Tracking-by-Detection Systems Through Event-Based Detection Triggering",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE 26th International Conference on Intelligent Transportation Systems (ITSC)",
+          "family_names": [
+            "Henning",
+            "Buchholz",
+            "Dietmayer"
+          ]
+        },
+        {
+          "doi": "10.1016/j.ins.2026.124190",
+          "title": "IAEF: Illumination-adaptive event-frame fusion framework for autonomous driving object detection",
+          "year": 2027,
+          "type": "journal-article",
+          "container": "Information Sciences",
+          "family_names": [
+            "Shi",
+            "Chow",
+            "Wong"
+          ]
+        },
+        {
+          "doi": "10.3390/biomimetics7010031",
+          "title": "Moving Object Detection and Tracking by Event Frame from Neuromorphic Vision Sensors",
+          "year": 2022,
+          "type": "journal-article",
+          "container": "Biomimetics",
+          "family_names": [
+            "Zhao",
+            "Ji",
+            "Cai",
+            "Zeng",
+            "Wang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:44.430164+00:00"
+    },
+    "freesplat generalizable 3d gaussian splatting towards free view synthesis of indoor scenes": {
+      "title": "FreeSplat: Generalizable 3D Gaussian Splatting Towards Free View Synthesis of Indoor Scenes",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.52202/079017-3409",
+          "title": "FreeSplat: Generalizable 3D Gaussian Splatting Towards Free View Synthesis of Indoor Scenes",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 37",
+          "family_names": [
+            "Wang",
+            "Huang",
+            "Chen",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/tpami.2026.3665771/mm1",
+          "title": "FreeSplat++: Generalizable 3D Gaussian Splatting for Efficient Indoor Scene Reconstruction_supp1-3665771.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/tpami.2026.3665771/mm2",
+          "title": "FreeSplat++: Generalizable 3D Gaussian Splatting for Efficient Indoor Scene Reconstruction_supp2-3665771.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1016/j.neunet.2026.109344",
+          "title": "GSsplat: Generalizable semantic Gaussian splatting for novel-view synthesis in 3D scenes",
+          "year": 2027,
+          "type": "journal-article",
+          "container": "Neural Networks",
+          "family_names": [
+            "Xiao",
+            "Xu",
+            "Liang",
+            "Kang"
+          ]
+        },
+        {
+          "doi": "10.52202/079017-1251",
+          "title": "Epipolar-Free 3D Gaussian Splatting for Generalizable Novel View Synthesis",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 37",
+          "family_names": [
+            "Min",
+            "Luo",
+            "Sun",
+            "Yang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:45.611929+00:00"
+    },
+    "geal generalizable 3d affordance learning with cross modal consistency": {
+      "title": "GEAL: Generalizable 3D Affordance Learning with Cross-Modal Consistency",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52734.2025.00164",
+          "title": "GEAL: Generalizable 3D Affordance Learning with Cross-Modal Consistency",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Lu",
+            "Kong",
+            "Huang",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1145/3731715.3733408",
+          "title": "Open-World 3D Scene Understanding with Cross-Modal Dual Consistency Learning",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 2025 International Conference on Multimedia Retrieval",
+          "family_names": [
+            "Han",
+            "Wang",
+            "Wang",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.7717/peerj-cs.3592/fig-4",
+          "title": "Figure 4: Illustration of cross-modal consistency constraint.",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.14711/thesis-hdl174617",
+          "title": "Adaptive Cross-Modal Learning from 3D Perception to Self-Evolving Reasoning",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Wu"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.7107938",
+          "title": "MM-CDSM: Multi-Modal Causal Discovery with Cross-Modal Consistency Constraints",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Gao"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:45.790787+00:00"
+    },
+    "ghunerf generalizable human nerf from a monocular video": {
+      "title": "GHuNeRF: Generalizable Human NeRF from a Monocular Video",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1109/3dv62453.2024.00063",
+          "title": "GHuNeRF: Generalizable Human NeRF from a Monocular Video",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 International Conference on 3D Vision (3DV)",
+          "family_names": [
+            "Li",
+            "Lin",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/iccv51070.2023.00858",
+          "title": "SHERF: Generalizable Human NeRF from a Single Image",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Hu",
+            "Hong",
+            "Pan",
+            "Mei",
+            "Yang",
+            "Liu"
+          ]
+        },
+        {
+          "doi": "10.1145/3550454.3555501",
+          "title": "Reconstructing Personalized Semantic Facial NeRF Models from Monocular Video",
+          "year": 2022,
+          "type": "journal-article",
+          "container": "ACM Transactions on Graphics",
+          "family_names": [
+            "Gao",
+            "Zhong",
+            "Xiang",
+            "Hong",
+            "Guo",
+            "Zhang"
+          ]
+        },
+        {
+          "doi": "10.5220/0012414500003660",
+          "title": "Learning 3D Human UV with Loose Clothing from Monocular Video",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 19th International Joint Conference on Computer Vision, Imaging and Computer Graphics Theory and Applications",
+          "family_names": [
+            "Kuo",
+            "Guo",
+            "Kawahara"
+          ]
+        },
+        {
+          "doi": "10.5220/0014469400004052",
+          "title": "Emotion-Conditioned 3D Human Motion from Monocular Video: A Mocap-Free Diffusion Pipeline",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 18th International Conference on Agents and Artificial Intelligence",
+          "family_names": [
+            "Paduraru",
+            "Sasu",
+            "Stefanescu"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:47.051035+00:00"
+    },
+    "gnesf generalizable neural semantic fields": {
+      "title": "GNeSF: Generalizable Neural Semantic Fields",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.52202/075280-1588",
+          "title": "GNeSF: Generalizable Neural Semantic Fields",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 36",
+          "family_names": [
+            "Chen",
+            "Li",
+            "Guo",
+            "Yan",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1145/3664647.3681156",
+          "title": "GS\n            <sup>2</sup>\n            -GNeSF: Geometry-Semantics Synergy for Generalizable Neural Semantic Fields",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 32nd ACM International Conference on Multimedia",
+          "family_names": [
+            "Wang",
+            "Zhao"
+          ]
+        },
+        {
+          "doi": "10.1109/cvpr52733.2024.01932",
+          "title": "GOV-NeSF: Generalizable Open-Vocabulary Neural Semantic Fields",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Wang",
+            "Chen",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/cvpr52733.2024.01966",
+          "title": "GSNeRF: Generalizable Semantic Neural Radiance Fields with Enhanced 3D Scene Understanding",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Chou",
+            "Huang",
+            "Liu",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.15607/rss.2026.xxii.004",
+          "title": "Semantic Contact Fields for Category-Level Generalizable Tool Manipulation",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Robotics: Science and Systems XXII",
+          "family_names": [
+            "Ma",
+            "Zhang",
+            "Lin",
+            "Shou",
+            "Wu"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:47.120137+00:00"
+    },
+    "gov nesf generalizable open vocabulary neural semantic fields": {
+      "title": "GOV-NeSF: Generalizable Open-Vocabulary Neural Semantic Fields",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52733.2024.01932",
+          "title": "GOV-NeSF: Generalizable Open-Vocabulary Neural Semantic Fields",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Wang",
+            "Chen",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/ngdn61651.2024.10744158",
+          "title": "Open-vocabulary 3D Semantic Understanding via Affinity Neural Radiance Fields",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 Sixth International Conference on Next Generation Data-driven Networks (NGDN)",
+          "family_names": [
+            "Fan",
+            "Luo"
+          ]
+        },
+        {
+          "doi": "10.52202/075280-1588",
+          "title": "GNeSF: Generalizable Neural Semantic Fields",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 36",
+          "family_names": [
+            "Chen",
+            "Li",
+            "Guo",
+            "Yan",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/tpami.2026.3704589/mm1",
+          "title": "XOV-Action: Towards Generalizable Open-Vocabulary Action Recognition_supp1-3704589.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Zheng"
+          ]
+        },
+        {
+          "doi": "10.1145/3664647.3681156",
+          "title": "GS\n            <sup>2</sup>\n            -GNeSF: Geometry-Semantics Synergy for Generalizable Neural Semantic Fields",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 32nd ACM International Conference on Multimedia",
+          "family_names": [
+            "Wang",
+            "Zhao"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:47.225270+00:00"
+    },
+    "get generative target structure debiasing for domain adaptation": {
+      "title": "GeT: Generative Target Structure Debiasing for Domain Adaptation",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/iccv51070.2023.02155",
+          "title": "GeT: Generative Target Structure Debiasing for Domain Adaptation",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Zhang",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1016/j.neucom.2026.133902",
+          "title": "Manifold structure preservation of latent domain and category diversity of target domain for unsupervised domain adaptation",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Neurocomputing",
+          "family_names": [
+            "Wang",
+            "Liu"
+          ]
+        },
+        {
+          "doi": "10.1109/tim.2023.3246495",
+          "title": "Generative Neural Network-Based Online Domain Adaptation (GNN-ODA) Approach for Incomplete Target Domain Data",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "IEEE Transactions on Instrumentation and Measurement",
+          "family_names": [
+            "Chou",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.5220/0012338000003654",
+          "title": "Generative Data Augmentation for Few-Shot Domain Adaptation",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 13th International Conference on Pattern Recognition Applications and Methods",
+          "family_names": [
+            "López Fortín",
+            "Nishikawa"
+          ]
+        },
+        {
+          "doi": "10.14711/thesis-hdl167710",
+          "title": "Unsupervised Domain Adaptation for Medical Image Segmentation using Generative Adversarial Alignment",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Ji"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:47.345621+00:00"
+    },
+    "genxd generating any 3d and 4d scenes": {
+      "title": "GenXD: Generating Any 3D and 4D Scenes",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52733.2024.01907",
+          "title": "Instruct 4D-to-4D: Editing 4D Scenes as Pseudo-3D Scenes Using 2D Diffusion",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Mou",
+            "Chen",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1109/iccv51701.2025.02537",
+          "title": "SteerX: Creating Any Camera-Free 3D and 4D Scenes with Geometric Steering",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Park",
+            "Go",
+            "Nam",
+            "Kim",
+            "Chung",
+            "Kim"
+          ]
+        },
+        {
+          "doi": "10.1109/iccv51701.2025.01271",
+          "title": "Dimensionx: Create Any 3D and 4D Scenes From a Single Image With Decoupled Video Diffusion",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Sun",
+            "Chen",
+            "Liu",
+            "Chen",
+            "Duan",
+            "Zhu",
+            "Zhang",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1109/tdscen.1989.68108",
+          "title": "Generating aspect graphs for curved objects",
+          "year": null,
+          "type": "proceedings-article",
+          "container": "[1989] Proceedings. Workshop on Interpretation of 3D Scenes",
+          "family_names": [
+            "Sripradisvarakul",
+            "Jain"
+          ]
+        },
+        {
+          "doi": "10.1109/3dv62453.2024.00061",
+          "title": "Generating Continual Human Motion in Diverse 3D Scenes",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 International Conference on 3D Vision (3DV)",
+          "family_names": [
+            "Mir",
+            "Puig",
+            "Kanazawa",
+            "Pons-Moll"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:48.519123+00:00"
+    },
+    "generalizable human gaussians from single view image": {
+      "title": "Generalizable Human Gaussians from Single-View Image",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/tvcg.2025.3625230/mm2",
+          "title": "HuGDiffusion: Generalizable Single-Image Human Rendering Via 3D Gaussian Diffusion_supp1-3625230.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Hou"
+          ]
+        },
+        {
+          "doi": "10.1109/tvcg.2025.3625230/mm1",
+          "title": "HuGDiffusion: Generalizable Single-Image Human Rendering Via 3D Gaussian Diffusion_supp2-3625230.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Hou"
+          ]
+        },
+        {
+          "doi": "10.1016/j.patrec.2026.09.036",
+          "title": "Fast generalizable human novel view synthesis from image pairs",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Pattern Recognition Letters",
+          "family_names": [
+            "Zhao",
+            "Song",
+            "Gong",
+            "Zhou",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1109/iccv51070.2023.00858",
+          "title": "SHERF: Generalizable Human NeRF from a Single Image",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Hu",
+            "Hong",
+            "Pan",
+            "Mei",
+            "Yang",
+            "Liu"
+          ]
+        },
+        {
+          "doi": "10.52202/085713-2759",
+          "title": "GeneMAN: Generalizable Single-Image 3D Human Reconstruction from Multi-Source Human Data",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "Wang",
+            "Ye",
+            "Hong",
+            "Yang",
+            "Zhang",
+            "Wang",
+            "Liu",
+            "Pan"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:48.700198+00:00"
+    },
+    "generalized few shot point cloud segmentation via geometric words": {
+      "title": "Generalized Few-Shot Point Cloud Segmentation Via Geometric Words",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/iccv51070.2023.01966",
+          "title": "Generalized Few-Shot Point Cloud Segmentation Via Geometric Words",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Xu",
+            "Hu",
+            "Zhao",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.32657/10356/179000",
+          "title": "Generalized few-shot 3D point cloud segmentation",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Yang"
+          ]
+        },
+        {
+          "doi": "10.21203/rs.3.rs-9870233/v1",
+          "title": "Reliability-aware Conflict Calibration for Generalized Few-shot Point Cloud Segmentation",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Wang",
+            "Zhang"
+          ]
+        },
+        {
+          "doi": "10.1109/iscas58744.2024.10557923",
+          "title": "Generalized Few-Shot 3D Point Cloud Segmentation",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE International Symposium on Circuits and Systems (ISCAS)",
+          "family_names": [
+            "Yang",
+            "Ding",
+            "Jiang"
+          ]
+        },
+        {
+          "doi": "10.1109/iccv51701.2025.02141",
+          "title": "Generalized Few-Shot Point Cloud Segmentation via LLM-Assisted Hyper-Relation Matching",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Li",
+            "Wang",
+            "Xiong",
+            "Li",
+            "Pan",
+            "Zhang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:48.822531+00:00"
+    },
+    "geogaussian geometry aware gaussian splatting for scene rendering": {
+      "title": "GeoGaussian: Geometry-aware Gaussian Splatting for Scene Rendering",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1007/978-3-031-72761-0_25",
+          "title": "GeoGaussian: Geometry-Aware Gaussian Splatting for Scene Rendering",
+          "year": 2024,
+          "type": "book-chapter",
+          "container": "Lecture Notes in Computer Science",
+          "family_names": [
+            "Li",
+            "Lyu",
+            "Di",
+            "Zhai",
+            "Lee",
+            "Tombari"
+          ]
+        },
+        {
+          "doi": "10.1109/tvcg.2025.3549143/mm1",
+          "title": "Frequency-aware Uncertainty Gaussian Splatting for Dynamic Scene Reconstruction_supp1-3549143.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Qiao"
+          ]
+        },
+        {
+          "doi": "10.1109/tpami.2025.3561248/mm1",
+          "title": "GPS-Gaussian+: Generalizable Pixel-wise 3D Gaussian Splatting for Real-Time Human-Scene Rendering from Sparse Views_supp1-3561248.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Zhang"
+          ]
+        },
+        {
+          "doi": "10.1109/cw68232.2025.00020",
+          "title": "StarGS: Towards Real-Time Dynamic Scene Rendering via Gaussian Splatting with Spatiotemporal-Aware Density Control",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 International Conference on Cyberworlds (CW）",
+          "family_names": [
+            "Cao",
+            "Liu",
+            "Zhao"
+          ]
+        },
+        {
+          "doi": "10.1007/s00371-026-04442-w",
+          "title": "SpatioGS: spatiotemporal-aware density control for dynamic scene rendering with Gaussian splatting",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "The Visual Computer",
+          "family_names": [
+            "Cao",
+            "Liu",
+            "Li",
+            "Zhao"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:48.982778+00:00"
+    },
+    "iaao interactive affordance learning for articulated objects in 3d environments": {
+      "title": "IAAO: Interactive Affordance Learning for Articulated Objects in 3D Environments",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52734.2025.01133",
+          "title": "IAAO: Interactive Affordance Learning for Articulated Objects in 3D Environments",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Zhang",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/iccv51070.2023.00027",
+          "title": "MAAL: Multimodality-Aware Autoencoder-based Affordance Learning for 3D Articulated Objects",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Liang",
+            "Wang",
+            "Zhu",
+            "Yang"
+          ]
+        },
+        {
+          "doi": "10.1080/10494820.2019.1668812",
+          "title": "Revisiting variation affordance: applying variation theory in the design of educational software",
+          "year": 2019,
+          "type": "journal-article",
+          "container": "Interactive Learning Environments",
+          "family_names": [
+            "Lam"
+          ]
+        },
+        {
+          "doi": "10.1201/9781482297997-14",
+          "title": "Convex Objects",
+          "year": 2003,
+          "type": "book-chapter",
+          "container": "Collision Detection in Interactive 3D Environments",
+          "family_names": []
+        },
+        {
+          "doi": "10.1076/ilee.9.3.219.3573",
+          "title": "What are Educational Objects?",
+          "year": 2001,
+          "type": "journal-article",
+          "container": "Interactive Learning Environments",
+          "family_names": [
+            "Friesen"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:49.229217+00:00"
+    },
+    "incremental detr incremental few shot object detection via self supervised learning": {
+      "title": "Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1609/aaai.v37i1.25129",
+          "title": "Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "Proceedings of the AAAI Conference on Artificial Intelligence",
+          "family_names": [
+            "Dong",
+            "Zhang",
+            "Ding",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.5611721",
+          "title": "Meta-Incremental DETR: A Meta-Learning Framework for Incremental Few-Shot Object Detection",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Li",
+            "Zhang",
+            "Zhang",
+            "Song",
+            "Zhang",
+            "Wu"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.5397036",
+          "title": "An End-to-End Meta-Detr Framework for Incremental Few-Shot Object Detection",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Li",
+            "Zhang",
+            "Zhang",
+            "Song"
+          ]
+        },
+        {
+          "doi": "10.1109/lra.2023.3301306/mm1",
+          "title": "Class Incremental Robotic Pick-and-Place via Incremental Few-Shot Object Detection_supp1-3301306.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Zhang"
+          ]
+        },
+        {
+          "doi": "10.1109/tpami.2025.3529038/mm1",
+          "title": "Few-Shot Class-Incremental Learning for Classification and Object Detection: A Survey_supp1-3529038.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Zhang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:49.406831+00:00"
+    },
+    "instance level moving object segmentation from a single image with events": {
+      "title": "Instance-Level Moving Object Segmentation from a Single Image with Events",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1007/s11263-025-02380-z",
+          "title": "Instance-Level Moving Object Segmentation from a Single Image with Events",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "International Journal of Computer Vision",
+          "family_names": [
+            "Wan",
+            "Fan",
+            "Hui",
+            "Dai",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1007/s12541-021-00527-9",
+          "title": "Moving Object Detection with Single Moving Camera and IMU Sensor using Mask R-CNN Instance Image Segmentation",
+          "year": 2021,
+          "type": "journal-article",
+          "container": "International Journal of Precision Engineering and Manufacturing",
+          "family_names": [
+            "Jung",
+            "Cho",
+            "Lee",
+            "Chang"
+          ]
+        },
+        {
+          "doi": "10.1016/j.cviu.2021.103207",
+          "title": "Instance-level salient object segmentation",
+          "year": 2021,
+          "type": "journal-article",
+          "container": "Computer Vision and Image Understanding",
+          "family_names": [
+            "Li",
+            "Yan",
+            "Xie",
+            "Wang",
+            "Lin",
+            "Yu"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.3441530",
+          "title": "Pixel Level Instance Segmentation using Single Shot Detectors and Semantic Segmentation Networks",
+          "year": 2019,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "C",
+            "C A"
+          ]
+        },
+        {
+          "doi": "10.1109/cvpr.2019.01268",
+          "title": "Object Counting and Instance Segmentation With Image-Level Supervision",
+          "year": 2019,
+          "type": "proceedings-article",
+          "container": "2019 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Cholakkal",
+            "Sun",
+            "Shahbaz Khan",
+            "Shao"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:50.634096+00:00"
+    },
+    "llafea frame event complementary fusion for fine grained spatiotemporal understanding in lmms": {
+      "title": "LLaFEA: Frame-Event Complementary Fusion for Fine-Grained Spatiotemporal Understanding in LMMs",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/iccv51701.2025.02070",
+          "title": "LLaFEA: Frame-Event Complementary Fusion for Fine-Grained Spatiotemporal Understanding in LMMs",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Zhou",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1016/j.displa.2022.102212",
+          "title": "Fine-grained action segmentation based on complementary Frame-level Classification Model and Action-wise Regression Model",
+          "year": 2022,
+          "type": "journal-article",
+          "container": "Displays",
+          "family_names": [
+            "Wei",
+            "Ye"
+          ]
+        },
+        {
+          "doi": "10.1109/cvpr52734.2025.00850",
+          "title": "DyFo: A Training-Free Dynamic Focus Visual Search for Enhancing LMMs in Fine-Grained Visual Understanding",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Li",
+            "Xu",
+            "Zhao",
+            "Peng"
+          ]
+        },
+        {
+          "doi": "10.1109/access.2022.3179358",
+          "title": "Multiscale Progressive Complementary Fusion Network for Fine-Grained Visual Classification",
+          "year": 2022,
+          "type": "journal-article",
+          "container": "IEEE Access",
+          "family_names": [
+            "Lei",
+            "Yang",
+            "Yang"
+          ]
+        },
+        {
+          "doi": "10.18653/2026.findings-emnlp.225",
+          "title": "Causal Intervention with LMMs: Generative Text Facilitates Fine-Grained Pedestrian Anomaly Behavior Retrieval",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Findings of the Association for Computational Linguistics: EMNLP 2026",
+          "family_names": [
+            "Xu",
+            "Huang",
+            "Wang",
+            "Zheng"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:50.719394+00:00"
+    },
+    "learnable infinite taylor gaussian for dynamic view rendering": {
+      "title": "Learnable Infinite Taylor Gaussian for Dynamic View Rendering",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52734.2025.02500",
+          "title": "Learnable Infinite Taylor Gaussian for Dynamic View Rendering",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Hu",
+            "Li",
+            "Xie",
+            "Xu",
+            "Dong",
+            "Yao",
+            "Hee Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/icassp49660.2025.10888277",
+          "title": "LP-Gaussians: Learnable Parametric Gaussian Splatting for Efficient Dynamic Reconstruction of Single-View Scenes",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "ICASSP 2025 - 2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+          "family_names": [
+            "Wu",
+            "Xie",
+            "Peng",
+            "Li",
+            "Yao",
+            "Yao"
+          ]
+        },
+        {
+          "doi": "10.1109/access.2026.3680480",
+          "title": "View-Adaptive Gaussian Splatting With Dynamic Spherical Harmonics Modulation for Multi-Scale Urban Scene Rendering",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "IEEE Access",
+          "family_names": [
+            "Kim",
+            "Yeon",
+            "Jung",
+            "Yang",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/tpami.2025.3599415/mm3",
+          "title": "Surfel-based Gaussian Inverse Rendering for Fast and Relightable Dynamic Human Reconstruction from Monocular Videos_supp2-3599415.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Gao"
+          ]
+        },
+        {
+          "doi": "10.1109/tpami.2025.3599415/mm2",
+          "title": "Surfel-based Gaussian Inverse Rendering for Fast and Relightable Dynamic Human Reconstruction from Monocular Videos_supp3-3599415.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Gao"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:50.817088+00:00"
+    },
+    "learning to decouple the lights for 3d face texture modeling": {
+      "title": "Learning to Decouple the Lights for 3D Face Texture Modeling",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.52202/079017-3228",
+          "title": "Learning to Decouple the Lights for 3D Face Texture Modeling",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 37",
+          "family_names": [
+            "Huang",
+            "Zhang",
+            "Tai",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1142/9789814733038_0003",
+          "title": "3D Face Modeling",
+          "year": 2016,
+          "type": "book-chapter",
+          "container": "Face Processing and Applications to Distance Learning",
+          "family_names": []
+        },
+        {
+          "doi": "10.1109/iccme.2007.4381710",
+          "title": "image-Based Texture Mapping Method in 3D Face Modeling",
+          "year": 2007,
+          "type": "proceedings-article",
+          "container": "2007 IEEE/ICME International Conference on Complex Medical Engineering",
+          "family_names": [
+            "Zhang",
+            "Luo"
+          ]
+        },
+        {
+          "doi": "10.1109/3dimpvt.2012.65",
+          "title": "3D Facial Surface and Texture Synthesis Using 2D Landmarks from a Single Face Sketch",
+          "year": 2012,
+          "type": "proceedings-article",
+          "container": "2012 Second International Conference on 3D Imaging, Modeling, Processing, Visualization &amp; Transmission",
+          "family_names": [
+            "Sucontphunt",
+            "Neumann"
+          ]
+        },
+        {
+          "doi": "10.1515/9781683928492-012",
+          "title": "Chapter 10 Cameras and Lights",
+          "year": 2022,
+          "type": "book-chapter",
+          "container": "AutoCAD 2023 3D Modeling",
+          "family_names": []
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:51.051784+00:00"
+    },
+    "liloc lifelong localization using adaptive submap joining and egocentric factor graph": {
+      "title": "LiLoc: Lifelong Localization using Adaptive Submap Joining and Egocentric Factor Graph",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/icra55743.2025.11127560",
+          "title": "LiLoc: Lifelong Localization Using Adaptive Submap Joining and Egocentric Factor Graph",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE International Conference on Robotics and Automation (ICRA)",
+          "family_names": [
+            "Fang",
+            "Li",
+            "Qian",
+            "Tombari",
+            "Wang",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.23860/diss-vaughn-james-2015",
+          "title": "Factor Graphs and Submap Simultaneous Localization and Mapping for Microbathymetry",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Vaughn"
+          ]
+        },
+        {
+          "doi": "10.1142/9789814350327_0005",
+          "title": "Sparse Local Submap Joining Filter",
+          "year": 2011,
+          "type": "book-chapter",
+          "container": "New Frontiers in Robotics",
+          "family_names": []
+        },
+        {
+          "doi": "10.1016/j.automatica.2018.10.037",
+          "title": "Linear SLAM: Linearising the SLAM problems using submap joining",
+          "year": 2019,
+          "type": "journal-article",
+          "container": "Automatica",
+          "family_names": [
+            "Zhao",
+            "Huang",
+            "Dissanayake"
+          ]
+        },
+        {
+          "doi": "10.1109/icra.2018.8460864",
+          "title": "Efficient Active SLAM Based on Submap Joining, Graph Topology and Convex Optimization",
+          "year": 2018,
+          "type": "proceedings-article",
+          "container": "2018 IEEE International Conference on Robotics and Automation (ICRA)",
+          "family_names": [
+            "Chen",
+            "Huang",
+            "Fitch",
+            "Yu"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:51.242317+00:00"
+    },
+    "mar 3d progressive masked auto regressor for high resolution 3d generation": {
+      "title": "MAR-3D: Progressive Masked Auto-regressor for High-Resolution 3D Generation",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52734.2025.01035",
+          "title": "MAR-3D: Progressive Masked Auto-regressor for High-Resolution 3D Generation",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Chen",
+            "Zhu",
+            "Hu",
+            "Qian",
+            "Chen",
+            "Wang",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.32657/10356/41536",
+          "title": "Progressive 3D mesh generation",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Nghiem"
+          ]
+        },
+        {
+          "doi": "10.1021/acs.nanolett.4c06637.s005",
+          "title": "High-Throughput Formation of 3D van der Waals Auto-Kirigami",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1021/acs.nanolett.4c06637.s002",
+          "title": "High-Throughput Formation of 3D van der Waals Auto-Kirigami",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1021/acs.nanolett.4c06637.s004",
+          "title": "High-Throughput Formation of 3D van der Waals Auto-Kirigami",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:52.377406+00:00"
+    },
+    "mvsdet multi view indoor 3d object detection via efficient plane sweeps": {
+      "title": "MVSDet: Multi-View Indoor 3D Object Detection via Efficient Plane Sweeps",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.52202/079017-4222",
+          "title": "MVSDet: Multi-View Indoor 3D Object Detection via Efficient Plane Sweeps",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 37",
+          "family_names": [
+            "Xu",
+            "Li",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.4865401",
+          "title": "Sparsedet: Towards Efficient Multi-View 3d Object Detection Via Sparse Scene Representation",
+          "year": 2024,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Li",
+            "Yang",
+            "Shi",
+            "Chen",
+            "Jin",
+            "Akiyama",
+            "Xu"
+          ]
+        },
+        {
+          "doi": "10.1109/iccv51701.2025.00565",
+          "title": "Boosting Multi-View Indoor 3D Object Detection Via Adaptive 3D Volume Construction",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Zhang",
+            "Yu",
+            "Cao",
+            "Zhu",
+            "Zhang",
+            "Bai",
+            "Shen"
+          ]
+        },
+        {
+          "doi": "10.1609/aaai.v40i22.38939",
+          "title": "Indoor Multi-View Radar Object Detection via 3D Bounding Box Diffusion",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Proceedings of the AAAI Conference on Artificial Intelligence",
+          "family_names": [
+            "Yataka",
+            "Wang",
+            "Boufounos",
+            "Takahashi"
+          ]
+        },
+        {
+          "doi": "10.1109/iv64158.2025.11097467",
+          "title": "Improving 3D Multi-View Object Detection via Explicit Query Supervision",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE Intelligent Vehicles Symposium (IV)",
+          "family_names": [
+            "D'Addeo",
+            "Zinelli",
+            "Bertozzi"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:52.504603+00:00"
+    },
+    "motion and context aware audio visual conditioned video prediction": {
+      "title": "Motion and Context-Aware Audio-Visual Conditioned Video Prediction",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1007/s00371-026-04615-7",
+          "title": "Low-resource video-conditioned music generation via reliability-aware visual–text–audio fusion",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "The Visual Computer",
+          "family_names": [
+            "Zhang",
+            "Yang"
+          ]
+        },
+        {
+          "doi": "10.32657/10356/151544",
+          "title": "Context-aware pedestrian motion prediction",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Haddad"
+          ]
+        },
+        {
+          "doi": "10.5220/0014289700004067",
+          "title": "AMAVA: Adaptive Motion-Aware Video-to-Audio Framework for Visually-Impaired Assistance",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 15th International Conference on Pattern Recognition Applications and Methods",
+          "family_names": [
+            "Klein",
+            "Rahman",
+            "Ghose"
+          ]
+        },
+        {
+          "doi": "10.1109/tmm.2026.3723614/mm1",
+          "title": "Progressive Audio-Visual Semantic Spatial-Aware Network for Panoramic Video Saliency Prediction_supp1-3723614.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Qing"
+          ]
+        },
+        {
+          "doi": "10.3030/101298706",
+          "title": "",
+          "year": 2026,
+          "type": "grant",
+          "container": "",
+          "family_names": []
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:53.697696+00:00"
+    },
+    "motion4d learning 3d consistent motion and semantics for 4d scene understanding": {
+      "title": "Motion4D: Learning 3D-Consistent Motion and Semantics for 4D Scene Understanding",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.52202/085713-3869",
+          "title": "Motion4D: Learning 3D-Consistent Motion and Semantics for 4D Scene Understanding",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "Zhou",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.70675/7a57d933z692ez463cza75cz9fda3dccff2b",
+          "title": "Learning Semantics and Geometry for Scene Understanding",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Cao"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.4900422",
+          "title": "Motion4d: A Decoupled Pipeline for Enhanced Text-to-4d Generation with Optimized Motion Patterns",
+          "year": 2024,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Zhang",
+            "Chen",
+            "Deng",
+            "Yin",
+            "Song",
+            "Xu"
+          ]
+        },
+        {
+          "doi": "10.32657/10356/182916",
+          "title": "Advancing 3D scene understanding through discriminative and generative learning approaches",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Tang"
+          ]
+        },
+        {
+          "doi": "10.14711/thesis-hdl174642",
+          "title": "Scalable 3D/4D Scene Representations for Grounded Spatial Intelligence",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Liu"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:53.864113+00:00"
+    },
+    "multi scale 3d gaussian splatting for anti aliased rendering": {
+      "title": "Multi-Scale 3D Gaussian Splatting for Anti-Aliased Rendering",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.2139/ssrn.6767082",
+          "title": "Geometrically Consistent and Anti-Aliased 2D Gaussian Splatting for Multi-Scale Real-Time Rendering",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Li",
+            "Gu",
+            "Gao"
+          ]
+        },
+        {
+          "doi": "10.1109/cvpr52733.2024.01977",
+          "title": "Multi-Scale 3D Gaussian Splatting for Anti-Aliased Rendering",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Yan",
+            "Low",
+            "Chen",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1016/j.displa.2026.103709",
+          "title": "Geometrically consistent and anti-aliased 2D Gaussian Splatting for multi-scale real-time rendering",
+          "year": 2027,
+          "type": "journal-article",
+          "container": "Displays",
+          "family_names": [
+            "Li",
+            "Gu",
+            "Gao"
+          ]
+        },
+        {
+          "doi": "10.1109/tvcg.2026.3682676/mm1",
+          "title": "SMDGS: Scale-aligned Monocular Depth-guided 3D Gaussian Splatting for Rendering and Surface Reconstruction_supp1-3682676.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Yao"
+          ]
+        },
+        {
+          "doi": "10.1364/oe.604533",
+          "title": "High-quality medical content rendering for glasses-free three-dimensional light-field interactive display based on anti-aliased 3D Gaussian splatting",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Optics Express",
+          "family_names": [
+            "Du",
+            "Li",
+            "Ma",
+            "Sang",
+            "Wang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:53.963462+00:00"
+    },
+    "nu mcc multiview compressive coding with neighborhood decoder and repulsive udf": {
+      "title": "NU-MCC: Multiview Compressive Coding with Neighborhood Decoder and Repulsive UDF",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.52202/075280-2750",
+          "title": "NU-MCC: Multiview Compressive Coding with Neighborhood Decoder and Repulsive UDF",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 36",
+          "family_names": [
+            "Lionar",
+            "Xu",
+            "Lin",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/3dtv.2010.5506523",
+          "title": "Improved view synthesis prediction using decoder-side motion derivation for multiview video coding",
+          "year": 2010,
+          "type": "proceedings-article",
+          "container": "2010 3DTV-Conference: The True Vision - Capture, Transmission and Display of 3D Video",
+          "family_names": [
+            "Shimizu",
+            "Kimata"
+          ]
+        },
+        {
+          "doi": "10.1109/vcip.2011.6115998",
+          "title": "Decoder picture buffer reduction based effective reference frame selection algorithm for multiview video coding",
+          "year": 2011,
+          "type": "proceedings-article",
+          "container": "2011 Visual Communications and Image Processing (VCIP)",
+          "family_names": [
+            "Lee",
+            "Kuo",
+            "Huang"
+          ]
+        },
+        {
+          "doi": "10.1109/cvpr52729.2023.00875",
+          "title": "Multiview Compressive Coding for 3D Reconstruction",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Wu",
+            "Johnson",
+            "Malik",
+            "Feichtenhofer",
+            "Gkioxari"
+          ]
+        },
+        {
+          "doi": "10.1109/pcs.2009.5167472",
+          "title": "Coding techniques in Multiview Video Coding and Joint Multiview Video Model",
+          "year": 2009,
+          "type": "proceedings-article",
+          "container": "2009 Picture Coding Symposium",
+          "family_names": [
+            "Chen",
+            "Hannuksela",
+            "Ling Zhu",
+            "Hallapuro",
+            "Gabbouj",
+            "Houqiang Li"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:57.262987+00:00"
+    },
+    "navrag generating user demand instructions for embodied navigation through retrieval augmented llm": {
+      "title": "NavRAG: Generating User Demand Instructions for Embodied Navigation through Retrieval-Augmented LLM",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.18653/v1/2025.findings-acl.442",
+          "title": "NavRAG: Generating User Demand Instructions for Embodied Navigation through Retrieval-Augmented LLM",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Findings of the Association for Computational Linguistics: ACL 2025",
+          "family_names": [
+            "Wang",
+            "Zhu",
+            "Lee",
+            "Fan"
+          ]
+        },
+        {
+          "doi": "10.55640/ijaair-v03i08-01",
+          "title": "An Analytical Study of Behavior-Aware Retrieval-Augmented Generation Frameworks in Enterprise Software Ecosystems for Optimizing User Navigation and Decision Support",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "International Journal of Advanced Artificial Intelligence Research",
+          "family_names": [
+            "Konidina"
+          ]
+        },
+        {
+          "doi": "10.1145/3708319.3733709",
+          "title": "Balancing Health Information-Seeking through Retrieval-Augmented Generation-Based LLM Chatbot",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Adjunct Proceedings of the 33rd ACM Conference on User Modeling, Adaptation and Personalization",
+          "family_names": [
+            "Nandy",
+            "Gupta",
+            "Mohammad Afzali",
+            "Peeples",
+            "Pilon",
+            "Tsai"
+          ]
+        },
+        {
+          "doi": "10.1109/ismar67309.2025.00150",
+          "title": "An Embodied AR Navigation Agent: Integrating BIM with Retrieval-Augmented Generation for Language Guidance",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE International Symposium on Mixed and Augmented Reality (ISMAR)",
+          "family_names": [
+            "Yang",
+            "Hsiao",
+            "Oka",
+            "Nishino",
+            "Tofukuji",
+            "Kobori"
+          ]
+        },
+        {
+          "doi": "10.1109/vrw70859.2026.00130",
+          "title": "Combining Retrieval-Augmented Generation and Augmented Reality for Automatic Assembly Instructions",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "2026 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW)",
+          "family_names": [
+            "Seiler",
+            "Emiroglu",
+            "Pirker",
+            "Klinker",
+            "Plecher",
+            "Eichhorn"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:57.359636+00:00"
+    },
+    "nerf ds neural radiance fields for dynamic specular objects": {
+      "title": "NeRF-DS: Neural Radiance Fields for Dynamic Specular Objects",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52729.2023.00801",
+          "title": "NeRF-DS: Neural Radiance Fields for Dynamic Specular Objects",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Yan",
+            "Li",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.5220/0014632600004084",
+          "title": "PGT-NeRF: Physics-Guided Thermal Neural Radiance Fields",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 21st International Conference on Computer Vision Theory and Applications",
+          "family_names": [
+            "Mahalingam",
+            "Sigatapu",
+            "Doshi",
+            "Sistu"
+          ]
+        },
+        {
+          "doi": "10.32388/b3vsx3",
+          "title": "Review of: \"MLI-NeRF: Multi-Light Intrinsic-Aware Neural Radiance Fields\"",
+          "year": 2025,
+          "type": "peer-review",
+          "container": "",
+          "family_names": [
+            "Pintus"
+          ]
+        },
+        {
+          "doi": "10.1109/tvcg.2025.3546290/mm1",
+          "title": "MC-NeRF: Multi-Camera Neural Radiance Fields for Multi-Camera Image Acquisition Systems_supp1-3546290.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Yang"
+          ]
+        },
+        {
+          "doi": "10.32388/uea1c5",
+          "title": "Review of: \"NeRF-VIO: Map-Based Visual-Inertial Odometry with Initialization Leveraging Neural Radiance Fields\"",
+          "year": 2025,
+          "type": "peer-review",
+          "container": "",
+          "family_names": [
+            "Pan"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:58.596359+00:00"
+    },
+    "neurar neural uncertainty for autonomous 3d reconstruction with implicit neural representations": {
+      "title": "NeurAR: Neural Uncertainty for Autonomous 3D Reconstruction with Implicit Neural Representations",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/lra.2023.3235686",
+          "title": "NeurAR: Neural Uncertainty for Autonomous 3D Reconstruction With Implicit Neural Representations",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "IEEE Robotics and Automation Letters",
+          "family_names": [
+            "Ran",
+            "Zeng",
+            "He",
+            "Chen",
+            "Li",
+            "Chen",
+            "Lee",
+            "Ye"
+          ]
+        },
+        {
+          "doi": "10.1109/icmla61862.2024.00117",
+          "title": "Optimizing 3D Geometry Reconstruction from Implicit Neural Representations",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 International Conference on Machine Learning and Applications (ICMLA)",
+          "family_names": [
+            "Fan",
+            "Musialski"
+          ]
+        },
+        {
+          "doi": "10.1109/3dv53792.2021.00105",
+          "title": "Stochastic Neural Radiance Fields: Quantifying Uncertainty in Implicit 3D Representations",
+          "year": 2021,
+          "type": "proceedings-article",
+          "container": "2021 International Conference on 3D Vision (3DV)",
+          "family_names": [
+            "Shen",
+            "Ruiz",
+            "Agudo",
+            "Moreno-Noguer"
+          ]
+        },
+        {
+          "doi": "10.1109/tvcg.2025.3582627/mm1",
+          "title": "Neural Implicit Representations for Multi-View Surface Reconstruction: A Survey_supp1-3582627.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Ren"
+          ]
+        },
+        {
+          "doi": "10.14711/thesis-hdl174737",
+          "title": "Geometric and Neural Representations for 3D Scene Reconstruction",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Jiang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:58.752075+00:00"
+    },
+    "neuralized markov random field for interaction aware stochastic human trajectory prediction": {
+      "title": "Neuralized Markov Random Field for Interaction-Aware Stochastic Human Trajectory Prediction",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.2139/ssrn.6954444",
+          "title": "Multi-scale neuralized Markov random field framework for ECG arrhythmia recognition",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Wang",
+            "Chen",
+            "Ma",
+            "Shi"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.6646726",
+          "title": "Multi-scale neuralized Markov random field frameworkfor ECG arrhythmia recognition",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Wang",
+            "Chen",
+            "Ma",
+            "Shi"
+          ]
+        },
+        {
+          "doi": "10.7717/peerj-cs.4060",
+          "title": "Stochastic human trajectory prediction\n                    <i>via</i>\n                    interaction-aware diffusion model",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "PeerJ Computer Science",
+          "family_names": [
+            "Zhang",
+            "Wang",
+            "Gao",
+            "Liu",
+            "Xiao"
+          ]
+        },
+        {
+          "doi": "10.21203/rs.3.rs-10592960/v1",
+          "title": "A multi-scale neuralized Markov random field architecture for ECG arrhythmia recognition",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Wang",
+            "Wei",
+            "Ma",
+            "Shi"
+          ]
+        },
+        {
+          "doi": "10.32657/10356/163285",
+          "title": "Deep learning-based interaction-aware trajectory prediction for autonomous vehicles",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Mo"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:14:59.895783+00:00"
+    },
+    "od nerf efficient training of on the fly dynamic neural radiance fields": {
+      "title": "OD-NeRF: Efficient Training of On-the-Fly Dynamic Neural Radiance Fields",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/3dv66043.2025.00053",
+          "title": "OD-NeRF: Efficient Training of On-the-Fly Dynamic Neural Radiance Fields",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 International Conference on 3D Vision (3DV)",
+          "family_names": [
+            "Yan",
+            "Li",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1609/aaai.v38i4.28138",
+          "title": "Ced-NeRF: A Compact and Efficient Method for Dynamic Neural Radiance Fields",
+          "year": 2024,
+          "type": "journal-article",
+          "container": "Proceedings of the AAAI Conference on Artificial Intelligence",
+          "family_names": [
+            "Lin"
+          ]
+        },
+        {
+          "doi": "10.5220/0014632600004084",
+          "title": "PGT-NeRF: Physics-Guided Thermal Neural Radiance Fields",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 21st International Conference on Computer Vision Theory and Applications",
+          "family_names": [
+            "Mahalingam",
+            "Sigatapu",
+            "Doshi",
+            "Sistu"
+          ]
+        },
+        {
+          "doi": "10.32388/b3vsx3",
+          "title": "Review of: \"MLI-NeRF: Multi-Light Intrinsic-Aware Neural Radiance Fields\"",
+          "year": 2025,
+          "type": "peer-review",
+          "container": "",
+          "family_names": [
+            "Pintus"
+          ]
+        },
+        {
+          "doi": "10.1109/tvcg.2025.3546290/mm1",
+          "title": "MC-NeRF: Multi-Camera Neural Radiance Fields for Multi-Camera Image Acquisition Systems_supp1-3546290.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Yang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:01.113244+00:00"
+    },
+    "optimizing the placement of roadside lidars for autonomous driving": {
+      "title": "Optimizing the Placement of Roadside LiDARs for Autonomous Driving",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/iccv51070.2023.01685",
+          "title": "Optimizing the Placement of Roadside LiDARs for Autonomous Driving",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Jiang",
+            "Xiang",
+            "Cai",
+            "Xu",
+            "Ma",
+            "Li",
+            "Lee",
+            "Liu"
+          ]
+        },
+        {
+          "doi": "10.3390/s23218808",
+          "title": "Placement Method of Multiple Lidars for Roadside Infrastructure in Urban Environments",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "Sensors",
+          "family_names": [
+            "Kim",
+            "Jo",
+            "Yun",
+            "Yun",
+            "Park"
+          ]
+        },
+        {
+          "doi": "10.1016/j.ijleo.2021.167347",
+          "title": "Occlusion-aware on-road autonomous driving: A trajectory planning method considering occlusions of Lidars",
+          "year": 2021,
+          "type": "journal-article",
+          "container": "Optik",
+          "family_names": [
+            "Li"
+          ]
+        },
+        {
+          "doi": "10.3390/s26175462",
+          "title": "High-Altitude Structural Landmark Perception and Crosstalk Filtering Using Multiple LiDARs for Autonomous Driving Environments",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Sensors",
+          "family_names": [
+            "Kim"
+          ]
+        },
+        {
+          "doi": "10.5220/0015323600004979",
+          "title": "Distributed Fusion-Based Cooperative Object Perception Using Onboard and Roadside LiDARs",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 23rd International Conference on Informatics in Control, Automation and Robotics",
+          "family_names": [
+            "Murachi",
+            "Hashimoto",
+            "Takahashi"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:01.445495+00:00"
+    },
+    "overcoming the tradeoff in accuracy and plausibility for 3d hand shape reconstruction": {
+      "title": "Overcoming the Tradeoff in Accuracy and Plausibility for 3D Hand Shape Reconstruction",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52729.2023.00060",
+          "title": "Overcoming the TradeOff between Accuracy and Plausibility in 3D Hand Shape Reconstruction",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Yu",
+            "Li",
+            "Yang",
+            "Zheng",
+            "Bi Mi",
+            "Lee",
+            "Yao"
+          ]
+        },
+        {
+          "doi": "10.7717/peerjcs.1619/fig-4",
+          "title": "Figure 4: Example results of 3D point modeling and reconstruction (A) fast marching result and (B) 3D reconstruction of hand shape.",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1109/3dv.2016.24",
+          "title": "Rapid Hand Shape Reconstruction with Chebyshev Phase Shifting",
+          "year": 2016,
+          "type": "proceedings-article",
+          "container": "2016 Fourth International Conference on 3D Vision (3DV)",
+          "family_names": [
+            "Moreno",
+            "Hwang",
+            "Taubin"
+          ]
+        },
+        {
+          "doi": "10.23919/ccc63176.2024.10661647",
+          "title": "A Review on 3D Hand Pose and Shape Reconstruction from Color Images",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 43rd Chinese Control Conference (CCC)",
+          "family_names": [
+            "Leng",
+            "Ge",
+            "Xu"
+          ]
+        },
+        {
+          "doi": "10.1109/icma57826.2023.10215729",
+          "title": "3D Hand Pose Estimation and Shape Reconstruction based on Multi-task Learning",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE International Conference on Mechatronics and Automation (ICMA)",
+          "family_names": [
+            "Wang",
+            "Luan"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:01.911605+00:00"
+    },
+    "pdr progressive depth regularization for monocular 3d object detection": {
+      "title": "PDR: Progressive Depth Regularization for Monocular 3D Object Detection",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/tcsvt.2023.3276518",
+          "title": "PDR: Progressive Depth Regularization for Monocular 3D Object Detection",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "IEEE Transactions on Circuits and Systems for Video Technology",
+          "family_names": [
+            "Sheng",
+            "Cai",
+            "Zhao",
+            "Deng",
+            "Zhao",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.14711/thesis-991013270957303412",
+          "title": "Scalable vision-based 3D object detection and monocular depth estimation for autonomous driving",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Liu"
+          ]
+        },
+        {
+          "doi": "10.7287/peerj-cs.1144v0.1/reviews/2",
+          "title": "Peer Review #2 of \"eGAC3D: enhancing depth adaptive convolution and depth estimation for monocular 3D object pose detection (v0.1)\"",
+          "year": 2022,
+          "type": "peer-review",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.7287/peerj-cs.1144v0.2/reviews/2",
+          "title": "Peer Review #2 of \"eGAC3D: enhancing depth adaptive convolution and depth estimation for monocular 3D object pose detection (v0.2)\"",
+          "year": 2022,
+          "type": "peer-review",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1109/tpami.2026.3741591/mm1",
+          "title": "A Depth Complementary Framework for Monocular 3D Object Detection in Autonomous Driving_supp1-3741591.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Wen"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:02.601098+00:00"
+    },
+    "ps mamba spatial temporal graph mamba for pose sequence refinement": {
+      "title": "PS-Mamba: Spatial-Temporal Graph Mamba for Pose Sequence Refinement",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/iccv51701.2025.00802",
+          "title": "PS-Mamba: Spatial-Temporal Graph Mamba for Pose Sequence Refinement",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Dong",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/lra.2026.3730220/mm1",
+          "title": "Graph-MambaNav: Spatial-Temporal Graph Mamba Leveraging Object-Relation Knowledge for Object-Goal Navigation_supp1-3730220.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Sun"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.7556855",
+          "title": "BMC-Mamba: Bi-Stream Multi-Representation Cross-Mamba with Boundary-Guided Refinement for Temporal Action Segmentation",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Song",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.22541/au.176176904.42823366/v1",
+          "title": "Mamba-AANet: Mamba-Based Temporal Modeling for High-Precision Arm Pose Tracking",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Hu",
+            "Wang",
+            "Zheng",
+            "Xu",
+            "Zhang",
+            "Zhong",
+            "Pan"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.6026295",
+          "title": "Mamba-AANet: Mamba-Based Temporal Modeling for High-PrecisionArm Pose Tracking",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "hu",
+            "Wang",
+            "Pan",
+            "Xu",
+            "Zheng",
+            "Gao",
+            "Zhong"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:03.420304+00:00"
+    },
+    "particle rendering implicitly aggregating incident and outgoing light fields for novel view synthesis": {
+      "title": "Particle Rendering: Implicitly Aggregating Incident and Outgoing Light Fields for Novel View Synthesis",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/3dv66043.2025.00063",
+          "title": "Particle Rendering: Implicitly Aggregating Incident and Outgoing Light Fields for Novel View Synthesis",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 International Conference on 3D Vision (3DV)",
+          "family_names": [
+            "Hu",
+            "Yan",
+            "Xu",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.70675/cab6970bz12ccz46caza799z2e14fee9d876",
+          "title": "Scene analysis and view rendering from light fields",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "David"
+          ]
+        },
+        {
+          "doi": "10.1109/ic3d51119.2020.9376340",
+          "title": "A Unified Deep Learning Approach for Foveated Rendering &amp; Novel View Synthesis from Sparse RGB-D Light Fields",
+          "year": 2020,
+          "type": "proceedings-article",
+          "container": "2020 International Conference on 3D Immersion (IC3D)",
+          "family_names": [
+            "Thumuluri",
+            "Sharma"
+          ]
+        },
+        {
+          "doi": "10.1109/iccp51581.2021.9466274",
+          "title": "View-dependent Scene Appearance Synthesis using Inverse Rendering from Light Fields",
+          "year": 2021,
+          "type": "proceedings-article",
+          "container": "2021 IEEE International Conference on Computational Photography (ICCP)",
+          "family_names": [
+            "Kang",
+            "Jeon",
+            "Kim",
+            "Jang",
+            "Kim"
+          ]
+        },
+        {
+          "doi": "10.1145/641480.641496",
+          "title": "Opacity light fields",
+          "year": 2003,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 2003 symposium on Interactive 3D graphics",
+          "family_names": [
+            "Vlasic",
+            "Pfister",
+            "Molinov",
+            "Grzeszczuk",
+            "Matusik"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:04.875612+00:00"
+    },
+    "posecrafter extreme pose estimation with hybrid video synthesis": {
+      "title": "PoseCrafter: Extreme Pose Estimation with Hybrid Video Synthesis",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.52202/085713-2586",
+          "title": "PoseCrafter: Extreme Pose Estimation with Hybrid Video Synthesis",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "Mao",
+            "Huang",
+            "Zhu",
+            "Sun",
+            "Zhang",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.5353/th_b5699957",
+          "title": "Video parsing and camera pose estimation for 2D to 3D video conversion",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Liu"
+          ]
+        },
+        {
+          "doi": "10.70675/f0d00da7z3113z4197z8effz4e382576a19d",
+          "title": "Articulated human pose estimation in images and video",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Zhu"
+          ]
+        },
+        {
+          "doi": "10.26616/nioshrd-1042-2022-0",
+          "title": "Video-based 3D pose estimation for residential roofing (dataset).",
+          "year": 2022,
+          "type": "report",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1007/978-3-031-72784-9_14",
+          "title": "PoseCrafter: One-Shot Personalized Video Synthesis Following Flexible Pose Control",
+          "year": 2024,
+          "type": "book-chapter",
+          "container": "Lecture Notes in Computer Science",
+          "family_names": [
+            "Zhong",
+            "Zhao",
+            "You",
+            "Yu",
+            "Zhang",
+            "Li"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:06.109062+00:00"
+    },
+    "reconstructing close human interaction with appearance and proxemics reasoning": {
+      "title": "Reconstructing Close Human Interaction with Appearance and Proxemics Reasoning",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52734.2025.01628",
+          "title": "Reconstructing Close Human Interaction with Appearance and Proxemics Reasoning",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Huang",
+            "Li",
+            "Xu",
+            "Lu",
+            "Chen",
+            "Wang",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1061/9780784486993.107",
+          "title": "How Close Is Too Close? Drone Proxemics in Human-Drone Interaction for Construction—A Review",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Construction Research Congress 2026",
+          "family_names": [
+            "Qiang",
+            "Esmaeili"
+          ]
+        },
+        {
+          "doi": "10.1145/1957656.1957773",
+          "title": "A human detection system for proxemics interaction",
+          "year": 2011,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 6th international conference on Human-robot interaction",
+          "family_names": [
+            "Wang",
+            "Clady",
+            "Granata"
+          ]
+        },
+        {
+          "doi": "10.1109/hri.2010.5453225",
+          "title": "Using proxemics to evaluate human-robot interaction",
+          "year": 2010,
+          "type": "proceedings-article",
+          "container": "2010 5th ACM/IEEE International Conference on Human-Robot Interaction (HRI)",
+          "family_names": [
+            "Feil-Seifer",
+            "Mataric"
+          ]
+        },
+        {
+          "doi": "10.1145/1957656.1957786",
+          "title": "Human-robot proxemics",
+          "year": 2011,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 6th international conference on Human-robot interaction",
+          "family_names": [
+            "Mumm",
+            "Mutlu"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:09.362529+00:00"
+    },
+    "rethink cross modal fusion in weakly supervised audio visual video parsing": {
+      "title": "Rethink Cross-modal Fusion in Weakly-Supervised Audio-Visual Video Parsing",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1109/wacv57701.2024.00552",
+          "title": "Rethink Cross-Modal Fusion in Weakly-Supervised Audio-Visual Video Parsing",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+          "family_names": [
+            "Xu",
+            "Hu",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.52202/068431-2516",
+          "title": "Multi-Modal Grouping Network for Weakly-Supervised Audio-Visual Video Parsing",
+          "year": 2022,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 35",
+          "family_names": [
+            "Mo",
+            "Tian"
+          ]
+        },
+        {
+          "doi": "10.1109/lsp.2024.3388957",
+          "title": "Multi-Level Signal Fusion for Enhanced Weakly-Supervised Audio-Visual Video Parsing",
+          "year": 2024,
+          "type": "journal-article",
+          "container": "IEEE Signal Processing Letters",
+          "family_names": [
+            "Sun",
+            "Wang",
+            "Liu",
+            "Zhou"
+          ]
+        },
+        {
+          "doi": "10.1109/cvpr46437.2021.00138",
+          "title": "Exploring Heterogeneous Clues for Weakly-Supervised Audio-Visual Video Parsing",
+          "year": 2021,
+          "type": "proceedings-article",
+          "container": "2021 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Wu",
+            "Yang"
+          ]
+        },
+        {
+          "doi": "10.1109/iccv51070.2023.00935",
+          "title": "Boosting Positive Segments for Weakly-Supervised Audio-Visual Video Parsing",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Rachavarapu",
+            "A. N."
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:12.623487+00:00"
+    },
+    "robust visual recognition with class imbalanced open world noisy data": {
+      "title": "Robust Visual Recognition with Class-Imbalanced Open-World Noisy Data",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1609/aaai.v38i15.29642",
+          "title": "Robust Visual Recognition with Class-Imbalanced Open-World Noisy Data",
+          "year": 2024,
+          "type": "journal-article",
+          "container": "Proceedings of the AAAI Conference on Artificial Intelligence",
+          "family_names": [
+            "Zhao",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.7157220",
+          "title": "OURF: Optimization-driven undersampling robust framework for multi-class imbalanced noisy learning",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "li",
+            "zhou",
+            "Liu",
+            "lu",
+            "li",
+            "Suganthan"
+          ]
+        },
+        {
+          "doi": "10.1016/j.patcog.2017.10.028",
+          "title": "Local ensemble learning from imbalanced and noisy data for word sense disambiguation",
+          "year": 2018,
+          "type": "journal-article",
+          "container": "Pattern Recognition",
+          "family_names": [
+            "Krawczyk",
+            "McInnes"
+          ]
+        },
+        {
+          "doi": "10.21203/rs.3.rs-4660657/v1",
+          "title": "Robust-GBDT: Leveraging Robust Loss for Noisy and Imbalanced Classification with GBDT",
+          "year": 2024,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Luo",
+            "Quan",
+            "Xu"
+          ]
+        },
+        {
+          "doi": "10.1016/j.neucom.2026.132629",
+          "title": "A robust and lightweight support vector machine for imbalanced and noisy data via Benders decomposition",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Neurocomputing",
+          "family_names": [
+            "Mohasel",
+            "Koosha"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:12.778155+00:00"
+    },
+    "robust e nerf nerf from sparse noisy events under non uniform motion": {
+      "title": "Robust e-NeRF: NeRF from Sparse & Noisy Events under Non-Uniform Motion",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/iccv51070.2023.01681",
+          "title": "Robust e-NeRF: NeRF from Sparse &amp; Noisy Events under Non-Uniform Motion",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Low",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/tcsvt.2024.3385360/mm1",
+          "title": "Depth-Guided Robust Point Cloud Fusion NeRF for Sparse Input Views_supp1-3385360.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Song"
+          ]
+        },
+        {
+          "doi": "10.1007/978-3-031-73232-4_11",
+          "title": "Deblur e-NeRF: NeRF from Motion-Blurred Events under High-speed or Low-light Conditions",
+          "year": 2024,
+          "type": "book-chapter",
+          "container": "Lecture Notes in Computer Science",
+          "family_names": [
+            "Low",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1038/s41598-025-88614-z",
+          "title": "MBS-NeRF: reconstruction of sharp neural radiance fields from motion-blurred sparse images",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "Scientific Reports",
+          "family_names": [
+            "Gao",
+            "Sun",
+            "Zhu",
+            "Chen"
+          ]
+        },
+        {
+          "doi": "10.1109/tce.2026.3730905",
+          "title": "SparseMamba-NeRF: Generalizable and Robust Neural Rendering from Sparse Views under Consumer Embodied UAVs",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "IEEE Transactions on Consumer Electronics",
+          "family_names": [
+            "Jiao",
+            "Liu",
+            "Chen",
+            "Wang",
+            "Wong"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:12.918400+00:00"
+    },
+    "std gs exploring frame event interaction for spatiotemporal disentangled gaussian splatting to reconstruct high dynamic scene": {
+      "title": "STD-GS: Exploring Frame-Event Interaction for SpatioTemporal-Disentangled Gaussian Splatting to Reconstruct High-Dynamic Scene",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/iccv51701.2025.02300",
+          "title": "STD-GS: Exploring Frame-Event Interaction for SpatioTemporal-Disentangled Gaussian Splatting to Reconstruct High-Dynamic Scene",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Zhou",
+            "Wang",
+            "Liu",
+            "Duan",
+            "Yan",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.5170284",
+          "title": "Kf-Gs: Kalman Filter-Guided Gaussian Splatting for Real-Time High-Quality Dynamic Scene Reconstruction",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Tang",
+            "Yin",
+            "Zhu",
+            "Yu",
+            "Kuang",
+            "Ding",
+            "He"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.5081489",
+          "title": "Kf-Gs: Kalman Filter-Guided Gaussian Splatting for Real-Time High-Quality Dynamic Scene Reconstruction",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Tang",
+            "Yin",
+            "Zhu",
+            "Yu",
+            "Kuang",
+            "Fan",
+            "Ding",
+            "He"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.7566453",
+          "title": "TC-GS: Temporally Consistent 3D Gaussian Splatting for Dynamic Scene Reconstruction",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Zhang",
+            "Mao",
+            "Zhu",
+            "Wang",
+            "Jia",
+            "Meng",
+            "Ma"
+          ]
+        },
+        {
+          "doi": "10.1109/tpami.2026.3709368/mm1",
+          "title": "TraGraph-GS: Trajectory Graph-based Gaussian Splatting for Arbitrary Large-Scale Scene Rendering_supp1-3709368.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Liu"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:14.077188+00:00"
+    },
+    "scarcenet animal pose estimation with scarce annotation": {
+      "title": "ScarceNet: Animal Pose Estimation with Scarce Annotation",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52729.2023.01647",
+          "title": "ScarceNet: Animal Pose Estimation with Scarce Annotations",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Li",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/cvpr.2011.5995318",
+          "title": "Learning effective human pose estimation from inaccurate annotation",
+          "year": 2011,
+          "type": "proceedings-article",
+          "container": "CVPR 2011",
+          "family_names": [
+            "Johnson",
+            "Everingham"
+          ]
+        },
+        {
+          "doi": "10.3390/electronics12204210",
+          "title": "THANet: Transferring Human Pose Estimation to Animal Pose Estimation",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "Electronics",
+          "family_names": [
+            "Liao",
+            "Xu",
+            "Shen",
+            "Lin"
+          ]
+        },
+        {
+          "doi": "10.7554/elife.95709.3.sa1",
+          "title": "Reviewer #2 (Public review): Anti-drift pose tracker (ADPT), a transformer-based network for robust animal pose estimation cross-species",
+          "year": 2025,
+          "type": "peer-review",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.7554/elife.95709.1.sa1",
+          "title": "Reviewer #1 (Public Review): Anti-drift pose tracker (ADPT): A transformer-based network for robust animal pose estimation cross-species",
+          "year": 2024,
+          "type": "peer-review",
+          "container": "",
+          "family_names": []
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:14.158797+00:00"
+    },
+    "segment any 3d object with language": {
+      "title": "Segment Any 3D Object with Language",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/tmm.2026.3704928",
+          "title": "Point Linguist Model: Segment Any Object via Bridged Large 3D-Language Model",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "IEEE Transactions on Multimedia",
+          "family_names": [
+            "Huang",
+            "Gao",
+            "Han"
+          ]
+        },
+        {
+          "doi": "10.52202/079017-3257",
+          "title": "SA3DIP: Segment Any 3D Instance with Potential 3D Priors",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 37",
+          "family_names": [
+            "Yang",
+            "Gu",
+            "Yin",
+            "Gao"
+          ]
+        },
+        {
+          "doi": "10.1109/icra55743.2025.11128131",
+          "title": "Segment Any Repeated Object",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE International Conference on Robotics and Automation (ICRA)",
+          "family_names": [
+            "Liu",
+            "Graf",
+            "Spies",
+            "Keuper"
+          ]
+        },
+        {
+          "doi": "10.14733/cadconfp.2014.206-208",
+          "title": "Non-Rigid 3D Object Pose Normalization based on Core Segment Symmetrical Features",
+          "year": 2014,
+          "type": "proceedings-article",
+          "container": "CAD'14",
+          "family_names": [
+            "Sfikas"
+          ]
+        },
+        {
+          "doi": "10.3390/s25020526",
+          "title": "Segment Any Leaf 3D: A Zero-Shot 3D Leaf Instance Segmentation Method Based on Multi-View Images",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "Sensors",
+          "family_names": [
+            "Wang",
+            "Zhang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:15.359975+00:00"
+    },
+    "statistical confidence rescoring for robust 3d scene graph generation from multi view images": {
+      "title": "Statistical Confidence Rescoring for Robust 3D Scene Graph Generation from Multi-View Images",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/iccv51701.2025.02318",
+          "title": "Statistical Confidence Rescoring for Robust 3D Scene Graph Generation from Multi-View Images",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Yeo",
+            "Li",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/lra.2025.3645659/mm1",
+          "title": "Robust Task Planning via Failure Detection using Scene Graph from Multi-view Images_supp1-3645659.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Ahn"
+          ]
+        },
+        {
+          "doi": "10.1109/lra.2025.3645659",
+          "title": "Robust Task Planning via Failure Detection Using Scene Graph From Multi-View Images",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "IEEE Robotics and Automation Letters",
+          "family_names": [
+            "Chong",
+            "Lee",
+            "Ahn"
+          ]
+        },
+        {
+          "doi": "10.14711/thesis-991013340456103412",
+          "title": "High-quality 3D generation from single-view images",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Shi"
+          ]
+        },
+        {
+          "doi": "10.1109/tvcg.2026.3685528/mm1",
+          "title": "DecoRec: Decomposed 3D Scene Reconstruction from Single-View Images via Object-Level Diffusion_supp1-3685528.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Lin"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:15.556113+00:00"
+    },
+    "street gaussians without 3d object tracker": {
+      "title": "Street Gaussians without 3D Object Tracker",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/iccv51701.2025.02386",
+          "title": "Street Gaussians Without 3D Object Tracker",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Zhang",
+            "Li",
+            "Zhang",
+            "Liu",
+            "Yuan",
+            "Li",
+            "Ji",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/lra.2023.3290524/mm1",
+          "title": "STTracker: Spatio-Temporal Tracker for 3D Single Object Tracking_supp1-3290524.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Fang"
+          ]
+        },
+        {
+          "doi": "10.1109/tpami.2025.3634385/mm1",
+          "title": "Street Gaussians: Modeling Dynamic Urban Scenes With Gaussian Primitives_supp1-3634385.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Zhou"
+          ]
+        },
+        {
+          "doi": "10.1109/isar.2001.970529",
+          "title": "Real-time 3D object recognition for automatic tracker initialization",
+          "year": null,
+          "type": "proceedings-article",
+          "container": "Proceedings IEEE and ACM International Symposium on Augmented Reality",
+          "family_names": [
+            "Blasko",
+            "Fua"
+          ]
+        },
+        {
+          "doi": "10.1163/2468-1733_shafr_sim170100008",
+          "title": "Street without Joy: Insurgency in Indochina, 1946-63. 3d rev. ed",
+          "year": null,
+          "type": "dataset",
+          "container": "The SHAFR Guide Online",
+          "family_names": []
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:15.938823+00:00"
+    },
+    "style hallucinated dual consistency learning a unified framework for visual domain generalization": {
+      "title": "Style-Hallucinated Dual Consistency Learning: A Unified Framework for Visual Domain Generalization",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1007/s11263-023-01911-w",
+          "title": "Style-Hallucinated Dual Consistency Learning: A Unified Framework for Visual Domain Generalization",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "International Journal of Computer Vision",
+          "family_names": [
+            "Zhao",
+            "Zhong",
+            "Zhao",
+            "Sebe",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.5018566",
+          "title": "Cross-Domain Evaluation for Multi-Task Learning in NLP: A Unified Framework for Generalization and Robustness",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Yesmin"
+          ]
+        },
+        {
+          "doi": "10.1007/978-3-031-19815-1_31",
+          "title": "Style-Hallucinated Dual Consistency Learning for Domain Generalized Semantic Segmentation",
+          "year": 2022,
+          "type": "book-chapter",
+          "container": "Lecture Notes in Computer Science",
+          "family_names": [
+            "Zhao",
+            "Zhong",
+            "Zhao",
+            "Sebe",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.5362290",
+          "title": "Bidirectional Transition Consistency between Multi-Domain Observations for Visual Reinforcement Learning Generalization",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Hu",
+            "Lin",
+            "Wang",
+            "Liu",
+            "Wang",
+            "Fan",
+            "Lv"
+          ]
+        },
+        {
+          "doi": "10.1007/s00371-025-04307-8",
+          "title": "SemClip: enhancing domain generalization in object detection via style enhancement and semantic consistency",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "The Visual Computer",
+          "family_names": [
+            "Yu",
+            "Chen",
+            "Zhang",
+            "Zou",
+            "Guo"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:19.194084+00:00"
+    },
+    "syn to real unsupervised domain adaptation for indoor 3d object detection": {
+      "title": "Syn-to-Real Unsupervised Domain Adaptation for Indoor 3D Object Detection",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.5220/0010202503190327",
+          "title": "Unsupervised Domain Adaptation from Synthetic to Real Images for Anchorless Object Detection",
+          "year": 2021,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 16th International Joint Conference on Computer Vision, Imaging and Computer Graphics Theory and Applications",
+          "family_names": [
+            "Scheck",
+            "Grassi",
+            "Hirtz"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.4431496",
+          "title": "Adaptation Via Proxy: Building Instance-Aware Proxy for Unsupervised Domain Adaptive 3d Object Detection",
+          "year": 2023,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Li",
+            "Yao",
+            "Quan",
+            "Qi",
+            "Feng",
+            "Yang"
+          ]
+        },
+        {
+          "doi": "10.1109/3dv50981.2020.00087",
+          "title": "SF-UDA\n                    <sup>3D</sup>\n                    : Source-Free Unsupervised Domain Adaptation for LiDAR-Based 3D Object Detection",
+          "year": 2020,
+          "type": "proceedings-article",
+          "container": "2020 International Conference on 3D Vision (3DV)",
+          "family_names": [
+            "Saltori",
+            "Lathuiliere",
+            "Sebe",
+            "Ricci",
+            "Galasso"
+          ]
+        },
+        {
+          "doi": "10.3390/vehicles8050098",
+          "title": "Unsupervised Domain Adaptation with Multimodal Fusion for Monocular 3D Object Detection",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Vehicles",
+          "family_names": [
+            "Jiang",
+            "Dai",
+            "Li",
+            "Zhou",
+            "Ye",
+            "Zhang",
+            "Zhang"
+          ]
+        },
+        {
+          "doi": "10.1109/icra46639.2022.9811975",
+          "title": "JST: Joint Self-training for Unsupervised Domain Adaptation on 2D&amp;3D Object Detection",
+          "year": 2022,
+          "type": "proceedings-article",
+          "container": "2022 International Conference on Robotics and Automation (ICRA)",
+          "family_names": [
+            "Ding",
+            "Zhang",
+            "Li",
+            "Hao"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:19.465550+00:00"
+    },
+    "synthetic to real domain generalized semantic segmentation for 3d indoor point clouds": {
+      "title": "Synthetic-to-Real Domain Generalized Semantic Segmentation for 3D Indoor Point Clouds",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.2139/ssrn.4902362",
+          "title": "Synthetic-to-Real Domain Adaptation with Virtual Laser Scanning and Self-Training-Based Category-Aware Cuboid Mixing for Semantic Segmentation of Bridge Point Clouds",
+          "year": 2024,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Yang",
+            "Fu",
+            "Kim"
+          ]
+        },
+        {
+          "doi": "10.1109/icpr56361.2022.9956612",
+          "title": "Learning Semantic Segmentation on Unlabeled Real-World Indoor Point Clouds via Synthetic Data",
+          "year": 2022,
+          "type": "proceedings-article",
+          "container": "2022 26th International Conference on Pattern Recognition (ICPR)",
+          "family_names": [
+            "Song",
+            "Sun",
+            "Wu",
+            "Sun",
+            "Luo",
+            "Li"
+          ]
+        },
+        {
+          "doi": "10.1109/smc53654.2022.9945480",
+          "title": "Reducing domain shift in synthetic data augmentation for semantic segmentation of 3D point clouds",
+          "year": 2022,
+          "type": "proceedings-article",
+          "container": "2022 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
+          "family_names": [
+            "Cazorla",
+            "Poinel",
+            "Papadakis",
+            "Buche"
+          ]
+        },
+        {
+          "doi": "10.1109/3dv.2018.00053",
+          "title": "Efficient Convolutions for Real-Time Semantic Segmentation of 3D Point Clouds",
+          "year": 2018,
+          "type": "proceedings-article",
+          "container": "2018 International Conference on 3D Vision (3DV)",
+          "family_names": [
+            "Zhang",
+            "Luo",
+            "Urtasun"
+          ]
+        },
+        {
+          "doi": "10.1111/phor.70055",
+          "title": "Correction to “\n                    <scp>3D</scp>\n                    Feature Engineering for Deep Semantic Segmentation of Indoor Point Clouds”",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "The Photogrammetric Record",
+          "family_names": []
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:20.728279+00:00"
+    },
+    "towards non co occurrence incremental object detection with unlabeled in the wild data": {
+      "title": "Towards Non Co-occurrence Incremental Object Detection with Unlabeled In-the-wild Data",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1007/s11263-024-02048-0",
+          "title": "Towards Non Co-occurrence Incremental Object Detection with Unlabeled In-the-Wild Data",
+          "year": 2024,
+          "type": "journal-article",
+          "container": "International Journal of Computer Vision",
+          "family_names": [
+            "Dong",
+            "Zhang",
+            "Ding",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.5220/0007345600002108",
+          "title": "Semi-supervised Object Detection with Unlabeled Data",
+          "year": 2019,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 14th International Joint Conference on Computer Vision, Imaging and Computer Graphics Theory and Applications",
+          "family_names": [
+            "Nguyen",
+            "Rigaud",
+            "Burie"
+          ]
+        },
+        {
+          "doi": "10.5220/0007345602890296",
+          "title": "Semi-supervised Object Detection with Unlabeled Data",
+          "year": 2019,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 14th International Joint Conference on Computer Vision, Imaging and Computer Graphics Theory and Applications",
+          "family_names": [
+            "Nguyen",
+            "Rigaud",
+            "Burie"
+          ]
+        },
+        {
+          "doi": "10.1109/cvpr46437.2021.00268",
+          "title": "Positive-Unlabeled Data Purification in the Wild for Object Detection",
+          "year": 2021,
+          "type": "proceedings-article",
+          "container": "2021 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Guo",
+            "Han",
+            "Wu",
+            "Zhang",
+            "Chen",
+            "Xu",
+            "Xu",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.6762002",
+          "title": "Towards Class-Incremental Human-Object Interaction Detection via Rarity-Aware Relational Distillation",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Hu",
+            "Yan",
+            "Kou",
+            "Zhang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:20.904758+00:00"
+    },
+    "towards robust few shot point cloud semantic segmentation": {
+      "title": "Towards Robust Few-shot Point Cloud Semantic Segmentation",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.2139/ssrn.5351411",
+          "title": "Density-Aware Few-Parametric Networks for Robust Few-Shot Point Cloud Semantic Segmentation",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Liang",
+            "An",
+            "Liu",
+            "Yang",
+            "Xu"
+          ]
+        },
+        {
+          "doi": "10.1016/j.neucom.2025.132158",
+          "title": "Density-aware few-parametric networks for robust few-shot point cloud semantic segmentation",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Neurocomputing",
+          "family_names": [
+            "Liang",
+            "An",
+            "Liu",
+            "Yang",
+            "Xu"
+          ]
+        },
+        {
+          "doi": "10.1016/j.neunet.2025.108231",
+          "title": "Dynamic routing towards few-shot point cloud semantic segmentation",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Neural Networks",
+          "family_names": [
+            "Jiang",
+            "Li",
+            "Wu",
+            "Liu",
+            "Xu"
+          ]
+        },
+        {
+          "doi": "10.32657/10356/179000",
+          "title": "Generalized few-shot 3D point cloud segmentation",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Yang"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.5964759",
+          "title": "FESSNet: Boosting Few-Shot Point Cloud Semantic Segmentation with Feature-Enhanced Self-Support Network",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Xu",
+            "Xinyi",
+            "Weichao",
+            "Xie"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:22.174883+00:00"
+    },
+    "treemeshgpt artistic mesh generation with autoregressive tree sequencing": {
+      "title": "TreeMeshGPT: Artistic Mesh Generation with Autoregressive Tree Sequencing",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52734.2025.02478",
+          "title": "TreeMeshGPT: Artistic Mesh Generation with Autoregressive Tree Sequencing",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Lionar",
+            "Liang",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.52202/085713-5397",
+          "title": "ARMesh: Autoregressive Mesh Generation via Next-Level-of-Detail Prediction",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "Lei",
+            "Shi",
+            "Liang",
+            "Jia"
+          ]
+        },
+        {
+          "doi": "10.1109/3dv69130.2026.00141",
+          "title": "FASTMESH: Efficient Artistic Mesh Generation Via Component Decoupling",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "2026 International Conference on 3D Vision (3DV)",
+          "family_names": [
+            "Kim",
+            "Lan",
+            "Fortes",
+            "Chen",
+            "Pan"
+          ]
+        },
+        {
+          "doi": "10.2514/6.2011-895",
+          "title": "Fully Anisotropic Split-Tree Adaptive Refinement Mesh Generation Using Tetrahedral Mesh Stitching",
+          "year": 2011,
+          "type": "proceedings-article",
+          "container": "49th AIAA Aerospace Sciences Meeting including the New Horizons Forum and Aerospace Exposition",
+          "family_names": [
+            "Betro",
+            "Karman"
+          ]
+        },
+        {
+          "doi": "10.1609/aaai.v40i8.37586",
+          "title": "HiFi-Mesh: High-Fidelity Efficient 3D Mesh Generation via Compact Autoregressive Dependence",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Proceedings of the AAAI Conference on Artificial Intelligence",
+          "family_names": [
+            "Li",
+            "Tan",
+            "Gao",
+            "Cao",
+            "Liu",
+            "Sun"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:22.370239+00:00"
+    },
+    "treesba tree transformer for self supervised sequential brick assembly": {
+      "title": "TreeSBA: Tree-Transformer for Self-Supervised Sequential Brick Assembly",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1007/978-3-031-73016-0_3",
+          "title": "TreeSBA: Tree-Transformer for Self-supervised Sequential Brick Assembly",
+          "year": 2024,
+          "type": "book-chapter",
+          "container": "Lecture Notes in Computer Science",
+          "family_names": [
+            "Guo",
+            "Li",
+            "Zhao",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1021/acs.jafc.6c07395.s001",
+          "title": "Lego-Brick-Style Supramolecular Self-Assembly for NaringinChlorogenic AcidGlucosylrutin Carrier-Free Nanoparticles: Self-Assembly Mechanism, Release Behavior, and Anti-Inflammatory Activity",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1021/jacs.2c11420.s001",
+          "title": "MOFormer: Self-Supervised Transformer Model for MetalOrganic Framework Property Prediction",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1021/jacs.4c13706.s001",
+          "title": "Breaking Barcode Limits: Metal Nanoparticle Lego Brick Self-Assembly for High-Throughput Screening",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1021/acs.langmuir.6b01365.s001",
+          "title": "Sequential Nanopatterned Block Copolymer Self-Assembly on Surfaces",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:22.891918+00:00"
+    },
+    "unikd uncertainty filtered incremental knowledge distillation for neural implicit representation": {
+      "title": "UNIKD: UNcertainty-Filtered Incremental Knowledge Distillation for Neural Implicit Representation",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1007/978-3-031-72967-6_14",
+          "title": "UNIKD: UNcertainty-Filtered Incremental Knowledge Distillation for Neural Implicit Representation",
+          "year": 2024,
+          "type": "book-chapter",
+          "container": "Lecture Notes in Computer Science",
+          "family_names": [
+            "Guo",
+            "Li",
+            "Chen",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1016/j.knosys.2026.115880",
+          "title": "KFPT: Reliability and uncertainty filtered self-distillation for language model training",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Knowledge-Based Systems",
+          "family_names": [
+            "Kaan Yuce",
+            "Fatih Amasyali"
+          ]
+        },
+        {
+          "doi": "10.1109/tvcg.2023.3345373/mm2",
+          "title": "KD-INR: Time-Varying Volumetric Data Compression via Knowledge Distillation-based Implicit Neural Representation_supp1-3345373.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Han"
+          ]
+        },
+        {
+          "doi": "10.1109/tvcg.2023.3345373/mm1",
+          "title": "KD-INR: Time-Varying Volumetric Data Compression via Knowledge Distillation-based Implicit Neural Representation_supp2-3345373.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Han"
+          ]
+        },
+        {
+          "doi": "10.1109/icra57147.2024.10611564",
+          "title": "Towards Large-Scale Incremental Dense Mapping using Robot-centric Implicit Neural Representation",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE International Conference on Robotics and Automation (ICRA)",
+          "family_names": [
+            "Liu",
+            "Chen"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:23.000482+00:00"
+    },
+    "urs nerf unordered rolling shutter bundle adjustment for neural radiance fields": {
+      "title": "URS-NeRF: Unordered Rolling Shutter Bundle Adjustment for Neural Radiance Fields",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1007/978-3-031-72761-0_26",
+          "title": "URS-NeRF: Unordered Rolling Shutter Bundle Adjustment for Neural Radiance Fields",
+          "year": 2024,
+          "type": "book-chapter",
+          "container": "Lecture Notes in Computer Science",
+          "family_names": [
+            "Xu",
+            "Liu",
+            "Guo",
+            "Li",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/cvpr52729.2023.00406",
+          "title": "BAD-NeRF: Bundle Adjusted Deblur Neural Radiance Fields",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Wang",
+            "Zhao",
+            "Ma",
+            "Liu"
+          ]
+        },
+        {
+          "doi": "10.1145/3696409.3700198",
+          "title": "BCS-NeRF: Bundle Cross-Sensing Neural Radiance Fields",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 6th ACM International Conference on Multimedia in Asia",
+          "family_names": [
+            "Cao",
+            "Wang",
+            "Sun",
+            "Zhao"
+          ]
+        },
+        {
+          "doi": "10.5220/0014632600004084",
+          "title": "PGT-NeRF: Physics-Guided Thermal Neural Radiance Fields",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 21st International Conference on Computer Vision Theory and Applications",
+          "family_names": [
+            "Mahalingam",
+            "Sigatapu",
+            "Doshi",
+            "Sistu"
+          ]
+        },
+        {
+          "doi": "10.32388/b3vsx3",
+          "title": "Review of: \"MLI-NeRF: Multi-Light Intrinsic-Aware Neural Radiance Fields\"",
+          "year": 2025,
+          "type": "peer-review",
+          "container": "",
+          "family_names": [
+            "Pintus"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:24.102599+00:00"
+    },
+    "unsupervised feature representation learning for domain generalized cross domain image retrieval": {
+      "title": "Unsupervised Feature Representation Learning for Domain-generalized Cross-domain Image Retrieval",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/iccv51070.2023.01011",
+          "title": "Unsupervised Feature Representation Learning for Domain-generalized Cross-domain Image Retrieval",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Hu",
+            "Zhang",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.52202/079017-2524",
+          "title": "Semantic Feature Learning for Universal Unsupervised Cross-Domain Retrieval",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 37",
+          "family_names": [
+            "Wang",
+            "Du",
+            "Zhu"
+          ]
+        },
+        {
+          "doi": "10.1007/978-3-031-19836-6_30",
+          "title": "Feature Representation Learning for Unsupervised Cross-Domain Image Retrieval",
+          "year": 2022,
+          "type": "book-chapter",
+          "container": "Lecture Notes in Computer Science",
+          "family_names": [
+            "Hu",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1016/j.jvcir.2020.102835",
+          "title": "Cross-domain representation learning by domain-migration generative adversarial network for sketch based image retrieval",
+          "year": 2020,
+          "type": "journal-article",
+          "container": "Journal of Visual Communication and Image Representation",
+          "family_names": [
+            "Bai",
+            "Chen",
+            "Ma",
+            "Hao",
+            "Chen"
+          ]
+        },
+        {
+          "doi": "10.1109/jiot.2024.3519175",
+          "title": "Unsupervised Cross-Domain Deep-Fused Feature Descriptor for Efficient Image Retrieval",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "IEEE Internet of Things Journal",
+          "family_names": [
+            "He"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:24.276979+00:00"
+    },
+    "vcr gaus view consistent depth normal regularizer for gaussian surface reconstruction": {
+      "title": "VCR-GauS: View Consistent Depth-Normal Regularizer for Gaussian Surface Reconstruction",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.52202/079017-4434",
+          "title": "VCR-GauS: View Consistent Depth-Normal Regularizer for Gaussian Surface Reconstruction",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 37",
+          "family_names": [
+            "Chen",
+            "Wei",
+            "Li",
+            "Huang",
+            "Wang",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/3dv69130.2026.00113",
+          "title": "NVC-GS: Monocular Dynamic Scene Reconstruction via Normal-Regularized and Multi-View-Consistent 3D Gaussian Splatting",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "2026 International Conference on 3D Vision (3DV)",
+          "family_names": [
+            "Xue",
+            "Zhao",
+            "Li",
+            "Xu",
+            "Ming"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.5225176",
+          "title": "Depth-Consistent 3d Gaussian Splatting Via Physical Defocus Modeling and Multi-View Geometric Supervision",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Deng",
+            "Zhao",
+            "Su",
+            "Zhang",
+            "Liu"
+          ]
+        },
+        {
+          "doi": "10.1109/access.2026.3741891",
+          "title": "Supervising the Unseen: Pseudo-View Depth and Normal Priors for Sparse-View Gaussian Splatting",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "IEEE Access",
+          "family_names": [
+            "Wen",
+            "Kim",
+            "Cho"
+          ]
+        },
+        {
+          "doi": "10.1109/isit63088.2025.11195383",
+          "title": "Multi-View Representation Learning Regularizer with Gaussian-Product Mixture Prior",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE International Symposium on Information Theory (ISIT)",
+          "family_names": [
+            "Sefidgaran",
+            "Zaidi"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:24.466815+00:00"
+    },
+    "weakly supervised 3d pose transfer with keypoints": {
+      "title": "Weakly-supervised 3D Pose Transfer with Keypoints",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/iccv51070.2023.01391",
+          "title": "Weakly-supervised 3D Pose Transfer with Keypoints",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Chen",
+            "Li",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/icip46576.2022.9897790",
+          "title": "Boosting the Performance of Weakly-Supervised 3d Human Pose Estimators With Pose Prior Regularizers",
+          "year": 2022,
+          "type": "proceedings-article",
+          "container": "2022 IEEE International Conference on Image Processing (ICIP)",
+          "family_names": [
+            "Amadi",
+            "Agam"
+          ]
+        },
+        {
+          "doi": "10.5244/c.34.88",
+          "title": "Weakly Supervised Generative Network for Multiple 3D Human Pose Hypotheses",
+          "year": 2020,
+          "type": "proceedings-article",
+          "container": "Proceedings of the British Machine Vision Conference 2020",
+          "family_names": [
+            "Li",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.4611139",
+          "title": "Transformer-Based Weakly Supervised 3d Human Pose Estimation",
+          "year": 2023,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Wu",
+            "Xie",
+            "Niu",
+            "Wang",
+            "Wang",
+            "Zhang",
+            "Shan"
+          ]
+        },
+        {
+          "doi": "10.1109/3dv50981.2020.00100",
+          "title": "Error Bounds of Projection Models in Weakly Supervised 3D Human Pose Estimation",
+          "year": 2020,
+          "type": "proceedings-article",
+          "container": "2020 International Conference on 3D Vision (3DV)",
+          "family_names": [
+            "Klug",
+            "Einfalt",
+            "Brehm",
+            "Lienhart"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:25.724273+00:00"
+    },
+    "x ray a sequential 3d representation for generation": {
+      "title": "X-Ray: A Sequential 3D Representation For Generation",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.52202/079017-4327",
+          "title": "X-Ray: A Sequential 3D Representation For Generation",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 37",
+          "family_names": [
+            "Hu",
+            "Ge",
+            "Zhao",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1021/acs.jcim.0c00464.s001",
+          "title": "3D Inorganic Crystal Structure Generation and Property Prediction via Representation Learning",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.2139/ssrn.6225929",
+          "title": "SliceTool: Quick sequential slice generation and circumference measurement of 3D-Scans",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Naake",
+            "Schmidt",
+            "Kyosev"
+          ]
+        },
+        {
+          "doi": "10.1017/9781316677377.006",
+          "title": "3D FEL Analysis",
+          "year": 2017,
+          "type": "book-chapter",
+          "container": "Synchrotron Radiation and Free-Electron Lasers",
+          "family_names": []
+        },
+        {
+          "doi": "10.1109/3dv66043.2025.00077",
+          "title": "mmDiffusion: mmWave Diffusion for Sequential 3D Human Dense Point Cloud Generation",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 International Conference on 3D Vision (3DV)",
+          "family_names": [
+            "Xie",
+            "Hou",
+            "Deng",
+            "Patel",
+            "Trigoni",
+            "Markham"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:25.927677+00:00"
+    },
+    "x scene large scale driving scene generation with high fidelity and flexible controllability": {
+      "title": "X-Scene: Large-Scale Driving Scene Generation with High Fidelity and Flexible Controllability",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.52202/085713-3487",
+          "title": "X-Scene: Large-Scale Driving Scene Generation with High Fidelity and Flexible Controllability",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 38",
+          "family_names": [
+            "Yang",
+            "Liang",
+            "Mei",
+            "Ma",
+            "Liu",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/tase.2025.3538506/mm1",
+          "title": "H-RSSG: High-fidelity Robotic Surgical Scene Generation with Implicit Deformable Neural Radiance Field_supp1-3538506.docx",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Chen"
+          ]
+        },
+        {
+          "doi": "10.1109/wsc.1993.718349",
+          "title": "Physics-Based, High-Fidelity Simulation: Strategic Scene Generation Model",
+          "year": null,
+          "type": "proceedings-article",
+          "container": "Proceedings of 1993 Winter Simulation Conference - (WSC '93)",
+          "family_names": [
+            "Heckathorn",
+            "Wieland"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.7294102",
+          "title": "Scene Complexity-Adaptive 3D Gaussian Splatting for Large-Scale High-Fidelity Reconstruction and Light Field Visualization",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Cai",
+            "Li",
+            "Donghu",
+            "Bin",
+            "Xiaodong",
+            "Yan",
+            "gao",
+            "Sang",
+            "Yu"
+          ]
+        },
+        {
+          "doi": "10.1109/lra.2025.3580331/mm1",
+          "title": "ActiveSplat: High-Fidelity Scene Reconstruction Through Active Gaussian Splatting_supp1-3580331.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Yan"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:26.119652+00:00"
+    },
+    "econsg efficient and multi view consistent open vocabulary 3d semantic gaussians": {
+      "title": "econSG: Efficient and Multi-view Consistent Open-Vocabulary 3D Semantic Gaussians",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/tpami.2025.3648837/mm2",
+          "title": "Language Embedded 3D Gaussians for Open-Vocabulary Scene Querying_supp2-3648837.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1109/tpami.2025.3648837/mm1",
+          "title": "Language Embedded 3D Gaussians for Open-Vocabulary Scene Querying_supp1-3648837.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1109/lra.2025.3561569/mm1",
+          "title": "MR-COGraphs: Communication-efficient Multi-Robot Open-vocabulary Mapping System via 3D Scene Graphs_supp1-3561569.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Yu"
+          ]
+        },
+        {
+          "doi": "10.1145/3664647.3680852",
+          "title": "GOI: Find 3D Gaussians of Interest with an Optimizable Open-vocabulary Semantic-space Hyperplane",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 32nd ACM International Conference on Multimedia",
+          "family_names": [
+            "Qu",
+            "Dai",
+            "Li",
+            "Lin",
+            "Cao",
+            "Zhang",
+            "Ji"
+          ]
+        },
+        {
+          "doi": "10.1109/tcsvt.2026.3675320",
+          "title": "Semantic Gaussians: Open-Vocabulary Scene Understanding With 3D Gaussian Splatting",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "IEEE Transactions on Circuits and Systems for Video Technology",
+          "family_names": [
+            "Guo",
+            "Ma",
+            "Fan",
+            "Liu",
+            "Li"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:26.216209+00:00"
+    },
+    "g3d lf generalizable 3d language feature fields for embodied tasks": {
+      "title": "g3D-LF: Generalizable 3D-Language Feature Fields for Embodied Tasks",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.32388/841d1t",
+          "title": "g3D-LF: Generalizable 3D-Language Feature Fields for Embodied Tasks",
+          "year": 2024,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Wang",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.1109/cvpr52734.2025.01324",
+          "title": "g3D-LF: Generalizable 3D-Language Feature Fields for Embodied Tasks",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Wang",
+            "Lee"
+          ]
+        },
+        {
+          "doi": "10.21832/9781800411241-010",
+          "title": "7 Noticing of Embodied Resources",
+          "year": 2021,
+          "type": "book-chapter",
+          "container": "Language Teacher Noticing in Tasks",
+          "family_names": []
+        },
+        {
+          "doi": "10.2307/jj.22730662.12",
+          "title": "Noticing of Embodied Resources",
+          "year": 2021,
+          "type": "book-chapter",
+          "container": "Language Teacher Noticing in Tasks",
+          "family_names": []
+        },
+        {
+          "doi": "10.14293/s2199-1006.1.sor-uncat.a12088599.v1.rhqnfs",
+          "title": "Review of \"Embodied large language models enable robots to complete complex tasks in unpredictable environments\"",
+          "year": 2025,
+          "type": "peer-review",
+          "container": "",
+          "family_names": [
+            "Ewelu"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:27.447139+00:00"
+    }
+  }
+}

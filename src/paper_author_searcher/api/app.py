@@ -22,6 +22,7 @@ import logging
 import re
 from collections.abc import Callable
 from dataclasses import dataclass, field
+from http import HTTPStatus
 from importlib import resources
 from pathlib import Path
 from typing import Any
@@ -44,6 +45,7 @@ STATUS_OF: dict[str, int] = {
     ErrorKind.CONFLICT: 409,
     ErrorKind.IDEMPOTENCY_REUSED: 422,
     ErrorKind.IDEMPOTENCY_IN_PROGRESS: 409,
+    ErrorKind.RATE_LIMITED: 429,
 }
 
 
@@ -77,15 +79,25 @@ class Response:
 
 
 class ApiError(Exception):
-    def __init__(self, status: int, code: str, message: str, details: list[str] | None = None) -> None:
+    def __init__(
+        self,
+        status: int,
+        code: str,
+        message: str,
+        details: list[str] | None = None,
+        retry_after_seconds: int | None = None,
+    ) -> None:
         super().__init__(message)
         self.status, self.code, self.message, self.details = status, code, message, details or []
+        self.retry_after_seconds = retry_after_seconds
 
     def response(self) -> Response:
         error: dict[str, Any] = {'code': self.code, 'message': self.message}
         if self.details:
             error['details'] = self.details
-        headers = {'WWW-Authenticate': 'Bearer'} if self.status == 401 else {}
+        headers = {'WWW-Authenticate': 'Bearer'} if self.status == HTTPStatus.UNAUTHORIZED else {}
+        if self.retry_after_seconds is not None:
+            headers['Retry-After'] = str(self.retry_after_seconds)
         return Response(self.status, {'api_version': API_VERSION, 'error': error}, headers)
 
 
@@ -119,7 +131,8 @@ class SearchAPI:
         except ApiError as error:
             response = error.response()
         except ServiceError as error:
-            response = ApiError(STATUS_OF.get(error.kind, 400), error.code, error.message, error.details).response()
+            status = STATUS_OF.get(error.kind, HTTPStatus.BAD_REQUEST)
+            response = ApiError(status, error.code, error.message, error.details, error.retry_after_seconds).response()
         except Exception:
             logger.exception('Unhandled error for %s %s', request.method, request.path.split('?', 1)[0])
             response = ApiError(500, 'internal_error', 'The server could not answer this request').response()

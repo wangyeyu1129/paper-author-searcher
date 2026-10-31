@@ -174,6 +174,14 @@ class OrcidRegistrySearchTests(unittest.TestCase):
         unnamed, _ = self.search([registry_person(ORCID)], jobs=(('Example University', None, None),))
         self.assertIsNone(self.adopted(unnamed, department='Physics').orcid)
 
+    def test_an_uncommon_name_needs_no_agreeing_department(self):
+        step, _ = self.search([registry_person(ORCID)])
+        step.name_is_common = lambda name: False
+        self.assertEqual(self.adopted(step, department='Computer Science').orcid, ORCID)
+        step, _ = self.search([registry_person(ORCID)])
+        step.name_is_common = lambda name: True
+        self.assertIsNone(self.adopted(step, department='Computer Science').orcid)
+
     def test_the_only_compatible_person_at_the_institution_is_adopted(self):
         step, client = self.search([registry_person(ORCID)])
         found = Discovery()
@@ -276,7 +284,14 @@ class PageDiscoveryTests(unittest.TestCase):
         search = Search()
         found = Discovery()
         WebPageSearch(search, PageRanker()).discover(query(), found)
-        self.assertEqual(search.queries, ['"Mei Lin" Example University', '"Mei Lin" Example University publications'])
+        self.assertEqual(
+            search.queries,
+            [
+                '"Mei Lin" Example University',
+                '"Mei Lin" Example University publications',
+                '"Mei Lin" lab publications list',
+            ],
+        )
         self.assertEqual([page.url for page in found.pages], ['https://cs.example.edu/~meilin/pubs'])
 
     def test_a_failing_step_is_recorded_and_later_steps_still_run(self):
@@ -376,6 +391,20 @@ class AnchorFinderIntegrationTests(unittest.TestCase):
         anchors = self.finder(client).find(query(homepage=page))
         self.assertIn('doi:10.1000/listed', anchors.listed_works)
 
+    def test_a_redirected_page_resolves_its_links_against_where_it_was_served(self):
+        page = 'https://cs.example.edu/~meilin'
+        served = page + '/'
+        client = Client(pages={page: PERSONAL_PAGE, served + 'publications.html': PUBLICATIONS_PAGE})
+        answer = client.probe
+
+        def probe(url, *args, **kwargs):
+            response = answer(url, *args, **kwargs)
+            return replace(response, url=served) if url == page else response
+
+        client.probe = probe
+        anchors = self.finder(client).find(query(homepage=page))
+        self.assertIn('doi:10.1000/listed', anchors.listed_works)
+
     def test_publication_links_are_same_site_and_marked(self):
         links = publication_links(PERSONAL_PAGE, 'https://cs.example.edu/~meilin/')
         self.assertEqual(links, ['https://cs.example.edu/~meilin/publications.html'])
@@ -390,11 +419,18 @@ class CompositionTests(unittest.TestCase):
         container = ServiceContainer(Settings(), RunOptions(mode='metadata'))
         self.assertEqual([step.name for step in container.discovery.steps], ['orcid_search', 'orcid_researcher_urls'])
         keyed = replace(Settings(), credentials=Credentials(tavily_api_key='k'))
-        keyed = replace(keyed, discovery=DiscoveryConfig(web_search='tavily'))
         steps = ServiceContainer(keyed, RunOptions(mode='metadata')).discovery.steps
         self.assertIsInstance(steps[-1].search, TavilySearch)
         disabled = replace(Settings(), discovery=DiscoveryConfig(enabled=False))
         self.assertEqual(ServiceContainer(disabled).discovery.steps, [])
+
+    def test_web_search_uses_the_first_provider_with_a_key(self):
+        keys = Credentials(tavily_api_key='t', exa_api_key='e')
+        preferred = replace(Settings(), credentials=keys, discovery=DiscoveryConfig(web_search=('exa', 'tavily')))
+        self.assertIsInstance(ServiceContainer(preferred).web_search, ExaSearch)
+        self.assertIsNone(ServiceContainer(replace(preferred, credentials=Credentials())).web_search)
+        off = replace(preferred, discovery=DiscoveryConfig(web_search=()))
+        self.assertIsNone(ServiceContainer(off).web_search)
 
     def test_every_web_search_provider_is_registered(self):
         self.assertEqual(set(WEB_SEARCH.names()), {'brave', 'tavily', 'exa'})

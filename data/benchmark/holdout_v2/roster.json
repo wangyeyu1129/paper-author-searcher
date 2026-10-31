@@ -1,0 +1,253 @@
+{
+  "roster_schema_version": 1,
+  "dataset_id": "holdout_v2",
+  "metadata": {
+    "created": "2026-10-30",
+    "selection_policy": "Public researchers at QS top-100 universities outside the tuning set, chosen only because their own page lists their publications, before any search for them was run.",
+    "window_policy": "From the year given for each person to 2025.",
+    "split_policy": "All test: this set is for measuring, never for tuning.",
+    "hints_policy": "search_input.hints holds the public page; minimal runs ignore it."
+  },
+  "people": [
+    {
+      "person_id": "cs_jingjing_liu",
+      "search_input": {
+        "name": "Jingjing Liu",
+        "university": "Tsinghua University",
+        "department": "Institute for AI Industry Research",
+        "hints": {
+          "homepage": "https://air.tsinghua.edu.cn/en/info/1046/1194.htm"
+        }
+      },
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "computer_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://air.tsinghua.edu.cn/en/info/1046/1194.htm"
+        }
+      ],
+      "identity_evidence": [
+        "https://air.tsinghua.edu.cn/en/info/1046/1194.htm"
+      ],
+      "year_start": 2022,
+      "year_end": 2025,
+      "notes": "Hold-out: measured once on code tuned before it was built.",
+      "split": "test"
+    },
+    {
+      "person_id": "cs_mengzhou_xia",
+      "search_input": {
+        "name": "Mengzhou Xia",
+        "university": "Princeton University",
+        "department": "Computer Science",
+        "hints": {
+          "homepage": "https://xiamengzhou.github.io/"
+        }
+      },
+      "strata": {
+        "seniority": "phd_student",
+        "field": "computer_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://xiamengzhou.github.io/"
+        }
+      ],
+      "identity_evidence": [
+        "https://xiamengzhou.github.io/"
+      ],
+      "year_start": 2021,
+      "year_end": 2025,
+      "notes": "Hold-out: measured once on code tuned before it was built.",
+      "split": "test"
+    },
+    {
+      "person_id": "cs_tianxiang_sun",
+      "search_input": {
+        "name": "Tianxiang Sun",
+        "university": "Fudan University",
+        "department": "Computer Science",
+        "hints": {
+          "homepage": "https://txsun1997.github.io/"
+        }
+      },
+      "strata": {
+        "seniority": "phd_student",
+        "field": "computer_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://txsun1997.github.io/"
+        }
+      ],
+      "identity_evidence": [
+        "https://txsun1997.github.io/"
+      ],
+      "year_start": 2021,
+      "year_end": 2025,
+      "notes": "Hold-out: measured once on code tuned before it was built.",
+      "split": "test"
+    },
+    {
+      "person_id": "cs_yangsibo_huang",
+      "search_input": {
+        "name": "Yangsibo Huang",
+        "university": "Princeton University",
+        "department": "Computer Science",
+        "hints": {
+          "homepage": "https://hazelsuko07.github.io/yangsibo/"
+        }
+      },
+      "strata": {
+        "seniority": "phd_student",
+        "field": "computer_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://hazelsuko07.github.io/yangsibo/"
+        }
+      ],
+      "identity_evidence": [
+        "https://hazelsuko07.github.io/yangsibo/"
+      ],
+      "year_start": 2021,
+      "year_end": 2025,
+      "notes": "Hold-out: measured once on code tuned before it was built.",
+      "split": "test"
+    },
+    {
+      "person_id": "bio_sergey_ovchinnikov",
+      "search_input": {
+        "name": "Sergey Ovchinnikov",
+        "university": "Massachusetts Institute of Technology",
+        "department": "Biology",
+        "hints": {
+          "homepage": "https://www.solab.org/publications"
+        }
+      },
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "biomedicine",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://www.solab.org/publications"
+        }
+      ],
+      "identity_evidence": [
+        "https://www.solab.org/publications"
+      ],
+      "year_start": 2022,
+      "year_end": 2025,
+      "notes": "Hold-out: measured once on code tuned before it was built.",
+      "split": "test"
+    },
+    {
+      "person_id": "eng_sida_peng",
+      "search_input": {
+        "name": "Sida Peng",
+        "university": "Zhejiang University",
+        "department": "Computer Science",
+        "hints": {
+          "homepage": "https://pengsida.net/"
+        }
+      },
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "engineering",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://pengsida.net/"
+        }
+      ],
+      "identity_evidence": [
+        "https://pengsida.net/"
+      ],
+      "year_start": 2023,
+      "year_end": 2025,
+      "notes": "Hold-out: measured once on code tuned before it was built.",
+      "split": "test"
+    },
+    {
+      "person_id": "eng_shuran_song",
+      "search_input": {
+        "name": "Shuran Song",
+        "university": "Stanford University",
+        "department": "Electrical Engineering",
+        "hints": {
+          "homepage": "https://shurans.github.io/"
+        }
+      },
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "engineering",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://shurans.github.io/"
+        }
+      ],
+      "identity_evidence": [
+        "https://shurans.github.io/"
+      ],
+      "year_start": 2024,
+      "year_end": 2025,
+      "notes": "Hold-out: measured once on code tuned before it was built.",
+      "split": "test"
+    },
+    {
+      "person_id": "soc_oleg_itskhoki",
+      "search_input": {
+        "name": "Oleg Itskhoki",
+        "university": "University of California, Los Angeles",
+        "department": "Economics",
+        "hints": {
+          "homepage": "https://itskhoki.com/"
+        }
+      },
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "social_science",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://itskhoki.com/"
+        }
+      ],
+      "identity_evidence": [
+        "https://itskhoki.com/"
+      ],
+      "year_start": 2025,
+      "year_end": 2025,
+      "notes": "Hold-out: measured once on code tuned before it was built.",
+      "split": "test"
+    }
+  ]
+}

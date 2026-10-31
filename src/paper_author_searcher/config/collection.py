@@ -4,6 +4,10 @@ from dataclasses import dataclass
 
 from paper_author_searcher.status import StrEnum
 
+# The sources' own limits.
+OPENALEX_MAXIMUM_PAGE_SIZE = 200
+SEMANTIC_SCHOLAR_MAXIMUM_PAGE_SIZE = 1000
+
 
 class AmbiguityPolicy(StrEnum):
     STOP = 'stop'
@@ -52,9 +56,9 @@ class CollectionConfig:
             raise ValueError(f'raw_metadata must be one of {RawMetadataPolicy.values()}')
         if any(limit < 1 for _, limit in self.source_concurrency):
             raise ValueError('source_concurrency limits must be positive')
-        if not 1 <= self.openalex_page_size <= 200:
+        if not 1 <= self.openalex_page_size <= OPENALEX_MAXIMUM_PAGE_SIZE:
             raise ValueError('openalex_page_size must be between 1 and 200')
-        if not 1 <= self.semantic_scholar_page_size <= 1000:
+        if not 1 <= self.semantic_scholar_page_size <= SEMANTIC_SCHOLAR_MAXIMUM_PAGE_SIZE:
             raise ValueError('semantic_scholar_page_size must be between 1 and 1000')
         if self.maximum_pages is not None and self.maximum_pages < 1:
             raise ValueError('maximum_pages must be positive or None')
@@ -65,6 +69,12 @@ DEFAULT_COLLECTION = CollectionConfig()
 
 @dataclass(frozen=True)
 class OwnershipConfig:
+    # A name is rare when the person's own author IDs hold at least this share of the works under that exact name.
+    rare_name_minimum_share: float = 0.9
+    # Papers it frees must be in a field holding this share of the person's proven papers, of which at least this
+    # many must carry a field.
+    rare_name_minimum_field_share: float = 0.1
+    rare_name_minimum_proven_papers: int = 3
     name_similarity: float = 0.9
     incompatible_name: float = 0.5
     minimum_shared_coauthors: int = 1
@@ -100,6 +110,21 @@ class OwnershipConfig:
     )
     # Records that are not research publications: kept for review, never verified, so they stay out of the output
     # and the PDF stage. Values are paper_types.TYPE_LABELS categories.
+    # Titles that name something other than a paper one could cite for its findings, whatever type the source gives.
+    non_publication_title_prefixes: tuple[str, ...] = (
+        'author correction',
+        'publisher correction',
+        'correction to',
+        'correction:',
+        'erratum',
+        'corrigendum',
+        'retraction',
+        'data from',
+        'supplementary',
+        'supplemental',
+        'code and data',
+        'replication data',
+    )
     non_publication_types: tuple[str, ...] = (
         'dataset',
         'book_review',

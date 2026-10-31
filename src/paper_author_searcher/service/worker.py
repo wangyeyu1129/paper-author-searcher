@@ -14,6 +14,7 @@ import tempfile
 import threading
 import time
 import zipfile
+from collections.abc import Callable
 from pathlib import Path
 from typing import Any
 
@@ -47,6 +48,9 @@ class SearchWorker:
         keep_run_directories: bool = False,
         progress_interval: float = 1.0,
         worker_id: str | None = None,
+        maximum_attempts: int = 0,
+        housekeeping: Callable[[], Any] | None = None,
+        housekeeping_seconds: float = 6 * 3600.0,
     ) -> None:
         self.repository = repository
         self.runner = runner
@@ -57,6 +61,10 @@ class SearchWorker:
         self.stale_after_seconds = stale_after_seconds
         self.keep_run_directories = keep_run_directories
         self.progress_interval = progress_interval
+        self.maximum_attempts = maximum_attempts
+        self.housekeeping = housekeeping
+        self.housekeeping_seconds = housekeeping_seconds
+        self._last_housekeeping = 0.0
         self.id = worker_id or f'{socket.gethostname()}-{secrets.token_hex(4)}'
         self.stopping = threading.Event()
         self.wakeup = threading.Event()
@@ -68,7 +76,8 @@ class SearchWorker:
         try:
             while not self.stopping.is_set():
                 self._heartbeat(None, force=True)
-                for job_id in self.repository.requeue_stale(self.stale_after_seconds):
+                self._keep_house()
+                for job_id in self.repository.requeue_stale(self.stale_after_seconds, self.maximum_attempts):
                     logger.warning('Search %s queued again: its worker stopped reporting', job_id)
                 if not self.run_once():
                     self.wakeup.wait(self.poll_seconds)
@@ -76,6 +85,19 @@ class SearchWorker:
         finally:
             self.repository.forget_worker(self.id)
             logger.info('Worker %s stopped', self.id)
+
+    def _keep_house(self) -> None:
+        """Run housekeeping now and then; a failed sweep is logged and must not stop the worker taking searches."""
+        moment = time.monotonic()
+        if self.housekeeping is None or (
+            self._last_housekeeping and moment - self._last_housekeeping < self.housekeeping_seconds
+        ):
+            return
+        self._last_housekeeping = moment
+        try:
+            self.housekeeping()
+        except Exception:
+            logger.exception('Housekeeping failed')
 
     def stop(self) -> None:
         self.stopping.set()
@@ -116,7 +138,7 @@ class SearchWorker:
                 if not self.files.fetch(job.identity_checkpoint, checkpoint):
                     raise RuntimeError('The identity checkpoint of this search is missing from the file store')
             outcome = self.runner.run(job, checkpoint, progress)
-            self._finish(job.id, outcome, job.cost_usd)
+            self._finish(job.id, outcome, job.cost_usd, job.llm_cost_usd)
         except Exception as exc:
             logger.exception('Search %s failed', job.id)
             self.repository.update(
@@ -139,7 +161,7 @@ class SearchWorker:
             self._heartbeat(None, force=True)
         return True
 
-    def _finish(self, job_id: str, outcome: SearchOutcome, spent_before: float) -> None:
+    def _finish(self, job_id: str, outcome: SearchOutcome, spent_before: float, llm_spent_before: float = 0.0) -> None:
         """Store the run's files first, then record the outcome, so a caller never sees a link to a missing file."""
         checkpoint_key = None
         if outcome.identity_checkpoint is not None:
@@ -158,6 +180,7 @@ class SearchWorker:
             'result': outcome.result,
             'error': outcome.error,
             'cost_usd': round(spent_before + outcome.cost_usd, 6),
+            'llm_cost_usd': round(llm_spent_before + outcome.llm_cost_usd, 6),
         }
         if outcome.candidates:
             changes['candidates'] = outcome.candidates

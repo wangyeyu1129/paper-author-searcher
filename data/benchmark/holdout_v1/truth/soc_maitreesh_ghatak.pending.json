@@ -1,0 +1,725 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "soc_maitreesh_ghatak",
+    "dataset_id": "holdout_v1",
+    "search_input": {
+      "name": "Maitreesh Ghatak",
+      "university": "London School of Economics"
+    },
+    "scope": {
+      "year_start": 2018,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-30T21:04:27.675578+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://personal.lse.ac.uk/ghatak/pub.html",
+        "records": 13
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "soc_maitreesh_ghatak:5ff4881582d8",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Commericalization and the Decline of Joint Liability Microcredit",
+      "year": 2018,
+      "authors": [
+        "Maitreesh Ghatak",
+        "J. de Quidt",
+        "T. Fetzer"
+      ],
+      "listed_venue": "Journal of Development Economics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/ghatak/pub.html entry 5 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Commericalization and the Decline of Joint Liability Microcredit",
+          "year": 2017,
+          "authors": [
+            "Maitreesh Ghatak",
+            "J. de Quidt",
+            "T. Fetzer"
+          ]
+        },
+        {
+          "title": "Commericalization and the Decline of Joint Liability Microcredit",
+          "year": 2019,
+          "authors": [
+            "Maitreesh Ghatak",
+            "J. de Quidt",
+            "T. Fetzer"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_maitreesh_ghatak:120591c72923",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Is the credit worth it? For-profit Lenders in microfinance with rational and behavioral borrowers",
+      "year": 2018,
+      "authors": [
+        "Maitreesh Ghatak",
+        "Jon de Quidt"
+      ],
+      "listed_venue": "Annals of Public and Cooperative Economics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/ghatak/pub.html entry 12 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1111/apce.12189"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Is the credit worth it? For-profit Lenders in microfinance with rational and behavioral borrowers",
+          "year": 2017,
+          "authors": [
+            "Maitreesh Ghatak",
+            "Jon de Quidt"
+          ]
+        },
+        {
+          "title": "Is the credit worth it? For-profit Lenders in microfinance with rational and behavioral borrowers",
+          "year": 2019,
+          "authors": [
+            "Maitreesh Ghatak",
+            "Jon de Quidt"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1111/apce.12189",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "IS THE CREDIT WORTH IT? FOR‐PROFIT LENDERS IN MICROFINANCE WITH RATIONAL AND BEHAVIORAL BORROWERS",
+          "crossref_year": 2018
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_maitreesh_ghatak:1277196c5952",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Market Structure and Borrower Welfare in Microfinance",
+      "year": 2018,
+      "authors": [
+        "Maitreesh Ghatak",
+        "Jon de Quidt",
+        "Thiemo Fetzer"
+      ],
+      "listed_venue": "Economic Journal",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/ghatak/pub.html entry 4 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1111/ecoj.12591"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Market Structure and Borrower Welfare in Microfinance",
+          "year": 2017,
+          "authors": [
+            "Maitreesh Ghatak",
+            "Jon de Quidt",
+            "Thiemo Fetzer"
+          ]
+        },
+        {
+          "title": "Market Structure and Borrower Welfare in Microfinance",
+          "year": 2019,
+          "authors": [
+            "Maitreesh Ghatak",
+            "Jon de Quidt",
+            "Thiemo Fetzer"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1111/ecoj.12591",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Market Structure and Borrower Welfare in Microfinance",
+          "crossref_year": 2018
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_maitreesh_ghatak:82ddeca151a0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Pro-social Motivation and Incentives",
+      "year": 2018,
+      "authors": [
+        "Maitreesh Ghatak",
+        "Tim Besley"
+      ],
+      "listed_venue": "Annual Review of Economics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/ghatak/pub.html entry 6 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Pro-social Motivation and Incentives",
+          "year": 2017,
+          "authors": [
+            "Maitreesh Ghatak",
+            "Tim Besley"
+          ]
+        },
+        {
+          "title": "Pro-social Motivation and Incentives",
+          "year": 2019,
+          "authors": [
+            "Maitreesh Ghatak",
+            "Tim Besley"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_maitreesh_ghatak:66665cb4d215",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Motivating Knowledge Agents: Can Incentive Pay Overcome Social Distance?",
+      "year": 2019,
+      "authors": [
+        "Maitreesh Ghatak",
+        "E. Berg",
+        "R. Manjula",
+        "D. Rajasekhar",
+        "Sanchari Roy"
+      ],
+      "listed_venue": "Economic Journal",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/ghatak/pub.html entry 3 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Motivating Knowledge Agents: Can Incentive Pay Overcome Social Distance?",
+          "year": 2018,
+          "authors": [
+            "Maitreesh Ghatak",
+            "E. Berg",
+            "R. Manjula",
+            "D. Rajasekhar",
+            "Sanchari Roy"
+          ]
+        },
+        {
+          "title": "Motivating Knowledge Agents: Can Incentive Pay Overcome Social Distance?",
+          "year": 2020,
+          "authors": [
+            "Maitreesh Ghatak",
+            "E. Berg",
+            "R. Manjula",
+            "D. Rajasekhar",
+            "Sanchari Roy"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_maitreesh_ghatak:8f0efe1e189b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Universal Basic Income: Some Theoretical Aspects",
+      "year": 2019,
+      "authors": [
+        "Maitreesh Ghatak",
+        "François Maniquet"
+      ],
+      "listed_venue": "Annual Review of Economics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/ghatak/pub.html entry 2 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1146/annurev-economics-080218-030220"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Universal Basic Income: Some Theoretical Aspects",
+          "year": 2018,
+          "authors": [
+            "Maitreesh Ghatak",
+            "François Maniquet"
+          ]
+        },
+        {
+          "title": "Universal Basic Income: Some Theoretical Aspects",
+          "year": 2020,
+          "authors": [
+            "Maitreesh Ghatak",
+            "François Maniquet"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1146/annurev-economics-080218-030220",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Universal Basic Income: Some Theoretical Aspects",
+          "crossref_year": 2019
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_maitreesh_ghatak:503fbeb877bf",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Is Funding a Large Universal Basic Income Feasible? A Quantitative Analysis of UBI with Endogenous Labour Supply",
+      "year": 2020,
+      "authors": [
+        "Maitreesh Ghatak",
+        "Xavier Jaravel"
+      ],
+      "listed_venue": "LSE Public Policy Review",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/ghatak/pub.html entry 11 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.31389/lseppr.9"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Is Funding a Large Universal Basic Income Feasible? A Quantitative Analysis of UBI with Endogenous Labour Supply",
+          "year": 2019,
+          "authors": [
+            "Maitreesh Ghatak",
+            "Xavier Jaravel"
+          ]
+        },
+        {
+          "title": "Is Funding a Large Universal Basic Income Feasible? A Quantitative Analysis of UBI with Endogenous Labour Supply",
+          "year": 2021,
+          "authors": [
+            "Maitreesh Ghatak",
+            "Xavier Jaravel"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.31389/lseppr.9",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Is Funding a Large Universal Basic Income Feasible? A Quantitative Analysis of UBI with Endogenous Labour Supply",
+          "crossref_year": 2020
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_maitreesh_ghatak:26f5a1ae851e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Why do People Stay Poor?",
+      "year": 2022,
+      "authors": [
+        "Maitreesh Ghatak",
+        "C. Balboni",
+        "O. Bandiera",
+        "R. Burgess",
+        "J.A. Heil"
+      ],
+      "listed_venue": "Quarterly Journal of Economics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/ghatak/pub.html entry 1 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3386/w29340"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Why do People Stay Poor?",
+          "year": 2021,
+          "authors": [
+            "Maitreesh Ghatak",
+            "C. Balboni",
+            "O. Bandiera",
+            "R. Burgess",
+            "J.A. Heil"
+          ]
+        },
+        {
+          "title": "Why do People Stay Poor?",
+          "year": 2023,
+          "authors": [
+            "Maitreesh Ghatak",
+            "C. Balboni",
+            "O. Bandiera",
+            "R. Burgess",
+            "J.A. Heil"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3386/w29340",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Why do people stay poor?",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_maitreesh_ghatak:12b44d4197a6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Acquiring Land from Traditional Communities: Bottlenecks, Misallocation, and Second-Best Considerations",
+      "year": 2023,
+      "authors": [
+        "Maitreesh Ghatak",
+        "Dilip Mookherjee"
+      ],
+      "listed_venue": "Oxford Open Economics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/ghatak/pub.html entry 9 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1093/ooec/odad006"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Acquiring Land from Traditional Communities: Bottlenecks, Misallocation, and Second-Best Considerations",
+          "year": 2022,
+          "authors": [
+            "Maitreesh Ghatak",
+            "Dilip Mookherjee"
+          ]
+        },
+        {
+          "title": "Acquiring Land from Traditional Communities: Bottlenecks, Misallocation, and Second-Best Considerations",
+          "year": 2024,
+          "authors": [
+            "Maitreesh Ghatak",
+            "Dilip Mookherjee"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1093/ooec/odad006",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Acquiring Land from Traditional Communities: Bottlenecks, Misallocation and Second-Best Considerations",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_maitreesh_ghatak:5922d372916e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Inequality and Identity Salience",
+      "year": 2023,
+      "authors": [
+        "Maitreesh Ghatak",
+        "Thierry Verdier"
+      ],
+      "listed_venue": "Indian Economic Review",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/ghatak/pub.html entry 10 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/s41775-023-00164-1"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Inequality and Identity Salience",
+          "year": 2022,
+          "authors": [
+            "Maitreesh Ghatak",
+            "Thierry Verdier"
+          ]
+        },
+        {
+          "title": "Inequality and Identity Salience",
+          "year": 2024,
+          "authors": [
+            "Maitreesh Ghatak",
+            "Thierry Verdier"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1007/s41775-023-00164-1",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Inequality and identity salience",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_maitreesh_ghatak:ccbbd5e1b620",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Direct transfer policies for the poor",
+      "year": 2024,
+      "authors": [
+        "Maitreesh Ghatak"
+      ],
+      "listed_venue": "Journal of Social and Economic Development",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/ghatak/pub.html entry 8 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/s40847-023-00306-4"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Direct transfer policies for the poor",
+          "year": 2023,
+          "authors": [
+            "Maitreesh Ghatak"
+          ]
+        },
+        {
+          "title": "Direct transfer policies for the poor",
+          "year": 2025,
+          "authors": [
+            "Maitreesh Ghatak"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1007/s40847-023-00306-4",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Direct transfer policies for the poor",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_maitreesh_ghatak:44046beb1c89",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Revisiting the Eswaran-Kotwal Model of Tenancy",
+      "year": 2024,
+      "authors": [
+        "Maitreesh Ghatak",
+        "Dilip Mookherjee"
+      ],
+      "listed_venue": "Studies in Microeconomics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/ghatak/pub.html entry 7 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3386/w31932"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Revisiting the Eswaran-Kotwal Model of Tenancy",
+          "year": 2023,
+          "authors": [
+            "Maitreesh Ghatak",
+            "Dilip Mookherjee"
+          ]
+        },
+        {
+          "title": "Revisiting the Eswaran-Kotwal Model of Tenancy",
+          "year": 2025,
+          "authors": [
+            "Maitreesh Ghatak",
+            "Dilip Mookherjee"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3386/w31932",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Revisiting the Eswaran-Kotwal Model of Tenancy",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_maitreesh_ghatak:df68bad8b352",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Reassessing India's Poverty Decline over the Missing Decade: 2011-12 to 2022-23",
+      "year": 2025,
+      "authors": [
+        "Maitreesh Ghatak",
+        "Rishabh Kumar"
+      ],
+      "listed_venue": "CEPR Discussion Paper DP19909",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/ghatak/pub.html entry 13 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Reassessing India's Poverty Decline over the Missing Decade: 2011-12 to 2022-23",
+          "year": 2024,
+          "authors": [
+            "Maitreesh Ghatak",
+            "Rishabh Kumar"
+          ]
+        },
+        {
+          "title": "Reassessing India's Poverty Decline over the Missing Decade: 2011-12 to 2022-23",
+          "year": 2026,
+          "authors": [
+            "Maitreesh Ghatak",
+            "Rishabh Kumar"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

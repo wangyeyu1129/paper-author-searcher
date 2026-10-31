@@ -1,0 +1,328 @@
+{
+ "snapshot_schema_version": 1,
+ "source_url": "https://javirando.com/",
+ "captured_at": "2026-10-30",
+ "captured_by": "Assistant transcription of the public page; pending human review",
+ "scope_note": "Public list on the page; Claude transcription, spot-checked by the assistant. Not read from this system's output.",
+ "transcription_notes": [],
+ "entries": [
+  {
+   "title": "Poisoning Attacks on LLMs Require a Near-constant Number of Poison Samples",
+   "year": 2025,
+   "type": "preprint",
+   "venue": "Pre-print",
+   "authors": [
+    "Alexandra Souly",
+    "Javier Rando",
+    "Ed Chapman",
+    "Xander Davies",
+    "Burak Hasircioglu",
+    "Ezzeldin Shereen",
+    "Carlos Mougan",
+    "Vasilios Mavroudis",
+    "Erik Jones",
+    "Chris Hicks",
+    "Nicholas Carlini",
+    "Yarin Gal",
+    "Robert Kirk"
+   ]
+  },
+  {
+   "title": "AutoAdvExBench: Benchmarking autonomous exploitation of adversarial example defenses",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICML",
+   "authors": [
+    "Nicholas Carlini",
+    "Edoardo Debenedetti",
+    "Javier Rando",
+    "Milad Nasr",
+    "Florian Tramèr"
+   ]
+  },
+  {
+   "title": "Scalable Extraction of Training Data from Aligned, Production Language Models",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICLR",
+   "authors": [
+    "Milad Nasr",
+    "Javier Rando",
+    "Nicholas Carlini",
+    "Jonathan Hayase",
+    "Matthew Jagielski",
+    "A. Feder Cooper",
+    "Daphne Ippolito",
+    "Christopher A. Choquette-Choo",
+    "Florian Tramèr",
+    "Katherine Lee"
+   ]
+  },
+  {
+   "title": "Measuring Non-Adversarial Reproduction of Training Data in Large Language Models",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICLR",
+   "authors": [
+    "Michael Aerni",
+    "Javier Rando",
+    "Edoardo Debenedetti",
+    "Nicholas Carlini",
+    "Daphne Ippolito",
+    "Florian Tramèr"
+   ]
+  },
+  {
+   "title": "Llama Guard 3 Vision: Safeguarding Human-AI Image Understanding Conversations",
+   "year": 2024,
+   "type": "preprint",
+   "venue": "Pre-print",
+   "authors": [
+    "Jianfeng Chi",
+    "Ujjwal Karn",
+    "Hongyuan Zhan",
+    "Eric Smith",
+    "Javier Rando",
+    "Yiming Zhang",
+    "Kate Plawiak",
+    "Zacharie Delpierre Coudert",
+    "Kartikeya Upasani",
+    "Mahesh Pasupuleti"
+   ]
+  },
+  {
+   "title": "Persistent Pre-Training Poisoning of LLMs",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICLR",
+   "authors": [
+    "Yiming Zhang",
+    "Javier Rando",
+    "Ivan Evtimov",
+    "Jianfeng Chi",
+    "Eric Michael Smith",
+    "Nicholas Carlini",
+    "Florian Tramèr",
+    "Daphne Ippolito"
+   ]
+  },
+  {
+   "title": "Gradient-based Jailbreak Images for Multimodal Fusion Models",
+   "year": 2024,
+   "type": "preprint",
+   "venue": "Pre-print",
+   "authors": [
+    "Javier Rando",
+    "Hannah Korevaar",
+    "Erik Brinkman",
+    "Ivan Evtimov",
+    "Florian Tramèr"
+   ]
+  },
+  {
+   "title": "An Adversarial Perspective on Machine Unlearning for AI Safety",
+   "year": 2024,
+   "type": "journal_article",
+   "venue": "TMLR and SoLaR Workshop @ NeurIPS",
+   "authors": [
+    "Jakub Łucki",
+    "Boyi Wei",
+    "Yangsibo Huang",
+    "Peter Henderson",
+    "Florian Tramèr",
+    "Javier Rando"
+   ]
+  },
+  {
+   "title": "Dataset and Lessons Learned from the 2024 SaTML LLM Capture-the-Flag Competition",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "NeurIPS Dataset and Benchmarks",
+   "authors": [
+    "Edoardo Debenedetti",
+    "Javier Rando",
+    "Daniel Paleka",
+    "Silaghi Fineas Florin",
+    "Dragos Albastroiu",
+    "Niv Cohen",
+    "Yuval Lemberg",
+    "Reshmi Ghosh",
+    "Rui Wen",
+    "Ahmed Salem",
+    "Giovanni Cherubin",
+    "Santiago Zanella-Beguelin",
+    "Robin Schmid",
+    "Victor Klemm",
+    "Takahiro Miki",
+    "Chenhao Li",
+    "Stefan Kraft",
+    "Mario Fritz",
+    "Florian Tramèr",
+    "Sahar Abdelnabi",
+    "Lea Schönherr"
+   ]
+  },
+  {
+   "title": "Adversarial Perturbations Cannot Reliably Protect Artists From Generative AI",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICLR and GenLaw Workshop @ ICML 2024",
+   "authors": [
+    "Robert Hönig",
+    "Javier Rando",
+    "Nicholas Carlini",
+    "Florian Tramèr"
+   ]
+  },
+  {
+   "title": "Competition Report: Finding Universal Jailbreak Backdoors in Aligned LLMs",
+   "year": 2024,
+   "type": "preprint",
+   "venue": "Pre-print",
+   "authors": [
+    "Javier Rando",
+    "Francesco Croce",
+    "Krystof Mitka",
+    "Stepan Shabalin",
+    "Maksym Andriushchenko",
+    "Nicolas Flammarion",
+    "Florian Tramèr"
+   ]
+  },
+  {
+   "title": "Foundational Challenges in Assuring Alignment and Safety of Large Language Models",
+   "year": 2024,
+   "type": "preprint",
+   "venue": "Agenda",
+   "authors": [
+    "Usman Anwar",
+    "Abulhair Saparov",
+    "Javier Rando",
+    "Daniel Paleka",
+    "Miles Turpin",
+    "Peter Hase",
+    "Ekdeep Singh",
+    "Erik Jenner",
+    "Stephen Casper",
+    "Oliver Sourbut",
+    "Benjamin Edelman",
+    "Zhaowei Zhang",
+    "Mario Gunther",
+    "Anton Korinek",
+    "Jose Hernandez-Orallo",
+    "Lewis Hammond",
+    "Eric Bigelow",
+    "Alexander Pan",
+    "Lauro Langosco",
+    "Tomasz Korbak",
+    "Heidi Zhang",
+    "Ruiqi Zhong",
+    "Seán Ó hÉigeartaigh",
+    "Gabriel Rachet",
+    "Giulio Corsi",
+    "Alan Chan",
+    "Markus Anderljung",
+    "Lillian Edwards",
+    "Yoshua Bengio",
+    "Danqi Chen",
+    "Samuel Albanie",
+    "Tegan Maharaj",
+    "Jakob Foerster",
+    "Florian Tramer",
+    "He He",
+    "Atoosa Kasirzadeh",
+    "Yejin Choi",
+    "David Krueger"
+   ]
+  },
+  {
+   "title": "Universal Jailbreak Backdoors from Poisoned Human Feedback",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ICLR",
+   "authors": [
+    "Javier Rando",
+    "Florian Tramèr"
+   ]
+  },
+  {
+   "title": "Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "SoLaR Workshop @ NeurIPS",
+   "authors": [
+    "Rusheb Shah",
+    "Soroush Pour",
+    "Arush Tagade",
+    "Stephen Casper",
+    "Javier Rando"
+   ]
+  },
+  {
+   "title": "Personas as a Way to Model Truthfulness in Language Models",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "EMNLP 2024",
+   "authors": [
+    "Nitish Joshi",
+    "Javier Rando",
+    "Abulhair Saparov",
+    "Najoung Kim",
+    "He He"
+   ]
+  },
+  {
+   "title": "Open Problems and Fundamental Limitations of Reinforcement Learning from Human Feedback",
+   "year": 2023,
+   "type": "journal_article",
+   "venue": "Transactions on Machine Learning Research",
+   "authors": [
+    "S. Casper",
+    "X. Davies",
+    "C. Shi",
+    "T. K. Gilbert",
+    "J. Scheurer",
+    "J. Rando",
+    "R. Freedman",
+    "T. Korbak",
+    "D. Lindner",
+    "P. Freire",
+    "T. Wang",
+    "S. Marks",
+    "C.-R. Segerie",
+    "M. Carroll",
+    "A. Peng",
+    "P. Christoffersen",
+    "M. Damani",
+    "S. Slocum",
+    "U. Anwar",
+    "A. Siththaranjan",
+    "M. Nadeau",
+    "E. J. Michaud",
+    "J. Pfau",
+    "D. Krasheninnikov",
+    "X. Chen",
+    "L. Langosco",
+    "P. Hase",
+    "E. Bıyık",
+    "A. Dragan",
+    "D. Krueger",
+    "D. Sadigh",
+    "D. Hadfield-Menell"
+   ]
+  },
+  {
+   "title": "Red-Teaming the Stable Diffusion Safety Filter",
+   "year": 2022,
+   "type": "preprint",
+   "venue": "arXiv preprint arXiv:2210.04610",
+   "authors": [
+    "Javier Rando",
+    "Daniel Paleka",
+    "David Lindner",
+    "Lennart Heim",
+    "Florian Tramèr"
+   ]
+  }
+ ]
+}

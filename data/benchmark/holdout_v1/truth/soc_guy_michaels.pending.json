@@ -1,0 +1,564 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "soc_guy_michaels",
+    "dataset_id": "holdout_v1",
+    "search_input": {
+      "name": "Guy Michaels",
+      "university": "London School of Economics"
+    },
+    "scope": {
+      "year_start": 2018,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-30T21:04:27.671861+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://personal.lse.ac.uk/michaels/",
+        "records": 10
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "soc_guy_michaels:2fa39bed81b2",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Resetting the Urban Network: 117-2012",
+      "year": 2018,
+      "authors": [
+        "Guy Michaels",
+        "Ferdinand Rauch"
+      ],
+      "listed_venue": "Economic Journal",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/michaels/ entry 7 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1111/ecoj.12424"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Resetting the Urban Network: 117-2012",
+          "year": 2017,
+          "authors": [
+            "Guy Michaels",
+            "Ferdinand Rauch"
+          ]
+        },
+        {
+          "title": "Resetting the Urban Network: 117-2012",
+          "year": 2019,
+          "authors": [
+            "Guy Michaels",
+            "Ferdinand Rauch"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1111/ecoj.12424",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Resetting the Urban Network: 117-2012",
+          "crossref_year": 2017
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_guy_michaels:b22140b18350",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Robots at Work",
+      "year": 2018,
+      "authors": [
+        "Guy Michaels",
+        "Georg Graetz"
+      ],
+      "listed_venue": "Review of Economics and Statistics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/michaels/ entry 6 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Robots at Work",
+          "year": 2017,
+          "authors": [
+            "Guy Michaels",
+            "Georg Graetz"
+          ]
+        },
+        {
+          "title": "Robots at Work",
+          "year": 2019,
+          "authors": [
+            "Guy Michaels",
+            "Georg Graetz"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_guy_michaels:a68c58687f9d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Task Specialization in U.S. Cities from 1880-2000",
+      "year": 2019,
+      "authors": [
+        "Guy Michaels",
+        "Ferdinand Rauch",
+        "Stephen Redding"
+      ],
+      "listed_venue": "Journal of the European Economic Association",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/michaels/ entry 5 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Task Specialization in U.S. Cities from 1880-2000",
+          "year": 2018,
+          "authors": [
+            "Guy Michaels",
+            "Ferdinand Rauch",
+            "Stephen Redding"
+          ]
+        },
+        {
+          "title": "Task Specialization in U.S. Cities from 1880-2000",
+          "year": 2020,
+          "authors": [
+            "Guy Michaels",
+            "Ferdinand Rauch",
+            "Stephen Redding"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_guy_michaels:e425984e1484",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Flooded Cities",
+      "year": 2020,
+      "authors": [
+        "Guy Michaels",
+        "Adriana Kocornik-Mina",
+        "Thomas McDermott",
+        "Ferdinand Rauch"
+      ],
+      "listed_venue": "American Economic Journal: Applied Economics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/michaels/ entry 4 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Flooded Cities",
+          "year": 2019,
+          "authors": [
+            "Guy Michaels",
+            "Adriana Kocornik-Mina",
+            "Thomas McDermott",
+            "Ferdinand Rauch"
+          ]
+        },
+        {
+          "title": "Flooded Cities",
+          "year": 2021,
+          "authors": [
+            "Guy Michaels",
+            "Adriana Kocornik-Mina",
+            "Thomas McDermott",
+            "Ferdinand Rauch"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_guy_michaels:ac4ca4c826bc",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Planning Ahead for Better Neighborhoods: Long Run Evidence from Tanzania",
+      "year": 2021,
+      "authors": [
+        "Guy Michaels",
+        "Dzhamilya Nigmatulina",
+        "Ferdinand Rauch",
+        "Tanner Regan",
+        "Neeraj Baruah",
+        "Amanda Dahlstrand"
+      ],
+      "listed_venue": "Journal of Political Economy",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/michaels/ entry 3 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1086/714119"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Planning Ahead for Better Neighborhoods: Long Run Evidence from Tanzania",
+          "year": 2020,
+          "authors": [
+            "Guy Michaels",
+            "Dzhamilya Nigmatulina",
+            "Ferdinand Rauch",
+            "Tanner Regan",
+            "Neeraj Baruah",
+            "Amanda Dahlstrand"
+          ]
+        },
+        {
+          "title": "Planning Ahead for Better Neighborhoods: Long Run Evidence from Tanzania",
+          "year": 2022,
+          "authors": [
+            "Guy Michaels",
+            "Dzhamilya Nigmatulina",
+            "Ferdinand Rauch",
+            "Tanner Regan",
+            "Neeraj Baruah",
+            "Amanda Dahlstrand"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1086/714119",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Planning Ahead for Better Neighborhoods: Long-Run Evidence from Tanzania",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_guy_michaels:923c5e984b43",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Individual Consequences of Occupational Decline",
+      "year": 2023,
+      "authors": [
+        "Guy Michaels",
+        "Per-Anders Edin",
+        "Tiernan Evans",
+        "Georg Graetz",
+        "Sofia Hernns"
+      ],
+      "listed_venue": "Economic Journal",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/michaels/ entry 2 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1093/ej/uead027"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Individual Consequences of Occupational Decline",
+          "year": 2022,
+          "authors": [
+            "Guy Michaels",
+            "Per-Anders Edin",
+            "Tiernan Evans",
+            "Georg Graetz",
+            "Sofia Hernns"
+          ]
+        },
+        {
+          "title": "Individual Consequences of Occupational Decline",
+          "year": 2024,
+          "authors": [
+            "Guy Michaels",
+            "Per-Anders Edin",
+            "Tiernan Evans",
+            "Georg Graetz",
+            "Sofia Hernns"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1093/ej/uead027",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Individual Consequences of Occupational Decline",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_guy_michaels:af3d8cd9b7db",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Cities and the Sea Level",
+      "year": 2024,
+      "authors": [
+        "Guy Michaels",
+        "Yatang Lin",
+        "Thomas McDermott"
+      ],
+      "listed_venue": "Journal of Urban Economics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/michaels/ entry 1 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Cities and the Sea Level",
+          "year": 2023,
+          "authors": [
+            "Guy Michaels",
+            "Yatang Lin",
+            "Thomas McDermott"
+          ]
+        },
+        {
+          "title": "Cities and the Sea Level",
+          "year": 2025,
+          "authors": [
+            "Guy Michaels",
+            "Yatang Lin",
+            "Thomas McDermott"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_guy_michaels:4fd51c04c19f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Greenfield Urban Planning",
+      "year": 2025,
+      "authors": [
+        "Guy Michaels",
+        "Vernon Henderson",
+        "Francisco Lbano-Monteiro",
+        "Martina Manara",
+        "Tanner Regan"
+      ],
+      "listed_venue": "Working Paper",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/michaels/ entry 10 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Greenfield Urban Planning",
+          "year": 2024,
+          "authors": [
+            "Guy Michaels",
+            "Vernon Henderson",
+            "Francisco Lbano-Monteiro",
+            "Martina Manara",
+            "Tanner Regan"
+          ]
+        },
+        {
+          "title": "Greenfield Urban Planning",
+          "year": 2026,
+          "authors": [
+            "Guy Michaels",
+            "Vernon Henderson",
+            "Francisco Lbano-Monteiro",
+            "Martina Manara",
+            "Tanner Regan"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_guy_michaels:2d25408be647",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Identifying Agglomeration Shadows: Long-run Evidence from Ancient Ports",
+      "year": 2025,
+      "authors": [
+        "Guy Michaels",
+        "Richard Hornbeck",
+        "Ferdinand Rauch"
+      ],
+      "listed_venue": "Working Paper",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/michaels/ entry 8 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3386/w32634"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Identifying Agglomeration Shadows: Long-run Evidence from Ancient Ports",
+          "year": 2024,
+          "authors": [
+            "Guy Michaels",
+            "Richard Hornbeck",
+            "Ferdinand Rauch"
+          ]
+        },
+        {
+          "title": "Identifying Agglomeration Shadows: Long-run Evidence from Ancient Ports",
+          "year": 2026,
+          "authors": [
+            "Guy Michaels",
+            "Richard Hornbeck",
+            "Ferdinand Rauch"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3386/w32634",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Identifying Agglomeration Shadows: Long-run Evidence from Ancient Ports",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_guy_michaels:dae70b2c32c4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Online versus In-Person Services: Effects on Patients and Providers",
+      "year": 2025,
+      "authors": [
+        "Guy Michaels",
+        "Amanda Dahlstrand",
+        "Nestor Le Nestour"
+      ],
+      "listed_venue": "Working Paper",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://personal.lse.ac.uk/michaels/ entry 9 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Online versus In-Person Services: Effects on Patients and Providers",
+          "year": 2024,
+          "authors": [
+            "Guy Michaels",
+            "Amanda Dahlstrand",
+            "Nestor Le Nestour"
+          ]
+        },
+        {
+          "title": "Online versus In-Person Services: Effects on Patients and Providers",
+          "year": 2026,
+          "authors": [
+            "Guy Michaels",
+            "Amanda Dahlstrand",
+            "Nestor Le Nestour"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

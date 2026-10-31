@@ -13,6 +13,9 @@ from .models import PaperRecord, ProfessorProfile
 from .paper_authorship import canonical_author_id
 from .precision_guards import DepartmentMatcher, target_affiliations
 
+# Comparing evidence takes two people with some.
+MINIMUM_EVIDENCE_PEOPLE = 2
+
 
 @dataclass(frozen=True)
 class ContenderEvidence:
@@ -57,7 +60,7 @@ class DepartmentAdjudicator:
         if not self.config.contender_department_adjudication or not profile.requested_department:
             return None
         evidence = self.evidence(profile, records)
-        if len(evidence) < 2:
+        if len(evidence) < MINIMUM_EVIDENCE_PEOPLE:
             return None
         winners = [
             item

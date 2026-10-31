@@ -3,6 +3,15 @@
 import threading
 import time
 from collections.abc import Callable, Hashable
+from typing import Protocol
+
+
+class Pacer(Protocol):
+    """Spaces out request starts per key; implementations may share their slots beyond one process."""
+
+    def wait(self, key: Hashable | None = None) -> float: ...
+
+    def hold(self, key: Hashable | None, seconds: float) -> None: ...
 
 
 class RequestPacer:
@@ -36,3 +45,9 @@ class RequestPacer:
         if delay > 0:
             self._sleep(delay)
         return delay
+
+    def hold(self, key: Hashable | None, seconds: float) -> None:
+        """No new request for ``key`` for ``seconds``: the host asked us to back off."""
+        with self._lock:
+            now = self._clock()
+            self._next[key] = max(self._next.get(key, now), now + seconds)

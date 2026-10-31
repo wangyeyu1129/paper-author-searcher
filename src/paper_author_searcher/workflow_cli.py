@@ -18,6 +18,10 @@ from .workflow import MODES, load_checkpoint
 logger = logging.getLogger(__name__)
 
 
+# The largest page size every source accepts.
+MAXIMUM_PAGE_SIZE = 200
+
+
 def add_hint_arguments(parser):
     """Optional identity hints; each one makes namesake disambiguation far more reliable."""
     parser.add_argument('--orcid', help='ORCID iD of the researcher')
@@ -124,8 +128,8 @@ def _validate(parser, args):
     for name in ('max_downloads', 'max_pdf_papers', 'max_pages'):
         if getattr(args, name) is not None and getattr(args, name) < 1:
             parser.error('--{} must be positive'.format(name.replace('_', '-')))
-    if args.page_size is not None and not 1 <= args.page_size <= 200:
-        parser.error('--page-size must be between 1 and 200')
+    if args.page_size is not None and not 1 <= args.page_size <= MAXIMUM_PAGE_SIZE:
+        parser.error(f'--page-size must be between 1 and {MAXIMUM_PAGE_SIZE}')
     for name in ('timeout', 'max_file_mb'):
         value = getattr(args, name)
         if value is not None and (not math.isfinite(value) or value <= 0):

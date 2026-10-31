@@ -1,0 +1,458 @@
+{
+  "lookups": {
+    "adversarial search engine optimization for large language models": {
+      "title": "Adversarial Search Engine Optimization for Large Language Models",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.5220/0012739200003690",
+          "title": "Generation of Breaking News Contents Using Large Language Models and Search Engine Optimization",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 26th International Conference on Enterprise Information Systems",
+          "family_names": [
+            "Pereira",
+            "Wanzeller",
+            "Rosado da Cruz"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.6512878",
+          "title": "The Disruption of Search Engine Optimization by Large Language Models: A Mixed-Methods Analysis of the Evolving Search Landscape",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Pagadala"
+          ]
+        },
+        {
+          "doi": "10.12681/eadd/57329",
+          "title": "Software-driven e-commerce",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Ρουμελιώτης"
+          ]
+        },
+        {
+          "doi": "10.1109/fllm63129.2024.10852433",
+          "title": "Utilizing LLMs for Enhancing Search Engine Optimization Strategies in Digital Marketing",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 2nd International Conference on Foundation and Large Language Models (FLLM)",
+          "family_names": [
+            "Samarah",
+            "Alrawashdeh",
+            "Mughaid",
+            "AlZu’Bi"
+          ]
+        },
+        {
+          "doi": "10.1007/978-3-032-01563-1_4",
+          "title": "Applying Large Language Models to Search",
+          "year": 2025,
+          "type": "book-chapter",
+          "container": "How Large Language Models Can Help Your Search Project",
+          "family_names": [
+            "Benedetti"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:36:03.683151+00:00"
+    },
+    "agentdojo a dynamic environment to evaluate prompt injection attacks and defenses for llm agents": {
+      "title": "AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.52202/079017-2636",
+          "title": "AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 37",
+          "family_names": [
+            "Debenedetti",
+            "Zhang",
+            "Balunovic",
+            "Beurer-Kellner",
+            "Fischer",
+            "Tramèr"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/2025.findings-naacl.395",
+          "title": "Adaptive Attacks Break Defenses Against Indirect Prompt Injection Attacks on LLM Agents",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Findings of the Association for Computational Linguistics: NAACL 2025",
+          "family_names": [
+            "Zhan",
+            "Fang",
+            "Panchal",
+            "Kang"
+          ]
+        },
+        {
+          "doi": "10.3390/computers15090570",
+          "title": "Evaluating Indirect Prompt Injection Defenses in Tool-Using LLM Agents: Security, Utility, and Replication",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Computers",
+          "family_names": [
+            "Khan",
+            "AlKhanbashi",
+            "Mohamed"
+          ]
+        },
+        {
+          "doi": "10.1109/bigdia71496.2026.11684636",
+          "title": "A Systematic Survey of Prompt Injection Attacks and Defenses in LLM-Integrated Applications and Agentic Systems",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "2026 12th International Conference on Big Data and Information Analytics (BigDIA)",
+          "family_names": [
+            "Cao",
+            "Bao"
+          ]
+        },
+        {
+          "doi": "10.1109/ijcnn69854.2026.11729999",
+          "title": "Assessing Defenses Against Prompt Injection Attacks in LLM Systems",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "2026 International Joint Conference on Neural Networks (IJCNN)",
+          "family_names": [
+            "Seyhan",
+            "Soleymanzadeh",
+            "Cengiz",
+            "Ecevit",
+            "Arkhmammadova",
+            "Kaya"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:36:03.839360+00:00"
+    },
+    "design patterns for securing llm agents against prompt injections": {
+      "title": "Design Patterns for Securing LLM Agents against Prompt Injections",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.31234/osf.io/zxuwf_v2",
+          "title": "Defenses against LLM prompt injections in academic peer review",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Zika"
+          ]
+        },
+        {
+          "doi": "10.31234/osf.io/zxuwf_v1",
+          "title": "Defenses against LLM prompt injections in academic peer review",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Zika"
+          ]
+        },
+        {
+          "doi": "10.3390/electronics15163700",
+          "title": "Securing the Prompt Pipeline: A Systematic Review of Defense Mechanisms Against Prompt-Based Attacks in LLM Agents",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Electronics",
+          "family_names": [
+            "Mourad",
+            "Abdallah",
+            "Ababneh"
+          ]
+        },
+        {
+          "doi": "10.1109/aaiml67890.2026.11498071",
+          "title": "Hold the Prompt (HODPOT): Defense Design for Securing the System Prompt of LLM Agents",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "2026 International Conference on Advances in Artificial Intelligence and Machine Learning (AAIML)",
+          "family_names": [
+            "Khac",
+            "Mezger",
+            "Thürck"
+          ]
+        },
+        {
+          "doi": "10.36227/techrxiv.175416873.36395198/v1",
+          "title": "LLM Adversarial Prompt Attack Detection and Mitigation Engine: A  Novel Framework for Securing Generative AI Systems",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Fathima"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:36:07.122177+00:00"
+    },
+    "evading black box classifiers without breaking eggs": {
+      "title": "Evading Black-box Classifiers Without Breaking Eggs",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1109/satml59370.2024.00027",
+          "title": "Evading Black-box Classifiers Without Breaking Eggs",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE Conference on Secure and Trustworthy Machine Learning (SaTML)",
+          "family_names": [
+            "Debenedetti",
+            "Carlini",
+            "Tramèr"
+          ]
+        },
+        {
+          "doi": "10.70675/afa1c80bz1e1fz4930zb0eaz215e7bb5bf65",
+          "title": "Local post-hoc interpretability for black-box classifiers",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Laugel"
+          ]
+        },
+        {
+          "doi": "10.23943/princeton/9780691134550.003.0007",
+          "title": "Salience without a Black Box",
+          "year": 2020,
+          "type": "book-chapter",
+          "container": "Emotion and Virtue",
+          "family_names": [
+            "Sreenivasan"
+          ]
+        },
+        {
+          "doi": "10.1109/fuzz48607.2020.9177770",
+          "title": "Experimental Study on Generating Multi-modal Explanations of Black-box Classifiers in terms of Gray-box Classifiers",
+          "year": 2020,
+          "type": "proceedings-article",
+          "container": "2020 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
+          "family_names": [
+            "Alonso",
+            "Toja-Alamancos",
+            "Bugarin"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.4014109",
+          "title": "European Way of Life: Making An Omelette without Breaking the Eggs?",
+          "year": 2022,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Kiss",
+            "Sziebig"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:36:07.269540+00:00"
+    },
+    "jailbreakbench an open robustness benchmark for jailbreaking language models": {
+      "title": "JailbreakBench: An Open Robustness Benchmark for Jailbreaking Language Models",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.52202/079017-1745",
+          "title": "JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 37",
+          "family_names": [
+            "Chao",
+            "Debenedetti",
+            "Robey",
+            "Andriushchenko",
+            "Croce",
+            "Sehwag",
+            "Dobriban",
+            "Flammarion",
+            "Pappas",
+            "Tramèr",
+            "Hassani",
+            "Wong"
+          ]
+        },
+        {
+          "doi": "10.1109/icaic67076.2026.11395786",
+          "title": "Jailbreaking Large Language Models: Techniques, Trends, Defenses, and Open Challenges",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "2026 IEEE 5th International Conference on AI in Cybersecurity (ICAIC)",
+          "family_names": [
+            "Vinay"
+          ]
+        },
+        {
+          "doi": "10.3390/app14167150",
+          "title": "Open Sesame! Universal Black-Box Jailbreaking of Large Language Models",
+          "year": 2024,
+          "type": "journal-article",
+          "container": "Applied Sciences",
+          "family_names": [
+            "Lapid",
+            "Langberg",
+            "Sipper"
+          ]
+        },
+        {
+          "doi": "10.1109/tifs.2026.3734766/mm1",
+          "title": "Sequential Comics for Jailbreaking Multimodal Large Language Models via Structured Visual Storytelling_supp1-3734766.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Zou"
+          ]
+        },
+        {
+          "doi": "10.18653/v1/2026.acl-long.1259",
+          "title": "Audio Jailbreak: An Open Comprehensive Benchmark for Jailbreaking Large Audio-Language Models",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+          "family_names": [
+            "Song",
+            "Jiang",
+            "Cui",
+            "Li",
+            "Gao",
+            "Zhang",
+            "Xu",
+            "Wang",
+            "Ouyang",
+            "Chen",
+            "Chen"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:36:07.438225+00:00"
+    },
+    "llms unlock new paths to monetizing exploits": {
+      "title": "LLMs unlock new paths to monetizing exploits",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.4324/9781003560227",
+          "title": "Monetizing and Localizing Foreign Aid",
+          "year": 2026,
+          "type": "monograph",
+          "container": "",
+          "family_names": [
+            "Sundberg"
+          ]
+        },
+        {
+          "doi": "10.1021/acsami.5c09870.s001",
+          "title": "Binary BTe Selectors Reinvented: Confined Conductive Paths Unlock Superior Ovonic Threshold Switching",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.1109/ictcs65341.2025.10989363",
+          "title": "AI-Driven Penetration Testing: Automating Exploits with LLMs and Metasploit-A VSFTPD Case Study",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 International Conference on New Trends in Computing Sciences (ICTCS)",
+          "family_names": [
+            "Salem",
+            "Mrian"
+          ]
+        },
+        {
+          "doi": "10.4324/9781003560227-1",
+          "title": "Introduction",
+          "year": 2026,
+          "type": "book-chapter",
+          "container": "Monetizing and Localizing Foreign Aid",
+          "family_names": [
+            "Sundberg"
+          ]
+        },
+        {
+          "doi": "10.4324/9781003560227-7",
+          "title": "The Sociality of Competition",
+          "year": 2026,
+          "type": "book-chapter",
+          "container": "Monetizing and Localizing Foreign Aid",
+          "family_names": [
+            "Sundberg"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:36:10.696403+00:00"
+    },
+    "privacy side channels in machine learning systems": {
+      "title": "Privacy Side Channels in Machine Learning Systems",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.70675/1d8f078bz88e9z4f25zae8bz3f3f960833d6",
+          "title": "Side Channels in Web Browsers : applications to Security and Privacy",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Rokicki"
+          ]
+        },
+        {
+          "doi": "10.1109/sp.2015.45",
+          "title": "Controlled-Channel Attacks: Deterministic Side Channels for Untrusted Operating Systems",
+          "year": 2015,
+          "type": "proceedings-article",
+          "container": "2015 IEEE Symposium on Security and Privacy",
+          "family_names": [
+            "Xu",
+            "Cui",
+            "Peinado"
+          ]
+        },
+        {
+          "doi": "10.7190/shu-thesis-00834",
+          "title": "Cyber Resilience and Privacy in Healthcare Information Systems Using Machine Learning",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Ameh"
+          ]
+        },
+        {
+          "doi": "10.14711/thesis-hdl167721",
+          "title": "Innovative Protocols for Decentralized Financial Systems and Privacy-Preserving Machine Learning",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Shang"
+          ]
+        },
+        {
+          "doi": "10.5220/0013275000003899",
+          "title": "Privacy Preservation for Machine Learning in IIoT Data via Manifold Learning and Elementary Row Operations",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 11th International Conference on Information Systems Security and Privacy",
+          "family_names": [
+            "Yetkin",
+            "Ballı"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:36:11.020519+00:00"
+    }
+  }
+}

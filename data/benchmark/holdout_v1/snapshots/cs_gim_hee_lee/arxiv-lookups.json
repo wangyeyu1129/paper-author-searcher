@@ -1,0 +1,1027 @@
+{
+  "lookups": {
+    "4d3r motion aware neural reconstruction and rendering of dynamic scenes from monocular videos": {
+      "title": "4D3R: Motion-Aware Neural Reconstruction and Rendering of Dynamic Scenes from Monocular Videos",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2511.05229",
+          "title": "4D3R: Motion-Aware Neural Reconstruction and Rendering of Dynamic Scenes from Monocular Videos",
+          "year": 2025,
+          "authors": [
+            "Mengqi Guo",
+            "Bo Xu",
+            "Yanyan Li",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:27.711084+00:00"
+    },
+    "adasfm from coarse global to fine incremental adaptive structure from motion": {
+      "title": "AdaSfM: From Coarse Global to Fine Incremental Adaptive Structure from Motion",
+      "year": 2023,
+      "candidates": [
+        {
+          "arxiv": "2301.12135",
+          "title": "AdaSfM: From Coarse Global to Fine Incremental Adaptive Structure from Motion",
+          "year": 2023,
+          "authors": [
+            "Yu Chen",
+            "Zihao Yu",
+            "Shu Song",
+            "Tianning Yu",
+            "Jianming Li",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:30.968370+00:00"
+    },
+    "boosting long tailed object detection via step wise learning on smooth tail data": {
+      "title": "Boosting Long-tailed Object Detection via Step-wise Learning on Smooth-tail Data",
+      "year": 2023,
+      "candidates": [
+        {
+          "arxiv": "2305.12833",
+          "title": "Boosting Long-tailed Object Detection via Step-wise Learning on Smooth-tail Data",
+          "year": 2023,
+          "authors": [
+            "Na Dong",
+            "Yongqiang Zhang",
+            "Mingli Ding",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:34.120899+00:00"
+    },
+    "clair clip aided weakly supervised zero shot cross domain image retrieval": {
+      "title": "CLAIR: CLIP-Aided Weakly Supervised Zero-Shot Cross-Domain Image Retrieval",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2508.12290",
+          "title": "CLAIR: CLIP-Aided Weakly Supervised Zero-Shot Cross-Domain Image Retrieval",
+          "year": 2025,
+          "authors": [
+            "Chor Boon Tan",
+            "Conghui Hu",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:38.977095+00:00"
+    },
+    "closely interactive human reconstruction with proxemics and physics guided adaption": {
+      "title": "Closely Interactive Human Reconstruction with Proxemics and Physics-Guided Adaption",
+      "year": 2024,
+      "candidates": [
+        {
+          "arxiv": "2404.11291",
+          "title": "Closely Interactive Human Reconstruction with Proxemics and Physics-Guided Adaption",
+          "year": 2024,
+          "authors": [
+            "Buzhen Huang",
+            "Chen Li",
+            "Chongyang Xu",
+            "Liang Pan",
+            "Yangang Wang",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:42.253534+00:00"
+    },
+    "compc completing a 3d point cloud with 2d diffusion priors": {
+      "title": "ComPC: Completing a 3D Point Cloud with 2D Diffusion Priors",
+      "year": 2025,
+      "candidates": [],
+      "fetched_at": "2026-10-30T20:15:45.413148+00:00"
+    },
+    "contranerf generalizable neural radiance fields for synthetic to real novel view synthesis via contrastive learning": {
+      "title": "ContraNeRF: Generalizable Neural Radiance Fields for Synthetic-to-Real Novel View Synthesis via Contrastive Learning",
+      "year": 2023,
+      "candidates": [
+        {
+          "arxiv": "2303.11052",
+          "title": "ContraNeRF: Generalizable Neural Radiance Fields for Synthetic-to-real Novel View Synthesis via Contrastive Learning",
+          "year": 2023,
+          "authors": [
+            "Hao Yang",
+            "Lanqing Hong",
+            "Aoxue Li",
+            "Tianyang Hu",
+            "Zhenguo Li",
+            "Gim Hee Lee",
+            "Liwei Wang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:48.587249+00:00"
+    },
+    "dbarf deep bundle adjusting generalizable neural radiance field": {
+      "title": "DBARF: Deep Bundle-Adjusting Generalizable Neural Radiance Field",
+      "year": 2023,
+      "candidates": [
+        {
+          "arxiv": "2303.14478",
+          "title": "DBARF: Deep Bundle-Adjusting Generalizable Neural Radiance Fields",
+          "year": 2023,
+          "authors": [
+            "Yu Chen",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:51.737787+00:00"
+    },
+    "dreg nerf deep registration for neural radiance fields": {
+      "title": "DReg-NeRF: Deep Registration for Neural Radiance Fields",
+      "year": 2023,
+      "candidates": [
+        {
+          "arxiv": "2308.09386",
+          "title": "DReg-NeRF: Deep Registration for Neural Radiance Fields",
+          "year": 2023,
+          "authors": [
+            "Yu Chen",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:15:54.872496+00:00"
+    },
+    "deblur e nerf nerf from motion blurred events under high speed or low light conditions": {
+      "title": "Deblur e-NeRF: NeRF from Motion-Blurred Events under High-speed or Low-light Conditions",
+      "year": 2024,
+      "candidates": [],
+      "fetched_at": "2026-10-30T20:15:58.095211+00:00"
+    },
+    "deep gaussian from motion exploring 3d geometric foundation models for gaussian splatting": {
+      "title": "Deep Gaussian from Motion: Exploring 3D Geometric Foundation Models for Gaussian Splatting",
+      "year": 2025,
+      "candidates": [],
+      "fetched_at": "2026-10-30T20:16:01.491357+00:00"
+    },
+    "diet gs diffusion prior and event stream assisted motion deblurring 3d gaussian splatting": {
+      "title": "DiET-GS: Diffusion Prior and Event Stream-Assisted Motion Deblurring 3D Gaussian Splatting",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2503.24210",
+          "title": "DiET-GS: Diffusion Prior and Event Stream-Assisted Motion Deblurring 3D Gaussian Splatting",
+          "year": 2025,
+          "authors": [
+            "Seungjun Lee",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:16:04.649357+00:00"
+    },
+    "dihur diffusion guided generalizable human reconstruction": {
+      "title": "DiHuR: Diffusion-Guided Generalizable Human Reconstruction",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2411.11903",
+          "title": "DiHuR: Diffusion-Guided Generalizable Human Reconstruction",
+          "year": 2024,
+          "authors": [
+            "Jinnan Chen",
+            "Chen Li",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:16:07.807052+00:00"
+    },
+    "disr nerf diffusion guided view consistent super resolution nerf": {
+      "title": "DiSR-NeRF: Diffusion-Guided View-Consistent Super-Resolution NeRF",
+      "year": 2024,
+      "candidates": [
+        {
+          "arxiv": "2404.00874",
+          "title": "DiSR-NeRF: Diffusion-Guided View-Consistent Super-Resolution NeRF",
+          "year": 2024,
+          "authors": [
+            "Jie Long Lee",
+            "Chen Li",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:16:10.983758+00:00"
+    },
+    "distil e2d distilling image to depth priors for event based monocular depth estimation": {
+      "title": "Distil-E2D: Distilling Image-to-Depth Priors for Event-Based Monocular Depth Estimation",
+      "year": 2025,
+      "candidates": [],
+      "fetched_at": "2026-10-30T20:16:15.846798+00:00"
+    },
+    "dogaussian distributed oriented gaussian splatting for large scale 3d reconstruction via gaussian consensus": {
+      "title": "DoGaussian: Distributed-Oriented Gaussian Splatting for Large-Scale 3D Reconstruction Via Gaussian Consensus",
+      "year": 2024,
+      "candidates": [],
+      "fetched_at": "2026-10-30T20:16:19.175756+00:00"
+    },
+    "ducos duality constrained depth super resolution via foundation model": {
+      "title": "DuCos: Duality Constrained Depth Super-Resolution via Foundation Model",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2503.04171",
+          "title": "DuCos: Duality Constrained Depth Super-Resolution via Foundation Model",
+          "year": 2025,
+          "authors": [
+            "Zhiqiang Yan",
+            "Zhengxue Wang",
+            "Haoye Dong",
+            "Jun Li",
+            "Jian Yang",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:16:22.308249+00:00"
+    },
+    "dynam3d dynamic layered 3d tokens empower vlm for vision and language navigation": {
+      "title": "Dynam3D: Dynamic Layered 3D Tokens Empower VLM for Vision-and-Language Navigation",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2505.11383",
+          "title": "Dynam3D: Dynamic Layered 3D Tokens Empower VLM for Vision-and-Language Navigation",
+          "year": 2025,
+          "authors": [
+            "Zihan Wang",
+            "Seungjun Lee",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:16:25.693485+00:00"
+    },
+    "escape encoding super keypoints for category agnostic pose estimation": {
+      "title": "ESCAPE: Encoding Super-keypoints for Category-Agnostic Pose Estimation",
+      "year": 2024,
+      "candidates": [],
+      "fetched_at": "2026-10-30T20:16:29.281120+00:00"
+    },
+    "enhancing generalizability of representation learning for data efficient 3d scene understanding": {
+      "title": "Enhancing Generalizability of Representation Learning for Data-Efficient 3D Scene Understanding",
+      "year": 2024,
+      "candidates": [
+        {
+          "arxiv": "2406.11283",
+          "title": "Enhancing Generalizability of Representation Learning for Data-Efficient 3D Scene Understanding",
+          "year": 2024,
+          "authors": [
+            "Yunsong Wang",
+            "Na Zhao",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:16:32.437334+00:00"
+    },
+    "event driven dynamic scene depth completion": {
+      "title": "Event-Driven Dynamic Scene Depth Completion",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2505.13279",
+          "title": "Event-Driven Dynamic Scene Depth Completion",
+          "year": 2025,
+          "authors": [
+            "Zhiqiang Yan",
+            "Jianhao Jiao",
+            "Zhengxue Wang",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:16:35.592874+00:00"
+    },
+    "event aided dense and continuous point tracking everywhere and anytime": {
+      "title": "Event-aided Dense and Continuous Point Tracking: Everywhere and Anytime",
+      "year": 2025,
+      "candidates": [],
+      "fetched_at": "2026-10-30T20:16:38.786486+00:00"
+    },
+    "flexevent towards flexible event frame object detection at varying operational frequencies": {
+      "title": "FlexEvent: Towards Flexible Event-Frame Object Detection at Varying Operational Frequencies",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2412.06708",
+          "title": "FlexEvent: Towards Flexible Event-Frame Object Detection at Varying Operational Frequencies",
+          "year": 2024,
+          "authors": [
+            "Dongyue Lu",
+            "Lingdong Kong",
+            "Gim Hee Lee",
+            "Camille Simon Chane",
+            "Wei Tsang Ooi"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:16:42.025086+00:00"
+    },
+    "freesplat generalizable 3d gaussian splatting towards free view synthesis of indoor scenes": {
+      "title": "FreeSplat: Generalizable 3D Gaussian Splatting Towards Free View Synthesis of Indoor Scenes",
+      "year": 2024,
+      "candidates": [
+        {
+          "arxiv": "2405.17958",
+          "title": "FreeSplat: Generalizable 3D Gaussian Splatting Towards Free-View Synthesis of Indoor Scenes",
+          "year": 2024,
+          "authors": [
+            "Yunsong Wang",
+            "Tianxin Huang",
+            "Hanlin Chen",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:16:45.199634+00:00"
+    },
+    "geal generalizable 3d affordance learning with cross modal consistency": {
+      "title": "GEAL: Generalizable 3D Affordance Learning with Cross-Modal Consistency",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2412.09511",
+          "title": "GEAL: Generalizable 3D Affordance Learning with Cross-Modal Consistency",
+          "year": 2024,
+          "authors": [
+            "Dongyue Lu",
+            "Lingdong Kong",
+            "Tianxin Huang",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:16:49.249362+00:00"
+    },
+    "ghunerf generalizable human nerf from a monocular video": {
+      "title": "GHuNeRF: Generalizable Human NeRF from a Monocular Video",
+      "year": 2024,
+      "candidates": [],
+      "fetched_at": "2026-10-30T20:16:52.404650+00:00"
+    },
+    "gnesf generalizable neural semantic fields": {
+      "title": "GNeSF: Generalizable Neural Semantic Fields",
+      "year": 2023,
+      "candidates": [
+        {
+          "arxiv": "2310.15712",
+          "title": "GNeSF: Generalizable Neural Semantic Fields",
+          "year": 2023,
+          "authors": [
+            "Hanlin Chen",
+            "Chen Li",
+            "Mengqi Guo",
+            "Zhiwen Yan",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:16:55.608365+00:00"
+    },
+    "gov nesf generalizable open vocabulary neural semantic fields": {
+      "title": "GOV-NeSF: Generalizable Open-Vocabulary Neural Semantic Fields",
+      "year": 2024,
+      "candidates": [
+        {
+          "arxiv": "2404.00931",
+          "title": "GOV-NeSF: Generalizable Open-Vocabulary Neural Semantic Fields",
+          "year": 2024,
+          "authors": [
+            "Yunsong Wang",
+            "Hanlin Chen",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:16:58.781252+00:00"
+    },
+    "get generative target structure debiasing for domain adaptation": {
+      "title": "GeT: Generative Target Structure Debiasing for Domain Adaptation",
+      "year": 2023,
+      "candidates": [
+        {
+          "arxiv": "2308.10205",
+          "title": "GeT: Generative Target Structure Debiasing for Domain Adaptation",
+          "year": 2023,
+          "authors": [
+            "Can Zhang",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:17:04.444608+00:00"
+    },
+    "genxd generating any 3d and 4d scenes": {
+      "title": "GenXD: Generating Any 3D and 4D Scenes",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2411.02319",
+          "title": "GenXD: Generating Any 3D and 4D Scenes",
+          "year": 2024,
+          "authors": [
+            "Yuyang Zhao",
+            "Chung-Ching Lin",
+            "Kevin Lin",
+            "Zhiwen Yan",
+            "Linjie Li",
+            "Zhengyuan Yang",
+            "Jianfeng Wang",
+            "Gim Hee Lee",
+            "Lijuan Wang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:17:07.580497+00:00"
+    },
+    "generalizable human gaussians from single view image": {
+      "title": "Generalizable Human Gaussians from Single-View Image",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2406.06050",
+          "title": "Generalizable Human Gaussians from Single-View Image",
+          "year": 2024,
+          "authors": [
+            "Jinnan Chen",
+            "Chen Li",
+            "Jianfeng Zhang",
+            "Lingting Zhu",
+            "Buzhen Huang",
+            "Hanlin Chen",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:17:10.735879+00:00"
+    },
+    "generalized few shot point cloud segmentation via geometric words": {
+      "title": "Generalized Few-Shot Point Cloud Segmentation Via Geometric Words",
+      "year": 2023,
+      "candidates": [
+        {
+          "arxiv": "2309.11222",
+          "title": "Generalized Few-Shot Point Cloud Segmentation Via Geometric Words",
+          "year": 2023,
+          "authors": [
+            "Yating Xu",
+            "Conghui Hu",
+            "Na Zhao",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:17:13.868864+00:00"
+    },
+    "geogaussian geometry aware gaussian splatting for scene rendering": {
+      "title": "GeoGaussian: Geometry-aware Gaussian Splatting for Scene Rendering",
+      "year": 2024,
+      "candidates": [
+        {
+          "arxiv": "2403.11324",
+          "title": "GeoGaussian: Geometry-aware Gaussian Splatting for Scene Rendering",
+          "year": 2024,
+          "authors": [
+            "Yanyan Li",
+            "Chenyu Lyu",
+            "Yan Di",
+            "Guangyao Zhai",
+            "Gim Hee Lee",
+            "Federico Tombari"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:17:16.999782+00:00"
+    },
+    "iaao interactive affordance learning for articulated objects in 3d environments": {
+      "title": "IAAO: Interactive Affordance Learning for Articulated Objects in 3D Environments",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2504.06827",
+          "title": "IAAO: Interactive Affordance Learning for Articulated Objects in 3D Environments",
+          "year": 2025,
+          "authors": [
+            "Can Zhang",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:17:20.185309+00:00"
+    },
+    "incremental detr incremental few shot object detection via self supervised learning": {
+      "title": "Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning",
+      "year": 2023,
+      "candidates": [
+        {
+          "arxiv": "2205.04042",
+          "title": "Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning",
+          "year": 2022,
+          "authors": [
+            "Na Dong",
+            "Yongqiang Zhang",
+            "Mingli Ding",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:17:23.365390+00:00"
+    },
+    "instance level moving object segmentation from a single image with events": {
+      "title": "Instance-Level Moving Object Segmentation from a Single Image with Events",
+      "year": 2025,
+      "candidates": [],
+      "fetched_at": "2026-10-30T20:17:26.566473+00:00"
+    },
+    "llafea frame event complementary fusion for fine grained spatiotemporal understanding in lmms": {
+      "title": "LLaFEA: Frame-Event Complementary Fusion for Fine-Grained Spatiotemporal Understanding in LMMs",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2503.06934",
+          "title": "LLaFEA: Frame-Event Complementary Fusion for Fine-Grained Spatiotemporal Understanding in LMMs",
+          "year": 2025,
+          "authors": [
+            "Hanyu Zhou",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:17:29.743447+00:00"
+    },
+    "learnable infinite taylor gaussian for dynamic view rendering": {
+      "title": "Learnable Infinite Taylor Gaussian for Dynamic View Rendering",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2412.04282",
+          "title": "Learnable Infinite Taylor Gaussian for Dynamic View Rendering",
+          "year": 2024,
+          "authors": [
+            "Bingbing Hu",
+            "Yanyan Li",
+            "Rui Xie",
+            "Bo Xu",
+            "Haoye Dong",
+            "Junfeng Yao",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:17:32.916464+00:00"
+    },
+    "learning to decouple the lights for 3d face texture modeling": {
+      "title": "Learning to Decouple the Lights for 3D Face Texture Modeling",
+      "year": 2024,
+      "candidates": [
+        {
+          "arxiv": "2412.08524",
+          "title": "Learning to Decouple the Lights for 3D Face Texture Modeling",
+          "year": 2024,
+          "authors": [
+            "Tianxin Huang",
+            "Zhenyu Zhang",
+            "Ying Tai",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:17:36.073301+00:00"
+    },
+    "liloc lifelong localization using adaptive submap joining and egocentric factor graph": {
+      "title": "LiLoc: Lifelong Localization using Adaptive Submap Joining and Egocentric Factor Graph",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2409.10172",
+          "title": "LiLoc: Lifelong Localization using Adaptive Submap Joining and Egocentric Factor Graph",
+          "year": 2024,
+          "authors": [
+            "Yixin Fang",
+            "Yanyan Li",
+            "Kun Qian",
+            "Federico Tombari",
+            "Yue Wang",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:17:39.207517+00:00"
+    },
+    "mar 3d progressive masked auto regressor for high resolution 3d generation": {
+      "title": "MAR-3D: Progressive Masked Auto-regressor for High-Resolution 3D Generation",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2503.20519",
+          "title": "MAR-3D: Progressive Masked Auto-regressor for High-Resolution 3D Generation",
+          "year": 2025,
+          "authors": [
+            "Jinnan Chen",
+            "Lingting Zhu",
+            "Zeyu Hu",
+            "Shengju Qian",
+            "Yugang Chen",
+            "Xin Wang",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:17:42.385157+00:00"
+    },
+    "mvsdet multi view indoor 3d object detection via efficient plane sweeps": {
+      "title": "MVSDet: Multi-View Indoor 3D Object Detection via Efficient Plane Sweeps",
+      "year": 2024,
+      "candidates": [
+        {
+          "arxiv": "2410.21566",
+          "title": "MVSDet: Multi-View Indoor 3D Object Detection via Efficient Plane Sweeps",
+          "year": 2024,
+          "authors": [
+            "Yating Xu",
+            "Chen Li",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:17:45.534513+00:00"
+    },
+    "motion and context aware audio visual conditioned video prediction": {
+      "title": "Motion and Context-Aware Audio-Visual Conditioned Video Prediction",
+      "year": 2023,
+      "candidates": [
+        {
+          "arxiv": "2212.04679",
+          "title": "Motion and Context-Aware Audio-Visual Conditioned Video Prediction",
+          "year": 2022,
+          "authors": [
+            "Yating Xu",
+            "Conghui Hu",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:17:48.726240+00:00"
+    },
+    "motion4d learning 3d consistent motion and semantics for 4d scene understanding": {
+      "title": "Motion4D: Learning 3D-Consistent Motion and Semantics for 4D Scene Understanding",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2512.03601",
+          "title": "Motion4D: Learning 3D-Consistent Motion and Semantics for 4D Scene Understanding",
+          "year": 2025,
+          "authors": [
+            "Haoran Zhou",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:17:51.884155+00:00"
+    },
+    "multi scale 3d gaussian splatting for anti aliased rendering": {
+      "title": "Multi-Scale 3D Gaussian Splatting for Anti-Aliased Rendering",
+      "year": 2024,
+      "candidates": [
+        {
+          "arxiv": "2311.17089",
+          "title": "Multi-Scale 3D Gaussian Splatting for Anti-Aliased Rendering",
+          "year": 2023,
+          "authors": [
+            "Zhiwen Yan",
+            "Weng Fei Low",
+            "Yu Chen",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:17:55.036437+00:00"
+    },
+    "nu mcc multiview compressive coding with neighborhood decoder and repulsive udf": {
+      "title": "NU-MCC: Multiview Compressive Coding with Neighborhood Decoder and Repulsive UDF",
+      "year": 2023,
+      "candidates": [
+        {
+          "arxiv": "2307.09112",
+          "title": "NU-MCC: Multiview Compressive Coding with Neighborhood Decoder and Repulsive UDF",
+          "year": 2023,
+          "authors": [
+            "Stefan Lionar",
+            "Xiangyu Xu",
+            "Min Lin",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:17:58.188452+00:00"
+    },
+    "navrag generating user demand instructions for embodied navigation through retrieval augmented llm": {
+      "title": "NavRAG: Generating User Demand Instructions for Embodied Navigation through Retrieval-Augmented LLM",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2502.11142",
+          "title": "NavRAG: Generating User Demand Instructions for Embodied Navigation through Retrieval-Augmented LLM",
+          "year": 2025,
+          "authors": [
+            "Zihan Wang",
+            "Yaohui Zhu",
+            "Gim Hee Lee",
+            "Yachun Fan"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:18:01.381281+00:00"
+    },
+    "nerf ds neural radiance fields for dynamic specular objects": {
+      "title": "NeRF-DS: Neural Radiance Fields for Dynamic Specular Objects",
+      "year": 2023,
+      "candidates": [
+        {
+          "arxiv": "2303.14435",
+          "title": "NeRF-DS: Neural Radiance Fields for Dynamic Specular Objects",
+          "year": 2023,
+          "authors": [
+            "Zhiwen Yan",
+            "Chen Li",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:18:04.516352+00:00"
+    },
+    "neurar neural uncertainty for autonomous 3d reconstruction with implicit neural representations": {
+      "title": "NeurAR: Neural Uncertainty for Autonomous 3D Reconstruction with Implicit Neural Representations",
+      "year": 2023,
+      "candidates": [
+        {
+          "arxiv": "2207.10985",
+          "title": "NeurAR: Neural Uncertainty for Autonomous 3D Reconstruction with Implicit Neural Representations",
+          "year": 2022,
+          "authors": [
+            "Yunlong Ran",
+            "Jing Zeng",
+            "Shibo He",
+            "Lincheng Li",
+            "Yingfeng Chen",
+            "Gimhee Lee",
+            "Jiming Chen",
+            "Qi Ye"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:18:07.711529+00:00"
+    },
+    "neuralized markov random field for interaction aware stochastic human trajectory prediction": {
+      "title": "Neuralized Markov Random Field for Interaction-Aware Stochastic Human Trajectory Prediction",
+      "year": 2025,
+      "candidates": [],
+      "fetched_at": "2026-10-30T20:18:10.987829+00:00"
+    },
+    "od nerf efficient training of on the fly dynamic neural radiance fields": {
+      "title": "OD-NeRF: Efficient Training of On-the-Fly Dynamic Neural Radiance Fields",
+      "year": 2025,
+      "candidates": [
+        {
+          "arxiv": "2305.14831",
+          "title": "OD-NeRF: Efficient Training of On-the-Fly Dynamic Neural Radiance Fields",
+          "year": 2023,
+          "authors": [
+            "Zhiwen Yan",
+            "Chen Li",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:18:14.165577+00:00"
+    },
+    "optimizing the placement of roadside lidars for autonomous driving": {
+      "title": "Optimizing the Placement of Roadside LiDARs for Autonomous Driving",
+      "year": 2023,
+      "candidates": [
+        {
+          "arxiv": "2310.07247",
+          "title": "Optimizing the Placement of Roadside LiDARs for Autonomous Driving",
+          "year": 2023,
+          "authors": [
+            "Wentao Jiang",
+            "Hao Xiang",
+            "Xinyu Cai",
+            "Runsheng Xu",
+            "Jiaqi Ma",
+            "Yikang Li",
+            "Gim Hee Lee",
+            "Si Liu"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:18:17.315751+00:00"
+    },
+    "overcoming the tradeoff in accuracy and plausibility for 3d hand shape reconstruction": {
+      "title": "Overcoming the Tradeoff in Accuracy and Plausibility for 3D Hand Shape Reconstruction",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:18:23.619305+00:00"
+    },
+    "pdr progressive depth regularization for monocular 3d object detection": {
+      "title": "PDR: Progressive Depth Regularization for Monocular 3D Object Detection",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:18:29.892922+00:00"
+    },
+    "ps mamba spatial temporal graph mamba for pose sequence refinement": {
+      "title": "PS-Mamba: Spatial-Temporal Graph Mamba for Pose Sequence Refinement",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:18:36.383268+00:00"
+    },
+    "particle rendering implicitly aggregating incident and outgoing light fields for novel view synthesis": {
+      "title": "Particle Rendering: Implicitly Aggregating Incident and Outgoing Light Fields for Novel View Synthesis",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:18:42.515178+00:00"
+    },
+    "posecrafter extreme pose estimation with hybrid video synthesis": {
+      "title": "PoseCrafter: Extreme Pose Estimation with Hybrid Video Synthesis",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:18:48.768290+00:00"
+    },
+    "reconstructing close human interaction with appearance and proxemics reasoning": {
+      "title": "Reconstructing Close Human Interaction with Appearance and Proxemics Reasoning",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:18:54.924203+00:00"
+    },
+    "rethink cross modal fusion in weakly supervised audio visual video parsing": {
+      "title": "Rethink Cross-modal Fusion in Weakly-Supervised Audio-Visual Video Parsing",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:19:01.043471+00:00"
+    },
+    "robust visual recognition with class imbalanced open world noisy data": {
+      "title": "Robust Visual Recognition with Class-Imbalanced Open-World Noisy Data",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:19:07.166035+00:00"
+    },
+    "robust e nerf nerf from sparse noisy events under non uniform motion": {
+      "title": "Robust e-NeRF: NeRF from Sparse & Noisy Events under Non-Uniform Motion",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:19:13.408100+00:00"
+    },
+    "std gs exploring frame event interaction for spatiotemporal disentangled gaussian splatting to reconstruct high dynamic scene": {
+      "title": "STD-GS: Exploring Frame-Event Interaction for SpatioTemporal-Disentangled Gaussian Splatting to Reconstruct High-Dynamic Scene",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:19:19.524471+00:00"
+    },
+    "scarcenet animal pose estimation with scarce annotation": {
+      "title": "ScarceNet: Animal Pose Estimation with Scarce Annotation",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:19:25.644171+00:00"
+    },
+    "segment any 3d object with language": {
+      "title": "Segment Any 3D Object with Language",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:19:31.761959+00:00"
+    },
+    "statistical confidence rescoring for robust 3d scene graph generation from multi view images": {
+      "title": "Statistical Confidence Rescoring for Robust 3D Scene Graph Generation from Multi-View Images",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:19:37.882233+00:00"
+    },
+    "street gaussians without 3d object tracker": {
+      "title": "Street Gaussians without 3D Object Tracker",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:19:44.001474+00:00"
+    },
+    "style hallucinated dual consistency learning a unified framework for visual domain generalization": {
+      "title": "Style-Hallucinated Dual Consistency Learning: A Unified Framework for Visual Domain Generalization",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:19:50.116225+00:00"
+    },
+    "syn to real unsupervised domain adaptation for indoor 3d object detection": {
+      "title": "Syn-to-Real Unsupervised Domain Adaptation for Indoor 3D Object Detection",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:19:56.396171+00:00"
+    },
+    "synthetic to real domain generalized semantic segmentation for 3d indoor point clouds": {
+      "title": "Synthetic-to-Real Domain Generalized Semantic Segmentation for 3D Indoor Point Clouds",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:20:02.829839+00:00"
+    },
+    "towards non co occurrence incremental object detection with unlabeled in the wild data": {
+      "title": "Towards Non Co-occurrence Incremental Object Detection with Unlabeled In-the-wild Data",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:20:08.981100+00:00"
+    },
+    "towards robust few shot point cloud semantic segmentation": {
+      "title": "Towards Robust Few-shot Point Cloud Semantic Segmentation",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:20:15.098244+00:00"
+    },
+    "treemeshgpt artistic mesh generation with autoregressive tree sequencing": {
+      "title": "TreeMeshGPT: Artistic Mesh Generation with Autoregressive Tree Sequencing",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:20:21.224954+00:00"
+    },
+    "treesba tree transformer for self supervised sequential brick assembly": {
+      "title": "TreeSBA: Tree-Transformer for Self-Supervised Sequential Brick Assembly",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:20:27.365572+00:00"
+    },
+    "unikd uncertainty filtered incremental knowledge distillation for neural implicit representation": {
+      "title": "UNIKD: UNcertainty-Filtered Incremental Knowledge Distillation for Neural Implicit Representation",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:20:33.627139+00:00"
+    },
+    "urs nerf unordered rolling shutter bundle adjustment for neural radiance fields": {
+      "title": "URS-NeRF: Unordered Rolling Shutter Bundle Adjustment for Neural Radiance Fields",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:20:39.745557+00:00"
+    },
+    "unsupervised feature representation learning for domain generalized cross domain image retrieval": {
+      "title": "Unsupervised Feature Representation Learning for Domain-generalized Cross-domain Image Retrieval",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:20:45.858333+00:00"
+    },
+    "vcr gaus view consistent depth normal regularizer for gaussian surface reconstruction": {
+      "title": "VCR-GauS: View Consistent Depth-Normal Regularizer for Gaussian Surface Reconstruction",
+      "year": 2024,
+      "candidates": [
+        {
+          "arxiv": "2406.05774",
+          "title": "VCR-GauS: View Consistent Depth-Normal Regularizer for Gaussian Surface Reconstruction",
+          "year": 2024,
+          "authors": [
+            "Hanlin Chen",
+            "Fangyin Wei",
+            "Chen Li",
+            "Tianxin Huang",
+            "Yunsong Wang",
+            "Gim Hee Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:20:48.887108+00:00"
+    },
+    "weakly supervised 3d pose transfer with keypoints": {
+      "title": "Weakly-supervised 3D Pose Transfer with Keypoints",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:20:55.117288+00:00"
+    },
+    "x ray a sequential 3d representation for generation": {
+      "title": "X-Ray: A Sequential 3D Representation For Generation",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:21:01.238963+00:00"
+    },
+    "x scene large scale driving scene generation with high fidelity and flexible controllability": {
+      "title": "X-Scene: Large-Scale Driving Scene Generation with High Fidelity and Flexible Controllability",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:21:07.364084+00:00"
+    },
+    "econsg efficient and multi view consistent open vocabulary 3d semantic gaussians": {
+      "title": "econSG: Efficient and Multi-view Consistent Open-Vocabulary 3D Semantic Gaussians",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:21:13.483731+00:00"
+    },
+    "g3d lf generalizable 3d language feature fields for embodied tasks": {
+      "title": "g3D-LF: Generalizable 3D-Language Feature Fields for Embodied Tasks",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:21:19.757928+00:00"
+    }
+  }
+}

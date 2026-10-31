@@ -13,6 +13,7 @@ from .config import DEFAULT_PDF
 from .http import HttpClient
 from .http_decorators import unwrap
 from .logging_config import log_isolated_failure
+from .matching import normalize_title
 from .models import PaperPDFResult, PDFProviderResult, PDFResolutionResult
 from .paper_views import bibliographic_view
 from .pdf_resource_requests import PublicResourceRequests
@@ -31,12 +32,20 @@ class PDFResolver:
 
     ``requests`` is the shared public-resource scheduler the providers and validator use; when given, its
     probe statistics are reported. Build the full source set with ``composition.ServiceContainer``.
+    ``fallbacks`` are costly sources asked only for verified papers no other source has a PDF for (``_ask_fallbacks``).
     """
 
     def __init__(
-        self, providers, validator, requests: PublicResourceRequests | None = None, config=DEFAULT_PDF, sleep=time.sleep
+        self,
+        providers,
+        validator,
+        requests: PublicResourceRequests | None = None,
+        config=DEFAULT_PDF,
+        sleep=time.sleep,
+        fallbacks=(),
     ):
         self.providers = list(providers)
+        self.fallbacks = list(fallbacks)
         self.validator = validator
         self.resource_requests = requests
         self.config = config
@@ -91,6 +100,7 @@ class PDFResolver:
             if progress:
                 progress('Finding PDF URLs', processed, progress_total)
         self._retry_transient(jobs)
+        self._ask_fallbacks(jobs)
         for result in results:
             result.failure_reasons = pdf_failure_reasons(asdict(result))
         return PDFResolutionResult(results, self._statistics(results))
@@ -191,6 +201,45 @@ class PDFResolver:
         result.error_details = [e for e in result.error_details if not ('error_type' in e and e.get('url') == url)]
         result.candidate_decisions = [d for d in result.candidate_decisions if d.get('url') != url]
 
+    def _ask_fallbacks(self, jobs):
+        """Ask each fallback once per work still without a PDF, newest first, up to the configured number of works.
+
+        Entries sharing a title are editions of one work, so the answer serves them all, and a work with a PDF under
+        any of them is not asked about.
+        """
+        if not self.fallbacks:
+            return
+        covered = {
+            normalize_title(paper.get('title') or '')
+            for paper, result in jobs
+            if result.validation_status == PDFValidationStatus.VERIFIED
+        }
+        works: dict[str, list[Any]] = {}
+        for paper, result in jobs:
+            title = normalize_title(paper.get('title') or '')
+            if title and title not in covered and result.ownership_status == OwnershipStatus.VERIFIED:
+                works.setdefault(title, []).append((paper, result))
+        newest = sorted(works.values(), key=lambda work: max(paper.get('year') or 0 for paper, _ in work), reverse=True)
+        selected = [(work,) for work in newest[: self.config.web_search_maximum_papers]]
+        for _ in self._run_lookups(selected, self._ask_about_work):
+            pass
+
+    def _ask_about_work(self, work):
+        for provider in self.fallbacks:
+            try:
+                found = provider.find(work[0][0])
+            except Exception as exc:
+                log_isolated_failure(logger, 'PDF fallback %s failed: %s', provider.name, exc)
+                found = PDFProviderResult(provider.name, status=ProviderStatus.ERROR, errors=[str(exc)])
+            for paper, result in work:
+                self._record_provider(result, found)
+                known = {urldefrag(candidate.url)[0] for candidate in result.pdf_candidates}
+                fresh = [item for item in self._merge_urls(found.candidates) if urldefrag(item.url)[0] not in known]
+                result.pdf_candidates.extend(fresh)
+                for candidate in fresh:
+                    self._validate(candidate, paper, result)
+                self._settle(result)
+
     def _prepare_providers(self, papers, profile=None):
         """Each provider that prepares sees the person's resolved profile (prepare_profile), then the papers."""
         self.preparation_errors = {}
@@ -216,18 +265,7 @@ class PDFResolver:
             if provider.name in self.preparation_errors:
                 found.errors.append('Provider preparation: ' + self.preparation_errors[provider.name])
                 found.status = ProviderStatus.PARTIAL if found.candidates else ProviderStatus.ERROR
-            result.providers.append(
-                {
-                    'source': found.source,
-                    'status': found.status,
-                    'errors': found.errors,
-                    'diagnostics': found.diagnostics,
-                    'warnings': found.warnings,
-                }
-            )
-            for error in found.errors:
-                result.error_details.append({'source': found.source, 'error': error})
-            result.warnings.extend(dict(warning, source=found.source) for warning in found.warnings)
+            self._record_provider(result, found)
             candidates.extend(found.candidates)
             lookup_paper['_pdf_landing_pages'].extend(found.landing_pages)
         result.pdf_candidates = self._merge_urls(candidates)
@@ -236,6 +274,21 @@ class PDFResolver:
         for candidate in result.pdf_candidates:
             self._validate(candidate, paper, result)
         self._settle(result)
+
+    @staticmethod
+    def _record_provider(result, found):
+        result.providers.append(
+            {
+                'source': found.source,
+                'status': found.status,
+                'errors': found.errors,
+                'diagnostics': found.diagnostics,
+                'warnings': found.warnings,
+            }
+        )
+        for error in found.errors:
+            result.error_details.append({'source': found.source, 'error': error})
+        result.warnings.extend(dict(warning, source=found.source) for warning in found.warnings)
 
     def _validate(self, candidate, paper, result):
         self.validator.validate(candidate, paper)

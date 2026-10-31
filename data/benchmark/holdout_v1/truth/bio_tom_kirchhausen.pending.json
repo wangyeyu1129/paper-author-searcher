@@ -1,0 +1,2031 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "bio_tom_kirchhausen",
+    "dataset_id": "holdout_v1",
+    "search_input": {
+      "name": "Tom Kirchhausen",
+      "university": "Harvard University"
+    },
+    "scope": {
+      "year_start": 2022,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-30T21:04:27.669847+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://kirchhausen.hms.harvard.edu/publications",
+        "records": 26
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "bio_tom_kirchhausen:219a7542fd4f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "An Antibody from Single Human VH-rearranging Mouse Neutralizes All SARS-CoV-2 Variants Through BA.5 by Inhibiting Membrane Fusion",
+      "year": 2022,
+      "authors": [
+        "Sai Luo",
+        "Jun Zhang",
+        "Alex J.B. Kreutzberger",
+        "Amanda Eaton",
+        "Robert J. Edwards",
+        "Changbin Jing",
+        "Hai-Qiang Dai",
+        "Gregory D. Sempowski",
+        "Kenneth Cronin",
+        "Robert Parks",
+        "Adam Yongxin Ye",
+        "Katayoun Mansouri",
+        "Maggie Barr",
+        "Novalia Pishesha",
+        "Aimee Chapdelaine Williams",
+        "Lucas Vieira Francisco",
+        "Anand Saminathan",
+        "Hanqin Peng",
+        "Himanshu Batra",
+        "Lorenza Bellusci",
+        "Surender Khurana",
+        "S. Munir Alam",
+        "David C. Montefiori",
+        "Kevin O. Saunders",
+        "Ming Tian",
+        "Hidde Ploegh",
+        "Tom Kirchhausen",
+        "Bing Chen",
+        "Barton F. Haynes",
+        "Frederick W. Alt"
+      ],
+      "listed_venue": "Sci Immunol",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 24 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.2210/pdb7upy/pdb"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "An Antibody from Single Human VH-rearranging Mouse Neutralizes All SARS-CoV-2 Variants Through BA.5 by Inhibiting Membrane Fusion",
+          "year": 2021,
+          "authors": [
+            "Sai Luo",
+            "Jun Zhang",
+            "Alex J.B. Kreutzberger",
+            "Amanda Eaton",
+            "Robert J. Edwards",
+            "Changbin Jing",
+            "Hai-Qiang Dai",
+            "Gregory D. Sempowski",
+            "Kenneth Cronin",
+            "Robert Parks",
+            "Adam Yongxin Ye",
+            "Katayoun Mansouri",
+            "Maggie Barr",
+            "Novalia Pishesha",
+            "Aimee Chapdelaine Williams",
+            "Lucas Vieira Francisco",
+            "Anand Saminathan",
+            "Hanqin Peng",
+            "Himanshu Batra",
+            "Lorenza Bellusci",
+            "Surender Khurana",
+            "S. Munir Alam",
+            "David C. Montefiori",
+            "Kevin O. Saunders",
+            "Ming Tian",
+            "Hidde Ploegh",
+            "Tom Kirchhausen",
+            "Bing Chen",
+            "Barton F. Haynes",
+            "Frederick W. Alt"
+          ]
+        },
+        {
+          "title": "An Antibody from Single Human VH-rearranging Mouse Neutralizes All SARS-CoV-2 Variants Through BA.5 by Inhibiting Membrane Fusion",
+          "year": 2023,
+          "authors": [
+            "Sai Luo",
+            "Jun Zhang",
+            "Alex J.B. Kreutzberger",
+            "Amanda Eaton",
+            "Robert J. Edwards",
+            "Changbin Jing",
+            "Hai-Qiang Dai",
+            "Gregory D. Sempowski",
+            "Kenneth Cronin",
+            "Robert Parks",
+            "Adam Yongxin Ye",
+            "Katayoun Mansouri",
+            "Maggie Barr",
+            "Novalia Pishesha",
+            "Aimee Chapdelaine Williams",
+            "Lucas Vieira Francisco",
+            "Anand Saminathan",
+            "Hanqin Peng",
+            "Himanshu Batra",
+            "Lorenza Bellusci",
+            "Surender Khurana",
+            "S. Munir Alam",
+            "David C. Montefiori",
+            "Kevin O. Saunders",
+            "Ming Tian",
+            "Hidde Ploegh",
+            "Tom Kirchhausen",
+            "Bing Chen",
+            "Barton F. Haynes",
+            "Frederick W. Alt"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.2210/pdb7upy/pdb",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "An antibody from single human VH-rearranging mouse neutralizes all SARS-CoV-2 variants through BA.5 by inhibiting membrane fusion",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:211ca8937b34",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "CD164 is a host factor for lymphocytic choriomeningitis virus entry",
+      "year": 2022,
+      "authors": [
+        "M. J. G. Bakkers",
+        "A. Moon-Walker",
+        "R. Herlo",
+        "V. Brusic",
+        "S. H. Stubbs",
+        "K. M. Hastie",
+        "E. O. Saphire",
+        "T. L. Kirchhausen",
+        "S. P. J. Whelan"
+      ],
+      "listed_venue": "Proc Natl Acad Sci U S A",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 26 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1073/pnas.2119676119"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "CD164 is a host factor for lymphocytic choriomeningitis virus entry",
+          "year": 2021,
+          "authors": [
+            "M. J. G. Bakkers",
+            "A. Moon-Walker",
+            "R. Herlo",
+            "V. Brusic",
+            "S. H. Stubbs",
+            "K. M. Hastie",
+            "E. O. Saphire",
+            "T. L. Kirchhausen",
+            "S. P. J. Whelan"
+          ]
+        },
+        {
+          "title": "CD164 is a host factor for lymphocytic choriomeningitis virus entry",
+          "year": 2023,
+          "authors": [
+            "M. J. G. Bakkers",
+            "A. Moon-Walker",
+            "R. Herlo",
+            "V. Brusic",
+            "S. H. Stubbs",
+            "K. M. Hastie",
+            "E. O. Saphire",
+            "T. L. Kirchhausen",
+            "S. P. J. Whelan"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1073/pnas.2119676119",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "CD164 is a host factor for lymphocytic choriomeningitis virus entry",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:6f2a8abe14a4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Nanomolar inhibition of SARS-CoV-2 infection by an unmodified peptide targeting the pre-hairpin intermediate of the spike protein",
+      "year": 2022,
+      "authors": [
+        "Kailu Yang",
+        "Chuchu Wang",
+        "Alex J. B. Kreutzberger",
+        "Ravi Ojha",
+        "Suvi Kuivanen",
+        "Sergio Couoh-Cardel",
+        "Serena Muratcioglu",
+        "Timothy J. Eisen",
+        "K. Ian White",
+        "Richard G. Held",
+        "Subu Subramanian",
+        "Kendra Marcus",
+        "Richard A. Pfuetzner",
+        "Luis Esquivies",
+        "Catherine A. Doyle",
+        "John Kuriyan",
+        "Olli Vapalahti",
+        "Giuseppe Balistreri",
+        "Tomas Kirchhausen",
+        "Axel T. Brunger"
+      ],
+      "listed_venue": "Proc Natl Acad Sci U S A",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 23 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2022.08.11.503553"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Nanomolar inhibition of SARS-CoV-2 infection by an unmodified peptide targeting the pre-hairpin intermediate of the spike protein",
+          "year": 2021,
+          "authors": [
+            "Kailu Yang",
+            "Chuchu Wang",
+            "Alex J. B. Kreutzberger",
+            "Ravi Ojha",
+            "Suvi Kuivanen",
+            "Sergio Couoh-Cardel",
+            "Serena Muratcioglu",
+            "Timothy J. Eisen",
+            "K. Ian White",
+            "Richard G. Held",
+            "Subu Subramanian",
+            "Kendra Marcus",
+            "Richard A. Pfuetzner",
+            "Luis Esquivies",
+            "Catherine A. Doyle",
+            "John Kuriyan",
+            "Olli Vapalahti",
+            "Giuseppe Balistreri",
+            "Tomas Kirchhausen",
+            "Axel T. Brunger"
+          ]
+        },
+        {
+          "title": "Nanomolar inhibition of SARS-CoV-2 infection by an unmodified peptide targeting the pre-hairpin intermediate of the spike protein",
+          "year": 2023,
+          "authors": [
+            "Kailu Yang",
+            "Chuchu Wang",
+            "Alex J. B. Kreutzberger",
+            "Ravi Ojha",
+            "Suvi Kuivanen",
+            "Sergio Couoh-Cardel",
+            "Serena Muratcioglu",
+            "Timothy J. Eisen",
+            "K. Ian White",
+            "Richard G. Held",
+            "Subu Subramanian",
+            "Kendra Marcus",
+            "Richard A. Pfuetzner",
+            "Luis Esquivies",
+            "Catherine A. Doyle",
+            "John Kuriyan",
+            "Olli Vapalahti",
+            "Giuseppe Balistreri",
+            "Tomas Kirchhausen",
+            "Axel T. Brunger"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2022.08.11.503553",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Nanomolar inhibition of SARS-CoV-2 infection by an unmodified peptide targeting the pre-hairpin intermediate of the spike protein",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:3f103f61458e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "SARS-CoV-2 requires acidic pH to infect cells",
+      "year": 2022,
+      "authors": [
+        "Alex J.B. Kreutzberger",
+        "Anwesha Sanyal",
+        "Anand Saminathan",
+        "Louis-Marie Bloyet",
+        "Spencer Stumpf",
+        "Zhuoming Liu",
+        "Ravi Ojha",
+        "Markku T. Patjas",
+        "Ahmed Geneid",
+        "Gustavo Scanavachi",
+        "Catherine A. Doyle",
+        "Elliott Somerville",
+        "Ricardo Bango Da Cunha Correira",
+        "Giuseppe Di Caprio",
+        "Sanna Toppila-Salmi",
+        "Antti Mäkitie",
+        "Volker Kiessling",
+        "Olli Vapalahti",
+        "Sean P.J. Whelan",
+        "Giuseppe Balistreri",
+        "Tom Kirchhausen"
+      ],
+      "listed_venue": "Proc Natl Acad Sci U S A",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 25 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "SARS-CoV-2 requires acidic pH to infect cells",
+          "year": 2021,
+          "authors": [
+            "Alex J.B. Kreutzberger",
+            "Anwesha Sanyal",
+            "Anand Saminathan",
+            "Louis-Marie Bloyet",
+            "Spencer Stumpf",
+            "Zhuoming Liu",
+            "Ravi Ojha",
+            "Markku T. Patjas",
+            "Ahmed Geneid",
+            "Gustavo Scanavachi",
+            "Catherine A. Doyle",
+            "Elliott Somerville",
+            "Ricardo Bango Da Cunha Correira",
+            "Giuseppe Di Caprio",
+            "Sanna Toppila-Salmi",
+            "Antti Mäkitie",
+            "Volker Kiessling",
+            "Olli Vapalahti",
+            "Sean P.J. Whelan",
+            "Giuseppe Balistreri",
+            "Tom Kirchhausen"
+          ]
+        },
+        {
+          "title": "SARS-CoV-2 requires acidic pH to infect cells",
+          "year": 2023,
+          "authors": [
+            "Alex J.B. Kreutzberger",
+            "Anwesha Sanyal",
+            "Anand Saminathan",
+            "Louis-Marie Bloyet",
+            "Spencer Stumpf",
+            "Zhuoming Liu",
+            "Ravi Ojha",
+            "Markku T. Patjas",
+            "Ahmed Geneid",
+            "Gustavo Scanavachi",
+            "Catherine A. Doyle",
+            "Elliott Somerville",
+            "Ricardo Bango Da Cunha Correira",
+            "Giuseppe Di Caprio",
+            "Sanna Toppila-Salmi",
+            "Antti Mäkitie",
+            "Volker Kiessling",
+            "Olli Vapalahti",
+            "Sean P.J. Whelan",
+            "Giuseppe Balistreri",
+            "Tom Kirchhausen"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:30ade117f838",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The beauty of simplicity in membrane biology",
+      "year": 2022,
+      "authors": [
+        "J. C. Stachowiak",
+        "T. Kirchhausen"
+      ],
+      "listed_venue": "Nat Cell Biol",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 21 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1038/s41556-022-01015-6"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "The beauty of simplicity in membrane biology",
+          "year": 2021,
+          "authors": [
+            "J. C. Stachowiak",
+            "T. Kirchhausen"
+          ]
+        },
+        {
+          "title": "The beauty of simplicity in membrane biology",
+          "year": 2023,
+          "authors": [
+            "J. C. Stachowiak",
+            "T. Kirchhausen"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s41556-022-01015-6",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "The beauty of simplicity in membrane biology",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:e2af207fde3f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A Serotonergic Axon-Cilium Synapse Drives Nuclear Signaling to Maintain Chromatin Accessibility",
+      "year": 2023,
+      "authors": [
+        "S. H. Sheu",
+        "S. Upadhyayula",
+        "V. Dupuy",
+        "S. Pang",
+        "F. Deng",
+        "J. Wan",
+        "D. Walpita",
+        "H. A. Pasolli",
+        "J. Houser",
+        "S. Sanchez-Martinez",
+        "S. E. Brauchi",
+        "S. Banala",
+        "M. Freeman",
+        "C. S. Xu",
+        "T. Kirchhausen",
+        "H. F. Hess",
+        "L. Lavis",
+        "Y. Li",
+        "S. Chaumont-Dubel",
+        "D. E. Clapham"
+      ],
+      "listed_venue": "Microsc Microanal",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 16 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1093/micmic/ozad067.561"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A Serotonergic Axon-Cilium Synapse Drives Nuclear Signaling to Maintain Chromatin Accessibility",
+          "year": 2022,
+          "authors": [
+            "S. H. Sheu",
+            "S. Upadhyayula",
+            "V. Dupuy",
+            "S. Pang",
+            "F. Deng",
+            "J. Wan",
+            "D. Walpita",
+            "H. A. Pasolli",
+            "J. Houser",
+            "S. Sanchez-Martinez",
+            "S. E. Brauchi",
+            "S. Banala",
+            "M. Freeman",
+            "C. S. Xu",
+            "T. Kirchhausen",
+            "H. F. Hess",
+            "L. Lavis",
+            "Y. Li",
+            "S. Chaumont-Dubel",
+            "D. E. Clapham"
+          ]
+        },
+        {
+          "title": "A Serotonergic Axon-Cilium Synapse Drives Nuclear Signaling to Maintain Chromatin Accessibility",
+          "year": 2024,
+          "authors": [
+            "S. H. Sheu",
+            "S. Upadhyayula",
+            "V. Dupuy",
+            "S. Pang",
+            "F. Deng",
+            "J. Wan",
+            "D. Walpita",
+            "H. A. Pasolli",
+            "J. Houser",
+            "S. Sanchez-Martinez",
+            "S. E. Brauchi",
+            "S. Banala",
+            "M. Freeman",
+            "C. S. Xu",
+            "T. Kirchhausen",
+            "H. F. Hess",
+            "L. Lavis",
+            "Y. Li",
+            "S. Chaumont-Dubel",
+            "D. E. Clapham"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1093/micmic/ozad067.561",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "A Serotonergic Axon-Cilium Synapse Drives Nuclear Signaling to Maintain Chromatin Accessibility",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:0605499e4ae6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A spatiotemporal Notch interaction map from plasma membrane to nucleus",
+      "year": 2023,
+      "authors": [
+        "A. P. Martin",
+        "G. A. Bradshaw",
+        "R. J. Eisert",
+        "E. D. Egan",
+        "L. Tveriakhina",
+        "J. M. Rogers",
+        "A. N. Dates",
+        "G. Scanavachi",
+        "J. C. Aster",
+        "T. Kirchhausen",
+        "M. Kalocsay",
+        "S. C. Blacklow"
+      ],
+      "listed_venue": "Sci Signal",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 17 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1126/scisignal.adg6474"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A spatiotemporal Notch interaction map from plasma membrane to nucleus",
+          "year": 2022,
+          "authors": [
+            "A. P. Martin",
+            "G. A. Bradshaw",
+            "R. J. Eisert",
+            "E. D. Egan",
+            "L. Tveriakhina",
+            "J. M. Rogers",
+            "A. N. Dates",
+            "G. Scanavachi",
+            "J. C. Aster",
+            "T. Kirchhausen",
+            "M. Kalocsay",
+            "S. C. Blacklow"
+          ]
+        },
+        {
+          "title": "A spatiotemporal Notch interaction map from plasma membrane to nucleus",
+          "year": 2024,
+          "authors": [
+            "A. P. Martin",
+            "G. A. Bradshaw",
+            "R. J. Eisert",
+            "E. D. Egan",
+            "L. Tveriakhina",
+            "J. M. Rogers",
+            "A. N. Dates",
+            "G. Scanavachi",
+            "J. C. Aster",
+            "T. Kirchhausen",
+            "M. Kalocsay",
+            "S. C. Blacklow"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1126/scisignal.adg6474",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "A spatiotemporal Notch interaction map from plasma membrane to nucleus",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:f6e65e533ff7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Complete Protection from SARS-CoV-2 Lung Infection in Mice Through Combined Intranasal Delivery of PIKfyve Kinase and TMPRSS2 Protease Inhibitors",
+      "year": 2023,
+      "authors": [
+        "R. Kant",
+        "L. Kareinen",
+        "R. Ojha",
+        "T. Strandin",
+        "S. H. Saber",
+        "A. Lesnikova",
+        "S. Kuivanen",
+        "T. Sirnonen",
+        "M. Joensuu",
+        "O. Vapalahti",
+        "T. Kirchhausen",
+        "A. Kipar",
+        "G. Balistreri"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 18 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2023.07.19.549731"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Complete Protection from SARS-CoV-2 Lung Infection in Mice Through Combined Intranasal Delivery of PIKfyve Kinase and TMPRSS2 Protease Inhibitors",
+          "year": 2022,
+          "authors": [
+            "R. Kant",
+            "L. Kareinen",
+            "R. Ojha",
+            "T. Strandin",
+            "S. H. Saber",
+            "A. Lesnikova",
+            "S. Kuivanen",
+            "T. Sirnonen",
+            "M. Joensuu",
+            "O. Vapalahti",
+            "T. Kirchhausen",
+            "A. Kipar",
+            "G. Balistreri"
+          ]
+        },
+        {
+          "title": "Complete Protection from SARS-CoV-2 Lung Infection in Mice Through Combined Intranasal Delivery of PIKfyve Kinase and TMPRSS2 Protease Inhibitors",
+          "year": 2024,
+          "authors": [
+            "R. Kant",
+            "L. Kareinen",
+            "R. Ojha",
+            "T. Strandin",
+            "S. H. Saber",
+            "A. Lesnikova",
+            "S. Kuivanen",
+            "T. Sirnonen",
+            "M. Joensuu",
+            "O. Vapalahti",
+            "T. Kirchhausen",
+            "A. Kipar",
+            "G. Balistreri"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2023.07.19.549731",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Complete Protection from SARS-CoV-2 Lung Infection in Mice Through Combined Intranasal Delivery of PIKfyve Kinase and TMPRSS2 Protease Inhibitors",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:c50f51f0471b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Deep learning assisted single particle tracking for automated correlation between diffusion and function",
+      "year": 2023,
+      "authors": [
+        "Nikos Hatzakis",
+        "Jacob Kaestel-Hansen",
+        "Marilina de Sautu",
+        "Anand Saminathan",
+        "Gustavo Scanavachi",
+        "Ricardo Correia",
+        "Annette Juma Nielsen",
+        "Sara Bleshoey",
+        "Wouter Boomsma",
+        "Tomas Kirchhausen"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 12 captured 2026-10-30",
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 14 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.21203/rs.3.rs-3716053/v1"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Deep learning assisted single particle tracking for automated correlation between diffusion and function",
+          "year": 2024,
+          "authors": [
+            "Nikos Hatzakis",
+            "Jacob Kaestel-Hansen",
+            "Marilina de Sautu",
+            "Anand Saminathan",
+            "Gustavo Scanavachi",
+            "Ricardo Correia",
+            "Annette Juma Nielsen",
+            "Sara Bleshoey",
+            "Wouter Boomsma",
+            "Tomas Kirchhausen"
+          ]
+        },
+        {
+          "title": "Deep learning assisted single particle tracking for automated correlation between diffusion and function",
+          "year": 2022,
+          "authors": [
+            "Nikos Hatzakis",
+            "Jacob Kaestel-Hansen",
+            "Marilina de Sautu",
+            "Anand Saminathan",
+            "Gustavo Scanavachi",
+            "Ricardo Correia",
+            "Annette Juma Nielsen",
+            "Sara Bleshoey",
+            "Wouter Boomsma",
+            "Tomas Kirchhausen"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.21203/rs.3.rs-3716053/v1",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Deep learning assisted single particle tracking for automated correlation between diffusion and function",
+          "crossref_year": 2024
+        },
+        {
+          "doi": "10.21203/rs.3.rs-3716053/v1",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Deep learning assisted single particle tracking for automated correlation between diffusion and function",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:9fe06bf1cee0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Deep neural network automated segmentation of cellular structures in volume electron microscopy",
+      "year": 2023,
+      "authors": [
+        "B. Gallusser",
+        "G. Maltese",
+        "G. Di Caprio",
+        "T. J. Vadakkan",
+        "A. Sanyal",
+        "E. Somerville",
+        "M. Sahasrabudhe",
+        "J. O'Connor",
+        "M. Weigert",
+        "T. Kirchhausen"
+      ],
+      "listed_venue": "J Cell Biol",
+      "work_types": [
+        "journal_article",
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 20 captured 2026-10-30",
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 22 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1101/2022.08.02.502534"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Deep neural network automated segmentation of cellular structures in volume electron microscopy",
+          "year": 2022,
+          "authors": [
+            "Benjamin Gallusser",
+            "Giorgio Maltese",
+            "Giuseppe Di Caprio",
+            "Tegy John Vadakkan",
+            "Anwesha Sanyal",
+            "Elliott Somerville",
+            "Mihir Sahasrabudhe",
+            "Justin O’Connor",
+            "Martin Weigert",
+            "Tom Kirchhausen"
+          ]
+        },
+        {
+          "title": "Deep neural network automated segmentation of cellular structures in volume electron microscopy",
+          "year": 2024,
+          "authors": [
+            "B. Gallusser",
+            "G. Maltese",
+            "G. Di Caprio",
+            "T. J. Vadakkan",
+            "A. Sanyal",
+            "E. Somerville",
+            "M. Sahasrabudhe",
+            "J. O'Connor",
+            "M. Weigert",
+            "T. Kirchhausen"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2022.08.02.502534",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Deep neural network automated segmentation of cellular structures in volume electron microscopy",
+          "crossref_year": 2022
+        },
+        {
+          "doi": "10.1101/2022.08.02.502534",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Deep neural network automated segmentation of cellular structures in volume electron microscopy",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:84693f3260f9",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Structure-based design of a SARS-CoV-2 Omicron-specific inhibitor",
+      "year": 2023,
+      "authors": [
+        "K. Yang",
+        "C. Wang",
+        "A. J. B. Kreutzberger",
+        "K. I. White",
+        "R. A. Pfuetzner",
+        "L. Esquivies",
+        "T. Kirchhausen",
+        "A. T. Brunger"
+      ],
+      "listed_venue": "Proc Natl Acad Sci U S A",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 19 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1073/pnas.2300360120"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Structure-based design of a SARS-CoV-2 Omicron-specific inhibitor",
+          "year": 2022,
+          "authors": [
+            "K. Yang",
+            "C. Wang",
+            "A. J. B. Kreutzberger",
+            "K. I. White",
+            "R. A. Pfuetzner",
+            "L. Esquivies",
+            "T. Kirchhausen",
+            "A. T. Brunger"
+          ]
+        },
+        {
+          "title": "Structure-based design of a SARS-CoV-2 Omicron-specific inhibitor",
+          "year": 2024,
+          "authors": [
+            "K. Yang",
+            "C. Wang",
+            "A. J. B. Kreutzberger",
+            "K. I. White",
+            "R. A. Pfuetzner",
+            "L. Esquivies",
+            "T. Kirchhausen",
+            "A. T. Brunger"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1073/pnas.2300360120",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Structure-based design of a SARS-CoV-2 Omicron-specific inhibitor",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:4df64b781608",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Temporal Dynamics and Stoichiometry in Notch Signaling - from Notch Synaptic Complex Formation to NICD Nuclear Entry",
+      "year": 2023,
+      "authors": [
+        "Lena Tveriakhina",
+        "Gustavo Scanavachi",
+        "Emily D. Egan",
+        "Ricardo Bango Da Cunha Correia",
+        "Alexandre P. Martin",
+        "Julia M. Rogers",
+        "Jeremy S. Yodh",
+        "Jon C. Aster",
+        "Tom Kirchhausen",
+        "Stephen C. Blacklow"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 15 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2023.09.27.559780"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Temporal Dynamics and Stoichiometry in Notch Signaling - from Notch Synaptic Complex Formation to NICD Nuclear Entry",
+          "year": 2022,
+          "authors": [
+            "Lena Tveriakhina",
+            "Gustavo Scanavachi",
+            "Emily D. Egan",
+            "Ricardo Bango Da Cunha Correia",
+            "Alexandre P. Martin",
+            "Julia M. Rogers",
+            "Jeremy S. Yodh",
+            "Jon C. Aster",
+            "Tom Kirchhausen",
+            "Stephen C. Blacklow"
+          ]
+        },
+        {
+          "title": "Temporal Dynamics and Stoichiometry in Notch Signaling - from Notch Synaptic Complex Formation to NICD Nuclear Entry",
+          "year": 2024,
+          "authors": [
+            "Lena Tveriakhina",
+            "Gustavo Scanavachi",
+            "Emily D. Egan",
+            "Ricardo Bango Da Cunha Correia",
+            "Alexandre P. Martin",
+            "Julia M. Rogers",
+            "Jeremy S. Yodh",
+            "Jon C. Aster",
+            "Tom Kirchhausen",
+            "Stephen C. Blacklow"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2023.09.27.559780",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Temporal Dynamics and Stoichiometry in Notch Signaling - from Notch Synaptic Complex Formation to NICD Nuclear Entry",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:b82d4b729cd9",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Constitutive Endolysosomal Perforation in Neurons allows Induction of alpha-Synuclein Aggregation by Internalized Pre-Formed Fibrils",
+      "year": 2024,
+      "authors": [
+        "A. Sanyal",
+        "G. Scanavachi",
+        "E. Somerville",
+        "A. Saminathan",
+        "A. Nair",
+        "A. Oikonomou",
+        "N. S. Hatzakis",
+        "T. Kirchhausen"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 13 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Constitutive Endolysosomal Perforation in Neurons allows Induction of alpha-Synuclein Aggregation by Internalized Pre-Formed Fibrils",
+          "year": 2023,
+          "authors": [
+            "A. Sanyal",
+            "G. Scanavachi",
+            "E. Somerville",
+            "A. Saminathan",
+            "A. Nair",
+            "A. Oikonomou",
+            "N. S. Hatzakis",
+            "T. Kirchhausen"
+          ]
+        },
+        {
+          "title": "Constitutive Endolysosomal Perforation in Neurons allows Induction of alpha-Synuclein Aggregation by Internalized Pre-Formed Fibrils",
+          "year": 2025,
+          "authors": [
+            "A. Sanyal",
+            "G. Scanavachi",
+            "E. Somerville",
+            "A. Saminathan",
+            "A. Nair",
+            "A. Oikonomou",
+            "N. S. Hatzakis",
+            "T. Kirchhausen"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:fb34b2bf0ea3",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "CryoSamba: Self-supervised deep volumetric denoising for cryo-electron tomography data",
+      "year": 2024,
+      "authors": [
+        "J. I. Costa-Filho",
+        "L. Theveny",
+        "M. de Sautu",
+        "T. Kirchhausen"
+      ],
+      "listed_venue": "J Struct Biol",
+      "work_types": [
+        "journal_article",
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 7 captured 2026-10-30",
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 9 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.2139/ssrn.4901800"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "CryoSamba: Self-supervised deep volumetric denoising for cryo-electron tomography data",
+          "year": 2023,
+          "authors": [
+            "J. I. Costa-Filho",
+            "L. Theveny",
+            "M. de Sautu",
+            "T. Kirchhausen"
+          ]
+        },
+        {
+          "title": "CryoSamba: Self-supervised deep volumetric denoising for cryo-electron tomography data",
+          "year": 2025,
+          "authors": [
+            "J. I. Costa-Filho",
+            "L. Theveny",
+            "M. de Sautu",
+            "T. Kirchhausen"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.2139/ssrn.4901800",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Cryosamba: Self-Supervised Deep Volumetric Denoising for Cryo-Electron Tomography Data",
+          "crossref_year": 2024
+        },
+        {
+          "doi": "10.2139/ssrn.4901800",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Cryosamba: Self-Supervised Deep Volumetric Denoising for Cryo-Electron Tomography Data",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:7050643659e2",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Molecularly Distinct Clathrin-Coated Pits Differentially Impact EGFR Fate and Signaling",
+      "year": 2024,
+      "authors": [
+        "R. Pascolutti",
+        "V. Algisi",
+        "A. Conte",
+        "A. Raimondi",
+        "M. Pasham",
+        "S. Upadhyayula",
+        "R. Gaudin",
+        "T. Maritzen",
+        "E. Barbieri",
+        "G. Caldieri",
+        "C. Tordonato",
+        "S. Confalonieri",
+        "S. Freddi",
+        "M. G. Malabarba",
+        "E. Maspero",
+        "S. Polo",
+        "C. Tacchetti",
+        "V. Haucke",
+        "T. Kirchhausen",
+        "P. P. Di Fiore",
+        "S. Sigismund"
+      ],
+      "listed_venue": "Cell Rep",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 8 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.celrep.2024.114970"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Molecularly Distinct Clathrin-Coated Pits Differentially Impact EGFR Fate and Signaling",
+          "year": 2023,
+          "authors": [
+            "R. Pascolutti",
+            "V. Algisi",
+            "A. Conte",
+            "A. Raimondi",
+            "M. Pasham",
+            "S. Upadhyayula",
+            "R. Gaudin",
+            "T. Maritzen",
+            "E. Barbieri",
+            "G. Caldieri",
+            "C. Tordonato",
+            "S. Confalonieri",
+            "S. Freddi",
+            "M. G. Malabarba",
+            "E. Maspero",
+            "S. Polo",
+            "C. Tacchetti",
+            "V. Haucke",
+            "T. Kirchhausen",
+            "P. P. Di Fiore",
+            "S. Sigismund"
+          ]
+        },
+        {
+          "title": "Molecularly Distinct Clathrin-Coated Pits Differentially Impact EGFR Fate and Signaling",
+          "year": 2025,
+          "authors": [
+            "R. Pascolutti",
+            "V. Algisi",
+            "A. Conte",
+            "A. Raimondi",
+            "M. Pasham",
+            "S. Upadhyayula",
+            "R. Gaudin",
+            "T. Maritzen",
+            "E. Barbieri",
+            "G. Caldieri",
+            "C. Tordonato",
+            "S. Confalonieri",
+            "S. Freddi",
+            "M. G. Malabarba",
+            "E. Maspero",
+            "S. Polo",
+            "C. Tacchetti",
+            "V. Haucke",
+            "T. Kirchhausen",
+            "P. P. Di Fiore",
+            "S. Sigismund"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.celrep.2024.114970",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Molecularly Distinct Clathrin-Coated Pits Differentially Impact EGFR Fate and Signaling",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:dde5dd56448d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Probing and imaging phospholipid dynamics in live cells",
+      "year": 2024,
+      "authors": [
+        "Zhongsheng Wu",
+        "Yongtao Du",
+        "Tom Kirchhausen",
+        "Kangmin He"
+      ],
+      "listed_venue": "Life Metabolism",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 10 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1093/lifemeta/loae014"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Probing and imaging phospholipid dynamics in live cells",
+          "year": 2023,
+          "authors": [
+            "Zhongsheng Wu",
+            "Yongtao Du",
+            "Tom Kirchhausen",
+            "Kangmin He"
+          ]
+        },
+        {
+          "title": "Probing and imaging phospholipid dynamics in live cells",
+          "year": 2025,
+          "authors": [
+            "Zhongsheng Wu",
+            "Yongtao Du",
+            "Tom Kirchhausen",
+            "Kangmin He"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1093/lifemeta/loae014",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Probing and imaging phospholipid dynamics in live cells",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:d74a8999f9ec",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Temporal dynamics and stoichiometry in human Notch signaling from Notch synaptic complex formation to nuclear entry of the Notch intracellular domain",
+      "year": 2024,
+      "authors": [
+        "L. Tveriakhina",
+        "G. Scanavachi",
+        "E. D. Egan",
+        "R. B. Da Cunha Correia",
+        "A. P. Martin",
+        "J. M. Rogers",
+        "J. S. Yodh",
+        "J. C. Aster",
+        "T. Kirchhausen",
+        "S. C. Blacklow"
+      ],
+      "listed_venue": "Dev Cell",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 11 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.devcel.2024.03.021"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Temporal dynamics and stoichiometry in human Notch signaling from Notch synaptic complex formation to nuclear entry of the Notch intracellular domain",
+          "year": 2023,
+          "authors": [
+            "L. Tveriakhina",
+            "G. Scanavachi",
+            "E. D. Egan",
+            "R. B. Da Cunha Correia",
+            "A. P. Martin",
+            "J. M. Rogers",
+            "J. S. Yodh",
+            "J. C. Aster",
+            "T. Kirchhausen",
+            "S. C. Blacklow"
+          ]
+        },
+        {
+          "title": "Temporal dynamics and stoichiometry in human Notch signaling from Notch synaptic complex formation to nuclear entry of the Notch intracellular domain",
+          "year": 2025,
+          "authors": [
+            "L. Tveriakhina",
+            "G. Scanavachi",
+            "E. D. Egan",
+            "R. B. Da Cunha Correia",
+            "A. P. Martin",
+            "J. M. Rogers",
+            "J. S. Yodh",
+            "J. C. Aster",
+            "T. Kirchhausen",
+            "S. C. Blacklow"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.devcel.2024.03.021",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Temporal dynamics and stoichiometry in human Notch signaling from Notch synaptic complex formation to nuclear entry of the Notch intracellular domain",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:895908e66a8c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A Multimodal Adaptive Optical Microscope For In Vivo Imaging from Molecules to Organisms",
+      "year": 2025,
+      "authors": [
+        "T. M. Fu",
+        "G. Liu",
+        "D. E. Milkie",
+        "X. Ruan",
+        "F. Gorlitz",
+        "Y. Shi",
+        "V. Ferro",
+        "N. S. Divekar",
+        "W. Wang",
+        "H. M. York",
+        "V. Kilic",
+        "M. Mueller",
+        "Y. Liang",
+        "T. A. Daugird",
+        "M. J. Gacha-Garay",
+        "K. A. Larkin",
+        "R. C. Adikes",
+        "N. Harrison",
+        "C. Shirazinejad",
+        "S. Williams",
+        "J. L. Nourse",
+        "S. H. Sheu",
+        "L. Gao",
+        "T. Li",
+        "C. Mondal",
+        "K. Achour",
+        "W. Hercule",
+        "D. Stabley",
+        "K. Emmerich",
+        "P. Dong",
+        "D. Drubin",
+        "Z. J. Liu",
+        "D. Clapham",
+        "J. S. Mumm",
+        "M. Koyama",
+        "A. Killilea",
+        "J. J. Bravo-Cordero",
+        "C. D. Keene",
+        "L. Luo",
+        "T. Kirchhausen",
+        "M. M. Pathak",
+        "S. Arumugam",
+        "J. K. Nunez",
+        "R. Gao",
+        "D. Q. Matus",
+        "B. L. Martin",
+        "I. A. Swinburne",
+        "E. Betzig",
+        "W. R. Legant",
+        "S. Upadhyayula"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 3 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "A Multimodal Adaptive Optical Microscope For In Vivo Imaging from Molecules to Organisms",
+          "year": 2024,
+          "authors": [
+            "T. M. Fu",
+            "G. Liu",
+            "D. E. Milkie",
+            "X. Ruan",
+            "F. Gorlitz",
+            "Y. Shi",
+            "V. Ferro",
+            "N. S. Divekar",
+            "W. Wang",
+            "H. M. York",
+            "V. Kilic",
+            "M. Mueller",
+            "Y. Liang",
+            "T. A. Daugird",
+            "M. J. Gacha-Garay",
+            "K. A. Larkin",
+            "R. C. Adikes",
+            "N. Harrison",
+            "C. Shirazinejad",
+            "S. Williams",
+            "J. L. Nourse",
+            "S. H. Sheu",
+            "L. Gao",
+            "T. Li",
+            "C. Mondal",
+            "K. Achour",
+            "W. Hercule",
+            "D. Stabley",
+            "K. Emmerich",
+            "P. Dong",
+            "D. Drubin",
+            "Z. J. Liu",
+            "D. Clapham",
+            "J. S. Mumm",
+            "M. Koyama",
+            "A. Killilea",
+            "J. J. Bravo-Cordero",
+            "C. D. Keene",
+            "L. Luo",
+            "T. Kirchhausen",
+            "M. M. Pathak",
+            "S. Arumugam",
+            "J. K. Nunez",
+            "R. Gao",
+            "D. Q. Matus",
+            "B. L. Martin",
+            "I. A. Swinburne",
+            "E. Betzig",
+            "W. R. Legant",
+            "S. Upadhyayula"
+          ]
+        },
+        {
+          "title": "A Multimodal Adaptive Optical Microscope For In Vivo Imaging from Molecules to Organisms",
+          "year": 2026,
+          "authors": [
+            "T. M. Fu",
+            "G. Liu",
+            "D. E. Milkie",
+            "X. Ruan",
+            "F. Gorlitz",
+            "Y. Shi",
+            "V. Ferro",
+            "N. S. Divekar",
+            "W. Wang",
+            "H. M. York",
+            "V. Kilic",
+            "M. Mueller",
+            "Y. Liang",
+            "T. A. Daugird",
+            "M. J. Gacha-Garay",
+            "K. A. Larkin",
+            "R. C. Adikes",
+            "N. Harrison",
+            "C. Shirazinejad",
+            "S. Williams",
+            "J. L. Nourse",
+            "S. H. Sheu",
+            "L. Gao",
+            "T. Li",
+            "C. Mondal",
+            "K. Achour",
+            "W. Hercule",
+            "D. Stabley",
+            "K. Emmerich",
+            "P. Dong",
+            "D. Drubin",
+            "Z. J. Liu",
+            "D. Clapham",
+            "J. S. Mumm",
+            "M. Koyama",
+            "A. Killilea",
+            "J. J. Bravo-Cordero",
+            "C. D. Keene",
+            "L. Luo",
+            "T. Kirchhausen",
+            "M. M. Pathak",
+            "S. Arumugam",
+            "J. K. Nunez",
+            "R. Gao",
+            "D. Q. Matus",
+            "B. L. Martin",
+            "I. A. Swinburne",
+            "E. Betzig",
+            "W. R. Legant",
+            "S. Upadhyayula"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:d9865cd63d56",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Close-Up of vesicular ER Exit Sites by Volume Electron Imaging using FIB-SEM",
+      "year": 2025,
+      "authors": [
+        "Athul Nair",
+        "Akhil Nair",
+        "Patrick Stock",
+        "Arkash Jain",
+        "Elliott Somerville",
+        "Anwesha Sanyal",
+        "Tom Kirchhausen"
+      ],
+      "listed_venue": "bioRxix",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 5 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2025.04.23.650353"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Close-Up of vesicular ER Exit Sites by Volume Electron Imaging using FIB-SEM",
+          "year": 2024,
+          "authors": [
+            "Athul Nair",
+            "Akhil Nair",
+            "Patrick Stock",
+            "Arkash Jain",
+            "Elliott Somerville",
+            "Anwesha Sanyal",
+            "Tom Kirchhausen"
+          ]
+        },
+        {
+          "title": "Close-Up of vesicular ER Exit Sites by Volume Electron Imaging using FIB-SEM",
+          "year": 2026,
+          "authors": [
+            "Athul Nair",
+            "Akhil Nair",
+            "Patrick Stock",
+            "Arkash Jain",
+            "Elliott Somerville",
+            "Anwesha Sanyal",
+            "Tom Kirchhausen"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2025.04.23.650353",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Close-Up of vesicular ER Exit Sites by Volume Electron Imaging using FIB-SEM",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:89d48f1e87d6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Deep learning-assisted analysis of single-particle tracking for automated correlation between diffusion and function",
+      "year": 2025,
+      "authors": [
+        "J. Kaestel-Hansen",
+        "M. de Sautu",
+        "A. Saminathan",
+        "G. Scanavachi",
+        "R. F. Bango Da Cunha Correia",
+        "A. Juma Nielsen",
+        "S. V. Bleshoy",
+        "K. Tsolakidis",
+        "W. Boomsma",
+        "T. Kirchhausen",
+        "N. S. Hatzakis"
+      ],
+      "listed_venue": "Nature Methods",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 4 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Deep learning-assisted analysis of single-particle tracking for automated correlation between diffusion and function",
+          "year": 2024,
+          "authors": [
+            "J. Kaestel-Hansen",
+            "M. de Sautu",
+            "A. Saminathan",
+            "G. Scanavachi",
+            "R. F. Bango Da Cunha Correia",
+            "A. Juma Nielsen",
+            "S. V. Bleshoy",
+            "K. Tsolakidis",
+            "W. Boomsma",
+            "T. Kirchhausen",
+            "N. S. Hatzakis"
+          ]
+        },
+        {
+          "title": "Deep learning-assisted analysis of single-particle tracking for automated correlation between diffusion and function",
+          "year": 2026,
+          "authors": [
+            "J. Kaestel-Hansen",
+            "M. de Sautu",
+            "A. Saminathan",
+            "G. Scanavachi",
+            "R. F. Bango Da Cunha Correia",
+            "A. Juma Nielsen",
+            "S. V. Bleshoy",
+            "K. Tsolakidis",
+            "W. Boomsma",
+            "T. Kirchhausen",
+            "N. S. Hatzakis"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:62ab4202b0d9",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "How endosomal PIKfyve inhibition prevents viral membrane fusion and entry",
+      "year": 2025,
+      "authors": [
+        "N. Chow",
+        "G. Scanavachi",
+        "A. Saminathan",
+        "T. Kirchhausen"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 1 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2025.11.25.690586"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "How endosomal PIKfyve inhibition prevents viral membrane fusion and entry",
+          "year": 2024,
+          "authors": [
+            "N. Chow",
+            "G. Scanavachi",
+            "A. Saminathan",
+            "T. Kirchhausen"
+          ]
+        },
+        {
+          "title": "How endosomal PIKfyve inhibition prevents viral membrane fusion and entry",
+          "year": 2026,
+          "authors": [
+            "N. Chow",
+            "G. Scanavachi",
+            "A. Saminathan",
+            "T. Kirchhausen"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2025.11.25.690586",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "How endosomal PIKfyve inhibition prevents viral membrane fusion and entry",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:1010094cf822",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Neuronal constitutive endolysosomal perforations enable alpha-synuclein aggregation by internalized PFFs",
+      "year": 2025,
+      "authors": [
+        "A. Sanyal",
+        "G. Scanavachi",
+        "E. Somerville",
+        "A. Saminathan",
+        "A. Nair",
+        "R. F. Bango Da Cunha Correia",
+        "B. Aylan",
+        "E. Sitarska",
+        "A. Oikonomou",
+        "N. S. Hatzakis",
+        "T. Kirchhausen"
+      ],
+      "listed_venue": "J Cell Biol",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 6 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Neuronal constitutive endolysosomal perforations enable alpha-synuclein aggregation by internalized PFFs",
+          "year": 2024,
+          "authors": [
+            "A. Sanyal",
+            "G. Scanavachi",
+            "E. Somerville",
+            "A. Saminathan",
+            "A. Nair",
+            "R. F. Bango Da Cunha Correia",
+            "B. Aylan",
+            "E. Sitarska",
+            "A. Oikonomou",
+            "N. S. Hatzakis",
+            "T. Kirchhausen"
+          ]
+        },
+        {
+          "title": "Neuronal constitutive endolysosomal perforations enable alpha-synuclein aggregation by internalized PFFs",
+          "year": 2026,
+          "authors": [
+            "A. Sanyal",
+            "G. Scanavachi",
+            "E. Somerville",
+            "A. Saminathan",
+            "A. Nair",
+            "R. F. Bango Da Cunha Correia",
+            "B. Aylan",
+            "E. Sitarska",
+            "A. Oikonomou",
+            "N. S. Hatzakis",
+            "T. Kirchhausen"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_tom_kirchhausen:a2ba6c556d8d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Tau seeding in neurons enabled by transient endolysosomal perforations are confined within endolysosomes",
+      "year": 2025,
+      "authors": [
+        "A. Sanyal",
+        "G. Scanavachi",
+        "E. Somerville",
+        "B. Aylan",
+        "J. I. Costa-Filho",
+        "F. Brooks",
+        "J. R. Dickson",
+        "B. T. Hyman",
+        "T. Kirchhausen"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://kirchhausen.hms.harvard.edu/publications entry 2 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2025.11.02.686178"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Tau seeding in neurons enabled by transient endolysosomal perforations are confined within endolysosomes",
+          "year": 2024,
+          "authors": [
+            "A. Sanyal",
+            "G. Scanavachi",
+            "E. Somerville",
+            "B. Aylan",
+            "J. I. Costa-Filho",
+            "F. Brooks",
+            "J. R. Dickson",
+            "B. T. Hyman",
+            "T. Kirchhausen"
+          ]
+        },
+        {
+          "title": "Tau seeding in neurons enabled by transient endolysosomal perforations are confined within endolysosomes",
+          "year": 2026,
+          "authors": [
+            "A. Sanyal",
+            "G. Scanavachi",
+            "E. Somerville",
+            "B. Aylan",
+            "J. I. Costa-Filho",
+            "F. Brooks",
+            "J. R. Dickson",
+            "B. T. Hyman",
+            "T. Kirchhausen"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2025.11.02.686178",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Tau seeding in neurons enabled by transient endolysosomal perforations are confined within endolysosomes",
+          "crossref_year": 2025
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

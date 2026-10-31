@@ -7,6 +7,7 @@ from urllib.parse import urljoin
 from paper_author_searcher.config import DEFAULT_PDF
 from paper_author_searcher.html_support import decode_response
 from paper_author_searcher.http import SourceError
+from paper_author_searcher.http_status import is_success
 from paper_author_searcher.models import PDFProviderResult
 from paper_author_searcher.pdf_identity import metadata_identity, source_records
 from paper_author_searcher.status import IdentityStatus, ProviderStatus
@@ -86,7 +87,7 @@ class LandingPagePDFProvider:
         return self._response_candidates(paper, response, bindings)
 
     def _response_candidates(self, paper, response, bindings):
-        if not 200 <= response.status < 300:
+        if not is_success(response.status):
             raise SourceError(f'Landing page HTTP {response.status}')
         if response.content_type not in ('text/html', 'application/xhtml+xml'):
             if response.prefix.lstrip().startswith(b'%PDF-'):

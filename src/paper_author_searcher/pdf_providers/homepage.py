@@ -3,7 +3,7 @@
 from typing import Any
 
 from paper_author_searcher.config import DEFAULT_PDF
-from paper_author_searcher.matching import ARXIV_DOI_PREFIX, canonical_doi, normalize
+from paper_author_searcher.matching import ARXIV_DOI_PREFIX, canonical_doi, normalize_title
 from paper_author_searcher.models import PDFProviderResult
 from paper_author_searcher.pdf_identity import arxiv_id, edition_arxiv_ids, paper_dois, related_dois
 from paper_author_searcher.status import IdentityStatus, ProviderStatus
@@ -34,7 +34,7 @@ class HomepagePDFProvider:
         works: dict[str, set[str]] = {}
         for paper in papers:
             for item, _ in self._matches(paper):
-                works.setdefault(item['url'], set()).add(normalize(paper.get('title') or ''))
+                works.setdefault(item['url'], set()).add(normalize_title(paper.get('title') or ''))
         self.ambiguous = {url for url, titles in works.items() if len(titles) > 1}
 
     def find(self, paper):
@@ -60,7 +60,7 @@ class HomepagePDFProvider:
     def _matches(self, paper):
         dois = {doi[len('doi:') :] for doi in paper_dois(paper)} | set(related_dois(paper))
         editions = set(edition_arxiv_ids(paper))
-        title = normalize(paper.get('title') or '')
+        title = normalize_title(paper.get('title') or '')
         long_title = len(title.split()) >= self.config.homepage_title_minimum_words
         for item in self.listed:
             listed_dois = {canonical_doi(doi)[len('doi:') :] for doi in item.get('dois') or []}
@@ -72,6 +72,6 @@ class HomepagePDFProvider:
             elif (
                 long_title
                 and not (dois and {doi for doi in listed_dois if not doi.startswith(ARXIV_DOI_PREFIX)})
-                and title in normalize(item.get('citation') or '')
+                and title in normalize_title(item.get('citation') or '')
             ):
                 yield item, "The person's publication page links this PDF from a citation with the paper's full title"

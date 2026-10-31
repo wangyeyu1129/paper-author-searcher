@@ -7,7 +7,10 @@ from difflib import SequenceMatcher
 from functools import lru_cache
 from typing import Any
 
-from .config import DEFAULT_MATCHING, MatchingConfig
+from .config import DEFAULT_MATCHING, TITLE_SPELLINGS, MatchingConfig
+
+# A name of this many words or more has a given and a family name.
+FULL_NAME_WORDS = 2
 
 
 def normalize(value: str) -> str:
@@ -17,6 +20,15 @@ def normalize(value: str) -> str:
         if not unicodedata.combining(character):
             characters.append(character)
     return ' '.join(re.findall(r'[^\W_]+', ''.join(characters)))
+
+
+_TITLE_SPELLING = re.compile(r'\b(?:' + '|'.join(british for british, _ in TITLE_SPELLINGS) + ')')
+_TITLE_SPELLING_FORMS = dict(TITLE_SPELLINGS)
+
+
+def normalize_title(value: str) -> str:
+    """``normalize`` for comparing titles: British and American spellings of a word compare equal."""
+    return _TITLE_SPELLING.sub(lambda match: _TITLE_SPELLING_FORMS[match.group()], normalize(value))
 
 
 def best_similarity(left: Iterable[str], right: Iterable[str], compare: Callable) -> float:
@@ -52,7 +64,7 @@ def name_similarity(left: str, right: str, config: MatchingConfig = DEFAULT_MATC
     if sorted(left_words) == sorted(right_words):
         return 1.0
 
-    has_full_names = len(left_words) >= 2 and len(right_words) >= 2
+    has_full_names = len(left_words) >= FULL_NAME_WORDS and len(right_words) >= FULL_NAME_WORDS
     if has_full_names and left_words[-1] == right_words[-1]:
         first_left = left_words[0]
         first_right = right_words[0]
@@ -83,7 +95,7 @@ def name_similarity_upper_bound(left: str, right: str, config: MatchingConfig = 
         return 0.0
     if sorted(left_words) == sorted(right_words):
         return 1.0
-    has_full_names = len(left_words) >= 2 and len(right_words) >= 2
+    has_full_names = len(left_words) >= FULL_NAME_WORDS and len(right_words) >= FULL_NAME_WORDS
     if has_full_names and left_words[-1] == right_words[-1]:
         first_left = left_words[0]
         first_right = right_words[0]
@@ -135,6 +147,10 @@ def canonical_orcid(value: str | None) -> str | None:
     return None
 
 
+DOI_URL = 'https://doi.org/'
+ARXIV_ABSTRACT_URL = 'https://arxiv.org/abs/'
+
+
 def canonical_doi(value: str) -> str:
     value = value.strip().lower()
     prefixes = (
@@ -179,7 +195,7 @@ def work_keys(dois: Iterable[str] = (), arxiv_ids: Iterable[str] = (), titles: I
         arxiv = arxiv_from_doi(doi)
         keys.add('arxiv:' + arxiv if arxiv else canonical_doi(doi))
     keys.update('arxiv:' + identifier for identifier in filter(None, map(canonical_arxiv, arxiv_ids)))
-    keys.update('title:' + normalize(title) for title in titles if normalize(title))
+    keys.update('title:' + normalize_title(title) for title in titles if normalize_title(title))
     return keys
 
 

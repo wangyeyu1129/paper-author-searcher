@@ -160,6 +160,10 @@ class DownloadStatus(StrEnum):
     SKIPPED_UNVERIFIED_URL = 'skipped_unverified_url'
 
 
+# Code of the run warning that no web search provider is configured.
+WEB_SEARCH_OFF = 'web_search_off'
+
+
 class AttemptStatus(StrEnum):
     """One download attempt of one candidate URL."""
 

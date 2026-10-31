@@ -1,0 +1,338 @@
+{
+ "snapshot_schema_version": 1,
+ "source_url": "https://pengsida.net/",
+ "captured_at": "2026-10-30",
+ "captured_by": "Assistant transcription of the public page; pending human review",
+ "scope_note": "Public list on the page, read by the assistant. Not read from this system's output.",
+ "transcription_notes": [],
+ "entries": [
+  {
+   "title": "Street Gaussians: Modeling Dynamic Urban Scenes with Gaussian Primitives",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "TPAMI 2025",
+   "authors": [
+    "Sida Peng",
+    "Yushi Long",
+    "Yunzhi Yan",
+    "Haotong Lin",
+    "Chenxu Zhou",
+    "Haiyang Sun",
+    "Kun Zhan",
+    "Xianpeng Lang",
+    "Hujun Bao",
+    "Xiaowei Zhou"
+   ]
+  },
+  {
+   "title": "Towards Depth Foundation Model: Recent Trends in Vision-Based Depth Estimation",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "CVMJ 2025",
+   "authors": [
+    "Zhen Xu",
+    "Hongyu Zhou",
+    "Sida Peng",
+    "Haotong Lin",
+    "Haoyu Guo",
+    "Jiahao Shao",
+    "Peishan Yang",
+    "Qinglin Yang",
+    "Sheng Miao",
+    "Xingyi He",
+    "Yifan Wang",
+    "Yue Wang",
+    "Ruizhen Hu",
+    "Yiyi Liao",
+    "Xiaowei Zhou",
+    "Hujun Bao"
+   ]
+  },
+  {
+   "title": "ReTracker: Exploring Image Matching for Robust Online Any Point Tracking",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICCV 2025",
+   "authors": [
+    "Dongli Tan",
+    "Xingyi He",
+    "Sida Peng",
+    "Yiqing Gong",
+    "Xing Zhu",
+    "Jiaming Sun",
+    "Ruizhen Hu",
+    "Yujun Shen",
+    "Hujun Bao",
+    "Xiaowei Zhou"
+   ]
+  },
+  {
+   "title": "StreetCrafter: Street View Synthesis with Controllable Video Diffusion Models",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "CVPR 2025",
+   "authors": [
+    "Yunzhi Yan",
+    "Zhen Xu",
+    "Haotong Lin",
+    "Haian Jin",
+    "Haoyu Guo",
+    "Yida Wang",
+    "Kun Zhan",
+    "Xianpeng Lang",
+    "Hujun Bao",
+    "Xiaowei Zhou",
+    "Sida Peng"
+   ]
+  },
+  {
+   "title": "Prompting Depth Anything for 4K Resolution Accurate Metric Depth Estimation",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "CVPR 2025",
+   "authors": [
+    "Haotong Lin",
+    "Sida Peng",
+    "Jingxiao Chen",
+    "Songyou Peng",
+    "Jiaming Sun",
+    "Minghuan Liu",
+    "Hujun Bao",
+    "Jiashi Feng",
+    "Xiaowei Zhou",
+    "Bingyi Kang"
+   ]
+  },
+  {
+   "title": "Multi-view Reconstruction via SfM-guided Monocular Depth Estimation",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "CVPR 2025",
+   "authors": [
+    "Haoyu Guo",
+    "He Zhu",
+    "Sida Peng",
+    "Haotong Lin",
+    "Yunzhi Yan",
+    "Tao Xie",
+    "Wenguan Wang",
+    "Xiaowei Zhou",
+    "Hujun Bao"
+   ]
+  },
+  {
+   "title": "FreeTimeGS: Free Gaussian Primitives at Anytime Anywhere for Dynamic Scene Reconstruction",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "CVPR 2025",
+   "authors": [
+    "Yifan Wang",
+    "Peishan Yang",
+    "Zhen Xu",
+    "Jiaming Sun",
+    "Zhanhua Zhang",
+    "Yong Chen",
+    "Hujun Bao",
+    "Sida Peng",
+    "Xiaowei Zhou"
+   ]
+  },
+  {
+   "title": "Street Gaussians for Modeling Dynamic Urban Scenes",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ECCV 2024",
+   "authors": [
+    "Yunzhi Yan",
+    "Haotong Lin",
+    "Chenxu Zhou",
+    "Weijie Wang",
+    "Haiyang Sun",
+    "Kun Zhan",
+    "Xianpeng Lang",
+    "Xiaowei Zhou",
+    "Sida Peng"
+   ]
+  },
+  {
+   "title": "GRM: Large Gaussian Reconstruction Model for Efficient 3D Reconstruction and Generation",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ECCV 2024",
+   "authors": [
+    "Yinghao Xu",
+    "Zifan Shi",
+    "Yifan Wang",
+    "Hansheng Chen",
+    "Ceyuan Yang",
+    "Sida Peng",
+    "Yujun Shen",
+    "Gordon Wetzstein"
+   ]
+  },
+  {
+   "title": "Neural 3D Scene Reconstruction with Indoor Planar Priors",
+   "year": 2024,
+   "type": "journal_article",
+   "venue": "TPAMI 2024",
+   "authors": [
+    "Xiaowei Zhou",
+    "Haoyu Guo",
+    "Sida Peng",
+    "Yuxi Xiao",
+    "Haotong Lin",
+    "Qianqian Wang",
+    "Guofeng Zhang",
+    "Hujun Bao"
+   ]
+  },
+  {
+   "title": "4K4D: Real-Time 4D View Synthesis at 4K Resolution",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "CVPR 2024",
+   "authors": [
+    "Zhen Xu",
+    "Sida Peng",
+    "Haotong Lin",
+    "Guangzhao He",
+    "Jiaming Sun",
+    "Yujun Shen",
+    "Hujun Bao",
+    "Xiaowei Zhou"
+   ]
+  },
+  {
+   "title": "Detector-Free Structure from Motion",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "CVPR 2024",
+   "authors": [
+    "Xingyi He",
+    "Jiaming Sun",
+    "Yifan Wang",
+    "Sida Peng",
+    "Qixing Huang",
+    "Hujun Bao",
+    "Xiaowei Zhou"
+   ]
+  },
+  {
+   "title": "SpatialTracker: Tracking Any 2D Pixels in 3D Space",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "CVPR 2024",
+   "authors": [
+    "Yuxi Xiao",
+    "Qianqian Wang",
+    "Shangzhan Zhang",
+    "Nan Xue",
+    "Sida Peng",
+    "Yujun Shen",
+    "Xiaowei Zhou"
+   ]
+  },
+  {
+   "title": "Efficient LoFTR: Semi-Dense Local Feature Matching with Sparse-Like Speed",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "CVPR 2024",
+   "authors": [
+    "Yifan Wang",
+    "Xingyi He",
+    "Sida Peng",
+    "Dongli Tan",
+    "Xiaowei Zhou"
+   ]
+  },
+  {
+   "title": "Animatable Implicit Neural Representations for Creating Realistic Avatars from Videos",
+   "year": 2024,
+   "type": "journal_article",
+   "venue": "TPAMI 2024",
+   "authors": [
+    "Xiaowei Zhou",
+    "Sida Peng",
+    "Zhen Xu",
+    "Junting Dong",
+    "Qianqian Wang",
+    "Shangzhan Zhang",
+    "Qing Shuai",
+    "Hujun Bao"
+   ]
+  },
+  {
+   "title": "Im4D: High-Fidelity and Real-Time Novel View Synthesis for Dynamic Scenes",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "SIGGRAPH Asia 2023",
+   "authors": [
+    "Haotong Lin",
+    "Sida Peng",
+    "Zhen Xu",
+    "Tao Xie",
+    "Xingyi He",
+    "Hujun Bao",
+    "Xiaowei Zhou"
+   ]
+  },
+  {
+   "title": "Representing Volumetric Videos as Dynamic MLP Maps",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "CVPR 2023",
+   "authors": [
+    "Sida Peng",
+    "Yunzhi Yan",
+    "Qing Shuai",
+    "Hujun Bao",
+    "Xiaowei Zhou"
+   ]
+  },
+  {
+   "title": "Learning Neural Volumetric Representations of Dynamic Humans in Minutes",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "CVPR 2023",
+   "authors": [
+    "Chen Geng",
+    "Sida Peng",
+    "Zhen Xu",
+    "Hujun Bao",
+    "Xiaowei Zhou"
+   ]
+  },
+  {
+   "title": "Grid-guided Neural Radiance Fields for Large Urban Scenes",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "CVPR 2023",
+   "authors": [
+    "Linning Xu",
+    "Yuanbo Xiangli",
+    "Sida Peng",
+    "Xingang Pan",
+    "Nanxuan Zhao",
+    "Christian Theobalt",
+    "Bo Dai",
+    "Dahua Lin"
+   ]
+  },
+  {
+   "title": "Implicit Neural Representations with Structured Latent Codes for Human Body Modeling",
+   "year": 2023,
+   "type": "journal_article",
+   "venue": "TPAMI 2023",
+   "authors": [
+    "Sida Peng",
+    "Chen Geng",
+    "Yuanqing Zhang",
+    "Yinghao Xu",
+    "Qianqian Wang",
+    "Qing Shuai",
+    "Xiaowei Zhou",
+    "Hujun Bao"
+   ]
+  }
+ ]
+}

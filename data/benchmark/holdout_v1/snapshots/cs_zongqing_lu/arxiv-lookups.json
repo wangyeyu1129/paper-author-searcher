@@ -1,0 +1,412 @@
+{
+  "lookups": {
+    "f divergence policy optimization in fully decentralized cooperative marl": {
+      "title": "$f$-Divergence Policy Optimization in Fully Decentralized Cooperative MARL",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:22:10.339679+00:00"
+    },
+    "a fully decentralized surrogate for multi agent policy optimization": {
+      "title": "A Fully Decentralized Surrogate for Multi-Agent Policy Optimization",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:22:16.463557+00:00"
+    },
+    "a novel benchmark for decision making in uncertain and competitive games": {
+      "title": "A Novel Benchmark for Decision-Making in Uncertain and Competitive Games",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:22:22.687043+00:00"
+    },
+    "a survey on transformers in reinforcement learning": {
+      "title": "A Survey on Transformers in Reinforcement Learning",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:22:28.803478+00:00"
+    },
+    "adarefiner refining decisions of language models with adaptive feedback": {
+      "title": "AdaRefiner: Refining Decisions of Language Models with Adaptive Feedback",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:22:34.930648+00:00"
+    },
+    "adaptive learning rates for multi agent reinforcement learning": {
+      "title": "Adaptive Learning Rates for Multi-Agent Reinforcement Learning",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:22:41.047533+00:00"
+    },
+    "best possible q learning": {
+      "title": "Best Possible Q-Learning",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:22:47.335429+00:00"
+    },
+    "beyond outcomes transparent assessment of llm reasoning in games": {
+      "title": "Beyond Outcomes: Transparent Assessment of LLM Reasoning in Games",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:22:53.616760+00:00"
+    },
+    "bi dexhands towards human level bimanual dexterous manipulation": {
+      "title": "Bi-DexHands: Towards Human-Level Bimanual Dexterous Manipulation",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:22:59.720103+00:00"
+    },
+    "crosser learning generalizable humanoid locomotion through inverse dynamics guided cross simulator adaptation": {
+      "title": "CROSSER: Learning Generalizable Humanoid Locomotion Through Inverse Dynamics-Guided Cross-Simulator Adaptation",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:23:05.847788+00:00"
+    },
+    "cradle empowering foundation agents towards general computer control": {
+      "title": "Cradle: Empowering Foundation Agents towards General Computer Control",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:23:12.004681+00:00"
+    },
+    "creative agents empowering agents with imagination for creative tasks": {
+      "title": "Creative Agents: Empowering Agents with Imagination for Creative Tasks",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:23:18.261314+00:00"
+    },
+    "cross domain offline policy adaptation with optimal transport and dataset constraint": {
+      "title": "Cross-Domain Offline Policy Adaptation with Optimal Transport and Dataset Constraint",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:23:24.518547+00:00"
+    },
+    "cross domain policy adaptation by capturing representation mismatch": {
+      "title": "Cross-Domain Policy Adaptation by Capturing Representation Mismatch",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:23:30.645878+00:00"
+    },
+    "cross embodiment dexterous grasping with reinforcement learning": {
+      "title": "Cross-Embodiment Dexterous Grasping with Reinforcement Learning",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:23:36.810681+00:00"
+    },
+    "discrete latent plans via semantic skill abstractions": {
+      "title": "Discrete Latent Plans via Semantic Skill Abstractions",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:23:43.094189+00:00"
+    },
+    "efficient residual learning with mixture of experts for universal dexterous grasping": {
+      "title": "Efficient Residual Learning with Mixture-of-Experts for Universal Dexterous Grasping",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:23:49.227431+00:00"
+    },
+    "entity divider with language grounding in multi agent reinforcement learning": {
+      "title": "Entity Divider with Language Grounding in Multi-Agent Reinforcement Learning",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:23:55.488742+00:00"
+    },
+    "from experts to a generalist toward general whole body control for humanoid robots": {
+      "title": "From Experts to a Generalist: Toward General Whole-Body Control for Humanoid Robots",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:24:01.602246+00:00"
+    },
+    "from pixels to tokens byte pair encoding on quantized visual modalities": {
+      "title": "From Pixels to Tokens: Byte-Pair Encoding on Quantized Visual Modalities",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:24:07.719608+00:00"
+    },
+    "gtr guided thought reinforcement prevents thought collapse in rl based vlm agent training": {
+      "title": "GTR: Guided Thought Reinforcement Prevents Thought Collapse in RL-based VLM Agent Training",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:24:13.860881+00:00"
+    },
+    "llm based explicit models of opponents for multi agent games": {
+      "title": "LLM-Based Explicit Models of Opponents for Multi-Agent Games",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:24:20.126723+00:00"
+    },
+    "llama rider spurring large language models to explore the open world": {
+      "title": "LLaMA Rider: Spurring Large Language Models to Explore the Open World",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:24:26.414309+00:00"
+    },
+    "language model adaption for reinforcement learning with natural language action space": {
+      "title": "Language Model Adaption for Reinforcement Learning with Natural Language Action Space",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:24:32.535457+00:00"
+    },
+    "learning multi object positional relationships via emergent communication": {
+      "title": "Learning Multi-Object Positional Relationships via Emergent Communication",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:24:38.662674+00:00"
+    },
+    "learning video conditioned policy on unlabelled data with joint embedding predictive transformer": {
+      "title": "Learning Video-Conditioned Policy on Unlabelled Data with Joint Embedding Predictive Transformer",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:24:44.779439+00:00"
+    },
+    "learning from visual observation via offline pretrained state to go transformer": {
+      "title": "Learning from Visual Observation via Offline Pretrained State-to-Go Transformer",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:24:51.095104+00:00"
+    },
+    "megohand multi modal egocentric hand object interaction motion generation": {
+      "title": "MEgoHand: Multi-Modal Egocentric Hand-Object Interaction Motion Generation",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:24:57.348426+00:00"
+    },
+    "mllm as retriever interactively learning multimodal retrieval for embodied agents": {
+      "title": "MLLM as Retriever: Interactively Learning Multimodal Retrieval for Embodied Agents",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:25:03.474056+00:00"
+    },
+    "metavim meta variationally intrinsic motivated reinforcement learning for decentralized traffic signal control": {
+      "title": "MetaVIM: Meta Variationally Intrinsic Motivated Reinforcement Learning for Decentralized Traffic Signal Control",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:25:09.595827+00:00"
+    },
+    "more centralized training still decentralized execution multi agent conditional policy factorization": {
+      "title": "More Centralized Training, Still Decentralized Execution: Multi-Agent Conditional Policy Factorization",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:25:15.710675+00:00"
+    },
+    "motionctrl a real time controllable vision language motion model": {
+      "title": "MotionCtrl: A Real-Time Controllable Vision-Language-Motion Model",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:25:21.985613+00:00"
+    },
+    "multi agent alternate q learning": {
+      "title": "Multi-Agent Alternate Q-Learning",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:25:28.107802+00:00"
+    },
+    "multi agent automated machine learning": {
+      "title": "Multi-Agent Automated Machine Learning",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:25:34.244021+00:00"
+    },
+    "multi agent coordination via multi level communication": {
+      "title": "Multi-Agent Coordination via Multi-Level Communication",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:25:40.363682+00:00"
+    },
+    "multi agent language learning symbolic mapping": {
+      "title": "Multi-Agent Language Learning: Symbolic Mapping",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:25:46.638715+00:00"
+    },
+    "mutual information regularized multi agent policy iteration": {
+      "title": "Mutual-Information Regularized Multi-Agent Policy Iteration",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:25:52.922171+00:00"
+    },
+    "nolo navigate only look once": {
+      "title": "NOLO: Navigate Only Look Once",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:25:59.044393+00:00"
+    },
+    "odrl a benchmark for off dynamics reinforcement learning": {
+      "title": "ODRL: A Benchmark for Off-Dynamics Reinforcement Learning",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:26:05.176919+00:00"
+    },
+    "offline decentralized multi agent reinforcement learning": {
+      "title": "Offline Decentralized Multi-Agent Reinforcement Learning",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:26:11.470779+00:00"
+    },
+    "online tuning for offline decentralized multi agent reinforcement learning": {
+      "title": "Online Tuning for Offline Decentralized Multi-Agent Reinforcement Learning",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:26:17.585792+00:00"
+    },
+    "openmmego enhancing egocentric understanding for lmms with open weights and data": {
+      "title": "OpenMMEgo: Enhancing Egocentric Understanding for LMMs with Open Weights and Data",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:26:23.858371+00:00"
+    },
+    "opponent modeling based on subgoal inference": {
+      "title": "Opponent Modeling based on Subgoal Inference",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:26:30.147011+00:00"
+    },
+    "planning with quantized opponent models": {
+      "title": "Planning with Quantized Opponent Models",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:26:36.435241+00:00"
+    },
+    "pre trained multi goal transformers with prompt optimization for efficient online adaptation": {
+      "title": "Pre-Trained Multi-Goal Transformers with Prompt Optimization for Efficient Online Adaptation",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:26:42.725287+00:00"
+    },
+    "pre trained visual dynamics representations for efficient policy learning": {
+      "title": "Pre-Trained Visual Dynamics Representations for Efficient Policy Learning",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:26:49.016374+00:00"
+    },
+    "pre training goal based models for sample efficient reinforcement learning": {
+      "title": "Pre-Training Goal-Based Models for Sample-Efficient Reinforcement Learning",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:26:55.307460+00:00"
+    },
+    "rl gpt integrating reinforcement learning and code as policy": {
+      "title": "RL-GPT: Integrating Reinforcement Learning and Code-as-policy",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:27:01.427969+00:00"
+    },
+    "releaps reinforcement learning based illumination planning for generalized photometric stereo": {
+      "title": "ReLeaPS: Reinforcement Learning-based Illumination Planning for Generalized Photometric Stereo",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:27:07.556469+00:00"
+    },
+    "reinforcement learning friendly vision language model for minecraft": {
+      "title": "Reinforcement Learning Friendly Vision-Language Model for Minecraft",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:27:13.695387+00:00"
+    },
+    "revisiting cooperative off policy multi agent reinforcement learning": {
+      "title": "Revisiting Cooperative Off-Policy Multi-Agent Reinforcement Learning",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:27:19.948928+00:00"
+    },
+    "seabo a simple search based method for offline imitation learning": {
+      "title": "SEABO: A Simple Search-Based Method for Offline Imitation Learning",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:27:26.064647+00:00"
+    },
+    "selu self learning embodied multimodal large language models in unknown environments": {
+      "title": "SELU: Self-Learning Embodied Multimodal Large Language Models in Unknown Environments",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:27:32.201085+00:00"
+    },
+    "scaling large motion models with million level human motions": {
+      "title": "Scaling Large Motion Models with Million-Level Human Motions",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:27:38.337427+00:00"
+    },
+    "settling decentralized multi agent coordinated exploration by novelty sharing": {
+      "title": "Settling Decentralized Multi-Agent Coordinated Exploration by Novelty Sharing",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:27:44.598631+00:00"
+    },
+    "skill reinforcement learning and planning for open world long horizon tasks": {
+      "title": "Skill Reinforcement Learning and Planning for Open-World Long-Horizon Tasks",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:27:50.710088+00:00"
+    },
+    "state advantage weighting for offline rl": {
+      "title": "State Advantage Weighting for Offline RL",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:27:56.837160+00:00"
+    },
+    "steve eye equipping llm based embodied agents with visual perception in open worlds": {
+      "title": "Steve-Eye: Equipping LLM-based Embodied Agents with Visual Perception in Open Worlds",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:28:02.997098+00:00"
+    },
+    "tackling non stationarity in reinforcement learning via causal origin representation": {
+      "title": "Tackling Non-Stationarity in Reinforcement Learning via Causal-Origin Representation",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:28:09.240421+00:00"
+    },
+    "taking notes brings focus towards multi turn multimodal dialogue learning": {
+      "title": "Taking Notes Brings Focus? Towards Multi-Turn Multimodal Dialogue Learning",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:28:15.366939+00:00"
+    },
+    "towards general computer control a multimodal agent for red dead redemption ii as a case study": {
+      "title": "Towards General Computer Control: A Multimodal Agent for Red Dead Redemption II as a Case Study",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:28:21.491253+00:00"
+    },
+    "towards understanding how to reduce generalization gap in visual reinforcement learning": {
+      "title": "Towards Understanding How to Reduce Generalization Gap in Visual Reinforcement Learning",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:28:27.607841+00:00"
+    },
+    "understanding what affects the generalization gap in visual reinforcement learning theory and empirical evidence": {
+      "title": "Understanding What Affects the Generalization Gap in Visual Reinforcement Learning: Theory and Empirical Evidence",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:28:33.886378+00:00"
+    },
+    "unicode learning a unified codebook for multimodal large language models": {
+      "title": "UniCode: Learning a Unified Codebook for Multimodal Large Language Models",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:28:40.173755+00:00"
+    },
+    "unified multimodal understanding via byte pair visual encoding": {
+      "title": "Unified Multimodal Understanding via Byte-Pair Visual Encoding",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:28:46.300407+00:00"
+    },
+    "videoorion tokenizing object dynamics in videos": {
+      "title": "VideoOrion: Tokenizing Object Dynamics in Videos",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:28:52.434867+00:00"
+    },
+    "visual grounding for object level generalization in reinforcement learning": {
+      "title": "Visual Grounding for Object-Level Generalization in Reinforcement Learning",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:28:58.560153+00:00"
+    },
+    "watch less do more implicit skill discovery for video conditioned policy": {
+      "title": "Watch Less, Do More: Implicit Skill Discovery for Video-Conditioned Policy",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:29:04.819859+00:00"
+    }
+  }
+}

@@ -4,9 +4,10 @@ import re
 from urllib.parse import urlsplit
 
 from .config import DEFAULT_PDF, PDFConfig
-from .matching import ARXIV_DOI_PREFIX, arxiv_from_doi, canonical_arxiv, canonical_doi, normalize
+from .matching import ARXIV_DOI_PREFIX, arxiv_from_doi, canonical_arxiv, canonical_doi, normalize_title
 from .paper_authorship import byline_forms
 from .paper_deduplication import author_signatures_match
+from .source_traits import ARXIV, bare_id, traits_of
 from .status import IdentityStatus, OwnershipStatus
 
 
@@ -17,9 +18,8 @@ def source_records(paper):
 
 def native_id(source, value):
     value = str(value or '').strip()
-    if source == 'openalex':
-        return value.rstrip('/').rsplit('/', 1)[-1].upper()
-    return value
+    identifier = bare_id(source, value)
+    return identifier.upper() if traits_of(source).case_insensitive_paper_ids else identifier
 
 
 def paper_ids(paper, source):
@@ -68,7 +68,7 @@ def metadata_identity(
     edition = _names_edition(paper, source, identifier, doi, editions)
     if doi and expected_dois and not doi_match and not edition:
         return IdentityStatus.CONFLICTING, ['Source DOI conflicts with saved paper DOI identifiers']
-    title_match = bool(title and normalize(title) == normalize(paper.get('title', '')))
+    title_match = bool(title and normalize_title(title) == normalize_title(paper.get('title', '')))
     shared = _shared_authors(paper, authors or [], config)
     if title and paper.get('title') and not title_match:
         if edition and shared:
@@ -98,7 +98,7 @@ def _names_edition(paper, source, identifier, doi, editions):
     if not own:
         return False
     named = {arxiv_from_doi(doi)} if doi else set()
-    if source == 'arxiv' and identifier:
+    if source == ARXIV and identifier:
         named.add(canonical_arxiv(str(identifier)))
     named.update(canonical_arxiv(str(value)) for value in editions or ())
     return bool(own & (named - {None}))
@@ -225,7 +225,7 @@ def edition_arxiv_ids(paper):
     metadata = paper.get('paper_metadata') or {}
     for related in paper.get('related_versions') or metadata.get('related_versions') or []:
         for identifier in (related or {}).get('identifiers') or []:
-            if identifier.get('source') == 'arxiv' and arxiv_id(identifier.get('paper_id')):
+            if identifier.get('source') == ARXIV and arxiv_id(identifier.get('paper_id')):
                 identifiers.append(arxiv_id(identifier['paper_id']))
             doi = canonical_doi(identifier.get('doi') or '')
             if doi.startswith('doi:' + ARXIV_DOI_PREFIX) and arxiv_id(doi[len('doi:' + ARXIV_DOI_PREFIX) :]):
