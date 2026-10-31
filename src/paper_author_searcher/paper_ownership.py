@@ -1,5 +1,6 @@
 """Conservative, source-scoped ownership decisions with traceable evidence."""
 
+import re
 import typing
 from collections import Counter
 
@@ -20,6 +21,9 @@ FOREIGN_FRAGMENT = (
 
 RARITY_SOURCE = OPENALEX
 RARE_NAME_EVIDENCE = 'Explicit target Author ID and compatible byline under a name no other author holds in the source'
+CURATED_VENUE_EVIDENCE = (
+    "Curated author profile most of whose papers are proven, in a venue where the person's verified papers appear"
+)
 LISTED_CLAIM = "Listed on the researcher's own publication list (homepage or supplied ORCID) with a compatible byline"
 
 
@@ -380,7 +384,60 @@ class PaperOwnershipValidator:
                     )
             self._aggregate(paper)
         self._verify_rare_name_papers(papers, profile)
+        self._verify_curated_profile_venues(papers, profile)
         return papers
+
+    def _verify_curated_profile_venues(self, papers, profile):
+        """Papers under a curated author ID in venues the person is proven to publish in, once most of it is proven.
+
+        Curated sources print no institutions and new students share too few papers to count as known coauthors, so
+        nothing else reaches these. Only for an ID of the form the source gives one separated person: Wei Wang's
+        name-based DBLP ID holds a speech researcher's ASRU papers, which pass the venue and coauthor tests.
+        """
+        curated = [paper for paper in papers if self._curated_records(paper, profile)]
+        proven = [paper for paper in curated if paper.ownership_status == OwnershipStatus.VERIFIED]
+        if not curated or len(proven) / len(curated) < self.config.curated_venue_minimum_verified_share:
+            return
+        counts: typing.Counter[str] = Counter()
+        coauthors: set[str] = set()
+        for paper in papers:
+            if paper.ownership_status == OwnershipStatus.VERIFIED:
+                counts.update(self._paper_venues(paper))
+                coauthors |= self._paper_coauthors(paper, profile)
+        venues = {venue for venue, count in counts.items() if count >= self.config.curated_venue_minimum_papers}
+        for paper in curated:
+            if {record.ownership_status for record in paper.records} & {OwnershipStatus.REJECTED}:
+                continue
+            for record in self._curated_records(paper, profile):
+                if (
+                    record.ownership_status == OwnershipStatus.NEEDS_REVIEW
+                    and self._record_venue(record) in venues
+                    and self._coauthors(record, profile) & coauthors
+                    and self._rare_name_eligible(record, profile)
+                ):
+                    record.ownership_status = OwnershipStatus.VERIFIED
+                    record.ownership_evidence.append(CURATED_VENUE_EVIDENCE)
+            self._aggregate(paper)
+
+    def _curated_records(self, paper, profile):
+        return [
+            record
+            for record in paper.records
+            if record.source in self.config.curated_orcid_sources
+            and canonical_author_id(record.source, record.source_author_id)
+            in self._selected_ids(profile, record.source)
+            and re.fullmatch(self.config.curated_unshared_id_pattern, record.source_author_id or '')
+        ]
+
+    def _record_venue(self, record):
+        venue = normalize(record.venue or '')
+        return '' if venue in self.config.curated_venue_excluded else venue
+
+    def _paper_venues(self, paper):
+        return {venue for venue in map(self._record_venue, paper.records) if venue}
+
+    def _paper_coauthors(self, paper, profile):
+        return {name for record in paper.records for name in self._coauthors(record, profile)}
 
     def _verify_rare_name_papers(self, papers, profile):
         """Under a rare name, papers under the person's author ID in fields their proven papers are in.

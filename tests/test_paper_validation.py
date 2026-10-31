@@ -61,6 +61,86 @@ def validate(records):
     return PaperOwnershipValidator().validate(papers, profile())
 
 
+class CuratedProfileTests(unittest.TestCase):
+    def paper(self, title, venue, coauthors=('Jane Smith',), author_id='123/4433', orcid=None):
+        name = 'Alex Morgan'
+        return PaperRecord(
+            title=title,
+            authors=[name, *coauthors],
+            year=2024,
+            doi=None,
+            venue=venue,
+            abstract=None,
+            source='dblp',
+            source_paper_id=title,
+            source_author_id=author_id,
+            paper_url=None,
+            publication_type='article',
+            author_details=[{'author_id': author_id, 'name': name, 'orcid': orcid, 'orcid_scope': 'paper_authorship'}],
+        )
+
+    def target(self, kind=None):
+        anchors = [AnchorEvidence('dblp', '123/4433', 'anchor', kind)] if kind else []
+        return replace(
+            profile(),
+            orcid=None,
+            author_ids={'dblp': '123/4433'},
+            author_id_aliases={'dblp': ['123/4433']},
+            identity_anchors=anchors,
+            curated_author_ids={'dblp': []},
+        )
+
+    def statuses(self, records, target=None, **config):
+        papers = deduplicate_papers(records)
+        PaperOwnershipValidator(OwnershipConfig(**config)).validate(papers, target or self.target())
+        return {paper.title: paper.ownership_status for paper in papers}
+
+    def anchored(self, count):
+        return [
+            self.paper(f'Proven {index}', 'NeurIPS', (f'Friend {index}', 'Regular Coauthor')) for index in range(count)
+        ]
+
+    def test_a_proven_profile_vouches_for_its_papers_in_the_persons_venues(self):
+        # Paper-level ORCIDs prove these, not the profile, so the other papers have nothing else to rely on.
+        proven = [
+            self.paper(f'Proven {index}', 'NeurIPS', (f'Friend {index}', 'Advisor'), orcid='orcid')
+            for index in range(4)
+        ]
+        preprints = [self.paper(f'Proven preprint {index}', 'CoRR', orcid='orcid') for index in range(3)]
+        records = [
+            *proven,
+            *preprints,
+            self.paper('New student work', 'NeurIPS', ('New Student', 'Friend 1')),
+            self.paper('Namesake in the venue', 'NeurIPS', ('Stranger',)),
+            self.paper('Elsewhere', 'Journal of Other Things', ('Friend 1',)),
+            self.paper('Preprint', 'CoRR', ('Friend 2',)),
+        ]
+        statuses = self.statuses(records, replace(self.target(), orcid='orcid'))
+        self.assertEqual(statuses['New student work'], 'verified')
+        self.assertEqual(statuses['Namesake in the venue'], 'needs_review')
+        self.assertEqual(statuses['Elsewhere'], 'needs_review')
+        self.assertEqual(statuses['Preprint'], 'needs_review')
+
+    def test_a_mostly_unproven_profile_vouches_for_nothing(self):
+        records = [
+            self.paper(f'Unproven {index}', 'NeurIPS', (f'Stranger {index}',), author_id='123/4433')
+            for index in range(6)
+        ]
+        statuses = self.statuses(records)
+        self.assertEqual(set(statuses.values()), {'needs_review'})
+
+    def test_an_id_that_may_pool_namesakes_vouches_for_nothing(self):
+        for shared in ('123/4433-1', 'w/WeiWang'):
+            proven = [
+                self.paper(f'Proven {index}', 'NeurIPS', (f'Friend {index}',), shared, 'orcid') for index in range(4)
+            ]
+            records = [*proven, self.paper('New student work', 'NeurIPS', ('Friend 1',), shared)]
+            target = replace(
+                self.target(), orcid='orcid', author_ids={'dblp': shared}, author_id_aliases={'dblp': [shared]}
+            )
+            self.assertEqual(self.statuses(records, target)['New student work'], 'needs_review')
+
+
 class NonPublicationTitleTests(unittest.TestCase):
     def test_corrections_and_data_supplements_are_not_verified_even_with_a_paper_orcid(self):
         for title in (

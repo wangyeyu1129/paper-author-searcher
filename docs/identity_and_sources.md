@@ -56,6 +56,7 @@ OpenAlex 为每个合并后的作者聚类只记一个 ORCID，混入同名者�
   - 某个对手的院系署名篇数达到 `minimum_works`，而且多于胜出者。
 - **竞争范围外的候选**：分数在第一名 `curated_band`（默认 0.1）以内的候选，只要它自己的 DBLP 记录写明了院系，也参与这一层。这样做是因为跨来源共享 ORCID 的加分，让清华智能产业研究院的 Yang Liu 领先真正的计算机系 Yang Liu 0.065。
 - **对论文归属的影响**：判定所依据的 DBLP 档案记在 `ProfessorProfile.curated_author_ids` 里。论文归属检查对它的信任程度，与对"由本人 ORCID 锚定的 DBLP 档案"相同，所以列出这个 DBLP 档案的论文会被验证。从 ORCID 读来的职位不会为任何 OpenAlex 聚类背书。
+- **已证实档案下的其他论文**：DBLP 作者 ID 是纯数字形式（`curated_unshared_id_pattern`），且该 ID 下至少一半论文已确认时，其余论文只要发表在此人已确认论文达到 3 篇的会议或期刊上（`curated_venue_minimum_papers`，预印本平台不算），并且至少有一位合作者也出现在此人已确认的论文里，就确认归属。带编号或按姓名生成的 ID 可能混有同名者，不适用。
 
 DBLP 机构注释（"Tsinghua University, Department of Computer Science and Technology, China"）先由 `DepartmentMatcher.split` 拆成机构名和院系。第一段总是机构；在出现院系之前的每个前缀都保留，因为 "University of California, Los Angeles" 本身带逗号。注释中的"当前"信息不参与打分，只在上面这一层里和院系一起核对。
 
