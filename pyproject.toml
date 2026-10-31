@@ -75,7 +75,7 @@ pretty = false
 
 [[tool.mypy.overrides]]
 # Optional extras ("download", "llm") are imported lazily and have no stubs here.
-module = ["pypdf", "pypdf.*", "anthropic", "anthropic.*"]
+module = ["pypdf", "pypdf.*", "pdfminer", "pdfminer.*", "anthropic", "anthropic.*"]
 ignore_missing_imports = true
 
 [[tool.mypy.overrides]]
