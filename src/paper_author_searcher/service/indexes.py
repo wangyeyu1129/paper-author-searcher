@@ -15,6 +15,7 @@ import urllib.error
 import urllib.request
 from collections.abc import Callable
 from dataclasses import asdict, dataclass
+from http import HTTPStatus
 from pathlib import Path
 from typing import Any
 
@@ -96,7 +97,7 @@ class IndexRefresher:
                 last_modified = response.headers.get('Last-Modified')
         except urllib.error.HTTPError as error:
             partial.unlink(missing_ok=True)
-            if error.code == 304:
+            if error.code == HTTPStatus.NOT_MODIFIED:
                 logger.info('%s unchanged since %s', url, meta.get('last_modified'))
                 return False
             raise

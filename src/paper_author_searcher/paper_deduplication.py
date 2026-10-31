@@ -6,9 +6,13 @@ from itertools import combinations
 from typing import Any
 
 from .config import DEFAULT_DEDUPLICATION, DeduplicationConfig
-from .matching import canonical_doi, name_similarity, normalize
+from .matching import canonical_doi, name_similarity, normalize, normalize_title
 from .models import Paper, PaperRecord
 from .paper_types import classify_record, publication_form
+from .source_traits import traits_of
+
+# A name of this many words or more has a given and a family name.
+FULL_NAME_WORDS = 2
 
 
 def author_signatures_match(left: str, right: str, config: DeduplicationConfig = DEFAULT_DEDUPLICATION) -> bool:
@@ -18,7 +22,7 @@ def author_signatures_match(left: str, right: str, config: DeduplicationConfig =
         return False
     left_words = normalize(left).split()
     right_words = normalize(right).split()
-    if len(left_words) < 2 or len(right_words) < 2:
+    if len(left_words) < FULL_NAME_WORDS or len(right_words) < FULL_NAME_WORDS:
         return False
     if left_words[-1] != right_words[-1] or left_words[0][0] != right_words[0][0]:
         return False
@@ -50,7 +54,7 @@ def shared_authors(left: PaperRecord, right: PaperRecord, config: DeduplicationC
 
 
 def _metadata_agrees(left: PaperRecord, right: PaperRecord, config: DeduplicationConfig) -> bool:
-    if not left.title or normalize(left.title) != normalize(right.title):
+    if not left.title or normalize_title(left.title) != normalize_title(right.title):
         return False
     if left.year is None or left.year != right.year:
         return False
@@ -68,8 +72,9 @@ def _stable_ids(record: PaperRecord) -> set[tuple[str, str]]:
     for namespace, value in record.external_ids.items():
         if value and namespace.lower() != 'doi':
             ids.add((namespace.lower(), str(value).strip()))
-    if record.source == 'dblp':
-        ids.add(('dblp', record.source_paper_id))
+    shared_namespace = traits_of(record.source).shared_paper_namespace
+    if shared_namespace:
+        ids.add((shared_namespace, record.source_paper_id))
     if record.doi:
         ids.add(('doi', canonical_doi(record.doi)))
     return ids
@@ -110,7 +115,7 @@ def deduplicate_papers(
         classify_record(record)
         keys: list[tuple[Any, ...]] = list(_stable_ids(record))
         if record.title:
-            keys.append(('title-year', normalize(record.title), record.year))
+            keys.append(('title-year', normalize_title(record.title), record.year))
         candidates = set()
         for key in keys:
             candidates.update(index.get(key, set()))
@@ -223,7 +228,7 @@ def _combine_authorship_metadata(group: Sequence[PaperRecord]) -> dict[str, Any]
 def _link_related_versions(papers: list[Paper], config: DeduplicationConfig) -> None:
     titles: dict[str, Any] = {}
     for paper in papers:
-        titles.setdefault(normalize(paper.title), []).append(paper)
+        titles.setdefault(normalize_title(paper.title), []).append(paper)
     for candidates in titles.values():
         for left, right in combinations(candidates, 2):
             count = shared_authors(left, right, config)

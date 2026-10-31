@@ -25,6 +25,10 @@ from .status import AnchorKind, ResolutionStatus, UniversityStatus
 logger = logging.getLogger(__name__)
 
 
+# A contest needs two people.
+MINIMUM_CONTEST_SIZE = 2
+
+
 @dataclass
 class ProfileSignals:
     name: float
@@ -80,7 +84,11 @@ class ProfessorResolver:
 
     def _disambiguate(self, query, scored):
         """Let the contenders' own bylines settle a close contest the scores leave open."""
-        if self.disambiguator is None or len(scored) < 2 or self.ranking.uncontested(scored[0][0], scored[1][0]):
+        if (
+            self.disambiguator is None
+            or len(scored) < MINIMUM_CONTEST_SIZE
+            or self.ranking.uncontested(scored[0][0], scored[1][0])
+        ):
             return scored
         verdict = self.disambiguator.choose(query, scored)
         if verdict is None:
@@ -93,7 +101,7 @@ class ProfessorResolver:
 
     def _adjudicate(self, query, scored, anchors):
         """Ask the adjudicator about a close, unanchored contest between the top two profiles."""
-        if self.adjudicator is None or len(scored) < 2:
+        if self.adjudicator is None or len(scored) < MINIMUM_CONTEST_SIZE:
             return scored
         (first, first_group), (second, second_group) = scored[0], scored[1]
         if first.disambiguation:
@@ -151,7 +159,7 @@ class ProfessorResolver:
         if not anchors:
             return groups
         anchored = [group for group in groups if any(self._is_anchored(record, anchors) for record in group)]
-        if len(anchored) < 2:
+        if len(anchored) < MINIMUM_CONTEST_SIZE:
             return groups
         merged = [record for group in anchored for record in group]
         return [merged] + [group for group in groups if group not in anchored]
@@ -250,7 +258,7 @@ class ProfessorResolver:
         return any(link.split_profile for link in links) and not any(link.conflict for link in links)
 
     def _mark_ambiguity(self, profiles, groups):
-        if len(profiles) < 2:
+        if len(profiles) < MINIMUM_CONTEST_SIZE:
             return None
         best = profiles[0]
         margin = best.match_score - profiles[1].match_score

@@ -133,6 +133,14 @@ class ContractTests(unittest.TestCase):
         self.assertIn('Some sources did not answer; the list may be incomplete', agent_view(job)['notes'])
 
 
+class NoticeTests(unittest.TestCase):
+    def test_a_result_notice_reaches_the_agent_as_a_note(self):
+        found = dict(result(papers=[paper('0')]), notices=[{'code': 'web_search_off', 'message': 'No web search'}])
+        view = agent_view(Job('s', 'k', REQUEST, status=JobStatus.SUCCEEDED, result=found))
+        self.assertIn('No web search', view['notes'])
+        self.assertTrue(view['usable'])
+
+
 class ConfidenceTests(unittest.TestCase):
     def build(self, entries):
         directory = tempfile.TemporaryDirectory()

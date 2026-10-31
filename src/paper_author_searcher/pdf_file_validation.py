@@ -7,6 +7,7 @@ import logging
 import re
 import subprocess
 import sys
+import tempfile
 import unicodedata
 from dataclasses import asdict
 from pathlib import Path
@@ -14,7 +15,7 @@ from typing import Any
 
 from .config import DEFAULT_DOWNLOAD, DownloadConfig
 from .http import has_pdf_signature
-from .matching import arxiv_from_doi, canonical_arxiv, canonical_doi, normalize
+from .matching import arxiv_from_doi, canonical_arxiv, canonical_doi, normalize, normalize_title
 from .models import PDFFileValidation
 from .pdf_document_types import NON_FULL_DOCUMENTS, classify_document
 from .pdf_front_matter import authors_present, front_matter, metadata_title_kind, publication_years, title_in_region
@@ -44,7 +45,7 @@ def validation_target(paper, candidate=None):
             year = provenance.get('metadata_year')
             if not authors or not target['year'] or str(year) != str(target['year']):
                 continue
-            if normalize(title or '') != normalize(target['title'] or ''):
+            if normalize_title(title or '') != normalize_title(target['title'] or ''):
                 continue
             identity, _ = metadata_identity(
                 paper, 'landing_page', doi=provenance.get('doi'), title=title, year=year, authors=authors
@@ -65,7 +66,7 @@ def validation_target(paper, candidate=None):
     ):
         for provenance in candidate.get('provenance') or []:
             title = provenance.get('title') or provenance.get('metadata_title')
-            if normalize(title or '') != normalize(target['title'] or ''):
+            if normalize_title(title or '') != normalize_title(target['title'] or ''):
                 continue
             target['publication_bindings'].append(
                 {
@@ -114,10 +115,12 @@ def _best_title_kind(title, expected_titles, minimum_words):
 
 
 def content_identity(paper, titles, title_regions, text, author_metadata, config=DEFAULT_DOWNLOAD):
-    expected_title = normalize(paper.get('title') or '')
+    expected_title = normalize_title(paper.get('title') or '')
     expected_titles = [paper.get('title') or '', *(paper.get('edition_titles') or [])]
     titles = [_without_artifacts(title, config) for title in titles]
-    metadata_match = any(normalize(title) in {normalize(value) for value in expected_titles} for title in titles)
+    metadata_match = any(
+        normalize_title(title) in {normalize_title(value) for value in expected_titles} for title in titles
+    )
     metadata_kinds = [_best_title_kind(title, expected_titles, config.metadata_title_minimum_words) for title in titles]
     normal_title_match = metadata_match
     title_match = metadata_match
@@ -382,6 +385,64 @@ class PDFFileValidator:
             )
 
 
+def layout_text(path, layouts):
+    """The first page's text under each pdfminer layout (keyword arguments of LAParams)."""
+    from pdfminer.high_level import extract_text
+    from pdfminer.layout import LAParams
+
+    return [extract_text(path, page_numbers=[0], maxpages=1, laparams=LAParams(**layout)) for layout in layouts]
+
+
+def extract_pages(path, destination, pages):
+    """Copy a PDF's first ``pages`` pages to ``destination`` (a parser worker's job: the file is untrusted)."""
+    from pypdf import PdfReader, PdfWriter
+
+    reader = PdfReader(path, strict=False)
+    writer = PdfWriter()
+    for page in reader.pages[:pages]:
+        writer.add_page(page)
+    with open(destination, 'wb') as handle:
+        writer.write(handle)
+
+
+def front_page_text(path, layouts, config=DEFAULT_DOWNLOAD):
+    """The first page's text by a second extractor, in a resource-limited worker; [] when it cannot be done."""
+    request = json.dumps({'config': asdict(config), 'layouts': list(layouts)})
+    try:
+        completed = subprocess.run(
+            [sys.executable, '-c', WORKER_BOOTSTRAP, PACKAGE_ROOT, str(path)],
+            input=request,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+            timeout=config.parser_timeout,
+            check=True,
+        )
+        return json.loads(completed.stdout)
+    except (subprocess.SubprocessError, OSError, ValueError):
+        return []
+
+
+def front_pages(path, pages, config=DEFAULT_DOWNLOAD):
+    """The PDF's first pages as bytes, cut in a resource-limited worker; None when it cannot be done."""
+    with tempfile.TemporaryDirectory() as directory:
+        destination = Path(directory) / 'front.pdf'
+        request = json.dumps({'config': asdict(config), 'extract_to': str(destination), 'pages': pages})
+        try:
+            subprocess.run(
+                [sys.executable, '-c', WORKER_BOOTSTRAP, PACKAGE_ROOT, str(path)],
+                input=request,
+                text=True,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                timeout=config.parser_timeout,
+                check=True,
+            )
+            return destination.read_bytes()
+        except (subprocess.SubprocessError, OSError):
+            return None
+
+
 def _apply_worker_limits(config):
     try:
         import resource
@@ -395,6 +456,12 @@ def _worker():
     request = json.load(sys.stdin)
     config = DownloadConfig(**request['config'])
     _apply_worker_limits(config)
+    if request.get('layouts'):
+        print(json.dumps(layout_text(sys.argv[1], request['layouts'])))
+        return
+    if request.get('extract_to'):
+        extract_pages(sys.argv[1], request['extract_to'], request['pages'])
+        return
     result = inspect_pdf(sys.argv[1], request['paper'], config)
     print(json.dumps(asdict(result)))
 

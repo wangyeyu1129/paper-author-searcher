@@ -4,6 +4,7 @@ import threading
 import time
 from collections.abc import Callable, Iterable
 from functools import partial
+from http import HTTPStatus
 from typing import Any
 from urllib.parse import quote
 
@@ -92,7 +93,7 @@ class SemanticScholarRequests:
         self.events.append({'operation': operation, 'error_type': exc.error_type, 'status_code': exc.status_code})
         if exc.status_code in (401, 403):
             self.blocked_error = exc
-        elif exc.status_code == 429 or exc.error_type in (
+        elif exc.status_code == HTTPStatus.TOO_MANY_REQUESTS or exc.error_type in (
             'timeout',
             'network_error',
             'server_error',
@@ -154,7 +155,7 @@ class SemanticScholarRequests:
                     'individual_requests',
                 )
             except SourceError as exc:
-                if exc.status_code == 404:
+                if exc.status_code == HTTPStatus.NOT_FOUND:
                     self.cache[identifier] = None
                     self.origins[identifier] = 'individual'
                 raise

@@ -1,0 +1,4966 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "bio_gary_bader",
+    "dataset_id": "holdout_v1",
+    "search_input": {
+      "name": "Gary Bader",
+      "university": "University of Toronto"
+    },
+    "scope": {
+      "year_start": 2023,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-30T21:04:27.658287+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://baderlab.org/Publications",
+        "records": 50
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "bio_gary_bader:8fef4bd95245",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A rat liver cell atlas reveals intrahepatic myeloid heterogeneity",
+      "year": 2023,
+      "authors": [
+        "D. Pouyabahar",
+        "S. W. Chung",
+        "O. I. Pezzutti",
+        "C. T. Perciani",
+        "X. Wang",
+        "X. Z. Ma",
+        "C. Jiang",
+        "D. Camat",
+        "T. Chung",
+        "M. Sekhon",
+        "J. Manuel",
+        "X. C. Chen",
+        "I. D. McGilvray",
+        "S. A. MacParland",
+        "G. D. Bader"
+      ],
+      "listed_venue": "iScience",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 31 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.isci.2023.108213"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A rat liver cell atlas reveals intrahepatic myeloid heterogeneity",
+          "year": 2022,
+          "authors": [
+            "D. Pouyabahar",
+            "S. W. Chung",
+            "O. I. Pezzutti",
+            "C. T. Perciani",
+            "X. Wang",
+            "X. Z. Ma",
+            "C. Jiang",
+            "D. Camat",
+            "T. Chung",
+            "M. Sekhon",
+            "J. Manuel",
+            "X. C. Chen",
+            "I. D. McGilvray",
+            "S. A. MacParland",
+            "G. D. Bader"
+          ]
+        },
+        {
+          "title": "A rat liver cell atlas reveals intrahepatic myeloid heterogeneity",
+          "year": 2024,
+          "authors": [
+            "D. Pouyabahar",
+            "S. W. Chung",
+            "O. I. Pezzutti",
+            "C. T. Perciani",
+            "X. Wang",
+            "X. Z. Ma",
+            "C. Jiang",
+            "D. Camat",
+            "T. Chung",
+            "M. Sekhon",
+            "J. Manuel",
+            "X. C. Chen",
+            "I. D. McGilvray",
+            "S. A. MacParland",
+            "G. D. Bader"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.isci.2023.108213",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "A rat liver cell atlas reveals intrahepatic myeloid heterogeneity",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:4170d41448f4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Adversarial training improves model interpretability in single-cell RNA-seq analysis",
+      "year": 2023,
+      "authors": [
+        "M. Sadria",
+        "A. Layton",
+        "G. D. Bader"
+      ],
+      "listed_venue": "Bioinform Adv",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 29 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2023.05.17.541170"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Adversarial training improves model interpretability in single-cell RNA-seq analysis",
+          "year": 2022,
+          "authors": [
+            "M. Sadria",
+            "A. Layton",
+            "G. D. Bader"
+          ]
+        },
+        {
+          "title": "Adversarial training improves model interpretability in single-cell RNA-seq analysis",
+          "year": 2024,
+          "authors": [
+            "M. Sadria",
+            "A. Layton",
+            "G. D. Bader"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2023.05.17.541170",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Adversarial training improves model interpretability in single-cell RNA-seq analysis",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:a31b4e7f88aa",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Cytoscape.js 2023 update: a graph theory library for visualisation and analysis",
+      "year": 2023,
+      "authors": [
+        "M. Franz",
+        "C. T. Lopes",
+        "D. Fong",
+        "M. Kucera",
+        "M. Cheung",
+        "M. C. Siper",
+        "G. Huck",
+        "Y. Dong",
+        "O. Sumer",
+        "G. D. Bader"
+      ],
+      "listed_venue": "Bioinformatics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 39 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Cytoscape.js 2023 update: a graph theory library for visualisation and analysis",
+          "year": 2022,
+          "authors": [
+            "M. Franz",
+            "C. T. Lopes",
+            "D. Fong",
+            "M. Kucera",
+            "M. Cheung",
+            "M. C. Siper",
+            "G. Huck",
+            "Y. Dong",
+            "O. Sumer",
+            "G. D. Bader"
+          ]
+        },
+        {
+          "title": "Cytoscape.js 2023 update: a graph theory library for visualisation and analysis",
+          "year": 2024,
+          "authors": [
+            "M. Franz",
+            "C. T. Lopes",
+            "D. Fong",
+            "M. Kucera",
+            "M. Cheung",
+            "M. C. Siper",
+            "G. Huck",
+            "Y. Dong",
+            "O. Sumer",
+            "G. D. Bader"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:16a85cf29a7f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Distinct shared and compartment-enriched oncogenic networks drive primary versus metastatic breast cancer",
+      "year": 2023,
+      "authors": [
+        "Z. Jiang",
+        "Y. Ju",
+        "A. Ali",
+        "P. E. D. Chung",
+        "P. Skowron",
+        "D. Y. Wang",
+        "M. Shrestha",
+        "H. Li",
+        "J. C. Liu",
+        "I. Vorobieva",
+        "R. Ghanbari-Azarnier",
+        "E. Mwewa",
+        "M. Koritzinsky",
+        "Y. Ben-David",
+        "J. R. Woodgett",
+        "C. M. Perou",
+        "A. Dupuy",
+        "G. D. Bader",
+        "S. E. Egan",
+        "M. D. Taylor",
+        "E. Zacksenhaus"
+      ],
+      "listed_venue": "Nat Commun",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 33 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1038/s41467-023-39935-y"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Distinct shared and compartment-enriched oncogenic networks drive primary versus metastatic breast cancer",
+          "year": 2022,
+          "authors": [
+            "Z. Jiang",
+            "Y. Ju",
+            "A. Ali",
+            "P. E. D. Chung",
+            "P. Skowron",
+            "D. Y. Wang",
+            "M. Shrestha",
+            "H. Li",
+            "J. C. Liu",
+            "I. Vorobieva",
+            "R. Ghanbari-Azarnier",
+            "E. Mwewa",
+            "M. Koritzinsky",
+            "Y. Ben-David",
+            "J. R. Woodgett",
+            "C. M. Perou",
+            "A. Dupuy",
+            "G. D. Bader",
+            "S. E. Egan",
+            "M. D. Taylor",
+            "E. Zacksenhaus"
+          ]
+        },
+        {
+          "title": "Distinct shared and compartment-enriched oncogenic networks drive primary versus metastatic breast cancer",
+          "year": 2024,
+          "authors": [
+            "Z. Jiang",
+            "Y. Ju",
+            "A. Ali",
+            "P. E. D. Chung",
+            "P. Skowron",
+            "D. Y. Wang",
+            "M. Shrestha",
+            "H. Li",
+            "J. C. Liu",
+            "I. Vorobieva",
+            "R. Ghanbari-Azarnier",
+            "E. Mwewa",
+            "M. Koritzinsky",
+            "Y. Ben-David",
+            "J. R. Woodgett",
+            "C. M. Perou",
+            "A. Dupuy",
+            "G. D. Bader",
+            "S. E. Egan",
+            "M. D. Taylor",
+            "E. Zacksenhaus"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s41467-023-39935-y",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Distinct shared and compartment-enriched oncogenic networks drive primary versus metastatic breast cancer",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:bd421b4841f0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Fate specification of GFAP-negative primitive neural stem cells and their progeny at clonal resolution",
+      "year": 2023,
+      "authors": [
+        "S. Yammine",
+        "I. Burns",
+        "J. Gosio",
+        "A. Peluso",
+        "D. Merritt",
+        "B. Innes",
+        "B. Coles",
+        "W. R. Yan",
+        "G. D. Bader",
+        "C. Morshead",
+        "D. van der Kooy"
+      ],
+      "listed_venue": "Stem Cells Dev",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 32 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1089/scd.2023.0038"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Fate specification of GFAP-negative primitive neural stem cells and their progeny at clonal resolution",
+          "year": 2022,
+          "authors": [
+            "S. Yammine",
+            "I. Burns",
+            "J. Gosio",
+            "A. Peluso",
+            "D. Merritt",
+            "B. Innes",
+            "B. Coles",
+            "W. R. Yan",
+            "G. D. Bader",
+            "C. Morshead",
+            "D. van der Kooy"
+          ]
+        },
+        {
+          "title": "Fate specification of GFAP-negative primitive neural stem cells and their progeny at clonal resolution",
+          "year": 2024,
+          "authors": [
+            "S. Yammine",
+            "I. Burns",
+            "J. Gosio",
+            "A. Peluso",
+            "D. Merritt",
+            "B. Innes",
+            "B. Coles",
+            "W. R. Yan",
+            "G. D. Bader",
+            "C. Morshead",
+            "D. van der Kooy"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1089/scd.2023.0038",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Fate Specification of GFAP-Negative Primitive Neural Stem Cells and Their Progeny at Clonal Resolution",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:966ddae4fb76",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Genotyping SARS-CoV-2 Variants Using Ratiometric Nucleic Acid Barcode Panels",
+      "year": 2023,
+      "authors": [
+        "H. N. Kozlowski",
+        "A. Malekjahani",
+        "V. Y. C. Li",
+        "A. A. Lekuti",
+        "S. Perusini",
+        "N. G. Bell",
+        "V. Voisin",
+        "D. Pouyabahar",
+        "S. Pai",
+        "G. D. Bader",
+        "S. Mubareka",
+        "J. B. Gubbay",
+        "W. C. W. Chan"
+      ],
+      "listed_venue": "Anal Chem",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 38 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1021/acs.analchem.2c04630"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Genotyping SARS-CoV-2 Variants Using Ratiometric Nucleic Acid Barcode Panels",
+          "year": 2022,
+          "authors": [
+            "H. N. Kozlowski",
+            "A. Malekjahani",
+            "V. Y. C. Li",
+            "A. A. Lekuti",
+            "S. Perusini",
+            "N. G. Bell",
+            "V. Voisin",
+            "D. Pouyabahar",
+            "S. Pai",
+            "G. D. Bader",
+            "S. Mubareka",
+            "J. B. Gubbay",
+            "W. C. W. Chan"
+          ]
+        },
+        {
+          "title": "Genotyping SARS-CoV-2 Variants Using Ratiometric Nucleic Acid Barcode Panels",
+          "year": 2024,
+          "authors": [
+            "H. N. Kozlowski",
+            "A. Malekjahani",
+            "V. Y. C. Li",
+            "A. A. Lekuti",
+            "S. Perusini",
+            "N. G. Bell",
+            "V. Voisin",
+            "D. Pouyabahar",
+            "S. Pai",
+            "G. D. Bader",
+            "S. Mubareka",
+            "J. B. Gubbay",
+            "W. C. W. Chan"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1021/acs.analchem.2c04630",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Genotyping SARS-CoV-2 Variants Using Ratiometric Nucleic Acid Barcode Panels",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:7ce4fb63dbdb",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "MAESTER: Masked Autoencoder Guided Segmentation at Pixel Resolution for Accurate, Self-Supervised Subcellular Structure Recognition",
+      "year": 2023,
+      "authors": [
+        "R. Xie",
+        "K. Pang",
+        "G. D. Bader",
+        "B. Wang"
+      ],
+      "listed_venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 35 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/cvpr52729.2023.00321"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "MAESTER: Masked Autoencoder Guided Segmentation at Pixel Resolution for Accurate, Self-Supervised Subcellular Structure Recognition",
+          "year": 2022,
+          "authors": [
+            "R. Xie",
+            "K. Pang",
+            "G. D. Bader",
+            "B. Wang"
+          ]
+        },
+        {
+          "title": "MAESTER: Masked Autoencoder Guided Segmentation at Pixel Resolution for Accurate, Self-Supervised Subcellular Structure Recognition",
+          "year": 2024,
+          "authors": [
+            "R. Xie",
+            "K. Pang",
+            "G. D. Bader",
+            "B. Wang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/cvpr52729.2023.00321",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "MAESTER: Masked Autoencoder Guided Segmentation at Pixel Resolution for Accurate, Self-Supervised Subcellular Structure Recognition",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:756dcf287881",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Multi-scale systems genomics analysis predicts pathways, cell types, and drug targets involved in normative variation in peri-adolescent human cognition",
+      "year": 2023,
+      "authors": [
+        "S. Pai",
+        "S. Hui",
+        "P. Weber",
+        "S. Narayan",
+        "O. Whitley",
+        "P. Li",
+        "V. Labrie",
+        "J. Baumbach",
+        "A. L. Wheeler",
+        "G. D. Bader"
+      ],
+      "listed_venue": "Cereb Cortex",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 37 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1093/cercor/bhad142"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Multi-scale systems genomics analysis predicts pathways, cell types, and drug targets involved in normative variation in peri-adolescent human cognition",
+          "year": 2022,
+          "authors": [
+            "S. Pai",
+            "S. Hui",
+            "P. Weber",
+            "S. Narayan",
+            "O. Whitley",
+            "P. Li",
+            "V. Labrie",
+            "J. Baumbach",
+            "A. L. Wheeler",
+            "G. D. Bader"
+          ]
+        },
+        {
+          "title": "Multi-scale systems genomics analysis predicts pathways, cell types, and drug targets involved in normative variation in peri-adolescent human cognition",
+          "year": 2024,
+          "authors": [
+            "S. Pai",
+            "S. Hui",
+            "P. Weber",
+            "S. Narayan",
+            "O. Whitley",
+            "P. Li",
+            "V. Labrie",
+            "J. Baumbach",
+            "A. L. Wheeler",
+            "G. D. Bader"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1093/cercor/bhad142",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Multi-scale systems genomics analysis predicts pathways, cell types, and drug targets involved in normative variation in peri-adolescent human cognition",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:71ee74916dc7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Multiplatform molecular profiling uncovers two subgroups of malignant peripheral nerve sheath tumors with distinct therapeutic vulnerabilities",
+      "year": 2023,
+      "authors": [
+        "S. Suppiah",
+        "S. Mansouri",
+        "Y. Mamatjan",
+        "J. C. Liu",
+        "M. M. Bhunia",
+        "V. Patil",
+        "P. Rath",
+        "B. Mehani",
+        "P. Heir",
+        "S. Bunda",
+        "G. L. Velez-Reyes",
+        "O. Singh",
+        "N. Ijad",
+        "N. Pirouzmand",
+        "T. Dalcourt",
+        "Y. Meng",
+        "S. Karimi",
+        "Q. Wei",
+        "F. Nassiri",
+        "T. J. Pugh",
+        "G. D. Bader",
+        "K. D. Aldape",
+        "D. A. Largaespada",
+        "G. Zadeh"
+      ],
+      "listed_venue": "Nat Commun",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 36 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1038/s41467-023-38432-6"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Multiplatform molecular profiling uncovers two subgroups of malignant peripheral nerve sheath tumors with distinct therapeutic vulnerabilities",
+          "year": 2022,
+          "authors": [
+            "S. Suppiah",
+            "S. Mansouri",
+            "Y. Mamatjan",
+            "J. C. Liu",
+            "M. M. Bhunia",
+            "V. Patil",
+            "P. Rath",
+            "B. Mehani",
+            "P. Heir",
+            "S. Bunda",
+            "G. L. Velez-Reyes",
+            "O. Singh",
+            "N. Ijad",
+            "N. Pirouzmand",
+            "T. Dalcourt",
+            "Y. Meng",
+            "S. Karimi",
+            "Q. Wei",
+            "F. Nassiri",
+            "T. J. Pugh",
+            "G. D. Bader",
+            "K. D. Aldape",
+            "D. A. Largaespada",
+            "G. Zadeh"
+          ]
+        },
+        {
+          "title": "Multiplatform molecular profiling uncovers two subgroups of malignant peripheral nerve sheath tumors with distinct therapeutic vulnerabilities",
+          "year": 2024,
+          "authors": [
+            "S. Suppiah",
+            "S. Mansouri",
+            "Y. Mamatjan",
+            "J. C. Liu",
+            "M. M. Bhunia",
+            "V. Patil",
+            "P. Rath",
+            "B. Mehani",
+            "P. Heir",
+            "S. Bunda",
+            "G. L. Velez-Reyes",
+            "O. Singh",
+            "N. Ijad",
+            "N. Pirouzmand",
+            "T. Dalcourt",
+            "Y. Meng",
+            "S. Karimi",
+            "Q. Wei",
+            "F. Nassiri",
+            "T. J. Pugh",
+            "G. D. Bader",
+            "K. D. Aldape",
+            "D. A. Largaespada",
+            "G. Zadeh"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s41467-023-38432-6",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Multiplatform molecular profiling uncovers two subgroups of malignant peripheral nerve sheath tumors with distinct therapeutic vulnerabilities",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:034aa4654057",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Open Domain Multi-document Summarization: A Comprehensive Study of Model Brittleness under Retrieval",
+      "year": 2023,
+      "authors": [
+        "J. Giorgi",
+        "L. Soldaini",
+        "B. Wang",
+        "G. Bader",
+        "K. Lo",
+        "L. Wang",
+        "A. Cohan"
+      ],
+      "listed_venue": "Findings of the Association for Computational Linguistics: EMNLP",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 30 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.18653/v1/2023.findings-emnlp.549"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Open Domain Multi-document Summarization: A Comprehensive Study of Model Brittleness under Retrieval",
+          "year": 2022,
+          "authors": [
+            "J. Giorgi",
+            "L. Soldaini",
+            "B. Wang",
+            "G. Bader",
+            "K. Lo",
+            "L. Wang",
+            "A. Cohan"
+          ]
+        },
+        {
+          "title": "Open Domain Multi-document Summarization: A Comprehensive Study of Model Brittleness under Retrieval",
+          "year": 2024,
+          "authors": [
+            "J. Giorgi",
+            "L. Soldaini",
+            "B. Wang",
+            "G. Bader",
+            "K. Lo",
+            "L. Wang",
+            "A. Cohan"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.18653/v1/2023.findings-emnlp.549",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Open Domain Multi-document Summarization: A Comprehensive Study of Model Brittleness under Retrieval",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:9e314303d565",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Robust segregation of donor and recipient cells from single-cell RNA-sequencing of transplant samples",
+      "year": 2023,
+      "authors": [
+        "G. W. Wilson",
+        "A. Duong",
+        "S. Moshkelgosha",
+        "G. Bader",
+        "S. Keshavjee",
+        "T. Martinu",
+        "S. C. Juvet",
+        "J. C. Yeung"
+      ],
+      "listed_venue": "Front. Transplant.",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 34 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3389/frtra.2023.1161146"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Robust segregation of donor and recipient cells from single-cell RNA-sequencing of transplant samples",
+          "year": 2022,
+          "authors": [
+            "G. W. Wilson",
+            "A. Duong",
+            "S. Moshkelgosha",
+            "G. Bader",
+            "S. Keshavjee",
+            "T. Martinu",
+            "S. C. Juvet",
+            "J. C. Yeung"
+          ]
+        },
+        {
+          "title": "Robust segregation of donor and recipient cells from single-cell RNA-sequencing of transplant samples",
+          "year": 2024,
+          "authors": [
+            "G. W. Wilson",
+            "A. Duong",
+            "S. Moshkelgosha",
+            "G. Bader",
+            "S. Keshavjee",
+            "T. Martinu",
+            "S. C. Juvet",
+            "J. C. Yeung"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3389/frtra.2023.1161146",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Robust segregation of donor and recipient cells from single-cell RNA-sequencing of transplant samples",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:921026fec7ad",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Single-nucleus multiomic atlas of frontal cortex in amyotrophic lateral sclerosis with a deep learning-based decoding of alternative polyadenylation mechanisms",
+      "year": 2023,
+      "authors": [
+        "P. M. McKeever",
+        "A. M. Sababi",
+        "R. Sharma",
+        "N. Khuu",
+        "Z. Xu",
+        "S. Y. Shen",
+        "S. Xiao",
+        "P. McGoldrick",
+        "E. Orouji",
+        "T. Ketela",
+        "C. Sato",
+        "D. Moreno",
+        "N. Visanji",
+        "G. G. Kovacs",
+        "J. Keith",
+        "L. Zinman",
+        "E. Rogaeva",
+        "H. Goodarzi",
+        "G. D. Bader",
+        "J. Robertson"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 27 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Single-nucleus multiomic atlas of frontal cortex in amyotrophic lateral sclerosis with a deep learning-based decoding of alternative polyadenylation mechanisms",
+          "year": 2022,
+          "authors": [
+            "P. M. McKeever",
+            "A. M. Sababi",
+            "R. Sharma",
+            "N. Khuu",
+            "Z. Xu",
+            "S. Y. Shen",
+            "S. Xiao",
+            "P. McGoldrick",
+            "E. Orouji",
+            "T. Ketela",
+            "C. Sato",
+            "D. Moreno",
+            "N. Visanji",
+            "G. G. Kovacs",
+            "J. Keith",
+            "L. Zinman",
+            "E. Rogaeva",
+            "H. Goodarzi",
+            "G. D. Bader",
+            "J. Robertson"
+          ]
+        },
+        {
+          "title": "Single-nucleus multiomic atlas of frontal cortex in amyotrophic lateral sclerosis with a deep learning-based decoding of alternative polyadenylation mechanisms",
+          "year": 2024,
+          "authors": [
+            "P. M. McKeever",
+            "A. M. Sababi",
+            "R. Sharma",
+            "N. Khuu",
+            "Z. Xu",
+            "S. Y. Shen",
+            "S. Xiao",
+            "P. McGoldrick",
+            "E. Orouji",
+            "T. Ketela",
+            "C. Sato",
+            "D. Moreno",
+            "N. Visanji",
+            "G. G. Kovacs",
+            "J. Keith",
+            "L. Zinman",
+            "E. Rogaeva",
+            "H. Goodarzi",
+            "G. D. Bader",
+            "J. Robertson"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:3f28ab239780",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Spatially Resolved Gene Expression Prediction from Histology Images via Bi-modal Contrastive Learning",
+      "year": 2023,
+      "authors": [
+        "R. Xie",
+        "K. Pang",
+        "S. W. Chung",
+        "C. Perciani",
+        "S. MacParland",
+        "B. Wang",
+        "G. D. Bader"
+      ],
+      "listed_venue": "Proceedings of the Thirty-seventh Conference on Neural Information Processing Systems",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 28 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/075280-3095"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Spatially Resolved Gene Expression Prediction from Histology Images via Bi-modal Contrastive Learning",
+          "year": 2022,
+          "authors": [
+            "R. Xie",
+            "K. Pang",
+            "S. W. Chung",
+            "C. Perciani",
+            "S. MacParland",
+            "B. Wang",
+            "G. D. Bader"
+          ]
+        },
+        {
+          "title": "Spatially Resolved Gene Expression Prediction from Histology Images via Bi-modal Contrastive Learning",
+          "year": 2024,
+          "authors": [
+            "R. Xie",
+            "K. Pang",
+            "S. W. Chung",
+            "C. Perciani",
+            "S. MacParland",
+            "B. Wang",
+            "G. D. Bader"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/075280-3095",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Spatially Resolved Gene Expression Prediction from Histology Images via Bi-modal Contrastive Learning",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:097228ef4ed7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Deep Lineage: Single-Cell Lineage Tracing and Fate Inference Using Deep Learning",
+      "year": 2024,
+      "authors": [
+        "M. Sadria",
+        "A. Zhang",
+        "G. D. Bader"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 45 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2024.04.25.591126"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Deep Lineage: Single-Cell Lineage Tracing and Fate Inference Using Deep Learning",
+          "year": 2023,
+          "authors": [
+            "M. Sadria",
+            "A. Zhang",
+            "G. D. Bader"
+          ]
+        },
+        {
+          "title": "Deep Lineage: Single-Cell Lineage Tracing and Fate Inference Using Deep Learning",
+          "year": 2025,
+          "authors": [
+            "M. Sadria",
+            "A. Zhang",
+            "G. D. Bader"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2024.04.25.591126",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Deep Lineage: Single-Cell Lineage Tracing and Fate Inference Using Deep Learning",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:bb194b425761",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Direct lineage conversion of postnatal mouse cortical astrocytes to oligodendrocyte lineage cells",
+      "year": 2024,
+      "authors": [
+        "J. Bajohr",
+        "E. Y. Scott",
+        "A. Olfat",
+        "M. Sadria",
+        "K. Lee",
+        "M. Fahim",
+        "H. T. Taha",
+        "D. L. Casasbuenas",
+        "A. Derham",
+        "S. A. Yuzwa",
+        "G. D. Bader",
+        "Maryam Faiz"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 44 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Direct lineage conversion of postnatal mouse cortical astrocytes to oligodendrocyte lineage cells",
+          "year": 2023,
+          "authors": [
+            "J. Bajohr",
+            "E. Y. Scott",
+            "A. Olfat",
+            "M. Sadria",
+            "K. Lee",
+            "M. Fahim",
+            "H. T. Taha",
+            "D. L. Casasbuenas",
+            "A. Derham",
+            "S. A. Yuzwa",
+            "G. D. Bader",
+            "Maryam Faiz"
+          ]
+        },
+        {
+          "title": "Direct lineage conversion of postnatal mouse cortical astrocytes to oligodendrocyte lineage cells",
+          "year": 2025,
+          "authors": [
+            "J. Bajohr",
+            "E. Y. Scott",
+            "A. Olfat",
+            "M. Sadria",
+            "K. Lee",
+            "M. Fahim",
+            "H. T. Taha",
+            "D. L. Casasbuenas",
+            "A. Derham",
+            "S. A. Yuzwa",
+            "G. D. Bader",
+            "Maryam Faiz"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:436e07e616d6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Drugst.One - a plug-and-play solution for online systems medicine and network-based drug repurposing",
+      "year": 2024,
+      "authors": [
+        "A. Maier",
+        "M. Hartung",
+        "M. Abovsky",
+        "K. Adamowicz",
+        "G. D. Bader",
+        "S. Baier",
+        "D. B. Blumenthal",
+        "J. Chen",
+        "M. L. Elkjaer",
+        "C. Garcia-Hernandez",
+        "M. Helmy",
+        "M. Hoffmann",
+        "I. Jurisica",
+        "M. Kotlyar",
+        "O. Lazareva",
+        "H. Levi",
+        "M. List",
+        "S. Lobentanzer",
+        "J. Loscalzo",
+        "N. Malod-Dognin",
+        "Q. Manz",
+        "J. Matschinske",
+        "M. Mee",
+        "M. Oubounyt",
+        "C. Pastrello",
+        "A. R. Pico",
+        "R. T. Pillich",
+        "J. M. Poschenrieder",
+        "D. Pratt",
+        "N. Pržulj",
+        "S. Sadegh",
+        "J. Saez-Rodriguez",
+        "S. Sarkar",
+        "G. Shaked",
+        "R. Shamir",
+        "N. Trummer",
+        "U. Turhan",
+        "R. S. Wang",
+        "O. Zolotareva",
+        "J. Baumbach"
+      ],
+      "listed_venue": "Nucleic Acids Res",
+      "work_types": [
+        "journal_article",
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 22 captured 2026-10-30",
+        "Public list https://baderlab.org/Publications entry 50 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Drugst.One -- A plug-and-play solution for online systems medicine and network-based drug repurposing",
+          "year": 2023,
+          "authors": [
+            "A. Maier",
+            "M. Hartung",
+            "M. Abovsky",
+            "K. Adamowicz",
+            "G. D. Bader",
+            "S. Baier",
+            "D. B. Blumenthal",
+            "J. Chen",
+            "M. L. Elkjaer",
+            "C. Garcia-Hernandez",
+            "M. Hoffmann",
+            "I. Jurisica",
+            "M. Kotlyar",
+            "O. Lazareva",
+            "H. Levi",
+            "M. List",
+            "S. Lobentanzer",
+            "J. Loscalzo",
+            "N. Malod-Dognin",
+            "Q. Manz",
+            "J. Matschinske",
+            "M. Oubounyt",
+            "A. R. Pico",
+            "R. T. Pillich",
+            "J. M. Poschenrieder",
+            "D. Pratt",
+            "N. Pržulj",
+            "S. Sadegh",
+            "J. Saez-Rodriguez",
+            "S. Sakar",
+            "G. Shaked",
+            "R. Shamir",
+            "N. Trummer",
+            "U. Turhan",
+            "R. Wang",
+            "O. Zolotareva",
+            "J. Baumbach"
+          ]
+        },
+        {
+          "title": "Drugst.One - a plug-and-play solution for online systems medicine and network-based drug repurposing",
+          "year": 2025,
+          "authors": [
+            "A. Maier",
+            "M. Hartung",
+            "M. Abovsky",
+            "K. Adamowicz",
+            "G. D. Bader",
+            "S. Baier",
+            "D. B. Blumenthal",
+            "J. Chen",
+            "M. L. Elkjaer",
+            "C. Garcia-Hernandez",
+            "M. Helmy",
+            "M. Hoffmann",
+            "I. Jurisica",
+            "M. Kotlyar",
+            "O. Lazareva",
+            "H. Levi",
+            "M. List",
+            "S. Lobentanzer",
+            "J. Loscalzo",
+            "N. Malod-Dognin",
+            "Q. Manz",
+            "J. Matschinske",
+            "M. Mee",
+            "M. Oubounyt",
+            "C. Pastrello",
+            "A. R. Pico",
+            "R. T. Pillich",
+            "J. M. Poschenrieder",
+            "D. Pratt",
+            "N. Pržulj",
+            "S. Sadegh",
+            "J. Saez-Rodriguez",
+            "S. Sarkar",
+            "G. Shaked",
+            "R. Shamir",
+            "N. Trummer",
+            "U. Turhan",
+            "R. S. Wang",
+            "O. Zolotareva",
+            "J. Baumbach"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:ef4a4cb0f34e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Fatecode enables cell fate regulator prediction using classification-supervised autoencoder perturbation.",
+      "year": 2024,
+      "authors": [
+        "M. Sadria",
+        "A. Layton",
+        "S. Goyal",
+        "G. D. Bader"
+      ],
+      "listed_venue": "Cell Rep Methods",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 21 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.crmeth.2024.100819"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Fatecode enables cell fate regulator prediction using classification-supervised autoencoder perturbation.",
+          "year": 2023,
+          "authors": [
+            "M. Sadria",
+            "A. Layton",
+            "S. Goyal",
+            "G. D. Bader"
+          ]
+        },
+        {
+          "title": "Fatecode enables cell fate regulator prediction using classification-supervised autoencoder perturbation.",
+          "year": 2025,
+          "authors": [
+            "M. Sadria",
+            "A. Layton",
+            "S. Goyal",
+            "G. D. Bader"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.crmeth.2024.100819",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Fatecode enables cell fate regulator prediction using classification-supervised autoencoder perturbation",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:e42f900a1945",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Integrated transcriptomics uncovers an enhanced association between the prion protein gene expression and vesicle dynamics signatures in glioblastomas",
+      "year": 2024,
+      "authors": [
+        "J. M. Boccacino",
+        "R. Dos Santos Peixoto",
+        "C. F. L. Fernandes",
+        "G. Cangiano",
+        "P. R. Sola",
+        "B. P. Coelho",
+        "M. B. Prado",
+        "M. I. Melo-Escobar",
+        "B. P. de Sousa",
+        "S. Ayyadhury",
+        "G. D. Bader",
+        "S. M. O. Shinjo",
+        "S. K. N. Marie",
+        "E. L. da Rocha",
+        "M. H. Lopes"
+      ],
+      "listed_venue": "BMC Cancer",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 26 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1186/s12885-024-11914-6"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Integrated transcriptomics uncovers an enhanced association between the prion protein gene expression and vesicle dynamics signatures in glioblastomas",
+          "year": 2023,
+          "authors": [
+            "J. M. Boccacino",
+            "R. Dos Santos Peixoto",
+            "C. F. L. Fernandes",
+            "G. Cangiano",
+            "P. R. Sola",
+            "B. P. Coelho",
+            "M. B. Prado",
+            "M. I. Melo-Escobar",
+            "B. P. de Sousa",
+            "S. Ayyadhury",
+            "G. D. Bader",
+            "S. M. O. Shinjo",
+            "S. K. N. Marie",
+            "E. L. da Rocha",
+            "M. H. Lopes"
+          ]
+        },
+        {
+          "title": "Integrated transcriptomics uncovers an enhanced association between the prion protein gene expression and vesicle dynamics signatures in glioblastomas",
+          "year": 2025,
+          "authors": [
+            "J. M. Boccacino",
+            "R. Dos Santos Peixoto",
+            "C. F. L. Fernandes",
+            "G. Cangiano",
+            "P. R. Sola",
+            "B. P. Coelho",
+            "M. B. Prado",
+            "M. I. Melo-Escobar",
+            "B. P. de Sousa",
+            "S. Ayyadhury",
+            "G. D. Bader",
+            "S. M. O. Shinjo",
+            "S. K. N. Marie",
+            "E. L. da Rocha",
+            "M. H. Lopes"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1186/s12885-024-11914-6",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Integrated transcriptomics uncovers an enhanced association between the prion protein gene expression and vesicle dynamics signatures in glioblastomas",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:977baa0a7a12",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Metformin reduces the clonal fitness of Dnmt3aR878H hematopoietic stem and progenitor cells by reversing their aberrant metabolic and epigenetic state",
+      "year": 2024,
+      "authors": [
+        "M. Hosseini",
+        "V. Voisin",
+        "A. Chegini",
+        "A. Varesi",
+        "S. Cathelin",
+        "D. M. Ayyathan",
+        "A. C. H. Liu",
+        "Y. Yang",
+        "V. Wang",
+        "A. Maher",
+        "E. Grignano",
+        "J. A. Reisz",
+        "A. D'Alessandro",
+        "K. Young",
+        "Y. Wu",
+        "M. Fiumara",
+        "S. Ferrari",
+        "L. Naldini",
+        "F. Gaiti",
+        "S. Pai",
+        "A. D. Schimmer",
+        "G. D. Bader",
+        "J. E. Dick",
+        "S. Z. Xie",
+        "J. J. Trowbridge",
+        "S. M. Chan"
+      ],
+      "listed_venue": "Preprint",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 48 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.21203/rs.3.rs-3874821/v1"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Metformin reduces the clonal fitness of Dnmt3aR878H hematopoietic stem and progenitor cells by reversing their aberrant metabolic and epigenetic state",
+          "year": 2023,
+          "authors": [
+            "M. Hosseini",
+            "V. Voisin",
+            "A. Chegini",
+            "A. Varesi",
+            "S. Cathelin",
+            "D. M. Ayyathan",
+            "A. C. H. Liu",
+            "Y. Yang",
+            "V. Wang",
+            "A. Maher",
+            "E. Grignano",
+            "J. A. Reisz",
+            "A. D'Alessandro",
+            "K. Young",
+            "Y. Wu",
+            "M. Fiumara",
+            "S. Ferrari",
+            "L. Naldini",
+            "F. Gaiti",
+            "S. Pai",
+            "A. D. Schimmer",
+            "G. D. Bader",
+            "J. E. Dick",
+            "S. Z. Xie",
+            "J. J. Trowbridge",
+            "S. M. Chan"
+          ]
+        },
+        {
+          "title": "Metformin reduces the clonal fitness of Dnmt3aR878H hematopoietic stem and progenitor cells by reversing their aberrant metabolic and epigenetic state",
+          "year": 2025,
+          "authors": [
+            "M. Hosseini",
+            "V. Voisin",
+            "A. Chegini",
+            "A. Varesi",
+            "S. Cathelin",
+            "D. M. Ayyathan",
+            "A. C. H. Liu",
+            "Y. Yang",
+            "V. Wang",
+            "A. Maher",
+            "E. Grignano",
+            "J. A. Reisz",
+            "A. D'Alessandro",
+            "K. Young",
+            "Y. Wu",
+            "M. Fiumara",
+            "S. Ferrari",
+            "L. Naldini",
+            "F. Gaiti",
+            "S. Pai",
+            "A. D. Schimmer",
+            "G. D. Bader",
+            "J. E. Dick",
+            "S. Z. Xie",
+            "J. J. Trowbridge",
+            "S. M. Chan"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.21203/rs.3.rs-3874821/v1",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Metformin reduces the clonal fitness of Dnmt3aR878H hematopoietic stem and progenitor cells by reversing their aberrant metabolic and epigenetic state",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:2729dab2dcdb",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Multimodal Medical Answer Generation using Large Language Models",
+      "year": 2024,
+      "authors": [
+        "A. Toma",
+        "R. Xie",
+        "S. Palayew",
+        "G. D. Bader",
+        "B. Wang"
+      ],
+      "listed_venue": "Proceedings of the 6th Clinical Natural Language Processing Workshop",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 24 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Multimodal Medical Answer Generation using Large Language Models",
+          "year": 2023,
+          "authors": [
+            "A. Toma",
+            "R. Xie",
+            "S. Palayew",
+            "G. D. Bader",
+            "B. Wang"
+          ]
+        },
+        {
+          "title": "Multimodal Medical Answer Generation using Large Language Models",
+          "year": 2025,
+          "authors": [
+            "A. Toma",
+            "R. Xie",
+            "S. Palayew",
+            "G. D. Bader",
+            "B. Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:d4c390cb569a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "PRMT5 is required for full-length HTT expression by repressing multiple proximal intronic polyadenylation sites",
+      "year": 2024,
+      "authors": [
+        "M. A. AlQazzaz",
+        "F. E. Ciamponi",
+        "J. C. Ho",
+        "M. I. Maron",
+        "M. Yadav",
+        "A. M. Sababi",
+        "G. MacLeod",
+        "M. Ahmadi",
+        "G. Bullivant",
+        "V. Tano",
+        "S. R. Langley",
+        "M. Sánchez-Osuna",
+        "P. Sachamitr",
+        "M. Kushida",
+        "L. Richards",
+        "C. F. Bardile",
+        "M. A. Pouladi",
+        "T. Pugh",
+        "M. Tyers",
+        "S. Angers",
+        "P. B. Dirks",
+        "G. D. Bader",
+        "K. B. Massirer",
+        "D. Barsyte-Lovejoy",
+        "D. Shechter",
+        "R. J. Harding",
+        "C. H. Arrowsmith",
+        "P. Prinos"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 47 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "PRMT5 is required for full-length HTT expression by repressing multiple proximal intronic polyadenylation sites",
+          "year": 2023,
+          "authors": [
+            "M. A. AlQazzaz",
+            "F. E. Ciamponi",
+            "J. C. Ho",
+            "M. I. Maron",
+            "M. Yadav",
+            "A. M. Sababi",
+            "G. MacLeod",
+            "M. Ahmadi",
+            "G. Bullivant",
+            "V. Tano",
+            "S. R. Langley",
+            "M. Sánchez-Osuna",
+            "P. Sachamitr",
+            "M. Kushida",
+            "L. Richards",
+            "C. F. Bardile",
+            "M. A. Pouladi",
+            "T. Pugh",
+            "M. Tyers",
+            "S. Angers",
+            "P. B. Dirks",
+            "G. D. Bader",
+            "K. B. Massirer",
+            "D. Barsyte-Lovejoy",
+            "D. Shechter",
+            "R. J. Harding",
+            "C. H. Arrowsmith",
+            "P. Prinos"
+          ]
+        },
+        {
+          "title": "PRMT5 is required for full-length HTT expression by repressing multiple proximal intronic polyadenylation sites",
+          "year": 2025,
+          "authors": [
+            "M. A. AlQazzaz",
+            "F. E. Ciamponi",
+            "J. C. Ho",
+            "M. I. Maron",
+            "M. Yadav",
+            "A. M. Sababi",
+            "G. MacLeod",
+            "M. Ahmadi",
+            "G. Bullivant",
+            "V. Tano",
+            "S. R. Langley",
+            "M. Sánchez-Osuna",
+            "P. Sachamitr",
+            "M. Kushida",
+            "L. Richards",
+            "C. F. Bardile",
+            "M. A. Pouladi",
+            "T. Pugh",
+            "M. Tyers",
+            "S. Angers",
+            "P. B. Dirks",
+            "G. D. Bader",
+            "K. B. Massirer",
+            "D. Barsyte-Lovejoy",
+            "D. Shechter",
+            "R. J. Harding",
+            "C. H. Arrowsmith",
+            "P. Prinos"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:f525365a5c83",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Single-cell analysis of an engineered organoid-based model of pancreatic cancer identifies hypoxia as a contributing factor in the determination of transcriptional subtypes",
+      "year": 2024,
+      "authors": [
+        "N. Natalie Landon-Brace",
+        "B. T. Innes",
+        "S. Latour",
+        "J. L. Cadavid",
+        "I. L. Co",
+        "C. M. Tan",
+        "F. Nowlan",
+        "S. Drissler",
+        "F. Notta",
+        "H. W. Jackson",
+        "G. D. Bader",
+        "A. P. McGuigan"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 46 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2024.03.05.583412"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Single-cell analysis of an engineered organoid-based model of pancreatic cancer identifies hypoxia as a contributing factor in the determination of transcriptional subtypes",
+          "year": 2023,
+          "authors": [
+            "N. Natalie Landon-Brace",
+            "B. T. Innes",
+            "S. Latour",
+            "J. L. Cadavid",
+            "I. L. Co",
+            "C. M. Tan",
+            "F. Nowlan",
+            "S. Drissler",
+            "F. Notta",
+            "H. W. Jackson",
+            "G. D. Bader",
+            "A. P. McGuigan"
+          ]
+        },
+        {
+          "title": "Single-cell analysis of an engineered organoid-based model of pancreatic cancer identifies hypoxia as a contributing factor in the determination of transcriptional subtypes",
+          "year": 2025,
+          "authors": [
+            "N. Natalie Landon-Brace",
+            "B. T. Innes",
+            "S. Latour",
+            "J. L. Cadavid",
+            "I. L. Co",
+            "C. M. Tan",
+            "F. Nowlan",
+            "S. Drissler",
+            "F. Notta",
+            "H. W. Jackson",
+            "G. D. Bader",
+            "A. P. McGuigan"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2024.03.05.583412",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Single-cell analysis of an engineered organoid-based model of pancreatic cancer identifies hypoxia as a contributing factor in the determination of transcriptional subtypes",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:590be71caf08",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Single-cell atlas of the human brain vasculature across development, adulthood and disease",
+      "year": 2024,
+      "authors": [
+        "T. Wälchli",
+        "M. Ghobrial",
+        "M. Schwab",
+        "S. Takada",
+        "H. Zhong",
+        "S. Suntharalingham",
+        "S. Vetiska",
+        "D. R. Gonzalez",
+        "R. Wu",
+        "H. Rehrauer",
+        "A. Dinesh",
+        "K. Yu",
+        "E. L. Y. Chen",
+        "J. Bisschop",
+        "F. Farnhammer",
+        "A. Mansur",
+        "J. Kalucka",
+        "I. Tirosh",
+        "L. Regli",
+        "K. Schaller",
+        "K. Frei",
+        "T. Ketela",
+        "M. Bernstein",
+        "P. Kongkham",
+        "P. Carmeliet",
+        "T. Valiante",
+        "P. B. Dirks",
+        "M. L. Suva",
+        "G. Zadeh",
+        "V. Tabar",
+        "R. Schlapbach",
+        "H. W. Jackson",
+        "K. De Bock",
+        "J. E. Fish",
+        "P. P. Monnier",
+        "G. D. Bader",
+        "I. Radovanovic"
+      ],
+      "listed_venue": "Nature",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 20 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1038/s41586-024-07493-y"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Single-cell atlas of the human brain vasculature across development, adulthood and disease",
+          "year": 2023,
+          "authors": [
+            "T. Wälchli",
+            "M. Ghobrial",
+            "M. Schwab",
+            "S. Takada",
+            "H. Zhong",
+            "S. Suntharalingham",
+            "S. Vetiska",
+            "D. R. Gonzalez",
+            "R. Wu",
+            "H. Rehrauer",
+            "A. Dinesh",
+            "K. Yu",
+            "E. L. Y. Chen",
+            "J. Bisschop",
+            "F. Farnhammer",
+            "A. Mansur",
+            "J. Kalucka",
+            "I. Tirosh",
+            "L. Regli",
+            "K. Schaller",
+            "K. Frei",
+            "T. Ketela",
+            "M. Bernstein",
+            "P. Kongkham",
+            "P. Carmeliet",
+            "T. Valiante",
+            "P. B. Dirks",
+            "M. L. Suva",
+            "G. Zadeh",
+            "V. Tabar",
+            "R. Schlapbach",
+            "H. W. Jackson",
+            "K. De Bock",
+            "J. E. Fish",
+            "P. P. Monnier",
+            "G. D. Bader",
+            "I. Radovanovic"
+          ]
+        },
+        {
+          "title": "Single-cell atlas of the human brain vasculature across development, adulthood and disease",
+          "year": 2025,
+          "authors": [
+            "T. Wälchli",
+            "M. Ghobrial",
+            "M. Schwab",
+            "S. Takada",
+            "H. Zhong",
+            "S. Suntharalingham",
+            "S. Vetiska",
+            "D. R. Gonzalez",
+            "R. Wu",
+            "H. Rehrauer",
+            "A. Dinesh",
+            "K. Yu",
+            "E. L. Y. Chen",
+            "J. Bisschop",
+            "F. Farnhammer",
+            "A. Mansur",
+            "J. Kalucka",
+            "I. Tirosh",
+            "L. Regli",
+            "K. Schaller",
+            "K. Frei",
+            "T. Ketela",
+            "M. Bernstein",
+            "P. Kongkham",
+            "P. Carmeliet",
+            "T. Valiante",
+            "P. B. Dirks",
+            "M. L. Suva",
+            "G. Zadeh",
+            "V. Tabar",
+            "R. Schlapbach",
+            "H. W. Jackson",
+            "K. De Bock",
+            "J. E. Fish",
+            "P. P. Monnier",
+            "G. D. Bader",
+            "I. Radovanovic"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s41586-024-07493-y",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Single-cell atlas of the human brain vasculature across development, adulthood and disease",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:f95aec9a907b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Single-cell, single-nucleus, and spatial transcriptomics characterization of the immunological landscape in the healthy and PSC human liver",
+      "year": 2024,
+      "authors": [
+        "T. S. Andrews",
+        "D. Nakib",
+        "C. T. Perciani",
+        "X. Z. Ma",
+        "L. Liu",
+        "E. Winter",
+        "D. Camat",
+        "S. W. Chung",
+        "P. Lumanto",
+        "J. Manuel",
+        "S. Mangroo",
+        "B. Hansen",
+        "B. Arpinder",
+        "C. Thoeni",
+        "B. Sayed",
+        "J. Feld",
+        "A. Gehring",
+        "A. Gulamhusein",
+        "G. M. Hirschfield",
+        "A. Ricciuto",
+        "G. D. Bader",
+        "I. D. McGilvray",
+        "S. MacParland"
+      ],
+      "listed_venue": "J Hepatol",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 23 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.jhep.2023.12.023"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Single-cell, single-nucleus, and spatial transcriptomics characterization of the immunological landscape in the healthy and PSC human liver",
+          "year": 2023,
+          "authors": [
+            "T. S. Andrews",
+            "D. Nakib",
+            "C. T. Perciani",
+            "X. Z. Ma",
+            "L. Liu",
+            "E. Winter",
+            "D. Camat",
+            "S. W. Chung",
+            "P. Lumanto",
+            "J. Manuel",
+            "S. Mangroo",
+            "B. Hansen",
+            "B. Arpinder",
+            "C. Thoeni",
+            "B. Sayed",
+            "J. Feld",
+            "A. Gehring",
+            "A. Gulamhusein",
+            "G. M. Hirschfield",
+            "A. Ricciuto",
+            "G. D. Bader",
+            "I. D. McGilvray",
+            "S. MacParland"
+          ]
+        },
+        {
+          "title": "Single-cell, single-nucleus, and spatial transcriptomics characterization of the immunological landscape in the healthy and PSC human liver",
+          "year": 2025,
+          "authors": [
+            "T. S. Andrews",
+            "D. Nakib",
+            "C. T. Perciani",
+            "X. Z. Ma",
+            "L. Liu",
+            "E. Winter",
+            "D. Camat",
+            "S. W. Chung",
+            "P. Lumanto",
+            "J. Manuel",
+            "S. Mangroo",
+            "B. Hansen",
+            "B. Arpinder",
+            "C. Thoeni",
+            "B. Sayed",
+            "J. Feld",
+            "A. Gehring",
+            "A. Gulamhusein",
+            "G. M. Hirschfield",
+            "A. Ricciuto",
+            "G. D. Bader",
+            "I. D. McGilvray",
+            "S. MacParland"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.jhep.2023.12.023",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Single-cell, single-nucleus, and spatial transcriptomics characterization of the immunological landscape in the healthy and PSC human liver",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:07a862a511d0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Single-cell transcriptome analysis reveals CD34 as a marker of human sinoatrial node pacemaker cardiomyocytes",
+      "year": 2024,
+      "authors": [
+        "A. A. Lim",
+        "D. Pouyabahar",
+        "M. Ashraf",
+        "K. Huang",
+        "M. Lohbihler",
+        "B. M. Murareanu",
+        "M. L. Chang",
+        "M. Kwan",
+        "F. J. Alibhai",
+        "T. Tran",
+        "A. Mazine",
+        "M. A. Laflamme",
+        "G. D. Bader",
+        "Z. Laksman",
+        "S. Protze"
+      ],
+      "listed_venue": "Nat Commun",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 17 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1038/s41467-024-54337-4"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Single-cell transcriptome analysis reveals CD34 as a marker of human sinoatrial node pacemaker cardiomyocytes",
+          "year": 2023,
+          "authors": [
+            "A. A. Lim",
+            "D. Pouyabahar",
+            "M. Ashraf",
+            "K. Huang",
+            "M. Lohbihler",
+            "B. M. Murareanu",
+            "M. L. Chang",
+            "M. Kwan",
+            "F. J. Alibhai",
+            "T. Tran",
+            "A. Mazine",
+            "M. A. Laflamme",
+            "G. D. Bader",
+            "Z. Laksman",
+            "S. Protze"
+          ]
+        },
+        {
+          "title": "Single-cell transcriptome analysis reveals CD34 as a marker of human sinoatrial node pacemaker cardiomyocytes",
+          "year": 2025,
+          "authors": [
+            "A. A. Lim",
+            "D. Pouyabahar",
+            "M. Ashraf",
+            "K. Huang",
+            "M. Lohbihler",
+            "B. M. Murareanu",
+            "M. L. Chang",
+            "M. Kwan",
+            "F. J. Alibhai",
+            "T. Tran",
+            "A. Mazine",
+            "M. A. Laflamme",
+            "G. D. Bader",
+            "Z. Laksman",
+            "S. Protze"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s41467-024-54337-4",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Single-cell transcriptome analysis reveals CD34 as a marker of human sinoatrial node pacemaker cardiomyocytes",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:b7d83d638893",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Specifications of standards in systems and synthetic biology: status, developments, and tools in 2024",
+      "year": 2024,
+      "authors": [
+        "M. Golebiewski",
+        "G. Bader",
+        "P. Gleeson",
+        "T. E. Gorochowski",
+        "S. M. Keating",
+        "M. König",
+        "C. J. Myers",
+        "D. P. Nickerson",
+        "B. Sommer",
+        "D. Waltemath",
+        "F. Schreiber"
+      ],
+      "listed_venue": "J Integr Bioinform",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 19 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1515/jib-2024-0015"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Specifications of standards in systems and synthetic biology: status, developments, and tools in 2024",
+          "year": 2023,
+          "authors": [
+            "M. Golebiewski",
+            "G. Bader",
+            "P. Gleeson",
+            "T. E. Gorochowski",
+            "S. M. Keating",
+            "M. König",
+            "C. J. Myers",
+            "D. P. Nickerson",
+            "B. Sommer",
+            "D. Waltemath",
+            "F. Schreiber"
+          ]
+        },
+        {
+          "title": "Specifications of standards in systems and synthetic biology: status, developments, and tools in 2024",
+          "year": 2025,
+          "authors": [
+            "M. Golebiewski",
+            "G. Bader",
+            "P. Gleeson",
+            "T. E. Gorochowski",
+            "S. M. Keating",
+            "M. König",
+            "C. J. Myers",
+            "D. P. Nickerson",
+            "B. Sommer",
+            "D. Waltemath",
+            "F. Schreiber"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1515/jib-2024-0015",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Specifications of standards in systems and synthetic biology: status, developments, and tools in 2024",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:3a71614aa498",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The commitment of the human cell atlas to humanity",
+      "year": 2024,
+      "authors": [
+        "I. Amit",
+        "K. Ardlie",
+        "F. Arzuaga",
+        "G. Awandare",
+        "G. Bader",
+        "A. Bernier",
+        "P. Carninci",
+        "S. Donnelly",
+        "R. Eils",
+        "A. R. R. Forrest",
+        "H. T. Greely",
+        "R. Guigo",
+        "N. Hacohen",
+        "M. Haniffa",
+        "E. S. Kirby",
+        "B. M. Knoppers",
+        "A. Kriegstein",
+        "E. S. Lein",
+        "S. Linnarsson",
+        "P. P. Majumder",
+        "M. Merad",
+        "K. Meyer",
+        "M. M. Mhlanga",
+        "G. Nolan",
+        "N. A. B. Ntusi",
+        "D. Pe'er",
+        "S. Prabhakar",
+        "M. Raven-Adams",
+        "A. Regev",
+        "O. Rozenblatt-Rosen",
+        "S. Saha",
+        "A. Saltzman",
+        "A. K. Shalek",
+        "J. W. Shin",
+        "H. Stunnenberg",
+        "S. A. Teichmann",
+        "T. Tickle",
+        "A. C. Villani",
+        "C. Wells",
+        "B. Wold",
+        "H. Yang",
+        "X. Zhuang"
+      ],
+      "listed_venue": "Nat Commun",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 18 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "The commitment of the human cell atlas to humanity",
+          "year": 2023,
+          "authors": [
+            "I. Amit",
+            "K. Ardlie",
+            "F. Arzuaga",
+            "G. Awandare",
+            "G. Bader",
+            "A. Bernier",
+            "P. Carninci",
+            "S. Donnelly",
+            "R. Eils",
+            "A. R. R. Forrest",
+            "H. T. Greely",
+            "R. Guigo",
+            "N. Hacohen",
+            "M. Haniffa",
+            "E. S. Kirby",
+            "B. M. Knoppers",
+            "A. Kriegstein",
+            "E. S. Lein",
+            "S. Linnarsson",
+            "P. P. Majumder",
+            "M. Merad",
+            "K. Meyer",
+            "M. M. Mhlanga",
+            "G. Nolan",
+            "N. A. B. Ntusi",
+            "D. Pe'er",
+            "S. Prabhakar",
+            "M. Raven-Adams",
+            "A. Regev",
+            "O. Rozenblatt-Rosen",
+            "S. Saha",
+            "A. Saltzman",
+            "A. K. Shalek",
+            "J. W. Shin",
+            "H. Stunnenberg",
+            "S. A. Teichmann",
+            "T. Tickle",
+            "A. C. Villani",
+            "C. Wells",
+            "B. Wold",
+            "H. Yang",
+            "X. Zhuang"
+          ]
+        },
+        {
+          "title": "The commitment of the human cell atlas to humanity",
+          "year": 2025,
+          "authors": [
+            "I. Amit",
+            "K. Ardlie",
+            "F. Arzuaga",
+            "G. Awandare",
+            "G. Bader",
+            "A. Bernier",
+            "P. Carninci",
+            "S. Donnelly",
+            "R. Eils",
+            "A. R. R. Forrest",
+            "H. T. Greely",
+            "R. Guigo",
+            "N. Hacohen",
+            "M. Haniffa",
+            "E. S. Kirby",
+            "B. M. Knoppers",
+            "A. Kriegstein",
+            "E. S. Lein",
+            "S. Linnarsson",
+            "P. P. Majumder",
+            "M. Merad",
+            "K. Meyer",
+            "M. M. Mhlanga",
+            "G. Nolan",
+            "N. A. B. Ntusi",
+            "D. Pe'er",
+            "S. Prabhakar",
+            "M. Raven-Adams",
+            "A. Regev",
+            "O. Rozenblatt-Rosen",
+            "S. Saha",
+            "A. Saltzman",
+            "A. K. Shalek",
+            "J. W. Shin",
+            "H. Stunnenberg",
+            "S. A. Teichmann",
+            "T. Tickle",
+            "A. C. Villani",
+            "C. Wells",
+            "B. Wold",
+            "H. Yang",
+            "X. Zhuang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:a8cb8fc527c2",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The multimodality cell segmentation challenge: toward universal solutions",
+      "year": 2024,
+      "authors": [
+        "J. Ma",
+        "R. Xie",
+        "S. Ayyadhury",
+        "C. Ge",
+        "A. Gupta",
+        "R. Gupta",
+        "S. Gu",
+        "Y. Zhang",
+        "G. Lee",
+        "J. Kim",
+        "W. Lou",
+        "H. Li",
+        "E. Upschulte",
+        "T. Dickscheid",
+        "J. G. de Almeida",
+        "Y. Wang",
+        "L. Han",
+        "X. Yang",
+        "M. Labagnara",
+        "V. Gligorovski",
+        "M. Scheder",
+        "S. J. Rahi",
+        "C. Kempster",
+        "A. Pollitt",
+        "L. Espinosa",
+        "T. Mignot",
+        "J. M. Middeke",
+        "J. N. Eckardt",
+        "W. Li",
+        "Z. Li",
+        "X. Cai",
+        "B. Bai",
+        "N. F. Greenwald",
+        "D. Van Valen",
+        "E. Weisbart",
+        "B. A. Cimini",
+        "T. Cheung",
+        "O. Brück",
+        "G. D. Bader",
+        "B. Wang"
+      ],
+      "listed_venue": "Nat Methods",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 25 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1038/s41592-024-02233-6"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "The multimodality cell segmentation challenge: toward universal solutions",
+          "year": 2023,
+          "authors": [
+            "J. Ma",
+            "R. Xie",
+            "S. Ayyadhury",
+            "C. Ge",
+            "A. Gupta",
+            "R. Gupta",
+            "S. Gu",
+            "Y. Zhang",
+            "G. Lee",
+            "J. Kim",
+            "W. Lou",
+            "H. Li",
+            "E. Upschulte",
+            "T. Dickscheid",
+            "J. G. de Almeida",
+            "Y. Wang",
+            "L. Han",
+            "X. Yang",
+            "M. Labagnara",
+            "V. Gligorovski",
+            "M. Scheder",
+            "S. J. Rahi",
+            "C. Kempster",
+            "A. Pollitt",
+            "L. Espinosa",
+            "T. Mignot",
+            "J. M. Middeke",
+            "J. N. Eckardt",
+            "W. Li",
+            "Z. Li",
+            "X. Cai",
+            "B. Bai",
+            "N. F. Greenwald",
+            "D. Van Valen",
+            "E. Weisbart",
+            "B. A. Cimini",
+            "T. Cheung",
+            "O. Brück",
+            "G. D. Bader",
+            "B. Wang"
+          ]
+        },
+        {
+          "title": "The multimodality cell segmentation challenge: toward universal solutions",
+          "year": 2025,
+          "authors": [
+            "J. Ma",
+            "R. Xie",
+            "S. Ayyadhury",
+            "C. Ge",
+            "A. Gupta",
+            "R. Gupta",
+            "S. Gu",
+            "Y. Zhang",
+            "G. Lee",
+            "J. Kim",
+            "W. Lou",
+            "H. Li",
+            "E. Upschulte",
+            "T. Dickscheid",
+            "J. G. de Almeida",
+            "Y. Wang",
+            "L. Han",
+            "X. Yang",
+            "M. Labagnara",
+            "V. Gligorovski",
+            "M. Scheder",
+            "S. J. Rahi",
+            "C. Kempster",
+            "A. Pollitt",
+            "L. Espinosa",
+            "T. Mignot",
+            "J. M. Middeke",
+            "J. N. Eckardt",
+            "W. Li",
+            "Z. Li",
+            "X. Cai",
+            "B. Bai",
+            "N. F. Greenwald",
+            "D. Van Valen",
+            "E. Weisbart",
+            "B. A. Cimini",
+            "T. Cheung",
+            "O. Brück",
+            "G. D. Bader",
+            "B. Wang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s41592-024-02233-6",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "The multimodality cell segmentation challenge: toward universal solutions",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:91da2d768367",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A global genetic interaction map of a human cell reveals conserved principles of genetic networks",
+      "year": 2025,
+      "authors": [
+        "M. Billmann",
+        "M. Costanzo",
+        "X. Zhang",
+        "A. Z. Hassan",
+        "M. Rahman",
+        "K. R. Brown",
+        "K. S. Chan",
+        "A. H. Y. Tong",
+        "C. Pons",
+        "H. N. Ward",
+        "C. Ross",
+        "J. van Leeuwen",
+        "M. Aregger",
+        "K. A. Lawson",
+        "B. Mair",
+        "A. F. Roth",
+        "N. E. Sen",
+        "D. Forster",
+        "G. Tan",
+        "P. Mero",
+        "S. N. Masud",
+        "Y. Lee",
+        "M. Aguilera-Uribe",
+        "M. Usaj",
+        "S. M. T. Almeida",
+        "K. Aulakh",
+        "U. Bhojoo",
+        "S. Birkadze",
+        "N. Budijono",
+        "X. Cai",
+        "J. J. Caumanns",
+        "M. Chandrashekhar",
+        "D. Chang",
+        "R. Climie",
+        "K. Dasgupta",
+        "A. Drazic",
+        "J. I. Rojas Echenique",
+        "R. Gacesa",
+        "A. Granda Farias",
+        "A. Habsid",
+        "I. Horecka",
+        "K. Kantautas",
+        "F. Ji",
+        "D. K. Kim",
+        "S. Y. Lee",
+        "W. Liang",
+        "J. Lim",
+        "K. Lin",
+        "X. Lu",
+        "B. Nami",
+        "A. Nixon",
+        "N. Mikolajewicz",
+        "L. Nedyalkova",
+        "T. Rohde",
+        "M. Sartori Rodrigues",
+        "M. Soste",
+        "E. Schultz",
+        "W. Wang",
+        "A. Seetharaman",
+        "E. Shuteriqi",
+        "O. Sizova",
+        "D. Thomson Taylor",
+        "M. Tereshchenko",
+        "D. Tieu",
+        "J. Turowec",
+        "T. Ubhi",
+        "S. Varland",
+        "K. E. Wang",
+        "Z. Y. Wang",
+        "J. Wei",
+        "Y. X. Xiao",
+        "G. W. Brown",
+        "B. F. Cravatt",
+        "S. J. Dixon",
+        "H. D. M. Wyatt",
+        "H. L. Röst",
+        "F. P. Roth",
+        "T. Xia",
+        "G. D. Bader",
+        "R. Loewith",
+        "N. G. Davis",
+        "B. Andrews",
+        "C. L. Myers",
+        "J. Moffat",
+        "C. Boone"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 41 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "A global genetic interaction map of a human cell reveals conserved principles of genetic networks",
+          "year": 2024,
+          "authors": [
+            "M. Billmann",
+            "M. Costanzo",
+            "X. Zhang",
+            "A. Z. Hassan",
+            "M. Rahman",
+            "K. R. Brown",
+            "K. S. Chan",
+            "A. H. Y. Tong",
+            "C. Pons",
+            "H. N. Ward",
+            "C. Ross",
+            "J. van Leeuwen",
+            "M. Aregger",
+            "K. A. Lawson",
+            "B. Mair",
+            "A. F. Roth",
+            "N. E. Sen",
+            "D. Forster",
+            "G. Tan",
+            "P. Mero",
+            "S. N. Masud",
+            "Y. Lee",
+            "M. Aguilera-Uribe",
+            "M. Usaj",
+            "S. M. T. Almeida",
+            "K. Aulakh",
+            "U. Bhojoo",
+            "S. Birkadze",
+            "N. Budijono",
+            "X. Cai",
+            "J. J. Caumanns",
+            "M. Chandrashekhar",
+            "D. Chang",
+            "R. Climie",
+            "K. Dasgupta",
+            "A. Drazic",
+            "J. I. Rojas Echenique",
+            "R. Gacesa",
+            "A. Granda Farias",
+            "A. Habsid",
+            "I. Horecka",
+            "K. Kantautas",
+            "F. Ji",
+            "D. K. Kim",
+            "S. Y. Lee",
+            "W. Liang",
+            "J. Lim",
+            "K. Lin",
+            "X. Lu",
+            "B. Nami",
+            "A. Nixon",
+            "N. Mikolajewicz",
+            "L. Nedyalkova",
+            "T. Rohde",
+            "M. Sartori Rodrigues",
+            "M. Soste",
+            "E. Schultz",
+            "W. Wang",
+            "A. Seetharaman",
+            "E. Shuteriqi",
+            "O. Sizova",
+            "D. Thomson Taylor",
+            "M. Tereshchenko",
+            "D. Tieu",
+            "J. Turowec",
+            "T. Ubhi",
+            "S. Varland",
+            "K. E. Wang",
+            "Z. Y. Wang",
+            "J. Wei",
+            "Y. X. Xiao",
+            "G. W. Brown",
+            "B. F. Cravatt",
+            "S. J. Dixon",
+            "H. D. M. Wyatt",
+            "H. L. Röst",
+            "F. P. Roth",
+            "T. Xia",
+            "G. D. Bader",
+            "R. Loewith",
+            "N. G. Davis",
+            "B. Andrews",
+            "C. L. Myers",
+            "J. Moffat",
+            "C. Boone"
+          ]
+        },
+        {
+          "title": "A global genetic interaction map of a human cell reveals conserved principles of genetic networks",
+          "year": 2026,
+          "authors": [
+            "M. Billmann",
+            "M. Costanzo",
+            "X. Zhang",
+            "A. Z. Hassan",
+            "M. Rahman",
+            "K. R. Brown",
+            "K. S. Chan",
+            "A. H. Y. Tong",
+            "C. Pons",
+            "H. N. Ward",
+            "C. Ross",
+            "J. van Leeuwen",
+            "M. Aregger",
+            "K. A. Lawson",
+            "B. Mair",
+            "A. F. Roth",
+            "N. E. Sen",
+            "D. Forster",
+            "G. Tan",
+            "P. Mero",
+            "S. N. Masud",
+            "Y. Lee",
+            "M. Aguilera-Uribe",
+            "M. Usaj",
+            "S. M. T. Almeida",
+            "K. Aulakh",
+            "U. Bhojoo",
+            "S. Birkadze",
+            "N. Budijono",
+            "X. Cai",
+            "J. J. Caumanns",
+            "M. Chandrashekhar",
+            "D. Chang",
+            "R. Climie",
+            "K. Dasgupta",
+            "A. Drazic",
+            "J. I. Rojas Echenique",
+            "R. Gacesa",
+            "A. Granda Farias",
+            "A. Habsid",
+            "I. Horecka",
+            "K. Kantautas",
+            "F. Ji",
+            "D. K. Kim",
+            "S. Y. Lee",
+            "W. Liang",
+            "J. Lim",
+            "K. Lin",
+            "X. Lu",
+            "B. Nami",
+            "A. Nixon",
+            "N. Mikolajewicz",
+            "L. Nedyalkova",
+            "T. Rohde",
+            "M. Sartori Rodrigues",
+            "M. Soste",
+            "E. Schultz",
+            "W. Wang",
+            "A. Seetharaman",
+            "E. Shuteriqi",
+            "O. Sizova",
+            "D. Thomson Taylor",
+            "M. Tereshchenko",
+            "D. Tieu",
+            "J. Turowec",
+            "T. Ubhi",
+            "S. Varland",
+            "K. E. Wang",
+            "Z. Y. Wang",
+            "J. Wei",
+            "Y. X. Xiao",
+            "G. W. Brown",
+            "B. F. Cravatt",
+            "S. J. Dixon",
+            "H. D. M. Wyatt",
+            "H. L. Röst",
+            "F. P. Roth",
+            "T. Xia",
+            "G. D. Bader",
+            "R. Loewith",
+            "N. G. Davis",
+            "B. Andrews",
+            "C. L. Myers",
+            "J. Moffat",
+            "C. Boone"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:977353a42e94",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A single-nucleus and spatial transcriptomic atlas of the COVID-19 liver reveals topological, functional, and regenerative organ disruption in patients",
+      "year": 2025,
+      "authors": [
+        "Y. Pita-Juarez",
+        "D. Karagkouni",
+        "N. Kalavros",
+        "J. C. Melms",
+        "S. Niezen",
+        "T. M. Delorey",
+        "A. L. Essene",
+        "O. R. Brook",
+        "D. Pant",
+        "D. Skelton-Badlani",
+        "P. Naderi",
+        "P. Huang",
+        "L. Pan",
+        "T. Hether",
+        "T. S. Andrews",
+        "C. G. K. Ziegler",
+        "J. Reeves",
+        "A. Myloserdnyy",
+        "R. Chen",
+        "A. Nam",
+        "S. Phelan",
+        "Y. Liang",
+        "M. Gregory",
+        "S. He",
+        "M. Patrick",
+        "T. Rane",
+        "A. Wardhani",
+        "A. D. Amin",
+        "J. Biermann",
+        "H. Hibshoosh",
+        "M. Veregge",
+        "Z. Kramer",
+        "C. Jacobs",
+        "Y. Yalcin",
+        "D. Phillips",
+        "M. Slyper",
+        "A. Subramanian",
+        "O. Ashenberg",
+        "Z. Bloom-Ackermann",
+        "V. M. Tran",
+        "J. Gomez",
+        "A. Sturm",
+        "S. Zhang",
+        "S. J. Fleming",
+        "S. Warren",
+        "J. Beechem",
+        "D. Hung",
+        "M. Babadi",
+        "Padera RF Jr",
+        "S. A. MacParland",
+        "G. D. Bader",
+        "N. Imad",
+        "I. H. Solomon",
+        "E. Miller",
+        "S. Riedel",
+        "C. B. M. Porter",
+        "A. C. Villani",
+        "L. T. Tsai",
+        "W. Hide",
+        "G. Szabo",
+        "J. Hecht",
+        "O. Rozenblatt-Rosen",
+        "A. K. Shalek",
+        "B. Izar",
+        "A. Regev",
+        "Y. V. Popov",
+        "Z. G. Jiang",
+        "I. S. Vlachos"
+      ],
+      "listed_venue": "Genome Biol",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 15 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "A single-nucleus and spatial transcriptomic atlas of the COVID-19 liver reveals topological, functional, and regenerative organ disruption in patients",
+          "year": 2024,
+          "authors": [
+            "Y. Pita-Juarez",
+            "D. Karagkouni",
+            "N. Kalavros",
+            "J. C. Melms",
+            "S. Niezen",
+            "T. M. Delorey",
+            "A. L. Essene",
+            "O. R. Brook",
+            "D. Pant",
+            "D. Skelton-Badlani",
+            "P. Naderi",
+            "P. Huang",
+            "L. Pan",
+            "T. Hether",
+            "T. S. Andrews",
+            "C. G. K. Ziegler",
+            "J. Reeves",
+            "A. Myloserdnyy",
+            "R. Chen",
+            "A. Nam",
+            "S. Phelan",
+            "Y. Liang",
+            "M. Gregory",
+            "S. He",
+            "M. Patrick",
+            "T. Rane",
+            "A. Wardhani",
+            "A. D. Amin",
+            "J. Biermann",
+            "H. Hibshoosh",
+            "M. Veregge",
+            "Z. Kramer",
+            "C. Jacobs",
+            "Y. Yalcin",
+            "D. Phillips",
+            "M. Slyper",
+            "A. Subramanian",
+            "O. Ashenberg",
+            "Z. Bloom-Ackermann",
+            "V. M. Tran",
+            "J. Gomez",
+            "A. Sturm",
+            "S. Zhang",
+            "S. J. Fleming",
+            "S. Warren",
+            "J. Beechem",
+            "D. Hung",
+            "M. Babadi",
+            "Padera RF Jr",
+            "S. A. MacParland",
+            "G. D. Bader",
+            "N. Imad",
+            "I. H. Solomon",
+            "E. Miller",
+            "S. Riedel",
+            "C. B. M. Porter",
+            "A. C. Villani",
+            "L. T. Tsai",
+            "W. Hide",
+            "G. Szabo",
+            "J. Hecht",
+            "O. Rozenblatt-Rosen",
+            "A. K. Shalek",
+            "B. Izar",
+            "A. Regev",
+            "Y. V. Popov",
+            "Z. G. Jiang",
+            "I. S. Vlachos"
+          ]
+        },
+        {
+          "title": "A single-nucleus and spatial transcriptomic atlas of the COVID-19 liver reveals topological, functional, and regenerative organ disruption in patients",
+          "year": 2026,
+          "authors": [
+            "Y. Pita-Juarez",
+            "D. Karagkouni",
+            "N. Kalavros",
+            "J. C. Melms",
+            "S. Niezen",
+            "T. M. Delorey",
+            "A. L. Essene",
+            "O. R. Brook",
+            "D. Pant",
+            "D. Skelton-Badlani",
+            "P. Naderi",
+            "P. Huang",
+            "L. Pan",
+            "T. Hether",
+            "T. S. Andrews",
+            "C. G. K. Ziegler",
+            "J. Reeves",
+            "A. Myloserdnyy",
+            "R. Chen",
+            "A. Nam",
+            "S. Phelan",
+            "Y. Liang",
+            "M. Gregory",
+            "S. He",
+            "M. Patrick",
+            "T. Rane",
+            "A. Wardhani",
+            "A. D. Amin",
+            "J. Biermann",
+            "H. Hibshoosh",
+            "M. Veregge",
+            "Z. Kramer",
+            "C. Jacobs",
+            "Y. Yalcin",
+            "D. Phillips",
+            "M. Slyper",
+            "A. Subramanian",
+            "O. Ashenberg",
+            "Z. Bloom-Ackermann",
+            "V. M. Tran",
+            "J. Gomez",
+            "A. Sturm",
+            "S. Zhang",
+            "S. J. Fleming",
+            "S. Warren",
+            "J. Beechem",
+            "D. Hung",
+            "M. Babadi",
+            "Padera RF Jr",
+            "S. A. MacParland",
+            "G. D. Bader",
+            "N. Imad",
+            "I. H. Solomon",
+            "E. Miller",
+            "S. Riedel",
+            "C. B. M. Porter",
+            "A. C. Villani",
+            "L. T. Tsai",
+            "W. Hide",
+            "G. Szabo",
+            "J. Hecht",
+            "O. Rozenblatt-Rosen",
+            "A. K. Shalek",
+            "B. Izar",
+            "A. Regev",
+            "Y. V. Popov",
+            "Z. G. Jiang",
+            "I. S. Vlachos"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:fea8ed22f773",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Analysis of an engineered organoid model of pancreatic cancer identifies hypoxia as a contributing factor in determining transcriptional subtypes.",
+      "year": 2025,
+      "authors": [
+        "N. Landon-Brace",
+        "S. Latour",
+        "B. T. Innes",
+        "M. Nurse",
+        "J. L. Cadavid",
+        "I. L. Co",
+        "C. M. Tan",
+        "F. Nowlan",
+        "S. Drissler",
+        "F. Notta",
+        "H. W. Jackson",
+        "G. D. Bader",
+        "A. P. McGuigan"
+      ],
+      "listed_venue": "Sci Rep",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 7 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1038/s41598-025-98344-x"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Analysis of an engineered organoid model of pancreatic cancer identifies hypoxia as a contributing factor in determining transcriptional subtypes.",
+          "year": 2024,
+          "authors": [
+            "N. Landon-Brace",
+            "S. Latour",
+            "B. T. Innes",
+            "M. Nurse",
+            "J. L. Cadavid",
+            "I. L. Co",
+            "C. M. Tan",
+            "F. Nowlan",
+            "S. Drissler",
+            "F. Notta",
+            "H. W. Jackson",
+            "G. D. Bader",
+            "A. P. McGuigan"
+          ]
+        },
+        {
+          "title": "Analysis of an engineered organoid model of pancreatic cancer identifies hypoxia as a contributing factor in determining transcriptional subtypes.",
+          "year": 2026,
+          "authors": [
+            "N. Landon-Brace",
+            "S. Latour",
+            "B. T. Innes",
+            "M. Nurse",
+            "J. L. Cadavid",
+            "I. L. Co",
+            "C. M. Tan",
+            "F. Nowlan",
+            "S. Drissler",
+            "F. Notta",
+            "H. W. Jackson",
+            "G. D. Bader",
+            "A. P. McGuigan"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s41598-025-98344-x",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Analysis of an engineered organoid model of pancreatic cancer identifies hypoxia as a contributing factor in determining transcriptional subtypes",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:390d168dde3c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Approaches to identify scenarios for data science implementations within healthcare settings: recommendations based on experiences at multiple academic institutions",
+      "year": 2025,
+      "authors": [
+        "L. Sung",
+        "M. Brudno",
+        "M. C. W. Caesar",
+        "A. A. Verma",
+        "B. Buchsbaum",
+        "R. Retnakaran",
+        "V. Giannakeas",
+        "A. Kushki",
+        "G. D. Bader",
+        "H. Lasthiotakis",
+        "M. Mamdani",
+        "L. Strug"
+      ],
+      "listed_venue": "Front Digit Health",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 14 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.3389/fdgth.2025.1511943"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Approaches to identify scenarios for data science implementations within healthcare settings: recommendations based on experiences at multiple academic institutions",
+          "year": 2024,
+          "authors": [
+            "L. Sung",
+            "M. Brudno",
+            "M. C. W. Caesar",
+            "A. A. Verma",
+            "B. Buchsbaum",
+            "R. Retnakaran",
+            "V. Giannakeas",
+            "A. Kushki",
+            "G. D. Bader",
+            "H. Lasthiotakis",
+            "M. Mamdani",
+            "L. Strug"
+          ]
+        },
+        {
+          "title": "Approaches to identify scenarios for data science implementations within healthcare settings: recommendations based on experiences at multiple academic institutions",
+          "year": 2026,
+          "authors": [
+            "L. Sung",
+            "M. Brudno",
+            "M. C. W. Caesar",
+            "A. A. Verma",
+            "B. Buchsbaum",
+            "R. Retnakaran",
+            "V. Giannakeas",
+            "A. Kushki",
+            "G. D. Bader",
+            "H. Lasthiotakis",
+            "M. Mamdani",
+            "L. Strug"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.3389/fdgth.2025.1511943",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Approaches to identify scenarios for data science implementations within healthcare settings: recommendations based on experiences at multiple academic institutions",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:cdd39580cec4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Cell networks in the mouse liver during partial hepatectomy",
+      "year": 2025,
+      "authors": [
+        "B. Li",
+        "D. Rodrigo-Torres",
+        "C. Pelz",
+        "B. Innes",
+        "P. Canaday",
+        "S. Chai",
+        "P. Zandstra",
+        "G. D. Bader",
+        "M. Grompe"
+      ],
+      "listed_venue": "Stem Cell Reports",
+      "work_types": [
+        "journal_article",
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 1 captured 2026-10-30",
+        "Public list https://baderlab.org/Publications entry 49 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1016/j.stemcr.2025.102683",
+        "10.1101/2023.07.16.549116"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Cell networks in the mouse liver during partial hepatectomy",
+          "year": 2023,
+          "authors": [
+            "B. Li",
+            "D. Rodrigo-Torres",
+            "C. Pelz",
+            "B. Innes",
+            "P. Canaday",
+            "S. Chai",
+            "P. Zandstra",
+            "G. D. Bader",
+            "M. Grompe"
+          ]
+        },
+        {
+          "title": "Cell networks in the mouse liver during partial hepatectomy",
+          "year": 2024,
+          "authors": [
+            "B. Li",
+            "D. Rodrigo-Torres",
+            "C. Pelz",
+            "B. Innes",
+            "P. Canaday",
+            "S. Chai",
+            "P. Zandstra",
+            "G. D. Bader",
+            "M. Grompe"
+          ]
+        },
+        {
+          "title": "Cell networks in the mouse liver during partial hepatectomy",
+          "year": 2026,
+          "authors": [
+            "B. Li",
+            "D. Rodrigo-Torres",
+            "C. Pelz",
+            "B. Innes",
+            "P. Canaday",
+            "S. Chai",
+            "P. Zandstra",
+            "G. D. Bader",
+            "M. Grompe"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.stemcr.2025.102683",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Cell networks in the mouse liver during partial hepatectomy",
+          "crossref_year": 2025
+        },
+        {
+          "doi": "10.1101/2023.07.16.549116",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Cell networks in the mouse liver during partial hepatectomy",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:4939dc2328f3",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Claudin-1 is a mediator and therapeutic target in primary sclerosing cholangitis",
+      "year": 2025,
+      "authors": [
+        "F. Del Zompo",
+        "E. Crouchet",
+        "T. Ostyn",
+        "Z. Nehme",
+        "M. Messé",
+        "F. Juehling",
+        "R. Désert",
+        "A. T. Vieira",
+        "J. Moehlin",
+        "D. Nakib",
+        "T. Andrews",
+        "C. Perciani",
+        "S. Chung",
+        "G. Bader",
+        "I. McGilvray",
+        "C. Caime",
+        "M. Scaravaglio",
+        "M. Carbone",
+        "P. Invernizzi",
+        "S. Yaqub",
+        "T. Folseraas",
+        "T. H. Karlsen",
+        "G. Shankar",
+        "M. Primeaux",
+        "P. Dhawan",
+        "J. M. Banales",
+        "N. Roehlen",
+        "R. Iacone",
+        "G. Teixeira",
+        "M. Heikenwälder",
+        "L. Mailly",
+        "S. MacParland",
+        "T. Roskams",
+        "O. Govaere",
+        "C. Schuster",
+        "T. F. Baumert"
+      ],
+      "listed_venue": "J Hepatol",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 6 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Claudin-1 is a mediator and therapeutic target in primary sclerosing cholangitis",
+          "year": 2024,
+          "authors": [
+            "F. Del Zompo",
+            "E. Crouchet",
+            "T. Ostyn",
+            "Z. Nehme",
+            "M. Messé",
+            "F. Juehling",
+            "R. Désert",
+            "A. T. Vieira",
+            "J. Moehlin",
+            "D. Nakib",
+            "T. Andrews",
+            "C. Perciani",
+            "S. Chung",
+            "G. Bader",
+            "I. McGilvray",
+            "C. Caime",
+            "M. Scaravaglio",
+            "M. Carbone",
+            "P. Invernizzi",
+            "S. Yaqub",
+            "T. Folseraas",
+            "T. H. Karlsen",
+            "G. Shankar",
+            "M. Primeaux",
+            "P. Dhawan",
+            "J. M. Banales",
+            "N. Roehlen",
+            "R. Iacone",
+            "G. Teixeira",
+            "M. Heikenwälder",
+            "L. Mailly",
+            "S. MacParland",
+            "T. Roskams",
+            "O. Govaere",
+            "C. Schuster",
+            "T. F. Baumert"
+          ]
+        },
+        {
+          "title": "Claudin-1 is a mediator and therapeutic target in primary sclerosing cholangitis",
+          "year": 2026,
+          "authors": [
+            "F. Del Zompo",
+            "E. Crouchet",
+            "T. Ostyn",
+            "Z. Nehme",
+            "M. Messé",
+            "F. Juehling",
+            "R. Désert",
+            "A. T. Vieira",
+            "J. Moehlin",
+            "D. Nakib",
+            "T. Andrews",
+            "C. Perciani",
+            "S. Chung",
+            "G. Bader",
+            "I. McGilvray",
+            "C. Caime",
+            "M. Scaravaglio",
+            "M. Carbone",
+            "P. Invernizzi",
+            "S. Yaqub",
+            "T. Folseraas",
+            "T. H. Karlsen",
+            "G. Shankar",
+            "M. Primeaux",
+            "P. Dhawan",
+            "J. M. Banales",
+            "N. Roehlen",
+            "R. Iacone",
+            "G. Teixeira",
+            "M. Heikenwälder",
+            "L. Mailly",
+            "S. MacParland",
+            "T. Roskams",
+            "O. Govaere",
+            "C. Schuster",
+            "T. F. Baumert"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:6aeafca38558",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Cytoscape Web: bringing network biology to the browser",
+      "year": 2025,
+      "authors": [
+        "K. Ono",
+        "D. Fong",
+        "C. Gao",
+        "C. Churas",
+        "R. Pillich",
+        "J. Lenkiewicz",
+        "D. Pratt",
+        "A. R. Pico",
+        "K. Hanspers",
+        "Y. Xin",
+        "J. Morris",
+        "M. Kucera",
+        "M. Franz",
+        "C. Lopes",
+        "G. Bader",
+        "T. Ideker",
+        "J. Chen"
+      ],
+      "listed_venue": "Nucleic Acids Res",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 9 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1093/nar/gkaf365"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Cytoscape Web: bringing network biology to the browser",
+          "year": 2024,
+          "authors": [
+            "K. Ono",
+            "D. Fong",
+            "C. Gao",
+            "C. Churas",
+            "R. Pillich",
+            "J. Lenkiewicz",
+            "D. Pratt",
+            "A. R. Pico",
+            "K. Hanspers",
+            "Y. Xin",
+            "J. Morris",
+            "M. Kucera",
+            "M. Franz",
+            "C. Lopes",
+            "G. Bader",
+            "T. Ideker",
+            "J. Chen"
+          ]
+        },
+        {
+          "title": "Cytoscape Web: bringing network biology to the browser",
+          "year": 2026,
+          "authors": [
+            "K. Ono",
+            "D. Fong",
+            "C. Gao",
+            "C. Churas",
+            "R. Pillich",
+            "J. Lenkiewicz",
+            "D. Pratt",
+            "A. R. Pico",
+            "K. Hanspers",
+            "Y. Xin",
+            "J. Morris",
+            "M. Kucera",
+            "M. Franz",
+            "C. Lopes",
+            "G. Bader",
+            "T. Ideker",
+            "J. Chen"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1093/nar/gkaf365",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Cytoscape Web: bringing network biology to the browser",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:af37f9c34926",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Elevated mitochondrial membrane potential is a therapeutic vulnerability in Dnmt3a-mutant clonal hematopoiesis",
+      "year": 2025,
+      "authors": [
+        "K. A. Young",
+        "M. Hosseini",
+        "J. J. Mistry",
+        "C. Morganti",
+        "T. S. Mills",
+        "X. Cai",
+        "B. T. James",
+        "G. J. Nye",
+        "N. R. Fournier",
+        "V. Voisin",
+        "A. Chegini",
+        "A. D. Schimmer",
+        "G. D. Bader",
+        "G. Egan",
+        "M. R. Mansour",
+        "G. A. Challen",
+        "E. M. Pietras",
+        "K. H. Fisher-Wellman",
+        "K. Ito",
+        "S. M. Chan",
+        "J. J. Trowbridge"
+      ],
+      "listed_venue": "Nat Commun",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 12 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1038/s41467-025-57238-2"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Elevated mitochondrial membrane potential is a therapeutic vulnerability in Dnmt3a-mutant clonal hematopoiesis",
+          "year": 2024,
+          "authors": [
+            "K. A. Young",
+            "M. Hosseini",
+            "J. J. Mistry",
+            "C. Morganti",
+            "T. S. Mills",
+            "X. Cai",
+            "B. T. James",
+            "G. J. Nye",
+            "N. R. Fournier",
+            "V. Voisin",
+            "A. Chegini",
+            "A. D. Schimmer",
+            "G. D. Bader",
+            "G. Egan",
+            "M. R. Mansour",
+            "G. A. Challen",
+            "E. M. Pietras",
+            "K. H. Fisher-Wellman",
+            "K. Ito",
+            "S. M. Chan",
+            "J. J. Trowbridge"
+          ]
+        },
+        {
+          "title": "Elevated mitochondrial membrane potential is a therapeutic vulnerability in Dnmt3a-mutant clonal hematopoiesis",
+          "year": 2026,
+          "authors": [
+            "K. A. Young",
+            "M. Hosseini",
+            "J. J. Mistry",
+            "C. Morganti",
+            "T. S. Mills",
+            "X. Cai",
+            "B. T. James",
+            "G. J. Nye",
+            "N. R. Fournier",
+            "V. Voisin",
+            "A. Chegini",
+            "A. D. Schimmer",
+            "G. D. Bader",
+            "G. Egan",
+            "M. R. Mansour",
+            "G. A. Challen",
+            "E. M. Pietras",
+            "K. H. Fisher-Wellman",
+            "K. Ito",
+            "S. M. Chan",
+            "J. J. Trowbridge"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s41467-025-57238-2",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Elevated mitochondrial membrane potential is a therapeutic vulnerability in Dnmt3a-mutant clonal hematopoiesis",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:7d64b50c79d6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "From FAIR to CURE: Guidelines for Computational Models of Biological Systems",
+      "year": 2025,
+      "authors": [
+        "H. M. Sauro",
+        "E. Agmon",
+        "M. L. Blinov",
+        "J. H. Gennari",
+        "J. Hellerstein",
+        "A. Heydarabadipour",
+        "P. Hunter",
+        "B. E. Jardine",
+        "E. May",
+        "D. P. Nickerson",
+        "L. P. Smith",
+        "G. D. Bader",
+        "F. Bergmann",
+        "P. M. Boyle",
+        "A. Dräger",
+        "J. R. Faeder",
+        "S. Feng",
+        "J. Freire",
+        "F. Fröhlich",
+        "J. A. Glazier",
+        "T. E. Gorochowski",
+        "T. Helikar",
+        "S. Hoops",
+        "P. Imoukhuede",
+        "S. M. Keating",
+        "M. Konig",
+        "R. Laubenbacher",
+        "L. M. Loew",
+        "C. F. Lopez",
+        "W. W. Lytton",
+        "A. McCulloch",
+        "P. Mendes",
+        "C. J. Myers",
+        "J. G. Myers",
+        "L. Mulugeta",
+        "A. Niarakis",
+        "D. D. van Niekerk",
+        "B. G. Olivier",
+        "A. A. Patrie",
+        "E. M. Quardokus",
+        "N. Radde",
+        "J. M. Rohwer",
+        "S. Sahle",
+        "J. C. Schaff",
+        "T. J. Sego",
+        "J. Shin",
+        "J. L. Snoep",
+        "R. Vadigepalli",
+        "H. S. Wiley",
+        "D. Waltemath",
+        "I. Moraru"
+      ],
+      "listed_venue": "ArXiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 42 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "From FAIR to CURE: Guidelines for Computational Models of Biological Systems",
+          "year": 2024,
+          "authors": [
+            "H. M. Sauro",
+            "E. Agmon",
+            "M. L. Blinov",
+            "J. H. Gennari",
+            "J. Hellerstein",
+            "A. Heydarabadipour",
+            "P. Hunter",
+            "B. E. Jardine",
+            "E. May",
+            "D. P. Nickerson",
+            "L. P. Smith",
+            "G. D. Bader",
+            "F. Bergmann",
+            "P. M. Boyle",
+            "A. Dräger",
+            "J. R. Faeder",
+            "S. Feng",
+            "J. Freire",
+            "F. Fröhlich",
+            "J. A. Glazier",
+            "T. E. Gorochowski",
+            "T. Helikar",
+            "S. Hoops",
+            "P. Imoukhuede",
+            "S. M. Keating",
+            "M. Konig",
+            "R. Laubenbacher",
+            "L. M. Loew",
+            "C. F. Lopez",
+            "W. W. Lytton",
+            "A. McCulloch",
+            "P. Mendes",
+            "C. J. Myers",
+            "J. G. Myers",
+            "L. Mulugeta",
+            "A. Niarakis",
+            "D. D. van Niekerk",
+            "B. G. Olivier",
+            "A. A. Patrie",
+            "E. M. Quardokus",
+            "N. Radde",
+            "J. M. Rohwer",
+            "S. Sahle",
+            "J. C. Schaff",
+            "T. J. Sego",
+            "J. Shin",
+            "J. L. Snoep",
+            "R. Vadigepalli",
+            "H. S. Wiley",
+            "D. Waltemath",
+            "I. Moraru"
+          ]
+        },
+        {
+          "title": "From FAIR to CURE: Guidelines for Computational Models of Biological Systems",
+          "year": 2026,
+          "authors": [
+            "H. M. Sauro",
+            "E. Agmon",
+            "M. L. Blinov",
+            "J. H. Gennari",
+            "J. Hellerstein",
+            "A. Heydarabadipour",
+            "P. Hunter",
+            "B. E. Jardine",
+            "E. May",
+            "D. P. Nickerson",
+            "L. P. Smith",
+            "G. D. Bader",
+            "F. Bergmann",
+            "P. M. Boyle",
+            "A. Dräger",
+            "J. R. Faeder",
+            "S. Feng",
+            "J. Freire",
+            "F. Fröhlich",
+            "J. A. Glazier",
+            "T. E. Gorochowski",
+            "T. Helikar",
+            "S. Hoops",
+            "P. Imoukhuede",
+            "S. M. Keating",
+            "M. Konig",
+            "R. Laubenbacher",
+            "L. M. Loew",
+            "C. F. Lopez",
+            "W. W. Lytton",
+            "A. McCulloch",
+            "P. Mendes",
+            "C. J. Myers",
+            "J. G. Myers",
+            "L. Mulugeta",
+            "A. Niarakis",
+            "D. D. van Niekerk",
+            "B. G. Olivier",
+            "A. A. Patrie",
+            "E. M. Quardokus",
+            "N. Radde",
+            "J. M. Rohwer",
+            "S. Sahle",
+            "J. C. Schaff",
+            "T. J. Sego",
+            "J. Shin",
+            "J. L. Snoep",
+            "R. Vadigepalli",
+            "H. S. Wiley",
+            "D. Waltemath",
+            "I. Moraru"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:4befc095a99c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Gene-set enrichment analysis and visualization on the web using EnrichmentMap:RNASeq",
+      "year": 2025,
+      "authors": [
+        "M. Franz",
+        "C. T. Lopes",
+        "M. Kucera",
+        "V. Voisin",
+        "R. Isserlin",
+        "G. D. Bader"
+      ],
+      "listed_venue": "Bioinform Adv",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 5 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1093/bioadv/vbaf178"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Gene-set enrichment analysis and visualization on the web using EnrichmentMap:RNASeq",
+          "year": 2024,
+          "authors": [
+            "M. Franz",
+            "C. T. Lopes",
+            "M. Kucera",
+            "V. Voisin",
+            "R. Isserlin",
+            "G. D. Bader"
+          ]
+        },
+        {
+          "title": "Gene-set enrichment analysis and visualization on the web using EnrichmentMap:RNASeq",
+          "year": 2026,
+          "authors": [
+            "M. Franz",
+            "C. T. Lopes",
+            "M. Kucera",
+            "V. Voisin",
+            "R. Isserlin",
+            "G. D. Bader"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1093/bioadv/vbaf178",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Gene-set enrichment analysis and visualization on the web using EnrichmentMap:RNASeq",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:cbf5c63dc883",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Interpretable single-cell factor decomposition using sciRED",
+      "year": 2025,
+      "authors": [
+        "D. Pouyabahar",
+        "T. Andrews",
+        "G. D. Bader"
+      ],
+      "listed_venue": "Nat Commun",
+      "work_types": [
+        "journal_article",
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 16 captured 2026-10-30",
+        "Public list https://baderlab.org/Publications entry 43 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1101/2024.08.01.605536"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Interpretable single-cell factor decomposition using sciRED",
+          "year": 2024,
+          "authors": [
+            "D. Pouyabahar",
+            "T. Andrews",
+            "G. D. Bader"
+          ]
+        },
+        {
+          "title": "Interpretable single-cell factor decomposition using sciRED",
+          "year": 2026,
+          "authors": [
+            "D. Pouyabahar",
+            "T. Andrews",
+            "G. D. Bader"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2024.08.01.605536",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Interpretable single-cell factor decomposition using sciRED",
+          "crossref_year": 2024
+        },
+        {
+          "doi": "10.1101/2024.08.01.605536",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Interpretable single-cell factor decomposition using sciRED",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:7be2fa730aee",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Metformin reduces the competitive advantage of Dnmt3aR878H HSPCs",
+      "year": 2025,
+      "authors": [
+        "M. Hosseini",
+        "V. Voisin",
+        "A. Chegini",
+        "A. Varesi",
+        "S. Cathelin",
+        "D. M. Ayyathan",
+        "A. C. H. Liu",
+        "Y. Yang",
+        "V. Wang",
+        "A. Maher",
+        "E. Grignano",
+        "J. A. Reisz",
+        "A. D'Alessandro",
+        "K. Young",
+        "Y. Wu",
+        "M. Fiumara",
+        "S. Ferrari",
+        "L. Naldini",
+        "F. Gaiti",
+        "S. Pai",
+        "G. Egan",
+        "A. D. Schimmer",
+        "G. D. Bader",
+        "J. E. Dick",
+        "S. Z. Xie",
+        "J. J. Trowbridge",
+        "S. M. Chan"
+      ],
+      "listed_venue": "Nature",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 11 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1038/s41586-025-08871-w"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Metformin reduces the competitive advantage of Dnmt3aR878H HSPCs",
+          "year": 2024,
+          "authors": [
+            "M. Hosseini",
+            "V. Voisin",
+            "A. Chegini",
+            "A. Varesi",
+            "S. Cathelin",
+            "D. M. Ayyathan",
+            "A. C. H. Liu",
+            "Y. Yang",
+            "V. Wang",
+            "A. Maher",
+            "E. Grignano",
+            "J. A. Reisz",
+            "A. D'Alessandro",
+            "K. Young",
+            "Y. Wu",
+            "M. Fiumara",
+            "S. Ferrari",
+            "L. Naldini",
+            "F. Gaiti",
+            "S. Pai",
+            "G. Egan",
+            "A. D. Schimmer",
+            "G. D. Bader",
+            "J. E. Dick",
+            "S. Z. Xie",
+            "J. J. Trowbridge",
+            "S. M. Chan"
+          ]
+        },
+        {
+          "title": "Metformin reduces the competitive advantage of Dnmt3aR878H HSPCs",
+          "year": 2026,
+          "authors": [
+            "M. Hosseini",
+            "V. Voisin",
+            "A. Chegini",
+            "A. Varesi",
+            "S. Cathelin",
+            "D. M. Ayyathan",
+            "A. C. H. Liu",
+            "Y. Yang",
+            "V. Wang",
+            "A. Maher",
+            "E. Grignano",
+            "J. A. Reisz",
+            "A. D'Alessandro",
+            "K. Young",
+            "Y. Wu",
+            "M. Fiumara",
+            "S. Ferrari",
+            "L. Naldini",
+            "F. Gaiti",
+            "S. Pai",
+            "G. Egan",
+            "A. D. Schimmer",
+            "G. D. Bader",
+            "J. E. Dick",
+            "S. Z. Xie",
+            "J. J. Trowbridge",
+            "S. M. Chan"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s41586-025-08871-w",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Metformin reduces the competitive advantage of Dnmt3aR878H HSPCs",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:919ddefd78aa",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "PRMT5 promotes full-length HTT expression by repressing multiple proximal intronic polyadenylation sites",
+      "year": 2025,
+      "authors": [
+        "M. Yadav",
+        "M. A. AlQazzaz",
+        "F. E. Ciamponi",
+        "J. C. Ho",
+        "M. I. Maron",
+        "A. M. Sababi",
+        "G. MacLeod",
+        "M. Ahmadi",
+        "G. Bullivant",
+        "V. Tano",
+        "S. R. Langley",
+        "M. Sánchez-Osuna",
+        "P. Sachamitr",
+        "M. Kushida",
+        "C. F. Bardile",
+        "M. A. Pouladi",
+        "R. Kurtz",
+        "L. Richards",
+        "T. Pugh",
+        "M. Tyers",
+        "S. Angers",
+        "P. B. Dirks",
+        "G. D. Bader",
+        "R. Truant",
+        "K. B. Massirer",
+        "D. Barsyte-Lovejoy",
+        "D. Shechter",
+        "R. J. Harding",
+        "C. H. Arrowsmith",
+        "P. Prinos"
+      ],
+      "listed_venue": "Nucleic Acids Res",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 10 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "PRMT5 promotes full-length HTT expression by repressing multiple proximal intronic polyadenylation sites",
+          "year": 2024,
+          "authors": [
+            "M. Yadav",
+            "M. A. AlQazzaz",
+            "F. E. Ciamponi",
+            "J. C. Ho",
+            "M. I. Maron",
+            "A. M. Sababi",
+            "G. MacLeod",
+            "M. Ahmadi",
+            "G. Bullivant",
+            "V. Tano",
+            "S. R. Langley",
+            "M. Sánchez-Osuna",
+            "P. Sachamitr",
+            "M. Kushida",
+            "C. F. Bardile",
+            "M. A. Pouladi",
+            "R. Kurtz",
+            "L. Richards",
+            "T. Pugh",
+            "M. Tyers",
+            "S. Angers",
+            "P. B. Dirks",
+            "G. D. Bader",
+            "R. Truant",
+            "K. B. Massirer",
+            "D. Barsyte-Lovejoy",
+            "D. Shechter",
+            "R. J. Harding",
+            "C. H. Arrowsmith",
+            "P. Prinos"
+          ]
+        },
+        {
+          "title": "PRMT5 promotes full-length HTT expression by repressing multiple proximal intronic polyadenylation sites",
+          "year": 2026,
+          "authors": [
+            "M. Yadav",
+            "M. A. AlQazzaz",
+            "F. E. Ciamponi",
+            "J. C. Ho",
+            "M. I. Maron",
+            "A. M. Sababi",
+            "G. MacLeod",
+            "M. Ahmadi",
+            "G. Bullivant",
+            "V. Tano",
+            "S. R. Langley",
+            "M. Sánchez-Osuna",
+            "P. Sachamitr",
+            "M. Kushida",
+            "C. F. Bardile",
+            "M. A. Pouladi",
+            "R. Kurtz",
+            "L. Richards",
+            "T. Pugh",
+            "M. Tyers",
+            "S. Angers",
+            "P. B. Dirks",
+            "G. D. Bader",
+            "R. Truant",
+            "K. B. Massirer",
+            "D. Barsyte-Lovejoy",
+            "D. Shechter",
+            "R. J. Harding",
+            "C. H. Arrowsmith",
+            "P. Prinos"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:796b79eead62",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "RETINA: Reconstruction-based pre-trained enhanced TransUNet for electron microscopy segmentation on the CEM500K dataset",
+      "year": 2025,
+      "authors": [
+        "C. Xing",
+        "R. Xie",
+        "G. D. Bader"
+      ],
+      "listed_venue": "PLoS Comput Biol",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 8 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2025.01.08.632030"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "RETINA: Reconstruction-based pre-trained enhanced TransUNet for electron microscopy segmentation on the CEM500K dataset",
+          "year": 2024,
+          "authors": [
+            "C. Xing",
+            "R. Xie",
+            "G. D. Bader"
+          ]
+        },
+        {
+          "title": "RETINA: Reconstruction-based pre-trained enhanced TransUNet for electron microscopy segmentation on the CEM500K dataset",
+          "year": 2026,
+          "authors": [
+            "C. Xing",
+            "R. Xie",
+            "G. D. Bader"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2025.01.08.632030",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "RETINA: Reconstruction-based Pre-Trained Enhanced TransUNet for Electron Microscopy Segmentation on the CEM500K Dataset",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:6ffaa2103fc7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Single-cell atlas of human pediatric liver reveals age-related hepatic gene signatures",
+      "year": 2025,
+      "authors": [
+        "R. D. Edgar",
+        "D. Nakib",
+        "D. Camat",
+        "S. Chung",
+        "P. Lumanto",
+        "J. Atif",
+        "C. T. Perciani",
+        "X. Z. Ma",
+        "C. Thoeni",
+        "N. Selvakumaran",
+        "J. Manuel",
+        "B. Sayed",
+        "K. Huysentruyt",
+        "A. Ricciuto",
+        "I. McGilvray",
+        "Y. Avitzur",
+        "G. D. Bader",
+        "S. A. MacParland"
+      ],
+      "listed_venue": "Hepatol Commun",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 3 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1097/hc9.0000000000000813"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Single-cell atlas of human pediatric liver reveals age-related hepatic gene signatures",
+          "year": 2024,
+          "authors": [
+            "R. D. Edgar",
+            "D. Nakib",
+            "D. Camat",
+            "S. Chung",
+            "P. Lumanto",
+            "J. Atif",
+            "C. T. Perciani",
+            "X. Z. Ma",
+            "C. Thoeni",
+            "N. Selvakumaran",
+            "J. Manuel",
+            "B. Sayed",
+            "K. Huysentruyt",
+            "A. Ricciuto",
+            "I. McGilvray",
+            "Y. Avitzur",
+            "G. D. Bader",
+            "S. A. MacParland"
+          ]
+        },
+        {
+          "title": "Single-cell atlas of human pediatric liver reveals age-related hepatic gene signatures",
+          "year": 2026,
+          "authors": [
+            "R. D. Edgar",
+            "D. Nakib",
+            "D. Camat",
+            "S. Chung",
+            "P. Lumanto",
+            "J. Atif",
+            "C. T. Perciani",
+            "X. Z. Ma",
+            "C. Thoeni",
+            "N. Selvakumaran",
+            "J. Manuel",
+            "B. Sayed",
+            "K. Huysentruyt",
+            "A. Ricciuto",
+            "I. McGilvray",
+            "Y. Avitzur",
+            "G. D. Bader",
+            "S. A. MacParland"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1097/hc9.0000000000000813",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Single-cell atlas of human pediatric liver reveals age-related hepatic gene signatures",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:49b5f84d3cfd",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Single-nucleus transcriptome atlas of orbitofrontal cortex in ALS with a deep learning-based decoding of alternative polyadenylation mechanisms",
+      "year": 2025,
+      "authors": [
+        "P. M. McKeever",
+        "A. M. Sababi",
+        "R. Sharma",
+        "Z. Xu",
+        "S. Xiao",
+        "P. McGoldrick",
+        "T. Ketela",
+        "C. Sato",
+        "D. Moreno",
+        "N. Visanji",
+        "G. G. Kovacs",
+        "J. Keith",
+        "L. Zinman",
+        "E. Rogaeva",
+        "H. Goodarzi",
+        "G. D. Bader",
+        "J. Robertson"
+      ],
+      "listed_venue": "Cell Genom",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 4 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.xgen.2025.101007"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Single-nucleus transcriptome atlas of orbitofrontal cortex in ALS with a deep learning-based decoding of alternative polyadenylation mechanisms",
+          "year": 2024,
+          "authors": [
+            "P. M. McKeever",
+            "A. M. Sababi",
+            "R. Sharma",
+            "Z. Xu",
+            "S. Xiao",
+            "P. McGoldrick",
+            "T. Ketela",
+            "C. Sato",
+            "D. Moreno",
+            "N. Visanji",
+            "G. G. Kovacs",
+            "J. Keith",
+            "L. Zinman",
+            "E. Rogaeva",
+            "H. Goodarzi",
+            "G. D. Bader",
+            "J. Robertson"
+          ]
+        },
+        {
+          "title": "Single-nucleus transcriptome atlas of orbitofrontal cortex in ALS with a deep learning-based decoding of alternative polyadenylation mechanisms",
+          "year": 2026,
+          "authors": [
+            "P. M. McKeever",
+            "A. M. Sababi",
+            "R. Sharma",
+            "Z. Xu",
+            "S. Xiao",
+            "P. McGoldrick",
+            "T. Ketela",
+            "C. Sato",
+            "D. Moreno",
+            "N. Visanji",
+            "G. G. Kovacs",
+            "J. Keith",
+            "L. Zinman",
+            "E. Rogaeva",
+            "H. Goodarzi",
+            "G. D. Bader",
+            "J. Robertson"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.xgen.2025.101007",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Single-nucleus transcriptome atlas of orbitofrontal cortex in ALS with a deep learning-based decoding of alternative polyadenylation mechanisms",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:f8e491054758",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Towards a reference cell atlas of liver diversity over the human lifespan",
+      "year": 2025,
+      "authors": [
+        "S. A. Taylor",
+        "G. D. Bader",
+        "S. MacParland",
+        "A. C. Mullen",
+        "T. Andrews",
+        "A. G. Cuenca",
+        "R. DasGupta",
+        "A. J. Gehring",
+        "D. Grün",
+        "M. Guilliams",
+        "A. Gulamhusein",
+        "N. C. Henderson",
+        "G. Hirschfield",
+        "S. S. Huppert",
+        "S. Itzkovitz",
+        "Z. G. Jiang",
+        "G. M. Lauer",
+        "I. McGilvray",
+        "K. R. Mysore",
+        "C. J. Pirola",
+        "G. Quon",
+        "M. Rahbari",
+        "A. Regev",
+        "A. Ricciuto",
+        "C. L. Scott",
+        "A. Sharma",
+        "S. Sookoian",
+        "M. M. Tana",
+        "S. A. Teichmann",
+        "L. Vallier",
+        "I. S. Vlachos",
+        "B. Wang",
+        "M. Zhen"
+      ],
+      "listed_venue": "Nat Rev Gastroenterol Hepatol",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 2 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1038/s41575-025-01114-3"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Towards a reference cell atlas of liver diversity over the human lifespan",
+          "year": 2024,
+          "authors": [
+            "S. A. Taylor",
+            "G. D. Bader",
+            "S. MacParland",
+            "A. C. Mullen",
+            "T. Andrews",
+            "A. G. Cuenca",
+            "R. DasGupta",
+            "A. J. Gehring",
+            "D. Grün",
+            "M. Guilliams",
+            "A. Gulamhusein",
+            "N. C. Henderson",
+            "G. Hirschfield",
+            "S. S. Huppert",
+            "S. Itzkovitz",
+            "Z. G. Jiang",
+            "G. M. Lauer",
+            "I. McGilvray",
+            "K. R. Mysore",
+            "C. J. Pirola",
+            "G. Quon",
+            "M. Rahbari",
+            "A. Regev",
+            "A. Ricciuto",
+            "C. L. Scott",
+            "A. Sharma",
+            "S. Sookoian",
+            "M. M. Tana",
+            "S. A. Teichmann",
+            "L. Vallier",
+            "I. S. Vlachos",
+            "B. Wang",
+            "M. Zhen"
+          ]
+        },
+        {
+          "title": "Towards a reference cell atlas of liver diversity over the human lifespan",
+          "year": 2026,
+          "authors": [
+            "S. A. Taylor",
+            "G. D. Bader",
+            "S. MacParland",
+            "A. C. Mullen",
+            "T. Andrews",
+            "A. G. Cuenca",
+            "R. DasGupta",
+            "A. J. Gehring",
+            "D. Grün",
+            "M. Guilliams",
+            "A. Gulamhusein",
+            "N. C. Henderson",
+            "G. Hirschfield",
+            "S. S. Huppert",
+            "S. Itzkovitz",
+            "Z. G. Jiang",
+            "G. M. Lauer",
+            "I. McGilvray",
+            "K. R. Mysore",
+            "C. J. Pirola",
+            "G. Quon",
+            "M. Rahbari",
+            "A. Regev",
+            "A. Ricciuto",
+            "C. L. Scott",
+            "A. Sharma",
+            "S. Sookoian",
+            "M. M. Tana",
+            "S. A. Teichmann",
+            "L. Vallier",
+            "I. S. Vlachos",
+            "B. Wang",
+            "M. Zhen"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s41575-025-01114-3",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Towards a reference cell atlas of liver diversity over the human lifespan",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:164c12668ffa",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Towards Applying Large Language Models to Complement Single-Cell Foundation Models",
+      "year": 2025,
+      "authors": [
+        "S. Palayew",
+        "B. Wang",
+        "G. D. Bader"
+      ],
+      "listed_venue": "arXiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 40 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Towards Applying Large Language Models to Complement Single-Cell Foundation Models",
+          "year": 2024,
+          "authors": [
+            "S. Palayew",
+            "B. Wang",
+            "G. D. Bader"
+          ]
+        },
+        {
+          "title": "Towards Applying Large Language Models to Complement Single-Cell Foundation Models",
+          "year": 2026,
+          "authors": [
+            "S. Palayew",
+            "B. Wang",
+            "G. D. Bader"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_gary_bader:ae229a14bf0c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Transfer learning improves performance in volumetric electron microscopy organelle segmentation across tissues",
+      "year": 2025,
+      "authors": [
+        "R. Xie",
+        "B. Mulcahy",
+        "A. Darbandi",
+        "S. Marwah",
+        "F. Ali",
+        "Y. Lee",
+        "G. Parlakgul",
+        "G. S. Hotamisligil",
+        "B. Wang",
+        "S. MacParland",
+        "M. Zhen",
+        "G. D. Bader"
+      ],
+      "listed_venue": "Bioinform Adv",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://baderlab.org/Publications entry 13 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1093/bioadv/vbaf021"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Transfer learning improves performance in volumetric electron microscopy organelle segmentation across tissues",
+          "year": 2024,
+          "authors": [
+            "R. Xie",
+            "B. Mulcahy",
+            "A. Darbandi",
+            "S. Marwah",
+            "F. Ali",
+            "Y. Lee",
+            "G. Parlakgul",
+            "G. S. Hotamisligil",
+            "B. Wang",
+            "S. MacParland",
+            "M. Zhen",
+            "G. D. Bader"
+          ]
+        },
+        {
+          "title": "Transfer learning improves performance in volumetric electron microscopy organelle segmentation across tissues",
+          "year": 2026,
+          "authors": [
+            "R. Xie",
+            "B. Mulcahy",
+            "A. Darbandi",
+            "S. Marwah",
+            "F. Ali",
+            "Y. Lee",
+            "G. Parlakgul",
+            "G. S. Hotamisligil",
+            "B. Wang",
+            "S. MacParland",
+            "M. Zhen",
+            "G. D. Bader"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1093/bioadv/vbaf021",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Transfer learning improves performance in volumetric electron microscopy organelle segmentation across tissues",
+          "crossref_year": 2024
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

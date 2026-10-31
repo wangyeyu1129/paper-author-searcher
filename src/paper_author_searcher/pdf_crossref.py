@@ -1,5 +1,6 @@
 """Discover deposited full-text and landing links from Crossref metadata."""
 
+from http import HTTPStatus
 from typing import Any
 from urllib.parse import quote
 
@@ -36,7 +37,9 @@ class CrossrefPDFProvider(MetadataPDFProvider):
 
     def find(self, paper: JSONObject) -> PDFProviderResult:
         result = super().find(paper)
-        not_indexed = result.diagnostics and all(item.get('status_code') == 404 for item in result.diagnostics)
+        not_indexed = result.diagnostics and all(
+            item.get('status_code') == HTTPStatus.NOT_FOUND for item in result.diagnostics
+        )
         if not_indexed and paper.get('title'):
             try:
                 candidates, pages = self.lookup(paper, 'title:' + paper['title'])

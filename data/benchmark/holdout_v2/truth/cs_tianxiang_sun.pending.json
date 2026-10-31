@@ -1,0 +1,387 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "cs_tianxiang_sun",
+    "dataset_id": "holdout_v2",
+    "search_input": {
+      "name": "Tianxiang Sun",
+      "university": "Fudan University"
+    },
+    "scope": {
+      "year_start": 2021,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-30T22:24:55.993917+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://txsun1997.github.io/",
+        "records": 6
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "cs_tianxiang_sun:506200c1c9a6",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Black-Box Tuning for Language-Model-as-a-Service",
+      "year": 2022,
+      "authors": [
+        "Tianxiang Sun",
+        "Yunfan Shao",
+        "Hong Qian",
+        "Xuanjing Huang",
+        "Xipeng Qiu"
+      ],
+      "listed_venue": "ICML",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://txsun1997.github.io/ entry 4 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Black-Box Tuning for Language-Model-as-a-Service",
+          "year": 2021,
+          "authors": [
+            "Tianxiang Sun",
+            "Yunfan Shao",
+            "Hong Qian",
+            "Xuanjing Huang",
+            "Xipeng Qiu"
+          ]
+        },
+        {
+          "title": "Black-Box Tuning for Language-Model-as-a-Service",
+          "year": 2023,
+          "authors": [
+            "Tianxiang Sun",
+            "Yunfan Shao",
+            "Hong Qian",
+            "Xuanjing Huang",
+            "Xipeng Qiu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_tianxiang_sun:fd408579af5e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Paradigm Shift in Natural Language Processing",
+      "year": 2022,
+      "authors": [
+        "Tianxiang Sun",
+        "Xiangyang Liu",
+        "Xipeng Qiu",
+        "Xuanjing Huang"
+      ],
+      "listed_venue": "Machine Intelligence Research",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://txsun1997.github.io/ entry 5 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Paradigm Shift in Natural Language Processing",
+          "year": 2021,
+          "authors": [
+            "Tianxiang Sun",
+            "Xiangyang Liu",
+            "Xipeng Qiu",
+            "Xuanjing Huang"
+          ]
+        },
+        {
+          "title": "Paradigm Shift in Natural Language Processing",
+          "year": 2023,
+          "authors": [
+            "Tianxiang Sun",
+            "Xiangyang Liu",
+            "Xipeng Qiu",
+            "Xuanjing Huang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_tianxiang_sun:ea8c9dab4bde",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Towards Efficient NLP: A Standard Evaluation and A Strong Baseline",
+      "year": 2022,
+      "authors": [
+        "Xiangyang Liu",
+        "Tianxiang Sun",
+        "Junliang He",
+        "Jiawen Wu",
+        "Lingling Wu",
+        "Xinyu Zhang",
+        "Hao Jiang",
+        "Zhao Cao",
+        "Xuanjing Huang",
+        "Xipeng Qiu"
+      ],
+      "listed_venue": "NAACL",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://txsun1997.github.io/ entry 6 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Towards Efficient NLP: A Standard Evaluation and A Strong Baseline",
+          "year": 2021,
+          "authors": [
+            "Xiangyang Liu",
+            "Tianxiang Sun",
+            "Junliang He",
+            "Jiawen Wu",
+            "Lingling Wu",
+            "Xinyu Zhang",
+            "Hao Jiang",
+            "Zhao Cao",
+            "Xuanjing Huang",
+            "Xipeng Qiu"
+          ]
+        },
+        {
+          "title": "Towards Efficient NLP: A Standard Evaluation and A Strong Baseline",
+          "year": 2023,
+          "authors": [
+            "Xiangyang Liu",
+            "Tianxiang Sun",
+            "Junliang He",
+            "Jiawen Wu",
+            "Lingling Wu",
+            "Xinyu Zhang",
+            "Hao Jiang",
+            "Zhao Cao",
+            "Xuanjing Huang",
+            "Xipeng Qiu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_tianxiang_sun:a001d98f4810",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Can AI Assistants Know What They Don't Know?",
+      "year": 2024,
+      "authors": [
+        "Qinyuan Cheng",
+        "Tianxiang Sun",
+        "Xiangyang Liu",
+        "Wenwei Zhang",
+        "Zhangyue Yin",
+        "Shimin Li",
+        "Linyang Li",
+        "Zhengfu He",
+        "Kai Chen",
+        "Xipeng Qiu"
+      ],
+      "listed_venue": "ICML",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://txsun1997.github.io/ entry 3 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Can AI Assistants Know What They Don't Know?",
+          "year": 2023,
+          "authors": [
+            "Qinyuan Cheng",
+            "Tianxiang Sun",
+            "Xiangyang Liu",
+            "Wenwei Zhang",
+            "Zhangyue Yin",
+            "Shimin Li",
+            "Linyang Li",
+            "Zhengfu He",
+            "Kai Chen",
+            "Xipeng Qiu"
+          ]
+        },
+        {
+          "title": "Can AI Assistants Know What They Don't Know?",
+          "year": 2025,
+          "authors": [
+            "Qinyuan Cheng",
+            "Tianxiang Sun",
+            "Xiangyang Liu",
+            "Wenwei Zhang",
+            "Zhangyue Yin",
+            "Shimin Li",
+            "Linyang Li",
+            "Zhengfu He",
+            "Kai Chen",
+            "Xipeng Qiu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_tianxiang_sun:b22f3271786d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Dictionary Learning Improves Patch-Free Circuit Discovery in Mechanistic Interpretability: A Case Study on Othello-GPT",
+      "year": 2024,
+      "authors": [
+        "Zhengfu He",
+        "Xuyang Ge",
+        "Qiong Tang",
+        "Tianxiang Sun",
+        "Qinyuan Cheng",
+        "Xipeng Qiu"
+      ],
+      "listed_venue": "arXiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://txsun1997.github.io/ entry 2 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Dictionary Learning Improves Patch-Free Circuit Discovery in Mechanistic Interpretability: A Case Study on Othello-GPT",
+          "year": 2023,
+          "authors": [
+            "Zhengfu He",
+            "Xuyang Ge",
+            "Qiong Tang",
+            "Tianxiang Sun",
+            "Qinyuan Cheng",
+            "Xipeng Qiu"
+          ]
+        },
+        {
+          "title": "Dictionary Learning Improves Patch-Free Circuit Discovery in Mechanistic Interpretability: A Case Study on Othello-GPT",
+          "year": 2025,
+          "authors": [
+            "Zhengfu He",
+            "Xuyang Ge",
+            "Qiong Tang",
+            "Tianxiang Sun",
+            "Qinyuan Cheng",
+            "Xipeng Qiu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_tianxiang_sun:99cb4a1eb685",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Data Mixing Laws: Optimizing Data Mixtures by Predicting Language Modeling Performance",
+      "year": 2025,
+      "authors": [
+        "Jiasheng Ye",
+        "Peiju Liu",
+        "Tianxiang Sun",
+        "Yunhua Zhou",
+        "Jun Zhan",
+        "Xipeng Qiu"
+      ],
+      "listed_venue": "ICLR",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://txsun1997.github.io/ entry 1 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Data Mixing Laws: Optimizing Data Mixtures by Predicting Language Modeling Performance",
+          "year": 2024,
+          "authors": [
+            "Jiasheng Ye",
+            "Peiju Liu",
+            "Tianxiang Sun",
+            "Yunhua Zhou",
+            "Jun Zhan",
+            "Xipeng Qiu"
+          ]
+        },
+        {
+          "title": "Data Mixing Laws: Optimizing Data Mixtures by Predicting Language Modeling Performance",
+          "year": 2026,
+          "authors": [
+            "Jiasheng Ye",
+            "Peiju Liu",
+            "Tianxiang Sun",
+            "Yunhua Zhou",
+            "Jun Zhan",
+            "Xipeng Qiu"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

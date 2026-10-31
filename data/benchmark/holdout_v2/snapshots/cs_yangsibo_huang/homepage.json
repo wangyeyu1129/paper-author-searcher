@@ -1,0 +1,178 @@
+{
+ "snapshot_schema_version": 1,
+ "source_url": "https://hazelsuko07.github.io/yangsibo/",
+ "captured_at": "2026-10-30",
+ "captured_by": "Assistant transcription of the public page; pending human review",
+ "scope_note": "Public list on the page, read by the assistant. Not read from this system's output.",
+ "transcription_notes": [],
+ "entries": [
+  {
+   "title": "Exploring and Mitigating Adversarial Manipulation of Voting-Based Leaderboards",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICML 2025",
+   "authors": [
+    "Yangsibo Huang",
+    "Milad Nasr",
+    "Anastasios Angelopoulos",
+    "Nicholas Carlini",
+    "Wei-Lin Chiang",
+    "Christopher A Choquette-Choo",
+    "Daphne Ippolito",
+    "Matthew Jagielski",
+    "Katherine Lee",
+    "Ken Ziyu Liu"
+   ]
+  },
+  {
+   "title": "MUSE: Machine Unlearning Six-Way Evaluation for Language Models",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICLR 2025",
+   "authors": [
+    "Weijia Shi",
+    "Jaechan Lee",
+    "Yangsibo Huang",
+    "Sadhika Malladi",
+    "Jieyu Zhao",
+    "Ari Holtzman",
+    "Daogao Liu",
+    "Luke Zettlemoyer",
+    "Noah A Smith",
+    "Chiyuan Zhang"
+   ]
+  },
+  {
+   "title": "SORRY-Bench: Systematically Evaluating Large Language Model Safety Refusal Behaviors",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "ICLR 2025",
+   "authors": [
+    "Tinghao Xie",
+    "Xiangyu Qi",
+    "Yi Zeng",
+    "Yangsibo Huang",
+    "Udari Madhushani Sehwag",
+    "Kaixuan Huang",
+    "Luxi He",
+    "Boyi Wei",
+    "Dacheng Li",
+    "Ying Sheng",
+    "Ruoxi Jia",
+    "Bo Li",
+    "Kai Li",
+    "Danqi Chen",
+    "Peter Henderson",
+    "Prateek Mittal"
+   ]
+  },
+  {
+   "title": "On Memorization of Large Language Models in Logical Reasoning",
+   "year": 2024,
+   "type": "preprint",
+   "venue": "Preprint 2024",
+   "authors": [
+    "Chulin Xie",
+    "Yangsibo Huang",
+    "Chiyuan Zhang",
+    "Da Yu",
+    "Xinyun Chen",
+    "Bill Yuchen Lin",
+    "Bo Li",
+    "Badih Ghazi",
+    "Ravi Kumar"
+   ]
+  },
+  {
+   "title": "An Adversarial Perspective on Machine Unlearning for AI Safety",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "NeurIPS SoLaR 2024",
+   "authors": [
+    "Jakub Łucki",
+    "Boyi Wei",
+    "Yangsibo Huang",
+    "Peter Henderson",
+    "Florian Tramèr",
+    "Javier Rando"
+   ]
+  },
+  {
+   "title": "A Safe Harbor for AI Evaluation and Red Teaming",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ICML 2024",
+   "authors": [
+    "Shayne Longpre",
+    "Sayash Kapoor",
+    "Kevin Klyman",
+    "Ashwin Ramaswami",
+    "Rishi Bommasani",
+    "Borhane Blili-Hamelin",
+    "Yangsibo Huang",
+    "Aviya Skowron",
+    "Zheng-Xin Yong",
+    "Suhas Kotha"
+   ]
+  },
+  {
+   "title": "Assessing the Brittleness of Safety Alignment via Pruning and Low-Rank Modifications",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ICML 2024",
+   "authors": [
+    "Boyi Wei",
+    "Kaixuan Huang",
+    "Yangsibo Huang",
+    "Tinghao Xie",
+    "Xiangyu Qi",
+    "Mengzhou Xia",
+    "Prateek Mittal",
+    "Mengdi Wang",
+    "Peter Henderson"
+   ]
+  },
+  {
+   "title": "Catastrophic Jailbreak of Open-source LLMs via Exploiting Generation",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ICLR 2024",
+   "authors": [
+    "Yangsibo Huang",
+    "Samyak Gupta",
+    "Mengzhou Xia",
+    "Kai Li",
+    "Danqi Chen"
+   ]
+  },
+  {
+   "title": "Detecting Pretraining Data from Large Language Models",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "ICLR 2024",
+   "authors": [
+    "Weijia Shi",
+    "Anirudh Ajith",
+    "Mengzhou Xia",
+    "Yangsibo Huang",
+    "Daogao Liu",
+    "Terra Blevins",
+    "Danqi Chen",
+    "Luke Zettlemoyer"
+   ]
+  },
+  {
+   "title": "Evaluating Gradient Inversion Attacks and Defenses in Federated Learning",
+   "year": 2021,
+   "type": "conference_paper",
+   "venue": "NeurIPS 2021",
+   "authors": [
+    "Yangsibo Huang",
+    "Samyak Gupta",
+    "Zhao Song",
+    "Kai Li",
+    "Sanjeev Arora"
+   ]
+  }
+ ]
+}

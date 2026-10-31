@@ -52,6 +52,7 @@ docker compose -f deploy/compose.yaml run --rm api create-key --name cold-email-
 - 普通配置：`PAPER_SEARCH__<分区>__<字段>`，见 `Settings`。服务相关的在 `service` 分区（`config/service.py`）。
 - 密钥只从各自约定的环境变量读取，不会写进配置文件或日志：
   - 数据源密钥：`OPENALEX_API_KEY`、`SEMANTIC_SCHOLAR_API_KEY` 等；
+  - 网页搜索密钥：`TAVILY_API_KEY`、`BRAVE_API_KEY`、`EXA_API_KEY`，配一个即可。没有配置时，只存放在作者主页或其他网站上的 PDF 找不到，结果里的 `notices` 会说明这一点；
   - 对象存储密钥：`AWS_ACCESS_KEY_ID`、`AWS_SECRET_ACCESS_KEY`。
 
 常用项：
@@ -64,6 +65,13 @@ docker compose -f deploy/compose.yaml run --rm api create-key --name cold-email-
 | `PAPER_SEARCH__SERVICE__FILE_STORE` | local | `local` 或 `s3` |
 | `PAPER_SEARCH__SERVICE__S3_ENDPOINT` / `S3_PUBLIC_ENDPOINT` / `S3_BUCKET` | | 服务访问存储用的地址、调用方下载用的地址、桶名 |
 | `PAPER_SEARCH__SERVICE__STALE_AFTER_SECONDS` | 120 | worker 多久没有心跳算死掉 |
+| `PAPER_SEARCH__SERVICE__MAXIMUM_ATTEMPTS` | 3 | 一个任务让 worker 中断这么多次后判为失败，不再排队 |
+| `PAPER_SEARCH__SERVICE__MAXIMUM_DAILY_COST_USD` | 1.0 | 每个计费数据源每天（UTC）的花费上限，所有 worker 共用 |
+| `PAPER_SEARCH__SERVICE__MAXIMUM_ACTIVE_SEARCHES` | 20 | 每个 API 密钥同时排队和运行的搜索数，超过返回 429；0 不限 |
+| `PAPER_SEARCH__SERVICE__MAXIMUM_SEARCHES_PER_HOUR` | 60 | 每个 API 密钥每小时可提交的搜索数，超过返回 429；0 不限 |
+| `PAPER_SEARCH__SERVICE__RETENTION_DAYS` | 30 | 已结束的搜索和文件保留多久；0 永久保留 |
+| `PAPER_SEARCH__SERVICE__HTTP_CACHE_RETENTION_DAYS` | 90 | HTTP 缓存文件保留多久；0 永久保留 |
+| `PAPER_SEARCH__EXTRACTION__MAXIMUM_COST_USD` | 1.0 | 每次搜索 Claude 的花费上限，用完后页面只用规则解析 |
 | `PAPER_SEARCH__SERVICE__REQUIRE_INDEXES` | false | 就绪检查是否要求 DBLP 索引和书目库已经存在 |
 | `PAPER_SEARCH_LOG_FORMAT` | 镜像内为 json | 日志格式 |
 
@@ -84,6 +92,7 @@ docker compose -f deploy/compose.yaml run --rm api create-key --name cold-email-
   | `paper_search_queue_oldest_seconds` | 最早一个排队任务已经等了多久 |
   | `paper_search_workers_alive` | 最近上报过心跳的 worker 数 |
   | `paper_search_cost_usd_total` | 所有搜索累计的计费 API 花费 |
+  | `paper_search_llm_cost_usd_total` | 所有搜索累计的 Claude 花费 |
   | `paper_search_http_requests_total{route,code}` | 本进程应答的请求数，按路由和状态码分 |
 
   这个接口不需要密钥，请只在内网暴露。
@@ -105,4 +114,6 @@ docker compose -f deploy/compose.yaml run --rm api create-key --name cold-email-
 ## 扩容与限制
 
 - **SQLite 的适用范围：** 适合单机，或者多个进程共享同一个卷。如果要跨主机部署多个 API 副本，需要换成服务器型数据库，做法是实现一个新的 `JobRepository`，内核不需要改。
-- **worker 数量：** 每个 worker 只在自己的搜索内部按网站限速，所以 worker 越多，对数据源的请求就越多。建议先从 1–3 个开始，观察数据源返回的 429 再调整。
+- **worker 数量：** 所有 worker 通过 `limits.sqlite` 共用每个数据源的请求间隔（`service.shared_host_intervals`）、429 退避和每日预算，增加 worker 不会让请求超过这些限制。其他网站（作者主页、出版商页面）仍然只在每次搜索内部限速。建议先从 1–3 个开始，观察数据源返回的 429 再调整。
+- **花费：** OpenAlex 等计费接口受每次搜索和每天两层上限约束；Claude 受每次搜索上限约束，每天的总量由调用方限流和 `PaperSearchLlmSpend` 告警控制。指标 `paper_search_llm_cost_usd_total` 单独统计 Claude 的花费。
+- **数据清理：** worker 每隔 `housekeeping_hours` 删除过期的搜索和文件。删除后指标里的累计值保持不变。

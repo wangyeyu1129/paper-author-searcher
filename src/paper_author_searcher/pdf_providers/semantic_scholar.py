@@ -1,8 +1,10 @@
 """Semantic Scholar open-access PDFs and external IDs."""
 
+from http import HTTPStatus
+
 from paper_author_searcher.config import DEFAULT_PDF, DEFAULT_SOURCES
 from paper_author_searcher.http import SourceError
-from paper_author_searcher.matching import normalize
+from paper_author_searcher.matching import normalize_title
 from paper_author_searcher.pdf_identity import arxiv_ids, metadata_identity, paper_dois, paper_ids, source_records
 from paper_author_searcher.pdf_source_requests import SemanticScholarRequests
 from paper_author_searcher.status import ProviderStatus
@@ -72,7 +74,7 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
     def _saved_work(paper, identifier):
         for record in source_records(paper):
             work = record.get('raw_metadata') or {}
-            if record.get('source') != 'semantic_scholar' or 'openAccessPdf' not in work:
+            if record.get('source') != SemanticScholarPDFProvider.name or 'openAccessPdf' not in work:
                 continue
             if work.get('paperId') == identifier:
                 return work
@@ -97,10 +99,16 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
         result = super().find(paper)
         for diagnostic in result.diagnostics:
             diagnostic.update(self.requests.diagnostics(diagnostic['identifier']))
-        not_indexed = result.diagnostics and all(item.get('status_code') == 404 for item in result.diagnostics)
+        not_indexed = result.diagnostics and all(
+            item.get('status_code') == HTTPStatus.NOT_FOUND for item in result.diagnostics
+        )
         if not self.lookups(paper) or not_indexed:
             self._search_title(paper, result)
-        if result.errors and result.diagnostics and all(item.get('status_code') == 404 for item in result.diagnostics):
+        if (
+            result.errors
+            and result.diagnostics
+            and all(item.get('status_code') == HTTPStatus.NOT_FOUND for item in result.diagnostics)
+        ):
             result.status = ProviderStatus.NOT_FOUND
         return result
 
@@ -110,7 +118,7 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
         try:
             works = self.requests.search(paper['title'])
             for work in works:
-                if normalize(work.get('title') or '') == normalize(paper['title']):
+                if normalize_title(work.get('title') or '') == normalize_title(paper['title']):
                     result.candidates.extend(
                         semantic_candidates(
                             paper, work, self.name, self.sources.semantic_scholar_url + '/paper/search', self.config
@@ -126,7 +134,7 @@ class SemanticScholarPDFProvider(MetadataPDFProvider):
             if getattr(exc, 'error_type', None) == 'source_deferred':
                 result.status = ProviderStatus.PARTIAL
                 result.warnings.append({'code': 'source_deferred', 'incomplete': True, 'lookup_method': 'title_search'})
-            elif getattr(exc, 'status_code', None) == 404:
+            elif getattr(exc, 'status_code', None) == HTTPStatus.NOT_FOUND:
                 result.status = ProviderStatus.NOT_FOUND
             else:
                 result.status = ProviderStatus.ERROR

@@ -76,12 +76,20 @@ _FALSE = frozenset({'0', 'false', 'no', 'off'})
 _NONE = frozenset({'', 'none', 'null'})
 
 
+# RFC 5321.
+MAXIMUM_EMAIL_LENGTH = 254
+
+
+# PAPER_SEARCH__<SECTION>__<FIELD>
+OVERRIDE_PARTS = 2
+
+
 def validate_contact_email(value: str | None) -> str | None:
     """Return a stripped contact email, ``None`` when unset, or raise ``ValueError`` when malformed."""
     if value is None or not value.strip():
         return None
     value = value.strip()
-    if len(value) > 254 or not _EMAIL.fullmatch(value):
+    if len(value) > MAXIMUM_EMAIL_LENGTH or not _EMAIL.fullmatch(value):
         raise ValueError('Contact email must be a plain, valid email address')
     return value
 
@@ -216,7 +224,7 @@ def _environment_overrides(environ: Mapping[str, str]) -> dict[str, dict[str, st
         if not variable.startswith(OVERRIDE_PREFIX):
             continue
         parts = variable[len(OVERRIDE_PREFIX) :].lower().split(OVERRIDE_SEPARATOR)
-        if len(parts) != 2 or not all(parts):
+        if len(parts) != OVERRIDE_PARTS or not all(parts):
             raise ValueError(f'{variable} must look like {OVERRIDE_PREFIX}<SECTION>{OVERRIDE_SEPARATOR}<FIELD>')
         overrides.setdefault(parts[0], {})[parts[1]] = value
     return overrides

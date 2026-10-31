@@ -1,5 +1,6 @@
 """The workflow stages: identity and collection, PDF discovery, download."""
 
+import logging
 from abc import ABC, abstractmethod
 from collections.abc import Callable
 from copy import deepcopy
@@ -12,9 +13,11 @@ from paper_author_searcher.jsonio import write_json
 from paper_author_searcher.models import ProfessorQuery
 from paper_author_searcher.paper_collector import IdentityConfirmationRequired
 from paper_author_searcher.paper_reanalysis import saved_collection_profile
-from paper_author_searcher.status import ResolutionStatus, RunStatus, StageStatus
+from paper_author_searcher.status import WEB_SEARCH_OFF, ResolutionStatus, RunStatus, StageStatus
 
 from .checkpoints import _is_pdf_report, _resolution, _select_identity
+
+logger = logging.getLogger(__name__)
 
 MODES = ('metadata', 'pdf-urls', 'full')
 
@@ -29,6 +32,10 @@ def _required(service: Any, name: str) -> Any:
     return service
 
 
+WEB_SEARCH_OFF_MESSAGE = (
+    'Web search is not enabled (set TAVILY_API_KEY, BRAVE_API_KEY or EXA_API_KEY): homepages and PDFs that only '
+    'other websites host are not found, so full-text coverage is lower'
+)
 IDENTITY_STAGE = 'Resolving professor identity'
 PDF_STAGE = 'Finding PDF URLs'
 DOWNLOAD_STAGE = 'Downloading PDFs'
@@ -214,6 +221,11 @@ class PDFDiscoveryStage(WorkflowStage):
             )
             # The full archive keeps raw authorship and identity provenance when resuming.
             pdf['identity_archive'] = report.get('identity') or {}
+            if not self.pdf_resolver.fallbacks:
+                logger.warning(WEB_SEARCH_OFF_MESSAGE)
+                report['warnings'].append(
+                    {'stage': self.name, 'code': WEB_SEARCH_OFF, 'warning': WEB_SEARCH_OFF_MESSAGE}
+                )
         context.pdf = pdf
         reused = _is_pdf_report(request.saved or {})
         report['stages'].append({'stage': self.name, 'status': StageStatus.REUSED if reused else StageStatus.COMPLETED})

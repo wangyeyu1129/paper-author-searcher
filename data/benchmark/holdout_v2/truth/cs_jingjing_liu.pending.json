@@ -1,0 +1,1175 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "cs_jingjing_liu",
+    "dataset_id": "holdout_v2",
+    "search_input": {
+      "name": "Jingjing Liu",
+      "university": "Tsinghua University"
+    },
+    "scope": {
+      "year_start": 2022,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-30T22:24:55.991559+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://air.tsinghua.edu.cn/en/info/1046/1194.htm",
+        "records": 19
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "cs_jingjing_liu:08ebbe46eb67",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Adversarial Contrastive Learning via Asymmetric InfoNCE",
+      "year": 2022,
+      "authors": [
+        "Qiying Yu",
+        "Jieming Lou",
+        "Xianyuan Zhan",
+        "Qizhang Li",
+        "Wangmeng Zuo",
+        "Yang Liu",
+        "Jingjing Liu"
+      ],
+      "listed_venue": "ECCV 2022",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 16 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Adversarial Contrastive Learning via Asymmetric InfoNCE",
+          "year": 2021,
+          "authors": [
+            "Qiying Yu",
+            "Jieming Lou",
+            "Xianyuan Zhan",
+            "Qizhang Li",
+            "Wangmeng Zuo",
+            "Yang Liu",
+            "Jingjing Liu"
+          ]
+        },
+        {
+          "title": "Adversarial Contrastive Learning via Asymmetric InfoNCE",
+          "year": 2023,
+          "authors": [
+            "Qiying Yu",
+            "Jieming Lou",
+            "Xianyuan Zhan",
+            "Qizhang Li",
+            "Wangmeng Zuo",
+            "Yang Liu",
+            "Jingjing Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_jingjing_liu:982ee7b4847a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Adversarial Feature Augmentation and Normalization for Visual Recognition",
+      "year": 2022,
+      "authors": [
+        "Tianlong Chen",
+        "Yu Cheng",
+        "Zhe Gan",
+        "Jianfeng Wang",
+        "Lijuan Wang",
+        "Jingjing Liu",
+        "Zhangyang Wang"
+      ],
+      "listed_venue": "Transactions on Machine Learning Research",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 17 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Adversarial Feature Augmentation and Normalization for Visual Recognition",
+          "year": 2021,
+          "authors": [
+            "Tianlong Chen",
+            "Yu Cheng",
+            "Zhe Gan",
+            "Jianfeng Wang",
+            "Lijuan Wang",
+            "Jingjing Liu",
+            "Zhangyang Wang"
+          ]
+        },
+        {
+          "title": "Adversarial Feature Augmentation and Normalization for Visual Recognition",
+          "year": 2023,
+          "authors": [
+            "Tianlong Chen",
+            "Yu Cheng",
+            "Zhe Gan",
+            "Jianfeng Wang",
+            "Lijuan Wang",
+            "Jingjing Liu",
+            "Zhangyang Wang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_jingjing_liu:beba7f5782b4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Efficient Robust Training via Backward Smoothing",
+      "year": 2022,
+      "authors": [
+        "Jinghui Chen",
+        "Yu Cheng",
+        "Zhe Gan",
+        "Quanquan Gu",
+        "Jingjing Liu"
+      ],
+      "listed_venue": "AAAI 2022",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 19 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Efficient Robust Training via Backward Smoothing",
+          "year": 2021,
+          "authors": [
+            "Jinghui Chen",
+            "Yu Cheng",
+            "Zhe Gan",
+            "Quanquan Gu",
+            "Jingjing Liu"
+          ]
+        },
+        {
+          "title": "Efficient Robust Training via Backward Smoothing",
+          "year": 2023,
+          "authors": [
+            "Jinghui Chen",
+            "Yu Cheng",
+            "Zhe Gan",
+            "Quanquan Gu",
+            "Jingjing Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_jingjing_liu:5fdebbcafa18",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Playing Lottery Tickets with Vision and Language",
+      "year": 2022,
+      "authors": [
+        "Zhe Gan",
+        "Yen-Chun Chen",
+        "Linjie Li",
+        "Tianlong Chen",
+        "Yu Cheng",
+        "Shuohang Wang",
+        "Jingjing Liu",
+        "Lijuan Wang",
+        "Zicheng Liu"
+      ],
+      "listed_venue": "AAAI 2022",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 18 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Playing Lottery Tickets with Vision and Language",
+          "year": 2021,
+          "authors": [
+            "Zhe Gan",
+            "Yen-Chun Chen",
+            "Linjie Li",
+            "Tianlong Chen",
+            "Yu Cheng",
+            "Shuohang Wang",
+            "Jingjing Liu",
+            "Lijuan Wang",
+            "Zicheng Liu"
+          ]
+        },
+        {
+          "title": "Playing Lottery Tickets with Vision and Language",
+          "year": 2023,
+          "authors": [
+            "Zhe Gan",
+            "Yen-Chun Chen",
+            "Linjie Li",
+            "Tianlong Chen",
+            "Yu Cheng",
+            "Shuohang Wang",
+            "Jingjing Liu",
+            "Lijuan Wang",
+            "Zicheng Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_jingjing_liu:b239e3f2d02d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Breaching FedMD: Image Recovery via Paired-Logits Inversion Attack",
+      "year": 2023,
+      "authors": [
+        "Hideaki Takahashi",
+        "Jingjing Liu",
+        "Yang Liu"
+      ],
+      "listed_venue": "CVPR 2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 11 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Breaching FedMD: Image Recovery via Paired-Logits Inversion Attack",
+          "year": 2022,
+          "authors": [
+            "Hideaki Takahashi",
+            "Jingjing Liu",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "Breaching FedMD: Image Recovery via Paired-Logits Inversion Attack",
+          "year": 2024,
+          "authors": [
+            "Hideaki Takahashi",
+            "Jingjing Liu",
+            "Yang Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_jingjing_liu:471b100293b3",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Correcting the Sub-optimal Bit Allocation",
+      "year": 2023,
+      "authors": [
+        "Tongda Xu",
+        "Han Gao",
+        "Yuanyuan Wang",
+        "Hongwei Qin",
+        "Yan Wang",
+        "Jingjing Liu",
+        "Ya-Qin Zhang"
+      ],
+      "listed_venue": "ICML 2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 12 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Correcting the Sub-optimal Bit Allocation",
+          "year": 2022,
+          "authors": [
+            "Tongda Xu",
+            "Han Gao",
+            "Yuanyuan Wang",
+            "Hongwei Qin",
+            "Yan Wang",
+            "Jingjing Liu",
+            "Ya-Qin Zhang"
+          ]
+        },
+        {
+          "title": "Correcting the Sub-optimal Bit Allocation",
+          "year": 2024,
+          "authors": [
+            "Tongda Xu",
+            "Han Gao",
+            "Yuanyuan Wang",
+            "Hongwei Qin",
+            "Yan Wang",
+            "Jingjing Liu",
+            "Ya-Qin Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_jingjing_liu:13acab3c7633",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Mind the Gap: Offline Policy Optimization for Imperfect Rewards",
+      "year": 2023,
+      "authors": [
+        "Jianxiong Li",
+        "Xiao Hu",
+        "Haoran Xu",
+        "Jingjing Liu",
+        "Xianyuan Zhan",
+        "Qing-Shan Jia",
+        "Ya-Qin Zhang"
+      ],
+      "listed_venue": "ICLR 2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 15 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Mind the Gap: Offline Policy Optimization for Imperfect Rewards",
+          "year": 2022,
+          "authors": [
+            "Jianxiong Li",
+            "Xiao Hu",
+            "Haoran Xu",
+            "Jingjing Liu",
+            "Xianyuan Zhan",
+            "Qing-Shan Jia",
+            "Ya-Qin Zhang"
+          ]
+        },
+        {
+          "title": "Mind the Gap: Offline Policy Optimization for Imperfect Rewards",
+          "year": 2024,
+          "authors": [
+            "Jianxiong Li",
+            "Xiao Hu",
+            "Haoran Xu",
+            "Jingjing Liu",
+            "Xianyuan Zhan",
+            "Qing-Shan Jia",
+            "Ya-Qin Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_jingjing_liu:faa97ab3927c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Multimodal Federated Learning via Contrastive Representation Ensemble",
+      "year": 2023,
+      "authors": [
+        "Qiying Yu",
+        "Yang Liu",
+        "Yimu Wang",
+        "Ke Xu",
+        "Jingjing Liu"
+      ],
+      "listed_venue": "ICLR 2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 13 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Multimodal Federated Learning via Contrastive Representation Ensemble",
+          "year": 2022,
+          "authors": [
+            "Qiying Yu",
+            "Yang Liu",
+            "Yimu Wang",
+            "Ke Xu",
+            "Jingjing Liu"
+          ]
+        },
+        {
+          "title": "Multimodal Federated Learning via Contrastive Representation Ensemble",
+          "year": 2024,
+          "authors": [
+            "Qiying Yu",
+            "Yang Liu",
+            "Yimu Wang",
+            "Ke Xu",
+            "Jingjing Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_jingjing_liu:0b47bc876a85",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "When Data Geometry Meets Deep Function: Generalizing Offline Reinforcement Learning",
+      "year": 2023,
+      "authors": [
+        "Jianxiong Li",
+        "Xianyuan Zhan",
+        "Haoran Xu",
+        "Xiangyu Zhu",
+        "Jingjing Liu",
+        "Ya-Qin Zhang"
+      ],
+      "listed_venue": "ICLR 2023",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 14 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "When Data Geometry Meets Deep Function: Generalizing Offline Reinforcement Learning",
+          "year": 2022,
+          "authors": [
+            "Jianxiong Li",
+            "Xianyuan Zhan",
+            "Haoran Xu",
+            "Xiangyu Zhu",
+            "Jingjing Liu",
+            "Ya-Qin Zhang"
+          ]
+        },
+        {
+          "title": "When Data Geometry Meets Deep Function: Generalizing Offline Reinforcement Learning",
+          "year": 2024,
+          "authors": [
+            "Jianxiong Li",
+            "Xianyuan Zhan",
+            "Haoran Xu",
+            "Xiangyu Zhu",
+            "Jingjing Liu",
+            "Ya-Qin Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_jingjing_liu:5a63a3952835",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A Periodic Bayesian Flow for Material Generation",
+      "year": 2025,
+      "authors": [
+        "Hanlin Wu",
+        "Yuxuan Song",
+        "Jingjing Gong",
+        "Ziyao Cao",
+        "Yawen Ouyang",
+        "Jianbing Zhang",
+        "Hao Zhou",
+        "Wei-Ying Ma",
+        "Jingjing Liu"
+      ],
+      "listed_venue": "ICLR 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 7 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "A Periodic Bayesian Flow for Material Generation",
+          "year": 2024,
+          "authors": [
+            "Hanlin Wu",
+            "Yuxuan Song",
+            "Jingjing Gong",
+            "Ziyao Cao",
+            "Yawen Ouyang",
+            "Jianbing Zhang",
+            "Hao Zhou",
+            "Wei-Ying Ma",
+            "Jingjing Liu"
+          ]
+        },
+        {
+          "title": "A Periodic Bayesian Flow for Material Generation",
+          "year": 2026,
+          "authors": [
+            "Hanlin Wu",
+            "Yuxuan Song",
+            "Jingjing Gong",
+            "Ziyao Cao",
+            "Yawen Ouyang",
+            "Jianbing Zhang",
+            "Hao Zhou",
+            "Wei-Ying Ma",
+            "Jingjing Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_jingjing_liu:3907f6a1b37e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Contrastive Private Data Synthesis via Weighted Multi-PLM Fusion",
+      "year": 2025,
+      "authors": [
+        "Tianyuan Zou",
+        "Yang Liu",
+        "Peng Li",
+        "Yufei Xiong",
+        "Jianqing Zhang",
+        "Jingjing Liu",
+        "Xiaozhou Ye",
+        "Ye Ouyang",
+        "Ya-Qin Zhang"
+      ],
+      "listed_venue": "ICML 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 5 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Contrastive Private Data Synthesis via Weighted Multi-PLM Fusion",
+          "year": 2024,
+          "authors": [
+            "Tianyuan Zou",
+            "Yang Liu",
+            "Peng Li",
+            "Yufei Xiong",
+            "Jianqing Zhang",
+            "Jingjing Liu",
+            "Xiaozhou Ye",
+            "Ye Ouyang",
+            "Ya-Qin Zhang"
+          ]
+        },
+        {
+          "title": "Contrastive Private Data Synthesis via Weighted Multi-PLM Fusion",
+          "year": 2026,
+          "authors": [
+            "Tianyuan Zou",
+            "Yang Liu",
+            "Peng Li",
+            "Yufei Xiong",
+            "Jianqing Zhang",
+            "Jingjing Liu",
+            "Xiaozhou Ye",
+            "Ye Ouyang",
+            "Ya-Qin Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_jingjing_liu:00a7e41b4cde",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "CoopDETR: A Unified Cooperative Perception Framework for 3D Detection via Object Query",
+      "year": 2025,
+      "authors": [
+        "Zhe Wang",
+        "Shaocong Xu",
+        "Zhuang Xucai",
+        "Tongda Xu",
+        "Yan Wang",
+        "Jingjing Liu",
+        "Yilun Chen",
+        "Ya-Qin Zhang"
+      ],
+      "listed_venue": "ICRA 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 9 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "CoopDETR: A Unified Cooperative Perception Framework for 3D Detection via Object Query",
+          "year": 2024,
+          "authors": [
+            "Zhe Wang",
+            "Shaocong Xu",
+            "Zhuang Xucai",
+            "Tongda Xu",
+            "Yan Wang",
+            "Jingjing Liu",
+            "Yilun Chen",
+            "Ya-Qin Zhang"
+          ]
+        },
+        {
+          "title": "CoopDETR: A Unified Cooperative Perception Framework for 3D Detection via Object Query",
+          "year": 2026,
+          "authors": [
+            "Zhe Wang",
+            "Shaocong Xu",
+            "Zhuang Xucai",
+            "Tongda Xu",
+            "Yan Wang",
+            "Jingjing Liu",
+            "Yilun Chen",
+            "Ya-Qin Zhang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_jingjing_liu:f90ec5e98f6a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Diffusion-Based Planning for Autonomous Driving with Flexible Guidance",
+      "year": 2025,
+      "authors": [
+        "Yinan Zheng",
+        "Ruiming Liang",
+        "Kexin Zheng",
+        "Jinliang Zheng",
+        "Liyuan Mao",
+        "Jianxiong Li",
+        "Weihao Gu",
+        "Rui Ai",
+        "Shengbo Eben Li",
+        "Xianyuan Zhan",
+        "Jingjing Liu"
+      ],
+      "listed_venue": "ICLR 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 8 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Diffusion-Based Planning for Autonomous Driving with Flexible Guidance",
+          "year": 2024,
+          "authors": [
+            "Yinan Zheng",
+            "Ruiming Liang",
+            "Kexin Zheng",
+            "Jinliang Zheng",
+            "Liyuan Mao",
+            "Jianxiong Li",
+            "Weihao Gu",
+            "Rui Ai",
+            "Shengbo Eben Li",
+            "Xianyuan Zhan",
+            "Jingjing Liu"
+          ]
+        },
+        {
+          "title": "Diffusion-Based Planning for Autonomous Driving with Flexible Guidance",
+          "year": 2026,
+          "authors": [
+            "Yinan Zheng",
+            "Ruiming Liang",
+            "Kexin Zheng",
+            "Jinliang Zheng",
+            "Liyuan Mao",
+            "Jianxiong Li",
+            "Weihao Gu",
+            "Rui Ai",
+            "Shengbo Eben Li",
+            "Xianyuan Zhan",
+            "Jingjing Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_jingjing_liu:a98c35c2f568",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Flow Matching-Based Autonomous Driving Planning with Advanced Interactive Behavior Modeling",
+      "year": 2025,
+      "authors": [
+        "Tianyi Tan",
+        "Yinan Zheng",
+        "Ruiming Liang",
+        "Zexu Wang",
+        "Kexin Zheng",
+        "Jinliang Zheng",
+        "Jianxiong Li",
+        "Xianyuan Zhan",
+        "Jingjing Liu"
+      ],
+      "listed_venue": "NeurIPS 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 2 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Flow Matching-Based Autonomous Driving Planning with Advanced Interactive Behavior Modeling",
+          "year": 2024,
+          "authors": [
+            "Tianyi Tan",
+            "Yinan Zheng",
+            "Ruiming Liang",
+            "Zexu Wang",
+            "Kexin Zheng",
+            "Jinliang Zheng",
+            "Jianxiong Li",
+            "Xianyuan Zhan",
+            "Jingjing Liu"
+          ]
+        },
+        {
+          "title": "Flow Matching-Based Autonomous Driving Planning with Advanced Interactive Behavior Modeling",
+          "year": 2026,
+          "authors": [
+            "Tianyi Tan",
+            "Yinan Zheng",
+            "Ruiming Liang",
+            "Zexu Wang",
+            "Kexin Zheng",
+            "Jinliang Zheng",
+            "Jianxiong Li",
+            "Xianyuan Zhan",
+            "Jingjing Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_jingjing_liu:592387bb3454",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "MOF-BFN: Metal-Organic Frameworks Structure Prediction via Bayesian Flow Networks",
+      "year": 2025,
+      "authors": [
+        "Rui Jiao",
+        "Hanlin Wu",
+        "Wenbing Huang",
+        "Yuxuan Song",
+        "Yawen Ouyang",
+        "Yu Rong",
+        "Tingyang Xu",
+        "Pengju Wang",
+        "Hao Zhou",
+        "Wei-Ying Ma",
+        "Jingjing Liu",
+        "Yang Liu"
+      ],
+      "listed_venue": "NeurIPS 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 4 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "MOF-BFN: Metal-Organic Frameworks Structure Prediction via Bayesian Flow Networks",
+          "year": 2024,
+          "authors": [
+            "Rui Jiao",
+            "Hanlin Wu",
+            "Wenbing Huang",
+            "Yuxuan Song",
+            "Yawen Ouyang",
+            "Yu Rong",
+            "Tingyang Xu",
+            "Pengju Wang",
+            "Hao Zhou",
+            "Wei-Ying Ma",
+            "Jingjing Liu",
+            "Yang Liu"
+          ]
+        },
+        {
+          "title": "MOF-BFN: Metal-Organic Frameworks Structure Prediction via Bayesian Flow Networks",
+          "year": 2026,
+          "authors": [
+            "Rui Jiao",
+            "Hanlin Wu",
+            "Wenbing Huang",
+            "Yuxuan Song",
+            "Yawen Ouyang",
+            "Yu Rong",
+            "Tingyang Xu",
+            "Pengju Wang",
+            "Hao Zhou",
+            "Wei-Ying Ma",
+            "Jingjing Liu",
+            "Yang Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_jingjing_liu:4fda452f2766",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Rationalized All-Atom Protein Design with Unified Multi-modal Bayesian Flow",
+      "year": 2025,
+      "authors": [
+        "Hanlin Wu",
+        "Yuxuan Song",
+        "Zhe Zhang",
+        "Zhilong Zhang",
+        "Hao Zhou",
+        "Wei-Ying Ma",
+        "Jingjing Liu"
+      ],
+      "listed_venue": "NeurIPS 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 1 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Rationalized All-Atom Protein Design with Unified Multi-modal Bayesian Flow",
+          "year": 2024,
+          "authors": [
+            "Hanlin Wu",
+            "Yuxuan Song",
+            "Zhe Zhang",
+            "Zhilong Zhang",
+            "Hao Zhou",
+            "Wei-Ying Ma",
+            "Jingjing Liu"
+          ]
+        },
+        {
+          "title": "Rationalized All-Atom Protein Design with Unified Multi-modal Bayesian Flow",
+          "year": 2026,
+          "authors": [
+            "Hanlin Wu",
+            "Yuxuan Song",
+            "Zhe Zhang",
+            "Zhilong Zhang",
+            "Hao Zhou",
+            "Wei-Ying Ma",
+            "Jingjing Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_jingjing_liu:84ae1d51d01e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Robo-MUTUAL: Robotic Multimodal Task Specification via Unimodal Learning",
+      "year": 2025,
+      "authors": [
+        "Jianxiong Li",
+        "Zhihao Wang",
+        "Jinliang Zheng",
+        "Xiaoai Zhou",
+        "Guanming Wang",
+        "Guanglu Song",
+        "Yu Liu",
+        "Jingjing Liu",
+        "Ya-Qin Zhang",
+        "Junzhi Yu",
+        "Xianyuan Zhan"
+      ],
+      "listed_venue": "ICRA 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 10 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Robo-MUTUAL: Robotic Multimodal Task Specification via Unimodal Learning",
+          "year": 2024,
+          "authors": [
+            "Jianxiong Li",
+            "Zhihao Wang",
+            "Jinliang Zheng",
+            "Xiaoai Zhou",
+            "Guanming Wang",
+            "Guanglu Song",
+            "Yu Liu",
+            "Jingjing Liu",
+            "Ya-Qin Zhang",
+            "Junzhi Yu",
+            "Xianyuan Zhan"
+          ]
+        },
+        {
+          "title": "Robo-MUTUAL: Robotic Multimodal Task Specification via Unimodal Learning",
+          "year": 2026,
+          "authors": [
+            "Jianxiong Li",
+            "Zhihao Wang",
+            "Jinliang Zheng",
+            "Xiaoai Zhou",
+            "Guanming Wang",
+            "Guanglu Song",
+            "Yu Liu",
+            "Jingjing Liu",
+            "Ya-Qin Zhang",
+            "Junzhi Yu",
+            "Xianyuan Zhan"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_jingjing_liu:79ee877a028d",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "ShortListing Model: A Streamlined Simplex Diffusion for Discrete Variable Generation",
+      "year": 2025,
+      "authors": [
+        "Yuxuan Song",
+        "Zhe Zhang",
+        "Yu Pei",
+        "Jingjing Gong",
+        "Qiying Yu",
+        "Zheng Zhang",
+        "Mingxuan Wang",
+        "Hao Zhou",
+        "Jingjing Liu",
+        "Wei-Ying Ma"
+      ],
+      "listed_venue": "NeurIPS 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 3 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "ShortListing Model: A Streamlined Simplex Diffusion for Discrete Variable Generation",
+          "year": 2024,
+          "authors": [
+            "Yuxuan Song",
+            "Zhe Zhang",
+            "Yu Pei",
+            "Jingjing Gong",
+            "Qiying Yu",
+            "Zheng Zhang",
+            "Mingxuan Wang",
+            "Hao Zhou",
+            "Jingjing Liu",
+            "Wei-Ying Ma"
+          ]
+        },
+        {
+          "title": "ShortListing Model: A Streamlined Simplex Diffusion for Discrete Variable Generation",
+          "year": 2026,
+          "authors": [
+            "Yuxuan Song",
+            "Zhe Zhang",
+            "Yu Pei",
+            "Jingjing Gong",
+            "Qiying Yu",
+            "Zheng Zhang",
+            "Mingxuan Wang",
+            "Hao Zhou",
+            "Jingjing Liu",
+            "Wei-Ying Ma"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_jingjing_liu:eb81a06f3a99",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Universal Actions for Enhanced Embodied Foundation Models",
+      "year": 2025,
+      "authors": [
+        "Jinliang Zheng",
+        "Jianxiong Li",
+        "Dongxiu Liu",
+        "Yinan Zheng",
+        "Zhihao Wang",
+        "Zhonghong Ou",
+        "Yu Liu",
+        "Jingjing Liu",
+        "Ya-Qin Zhang",
+        "Xianyuan Zhan"
+      ],
+      "listed_venue": "CVPR 2025",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://air.tsinghua.edu.cn/en/info/1046/1194.htm entry 6 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Universal Actions for Enhanced Embodied Foundation Models",
+          "year": 2024,
+          "authors": [
+            "Jinliang Zheng",
+            "Jianxiong Li",
+            "Dongxiu Liu",
+            "Yinan Zheng",
+            "Zhihao Wang",
+            "Zhonghong Ou",
+            "Yu Liu",
+            "Jingjing Liu",
+            "Ya-Qin Zhang",
+            "Xianyuan Zhan"
+          ]
+        },
+        {
+          "title": "Universal Actions for Enhanced Embodied Foundation Models",
+          "year": 2026,
+          "authors": [
+            "Jinliang Zheng",
+            "Jianxiong Li",
+            "Dongxiu Liu",
+            "Yinan Zheng",
+            "Zhihao Wang",
+            "Zhonghong Ou",
+            "Yu Liu",
+            "Jingjing Liu",
+            "Ya-Qin Zhang",
+            "Xianyuan Zhan"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

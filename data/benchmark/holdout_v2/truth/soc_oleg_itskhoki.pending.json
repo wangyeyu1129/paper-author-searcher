@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "soc_oleg_itskhoki",
+    "dataset_id": "holdout_v2",
+    "search_input": {
+      "name": "Oleg Itskhoki",
+      "university": "University of California, Los Angeles"
+    },
+    "scope": {
+      "year_start": 2025,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-30T22:24:56.002273+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://itskhoki.com/",
+        "records": 4
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "soc_oleg_itskhoki:3f415ace42d3",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "How Good is International Risk Sharing?",
+      "year": 2025,
+      "authors": [
+        "Oleg Itskhoki"
+      ],
+      "listed_venue": "Working paper",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://itskhoki.com/ entry 1 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "How Good is International Risk Sharing?",
+          "year": 2024,
+          "authors": [
+            "Oleg Itskhoki"
+          ]
+        },
+        {
+          "title": "How Good is International Risk Sharing?",
+          "year": 2026,
+          "authors": [
+            "Oleg Itskhoki"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_oleg_itskhoki:aefbce0cdd8e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Mussa Puzzle Redux",
+      "year": 2025,
+      "authors": [
+        "Oleg Itskhoki"
+      ],
+      "listed_venue": "Econometrica",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://itskhoki.com/ entry 4 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Mussa Puzzle Redux",
+          "year": 2024,
+          "authors": [
+            "Oleg Itskhoki"
+          ]
+        },
+        {
+          "title": "Mussa Puzzle Redux",
+          "year": 2026,
+          "authors": [
+            "Oleg Itskhoki"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_oleg_itskhoki:319695b8e2b5",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Sanctions and the Exchange Rate",
+      "year": 2025,
+      "authors": [
+        "Oleg Itskhoki"
+      ],
+      "listed_venue": "Review of Economic Studies",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://itskhoki.com/ entry 3 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Sanctions and the Exchange Rate",
+          "year": 2024,
+          "authors": [
+            "Oleg Itskhoki"
+          ]
+        },
+        {
+          "title": "Sanctions and the Exchange Rate",
+          "year": 2026,
+          "authors": [
+            "Oleg Itskhoki"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "soc_oleg_itskhoki:cd3ef49fc7c3",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "What do financial markets say about the exchange rate?",
+      "year": 2025,
+      "authors": [
+        "Oleg Itskhoki"
+      ],
+      "listed_venue": "Working paper",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://itskhoki.com/ entry 2 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "What do financial markets say about the exchange rate?",
+          "year": 2024,
+          "authors": [
+            "Oleg Itskhoki"
+          ]
+        },
+        {
+          "title": "What do financial markets say about the exchange rate?",
+          "year": 2026,
+          "authors": [
+            "Oleg Itskhoki"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

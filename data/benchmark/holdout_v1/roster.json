@@ -1,0 +1,433 @@
+{
+  "roster_schema_version": 1,
+  "dataset_id": "holdout_v1",
+  "metadata": {
+    "created": "2026-10-30",
+    "selection_policy": "Public researchers at QS top-100 universities outside the tuning set, chosen only because their own page lists their publications, before any search for them was run.",
+    "window_policy": "From the year given for each person to 2025.",
+    "split_policy": "All test: this set is for measuring, never for tuning.",
+    "hints_policy": "search_input.hints holds the public page; minimal runs ignore it."
+  },
+  "people": [
+    {
+      "person_id": "cs_gim_hee_lee",
+      "search_input": {
+        "name": "Gim Hee Lee",
+        "university": "National University of Singapore",
+        "department": "Computer Science",
+        "hints": {
+          "homepage": "https://comp.nus.edu.sg/~leegh"
+        }
+      },
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "computer_science",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://comp.nus.edu.sg/~leegh"
+        }
+      ],
+      "identity_evidence": [
+        "https://comp.nus.edu.sg/~leegh"
+      ],
+      "year_start": 2023,
+      "year_end": 2025,
+      "notes": "Hold-out: never used to tune the system.",
+      "split": "test"
+    },
+    {
+      "person_id": "cs_zongqing_lu",
+      "search_input": {
+        "name": "Zongqing Lu",
+        "university": "Peking University",
+        "department": "Computer Science",
+        "hints": {
+          "homepage": "https://z0ngqing.github.io/publication/"
+        }
+      },
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "computer_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://z0ngqing.github.io/publication/"
+        }
+      ],
+      "identity_evidence": [
+        "https://z0ngqing.github.io/publication/"
+      ],
+      "year_start": 2023,
+      "year_end": 2025,
+      "notes": "Hold-out: never used to tune the system.",
+      "split": "test"
+    },
+    {
+      "person_id": "cs_xiaojuan_ma",
+      "search_input": {
+        "name": "Xiaojuan Ma",
+        "university": "Hong Kong University of Science and Technology",
+        "department": "Computer Science and Engineering",
+        "hints": {
+          "homepage": "https://cse.hkust.edu.hk/~mxj/publications.html"
+        }
+      },
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "computer_science",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://cse.hkust.edu.hk/~mxj/publications.html"
+        }
+      ],
+      "identity_evidence": [
+        "https://cse.hkust.edu.hk/~mxj/publications.html"
+      ],
+      "year_start": 2023,
+      "year_end": 2025,
+      "notes": "Hold-out: never used to tune the system.",
+      "split": "test"
+    },
+    {
+      "person_id": "cs_javier_rando",
+      "search_input": {
+        "name": "Javier Rando",
+        "university": "ETH Zurich",
+        "department": "Computer Science",
+        "hints": {
+          "homepage": "https://javirando.com/"
+        }
+      },
+      "strata": {
+        "seniority": "phd_student",
+        "field": "computer_science",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://javirando.com/"
+        }
+      ],
+      "identity_evidence": [
+        "https://javirando.com/"
+      ],
+      "year_start": 2022,
+      "year_end": 2025,
+      "notes": "Hold-out: never used to tune the system.",
+      "split": "test"
+    },
+    {
+      "person_id": "cs_edoardo_debenedetti",
+      "search_input": {
+        "name": "Edoardo Debenedetti",
+        "university": "ETH Zurich",
+        "department": "Computer Science",
+        "hints": {
+          "homepage": "https://edoardo.science/"
+        }
+      },
+      "strata": {
+        "seniority": "phd_student",
+        "field": "computer_science",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://edoardo.science/"
+        }
+      ],
+      "identity_evidence": [
+        "https://edoardo.science/"
+      ],
+      "year_start": 2022,
+      "year_end": 2025,
+      "notes": "Hold-out: never used to tune the system.",
+      "split": "test"
+    },
+    {
+      "person_id": "eng_steven_waslander",
+      "search_input": {
+        "name": "Steven Waslander",
+        "university": "University of Toronto",
+        "department": "Institute for Aerospace Studies",
+        "hints": {
+          "homepage": "https://www.trailab.utias.utoronto.ca/publications"
+        }
+      },
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "engineering",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://www.trailab.utias.utoronto.ca/publications"
+        }
+      ],
+      "identity_evidence": [
+        "https://www.trailab.utias.utoronto.ca/publications"
+      ],
+      "year_start": 2023,
+      "year_end": 2025,
+      "notes": "Hold-out: never used to tune the system.",
+      "split": "test"
+    },
+    {
+      "person_id": "eng_jonathan_kelly",
+      "search_input": {
+        "name": "Jonathan Kelly",
+        "university": "University of Toronto",
+        "department": "Institute for Aerospace Studies",
+        "hints": {
+          "homepage": "https://starslab.ca/publications/"
+        }
+      },
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "engineering",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://starslab.ca/publications/"
+        }
+      ],
+      "identity_evidence": [
+        "https://starslab.ca/publications/"
+      ],
+      "year_start": 2023,
+      "year_end": 2025,
+      "notes": "Hold-out: never used to tune the system.",
+      "split": "test"
+    },
+    {
+      "person_id": "bio_gary_bader",
+      "search_input": {
+        "name": "Gary Bader",
+        "university": "University of Toronto",
+        "department": "Molecular Genetics",
+        "hints": {
+          "homepage": "https://baderlab.org/Publications"
+        }
+      },
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "biomedicine",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://baderlab.org/Publications"
+        }
+      ],
+      "identity_evidence": [
+        "https://baderlab.org/Publications"
+      ],
+      "year_start": 2023,
+      "year_end": 2025,
+      "notes": "Hold-out: never used to tune the system.",
+      "split": "test"
+    },
+    {
+      "person_id": "bio_yue_li",
+      "search_input": {
+        "name": "Yue Li",
+        "university": "McGill University",
+        "department": "Computer Science",
+        "hints": {
+          "homepage": "https://www.cs.mcgill.ca/~yueli/publications.html"
+        }
+      },
+      "strata": {
+        "seniority": "assistant_professor",
+        "field": "biomedicine",
+        "name_profile": "common_chinese"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://www.cs.mcgill.ca/~yueli/publications.html"
+        }
+      ],
+      "identity_evidence": [
+        "https://www.cs.mcgill.ca/~yueli/publications.html"
+      ],
+      "year_start": 2022,
+      "year_end": 2025,
+      "notes": "Hold-out: never used to tune the system.",
+      "split": "test"
+    },
+    {
+      "person_id": "bio_tom_kirchhausen",
+      "search_input": {
+        "name": "Tom Kirchhausen",
+        "university": "Harvard University",
+        "department": "Cell Biology",
+        "hints": {
+          "homepage": "https://kirchhausen.hms.harvard.edu/publications"
+        }
+      },
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "biomedicine",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://kirchhausen.hms.harvard.edu/publications"
+        }
+      ],
+      "identity_evidence": [
+        "https://kirchhausen.hms.harvard.edu/publications"
+      ],
+      "year_start": 2022,
+      "year_end": 2025,
+      "notes": "Hold-out: never used to tune the system.",
+      "split": "test"
+    },
+    {
+      "person_id": "soc_guy_michaels",
+      "search_input": {
+        "name": "Guy Michaels",
+        "university": "London School of Economics",
+        "department": "Economics",
+        "hints": {
+          "homepage": "https://personal.lse.ac.uk/michaels/"
+        }
+      },
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "social_science",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://personal.lse.ac.uk/michaels/"
+        }
+      ],
+      "identity_evidence": [
+        "https://personal.lse.ac.uk/michaels/"
+      ],
+      "year_start": 2018,
+      "year_end": 2025,
+      "notes": "Hold-out: never used to tune the system.",
+      "split": "test"
+    },
+    {
+      "person_id": "soc_johannes_spinnewijn",
+      "search_input": {
+        "name": "Johannes Spinnewijn",
+        "university": "London School of Economics",
+        "department": "Economics",
+        "hints": {
+          "homepage": "https://personal.lse.ac.uk/spinnewi/"
+        }
+      },
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "social_science",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://personal.lse.ac.uk/spinnewi/"
+        }
+      ],
+      "identity_evidence": [
+        "https://personal.lse.ac.uk/spinnewi/"
+      ],
+      "year_start": 2018,
+      "year_end": 2025,
+      "notes": "Hold-out: never used to tune the system.",
+      "split": "test"
+    },
+    {
+      "person_id": "soc_maitreesh_ghatak",
+      "search_input": {
+        "name": "Maitreesh Ghatak",
+        "university": "London School of Economics",
+        "department": "Economics",
+        "hints": {
+          "homepage": "https://personal.lse.ac.uk/ghatak/pub.html"
+        }
+      },
+      "strata": {
+        "seniority": "renowned_senior",
+        "field": "social_science",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://personal.lse.ac.uk/ghatak/pub.html"
+        }
+      ],
+      "identity_evidence": [
+        "https://personal.lse.ac.uk/ghatak/pub.html"
+      ],
+      "year_start": 2018,
+      "year_end": 2025,
+      "notes": "Hold-out: never used to tune the system.",
+      "split": "test"
+    },
+    {
+      "person_id": "soc_diego_restuccia",
+      "search_input": {
+        "name": "Diego Restuccia",
+        "university": "University of Toronto",
+        "department": "Economics",
+        "hints": {
+          "homepage": "https://www.economics.utoronto.ca/diegor/published-papers.html"
+        }
+      },
+      "strata": {
+        "seniority": "established_faculty",
+        "field": "social_science",
+        "name_profile": "other"
+      },
+      "truth_sources": [
+        {
+          "kind": "manual",
+          "locator": "homepage.json",
+          "url": "https://www.economics.utoronto.ca/diegor/published-papers.html"
+        }
+      ],
+      "identity_evidence": [
+        "https://www.economics.utoronto.ca/diegor/published-papers.html"
+      ],
+      "year_start": 2018,
+      "year_end": 2025,
+      "notes": "Hold-out: never used to tune the system.",
+      "split": "test"
+    }
+  ]
+}

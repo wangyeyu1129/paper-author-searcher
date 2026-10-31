@@ -6,12 +6,16 @@ from urllib.parse import urljoin, urlsplit, urlunsplit
 from .config import DEFAULT_PDF
 from .html_support import LinkExtractor, decode_response
 from .http import SourceError, has_pdf_signature, require_public_http_url
-from .matching import normalize
+from .matching import normalize_title
 from .models import PDFProviderResult
 from .pdf_identity import metadata_identity
 from .pdf_providers import CitationMetadata, LandingPagePDFProvider, make_candidate
 from .pdf_resource_requests import PublicResourceRequests
 from .status import IdentityStatus, ProviderStatus, RequestOutcome
+
+# University hosts under a country code look like x.ac.uk: three labels, the last two letters.
+COUNTRY_ACADEMIC_LABELS = 3
+COUNTRY_CODE_LETTERS = 2
 
 
 def secure_page_url(url):
@@ -115,7 +119,9 @@ class PublicPagePDFProvider(LandingPagePDFProvider):
         )
         for link in parser.links:
             alternate_pdf = link.get('type') == 'application/pdf' and 'alternate' in link.get('rel', '').split()
-            title_matches = normalize(link['text'] or link['heading']) == normalize(paper.get('title') or '')
+            title_matches = normalize_title(link['text'] or link['heading']) == normalize_title(
+                paper.get('title') or ''
+            )
             if not alternate_pdf and not title_matches:
                 continue
             try:
@@ -194,7 +200,11 @@ class PublicPagePDFProvider(LandingPagePDFProvider):
         configured_hosts = {urlsplit(url).hostname for url in self.config.bibliography_urls}
         hostname = urlsplit(response.url).hostname or ''
         labels = hostname.split('.')
-        country_academic = len(labels) >= 3 and len(labels[-1]) == 2 and labels[-2] in ('ac', 'edu')
+        country_academic = (
+            len(labels) >= COUNTRY_ACADEMIC_LABELS
+            and len(labels[-1]) == COUNTRY_CODE_LETTERS
+            and labels[-2] in ('ac', 'edu')
+        )
         institutional = hostname.endswith('.edu') or country_academic
         for binding in bindings:
             if binding.get('is_oa') is True:

@@ -1,0 +1,1322 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "bio_sergey_ovchinnikov",
+    "dataset_id": "holdout_v2",
+    "search_input": {
+      "name": "Sergey Ovchinnikov",
+      "university": "Massachusetts Institute of Technology"
+    },
+    "scope": {
+      "year_start": 2022,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-30T22:24:55.997123+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://www.solab.org/publications",
+        "records": 25
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:d09580f8bcc0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "ColabFold: making protein folding accessible to all",
+      "year": 2022,
+      "authors": [
+        "M Mirdita",
+        "K Schütze",
+        "Y Moriwaki",
+        "L Heo",
+        "S Ovchinnikov",
+        "M Steinegger"
+      ],
+      "listed_venue": "Nature Methods",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 25 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "ColabFold: making protein folding accessible to all",
+          "year": 2021,
+          "authors": [
+            "M Mirdita",
+            "K Schütze",
+            "Y Moriwaki",
+            "L Heo",
+            "S Ovchinnikov",
+            "M Steinegger"
+          ]
+        },
+        {
+          "title": "ColabFold: making protein folding accessible to all",
+          "year": 2023,
+          "authors": [
+            "M Mirdita",
+            "K Schütze",
+            "Y Moriwaki",
+            "L Heo",
+            "S Ovchinnikov",
+            "M Steinegger"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:03d09d4b2a58",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Computational design of constitutively active cGAS",
+      "year": 2022,
+      "authors": [
+        "Q Dowling",
+        "HE Volkman",
+        "EE Gray",
+        "S Ovchinnikov"
+      ],
+      "listed_venue": "Nature Structural & Molecular Biology",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 17 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Computational design of constitutively active cGAS",
+          "year": 2021,
+          "authors": [
+            "Q Dowling",
+            "HE Volkman",
+            "EE Gray",
+            "S Ovchinnikov"
+          ]
+        },
+        {
+          "title": "Computational design of constitutively active cGAS",
+          "year": 2023,
+          "authors": [
+            "Q Dowling",
+            "HE Volkman",
+            "EE Gray",
+            "S Ovchinnikov"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:0d875183a7d0",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "End-to-end learning of multiple sequence alignments with differentiable Smith-Waterman",
+      "year": 2022,
+      "authors": [
+        "S Petti",
+        "N Bhattacharya",
+        "R Rao",
+        "J Dauparas",
+        "N Thomas",
+        "J Zhou",
+        "AM Rush",
+        "PK Koo",
+        "S Ovchinnikov"
+      ],
+      "listed_venue": "Bioinformatics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 8 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "End-to-end learning of multiple sequence alignments with differentiable Smith-Waterman",
+          "year": 2021,
+          "authors": [
+            "S Petti",
+            "N Bhattacharya",
+            "R Rao",
+            "J Dauparas",
+            "N Thomas",
+            "J Zhou",
+            "AM Rush",
+            "PK Koo",
+            "S Ovchinnikov"
+          ]
+        },
+        {
+          "title": "End-to-end learning of multiple sequence alignments with differentiable Smith-Waterman",
+          "year": 2023,
+          "authors": [
+            "S Petti",
+            "N Bhattacharya",
+            "R Rao",
+            "J Dauparas",
+            "N Thomas",
+            "J Zhou",
+            "AM Rush",
+            "PK Koo",
+            "S Ovchinnikov"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:072698604d86",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Global statistical models of protein coevolution reveal higher-order sectors beyond those obtained from structure alone",
+      "year": 2022,
+      "authors": [
+        "C Shiau",
+        "H Wang",
+        "Y Lee",
+        "S Ovchinnikov"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 9 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Global statistical models of protein coevolution reveal higher-order sectors beyond those obtained from structure alone",
+          "year": 2021,
+          "authors": [
+            "C Shiau",
+            "H Wang",
+            "Y Lee",
+            "S Ovchinnikov"
+          ]
+        },
+        {
+          "title": "Global statistical models of protein coevolution reveal higher-order sectors beyond those obtained from structure alone",
+          "year": 2023,
+          "authors": [
+            "C Shiau",
+            "H Wang",
+            "Y Lee",
+            "S Ovchinnikov"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:220be8266d64",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "State-of-the-Art estimation of protein model accuracy using AlphaFold",
+      "year": 2022,
+      "authors": [
+        "JP Roney",
+        "S Ovchinnikov"
+      ],
+      "listed_venue": "Physical Review Letters",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 10 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "State-of-the-Art estimation of protein model accuracy using AlphaFold",
+          "year": 2021,
+          "authors": [
+            "JP Roney",
+            "S Ovchinnikov"
+          ]
+        },
+        {
+          "title": "State-of-the-Art estimation of protein model accuracy using AlphaFold",
+          "year": 2023,
+          "authors": [
+            "JP Roney",
+            "S Ovchinnikov"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:12c600dfe19b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Differentiable Search of Evolutionary Trees from Leaves",
+      "year": 2023,
+      "authors": [
+        "R Hettiarachchi",
+        "A Swartz",
+        "S Ovchinnikov"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 6 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Differentiable Search of Evolutionary Trees from Leaves",
+          "year": 2022,
+          "authors": [
+            "R Hettiarachchi",
+            "A Swartz",
+            "S Ovchinnikov"
+          ]
+        },
+        {
+          "title": "Differentiable Search of Evolutionary Trees from Leaves",
+          "year": 2024,
+          "authors": [
+            "R Hettiarachchi",
+            "A Swartz",
+            "S Ovchinnikov"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:d8f0f4d5f31c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Genomic language model predicts protein co-regulation and function",
+      "year": 2023,
+      "authors": [
+        "Y Hwang",
+        "AL Cornman",
+        "EH Kellogg",
+        "S Ovchinnikov",
+        "PR Girguis"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 7 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Genomic language model predicts protein co-regulation and function",
+          "year": 2022,
+          "authors": [
+            "Y Hwang",
+            "AL Cornman",
+            "EH Kellogg",
+            "S Ovchinnikov",
+            "PR Girguis"
+          ]
+        },
+        {
+          "title": "Genomic language model predicts protein co-regulation and function",
+          "year": 2024,
+          "authors": [
+            "Y Hwang",
+            "AL Cornman",
+            "EH Kellogg",
+            "S Ovchinnikov",
+            "PR Girguis"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:41469685337e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Disentanglement of Evolutionary Constraints in Statistical Models of Proteins",
+      "year": 2024,
+      "authors": [
+        "H Wang",
+        "S Feng",
+        "K Tsuboyama",
+        "S Liu",
+        "GJ Rocklin",
+        "S Ovchinnikov"
+      ],
+      "listed_venue": "PRX Life",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 4 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Disentanglement of Evolutionary Constraints in Statistical Models of Proteins",
+          "year": 2023,
+          "authors": [
+            "H Wang",
+            "S Feng",
+            "K Tsuboyama",
+            "S Liu",
+            "GJ Rocklin",
+            "S Ovchinnikov"
+          ]
+        },
+        {
+          "title": "Disentanglement of Evolutionary Constraints in Statistical Models of Proteins",
+          "year": 2025,
+          "authors": [
+            "H Wang",
+            "S Feng",
+            "K Tsuboyama",
+            "S Liu",
+            "GJ Rocklin",
+            "S Ovchinnikov"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:5c8917541d52",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Integrated structure prediction of protein-protein docking with experimental restraints using ColabDock",
+      "year": 2024,
+      "authors": [
+        "S Feng",
+        "Z Chen",
+        "C Zhang",
+        "Y Xie",
+        "S Ovchinnikov",
+        "YQ Gao",
+        "S Liu"
+      ],
+      "listed_venue": "Nature Machine Intelligence",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 24 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Integrated structure prediction of protein-protein docking with experimental restraints using ColabDock",
+          "year": 2023,
+          "authors": [
+            "S Feng",
+            "Z Chen",
+            "C Zhang",
+            "Y Xie",
+            "S Ovchinnikov",
+            "YQ Gao",
+            "S Liu"
+          ]
+        },
+        {
+          "title": "Integrated structure prediction of protein-protein docking with experimental restraints using ColabDock",
+          "year": 2025,
+          "authors": [
+            "S Feng",
+            "Z Chen",
+            "C Zhang",
+            "Y Xie",
+            "S Ovchinnikov",
+            "YQ Gao",
+            "S Liu"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:e8f16ea6fc23",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "NMPFamsDB: a database of novel protein families from microbial metagenomes and metatranscriptomes",
+      "year": 2024,
+      "authors": [
+        "FA Baltoumas",
+        "E Karatzas",
+        "S Liu",
+        "S Ovchinnikov",
+        "Y Sofianatos",
+        "IM Chen",
+        "NC Kyrpides",
+        "GA Pavlopoulos"
+      ],
+      "listed_venue": "Nucleic Acids Research",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 23 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "NMPFamsDB: a database of novel protein families from microbial metagenomes and metatranscriptomes",
+          "year": 2023,
+          "authors": [
+            "FA Baltoumas",
+            "E Karatzas",
+            "S Liu",
+            "S Ovchinnikov",
+            "Y Sofianatos",
+            "IM Chen",
+            "NC Kyrpides",
+            "GA Pavlopoulos"
+          ]
+        },
+        {
+          "title": "NMPFamsDB: a database of novel protein families from microbial metagenomes and metatranscriptomes",
+          "year": 2025,
+          "authors": [
+            "FA Baltoumas",
+            "E Karatzas",
+            "S Liu",
+            "S Ovchinnikov",
+            "Y Sofianatos",
+            "IM Chen",
+            "NC Kyrpides",
+            "GA Pavlopoulos"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:cc79fced32ca",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Protein language models learn evolutionary statistics of interacting sequence motifs",
+      "year": 2024,
+      "authors": [
+        "Z Zhang",
+        "HK Wayment-Steele",
+        "G Brixi",
+        "H Wang",
+        "M Dal Peraro",
+        "D Kern",
+        "S Ovchinnikov"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 5 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Protein language models learn evolutionary statistics of interacting sequence motifs",
+          "year": 2023,
+          "authors": [
+            "Z Zhang",
+            "HK Wayment-Steele",
+            "G Brixi",
+            "H Wang",
+            "M Dal Peraro",
+            "D Kern",
+            "S Ovchinnikov"
+          ]
+        },
+        {
+          "title": "Protein language models learn evolutionary statistics of interacting sequence motifs",
+          "year": 2025,
+          "authors": [
+            "Z Zhang",
+            "HK Wayment-Steele",
+            "G Brixi",
+            "H Wang",
+            "M Dal Peraro",
+            "D Kern",
+            "S Ovchinnikov"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:7bc319ad3c00",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "The OMG dataset: An Open MetaGenomic corpus for mixed-modality genomic language modeling",
+      "year": 2024,
+      "authors": [
+        "A Cornman",
+        "J West-Roberts",
+        "AP Camargo",
+        "S Roux",
+        "M Beracochea",
+        "M Mirdita",
+        "S Ovchinnikov",
+        "Y Hwang"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 3 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "The OMG dataset: An Open MetaGenomic corpus for mixed-modality genomic language modeling",
+          "year": 2023,
+          "authors": [
+            "A Cornman",
+            "J West-Roberts",
+            "AP Camargo",
+            "S Roux",
+            "M Beracochea",
+            "M Mirdita",
+            "S Ovchinnikov",
+            "Y Hwang"
+          ]
+        },
+        {
+          "title": "The OMG dataset: An Open MetaGenomic corpus for mixed-modality genomic language modeling",
+          "year": 2025,
+          "authors": [
+            "A Cornman",
+            "J West-Roberts",
+            "AP Camargo",
+            "S Roux",
+            "M Beracochea",
+            "M Mirdita",
+            "S Ovchinnikov",
+            "Y Hwang"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:88acc1800b4c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Validation of de novo designed water-soluble and transmembrane β-barrels by in silico folding and melting",
+      "year": 2024,
+      "authors": [
+        "AM Hermosilla",
+        "C Berner",
+        "S Ovchinnikov",
+        "AA Vorobieva"
+      ],
+      "listed_venue": "Protein Science",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 16 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Validation of de novo designed water-soluble and transmembrane β-barrels by in silico folding and melting",
+          "year": 2023,
+          "authors": [
+            "AM Hermosilla",
+            "C Berner",
+            "S Ovchinnikov",
+            "AA Vorobieva"
+          ]
+        },
+        {
+          "title": "Validation of de novo designed water-soluble and transmembrane β-barrels by in silico folding and melting",
+          "year": 2025,
+          "authors": [
+            "AM Hermosilla",
+            "C Berner",
+            "S Ovchinnikov",
+            "AA Vorobieva"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:8e6b83a5b039",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "actifpTM: a refined confidence metric of AlphaFold2 predictions involving flexible regions",
+      "year": 2025,
+      "authors": [
+        "JK Varga",
+        "S Ovchinnikov",
+        "O Schueler-Furman"
+      ],
+      "listed_venue": "Bioinformatics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 20 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "actifpTM: a refined confidence metric of AlphaFold2 predictions involving flexible regions",
+          "year": 2024,
+          "authors": [
+            "JK Varga",
+            "S Ovchinnikov",
+            "O Schueler-Furman"
+          ]
+        },
+        {
+          "title": "actifpTM: a refined confidence metric of AlphaFold2 predictions involving flexible regions",
+          "year": 2026,
+          "authors": [
+            "JK Varga",
+            "S Ovchinnikov",
+            "O Schueler-Furman"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:c5e1a2f284b9",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "AF2χ: Predicting protein side-chain rotamer distributions with AlphaFold2",
+      "year": 2025,
+      "authors": [
+        "M Cagiada",
+        "FE Thomasen",
+        "S Ovchinnikov",
+        "CM Deane",
+        "K Lindorff-Larsen"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 21 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "AF2χ: Predicting protein side-chain rotamer distributions with AlphaFold2",
+          "year": 2024,
+          "authors": [
+            "M Cagiada",
+            "FE Thomasen",
+            "S Ovchinnikov",
+            "CM Deane",
+            "K Lindorff-Larsen"
+          ]
+        },
+        {
+          "title": "AF2χ: Predicting protein side-chain rotamer distributions with AlphaFold2",
+          "year": 2026,
+          "authors": [
+            "M Cagiada",
+            "FE Thomasen",
+            "S Ovchinnikov",
+            "CM Deane",
+            "K Lindorff-Larsen"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:016081637dd4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Artificial intelligence methods for protein folding and design",
+      "year": 2025,
+      "authors": [
+        "Z Zhang",
+        "C Ou",
+        "Y Cho",
+        "Y Akiyama",
+        "S Ovchinnikov"
+      ],
+      "listed_venue": "Current Opinion in Structural Biology",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 15 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Artificial intelligence methods for protein folding and design",
+          "year": 2024,
+          "authors": [
+            "Z Zhang",
+            "C Ou",
+            "Y Cho",
+            "Y Akiyama",
+            "S Ovchinnikov"
+          ]
+        },
+        {
+          "title": "Artificial intelligence methods for protein folding and design",
+          "year": 2026,
+          "authors": [
+            "Z Zhang",
+            "C Ou",
+            "Y Cho",
+            "Y Akiyama",
+            "S Ovchinnikov"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:05cdebc76379",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "BoltzDesign1: Inverting all-atom structure prediction model for generalized biomolecular binder design",
+      "year": 2025,
+      "authors": [
+        "Y Cho",
+        "M Pacesa",
+        "Z Zhang",
+        "BE Correia",
+        "S Ovchinnikov"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 12 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "BoltzDesign1: Inverting all-atom structure prediction model for generalized biomolecular binder design",
+          "year": 2024,
+          "authors": [
+            "Y Cho",
+            "M Pacesa",
+            "Z Zhang",
+            "BE Correia",
+            "S Ovchinnikov"
+          ]
+        },
+        {
+          "title": "BoltzDesign1: Inverting all-atom structure prediction model for generalized biomolecular binder design",
+          "year": 2026,
+          "authors": [
+            "Y Cho",
+            "M Pacesa",
+            "Z Zhang",
+            "BE Correia",
+            "S Ovchinnikov"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:8d35deba8c18",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Designing novel solenoid proteins with in silico evolution",
+      "year": 2025,
+      "authors": [
+        "D Pretorius",
+        "GI Nikov",
+        "K Washio",
+        "SW Florent",
+        "HN Taunt",
+        "S Ovchinnikov",
+        "JW Murray"
+      ],
+      "listed_venue": "Communications Chemistry",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 14 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Designing novel solenoid proteins with in silico evolution",
+          "year": 2024,
+          "authors": [
+            "D Pretorius",
+            "GI Nikov",
+            "K Washio",
+            "SW Florent",
+            "HN Taunt",
+            "S Ovchinnikov",
+            "JW Murray"
+          ]
+        },
+        {
+          "title": "Designing novel solenoid proteins with in silico evolution",
+          "year": 2026,
+          "authors": [
+            "D Pretorius",
+            "GI Nikov",
+            "K Washio",
+            "SW Florent",
+            "HN Taunt",
+            "S Ovchinnikov",
+            "JW Murray"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:39c1e19332df",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Does sequence clustering confound AlphaFold2?",
+      "year": 2025,
+      "authors": [
+        "HK Wayment-Steele",
+        "S Ovchinnikov",
+        "L Colwell",
+        "D Kern"
+      ],
+      "listed_venue": "Journal of Molecular Biology",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 19 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Does sequence clustering confound AlphaFold2?",
+          "year": 2024,
+          "authors": [
+            "HK Wayment-Steele",
+            "S Ovchinnikov",
+            "L Colwell",
+            "D Kern"
+          ]
+        },
+        {
+          "title": "Does sequence clustering confound AlphaFold2?",
+          "year": 2026,
+          "authors": [
+            "HK Wayment-Steele",
+            "S Ovchinnikov",
+            "L Colwell",
+            "D Kern"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:47768dcafd14",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Hit or Miss: Understanding Emergence and Absence of Homo-oligomeric Contacts in Protein Language Models",
+      "year": 2025,
+      "authors": [
+        "Z Zhang",
+        "Y Akiyama",
+        "Y Cho",
+        "S Jajoo",
+        "S Ovchinnikov"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 1 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Hit or Miss: Understanding Emergence and Absence of Homo-oligomeric Contacts in Protein Language Models",
+          "year": 2024,
+          "authors": [
+            "Z Zhang",
+            "Y Akiyama",
+            "Y Cho",
+            "S Jajoo",
+            "S Ovchinnikov"
+          ]
+        },
+        {
+          "title": "Hit or Miss: Understanding Emergence and Absence of Homo-oligomeric Contacts in Protein Language Models",
+          "year": 2026,
+          "authors": [
+            "Z Zhang",
+            "Y Akiyama",
+            "Y Cho",
+            "S Jajoo",
+            "S Ovchinnikov"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:21eeec22dc45",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Predicting absolute protein folding stability using generative models",
+      "year": 2025,
+      "authors": [
+        "M Cagiada",
+        "S Ovchinnikov",
+        "K Lindorff-Larsen"
+      ],
+      "listed_venue": "Protein Science",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 22 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Predicting absolute protein folding stability using generative models",
+          "year": 2024,
+          "authors": [
+            "M Cagiada",
+            "S Ovchinnikov",
+            "K Lindorff-Larsen"
+          ]
+        },
+        {
+          "title": "Predicting absolute protein folding stability using generative models",
+          "year": 2026,
+          "authors": [
+            "M Cagiada",
+            "S Ovchinnikov",
+            "K Lindorff-Larsen"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:2275361a3446",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Protein Diffusion Models as Statistical Potentials",
+      "year": 2025,
+      "authors": [
+        "JP Roney",
+        "C Ou",
+        "S Ovchinnikov"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 18 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Protein Diffusion Models as Statistical Potentials",
+          "year": 2024,
+          "authors": [
+            "JP Roney",
+            "C Ou",
+            "S Ovchinnikov"
+          ]
+        },
+        {
+          "title": "Protein Diffusion Models as Statistical Potentials",
+          "year": 2026,
+          "authors": [
+            "JP Roney",
+            "C Ou",
+            "S Ovchinnikov"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:4e2f5534c3bb",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Protein Hunter: exploiting structure hallucination within diffusion for protein design",
+      "year": 2025,
+      "authors": [
+        "Y Cho",
+        "G Rangel",
+        "G Bhardwaj",
+        "S Ovchinnikov"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 11 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Protein Hunter: exploiting structure hallucination within diffusion for protein design",
+          "year": 2024,
+          "authors": [
+            "Y Cho",
+            "G Rangel",
+            "G Bhardwaj",
+            "S Ovchinnikov"
+          ]
+        },
+        {
+          "title": "Protein Hunter: exploiting structure hallucination within diffusion for protein design",
+          "year": 2026,
+          "authors": [
+            "Y Cho",
+            "G Rangel",
+            "G Bhardwaj",
+            "S Ovchinnikov"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:3b08b7010753",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "SoftAlign: End-to-end protein structures alignment",
+      "year": 2025,
+      "authors": [
+        "J Trinquier",
+        "S Petti",
+        "S Park",
+        "K Herath",
+        "M van Kempen",
+        "S Feng",
+        "J Söding",
+        "M Steinegger",
+        "S Ovchinnikov"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 2 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "SoftAlign: End-to-end protein structures alignment",
+          "year": 2024,
+          "authors": [
+            "J Trinquier",
+            "S Petti",
+            "S Park",
+            "K Herath",
+            "M van Kempen",
+            "S Feng",
+            "J Söding",
+            "M Steinegger",
+            "S Ovchinnikov"
+          ]
+        },
+        {
+          "title": "SoftAlign: End-to-end protein structures alignment",
+          "year": 2026,
+          "authors": [
+            "J Trinquier",
+            "S Petti",
+            "S Park",
+            "K Herath",
+            "M van Kempen",
+            "S Feng",
+            "J Söding",
+            "M Steinegger",
+            "S Ovchinnikov"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_sergey_ovchinnikov:56bc0db0b465",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Stable de novo protein design via joint conformational landscape and sequence optimization",
+      "year": 2025,
+      "authors": [
+        "Y Cho",
+        "J Dauparas",
+        "K Tsuboyama",
+        "GJ Rocklin",
+        "S Ovchinnikov"
+      ],
+      "listed_venue": "Nature Communications",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.solab.org/publications entry 13 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Stable de novo protein design via joint conformational landscape and sequence optimization",
+          "year": 2024,
+          "authors": [
+            "Y Cho",
+            "J Dauparas",
+            "K Tsuboyama",
+            "GJ Rocklin",
+            "S Ovchinnikov"
+          ]
+        },
+        {
+          "title": "Stable de novo protein design via joint conformational landscape and sequence optimization",
+          "year": 2026,
+          "authors": [
+            "Y Cho",
+            "J Dauparas",
+            "K Tsuboyama",
+            "GJ Rocklin",
+            "S Ovchinnikov"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

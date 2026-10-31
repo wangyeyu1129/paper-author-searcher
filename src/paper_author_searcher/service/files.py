@@ -4,6 +4,7 @@ import shutil
 import urllib.error
 import urllib.request
 from dataclasses import replace
+from http import HTTPStatus
 from pathlib import Path
 from urllib.parse import quote
 
@@ -57,6 +58,18 @@ class LocalFileStore:
 
     def create_bucket(self) -> bool:
         return False
+
+    def delete(self, key: str) -> None:
+        path = self._path(key)
+        path.unlink(missing_ok=True)
+        # The search's folders, once their last file is gone.
+        for parent in path.parents:
+            if parent == self.root or self.root not in parent.parents:
+                break
+            try:
+                parent.rmdir()
+            except OSError:
+                break
 
     def check(self) -> None:
         probe = self.root / '.ready'
@@ -117,7 +130,7 @@ class S3FileStore:
                 with destination.open('wb') as handle:
                     shutil.copyfileobj(response, handle, CHUNK)
         except urllib.error.HTTPError as error:
-            if error.code == 404:
+            if error.code == HTTPStatus.NOT_FOUND:
                 return False
             raise
         return True
@@ -133,6 +146,15 @@ class S3FileStore:
                 return False
             raise
 
+    def delete(self, key: str) -> None:
+        request = urllib.request.Request(self._url('DELETE', key), method='DELETE')
+        try:
+            with urllib.request.urlopen(request, timeout=self.timeout) as response:
+                response.read()
+        except urllib.error.HTTPError as error:
+            if error.code != HTTPStatus.NOT_FOUND:
+                raise
+
     def locate(self, key: str, download_name: str) -> StoredFile | None:
         if not self.exists(key):
             return None
@@ -147,7 +169,7 @@ class S3FileStore:
             with urllib.request.urlopen(request, timeout=self.timeout) as response:
                 response.read()
         except urllib.error.HTTPError as error:
-            if error.code == 409:
+            if error.code == HTTPStatus.CONFLICT:
                 return False
             raise
         return True

@@ -1,6 +1,7 @@
 import json
 import unittest
 from dataclasses import replace
+from types import SimpleNamespace
 
 from paper_author_searcher.config import OwnershipConfig
 from paper_author_searcher.models import (
@@ -11,7 +12,7 @@ from paper_author_searcher.models import (
     ProfessorProfile,
 )
 from paper_author_searcher.paper_deduplication import deduplicate_papers
-from paper_author_searcher.paper_ownership import PaperOwnershipValidator
+from paper_author_searcher.paper_ownership import PaperOwnershipValidator, record_fields
 from paper_author_searcher.paper_reanalysis import reanalyze_saved_result
 from paper_author_searcher.paper_types import classify_record
 from paper_author_searcher.status import AnchorKind
@@ -58,6 +59,75 @@ def record(
 def validate(records):
     papers = deduplicate_papers(records)
     return PaperOwnershipValidator().validate(papers, profile())
+
+
+class NonPublicationTitleTests(unittest.TestCase):
+    def test_corrections_and_data_supplements_are_not_verified_even_with_a_paper_orcid(self):
+        for title in (
+            'Author Correction: Pan-cancer analysis',
+            'Data from Loss of Regulation',
+            'Erratum: Moral Hazard',
+        ):
+            paper = validate([record(title=title, orcid='https://orcid.org/profile-orcid')])[0]
+            self.assertEqual(paper.ownership_status, 'needs_review', title)
+
+    def test_a_paper_that_merely_mentions_data_is_not_caught(self):
+        paper = validate([record(title='Big data from cities', orcid='https://orcid.org/profile-orcid')])[0]
+        self.assertEqual(paper.ownership_status, 'verified')
+
+
+class RareNameTests(unittest.TestCase):
+    """Under a rare name, papers in the person's proven fields go through; another field's stay under review."""
+
+    def fielded(self, title, field, orcid=None, source='openalex'):
+        item = record(title=title, doi=None, orcid=orcid, source=source)
+        # Alone on the byline: a shared coauthor would verify it by another rule.
+        item.authors = item.authors[:1]
+        item.raw_metadata = {'primary_topic': {'field': {'display_name': field}}} if field else {}
+        return item
+
+    def statuses(self, records, rare=True):
+        rarity = SimpleNamespace(rare=lambda name, ids: rare)
+        papers = PaperOwnershipValidator(name_rarity=rarity).validate(deduplicate_papers(records), profile())
+        return {paper.title: paper.ownership_status for paper in papers}
+
+    def proven(self, count=3, field='Economics'):
+        return [
+            self.fielded(f'Proven paper number {i}', field, orcid='https://orcid.org/profile-orcid')
+            for i in range(count)
+        ]
+
+    def test_only_the_proven_field_is_freed(self):
+        found = self.statuses(
+            [
+                *self.proven(),
+                self.fielded('Consumption over the life cycle', 'Economics'),
+                self.fielded('Training implicit scene representations', 'Computer Science'),
+                self.fielded('A paper with no stated field at all', None),
+            ]
+        )
+        self.assertEqual(found['Consumption over the life cycle'], 'verified')
+        self.assertEqual(found['Training implicit scene representations'], 'needs_review')
+        self.assertEqual(found['A paper with no stated field at all'], 'needs_review')
+
+    def test_a_shared_name_frees_nothing(self):
+        found = self.statuses(
+            [*self.proven(), self.fielded('Consumption over the life cycle', 'Economics')], rare=False
+        )
+        self.assertEqual(found['Consumption over the life cycle'], 'needs_review')
+
+    def test_too_few_proven_papers_free_nothing(self):
+        found = self.statuses([*self.proven(2), self.fielded('Consumption over the life cycle', 'Economics')])
+        self.assertEqual(found['Consumption over the life cycle'], 'needs_review')
+
+    def test_a_record_found_by_a_name_search_has_no_author_id_to_trust(self):
+        item = self.fielded('Consumption over the life cycle', 'Economics')
+        item.author_details = [{'name': 'Alex Morgan'}]
+        found = self.statuses([*self.proven(), item])
+        self.assertNotEqual(found['Consumption over the life cycle'], 'verified')
+
+    def test_a_dblp_record_is_in_computer_science(self):
+        self.assertEqual(record_fields(self.fielded('A', None, source='dblp')), {'Computer Science'})
 
 
 class OwnershipTests(unittest.TestCase):

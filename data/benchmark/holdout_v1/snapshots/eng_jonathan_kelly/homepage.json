@@ -1,0 +1,387 @@
+{
+ "snapshot_schema_version": 1,
+ "source_url": "https://starslab.ca/publications/",
+ "captured_at": "2026-10-30",
+ "captured_by": "Assistant transcription of the public page; pending human review",
+ "scope_note": "Public list on the page; Claude transcription, spot-checked by the assistant. Not read from this system's output.",
+ "transcription_notes": [],
+ "entries": [
+  {
+   "title": "Watch Your Steps: Local Image and Scene Editing by Text Instructions",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Computer Vision -- ECCV 2024",
+   "authors": [
+    "A. Mirzaei",
+    "T. Aumentado-Armstrong",
+    "M. A. Brubaker",
+    "J. Kelly",
+    "A. Levinshtein",
+    "K. G. Derpanis",
+    "I. Gilitschenski"
+   ]
+  },
+  {
+   "title": "Efficient Imitation Without Demonstrations via Value-Penalized Auxiliary Control from Examples",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)",
+   "authors": [
+    "T. Ablett",
+    "B. Chan",
+    "H. Wang",
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "Multimodal and Force-Matched Imitation Learning with a See-Through Visuotactile Sensor",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "IEEE Transactions on Robotics",
+   "authors": [
+    "T. Ablett",
+    "O. Limoyo",
+    "A. Sigal",
+    "A. Jilani",
+    "J. Kelly",
+    "K. Siddiqi",
+    "F. Hogan",
+    "G. Dudek"
+   ]
+  },
+  {
+   "title": "Structured Pneumatic Fingerpads for Actively Tunable Grip Friction",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE International Conference on Soft Robotics (RoboSoft)",
+   "authors": [
+    "K. Allison",
+    "J. Kelly",
+    "B. Hatton"
+   ]
+  },
+  {
+   "title": "Automated Planning Domain Inference for Task and Motion Planning",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)",
+   "authors": [
+    "J. Huang",
+    "A. Tao",
+    "R. Marco",
+    "M. Bogdanovic",
+    "J. Kelly",
+    "F. Shkurti"
+   ]
+  },
+  {
+   "title": "Generative Graphical Inverse Kinematics",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "IEEE Transactions on Robotics",
+   "authors": [
+    "O. Limoyo",
+    "F. Mari'c",
+    "M. Giamou",
+    "P. Alexson",
+    "I. Petrovi'c",
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "Galilean Symmetry in Robotics",
+   "year": 2025,
+   "type": "preprint",
+   "venue": "IEEE Robotics & Automation Magazine",
+   "authors": [
+    "R. Mahony",
+    "J. Kelly",
+    "S. Weiss"
+   ]
+  },
+  {
+   "title": "Stable Object Placement Planning from Contact Point Robustness",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "IEEE Transactions on Robotics",
+   "authors": [
+    "P. Nadeau",
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "FaVoR: Features via Voxel Rendering for Camera Relocalization",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+   "authors": [
+    "V. Polizzi",
+    "M. Cannici",
+    "D. Scaramuzza",
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "Learning Cross-Spectral Point Features with Task-Oriented Training",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE International Conference on Robotics and Automation (ICRA) Thermal Infrared in Robotics (TIRO) Workshop",
+   "authors": [
+    "M. Thomas",
+    "T. Ablett",
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "Fast Reinforcement Learning without Rewards or Demonstrations via Auxiliary Task Examples",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Proceedings of the Conference on Robot Learning (CoRL) Workshop on Mastering Robot Manipulation in a World of Abundant Data",
+   "authors": [
+    "T. Ablett",
+    "B. Chan",
+    "J. H. Wang",
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "Making Space for Time: The Special Galilean Group and Its Application to Some Robotics Problems",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) Workshop From Geometry to General Autonomy of Robotic Systems",
+   "authors": [
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "The Importance of Adaptive Decision-Making for Autonomous Long-Range Planetary Surface Mobility",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Proceedings of the International Symposium on Artificial Intelligence, Robotics and Automation in Space (i-SAIRAS)",
+   "authors": [
+    "O. Lamarre",
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "Safe Mission-Level Path Planning for Exploration of Lunar Shadowed Regions by a Solar-Powered Rover",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE Aerospace Conference",
+   "authors": [
+    "O. Lamarre",
+    "S. Malhotra",
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "PhotoBot: Reference-Guided Interactive Photography via Natural Language",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+   "authors": [
+    "O. Limoyo",
+    "J. Li",
+    "D. Rivkin",
+    "J. Kelly",
+    "G. Dudek"
+   ]
+  },
+  {
+   "title": "Reference-Guided Robotic Photography Through Natural Language Interaction",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Proceedings of the ACM/IEEE International Conference on Human Robot Interaction (HRI) Workshop on Human-Large Language Model Interaction: The Dawn of a New Era or the End of it All?",
+   "authors": [
+    "O. Limoyo",
+    "J. Li",
+    "D. Rivkhin",
+    "J. Kelly",
+    "G. Dudek"
+   ]
+  },
+  {
+   "title": "Working Backwards: Learning to Place by Picking",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+   "authors": [
+    "O. Limoyo",
+    "A. Konar",
+    "T. Ablett",
+    "J. Kelly",
+    "F. R. Hogan",
+    "G. Dudek"
+   ]
+  },
+  {
+   "title": "Learning from Guided Play: Improving Exploration for Adversarial Imitation Learning with Simple Auxiliary Tasks",
+   "year": 2023,
+   "type": "journal_article",
+   "venue": "IEEE Robotics and Automation Letters",
+   "authors": [
+    "T. Ablett",
+    "B. Chan",
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "Extrinsic Calibration of 2D Millimetre-Wavelength Radar Pairs Using Ego-Velocity Estimates",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)",
+   "authors": [
+    "Q. Cheng",
+    "E. Wise",
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "Contrastive Learning for Self-Supervised Pre-Training of Point Cloud Segmentation Networks With Image Data",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "Proceedings of the Conference on Robots and Vision (CRV)",
+   "authors": [
+    "A. Janda",
+    "B. Wagstaff",
+    "E. G. Ng",
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "Living in a Material World: Learning Material Properties from Full-Waveform Flash Lidar Data for Semantic Segmentation",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "Proceedings of the Conference on Robots and Vision (CRV)",
+   "authors": [
+    "A. Janda",
+    "P. Merriaux",
+    "P. Olivier",
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "All About the Galilean Group SGal(3)",
+   "year": 2023,
+   "type": "preprint",
+   "venue": "University of Toronto, STARS-2023-001",
+   "authors": [
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "Recovery Policies for Safe Exploration of Lunar Permanently Shadowed Regions by a Solar-Powered Rover",
+   "year": 2023,
+   "type": "journal_article",
+   "venue": "Acta Astronautica",
+   "authors": [
+    "O. Lamarre",
+    "S. Malhotra",
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "Euclidean Equivariant Models for Generative Graphical Inverse Kinematics",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "Proceedings of the Robotics: Science and Systems (RSS) Workshop on Symmetries in Robot Learning",
+   "authors": [
+    "O. Limoyo",
+    "F. Mari'c",
+    "M. Giamou",
+    "P. Alexson",
+    "I. Petrovi'c",
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "Learning Sequential Latent Variable Models from Multimodal Time Series Data",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "Intelligent Autonomous Systems 17",
+   "authors": [
+    "O. Limoyo",
+    "T. Ablett",
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "Reference-guided Controllable Inpainting of Neural Radiance Fields",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)",
+   "authors": [
+    "A. Mirzaei",
+    "T. Aumentado-Armstrong",
+    "M. A. Brubaker",
+    "J. Kelly",
+    "A. Levinshtein",
+    "K. G. Derpanis",
+    "I. Gilitschenski"
+   ]
+  },
+  {
+   "title": "SPIn-NeRF: Multiview Segmentation and Perceptual Inpainting with Neural Radiance Fields",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "A. Mirzaei",
+    "T. Aumentado-Armstrong",
+    "K. G. Derpanis",
+    "J. Kelly",
+    "M. A. Brubaker",
+    "I. Gilitschenski",
+    "A. Levinshtein"
+   ]
+  },
+  {
+   "title": "The Sum of Its Parts: Visual Part Segmentation for Inertial Parameter Identification of Manipulated Objects",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)",
+   "authors": [
+    "P. Nadeau",
+    "M. Giamou",
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "Spatiotemporal Calibration of 3D Millimetre-Wavelength Radar-Camera Pairs",
+   "year": 2023,
+   "type": "journal_article",
+   "venue": "IEEE Transactions on Robotics",
+   "authors": [
+    "E. Wise",
+    "Q. Cheng",
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "aUToLights: A Robust Multi-Camera Traffic Light Detection and Tracking System",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "Proceedings of the Conference on Robots and Vision (CRV)",
+   "authors": [
+    "S. Wu",
+    "N. Amenta",
+    "J. Zhou",
+    "S. Papais",
+    "J. Kelly"
+   ]
+  },
+  {
+   "title": "CIDGIKc: Distance-Geometric Inverse Kinematics for Continuum Robots",
+   "year": 2023,
+   "type": "journal_article",
+   "venue": "IEEE Robotics and Automation Letters",
+   "authors": [
+    "H. J. Zhang",
+    "M. Giamou",
+    "F. Mari'c",
+    "J. Kelly",
+    "J. Burgner-Kahrs"
+   ]
+  }
+ ]
+}

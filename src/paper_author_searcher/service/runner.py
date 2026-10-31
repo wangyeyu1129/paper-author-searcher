@@ -6,7 +6,7 @@ from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any
 
-from paper_author_searcher.composition import RunOptions, ServiceContainer
+from paper_author_searcher.composition import RunOptions, ServiceContainer, llm_ledger_name
 from paper_author_searcher.config import AmbiguityPolicy
 from paper_author_searcher.http_budget import release_ledger
 from paper_author_searcher.models import ProfessorQuery
@@ -19,6 +19,12 @@ from .ports import Progress, SearchOutcome
 from .results import ResultView, candidates
 
 logger = logging.getLogger(__name__)
+
+CLAUDE_UNAVAILABLE = {
+    'code': 'claude_unavailable',
+    'message': 'Claude could not be reached (billing, key or outage): publication lists on pages and scanned PDFs '
+    'were not read, so the paper list or full text may be incomplete.',
+}
 
 
 def query_from_request(request: dict[str, Any]) -> ProfessorQuery:
@@ -90,7 +96,11 @@ class WorkflowRunner:
             )
         finally:
             spent = (release_ledger(ledger) or {}).get('estimated_cost_usd', 0.0)
-        return self.outcome(job, report, spent)
+            llm = release_ledger(llm_ledger_name(ledger)) or {}
+        outcome = self.outcome(job, report, spent)
+        if llm.get('failed_requests') and outcome.result is not None:
+            outcome.result.setdefault('notices', []).append(CLAUDE_UNAVAILABLE)
+        return replace(outcome, llm_cost_usd=llm.get('estimated_cost_usd', 0.0))
 
     @staticmethod
     def available(settings: Settings) -> Settings:

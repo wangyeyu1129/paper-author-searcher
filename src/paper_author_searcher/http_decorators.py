@@ -6,10 +6,12 @@ client at the bottom of a chain.
 """
 
 from collections.abc import Callable, Iterable
+from http import HTTPStatus
 from typing import Any
 from urllib.parse import urlsplit
 
-from .pacing import RequestPacer
+from .http import SourceError
+from .pacing import Pacer, RequestPacer
 
 
 class HttpClientDecorator:
@@ -92,22 +94,32 @@ def unwrap(client: Any) -> Any:
 
 class PacedHttpClient(HttpClientDecorator):
     """Keeps each configured host's minimum request interval. It belongs directly above the network client, below
-    the cache, so only requests that really go out wait."""
+    the cache, so only requests that really go out wait. A pacer shared between processes keeps the interval across
+    all of them. When a host answers 429 with Retry-After, the host is held back for that long, up to
+    ``maximum_hold`` seconds: a daily quota's hours-long answer must not put every search to sleep."""
 
     def __init__(
         self,
         client: Any,
         intervals: Iterable[tuple[str, float]],
-        pacer_factory: Callable[[float], RequestPacer] = RequestPacer,
+        pacer_factory: Callable[[float], Pacer] = RequestPacer,
+        maximum_hold: float = 60.0,
     ) -> None:
         super().__init__(client)
         self.pacers = {host.lower(): pacer_factory(interval) for host, interval in intervals if interval > 0}
+        self.maximum_hold = maximum_hold
 
     def _wait(self, url: str) -> None:
         host = (urlsplit(url).hostname or '').lower()
         pacer = self.pacers.get(host)
         if pacer is not None:
             pacer.wait(host)
+
+    def _note_refusal(self, url: str, error: SourceError) -> None:
+        host = (urlsplit(url).hostname or '').lower()
+        pacer = self.pacers.get(host)
+        if pacer is not None and error.status_code == HTTPStatus.TOO_MANY_REQUESTS and error.retry_after:
+            pacer.hold(host, min(float(error.retry_after), self.maximum_hold))
 
     def get(
         self,
@@ -117,7 +129,26 @@ class PacedHttpClient(HttpClientDecorator):
         xml: bool = False,
     ) -> Any:
         self._wait(url)
-        return self.client.get(url, params, headers, xml)
+        try:
+            return self.client.get(url, params, headers, xml)
+        except SourceError as error:
+            self._note_refusal(url, error)
+            raise
+
+    def post_json(
+        self,
+        url: str,
+        payload: Any,
+        params: dict[str, Any] | None = None,
+        headers: dict[str, str] | None = None,
+        expected_type: type = dict,
+    ) -> Any:
+        self._wait(url)
+        try:
+            return super().post_json(url, payload, params, headers, expected_type)
+        except SourceError as error:
+            self._note_refusal(url, error)
+            raise
 
     def probe(
         self,

@@ -1,0 +1,2526 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "bio_yue_li",
+    "dataset_id": "holdout_v1",
+    "search_input": {
+      "name": "Yue Li",
+      "university": "McGill University"
+    },
+    "scope": {
+      "year_start": 2022,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-30T21:04:27.664167+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://www.cs.mcgill.ca/~yueli/publications.html",
+        "records": 41
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "bio_yue_li:fedee6868ca3",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A graph-embedded topic model enables characterization of diverse pain phenotypes among UK Biobank individuals",
+      "year": 2022,
+      "authors": [
+        "Yuening Wang",
+        "Rodrigo Benavides",
+        "Luda Diatchenko",
+        "Audrey Grant",
+        "Yue Li"
+      ],
+      "listed_venue": "iScience",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 40 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2022.01.07.475444"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A graph-embedded topic model enables characterization of diverse pain phenotypes among UK Biobank individuals",
+          "year": 2021,
+          "authors": [
+            "Yuening Wang",
+            "Rodrigo Benavides",
+            "Luda Diatchenko",
+            "Audrey Grant",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "A graph-embedded topic model enables characterization of diverse pain phenotypes among UK Biobank individuals",
+          "year": 2023,
+          "authors": [
+            "Yuening Wang",
+            "Rodrigo Benavides",
+            "Luda Diatchenko",
+            "Audrey Grant",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2022.01.07.475444",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "A graph-embedded topic model enables characterization of diverse pain phenotypes among UK Biobank individuals",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:1e066e5dfe40",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Automatic phenotyping by a seed-guided topic model",
+      "year": 2022,
+      "authors": [
+        "Ziyang Song",
+        "Yuanyi Hu",
+        "Aman Verma",
+        "David Buckeridge",
+        "Yue Li"
+      ],
+      "listed_venue": "KDD '22",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 37 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3534678.3542675"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Automatic phenotyping by a seed-guided topic model",
+          "year": 2021,
+          "authors": [
+            "Ziyang Song",
+            "Yuanyi Hu",
+            "Aman Verma",
+            "David Buckeridge",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "Automatic phenotyping by a seed-guided topic model",
+          "year": 2023,
+          "authors": [
+            "Ziyang Song",
+            "Yuanyi Hu",
+            "Aman Verma",
+            "David Buckeridge",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3534678.3542675",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Automatic Phenotyping by a Seed-guided Topic Model",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:bc840024f46e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "EpiTopics: A dynamic machine learning model to predict and inform non-pharmacological public health interventions from global news reports",
+      "year": 2022,
+      "authors": [
+        "Zhi Wen",
+        "Jingfu Zhang",
+        "Guido Powell",
+        "Imane Chafi",
+        "David Buckeridge",
+        "Yue Li"
+      ],
+      "listed_venue": "Star Protocols",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 38 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.xpro.2022.101463"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "EpiTopics: A dynamic machine learning model to predict and inform non-pharmacological public health interventions from global news reports",
+          "year": 2021,
+          "authors": [
+            "Zhi Wen",
+            "Jingfu Zhang",
+            "Guido Powell",
+            "Imane Chafi",
+            "David Buckeridge",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "EpiTopics: A dynamic machine learning model to predict and inform non-pharmacological public health interventions from global news reports",
+          "year": 2023,
+          "authors": [
+            "Zhi Wen",
+            "Jingfu Zhang",
+            "Guido Powell",
+            "Imane Chafi",
+            "David Buckeridge",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.xpro.2022.101463",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "EpiTopics: A dynamic machine learning model to predict and inform non-pharmacological public health interventions from global news reports",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:4ee89f4ef1a7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Inferring global-scale temporal latent topics from news reports to predict public health interventions for COVID-19",
+      "year": 2022,
+      "authors": [
+        "Zhi Wen",
+        "Guido Powell",
+        "Imane Chafi",
+        "David Buckeridge",
+        "Yue Li"
+      ],
+      "listed_venue": "Patterns",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 41 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2021.06.10.21257749"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Inferring global-scale temporal latent topics from news reports to predict public health interventions for COVID-19",
+          "year": 2021,
+          "authors": [
+            "Zhi Wen",
+            "Guido Powell",
+            "Imane Chafi",
+            "David Buckeridge",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "Inferring global-scale temporal latent topics from news reports to predict public health interventions for COVID-19",
+          "year": 2023,
+          "authors": [
+            "Zhi Wen",
+            "Guido Powell",
+            "Imane Chafi",
+            "David Buckeridge",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2021.06.10.21257749",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Inferring global-scale temporal latent topics from news reports to predict public health interventions for COVID-19",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:8a10d5e8b457",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Integrative PheWAS analysis in risk categorization of major depressive disorder and identifying their associations with genetic variants using a latent topic model approach",
+      "year": 2022,
+      "authors": [
+        "Xiangfei Meng",
+        "Michelle Wang",
+        "Kieran O'Donnell",
+        "Jean Caron",
+        "MJ Meaney",
+        "Yue Li"
+      ],
+      "listed_venue": "Translational Psychiatry",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 39 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1038/s41398-022-02015-8"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Integrative PheWAS analysis in risk categorization of major depressive disorder and identifying their associations with genetic variants using a latent topic model approach",
+          "year": 2021,
+          "authors": [
+            "Xiangfei Meng",
+            "Michelle Wang",
+            "Kieran O'Donnell",
+            "Jean Caron",
+            "MJ Meaney",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "Integrative PheWAS analysis in risk categorization of major depressive disorder and identifying their associations with genetic variants using a latent topic model approach",
+          "year": 2023,
+          "authors": [
+            "Xiangfei Meng",
+            "Michelle Wang",
+            "Kieran O'Donnell",
+            "Jean Caron",
+            "MJ Meaney",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s41398-022-02015-8",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Integrative PheWAS analysis in risk categorization of major depressive disorder and identifying their associations with genetic variants using a latent topic model approach",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:5110378ec0ee",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "MixEHR-Guided: A guided multi-modal topic modeling approach for large-scale automatic phenotyping using the electronic health record",
+      "year": 2022,
+      "authors": [
+        "Yuri Anjuha",
+        "Yuesong Zou",
+        "Aman Verma",
+        "David Buckeridge",
+        "Yue Li"
+      ],
+      "listed_venue": "Journal Biomedical Informatics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 36 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2021.12.17.473215"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "MixEHR-Guided: A guided multi-modal topic modeling approach for large-scale automatic phenotyping using the electronic health record",
+          "year": 2021,
+          "authors": [
+            "Yuri Anjuha",
+            "Yuesong Zou",
+            "Aman Verma",
+            "David Buckeridge",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "MixEHR-Guided: A guided multi-modal topic modeling approach for large-scale automatic phenotyping using the electronic health record",
+          "year": 2023,
+          "authors": [
+            "Yuri Anjuha",
+            "Yuesong Zou",
+            "Aman Verma",
+            "David Buckeridge",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2021.12.17.473215",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "MixEHR-Guided: A guided multi-modal topic modeling approach for large-scale automatic phenotyping using the electronic health record",
+          "crossref_year": 2021
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:26fd92d939bc",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Modeling electronic health record data using a knowledge-graph-embedded topic model",
+      "year": 2022,
+      "authors": [
+        "Yuesong Zou",
+        "Ahmad Pesaranghader",
+        "Aman Verma",
+        "David Buckeridge",
+        "Yue Li"
+      ],
+      "listed_venue": "Scientific Reports",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 35 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Modeling electronic health record data using a knowledge-graph-embedded topic model",
+          "year": 2021,
+          "authors": [
+            "Yuesong Zou",
+            "Ahmad Pesaranghader",
+            "Aman Verma",
+            "David Buckeridge",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "Modeling electronic health record data using a knowledge-graph-embedded topic model",
+          "year": 2023,
+          "authors": [
+            "Yuesong Zou",
+            "Ahmad Pesaranghader",
+            "Aman Verma",
+            "David Buckeridge",
+            "Yue Li"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:9aa65f45e618",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Biomedical Discovery through the integrative Biomedical Knowledge Hub (iBKH)",
+      "year": 2023,
+      "authors": [
+        "Chang Su",
+        "Yu Hou",
+        "Haotan Zhang",
+        "Zilong Bai",
+        "Anthony Cuturrufo",
+        "Winston Guo",
+        "Fayzan Chaudhry",
+        "Gregory Ghahramani",
+        "Jian Tang",
+        "Feixiong Cheng",
+        "Yue Li",
+        "Rui Zhang",
+        "Fei Wang"
+      ],
+      "listed_venue": "iScience",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 32 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.isci.2023.106460"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Biomedical Discovery through the integrative Biomedical Knowledge Hub (iBKH)",
+          "year": 2022,
+          "authors": [
+            "Chang Su",
+            "Yu Hou",
+            "Haotan Zhang",
+            "Zilong Bai",
+            "Anthony Cuturrufo",
+            "Winston Guo",
+            "Fayzan Chaudhry",
+            "Gregory Ghahramani",
+            "Jian Tang",
+            "Feixiong Cheng",
+            "Yue Li",
+            "Rui Zhang",
+            "Fei Wang"
+          ]
+        },
+        {
+          "title": "Biomedical Discovery through the integrative Biomedical Knowledge Hub (iBKH)",
+          "year": 2024,
+          "authors": [
+            "Chang Su",
+            "Yu Hou",
+            "Haotan Zhang",
+            "Zilong Bai",
+            "Anthony Cuturrufo",
+            "Winston Guo",
+            "Fayzan Chaudhry",
+            "Gregory Ghahramani",
+            "Jian Tang",
+            "Feixiong Cheng",
+            "Yue Li",
+            "Rui Zhang",
+            "Fei Wang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.isci.2023.106460",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Biomedical discovery through the integrative biomedical knowledge hub (iBKH)",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:7b081d7ddecb",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Fast and Scalable Polygenic Risk Modeling with Variational Inference",
+      "year": 2023,
+      "authors": [
+        "Shadi Zabad",
+        "Simon Gravel",
+        "Yue Li"
+      ],
+      "listed_venue": "American Journal of Human Genetics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 31 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Fast and Scalable Polygenic Risk Modeling with Variational Inference",
+          "year": 2022,
+          "authors": [
+            "Shadi Zabad",
+            "Simon Gravel",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "Fast and Scalable Polygenic Risk Modeling with Variational Inference",
+          "year": 2024,
+          "authors": [
+            "Shadi Zabad",
+            "Simon Gravel",
+            "Yue Li"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:629639aac41a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Graph-embedded topic modelling of population-level electronic health records by leveraging biomedical knowledge graph",
+      "year": 2023,
+      "authors": [
+        "Yuening Wang",
+        "Audrey Grant",
+        "Yue Li"
+      ],
+      "listed_venue": "Star Protoc",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 34 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Graph-embedded topic modelling of population-level electronic health records by leveraging biomedical knowledge graph",
+          "year": 2022,
+          "authors": [
+            "Yuening Wang",
+            "Audrey Grant",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "Graph-embedded topic modelling of population-level electronic health records by leveraging biomedical knowledge graph",
+          "year": 2024,
+          "authors": [
+            "Yuening Wang",
+            "Audrey Grant",
+            "Yue Li"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:dec200485a1a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "GTM-decon: guided-topic modeling of single-cell transcriptomes enables sub-cell-type and disease-subtype deconvolution of bulk transcriptomes",
+      "year": 2023,
+      "authors": [
+        "Lakshmipuram Seshadri Swapna",
+        "Michael Huang",
+        "Yue Li"
+      ],
+      "listed_venue": "Genome Biology",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 29 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1186/s13059-023-03034-4"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "GTM-decon: guided-topic modeling of single-cell transcriptomes enables sub-cell-type and disease-subtype deconvolution of bulk transcriptomes",
+          "year": 2022,
+          "authors": [
+            "Lakshmipuram Seshadri Swapna",
+            "Michael Huang",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "GTM-decon: guided-topic modeling of single-cell transcriptomes enables sub-cell-type and disease-subtype deconvolution of bulk transcriptomes",
+          "year": 2024,
+          "authors": [
+            "Lakshmipuram Seshadri Swapna",
+            "Michael Huang",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1186/s13059-023-03034-4",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "GTM-decon: guided-topic modeling of single-cell transcriptomes enables sub-cell-type and disease-subtype deconvolution of bulk transcriptomes",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:6b710e70f433",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Multi-omic modeling of antidepressant response implicates dynamic immune and inflammatory changes in individuals who respond to treatment",
+      "year": 2023,
+      "authors": [
+        "Shin-Chieh Fuh",
+        "Laura M. Fiori",
+        "Gustavo Turecki",
+        "Corina Nagy",
+        "Yue Li"
+      ],
+      "listed_venue": "PloS ONE",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 33 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2022.10.07.511374"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Multi-omic modeling of antidepressant response implicates dynamic immune and inflammatory changes in individuals who respond to treatment",
+          "year": 2022,
+          "authors": [
+            "Shin-Chieh Fuh",
+            "Laura M. Fiori",
+            "Gustavo Turecki",
+            "Corina Nagy",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "Multi-omic modeling of antidepressant response implicates dynamic immune and inflammatory changes in individuals who respond to treatment",
+          "year": 2024,
+          "authors": [
+            "Shin-Chieh Fuh",
+            "Laura M. Fiori",
+            "Gustavo Turecki",
+            "Corina Nagy",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2022.10.07.511374",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Multi-omic modeling of antidepressant response implicates dynamic immune and inflammatory changes in individuals who respond to treatment",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:2843afc53c1a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Single-cell multi-omics topic embedding reveals cell-type-specific and COVID-19 severity-related immune signatures",
+      "year": 2023,
+      "authors": [
+        "Manqi Zhou",
+        "Hao Zhang",
+        "Zilong Bai",
+        "Dylan Mann-Krzisnik",
+        "Fei Wang",
+        "Yue Li"
+      ],
+      "listed_venue": "Cell Reports Methods",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 30 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.crmeth.2023.100563"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Single-cell multi-omics topic embedding reveals cell-type-specific and COVID-19 severity-related immune signatures",
+          "year": 2022,
+          "authors": [
+            "Manqi Zhou",
+            "Hao Zhang",
+            "Zilong Bai",
+            "Dylan Mann-Krzisnik",
+            "Fei Wang",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "Single-cell multi-omics topic embedding reveals cell-type-specific and COVID-19 severity-related immune signatures",
+          "year": 2024,
+          "authors": [
+            "Manqi Zhou",
+            "Hao Zhang",
+            "Zilong Bai",
+            "Dylan Mann-Krzisnik",
+            "Fei Wang",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.crmeth.2023.100563",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Single-cell multi-omics topic embedding reveals cell-type-specific and COVID-19 severity-related immune signatures",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:28851391440e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "SparsePro: an efficient genome-wide fine-mapping method integrating summary statistics and functional annotations",
+      "year": 2023,
+      "authors": [
+        "Wenmin Zhang",
+        "Hamed Najabadi",
+        "Yue Li"
+      ],
+      "listed_venue": "PLOS Genetics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 28 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.21203/rs.3.rs-1160063/v1"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "SparsePro: an efficient genome-wide fine-mapping method integrating summary statistics and functional annotations",
+          "year": 2022,
+          "authors": [
+            "Wenmin Zhang",
+            "Hamed Najabadi",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "SparsePro: an efficient genome-wide fine-mapping method integrating summary statistics and functional annotations",
+          "year": 2024,
+          "authors": [
+            "Wenmin Zhang",
+            "Hamed Najabadi",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.21203/rs.3.rs-1160063/v1",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "SparsePro: an efficient genome-wide fine-mapping method integrating summary statistics and functional annotations",
+          "crossref_year": 2022
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:f2f3d77f0677",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Accounting for genetic effect heterogeneity in fine-mapping and improving power to detect gene-environment interactions with SharePro",
+      "year": 2024,
+      "authors": [
+        "Wenmin Zhang",
+        "Robert Sladek",
+        "Yue Li",
+        "Hamed S. Najafabadi",
+        "Josee Dupuis"
+      ],
+      "listed_venue": "Nature Communications",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 21 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2023.07.27.550862"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Accounting for genetic effect heterogeneity in fine-mapping and improving power to detect gene-environment interactions with SharePro",
+          "year": 2023,
+          "authors": [
+            "Wenmin Zhang",
+            "Robert Sladek",
+            "Yue Li",
+            "Hamed S. Najafabadi",
+            "Josee Dupuis"
+          ]
+        },
+        {
+          "title": "Accounting for genetic effect heterogeneity in fine-mapping and improving power to detect gene-environment interactions with SharePro",
+          "year": 2025,
+          "authors": [
+            "Wenmin Zhang",
+            "Robert Sladek",
+            "Yue Li",
+            "Hamed S. Najafabadi",
+            "Josee Dupuis"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2023.07.27.550862",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Accounting for genetic effect heterogeneity in fine-mapping and improving power to detect gene-environment interactions with SharePro",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:8633c769e435",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Bidirectional Generative Pre-training for Improving Time Series Representation Learning",
+      "year": 2024,
+      "authors": [
+        "Ziyang Song",
+        "Qincheng Lu",
+        "He Zhu",
+        "Yue Li"
+      ],
+      "listed_venue": "MLHC",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 19 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Bidirectional Generative Pre-training for Improving Time Series Representation Learning",
+          "year": 2023,
+          "authors": [
+            "Ziyang Song",
+            "Qincheng Lu",
+            "He Zhu",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "Bidirectional Generative Pre-training for Improving Time Series Representation Learning",
+          "year": 2025,
+          "authors": [
+            "Ziyang Song",
+            "Qincheng Lu",
+            "He Zhu",
+            "Yue Li"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:1db4d546e536",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Cell ontology guided transcriptome foundation model",
+      "year": 2024,
+      "authors": [
+        "Xinyu Yuan",
+        "Zhihao Zhan",
+        "Zuobai Zhang",
+        "Manqi Zhou",
+        "Jianan Zhao",
+        "Boyu Han",
+        "Yue Li",
+        "Jian Tang"
+      ],
+      "listed_venue": "NeurIPS 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 14 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/079017-0204"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Cell ontology guided transcriptome foundation model",
+          "year": 2023,
+          "authors": [
+            "Xinyu Yuan",
+            "Zhihao Zhan",
+            "Zuobai Zhang",
+            "Manqi Zhou",
+            "Jianan Zhao",
+            "Boyu Han",
+            "Yue Li",
+            "Jian Tang"
+          ]
+        },
+        {
+          "title": "Cell ontology guided transcriptome foundation model",
+          "year": 2025,
+          "authors": [
+            "Xinyu Yuan",
+            "Zhihao Zhan",
+            "Zuobai Zhang",
+            "Manqi Zhou",
+            "Jianan Zhao",
+            "Boyu Han",
+            "Yue Li",
+            "Jian Tang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/079017-0204",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Cell ontology guided transcriptome foundation model",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:85873b7a9d14",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "CellMemory: Hierarchical Interpretation of Out-of-Distribution Cells Using Bottlenecked Transformer",
+      "year": 2024,
+      "authors": [
+        "Qifei Wang",
+        "He Zhu",
+        "Yiwen Hu",
+        "Yanjie Chen",
+        "Yuwei Wang",
+        "Xuegong Zhang",
+        "James Zou",
+        "Manolis Kellis",
+        "Yue Li",
+        "Dianbo Liu",
+        "Lian Jiang"
+      ],
+      "listed_venue": "bioRxiv",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 10 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1186/s13059-025-03638-y"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "CellMemory: Hierarchical Interpretation of Out-of-Distribution Cells Using Bottlenecked Transformer",
+          "year": 2023,
+          "authors": [
+            "Qifei Wang",
+            "He Zhu",
+            "Yiwen Hu",
+            "Yanjie Chen",
+            "Yuwei Wang",
+            "Xuegong Zhang",
+            "James Zou",
+            "Manolis Kellis",
+            "Yue Li",
+            "Dianbo Liu",
+            "Lian Jiang"
+          ]
+        },
+        {
+          "title": "CellMemory: Hierarchical Interpretation of Out-of-Distribution Cells Using Bottlenecked Transformer",
+          "year": 2025,
+          "authors": [
+            "Qifei Wang",
+            "He Zhu",
+            "Yiwen Hu",
+            "Yanjie Chen",
+            "Yuwei Wang",
+            "Xuegong Zhang",
+            "James Zou",
+            "Manolis Kellis",
+            "Yue Li",
+            "Dianbo Liu",
+            "Lian Jiang"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1186/s13059-025-03638-y",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "CellMemory: hierarchical interpretation of out-of-distribution cells using bottlenecked transformer",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:9da80ba45cd4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Differential interactions between gene expressions and stressors across the lifespan in major depressive disorder",
+      "year": 2024,
+      "authors": [
+        "Ruiyang Wang",
+        "Yingying Su",
+        "Kieran O'Donnell",
+        "Jean Caron",
+        "Michael Meaney",
+        "Xiangfei Meng",
+        "Yue Li"
+      ],
+      "listed_venue": "Journal of Affective Disorders",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 22 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.jad.2024.07.069"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Differential interactions between gene expressions and stressors across the lifespan in major depressive disorder",
+          "year": 2023,
+          "authors": [
+            "Ruiyang Wang",
+            "Yingying Su",
+            "Kieran O'Donnell",
+            "Jean Caron",
+            "Michael Meaney",
+            "Xiangfei Meng",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "Differential interactions between gene expressions and stressors across the lifespan in major depressive disorder",
+          "year": 2025,
+          "authors": [
+            "Ruiyang Wang",
+            "Yingying Su",
+            "Kieran O'Donnell",
+            "Jean Caron",
+            "Michael Meaney",
+            "Xiangfei Meng",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.jad.2024.07.069",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Differential interactions between gene expressions and stressors across the lifespan in major depressive disorder",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:b0f17c2041a7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "GFETM: Genome Foundation-Based Embedded Topic Model for scATAC-seq Modeling",
+      "year": 2024,
+      "authors": [
+        "Yimin Fan",
+        "Yu Li",
+        "Jun Ding",
+        "Yue Li"
+      ],
+      "listed_venue": "RECOMB 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 20 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2023.11.09.566403"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "GFETM: Genome Foundation-Based Embedded Topic Model for scATAC-seq Modeling",
+          "year": 2023,
+          "authors": [
+            "Yimin Fan",
+            "Yu Li",
+            "Jun Ding",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "GFETM: Genome Foundation-Based Embedded Topic Model for scATAC-seq Modeling",
+          "year": 2025,
+          "authors": [
+            "Yimin Fan",
+            "Yu Li",
+            "Jun Ding",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2023.11.09.566403",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "GFETM: Genome Foundation-based Embedded Topic Model for scATAC-seq Modeling",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:41169c83df53",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "hART: Deep learning-informed lifespan heart failure risk trajectories",
+      "year": 2024,
+      "authors": [
+        "Harry Moroz",
+        "Yue Li",
+        "Ariane Marelli"
+      ],
+      "listed_venue": "International journal of medical informatics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 24 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.ijmedinf.2024.105384"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "hART: Deep learning-informed lifespan heart failure risk trajectories",
+          "year": 2023,
+          "authors": [
+            "Harry Moroz",
+            "Yue Li",
+            "Ariane Marelli"
+          ]
+        },
+        {
+          "title": "hART: Deep learning-informed lifespan heart failure risk trajectories",
+          "year": 2025,
+          "authors": [
+            "Harry Moroz",
+            "Yue Li",
+            "Ariane Marelli"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.ijmedinf.2024.105384",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "hART: Deep learning-informed lifespan heart failure risk trajectories",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:989bde1c1f1c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Machine learning informed diagnosis for Congenital Heart Disease in Large Claims Data Source",
+      "year": 2024,
+      "authors": [
+        "Ariane J. Marelli",
+        "Chao Li",
+        "Aihua Liu",
+        "Hanh Nguyen",
+        "Harry Moroz",
+        "James M Brophy",
+        "Liming Guo",
+        "David L Buckeridge",
+        "Jian Tang",
+        "Joelle Pineau",
+        "Yi Yang",
+        "Yue Li"
+      ],
+      "listed_venue": "JACC: Advance",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 25 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1016/j.jacadv.2023.100801"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Machine learning informed diagnosis for Congenital Heart Disease in Large Claims Data Source",
+          "year": 2023,
+          "authors": [
+            "Ariane J. Marelli",
+            "Chao Li",
+            "Aihua Liu",
+            "Hanh Nguyen",
+            "Harry Moroz",
+            "James M Brophy",
+            "Liming Guo",
+            "David L Buckeridge",
+            "Jian Tang",
+            "Joelle Pineau",
+            "Yi Yang",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "Machine learning informed diagnosis for Congenital Heart Disease in Large Claims Data Source",
+          "year": 2025,
+          "authors": [
+            "Ariane J. Marelli",
+            "Chao Li",
+            "Aihua Liu",
+            "Hanh Nguyen",
+            "Harry Moroz",
+            "James M Brophy",
+            "Liming Guo",
+            "David L Buckeridge",
+            "Jian Tang",
+            "Joelle Pineau",
+            "Yi Yang",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1016/j.jacadv.2023.100801",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Machine Learning Informed Diagnosis for Congenital Heart Disease in Large Claims Data Source",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:e50b3a79d4e1",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "MiRGraph: a hybrid deep learning approach to identify miRNA-target interactions",
+      "year": 2024,
+      "authors": [
+        "Pei Liu",
+        "Ying Liu",
+        "Jiawei Luo",
+        "Yue Li"
+      ],
+      "listed_venue": "IEEE BIBM 2024",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 18 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "MiRGraph: a hybrid deep learning approach to identify miRNA-target interactions",
+          "year": 2023,
+          "authors": [
+            "Pei Liu",
+            "Ying Liu",
+            "Jiawei Luo",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "MiRGraph: a hybrid deep learning approach to identify miRNA-target interactions",
+          "year": 2025,
+          "authors": [
+            "Pei Liu",
+            "Ying Liu",
+            "Jiawei Luo",
+            "Yue Li"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:1a3eed1b13b9",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "MixEHR-Nest: Identifying Subphenotypes within Electronic Health Records through Hierarchical Guided-Topic Modeling",
+      "year": 2024,
+      "authors": [
+        "Ruohan Wang",
+        "Zilong Wang",
+        "Ziyang Song",
+        "David L. Buckeridge",
+        "Yue Li"
+      ],
+      "listed_venue": "ACM BCB '24",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 17 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3698587.3701368"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "MixEHR-Nest: Identifying Subphenotypes within Electronic Health Records through Hierarchical Guided-Topic Modeling",
+          "year": 2023,
+          "authors": [
+            "Ruohan Wang",
+            "Zilong Wang",
+            "Ziyang Song",
+            "David L. Buckeridge",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "MixEHR-Nest: Identifying Subphenotypes within Electronic Health Records through Hierarchical Guided-Topic Modeling",
+          "year": 2025,
+          "authors": [
+            "Ruohan Wang",
+            "Zilong Wang",
+            "Ziyang Song",
+            "David L. Buckeridge",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3698587.3701368",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "MixEHR-Nest: Identifying Subphenotypes within Electronic Health Records through Hierarchical Guided-Topic Modeling",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:6c6b19311928",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "MixEHR-SurG: a joint proportional hazard and guided topic model for inferring mortality-associated topics from electronic health records",
+      "year": 2024,
+      "authors": [
+        "Yixuan Li",
+        "Archer Y. Yang",
+        "Ariane Marelli",
+        "Yue Li"
+      ],
+      "listed_venue": "Journal Biomedical Informatics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 23 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.2139/ssrn.4683908"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "MixEHR-SurG: a joint proportional hazard and guided topic model for inferring mortality-associated topics from electronic health records",
+          "year": 2023,
+          "authors": [
+            "Yixuan Li",
+            "Archer Y. Yang",
+            "Ariane Marelli",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "MixEHR-SurG: a joint proportional hazard and guided topic model for inferring mortality-associated topics from electronic health records",
+          "year": 2025,
+          "authors": [
+            "Yixuan Li",
+            "Archer Y. Yang",
+            "Ariane Marelli",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.2139/ssrn.4683908",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Mixehr-Surg: A Joint Proportional Hazard and Guided Topic Model for Inferring Mortality-Associated Topics from Electronic Health Records",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:b1d3fa8265ea",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "scMoE: single-cell mixture of experts for learning hierarchical, cell-type-specific, and interpretable representations from heterogeneous scRNA-seq data",
+      "year": 2024,
+      "authors": [
+        "Michael Huang",
+        "Yue Li"
+      ],
+      "listed_venue": "ACM BCB '24",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 16 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2024.10.24.620111"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "scMoE: single-cell mixture of experts for learning hierarchical, cell-type-specific, and interpretable representations from heterogeneous scRNA-seq data",
+          "year": 2023,
+          "authors": [
+            "Michael Huang",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "scMoE: single-cell mixture of experts for learning hierarchical, cell-type-specific, and interpretable representations from heterogeneous scRNA-seq data",
+          "year": 2025,
+          "authors": [
+            "Michael Huang",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2024.10.24.620111",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "scMoE: single-cell mixture of experts for learning hierarchical, cell-type-specific, and interpretable representations from heterogeneous scRNA-seq data",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:fd53902e2c7e",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "SharePro: an accurate and efficient genetic colocalization method accounting for multiple causal signals",
+      "year": 2024,
+      "authors": [
+        "Wenmin Zhang",
+        "Tianyuan Lu",
+        "Robert Sladek",
+        "Yue Li",
+        "Hamed S. Najafabadi",
+        "Josee Dupuis"
+      ],
+      "listed_venue": "Bioinformatics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 26 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2023.07.24.550431"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "SharePro: an accurate and efficient genetic colocalization method accounting for multiple causal signals",
+          "year": 2023,
+          "authors": [
+            "Wenmin Zhang",
+            "Tianyuan Lu",
+            "Robert Sladek",
+            "Yue Li",
+            "Hamed S. Najafabadi",
+            "Josee Dupuis"
+          ]
+        },
+        {
+          "title": "SharePro: an accurate and efficient genetic colocalization method accounting for multiple causal signals",
+          "year": 2025,
+          "authors": [
+            "Wenmin Zhang",
+            "Tianyuan Lu",
+            "Robert Sladek",
+            "Yue Li",
+            "Hamed S. Najafabadi",
+            "Josee Dupuis"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2023.07.24.550431",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "SharePro: an accurate and efficient genetic colocalization method accounting for multiple causal signals",
+          "crossref_year": 2023
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:e0d582b74c2c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Supervised latent factor modeling isolates cell-type-specific transcriptomic modules that underlie Alzheimer's disease progression",
+      "year": 2024,
+      "authors": [
+        "Liam Hodgson",
+        "Yue Li",
+        "Yasser Iturria-Medina",
+        "Jo Anne Stratton",
+        "Guy Wolf",
+        "Smita Krishnaswamy",
+        "David A. Bennett",
+        "Danilo Bzdok"
+      ],
+      "listed_venue": "Commun Biol",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 27 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1038/s42003-024-06273-8"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Supervised latent factor modeling isolates cell-type-specific transcriptomic modules that underlie Alzheimer's disease progression",
+          "year": 2023,
+          "authors": [
+            "Liam Hodgson",
+            "Yue Li",
+            "Yasser Iturria-Medina",
+            "Jo Anne Stratton",
+            "Guy Wolf",
+            "Smita Krishnaswamy",
+            "David A. Bennett",
+            "Danilo Bzdok"
+          ]
+        },
+        {
+          "title": "Supervised latent factor modeling isolates cell-type-specific transcriptomic modules that underlie Alzheimer's disease progression",
+          "year": 2025,
+          "authors": [
+            "Liam Hodgson",
+            "Yue Li",
+            "Yasser Iturria-Medina",
+            "Jo Anne Stratton",
+            "Guy Wolf",
+            "Smita Krishnaswamy",
+            "David A. Bennett",
+            "Danilo Bzdok"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s42003-024-06273-8",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Supervised latent factor modeling isolates cell-type-specific transcriptomic modules that underlie Alzheimer’s disease progression",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:ce7c4b6421ee",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "TimelyGPT: Extrapolatable Transformer Pre-training for Long-term Time-Series Forecasting in Healthcare",
+      "year": 2024,
+      "authors": [
+        "Ziyang Song",
+        "Qincheng Lu",
+        "He Zhu",
+        "David L. Buckeridge",
+        "Yue Li"
+      ],
+      "listed_venue": "ACM BCB '24",
+      "work_types": [
+        "conference_paper",
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 15 captured 2026-10-30",
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 4 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup",
+        "grouped_2_source_records"
+      ],
+      "dois": [
+        "10.1145/3698587.3701364"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "TimelyGPT: extrapolatable transformer pre-training for long-term time-series forecasting in healthcare",
+          "year": 2025,
+          "authors": [
+            "Ziyang Song",
+            "Qincheng Lu",
+            "He Zhu",
+            "David L. Buckeridge",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "TimelyGPT: Extrapolatable Transformer Pre-training for Long-term Time-Series Forecasting in Healthcare",
+          "year": 2023,
+          "authors": [
+            "Ziyang Song",
+            "Qincheng Lu",
+            "He Zhu",
+            "David L. Buckeridge",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3698587.3701364",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "TimelyGPT: Extrapolatable Transformer Pre-training for Long-term Time-Series Forecasting in Healthcare",
+          "crossref_year": 2024
+        },
+        {
+          "doi": "10.1145/3698587.3701364",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "TimelyGPT: Extrapolatable Transformer Pre-training for Long-term Time-Series Forecasting in Healthcare",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:43e8e53a931b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "TrajGPT: Irregular Time-Series Representation Learning for Health Trajectory Analysis",
+      "year": 2024,
+      "authors": [
+        "Ziyang Song",
+        "Qincheng Lu",
+        "He Zhu",
+        "David L. Buckeridge",
+        "Yue Li"
+      ],
+      "listed_venue": "NeurIPS 2024 TSALM Workshop",
+      "work_types": [
+        "conference_paper",
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 13 captured 2026-10-30",
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 3 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "grouped_2_source_records"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "TrajGPT: Irregular Time-Series Representation Learning for Health Trajectory Analysis",
+          "year": 2025,
+          "authors": [
+            "Ziyang Song",
+            "Qincheng Lu",
+            "He Zhu",
+            "David L. Buckeridge",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "TrajGPT: Irregular Time-Series Representation Learning for Health Trajectory Analysis",
+          "year": 2023,
+          "authors": [
+            "Ziyang Song",
+            "Qincheng Lu",
+            "He Zhu",
+            "David L. Buckeridge",
+            "Yue Li"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:14e2622e165c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "A Unified Solution to Diverse Heterogeneities in One-shot Federated Learning",
+      "year": 2025,
+      "authors": [
+        "Jun Bai",
+        "Yiliao Song",
+        "Di Wu",
+        "Atul Sajjanhar",
+        "Yong Xiang",
+        "Wei Zhou",
+        "Xiaohui Tao",
+        "Yan Li",
+        "Yue Li"
+      ],
+      "listed_venue": "KDD '25",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 12 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1145/3711896.3736825"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "A Unified Solution to Diverse Heterogeneities in One-shot Federated Learning",
+          "year": 2024,
+          "authors": [
+            "Jun Bai",
+            "Yiliao Song",
+            "Di Wu",
+            "Atul Sajjanhar",
+            "Yong Xiang",
+            "Wei Zhou",
+            "Xiaohui Tao",
+            "Yan Li",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "A Unified Solution to Diverse Heterogeneities in One-shot Federated Learning",
+          "year": 2026,
+          "authors": [
+            "Jun Bai",
+            "Yiliao Song",
+            "Di Wu",
+            "Atul Sajjanhar",
+            "Yong Xiang",
+            "Wei Zhou",
+            "Xiaohui Tao",
+            "Yan Li",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1145/3711896.3736825",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "A Unified Solution to Diverse Heterogeneities in One-Shot Federated Learning",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:9409c6fb1240",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "ConvNTC: Convolutional neural tensor completion for predicting the disease-related miRNA pairs and cell-related drug pairs",
+      "year": 2025,
+      "authors": [
+        "Pei Liu",
+        "Xiao Liang",
+        "Yue Li",
+        "Jiawei Luo"
+      ],
+      "listed_venue": "Briefings in Bioinformatics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 6 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2024.10.21.619432"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "ConvNTC: Convolutional neural tensor completion for predicting the disease-related miRNA pairs and cell-related drug pairs",
+          "year": 2024,
+          "authors": [
+            "Pei Liu",
+            "Xiao Liang",
+            "Yue Li",
+            "Jiawei Luo"
+          ]
+        },
+        {
+          "title": "ConvNTC: Convolutional neural tensor completion for predicting the disease-related miRNA pairs and cell-related drug pairs",
+          "year": 2026,
+          "authors": [
+            "Pei Liu",
+            "Xiao Liang",
+            "Yue Li",
+            "Jiawei Luo"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2024.10.21.619432",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "ConvNTC: Convolutional neural tensor completion for predicting the disease-related miRNA pairs and cell-related drug pairs",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:ce4a6574aa0c",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "FedWeight: mitigating covariate shift of federated learning on electronic health records data through patients re-weighting",
+      "year": 2025,
+      "authors": [
+        "He Zhu",
+        "Jun Bai",
+        "Na Li",
+        "Xiaoxiao Li",
+        "Dianbo Liu",
+        "David Buckeridge",
+        "Yue Li"
+      ],
+      "listed_venue": "npj Digital Medicine",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 7 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2025.02.10.25322018"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "FedWeight: mitigating covariate shift of federated learning on electronic health records data through patients re-weighting",
+          "year": 2024,
+          "authors": [
+            "He Zhu",
+            "Jun Bai",
+            "Na Li",
+            "Xiaoxiao Li",
+            "Dianbo Liu",
+            "David Buckeridge",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "FedWeight: mitigating covariate shift of federated learning on electronic health records data through patients re-weighting",
+          "year": 2026,
+          "authors": [
+            "He Zhu",
+            "Jun Bai",
+            "Na Li",
+            "Xiaoxiao Li",
+            "Dianbo Liu",
+            "David Buckeridge",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2025.02.10.25322018",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "FedWeight: Mitigating Covariate Shift of Federated Learning on Electronic Health Records Data through Patients Re-weighting",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:730ca56612eb",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Harnessing Agent-Based Modeling in CellAgentChat to Unravel Cell-Cell Interactions from Single-Cell Data",
+      "year": 2025,
+      "authors": [
+        "Vishvak Raghavan",
+        "Yue Li",
+        "Jun Ding"
+      ],
+      "listed_venue": "Genome Research",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 9 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Harnessing Agent-Based Modeling in CellAgentChat to Unravel Cell-Cell Interactions from Single-Cell Data",
+          "year": 2024,
+          "authors": [
+            "Vishvak Raghavan",
+            "Yue Li",
+            "Jun Ding"
+          ]
+        },
+        {
+          "title": "Harnessing Agent-Based Modeling in CellAgentChat to Unravel Cell-Cell Interactions from Single-Cell Data",
+          "year": 2026,
+          "authors": [
+            "Vishvak Raghavan",
+            "Yue Li",
+            "Jun Ding"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:f82e81804b6f",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Single-nucleus chromatin accessibility profiling identifies cell types and functional variants contributing to major depression",
+      "year": 2025,
+      "authors": [
+        "Anjali Chawla",
+        "Doruk Cakmakci",
+        "Wenmin Zhang",
+        "Malosree Maitra",
+        "Reza Rahimian",
+        "Haruka Mitsuhashi",
+        "MA Davoli",
+        "Jenny Yang",
+        "Gary Gang Chen",
+        "Ryan Denniston",
+        "Deborah Mash",
+        "Naguib Mechawar",
+        "Matthew Suderman",
+        "Yue Li",
+        "Corina Nagy",
+        "Gustavo Turecki"
+      ],
+      "listed_venue": "Nature Genetics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 11 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1038/s41588-025-02249-4"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Single-nucleus chromatin accessibility profiling identifies cell types and functional variants contributing to major depression",
+          "year": 2024,
+          "authors": [
+            "Anjali Chawla",
+            "Doruk Cakmakci",
+            "Wenmin Zhang",
+            "Malosree Maitra",
+            "Reza Rahimian",
+            "Haruka Mitsuhashi",
+            "MA Davoli",
+            "Jenny Yang",
+            "Gary Gang Chen",
+            "Ryan Denniston",
+            "Deborah Mash",
+            "Naguib Mechawar",
+            "Matthew Suderman",
+            "Yue Li",
+            "Corina Nagy",
+            "Gustavo Turecki"
+          ]
+        },
+        {
+          "title": "Single-nucleus chromatin accessibility profiling identifies cell types and functional variants contributing to major depression",
+          "year": 2026,
+          "authors": [
+            "Anjali Chawla",
+            "Doruk Cakmakci",
+            "Wenmin Zhang",
+            "Malosree Maitra",
+            "Reza Rahimian",
+            "Haruka Mitsuhashi",
+            "MA Davoli",
+            "Jenny Yang",
+            "Gary Gang Chen",
+            "Ryan Denniston",
+            "Deborah Mash",
+            "Naguib Mechawar",
+            "Matthew Suderman",
+            "Yue Li",
+            "Corina Nagy",
+            "Gustavo Turecki"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1038/s41588-025-02249-4",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Single-nucleus chromatin accessibility profiling identifies cell types and functional variants contributing to major depression",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:d397e21f9ae7",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Source-free cross-modality medical image synthesis with diffusion priors",
+      "year": 2025,
+      "authors": [
+        "Jia Chen",
+        "Xin Wang",
+        "Jun Bai",
+        "Kai Yang",
+        "Xinrong Hu",
+        "Yue Li"
+      ],
+      "listed_venue": "J. King Saud Univ. Comput. Inf. Sci.",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 5 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1007/s44443-025-00200-5"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Source-free cross-modality medical image synthesis with diffusion priors",
+          "year": 2024,
+          "authors": [
+            "Jia Chen",
+            "Xin Wang",
+            "Jun Bai",
+            "Kai Yang",
+            "Xinrong Hu",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "Source-free cross-modality medical image synthesis with diffusion priors",
+          "year": 2026,
+          "authors": [
+            "Jia Chen",
+            "Xin Wang",
+            "Jun Bai",
+            "Kai Yang",
+            "Xinrong Hu",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1007/s44443-025-00200-5",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Source-free cross-modality medical image synthesis with diffusion priors",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:34f323b564d8",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Sparse polygenic risk score inference with the Spike-and-Slab LASSO",
+      "year": 2025,
+      "authors": [
+        "Junyi Song",
+        "Shadi Zabad",
+        "Simon Gravel",
+        "Archer Yang",
+        "Yue Li"
+      ],
+      "listed_venue": "Bioinformatics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 2 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2025.01.28.25321292"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Sparse polygenic risk score inference with the Spike-and-Slab LASSO",
+          "year": 2024,
+          "authors": [
+            "Junyi Song",
+            "Shadi Zabad",
+            "Simon Gravel",
+            "Archer Yang",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "Sparse polygenic risk score inference with the Spike-and-Slab LASSO",
+          "year": 2026,
+          "authors": [
+            "Junyi Song",
+            "Shadi Zabad",
+            "Simon Gravel",
+            "Archer Yang",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2025.01.28.25321292",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Sparse Polygenic Risk Score Inference with the Spike-and-Slab LASSO",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:c7487907186b",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "SpaTM: Topic models for inferring spatially informed transcriptional programs",
+      "year": 2025,
+      "authors": [
+        "Adrien Osakwe",
+        "Wenqi Dong",
+        "Qihuang Zhang",
+        "Robert Sladek",
+        "Yue Li"
+      ],
+      "listed_venue": "Briefings in Bioinformatics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 1 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2025.01.24.634726"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "SpaTM: Topic models for inferring spatially informed transcriptional programs",
+          "year": 2024,
+          "authors": [
+            "Adrien Osakwe",
+            "Wenqi Dong",
+            "Qihuang Zhang",
+            "Robert Sladek",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "SpaTM: Topic models for inferring spatially informed transcriptional programs",
+          "year": 2026,
+          "authors": [
+            "Adrien Osakwe",
+            "Wenqi Dong",
+            "Qihuang Zhang",
+            "Robert Sladek",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2025.01.24.634726",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "SpaTM: Topic Models for Inferring Spatially Informed Transcriptional Programs",
+          "crossref_year": 2025
+        }
+      ]
+    },
+    {
+      "evaluation_id": "bio_yue_li:dae8aefa72e2",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Towards whole-genome inference of polygenic scores with fast and memory-efficient algorithms",
+      "year": 2025,
+      "authors": [
+        "Shadi Zabad",
+        "Chirayu Anant Haryan",
+        "Simon Gravel",
+        "Sanchit Misra",
+        "Yue Li"
+      ],
+      "listed_venue": "American Journal of Human Genetics",
+      "work_types": [
+        "journal_article"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://www.cs.mcgill.ca/~yueli/publications.html entry 8 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1101/2025.01.19.633789"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Towards whole-genome inference of polygenic scores with fast and memory-efficient algorithms",
+          "year": 2024,
+          "authors": [
+            "Shadi Zabad",
+            "Chirayu Anant Haryan",
+            "Simon Gravel",
+            "Sanchit Misra",
+            "Yue Li"
+          ]
+        },
+        {
+          "title": "Towards whole-genome inference of polygenic scores with fast and memory-efficient algorithms",
+          "year": 2026,
+          "authors": [
+            "Shadi Zabad",
+            "Chirayu Anant Haryan",
+            "Simon Gravel",
+            "Sanchit Misra",
+            "Yue Li"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1101/2025.01.19.633789",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Towards whole-genome inference of polygenic scores with fast and memory-efficient algorithms",
+          "crossref_year": 2025
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

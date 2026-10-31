@@ -1,0 +1,1971 @@
+{
+  "lookups": {
+    "6d pose estimation for textureless objects on rgb frames using multi view optimization": {
+      "title": "6D Pose Estimation for Textureless Objects on RGB Frames using Multi-View Optimization",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/icra48891.2023.10160529",
+          "title": "6D Pose Estimation for Textureless Objects on RGB Frames using Multi-View Optimization",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE International Conference on Robotics and Automation (ICRA)",
+          "family_names": [
+            "Yang",
+            "Xue",
+            "Ghavidel",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.1177/02783649251411922",
+          "title": "Active 6D pose estimation for textureless objects using multi-view RGB frames",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "The International Journal of Robotics Research",
+          "family_names": [
+            "Yang",
+            "Xue",
+            "Ghavidel",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.1109/icra57385.2026.11696557",
+          "title": "DKPMV: Dense Keypoints Fusion from Multi-View RGB Frames for 6D Pose Estimation of Textureless Objects",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "2026 IEEE International Conference on Robotics and Automation (ICRA)",
+          "family_names": [
+            "Chen",
+            "Wang",
+            "Wang",
+            "Wang",
+            "Guan",
+            "Yu"
+          ]
+        },
+        {
+          "doi": "10.1109/iros47612.2022.9982268",
+          "title": "MV6D: Multi-View 6D Pose Estimation on RGB-D Frames Using a Deep Point-wise Voting Network",
+          "year": 2022,
+          "type": "proceedings-article",
+          "container": "2022 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+          "family_names": [
+            "Duffhauss",
+            "Demmler",
+            "Neumann"
+          ]
+        },
+        {
+          "doi": "10.3390/s20185098",
+          "title": "Marker-Less 3d Object Recognition and 6d Pose Estimation for Homogeneous Textureless Objects: An RGB-D Approach",
+          "year": 2020,
+          "type": "journal-article",
+          "container": "Sensors",
+          "family_names": [
+            "Hajari",
+            "Lugo Bustillo",
+            "Sharma",
+            "Cheng"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:36:51.531889+00:00"
+    },
+    "active pose refinement for textureless shiny objects using the structured light camera": {
+      "title": "Active Pose Refinement for Textureless Shiny Objects using the Structured Light Camera",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1109/iros58592.2024.10801300",
+          "title": "Active Pose Refinement for Textureless Shiny Objects using the Structured Light Camera",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+          "family_names": [
+            "Yang",
+            "Yao",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.1109/iros.2012.6385680",
+          "title": "6D pose estimation of textureless shiny objects using random ferns for bin-picking",
+          "year": 2012,
+          "type": "proceedings-article",
+          "container": "2012 IEEE/RSJ International Conference on Intelligent Robots and Systems",
+          "family_names": [
+            "Rodrigues",
+            "Kim",
+            "Furukawa",
+            "Xavier",
+            "Aguiar",
+            "Kanade"
+          ]
+        },
+        {
+          "doi": "10.21203/rs.3.rs-8317802/v1",
+          "title": "SO6D: Symmetry-aware Octree Encoding for Textureless Objects’ 6D Pose Estimation",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Wu",
+            "Shi",
+            "Huang"
+          ]
+        },
+        {
+          "doi": "10.1177/02783649251411922",
+          "title": "Active 6D pose estimation for textureless objects using multi-view RGB frames",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "The International Journal of Robotics Research",
+          "family_names": [
+            "Yang",
+            "Xue",
+            "Ghavidel",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.1109/icpr.2010.201",
+          "title": "A Color Invariant Based Binary Coded Structured Light Range Scanner for Shiny Objects",
+          "year": 2010,
+          "type": "proceedings-article",
+          "container": "2010 20th International Conference on Pattern Recognition",
+          "family_names": [
+            "Benveniste",
+            "Unsalan"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:36:51.627381+00:00"
+    },
+    "dense voxel fusion for 3d object detection": {
+      "title": "Dense Voxel Fusion for 3D Object Detection",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/robio64047.2024.10907310",
+          "title": "SDVRF: Sparse-to-Dense Voxel Region Fusion for Multi-Modal 3D Object Detection",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE International Conference on Robotics and Biomimetics (ROBIO)",
+          "family_names": [
+            "Ren",
+            "Yin"
+          ]
+        },
+        {
+          "doi": "10.1109/wacv56688.2023.00073",
+          "title": "Dense Voxel Fusion for 3D Object Detection",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+          "family_names": [
+            "Mahmoud",
+            "Hu",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.23919/ccc58697.2023.10240949",
+          "title": "Point-Voxel Fusion for 3D Object Detection",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 42nd Chinese Control Conference (CCC)",
+          "family_names": [
+            "Wu",
+            "Liu",
+            "Xue",
+            "Zhuang"
+          ]
+        },
+        {
+          "doi": "10.3390/app11125598",
+          "title": "Radar Voxel Fusion for 3D Object Detection",
+          "year": 2021,
+          "type": "journal-article",
+          "container": "Applied Sciences",
+          "family_names": [
+            "Nobis",
+            "Shafiei",
+            "Karle",
+            "Betz",
+            "Lienkamp"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.5518546",
+          "title": "Beyond Pillars: Advancing 3D Object Detection with Salient Voxel Enhancement of LiDAR-4D Radar Fusion",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Yang",
+            "Wu",
+            "Liu",
+            "Zhong",
+            "Zhou"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:36:52.750155+00:00"
+    },
+    "distillnerf perceiving 3d scenes from single glance images by distilling neural fields and foundation model features": {
+      "title": "DistillNeRF: Perceiving 3D Scenes from Single-Glance Images by Distilling Neural Fields and Foundation Model Features",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.52202/079017-1992",
+          "title": "DistillNeRF: Perceiving 3D Scenes from Single-Glance Images by Distilling Neural Fields and Foundation Model Features",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 37",
+          "family_names": [
+            "Wang",
+            "Kim",
+            "Yang",
+            "Yu",
+            "Ivanovic",
+            "Waslander",
+            "Wang",
+            "Fidler",
+            "Pavone",
+            "Karkus"
+          ]
+        },
+        {
+          "doi": "10.5220/0013233600003912",
+          "title": "Learning Neural Velocity Fields from Dynamic 3D Scenes via Edge-Aware Ray Sampling",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 20th International Joint Conference on Computer Vision, Imaging and Computer Graphics Theory and Applications",
+          "family_names": [
+            "Ito",
+            "Hayashi",
+            "Aizawa",
+            "Kato"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.5234774",
+          "title": "Or-Nerf: Object Removing from 3d Scenes Guided by Multiview Segmentation with Neural Radiance Fields",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Yin",
+            "Fu",
+            "Yang",
+            "Lin"
+          ]
+        },
+        {
+          "doi": "10.3390/math11020403",
+          "title": "Object-Aware 3D Scene Reconstruction from Single 2D Images of Indoor Scenes",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "Mathematics",
+          "family_names": [
+            "Wen",
+            "Cho"
+          ]
+        },
+        {
+          "doi": "10.1016/j.biosystemseng.2025.104319",
+          "title": "3D reconstruction of orchard scenes based on UAV images and neural radiance fields",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "Biosystems Engineering",
+          "family_names": [
+            "Chen",
+            "Cao",
+            "An",
+            "Li",
+            "Bai",
+            "Xu"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:36:53.957965+00:00"
+    },
+    "efficient reinforcement learning for autonomous driving with parameterized skills and priors": {
+      "title": "Efficient Reinforcement Learning for Autonomous Driving with Parameterized Skills and Priors",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.15607/rss.2023.xix.102",
+          "title": "Efficient Reinforcement Learning for Autonomous Driving with Parameterized Skills and Priors",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "Robotics: Science and Systems XIX",
+          "family_names": [
+            "Wang",
+            "Liu",
+            "Shao",
+            "Wang",
+            "Chen",
+            "Liu",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.1109/cvci66304.2025.11348171",
+          "title": "Reinforcement Learning with Skills and Expert Priors for Autonomous Driving Decision-Making",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 9th CAA International Conference on Vehicular Control and Intelligence (CVCI)",
+          "family_names": [
+            "Chen",
+            "Ren",
+            "Li",
+            "Li"
+          ]
+        },
+        {
+          "doi": "10.70675/be8afdb3zd53dz4900z8a5dzfb79ab926190",
+          "title": "Safe and Efficient Reinforcement Learning for decision-making in Autonomous Driving",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Leurent"
+          ]
+        },
+        {
+          "doi": "10.1109/tnnls.2022.3142822",
+          "title": "Efficient Deep Reinforcement Learning With Imitative Expert Priors for Autonomous Driving",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "IEEE Transactions on Neural Networks and Learning Systems",
+          "family_names": [
+            "Huang",
+            "Wu",
+            "Lv"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.5732153",
+          "title": "Image state representations for efficient reinforcement 2 learning in autonomous driving: a comparative study",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Ahn",
+            "Gu",
+            "Kwon"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:36:54.101459+00:00"
+    },
+    "estimating regression predictive distributions with sample networks": {
+      "title": "Estimating Regression Predictive Distributions with Sample Networks",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1609/aaai.v37i6.25948",
+          "title": "Estimating Regression Predictive Distributions with Sample Networks",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "Proceedings of the AAAI Conference on Artificial Intelligence",
+          "family_names": [
+            "Harakeh",
+            "Hu",
+            "Guan",
+            "Waslander",
+            "Paull"
+          ]
+        },
+        {
+          "doi": "10.65286/icic.v21i2.10538",
+          "title": "DDN-GP: Estimating Regression Predictive Distributions with Missing Data",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Poster Volume Ⅱ  The 2025 Twenty-First International  Conference on Intelligent Computing July 26-29, 2025  Ningbo, China",
+          "family_names": [
+            "庞"
+          ]
+        },
+        {
+          "doi": "10.66573/001c.141999",
+          "title": "Estimating Predictive Distributions for Loss Reserve Models",
+          "year": 2007,
+          "type": "journal-article",
+          "container": "Variance",
+          "family_names": [
+            "Meyers"
+          ]
+        },
+        {
+          "doi": "10.32614/cran.package.pmsesampling",
+          "title": "pmsesampling: Sample Size Determination for Accurate Predictive Linear Regression",
+          "year": 2025,
+          "type": "dataset",
+          "container": "CRAN: Contributed Packages",
+          "family_names": [
+            "Chen",
+            "Wu"
+          ]
+        },
+        {
+          "doi": "10.1007/978-3-662-11592-3_4",
+          "title": "Quantile regression with sample selection: Estimating women’s return to education in the U.S.",
+          "year": 2002,
+          "type": "book-chapter",
+          "container": "Economic Applications of Quantile Regression",
+          "family_names": [
+            "Buchinsky"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:36:57.225282+00:00"
+    },
+    "foresight multi view streaming joint object detection and trajectory forecasting": {
+      "title": "ForeSight: Multi-View Streaming Joint Object Detection and Trajectory Forecasting",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/iccv51701.2025.02363",
+          "title": "ForeSight: Multi-View Streaming Joint Object Detection and Trajectory Forecasting",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Papais",
+            "Wang",
+            "Cheong",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.5220/0008991104520461",
+          "title": "A New Approach Combining Trained Single-view Networks with Multi-view Constraints for Robust Multi-view Object Detection and Labelling",
+          "year": 2020,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 15th International Joint Conference on Computer Vision, Imaging and Computer Graphics Theory and Applications",
+          "family_names": [
+            "Zhang",
+            "Hilton",
+            "Guillemaut"
+          ]
+        },
+        {
+          "doi": "10.5220/0006136802030207",
+          "title": "Multi-view ToF Fusion for Object Detection in Industrial Applications",
+          "year": 2017,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 12th International Joint Conference on Computer Vision, Imaging and Computer Graphics Theory and Applications",
+          "family_names": [
+            "Coudron",
+            "Goedemé"
+          ]
+        },
+        {
+          "doi": "10.1109/lra.2024.3518844/mm1",
+          "title": "StreamMOS: Streaming Moving Object Segmentation with Multi-View Perception and Dual-Span Memory_supp1-3518844.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Fang"
+          ]
+        },
+        {
+          "doi": "10.3724/sp.j.1004.2008.00609",
+          "title": "Object Occupancy Probabilistic Field Based Multi-view Moving Object Detection and Correspondence",
+          "year": 2008,
+          "type": "journal-article",
+          "container": "Acta Automatica Sinica",
+          "family_names": [
+            "XU"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:36:57.350023+00:00"
+    },
+    "gradient based maximally interfered retrieval for domain adaptive 3d object detection": {
+      "title": "Gradient-based Maximally Interfered Retrieval for Domain Adaptive 3D Object Detection",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/crv60082.2023.00046",
+          "title": "Gradient-Based Maximally Interfered Retrieval for Domain Incremental 3D Object Detection",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 20th Conference on Robots and Vision (CRV)",
+          "family_names": [
+            "Nisar",
+            "Kanna Anand",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.70675/5c4aa778zb973z4b4fz81f0z215f0be6457b",
+          "title": "LiDAR-based domain generalization and unknown 3D object detection",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Soum-Fontez"
+          ]
+        },
+        {
+          "doi": "10.1145/3805622.3810744",
+          "title": "AF-BEV: Object-Aware Adaptive Frustum-based BEV Aggregation for 3D Object Detection",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 2026 International Conference on Multimedia Retrieval",
+          "family_names": [
+            "Zhu",
+            "Yu",
+            "Wang",
+            "Xiao",
+            "Jiang"
+          ]
+        },
+        {
+          "doi": "10.1007/springerreference_63296",
+          "title": "Feature-Based 3D Object Retrieval",
+          "year": null,
+          "type": "reference-entry",
+          "container": "SpringerReference",
+          "family_names": []
+        },
+        {
+          "doi": "10.2196/preprints.114327",
+          "title": "Domain-Adaptive Underwater Object Detection and Temporal Tracking for ROV-Based Debris Monitoring (Preprint)",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "S"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:00.603767+00:00"
+    },
+    "hypermodest self supervised 3d object detection with confidence score filtering": {
+      "title": "HyperMODEST: Self-Supervised 3D Object Detection with Confidence Score Filtering",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/crv60082.2023.00035",
+          "title": "HyperMODEST: Self-Supervised 3D Object Detection with Confidence Score Filtering",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 20th Conference on Robots and Vision (CRV)",
+          "family_names": [
+            "Xu",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.1109/lra.2022.3187496",
+          "title": "ATF-3D: Semi-Supervised 3D Object Detection With Adaptive Thresholds Filtering Based on Confidence and Distance",
+          "year": 2022,
+          "type": "journal-article",
+          "container": "IEEE Robotics and Automation Letters",
+          "family_names": [
+            "Zhang",
+            "Ji",
+            "Cui",
+            "Wang",
+            "Li",
+            "Zhao",
+            "Li",
+            "Tang",
+            "Yang",
+            "Tan",
+            "Pu"
+          ]
+        },
+        {
+          "doi": "10.70675/308e93b7z59d2z4ebfz9423z86a206c816a1",
+          "title": "Self-supervised learning of object-centric representations with multi-object detection and segmentation",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Sauvalle"
+          ]
+        },
+        {
+          "doi": "10.1117/12.3039058",
+          "title": "Self-supervised masked occupancy encoder for 3D object detection",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Fourth International Conference on Optics and Image Processing (ICOIP 2024)",
+          "family_names": [
+            "Li"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.5230657",
+          "title": "Disentangled Self-Supervised Video Camouflaged Object Detection and Salient Object Detection",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Xiao",
+            "Tang",
+            "Li",
+            "Luo",
+            "Li"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:00.746713+00:00"
+    },
+    "image to lidar relational distillation for autonomous driving data": {
+      "title": "Image-to-Lidar Relational Distillation for Autonomous Driving Data",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1007/978-3-031-73033-7_26",
+          "title": "Image-to-Lidar Relational Distillation for Autonomous Driving Data",
+          "year": 2024,
+          "type": "book-chapter",
+          "container": "Lecture Notes in Computer Science",
+          "family_names": [
+            "Mahmoud",
+            "Harakeh",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.1109/cvpr52688.2022.00966",
+          "title": "Image-to-Lidar Self-Supervised Distillation for Autonomous Driving Data",
+          "year": 2022,
+          "type": "proceedings-article",
+          "container": "2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Sautier",
+            "Puy",
+            "Gidaris",
+            "Boulch",
+            "Bursuc",
+            "Marlet"
+          ]
+        },
+        {
+          "doi": "10.1109/icip40778.2020.9191134",
+          "title": "3d Object Detection For Autonomous Driving Using Temporal Lidar Data",
+          "year": 2020,
+          "type": "proceedings-article",
+          "container": "2020 IEEE International Conference on Image Processing (ICIP)",
+          "family_names": [
+            "McCrae",
+            "Zakhor"
+          ]
+        },
+        {
+          "doi": "10.17760/d20581908",
+          "title": "Review of lidar-image sensor fusion methods in 3D object detection and the experiment of camera-lidar fusion in autonomous driving",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Tufekci"
+          ]
+        },
+        {
+          "doi": "10.1088/978-0-7503-3723-6ch1",
+          "title": "LiDAR's role in autonomous driving",
+          "year": 2023,
+          "type": "book-chapter",
+          "container": "ToF LiDAR for Autonomous Driving",
+          "family_names": [
+            "Wei"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:00.887509+00:00"
+    },
+    "intertrack interaction transformer for 3d multi object tracking": {
+      "title": "Intertrack: Interaction transformer for 3d multi-object tracking",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/crv60082.2023.00017",
+          "title": "InterTrack: Interaction Transformer for 3D Multi-Object Tracking",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 20th Conference on Robots and Vision (CRV)",
+          "family_names": [
+            "Willes",
+            "Reading",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.1109/3dv66043.2025.00135",
+          "title": "InterTrack: Tracking Human Object Interaction Without Object Templates",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 International Conference on 3D Vision (3DV)",
+          "family_names": [
+            "Xie",
+            "Lenssen",
+            "Pons-Moll"
+          ]
+        },
+        {
+          "doi": "10.5220/0014292200004084",
+          "title": "FutrTrack: A Camera-LiDAR Fusion Transformer for 3D Multiple Object Tracking",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 21st International Conference on Computer Vision Theory and Applications",
+          "family_names": [
+            "Teye",
+            "Maoz",
+            "Rottmann"
+          ]
+        },
+        {
+          "doi": "10.3390/machines14050472",
+          "title": "Adaptive Multi-Level 3D Multi-Object Tracking with Transformer-Based Association and Scene-Aware Thresholds for Autonomous Driving",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Machines",
+          "family_names": [
+            "Zhang",
+            "Da",
+            "Zhou"
+          ]
+        },
+        {
+          "doi": "10.1109/iccv51070.2023.00897",
+          "title": "3DMOTFormer: Graph Transformer for Online 3D Multi-Object Tracking",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Ding",
+            "Rehder",
+            "Schneider",
+            "Cordts",
+            "Gall"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:02.088133+00:00"
+    },
+    "jdt3d addressing the gaps in lidar based tracking by attention": {
+      "title": "JDT3D: Addressing the Gaps in LiDAR-Based Tracking-by-Attention",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1007/978-3-031-72848-8_10",
+          "title": "JDT3D: Addressing the Gaps in LiDAR-Based Tracking-by-Attention",
+          "year": 2024,
+          "type": "book-chapter",
+          "container": "Lecture Notes in Computer Science",
+          "family_names": [
+            "Cheong",
+            "Zhou",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.57740/w4gxizj",
+          "title": "Addressing pediatric healthcare gaps through targeted competency-based training",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Addressing pediatric healthcare gaps through targeted competency-based training",
+          "family_names": [
+            "Morante Nabieu",
+            "Dufes",
+            "Siegel",
+            "Goossens"
+          ]
+        },
+        {
+          "doi": "10.57740/nxijih8i",
+          "title": "Addressing pediatric healthcare gaps through targeted competency-based training",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Addressing pediatric healthcare gaps through targeted competency-based training",
+          "family_names": [
+            "Morante Nabieu",
+            "Dufes",
+            "Siegel",
+            "Goossens"
+          ]
+        },
+        {
+          "doi": "10.7176/jhmn/119-01",
+          "title": "Parenting Styles and Attention-Deficit/Hyperactivity Disorder: Addressing Research Gaps in Developmental Psychology Within the USA",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "Journal of Health, Medicine and Nursing",
+          "family_names": []
+        },
+        {
+          "doi": "10.32657/10356/174239",
+          "title": "LiDAR-based 3D object detection and tracking for autonomous driving",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Luo"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:03.464486+00:00"
+    },
+    "lmdrive closed loop end to end driving with large language models": {
+      "title": "LMDrive: Closed-Loop End-to-End Driving with Large Language Models",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52733.2024.01432",
+          "title": "LMDrive: Closed-Loop End-to-End Driving with Large Language Models",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Shao",
+            "Hu",
+            "Wang",
+            "Song",
+            "Waslander",
+            "Liu",
+            "Li"
+          ]
+        },
+        {
+          "doi": "10.1109/tvt.2026.3739504",
+          "title": "IDR: Lightweight Vision Language Models Via Imitating, Distilling and Reinforcing for Closed-Loop End-to-End Driving",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "IEEE Transactions on Vehicular Technology",
+          "family_names": [
+            "Li",
+            "Hu",
+            "Yuan",
+            "Gao",
+            "Zhao",
+            "Gao"
+          ]
+        },
+        {
+          "doi": "10.1109/iros58592.2024.10801870",
+          "title": "LeGo-Drive: Language-enhanced Goal-oriented Closed-Loop End-to-End Autonomous Driving",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+          "family_names": [
+            "Paul",
+            "Garg",
+            "Choudhary",
+            "Singh",
+            "Krishna"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.6218524",
+          "title": "RiskMatrix-3D: Dual-Risk Controllable Closed-Loop Testing for End-to-End Autonomous Driving Based on 3D Gaussian Splatting",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Xie",
+            "Shi",
+            "Sun",
+            "Sun"
+          ]
+        },
+        {
+          "doi": "10.5302/j.icros.2026.26.0152",
+          "title": "Closed-loop Performance Analysis of end-to-end Autonomous Driving Models by Rendering Fidelity: An AlpaSim 3DGS Evaluation",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Journal of Institute of Control, Robotics and Systems",
+          "family_names": [
+            "Oh",
+            "Hong"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:04.624189+00:00"
+    },
+    "large self supervised models bridge the gap in domain adaptive object detection": {
+      "title": "Large Self-Supervised Models Bridge the Gap in Domain Adaptive Object Detection",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52734.2025.00442",
+          "title": "Large Self-Supervised Models Bridge the Gap in Domain Adaptive Object Detection",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Lavoie",
+            "Mahmoud",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.1109/tpami.2023.3290135/mm1",
+          "title": "Domain Adaptive Object Detection via Balancing between Self-Training and Adversarial Learning_supp1-3290135.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Ali"
+          ]
+        },
+        {
+          "doi": "10.5220/0014542000005024",
+          "title": "Domain-Adaptive Large Language Models for Fake News &amp; Misinformation Detection",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 1st International Conference on Computational and Cognitive Systems Science",
+          "family_names": [
+            "R",
+            "S"
+          ]
+        },
+        {
+          "doi": "10.1016/j.array.2021.100071",
+          "title": "Generative and self-supervised domain adaptation for one-stage object detection",
+          "year": 2021,
+          "type": "journal-article",
+          "container": "Array",
+          "family_names": [
+            "Fujii",
+            "Kawamoto"
+          ]
+        },
+        {
+          "doi": "10.3390/s26010045",
+          "title": "Source-Free Domain-Adaptive Semi-Supervised Learning for Object Detection in CCTV Images",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "Sensors",
+          "family_names": [
+            "Shin",
+            "Kim"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:04.758111+00:00"
+    },
+    "multi view 3d object reconstruction and uncertainty modelling with neural shape prior": {
+      "title": "Multi-view 3D Object Reconstruction and Uncertainty Modelling with Neural Shape Prior",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1109/wacv57701.2024.00307",
+          "title": "Multi-view 3D Object Reconstruction and Uncertainty Modelling with Neural Shape Prior",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+          "family_names": [
+            "Liao",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.1109/3dv50981.2020.00105",
+          "title": "NodeSLAM: Neural Object Descriptors for Multi-View Shape Reconstruction",
+          "year": 2020,
+          "type": "proceedings-article",
+          "container": "2020 International Conference on 3D Vision (3DV)",
+          "family_names": [
+            "Sucar",
+            "Wada",
+            "Davison"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.4968850",
+          "title": "Semi-Supervised Single-View 3d Reconstruction Via Multi Shape Prior Fusion Strategy and Self-Attention",
+          "year": 2024,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Zhou",
+            "Shi",
+            "She",
+            "Liu",
+            "Zhang"
+          ]
+        },
+        {
+          "doi": "10.1016/j.neunet.2023.07.037",
+          "title": "MSSPA-GC: Multi-Scale Shape Prior Adaptation with 3D Graph Convolutions for Category-Level Object Pose Estimation",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "Neural Networks",
+          "family_names": [
+            "Zou",
+            "Huang",
+            "Gu",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1016/j.cag.2024.104142",
+          "title": "Semi-supervised single-view 3D reconstruction via multi shape prior fusion strategy and self-attention",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "Computers &amp; Graphics",
+          "family_names": [
+            "Zhou",
+            "Shi",
+            "She",
+            "Liu",
+            "Zhang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:04.855769+00:00"
+    },
+    "multiple view geometry transformers for 3d human pose estimation": {
+      "title": "Multiple View Geometry Transformers for 3D Human Pose Estimation",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52733.2024.00074",
+          "title": "Multiple View Geometry Transformers for 3D Human Pose Estimation",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Liao",
+            "Zhu",
+            "Wang",
+            "Hu",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.1109/fg52635.2021.9667074",
+          "title": "Self-Supervised 3D Human Pose Estimation with Multiple-View Geometry",
+          "year": 2021,
+          "type": "proceedings-article",
+          "container": "2021 16th IEEE International Conference on Automatic Face and Gesture Recognition (FG 2021)",
+          "family_names": [
+            "Bouazizi",
+            "Wiederer",
+            "Kressel",
+            "Belagiannis"
+          ]
+        },
+        {
+          "doi": "10.1109/fg59268.2024.10581862",
+          "title": "Uncalibrated Multi-view 3D Human Pose Estimation with Geometry Driven Attention",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE 18th International Conference on Automatic Face and Gesture Recognition (FG)",
+          "family_names": [
+            "Galizzi",
+            "Luvison"
+          ]
+        },
+        {
+          "doi": "10.70675/9feb0e78z952fz45bcza8b8zeec1a37fd5e7",
+          "title": "3D geometry-based neural camera pose estimation",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Germain"
+          ]
+        },
+        {
+          "doi": "10.1109/icpr.2018.8545631",
+          "title": "3D Human Pose Estimation from Deep Multi-View 2D Pose",
+          "year": 2018,
+          "type": "proceedings-article",
+          "container": "2018 24th International Conference on Pattern Recognition (ICPR)",
+          "family_names": [
+            "Schwarcz",
+            "Pollard"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:08.014430+00:00"
+    },
+    "next best view selection for robot eye in hand calibration": {
+      "title": "Next-Best-View Selection for Robot Eye-in-Hand Calibration",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/crv60082.2023.00028",
+          "title": "Next-Best-View Selection for Robot Eye-in-Hand Calibration",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 20th Conference on Robots and Vision (CRV)",
+          "family_names": [
+            "Yang",
+            "Rebello",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.1007/s00371-021-02336-7",
+          "title": "Active hand-eye calibration via online accuracy-driven next-best-view selection",
+          "year": 2022,
+          "type": "journal-article",
+          "container": "The Visual Computer",
+          "family_names": [
+            "Zhang",
+            "Xi",
+            "Huang",
+            "Zheng",
+            "Huang",
+            "Xiong",
+            "Xu"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.5044689",
+          "title": "A Data-Efficient and General-Purpose Hand-Eye Calibration Method for Robotic Systems Using Next Best View",
+          "year": 2024,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Yi",
+            "liu",
+            "Lin",
+            "Yan",
+            "Wang",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1016/j.aei.2025.103432",
+          "title": "A data-efficient and general-purpose hand–eye calibration method for robotic systems using next best view",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "Advanced Engineering Informatics",
+          "family_names": [
+            "Yi",
+            "Liu",
+            "Lin",
+            "Yan",
+            "Wang",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1201/9781315138725-8",
+          "title": "Robotic Hand/Eye Calibration",
+          "year": 2018,
+          "type": "book-chapter",
+          "container": "Camera-Aided Robot Calibration",
+          "family_names": [
+            "Zhuang",
+            "Roth"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:08.166397+00:00"
+    },
+    "opennav open world navigation with multimodal large language models": {
+      "title": "OpenNav: Open-World Navigation with Multimodal Large Language Models",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/iros60139.2025.11247593",
+          "title": "OpenNav: Open-World Navigation with Multimodal Large Language Models",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+          "family_names": [
+            "Yuan",
+            "Wang",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.1109/tcsvt.2026.3742245/mm1",
+          "title": "PhyBOT: Physical-Aware Embodied Agents with Multimodal Large Language Models for Open-World Task Execution_supp1-3742245.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.6176720",
+          "title": "Vision–Language Foundation Models and Multimodal Large Language Models: A Comprehensive Survey of Architectures, Benchmarks, and Open Challenges",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Singh"
+          ]
+        },
+        {
+          "doi": "10.20944/preprints202602.0467.v1",
+          "title": "Vision–Language Foundation Models and Multimodal Large Language Models: A Comprehensive Survey of Architectures, Benchmarks, and Open Challenges",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Singh"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.5491422",
+          "title": "EMKG-VLN: Embodied Multimodal Knowledge Graph Vision-Language Model for Open-World Navigation",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "li",
+            "Liu",
+            "Li",
+            "HAN"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:09.425181+00:00"
+    },
+    "pov slam probabilistic object aware variational slam in semi static environments": {
+      "title": "POV-SLAM: Probabilistic Object-Aware Variational SLAM in Semi-Static Environments",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.15607/rss.2023.xix.069",
+          "title": "POV-SLAM: Probabilistic Object-Aware Variational SLAM in Semi-Static Environments",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "Robotics: Science and Systems XIX",
+          "family_names": [
+            "Qian",
+            "Chatrath",
+            "Servos",
+            "Mavrinac",
+            "Burgard",
+            "Waslander",
+            "Schoellig"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.7032459",
+          "title": "SeFeO-SLAM: Low-Light Dynamic Feature-Aware Visual SLAM for Underground Environments Based on Object Detection and Geometric Optimization",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Ma",
+            "zhang",
+            "Shi",
+            "Shu",
+            "Du",
+            "Guo",
+            "Shi",
+            "Yu"
+          ]
+        },
+        {
+          "doi": "10.1109/inista55318.2022.9894245",
+          "title": "Object Aware RGBD SLAM in Dynamic Environments",
+          "year": 2022,
+          "type": "proceedings-article",
+          "container": "2022 International Conference on INnovations in Intelligent SysTems and Applications (INISTA)",
+          "family_names": [
+            "Gokcen",
+            "Uslu"
+          ]
+        },
+        {
+          "doi": "10.1109/cac59555.2023.10451728",
+          "title": "DOR-SLAM: A Visual SLAM Based on Dynamic Object Removal for Dynamic Environments",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 China Automation Congress (CAC)",
+          "family_names": [
+            "Liao",
+            "Yin"
+          ]
+        },
+        {
+          "doi": "10.1109/icra.2019.8794111",
+          "title": "A Variational Observation Model of 3D Object for Probabilistic Semantic SLAM",
+          "year": 2019,
+          "type": "proceedings-article",
+          "container": "2019 International Conference on Robotics and Automation (ICRA)",
+          "family_names": [
+            "Yu",
+            "Moon",
+            "Lee"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:09.515759+00:00"
+    },
+    "psa ssl pose and size aware self supervised learning for 3d point clouds": {
+      "title": "PSA-SSL: Pose and Size-Aware Self-Supervised Learning for 3D Point Clouds",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52734.2025.00625",
+          "title": "PSA-SSL: Pose and Size-aware Self-Supervised Learning on LiDAR Point Clouds",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Nisar",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.1109/tpami.2025.3584625/mm1",
+          "title": "Self-Supervised Learning of LiDAR 3D Point Clouds Via 2D-3D Neural Calibration_supp1-3584625.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Hou"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.6168355",
+          "title": "SARL: Structure-Aware Representation Learning for 3D Human Pose Estimation from Point Clouds",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Chen",
+            "Wang",
+            "Du",
+            "Liu"
+          ]
+        },
+        {
+          "doi": "10.1016/j.patcog.2026.113570",
+          "title": "SARL: Structure-aware representation learning for 3D human pose estimation from point clouds",
+          "year": 2026,
+          "type": "journal-article",
+          "container": "Pattern Recognition",
+          "family_names": [
+            "Chen",
+            "Wang",
+            "Du",
+            "Liu"
+          ]
+        },
+        {
+          "doi": "10.1109/aiotc71250.2026.11689316",
+          "title": "Topology-Aware Self-Supervised Pose Estimation for Sparse mmWave Point Clouds",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "2026 5th International Conference on Artificial Intelligence, Internet of Things and Cloud Computing Technology (AIoTC)",
+          "family_names": [
+            "Liu",
+            "Ye",
+            "Huang",
+            "Tang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:10.670390+00:00"
+    },
+    "propandl a modular architecture for uncertainty aware panoptic segmentation": {
+      "title": "ProPanDL: A Modular Architecture for Uncertainty-Aware Panoptic Segmentation",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/crv60082.2023.00025",
+          "title": "ProPanDL: A Modular Architecture for Uncertainty-Aware Panoptic Segmentation",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 20th Conference on Robots and Vision (CRV)",
+          "family_names": [
+            "Deery",
+            "Lee",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.1109/icra48891.2023.10160355",
+          "title": "Uncertainty-aware LiDAR Panoptic Segmentation",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE International Conference on Robotics and Automation (ICRA)",
+          "family_names": [
+            "Sirohi",
+            "Marvi",
+            "Büscher",
+            "Burgard"
+          ]
+        },
+        {
+          "doi": "10.1109/ccdc69976.2026.11559923",
+          "title": "PanoDINO: Self-Supervised Boundary-Aware Panoptic Segmentation via Hierarchical and Uncertainty Fusion",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "2026 38th Chinese Control and Decision Conference (CCDC)",
+          "family_names": [
+            "Liu",
+            "Jin"
+          ]
+        },
+        {
+          "doi": "10.1109/lra.2023.3256926",
+          "title": "Uncertainty-Aware Panoptic Segmentation",
+          "year": 2023,
+          "type": "journal-article",
+          "container": "IEEE Robotics and Automation Letters",
+          "family_names": [
+            "Sirohi",
+            "Marvi",
+            "Büscher",
+            "Burgard"
+          ]
+        },
+        {
+          "doi": "10.1109/iros60139.2025.11245993",
+          "title": "Open-Set LiDAR Panoptic Segmentation Guided by Uncertainty-Aware Learning",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+          "family_names": [
+            "Mohan",
+            "Hindel",
+            "Drews",
+            "Gläser",
+            "Cattaneo",
+            "Valada"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:10.916360+00:00"
+    },
+    "reasonnet end to end driving with temporal and global reasoning": {
+      "title": "ReasonNet: End-to-End Driving with Temporal and Global Reasoning",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52729.2023.01319",
+          "title": "ReasonNet: End-to-End Driving with Temporal and Global Reasoning",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Shao",
+            "Wang",
+            "Chen",
+            "Waslander",
+            "Li",
+            "Liu"
+          ]
+        },
+        {
+          "doi": "10.31979/etd.93et-86vy",
+          "title": "END-TO-END LEARNING UTILIZING TEMPORAL INFORMATION FOR VISION- BASED AUTONOMOUS DRIVING",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Guo"
+          ]
+        },
+        {
+          "doi": "10.5220/0012242900003543",
+          "title": "Thorough Analysis and Reasoning of Environmental Factors on End-to-End Driving in Pedestrian Zones",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 20th International Conference on Informatics in Control, Automation and Robotics",
+          "family_names": [
+            "Jan",
+            "Khan",
+            "Berns"
+          ]
+        },
+        {
+          "doi": "10.1109/icccs57501.2023.10151280",
+          "title": "Spatial-Temporal Multimodal End-to-End Autonomous Driving",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 8th International Conference on Computer and Communication Systems (ICCCS)",
+          "family_names": [
+            "Yang",
+            "Lei"
+          ]
+        },
+        {
+          "doi": "10.1109/iccv51701.2025.02579",
+          "title": "ReAL-AD: Towards Human-Like Reasoning in End-to-End Autonomous Driving",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE/CVF International Conference on Computer Vision (ICCV)",
+          "family_names": [
+            "Lu",
+            "Tu",
+            "Ma",
+            "Zhu"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:12.035841+00:00"
+    },
+    "swtrack multiple hypothesis sliding window 3d multi object tracking": {
+      "title": "SWTrack: Multiple Hypothesis Sliding Window 3D Multi-Object Tracking",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1109/icra57147.2024.10611067",
+          "title": "SWTrack: Multiple Hypothesis Sliding Window 3D Multi-Object Tracking",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE International Conference on Robotics and Automation (ICRA)",
+          "family_names": [
+            "Papais",
+            "Ren",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.1109/icra55743.2025.11127329",
+          "title": "LMH-MOT : A Light Multiple Hypothesis Framework for 3D Multi-Object Tracking",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "2025 IEEE International Conference on Robotics and Automation (ICRA)",
+          "family_names": [
+            "Yuan",
+            "Yang"
+          ]
+        },
+        {
+          "doi": "10.1007/978-3-030-61191-0_5",
+          "title": "Multi-Bernoulli Mixture and Multiple Hypothesis Tracking Filters",
+          "year": 2020,
+          "type": "book-chapter",
+          "container": "Analytic Combinatorics for Multiple Object Tracking",
+          "family_names": [
+            "Streit",
+            "Angle",
+            "Efe"
+          ]
+        },
+        {
+          "doi": "10.1109/icce-taiwan62264.2024.10674280",
+          "title": "3D-Multi-Hypothesis Tracker for Multi-Object Tracking Applications",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 International Conference on Consumer Electronics - Taiwan (ICCE-Taiwan)",
+          "family_names": [
+            "Huang",
+            "Leung",
+            "Ma"
+          ]
+        },
+        {
+          "doi": "10.1109/mot.2001.937987",
+          "title": "Multiple camera fusion for multi-object tracking",
+          "year": null,
+          "type": "proceedings-article",
+          "container": "Proceedings 2001 IEEE Workshop on Multi-Object Tracking",
+          "family_names": [
+            "Dockstader",
+            "Tekalp"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:12.235588+00:00"
+    },
+    "self supervised image to point distillation via semantically tolerant contrastive loss": {
+      "title": "Self-Supervised Image-to-Point Distillation via Semantically Tolerant Contrastive Loss",
+      "year": 2023,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52729.2023.00686",
+          "title": "Self-Supervised Image-to-Point Distillation via Semantically Tolerant Contrastive Loss",
+          "year": 2023,
+          "type": "proceedings-article",
+          "container": "2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Mahmoud",
+            "Hu",
+            "Kuai",
+            "Harakeh",
+            "Paull",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.1007/s11760-024-03678-0",
+          "title": "Category contrastive distillation with self-supervised classification",
+          "year": 2024,
+          "type": "journal-article",
+          "container": "Signal, Image and Video Processing",
+          "family_names": [
+            "Chen",
+            "Xu",
+            "Zheng",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.21203/rs.3.rs-4309118/v1",
+          "title": "Category Contrastive Distillation with Self-Supervised Classification",
+          "year": 2024,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Chen",
+            "Xu",
+            "Zheng",
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1109/lsp.2025.3631424/mm1",
+          "title": "Contrastive Attention-Based Network for Self-Supervised Point Cloud Completion_supp1-3631424.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Kumari"
+          ]
+        },
+        {
+          "doi": "10.1109/tpami.2024.3378708/mm1",
+          "title": "Generative Variational-Contrastive Learning for Self-Supervised Point Cloud Representation_supp1-3378708.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Wang"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:13.407360+00:00"
+    },
+    "smartpretrain model agnostic and dataset agnostic representation learning for motion prediction": {
+      "title": "SmartPretrain: Model-Agnostic and Dataset-Agnostic Representation Learning for Motion Prediction",
+      "year": 2025,
+      "candidates": [
+        {
+          "doi": "10.1021/acs.chemrestox.6c00022.s001",
+          "title": "Few-Shot Prediction of Toxicity of Ionic Liquids Supported by Attentive Model-Agnostic Meta-Learning",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.32614/cran.package.pintervals",
+          "title": "pintervals: Model Agnostic Prediction Intervals",
+          "year": 2025,
+          "type": "dataset",
+          "container": "CRAN: Contributed Packages",
+          "family_names": [
+            "Randahl"
+          ]
+        },
+        {
+          "doi": "10.36227/techrxiv.22058978.v1",
+          "title": "Towards Model-Agnostic Federated Learning over Networks",
+          "year": 2023,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Jung"
+          ]
+        },
+        {
+          "doi": "10.21203/rs.3.rs-11136078/v1",
+          "title": "Physics-Residual Learning with Few-Shot Calibration for Cross-Geological UCS Prediction: A Model-Agnostic Framework",
+          "year": 2026,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Long¹"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.4872625",
+          "title": "Creating Model-Agnostic Prediction Intervals",
+          "year": 2024,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Francke",
+            "Kadhum",
+            "Kroon"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:14.724012+00:00"
+    },
+    "smartrefine a scenario adaptive refinement framework for efficient motion prediction": {
+      "title": "SmartRefine: A Scenario-Adaptive Refinement Framework for Efficient Motion Prediction",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1109/cvpr52733.2024.01447",
+          "title": "SmartRefine: A Scenario-Adaptive Refinement Framework for Efficient Motion Prediction",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+          "family_names": [
+            "Zhou",
+            "Shao",
+            "Wang",
+            "Waslander",
+            "Li",
+            "Liu"
+          ]
+        },
+        {
+          "doi": "10.2514/6.2022-0974",
+          "title": "Integrated Framework for Smart Adaptive Mesh Refinement and Mesh Motion with NEMoSys",
+          "year": 2022,
+          "type": "proceedings-article",
+          "container": "AIAA SCITECH 2022 Forum",
+          "family_names": [
+            "Patel",
+            "Mehrabadi",
+            "Gondolo"
+          ]
+        },
+        {
+          "doi": "10.2139/ssrn.5304044",
+          "title": "An Efficient Gpu-Accelerated Adaptive Mesh Refinement Framework for High-Fidelity Compressible Reactive Flows Modeling",
+          "year": 2025,
+          "type": "posted-content",
+          "container": "",
+          "family_names": [
+            "Wang",
+            "Zeng",
+            "Deiterding",
+            "Liang"
+          ]
+        },
+        {
+          "doi": "10.1021/acs.jcim.6c01246.s001",
+          "title": "ESM2-BiMamba: A Length-Adaptive Hybrid Framework for Efficient Concurrent Prediction of DNA-Binding Proteins and DNA-Binding Residue Sites",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": []
+        },
+        {
+          "doi": "10.31274/td-20260804-156",
+          "title": "Octree-based adaptive mesh refinement for efficient compressible flow simulations",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Pranto"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:15.839824+00:00"
+    },
+    "toward general object level mapping from sparse views with 3d diffusion priors": {
+      "title": "Toward General Object-level Mapping from Sparse Views with 3D Diffusion Priors",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1109/3dv69130.2026.00179",
+          "title": "SplatFusion: Training-Free 3D Scene Completion From Sparse Views Using Temporal Diffusion Priors and Gaussian Splatting",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "2026 International Conference on 3D Vision (3DV)",
+          "family_names": [
+            "Younis",
+            "Khan",
+            "Cheng"
+          ]
+        },
+        {
+          "doi": "10.1109/tmm.2025.3535325/mm1",
+          "title": "Learning Shape-Color Diffusion Priors for Text-Guided 3D Object Generation_supp1-3535325.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.14711/thesis-hdl167773",
+          "title": "Toward Practical Neural 3D Reconstruction: Generalization, Sparse Views, and Pose-Free Methods",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "He"
+          ]
+        },
+        {
+          "doi": "10.52202/079017-0957",
+          "title": "How to Use Diffusion Priors under Sparse Views?",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "Advances in Neural Information Processing Systems 37",
+          "family_names": [
+            "Wang",
+            "Zhao",
+            "Ma",
+            "Li"
+          ]
+        },
+        {
+          "doi": "10.1109/icra57147.2024.10611206",
+          "title": "Uncertainty-aware 3D Object-Level Mapping with Deep Shape Priors",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE International Conference on Robotics and Automation (ICRA)",
+          "family_names": [
+            "Liao",
+            "Yang",
+            "Qian",
+            "Schoellig",
+            "Waslander"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:16.982551+00:00"
+    },
+    "uncertainty aware 3d object level mapping with deep shape priors": {
+      "title": "Uncertainty-aware 3D Object-Level Mapping with Deep Shape Priors",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1109/icra57147.2024.10611206",
+          "title": "Uncertainty-aware 3D Object-Level Mapping with Deep Shape Priors",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE International Conference on Robotics and Automation (ICRA)",
+          "family_names": [
+            "Liao",
+            "Yang",
+            "Qian",
+            "Schoellig",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.1109/3dv53792.2021.00143",
+          "title": "DSP-SLAM: Object Oriented SLAM with Deep Shape Priors",
+          "year": 2021,
+          "type": "proceedings-article",
+          "container": "2021 International Conference on 3D Vision (3DV)",
+          "family_names": [
+            "Wang",
+            "Runz",
+            "Agapito"
+          ]
+        },
+        {
+          "doi": "10.1109/tmm.2025.3535325/mm1",
+          "title": "Learning Shape-Color Diffusion Priors for Text-Guided 3D Object Generation_supp1-3535325.pdf",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Wang"
+          ]
+        },
+        {
+          "doi": "10.1109/access.2024.3368859",
+          "title": "RDSP-SLAM: Robust Object-Aware SLAM Based on Deep Shape Priors",
+          "year": 2024,
+          "type": "journal-article",
+          "container": "IEEE Access",
+          "family_names": [
+            "Okonkwo",
+            "Yang",
+            "Sun",
+            "Yang",
+            "Márquez"
+          ]
+        },
+        {
+          "doi": "10.5220/0013857700004919",
+          "title": "Enhanced 3D Model Generation from 2D Object Images: A Deep Learning Approach Integrating Shape and Texture Learning with Real-Time, Occlusion-Aware and Object-Agnostic Methods",
+          "year": 2025,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 1st International Conference on Research and Development in Information, Communication, and Computing Technologies",
+          "family_names": [
+            "Bhagyalakshmi",
+            "Prabagar",
+            "Konnurmath",
+            "Kamesh",
+            "Vishalakshi",
+            "A."
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:17.090108+00:00"
+    },
+    "uncertaintytrack exploiting detection and localization uncertainty in multi object tracking": {
+      "title": "UncertaintyTrack: Exploiting Detection and Localization Uncertainty in Multi-Object Tracking",
+      "year": 2024,
+      "candidates": [
+        {
+          "doi": "10.1109/icra57147.2024.10610458",
+          "title": "UncertaintyTrack: Exploiting Detection and Localization Uncertainty in Multi-Object Tracking",
+          "year": 2024,
+          "type": "proceedings-article",
+          "container": "2024 IEEE International Conference on Robotics and Automation (ICRA)",
+          "family_names": [
+            "Lee",
+            "Waslander"
+          ]
+        },
+        {
+          "doi": "10.5220/0014726200004030",
+          "title": "Improving EKF Consistency in 3D Multi-Object Tracking via Heteroscedastic Detection Uncertainty",
+          "year": 2026,
+          "type": "proceedings-article",
+          "container": "Proceedings of the 12th International Conference on Vehicle Technology and Intelligent Transport Systems",
+          "family_names": [
+            "Schröder",
+            "Fent",
+            "Lienkamp"
+          ]
+        },
+        {
+          "doi": "10.3390/drones9120867",
+          "title": "Multi-Object Tracking with Distributed Drones’ RGB Cameras Considering Object Localization Uncertainty",
+          "year": 2025,
+          "type": "journal-article",
+          "container": "Drones",
+          "family_names": [
+            "Liao",
+            "Fang",
+            "Shao",
+            "Fu",
+            "Yang"
+          ]
+        },
+        {
+          "doi": "10.1109/lra.2024.3363928/mm1",
+          "title": "E-GNN: Enhancing Multi-Object Tracking by Exploiting the Group Motion Pattern Behind Collective Behavior_supp1-3363928.mp4",
+          "year": null,
+          "type": "component",
+          "container": "",
+          "family_names": [
+            "Zhu"
+          ]
+        },
+        {
+          "doi": "10.70675/6d64f9c8ze926z44d0zb444z11cb37d67638",
+          "title": "Multi-object detection and tracking in video sequences",
+          "year": null,
+          "type": "dissertation",
+          "container": "",
+          "family_names": [
+            "Mhalla"
+          ]
+        }
+      ],
+      "fetched_at": "2026-10-30T20:37:17.185050+00:00"
+    }
+  }
+}

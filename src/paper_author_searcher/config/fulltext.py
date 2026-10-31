@@ -1,6 +1,17 @@
 """Full text: PDF link discovery and validation, downloads, storage."""
 
 from dataclasses import dataclass
+from typing import Any
+
+# %PDF- is five bytes.
+MINIMUM_PREVIEW_BYTES = 5
+# Semantic Scholar's batch limit.
+SEMANTIC_SCHOLAR_MAXIMUM_BATCH = 500
+MINIMUM_FILE_BYTES = 1024
+MINIMUM_FILENAME_BYTES = 64
+MINIMUM_HASH_CHARACTERS = 8
+MAXIMUM_HASH_CHARACTERS = 64
+MAXIMUM_TCP_PORT = 65535
 
 
 @dataclass(frozen=True)
@@ -66,6 +77,35 @@ class PDFConfig:
     # the PDF; no lookup request is needed.
     nber_doi_pattern: str = r'^10\.3386/(w\d+)$'
     nber_pdf_url_template: str = 'https://www.nber.org/system/files/working_papers/{number}/{number}.pdf'
+    # Web search (the provider chosen by DiscoveryConfig.web_search) for verified papers still without a PDF once
+    # every source above has answered. Works are searched newest first, each once, up to this many per run; 0 disables
+    # it. A hit is only ever a candidate: the downloaded file's own title and authors decide (pdf_file_validation).
+    web_search_maximum_papers: int = 25
+    web_search_results: int = 10
+    web_search_query: str = '{title} {authors}'
+    web_search_query_authors: int = 3
+    # A hit's URL names a file when this matches; any other hit is read as a landing page, if it names the paper.
+    web_search_pdf_url_pattern: str = r'\.pdf(?:$|[?#/])|/pdf(?:$|[/?#])|/download(?:$|[/?#])|/bitstream/'
+    web_search_landing_pages: int = 2
+    # The service keeps to legal copies. Hosts of shadow libraries (their domains change, so by name) and of
+    # third-party uploads are never queried.
+    web_search_excluded_host_words: tuple[str, ...] = ('sci-hub', 'scihub', 'libgen', 'annas-archive', 'z-lib', 'zlib')
+    web_search_excluded_hosts: tuple[str, ...] = (
+        'academia.edu',
+        'blogspot.com',
+        'coursehero.com',
+        'dokumen.pub',
+        'github.com',
+        'githubusercontent.com',
+        'huggingface.co',
+        'pdfdrive.com',
+        'scribd.com',
+        'studocu.com',
+        'vdoc.pub',
+        'wordpress.com',
+    )
+    # Answers that mean the key or its quota is unusable: the rest of the run does not search.
+    web_search_stop_statuses: tuple[int, ...] = (401, 402, 403, 429, 432, 433)
     # A homepage citation names a paper without an identifier only by its full normalized title, of at least this
     # many words (a shorter title is common enough to appear inside another citation).
     homepage_title_minimum_words: int = 4
@@ -87,13 +127,13 @@ class PDFConfig:
     )
 
     def __post_init__(self) -> None:
-        if self.preview_bytes < 5 or self.html_metadata_bytes < self.preview_bytes:
+        if self.preview_bytes < MINIMUM_PREVIEW_BYTES or self.html_metadata_bytes < self.preview_bytes:
             raise ValueError('PDF preview must fit the signature and HTML limit must cover the preview')
         if self.maximum_redirects < 0 or self.arxiv_request_interval < 0:
             raise ValueError('Redirect and interval limits must be nonnegative')
         if self.arxiv_search_results < 1 or self.catalog_preview_bytes < self.html_metadata_bytes:
             raise ValueError('Search and catalog limits must be positive and sufficient')
-        if not 1 <= self.semantic_scholar_batch_size <= 500:
+        if not 1 <= self.semantic_scholar_batch_size <= SEMANTIC_SCHOLAR_MAXIMUM_BATCH:
             raise ValueError('Semantic Scholar batch size must be between 1 and 500')
         if self.semantic_scholar_request_interval < 0 or self.semantic_scholar_cooldown < 0:
             raise ValueError('Semantic Scholar request intervals must be nonnegative')
@@ -108,6 +148,8 @@ class PDFConfig:
             < 1
         ):
             raise ValueError('Discovery and cache limits must be positive')
+        if self.web_search_maximum_papers < 0 or self.web_search_results < 1 or self.web_search_landing_pages < 0:
+            raise ValueError('Web search limits must be nonnegative and return at least one result')
         if self.lookup_workers < 1:
             raise ValueError('lookup_workers must be positive')
         if self.transient_retry_rounds < 0 or self.transient_retry_maximum_wait < 0:
@@ -147,9 +189,16 @@ class DownloadConfig:
     maximum_pages: int = 2000
     maximum_page_content_bytes: int = 8 * 1024 * 1024
     identity_pages: int = 2
+    # A file the first extraction could not place gets its first page read by pdfminer under these layouts (keyword
+    # arguments of LAParams): as the page's text flow runs, and strictly top to bottom. Empty: no second reading.
+    front_page_layouts: tuple[dict[str, Any], ...] = ({}, {'boxes_flow': None})
+    front_page_title_lines: int = 60
     title_lines: int = 30
     maximum_extracted_characters: int = 20000
     minimum_title_words_without_doi: int = 4
+    # Public PDFs whose URL metadata could not name the paper (a repository copy, a web search hit), downloaded per
+    # paper when no bound URL confirms it. Such a file counts only if its own content shows the paper.
+    maximum_content_checks: int = 6
     # Words text extraction glues to the end of a DOI ("10.1101/2023.12.14.571777doi: bioRxiv preprint"); one is
     # dropped when it follows a digit, so the printed DOI is not mistaken for another one.
     doi_glued_labels: tuple[str, ...] = ('doi', 'http', 'https', 'www')
@@ -159,18 +208,22 @@ class DownloadConfig:
     # A PDF title metadata value shorter than this is a record number, file stem or placeholder ("68605761",
     # "mcedit_fetal_heart_manuscript", "My title"), not another paper's title, so it never vetoes identity.
     metadata_title_minimum_words: int = 3
+    # Words that end a title when extraction runs it into the next line ("<title> Authors: A, B").
+    title_byline_labels: tuple[str, ...] = ('author', 'authors', 'by')
     footer_scan_bytes: int = 4096
     poster_minimum_edge_points: float = 1000
     slide_minimum_aspect_ratio: float = 1.2
 
     def __post_init__(self) -> None:
-        if self.maximum_file_bytes < 1024 or self.chunk_bytes < 1024:
+        if self.maximum_file_bytes < MINIMUM_FILE_BYTES or self.chunk_bytes < MINIMUM_FILE_BYTES:
             raise ValueError('Download and chunk limits must be at least 1024 bytes')
-        if self.filename_bytes < 64 or not 8 <= self.filename_hash_characters <= 64:
+        if self.filename_bytes < MINIMUM_FILENAME_BYTES or not (
+            MINIMUM_HASH_CHARACTERS <= self.filename_hash_characters <= MAXIMUM_HASH_CHARACTERS
+        ):
             raise ValueError('Filename limits cannot safely accommodate a stable identifier')
         if self.maximum_redirects < 0 or not self.allowed_ports:
             raise ValueError('Redirect and port policy is invalid')
-        if any(not 1 <= port <= 65535 for port in self.allowed_ports):
+        if any(not 1 <= port <= MAXIMUM_TCP_PORT for port in self.allowed_ports):
             raise ValueError('Invalid allowed port')
         limits = (
             self.maximum_transfer_seconds,
@@ -182,6 +235,7 @@ class DownloadConfig:
             self.title_lines,
             self.maximum_extracted_characters,
             self.minimum_title_words_without_doi,
+            self.maximum_content_checks,
             self.metadata_title_minimum_words,
             self.footer_scan_bytes,
             self.poster_minimum_edge_points,

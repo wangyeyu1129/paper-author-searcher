@@ -1,0 +1,487 @@
+{
+  "schema_version": 1,
+  "complete_positive_list": false,
+  "metadata": {
+    "annotation_state": "pending_human_review",
+    "reviewer": "",
+    "reviewed_at": "",
+    "person_id": "cs_edoardo_debenedetti",
+    "dataset_id": "holdout_v1",
+    "search_input": {
+      "name": "Edoardo Debenedetti",
+      "university": "ETH Zurich"
+    },
+    "scope": {
+      "year_start": 2022,
+      "year_end": 2025,
+      "included_types": [
+        "journal_article",
+        "conference_paper",
+        "review",
+        "preprint",
+        "working_paper",
+        "book_chapter"
+      ],
+      "excluded_types": [
+        "poster",
+        "slides",
+        "dataset",
+        "software",
+        "thesis",
+        "abstract",
+        "book",
+        "report"
+      ],
+      "unknown_types_included": true,
+      "version_policy": "One entry per publication; preprints and published versions with the same identifier or normalized title (within the configured year tolerance) are grouped so finding any version counts."
+    },
+    "provenance": "Researcher-maintained bibliographies only; no search pipeline output is read.",
+    "builder_version": 1,
+    "built_at": "2026-10-30T21:04:27.643006+00:00",
+    "sources": [
+      {
+        "kind": "manual",
+        "locator": "homepage.json",
+        "url": "https://edoardo.science/",
+        "records": 7
+      }
+    ],
+    "excluded_counts": {}
+  },
+  "papers": [
+    {
+      "evaluation_id": "cs_edoardo_debenedetti:5c732e359383",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents",
+      "year": 2024,
+      "authors": [
+        "Edoardo Debenedetti",
+        "Jie Zhang",
+        "Mislav Balunović",
+        "Luca Beurer-Kellner",
+        "Marc Fischer",
+        "Florian Tramèr"
+      ],
+      "listed_venue": "Thirty-eighth Conference on Neural Information Processing Systems Datasets and Benchmarks Track",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://edoardo.science/ entry 4 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.52202/079017-2636"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents",
+          "year": 2023,
+          "authors": [
+            "Edoardo Debenedetti",
+            "Jie Zhang",
+            "Mislav Balunović",
+            "Luca Beurer-Kellner",
+            "Marc Fischer",
+            "Florian Tramèr"
+          ]
+        },
+        {
+          "title": "AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents",
+          "year": 2025,
+          "authors": [
+            "Edoardo Debenedetti",
+            "Jie Zhang",
+            "Mislav Balunović",
+            "Luca Beurer-Kellner",
+            "Marc Fischer",
+            "Florian Tramèr"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.52202/079017-2636",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_edoardo_debenedetti:48bbac2be210",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Evading Black-box Classifiers Without Breaking Eggs",
+      "year": 2024,
+      "authors": [
+        "Edoardo Debenedetti",
+        "Nicholas Carlini",
+        "Florian Tramèr"
+      ],
+      "listed_venue": "2nd IEEE Conference on Secure and Trustworthy Machine Learning",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://edoardo.science/ entry 5 captured 2026-10-30"
+      ],
+      "review_flags": [
+        "identifier_from_title_lookup"
+      ],
+      "dois": [
+        "10.1109/satml59370.2024.00027"
+      ],
+      "metadata_aliases": [
+        {
+          "title": "Evading Black-box Classifiers Without Breaking Eggs",
+          "year": 2023,
+          "authors": [
+            "Edoardo Debenedetti",
+            "Nicholas Carlini",
+            "Florian Tramèr"
+          ]
+        },
+        {
+          "title": "Evading Black-box Classifiers Without Breaking Eggs",
+          "year": 2025,
+          "authors": [
+            "Edoardo Debenedetti",
+            "Nicholas Carlini",
+            "Florian Tramèr"
+          ]
+        }
+      ],
+      "identifier_provenance": [
+        {
+          "doi": "10.1109/satml59370.2024.00027",
+          "doi_method": "crossref_title_lookup",
+          "crossref_title": "Evading Black-box Classifiers Without Breaking Eggs",
+          "crossref_year": 2024
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_edoardo_debenedetti:121a7658e5d4",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "JailbreakBench: An Open Robustness Benchmark for Jailbreaking Language Models",
+      "year": 2024,
+      "authors": [
+        "Patrick Chao",
+        "Edoardo Debenedetti",
+        "Alexander Robey",
+        "Maksym Andriushchenko",
+        "Francesco Croce",
+        "Vikash Sehwag",
+        "Edgar Dobriban",
+        "Nicolas Flammarion",
+        "George Pappas",
+        "Florian Tramèr",
+        "Hamed Hassani",
+        "Eric Wong"
+      ],
+      "listed_venue": "Thirty-eighth Conference on Neural Information Processing Systems Datasets and Benchmarks Track",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://edoardo.science/ entry 6 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "JailbreakBench: An Open Robustness Benchmark for Jailbreaking Language Models",
+          "year": 2023,
+          "authors": [
+            "Patrick Chao",
+            "Edoardo Debenedetti",
+            "Alexander Robey",
+            "Maksym Andriushchenko",
+            "Francesco Croce",
+            "Vikash Sehwag",
+            "Edgar Dobriban",
+            "Nicolas Flammarion",
+            "George Pappas",
+            "Florian Tramèr",
+            "Hamed Hassani",
+            "Eric Wong"
+          ]
+        },
+        {
+          "title": "JailbreakBench: An Open Robustness Benchmark for Jailbreaking Language Models",
+          "year": 2025,
+          "authors": [
+            "Patrick Chao",
+            "Edoardo Debenedetti",
+            "Alexander Robey",
+            "Maksym Andriushchenko",
+            "Francesco Croce",
+            "Vikash Sehwag",
+            "Edgar Dobriban",
+            "Nicolas Flammarion",
+            "George Pappas",
+            "Florian Tramèr",
+            "Hamed Hassani",
+            "Eric Wong"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_edoardo_debenedetti:f1a9e84f26e9",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Privacy Side Channels in Machine Learning Systems",
+      "year": 2024,
+      "authors": [
+        "Edoardo Debenedetti",
+        "Giorgio Severi",
+        "Nicholas Carlini",
+        "Christopher A. Choquette-Choo",
+        "Matthew Jagielski",
+        "Milad Nasr",
+        "Eric Wallace",
+        "Florian Tramèr"
+      ],
+      "listed_venue": "33rd USENIX Security Symposium",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://edoardo.science/ entry 7 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Privacy Side Channels in Machine Learning Systems",
+          "year": 2023,
+          "authors": [
+            "Edoardo Debenedetti",
+            "Giorgio Severi",
+            "Nicholas Carlini",
+            "Christopher A. Choquette-Choo",
+            "Matthew Jagielski",
+            "Milad Nasr",
+            "Eric Wallace",
+            "Florian Tramèr"
+          ]
+        },
+        {
+          "title": "Privacy Side Channels in Machine Learning Systems",
+          "year": 2025,
+          "authors": [
+            "Edoardo Debenedetti",
+            "Giorgio Severi",
+            "Nicholas Carlini",
+            "Christopher A. Choquette-Choo",
+            "Matthew Jagielski",
+            "Milad Nasr",
+            "Eric Wallace",
+            "Florian Tramèr"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_edoardo_debenedetti:d6abe54b80df",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Adversarial Search Engine Optimization for Large Language Models",
+      "year": 2025,
+      "authors": [
+        "Fredrik Nestaas",
+        "Edoardo Debenedetti",
+        "Florian Tramèr"
+      ],
+      "listed_venue": "Thirteenth International Conference on Learning Representations",
+      "work_types": [
+        "conference_paper"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://edoardo.science/ entry 1 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Adversarial Search Engine Optimization for Large Language Models",
+          "year": 2024,
+          "authors": [
+            "Fredrik Nestaas",
+            "Edoardo Debenedetti",
+            "Florian Tramèr"
+          ]
+        },
+        {
+          "title": "Adversarial Search Engine Optimization for Large Language Models",
+          "year": 2026,
+          "authors": [
+            "Fredrik Nestaas",
+            "Edoardo Debenedetti",
+            "Florian Tramèr"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_edoardo_debenedetti:43270cf0e42a",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "Design Patterns for Securing LLM Agents against Prompt Injections",
+      "year": 2025,
+      "authors": [
+        "Luca Beurer-Kellner",
+        "Beat Buesser",
+        "Ana-Maria Creţu",
+        "Edoardo Debenedetti",
+        "Daniel Dobos",
+        "Daniel Fabian",
+        "Marc Fischer",
+        "David Froelicher",
+        "Kathrin Grosse",
+        "Daniel Naeff",
+        "Ezi Ozoani",
+        "Andrew Paverd",
+        "Florian Tramèr",
+        "Václav Volhejn"
+      ],
+      "listed_venue": "arXiv ePrint 2506.08837",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://edoardo.science/ entry 2 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "Design Patterns for Securing LLM Agents against Prompt Injections",
+          "year": 2024,
+          "authors": [
+            "Luca Beurer-Kellner",
+            "Beat Buesser",
+            "Ana-Maria Creţu",
+            "Edoardo Debenedetti",
+            "Daniel Dobos",
+            "Daniel Fabian",
+            "Marc Fischer",
+            "David Froelicher",
+            "Kathrin Grosse",
+            "Daniel Naeff",
+            "Ezi Ozoani",
+            "Andrew Paverd",
+            "Florian Tramèr",
+            "Václav Volhejn"
+          ]
+        },
+        {
+          "title": "Design Patterns for Securing LLM Agents against Prompt Injections",
+          "year": 2026,
+          "authors": [
+            "Luca Beurer-Kellner",
+            "Beat Buesser",
+            "Ana-Maria Creţu",
+            "Edoardo Debenedetti",
+            "Daniel Dobos",
+            "Daniel Fabian",
+            "Marc Fischer",
+            "David Froelicher",
+            "Kathrin Grosse",
+            "Daniel Naeff",
+            "Ezi Ozoani",
+            "Andrew Paverd",
+            "Florian Tramèr",
+            "Václav Volhejn"
+          ]
+        }
+      ]
+    },
+    {
+      "evaluation_id": "cs_edoardo_debenedetti:db098768beaf",
+      "ownership": "uncertain",
+      "proposed_ownership": "belongs",
+      "annotation_status": "pending_human_review",
+      "title": "LLMs unlock new paths to monetizing exploits",
+      "year": 2025,
+      "authors": [
+        "Nicholas Carlini",
+        "Milad Nasr",
+        "Edoardo Debenedetti",
+        "Barry Wang",
+        "Christopher Choquette-Choo",
+        "Daphne Ippolito",
+        "Florian Tramèr",
+        "Matthew Jagielski"
+      ],
+      "listed_venue": "arXiv ePrint 2505.11449",
+      "work_types": [
+        "preprint"
+      ],
+      "truth_sources": [
+        "manual"
+      ],
+      "annotation_evidence": [
+        "Public list https://edoardo.science/ entry 3 captured 2026-10-30"
+      ],
+      "review_flags": [],
+      "metadata_aliases": [
+        {
+          "title": "LLMs unlock new paths to monetizing exploits",
+          "year": 2024,
+          "authors": [
+            "Nicholas Carlini",
+            "Milad Nasr",
+            "Edoardo Debenedetti",
+            "Barry Wang",
+            "Christopher Choquette-Choo",
+            "Daphne Ippolito",
+            "Florian Tramèr",
+            "Matthew Jagielski"
+          ]
+        },
+        {
+          "title": "LLMs unlock new paths to monetizing exploits",
+          "year": 2026,
+          "authors": [
+            "Nicholas Carlini",
+            "Milad Nasr",
+            "Edoardo Debenedetti",
+            "Barry Wang",
+            "Christopher Choquette-Choo",
+            "Daphne Ippolito",
+            "Florian Tramèr",
+            "Matthew Jagielski"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

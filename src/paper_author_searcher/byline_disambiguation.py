@@ -45,6 +45,10 @@ from .status import UniversityStatus
 __all__ = ['BylineDisambiguator', 'BylineEvidence', 'BylineVerdict']
 
 
+# A contest needs two people.
+MINIMUM_CONTEST_SIZE = 2
+
+
 class BylineDisambiguator:
     def __init__(
         self,
@@ -81,10 +85,10 @@ class BylineDisambiguator:
         self, query: ProfessorQuery, scored: Sequence[tuple[ProfessorProfile, Sequence[AuthorCandidate]]]
     ) -> BylineVerdict | None:
         """The contender the first deciding layer favours in the close, unanchored contest at the top, if any."""
-        if not self.config.enabled or len(scored) < 2:
+        if not self.config.enabled or len(scored) < MINIMUM_CONTEST_SIZE:
             return None
         entrants = self._entrants(scored)
-        if len(entrants) < 2:
+        if len(entrants) < MINIMUM_CONTEST_SIZE:
             return None
         bylines = {index: self.evidence(query, group) for index, group in entrants}
         contest = Contest(query, scored, entrants, bylines, {index: item.department for index, item in bylines.items()})

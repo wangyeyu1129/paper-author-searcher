@@ -9,8 +9,9 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 WORKDIR /app
 COPY pyproject.toml README.md ./
 COPY src ./src
-# The "download" extra reads PDFs (pypdf); the service itself needs only the standard library.
-RUN pip install ".[download]" && useradd --create-home --uid 10001 search && mkdir /data && chown search /data
+# The "download" extra reads PDFs (pypdf, pdfminer), "llm" optionally calls Claude; the service itself needs only the
+# standard library.
+RUN pip install ".[download,llm]" && useradd --create-home --uid 10001 search && mkdir /data && chown search /data
 
 # Every setting is an environment variable (PAPER_SEARCH__<SECTION>__<FIELD>); these are the container defaults.
 ENV PAPER_SEARCH__SERVICE__HOST=0.0.0.0 \

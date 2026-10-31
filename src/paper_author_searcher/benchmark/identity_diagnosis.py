@@ -20,6 +20,9 @@ from .roster import BenchmarkPerson
 SEARCH_SOURCES = ('openalex', 'semantic_scholar')
 
 
+MINIMUM_FOR_COMPARISON = 2
+
+
 class Diagnosis(str, Enum):
     RESOLVED_COMPLETE = 'resolved_complete'  # chosen IDs hold all truth-bearing profiles
     RESOLVED_FRAGMENT = 'resolved_fragment'  # chosen IDs right, but other split profiles hold truth too
@@ -235,7 +238,7 @@ class IdentityDiagnoser:
             if not holds:
                 return Diagnosis.RESOLVED_WRONG_PERSON
             return Diagnosis.RESOLVED_COMPLETE if len(holds) == len(bearing) else Diagnosis.RESOLVED_FRAGMENT
-        if len(bearing) >= 2:
+        if len(bearing) >= MINIMUM_FOR_COMPARISON:
             return Diagnosis.STUCK_SPLIT_PROFILES
         return Diagnosis.STUCK_TRUE_COMPETITOR
 

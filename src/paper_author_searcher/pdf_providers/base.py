@@ -1,6 +1,7 @@
 """Shared candidate construction and the metadata-provider template."""
 
 from abc import ABC, abstractmethod
+from http import HTTPStatus
 from typing import Any, ClassVar
 
 from paper_author_searcher.config import DEFAULT_SOURCES
@@ -66,7 +67,7 @@ class MetadataPDFProvider(ABC):
             except (SourceError, ValueError, TypeError) as exc:
                 if getattr(exc, 'error_type', None) == 'source_deferred':
                     result.warnings.append({'code': 'source_deferred', 'incomplete': True, 'identifier': identifier})
-                elif getattr(exc, 'status_code', None) != 404:
+                elif getattr(exc, 'status_code', None) != HTTPStatus.NOT_FOUND:
                     result.errors.append(f'{identifier}: {exc}')
                 result.diagnostics.append(
                     {
@@ -78,7 +79,7 @@ class MetadataPDFProvider(ABC):
                         'request_context': getattr(exc, 'request_context', {}),
                     }
                 )
-        if result.diagnostics and all(item.get('status_code') == 404 for item in result.diagnostics):
+        if result.diagnostics and all(item.get('status_code') == HTTPStatus.NOT_FOUND for item in result.diagnostics):
             result.status = ProviderStatus.NOT_FOUND
         if result.warnings:
             result.status = ProviderStatus.PARTIAL

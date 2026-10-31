@@ -2,6 +2,8 @@
 
 from dataclasses import dataclass
 
+MAXIMUM_ZLIB_LEVEL = 9
+
 
 @dataclass(frozen=True)
 class HttpConfig:
@@ -16,6 +18,8 @@ class HttpConfig:
     # Minimum seconds between requests to a host, as its terms require (arXiv asks for 3 s). Applied below the
     # cache, so cached and replayed requests never wait.
     host_request_intervals: tuple[tuple[str, float], ...] = (('export.arxiv.org', 3.0),)
+    # A host's 429 Retry-After holds back its later requests for at most this long (a daily quota says hours).
+    maximum_host_hold_seconds: float = 60.0
 
 
 @dataclass(frozen=True)
@@ -170,7 +174,7 @@ class DblpDumpConfig:
     compression_level: int = 6
 
     def __post_init__(self) -> None:
-        if self.batch_size < 1 or not 1 <= self.compression_level <= 9:
+        if self.batch_size < 1 or not 1 <= self.compression_level <= MAXIMUM_ZLIB_LEVEL:
             raise ValueError('batch_size must be positive and compression_level between 1 and 9')
 
 

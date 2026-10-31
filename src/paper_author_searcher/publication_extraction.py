@@ -18,6 +18,7 @@ from typing import Any, Protocol
 
 from .config import DEFAULT_ANCHORS, DEFAULT_EXTRACTION, AnchorConfig, ExtractionConfig
 from .homepage_citations import ARXIV_IN_TEXT, DOI_IN_TEXT, DocumentParser, HomepageCitation, pdf_text, title_like
+from .http_budget import CostLedger
 from .logging_config import log_isolated_failure
 from .matching import canonical_arxiv, work_keys
 
@@ -47,6 +48,7 @@ PUBLICATION_SCHEMA = {
     'additionalProperties': False,
 }
 
+TOKENS_PER_MTOK = 1_000_000
 SYSTEM_PROMPT = (
     "You extract the publication list from text taken from a researcher's homepage, publication page or CV. "
     'Return every scholarly publication the text lists (articles, conference papers, preprints, book chapters), '
@@ -63,13 +65,31 @@ class JsonCompletion(Protocol):
     def complete(self, system: str, prompt: str, schema: dict) -> dict | None: ...
 
 
+def token_cost(usage: Any, config: ExtractionConfig) -> float:
+    """What a response cost, from its usage and the configured prices."""
+    tokens = (
+        (getattr(usage, 'input_tokens', 0) or 0, config.input_usd_per_mtok),
+        (getattr(usage, 'output_tokens', 0) or 0, config.output_usd_per_mtok),
+        (getattr(usage, 'cache_read_input_tokens', 0) or 0, config.cache_read_usd_per_mtok),
+        (getattr(usage, 'cache_creation_input_tokens', 0) or 0, config.cache_write_usd_per_mtok),
+    )
+    return sum(count * price for count, price in tokens) / TOKENS_PER_MTOK
+
+
 class ClaudeJsonCompletion:
     """Claude through the Anthropic SDK (optional extra ``llm``), with structured output and refusal fallback."""
 
-    def __init__(self, config: ExtractionConfig = DEFAULT_EXTRACTION, client: Any = None, api_key: str | None = None):
+    def __init__(
+        self,
+        config: ExtractionConfig = DEFAULT_EXTRACTION,
+        client: Any = None,
+        api_key: str | None = None,
+        ledger: CostLedger | None = None,
+    ):
         self._client = client
         self.api_key = api_key
         self.config = config
+        self.ledger = ledger
 
     @property
     def client(self) -> Any:
@@ -81,6 +101,11 @@ class ClaudeJsonCompletion:
         return self._client
 
     def complete(self, system: str, prompt: str, schema: dict) -> dict | None:
+        if self.ledger is not None and self.ledger.exhausted():
+            logger.warning(
+                'Claude budget of $%.2f reached; page left to the rule-based parser', self.config.maximum_cost_usd
+            )
+            return None
         try:
             response = self.client.beta.messages.create(
                 model=self.config.model,
@@ -95,7 +120,11 @@ class ClaudeJsonCompletion:
             )
         except Exception as exc:  # network, auth or API errors leave the page to the rule-based parser
             log_isolated_failure(logger, 'Publication extraction request failed: %s', type(exc).__name__)
+            if self.ledger is not None:
+                self.ledger.note_failure()
             return None
+        if self.ledger is not None:
+            self.ledger.record('claude', token_cost(getattr(response, 'usage', None), self.config))
         if response.stop_reason in ('refusal', 'max_tokens'):
             logger.warning('Publication extraction stopped: %s', response.stop_reason)
             return None

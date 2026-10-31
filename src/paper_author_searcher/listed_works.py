@@ -10,6 +10,7 @@ why. Ownership decides afterwards (``OwnershipConfig.verify_listed_works``).
 import logging
 import xml.etree.ElementTree as ET
 from collections.abc import Callable, Iterable, Sequence
+from http import HTTPStatus
 from typing import Any, Protocol
 from urllib.parse import quote
 
@@ -17,7 +18,16 @@ from .config import DEFAULT_LISTED_WORKS, DEFAULT_MATCHING, ListedWorksConfig, M
 from .evaluation_matching import bibliographic_name_agrees
 from .http import SourceError
 from .logging_config import log_isolated_failure
-from .matching import ARXIV_DOI_PREFIX, canonical_arxiv, canonical_doi, canonical_orcid, name_similarity, normalize
+from .matching import (
+    ARXIV_ABSTRACT_URL,
+    ARXIV_DOI_PREFIX,
+    DOI_URL,
+    canonical_arxiv,
+    canonical_doi,
+    canonical_orcid,
+    name_similarity,
+    normalize,
+)
 from .models import PaperRecord, PaperSourceResult, ProfessorProfile
 from .paper_providers import OpenAlexPaperProvider, SemanticScholarPaperProvider, parse_year
 
@@ -264,7 +274,7 @@ def crossref_item_record(
         source=source,
         source_paper_id=doi or title,
         source_author_id=author_id,
-        paper_url='https://doi.org/' + doi if doi else None,
+        paper_url=DOI_URL + doi if doi else None,
         publication_type=item.get('type'),
         author_details=details,
         target_author_present=True,
@@ -320,7 +330,7 @@ def arxiv_entry_record(
         source='arxiv',
         source_paper_id=identifier,
         source_author_id=author_id,
-        paper_url='https://arxiv.org/abs/' + identifier,
+        paper_url=ARXIV_ABSTRACT_URL + identifier,
         publication_type='preprint',
         author_details=details,
         target_author_present=True,
@@ -370,6 +380,6 @@ def _missing_is_none(fetch: Any) -> Any:
     try:
         return fetch()
     except SourceError as exc:
-        if exc.status_code == 404:
+        if exc.status_code == HTTPStatus.NOT_FOUND:
             return None
         raise

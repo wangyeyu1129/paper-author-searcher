@@ -1,0 +1,1002 @@
+{
+ "snapshot_schema_version": 1,
+ "source_url": "https://comp.nus.edu.sg/~leegh",
+ "captured_at": "2026-10-30",
+ "captured_by": "Assistant transcription of the public page; pending human review",
+ "scope_note": "Public list on the page; Claude transcription, spot-checked by the assistant. Not read from this system's output.",
+ "transcription_notes": [],
+ "entries": [
+  {
+   "title": "4D3R: Motion-Aware Neural Reconstruction and Rendering of Dynamic Scenes from Monocular Videos",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
+   "authors": [
+    "Mengqi Guo",
+    "Bo Xu",
+    "Yanyan Li",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Deep Gaussian from Motion: Exploring 3D Geometric Foundation Models for Gaussian Splatting",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
+   "authors": [
+    "Yu Chen",
+    "Rolandos Alexandros Potamias",
+    "Evangelos Ververas",
+    "Jifei Song",
+    "Jiankang Deng",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "PoseCrafter: Extreme Pose Estimation with Hybrid Video Synthesis",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
+   "authors": [
+    "Qing Mao",
+    "Tianxin Huang",
+    "Yu Zhu",
+    "Jinqiu Sun",
+    "Yanning Zhang",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Distil-E2D: Distilling Image-to-Depth Priors for Event-Based Monocular Depth Estimation",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
+   "authors": [
+    "Jie Long Lee",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Motion4D: Learning 3D-Consistent Motion and Semantics for 4D Scene Understanding",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
+   "authors": [
+    "Haoran Zhou",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Dynam3D: Dynamic Layered 3D Tokens Empower VLM for Vision-and-Language Navigation",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
+   "authors": [
+    "Zihan Wang",
+    "Seungjun Lee",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "X-Scene: Large-Scale Driving Scene Generation with High Fidelity and Flexible Controllability",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
+   "authors": [
+    "Yu Yang",
+    "Alan Liang",
+    "Jianbiao Mei",
+    "Yukai Ma",
+    "Yong Liu",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Event-Driven Dynamic Scene Depth Completion",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
+   "authors": [
+    "Zhiqiang Yan",
+    "Jianhao Jiao",
+    "Zhengxue Wang",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "FlexEvent: Towards Flexible Event-Frame Object Detection at Varying Operational Frequencies",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
+   "authors": [
+    "Dongyue Lu",
+    "Lingdong Kong",
+    "Gim Hee Lee",
+    "Camille Simon Chane",
+    "Wei Tsang Ooi"
+   ]
+  },
+  {
+   "title": "CLAIR: CLIP-Aided Weakly Supervised Zero-Shot Cross-Domain Image Retrieval",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "British Machine Vision Conference (BMVC)",
+   "authors": [
+    "Chor Boon Tan",
+    "Conghui Hu",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "PS-Mamba: Spatial-Temporal Graph Mamba for Pose Sequence Refinement",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "International Conference on Computer Vision (ICCV)",
+   "authors": [
+    "Haoye Dong",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Event-aided Dense and Continuous Point Tracking: Everywhere and Anytime",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "International Conference on Computer Vision (ICCV)",
+   "authors": [
+    "Zhexiong Wan",
+    "Jianqin Luo",
+    "Yuchao Dai",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Street Gaussians without 3D Object Tracker",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "International Conference on Computer Vision (ICCV)",
+   "authors": [
+    "Ruida Zhang",
+    "Chengxi Li",
+    "Chenyangguang Zhang",
+    "Xingyu Liu",
+    "Haili Yuan",
+    "Yanyan Li",
+    "Xiangyang Ji",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "STD-GS: Exploring Frame-Event Interaction for SpatioTemporal-Disentangled Gaussian Splatting to Reconstruct High-Dynamic Scene",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "International Conference on Computer Vision (ICCV)",
+   "authors": [
+    "Hanyu Zhou",
+    "Haonan Wang",
+    "Haoyue Liu",
+    "Yuxing Duan",
+    "Luxin Yan",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "LLaFEA: Frame-Event Complementary Fusion for Fine-Grained Spatiotemporal Understanding in LMMs",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "International Conference on Computer Vision (ICCV)",
+   "authors": [
+    "Hanyu Zhou",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "DuCos: Duality Constrained Depth Super-Resolution via Foundation Model",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "International Conference on Computer Vision (ICCV)",
+   "authors": [
+    "Zhiqiang Yan",
+    "Zhengxue Wang",
+    "Haoye Dong",
+    "Jun Li",
+    "Jian Yang",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Statistical Confidence Rescoring for Robust 3D Scene Graph Generation from Multi-View Images",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "International Conference on Computer Vision (ICCV)",
+   "authors": [
+    "Qi Xun Yeo",
+    "Yanyan Li",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "IAAO: Interactive Affordance Learning for Articulated Objects in 3D Environments",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "Can Zhang",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "DiET-GS: Diffusion Prior and Event Stream-Assisted Motion Deblurring 3D Gaussian Splatting",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "Seungjun Lee",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "g3D-LF: Generalizable 3D-Language Feature Fields for Embodied Tasks",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "Zihan Wang",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Learnable Infinite Taylor Gaussian for Dynamic View Rendering",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "Bingbing Hu",
+    "Yanyan Li",
+    "Rui Xie",
+    "Bo Xu",
+    "Haoye Dong",
+    "Junfeng Yao",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "MAR-3D: Progressive Masked Auto-regressor for High-Resolution 3D Generation",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "Jinnan Chen",
+    "Lingting Zhu",
+    "Zeyu Hi",
+    "Shengju Qian",
+    "Yugang Chen",
+    "Xin Wang",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "GEAL: Generalizable 3D Affordance Learning with Cross-Modal Consistency",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "Dongyue Lu",
+    "Lingdong Kong",
+    "Tianxin Huang",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Reconstructing Close Human Interaction with Appearance and Proxemics Reasoning",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "Buzhen Huang",
+    "Chen Li",
+    "Chongyang Xu",
+    "Dongyue Lu",
+    "Jinnan Chen",
+    "Yangang Wang",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "TreeMeshGPT: Artistic Mesh Generation with Autoregressive Tree Sequencing",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "Stefan Lionar",
+    "Jiabin Liang",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "NavRAG: Generating User Demand Instructions for Embodied Navigation through Retrieval-Augmented LLM",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Association for Computational Linguistics (ACL)",
+   "authors": [
+    "Zihan Wang",
+    "Yaohui Zhu",
+    "Gim Hee Lee",
+    "Yachun Fan"
+   ]
+  },
+  {
+   "title": "LiLoc: Lifelong Localization using Adaptive Submap Joining and Egocentric Factor Graph",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "IEEE International Conference on Robotics and Automation (ICRA)",
+   "authors": [
+    "Yixin Fang",
+    "Yanyan Li",
+    "Kun Qian",
+    "Federico Tombari",
+    "Yue Wang",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Instance-Level Moving Object Segmentation from a Single Image with Events",
+   "year": 2025,
+   "type": "journal_article",
+   "venue": "International Journal of Computer Vision (IJCV)",
+   "authors": [
+    "Zhexiong Wan",
+    "Bin Fan",
+    "Le Hui",
+    "Yuchao Dai",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "econSG: Efficient and Multi-view Consistent Open-Vocabulary 3D Semantic Gaussians",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "International Conference on Learning Representations (ICLR)",
+   "authors": [
+    "Can Zhang",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Segment Any 3D Object with Language",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "International Conference on Learning Representations (ICLR)",
+   "authors": [
+    "Seungjun Lee",
+    "Yuyang Zhao",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Neuralized Markov Random Field for Interaction-Aware Stochastic Human Trajectory Prediction",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "International Conference on Learning Representations (ICLR)",
+   "authors": [
+    "Zilin Fang",
+    "David Hsu",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "GenXD: Generating Any 3D and 4D Scenes",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "International Conference on Learning Representations (ICLR)",
+   "authors": [
+    "Yuyang Zhao",
+    "Chung-Ching Lin",
+    "Kevin Lin",
+    "Zhiwen Yan",
+    "Linjie Li",
+    "Zhengyuan Yang",
+    "Jianfeng Wang",
+    "Gim Hee Lee",
+    "Lijuan Wan"
+   ]
+  },
+  {
+   "title": "ComPC: Completing a 3D Point Cloud with 2D Diffusion Priors",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "International Conference on Learning Representations (ICLR)",
+   "authors": [
+    "Tianxin Huang",
+    "Zhiwen Yan",
+    "Yuyang Zhao",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Generalizable Human Gaussians from Single-View Image",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "International Conference on Learning Representations (ICLR)",
+   "authors": [
+    "Jinnan Chen",
+    "Chen Li",
+    "Jianfeng Zhang",
+    "Lingting Zhu",
+    "Buzhen Huang",
+    "Hanlin Chen",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "OD-NeRF: Efficient Training of On-the-Fly Dynamic Neural Radiance Fields",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "International Conference on 3D Vision (3DV)",
+   "authors": [
+    "Zhiwen Yan",
+    "Chen Li",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Particle Rendering: Implicitly Aggregating Incident and Outgoing Light Fields for Novel View Synthesis",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "International Conference on 3D Vision (3DV)",
+   "authors": [
+    "Tao Hu",
+    "Zhiwen Yan",
+    "Xiaogang Yu",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "DiHuR: Diffusion-Guided Generalizable Human Reconstruction",
+   "year": 2025,
+   "type": "conference_paper",
+   "venue": "Winter Conference on Applications of Computer Vision (WACV)",
+   "authors": [
+    "Jinnan Chen",
+    "Chen Li",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "FreeSplat: Generalizable 3D Gaussian Splatting Towards Free View Synthesis of Indoor Scenes",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
+   "authors": [
+    "Yunsong Wang",
+    "Tianxin Huang",
+    "Hanlin Chen",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "VCR-GauS: View Consistent Depth-Normal Regularizer for Gaussian Surface Reconstruction",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
+   "authors": [
+    "Hanlin Chen",
+    "Fangyin Wei",
+    "Chen Li",
+    "Tianxin Huang",
+    "Yunsong Wang",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "MVSDet: Multi-View Indoor 3D Object Detection via Efficient Plane Sweeps",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
+   "authors": [
+    "Yating Xu",
+    "Chen Li",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "DoGaussian: Distributed-Oriented Gaussian Splatting for Large-Scale 3D Reconstruction Via Gaussian Consensus",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
+   "authors": [
+    "Yu Chen",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Learning to Decouple the Lights for 3D Face Texture Modeling",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
+   "authors": [
+    "Tianxin Huang",
+    "Zhenyu Zhang",
+    "Ying Tai",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "X-Ray: A Sequential 3D Representation For Generation",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
+   "authors": [
+    "Tao Hu",
+    "Wenhang Ge",
+    "Yuyang Zhao",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Synthetic-to-Real Domain Generalized Semantic Segmentation for 3D Indoor Point Clouds",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "British Machine Vision Conference (BMVC)",
+   "authors": [
+    "Yuyang Zhao",
+    "Na Zhao",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Syn-to-Real Unsupervised Domain Adaptation for Indoor 3D Object Detection",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "British Machine Vision Conference (BMVC)",
+   "authors": [
+    "Yunsong Wang",
+    "Na Zhao",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Deblur e-NeRF: NeRF from Motion-Blurred Events under High-speed or Low-light Conditions",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "European Conference on Computer Vision (ECCV)",
+   "authors": [
+    "Weng Fei Low",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "GeoGaussian: Geometry-aware Gaussian Splatting for Scene Rendering",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "European Conference on Computer Vision (ECCV)",
+   "authors": [
+    "Yanyan Li",
+    "Chenyu Lyu",
+    "Yan Di",
+    "Guangyao Zhai",
+    "Gim Hee Lee",
+    "Federico Tombari"
+   ]
+  },
+  {
+   "title": "URS-NeRF: Unordered Rolling Shutter Bundle Adjustment for Neural Radiance Fields",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "European Conference on Computer Vision (ECCV)",
+   "authors": [
+    "Bo Xu",
+    "Liu Ziao",
+    "Mengqi Guo",
+    "Jiancheng Li",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "UNIKD: UNcertainty-Filtered Incremental Knowledge Distillation for Neural Implicit Representation",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "European Conference on Computer Vision (ECCV)",
+   "authors": [
+    "Mengqi Guo",
+    "Chen Li",
+    "Hanlin Chen",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "TreeSBA: Tree-Transformer for Self-Supervised Sequential Brick Assembly",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "European Conference on Computer Vision (ECCV)",
+   "authors": [
+    "Mengqi Guo",
+    "Chen Li",
+    "Yuyang Zhao",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Towards Non Co-occurrence Incremental Object Detection with Unlabeled In-the-wild Data",
+   "year": 2024,
+   "type": "journal_article",
+   "venue": "International Journal of Computer Vision (IJCV)",
+   "authors": [
+    "Na Dong",
+    "Yongqiang Zhang",
+    "Mingli Ding",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Closely Interactive Human Reconstruction with Proxemics and Physics-Guided Adaption",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "Buzhen Huang",
+    "Chen Li",
+    "Chongyang Xu",
+    "Liang Pan",
+    "Yangang Wang",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "GOV-NeSF: Generalizable Open-Vocabulary Neural Semantic Fields",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "Yunsong Wang",
+    "Hanlin Chen",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "DiSR-NeRF: Diffusion-Guided View-Consistent Super-Resolution NeRF",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "Jie Long Lee",
+    "Chen Li",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Multi-Scale 3D Gaussian Splatting for Anti-Aliased Rendering",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "Zhiwen Yan",
+    "Weng Fei Low",
+    "Yu Chen",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "ESCAPE: Encoding Super-keypoints for Category-Agnostic Pose Estimation",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "Khoi Duc Nguyen",
+    "Chen Li",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Enhancing Generalizability of Representation Learning for Data-Efficient 3D Scene Understanding",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "International Conference on 3D Vision (3DV)",
+   "authors": [
+    "Yunsong Wang",
+    "Na Zhao",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "GHuNeRF: Generalizable Human NeRF from a Monocular Video",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "International Conference on 3D Vision (3DV)",
+   "authors": [
+    "Chen Li",
+    "Jiahao Lin",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Robust Visual Recognition with Class-Imbalanced Open-World Noisy Data",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "AAAI Conference on Artificial Intelligence",
+   "authors": [
+    "Na Zhao",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Rethink Cross-modal Fusion in Weakly-Supervised Audio-Visual Video Parsing",
+   "year": 2024,
+   "type": "conference_paper",
+   "venue": "Winter Conference on Applications of Computer Vision (WACV)",
+   "authors": [
+    "Yating Xu",
+    "Conghui Hu",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "GNeSF: Generalizable Neural Semantic Fields",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
+   "authors": [
+    "Hanlin Chen",
+    "Chen Li",
+    "Mengqi Guo",
+    "Zhiwen Yan",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "NU-MCC: Multiview Compressive Coding with Neighborhood Decoder and Repulsive UDF",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
+   "authors": [
+    "Stefan Lionar",
+    "Xiangyu Xu",
+    "Min Lin",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Style-Hallucinated Dual Consistency Learning: A Unified Framework for Visual Domain Generalization",
+   "year": 2023,
+   "type": "journal_article",
+   "venue": "International Journal of Computer Vision (IJCV)",
+   "authors": [
+    "Yuyang Zhao",
+    "Zhun Zhong",
+    "Na Zhao",
+    "Nicu Sebe",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Motion and Context-Aware Audio-Visual Conditioned Video Prediction",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "British Machine Vision Conference (BMVC)",
+   "authors": [
+    "Yating Xu",
+    "Conghui Hu",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Towards Robust Few-shot Point Cloud Semantic Segmentation",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "British Machine Vision Conference (BMVC)",
+   "authors": [
+    "Yating Xu",
+    "Na Zhao",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Robust e-NeRF: NeRF from Sparse & Noisy Events under Non-Uniform Motion",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "International Conference on Computer Vision (ICCV)",
+   "authors": [
+    "Weng Fei Low",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "DReg-NeRF: Deep Registration for Neural Radiance Fields",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "International Conference on Computer Vision (ICCV)",
+   "authors": [
+    "Yu Chen",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Generalized Few-Shot Point Cloud Segmentation Via Geometric Words",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "International Conference on Computer Vision (ICCV)",
+   "authors": [
+    "Yating Xu",
+    "Conghui Hu",
+    "Na Zhao",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Unsupervised Feature Representation Learning for Domain-generalized Cross-domain Image Retrieval",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "International Conference on Computer Vision (ICCV)",
+   "authors": [
+    "Conghui Hu",
+    "Can Zhang",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Optimizing the Placement of Roadside LiDARs for Autonomous Driving",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "International Conference on Computer Vision (ICCV)",
+   "authors": [
+    "Wentao Jiang",
+    "Hao Xiang",
+    "Xinyu Cai",
+    "Runsheng Xu",
+    "Jiaqi Ma",
+    "Yikang Li",
+    "Gim Hee Lee",
+    "Si Liu"
+   ]
+  },
+  {
+   "title": "Weakly-supervised 3D Pose Transfer with Keypoints",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "International Conference on Computer Vision (ICCV)",
+   "authors": [
+    "Jinnan Chen",
+    "Chen Li",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Boosting Long-tailed Object Detection via Step-wise Learning on Smooth-tail Data",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "International Conference on Computer Vision (ICCV)",
+   "authors": [
+    "Na Dong",
+    "Yongqiang Zhang",
+    "Mingli Ding",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "GeT: Generative Target Structure Debiasing for Domain Adaptation",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "International Conference on Computer Vision (ICCV)",
+   "authors": [
+    "Can Zhang",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "NeRF-DS: Neural Radiance Fields for Dynamic Specular Objects",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "Zhiwen Yan",
+    "Chen Li",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "DBARF: Deep Bundle-Adjusting Generalizable Neural Radiance Field",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "Yu Chen",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "ScarceNet: Animal Pose Estimation with Scarce Annotation",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "Chen Li",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "ContraNeRF: Generalizable Neural Radiance Fields for Synthetic-to-Real Novel View Synthesis via Contrastive Learning",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "Hao Yang",
+    "Lanqing Hong",
+    "Aoxue Li",
+    "Tianyang Hu",
+    "Zhenguo Li",
+    "Gim Hee Lee",
+    "Liwei Wang"
+   ]
+  },
+  {
+   "title": "Overcoming the Tradeoff in Accuracy and Plausibility for 3D Hand Shape Reconstruction",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "authors": [
+    "Ziwei Yu",
+    "Chen Li",
+    "Linlin Yang",
+    "Xiaoxu Zheng",
+    "Michael Bi Mi",
+    "Gim Hee Lee",
+    "Angela Yao"
+   ]
+  },
+  {
+   "title": "AdaSfM: From Coarse Global to Fine Incremental Adaptive Structure from Motion",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "IEEE International Conference on Robotics and Automation (ICRA)",
+   "authors": [
+    "Yu Chen",
+    "Zihao Yu",
+    "Shu Song",
+    "Jianming Li",
+    "Tianning Yu",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "NeurAR: Neural Uncertainty for Autonomous 3D Reconstruction with Implicit Neural Representations",
+   "year": 2023,
+   "type": "journal_article",
+   "venue": "IEEE Robotics and Automation Letters (RA-L)",
+   "authors": [
+    "Yunlong Ran",
+    "Jing Zeng",
+    "Shibo He",
+    "Jiming Chen",
+    "Lincheng Li",
+    "Yingfeng Chen",
+    "Gim Hee Lee",
+    "Qi Ye"
+   ]
+  },
+  {
+   "title": "PDR: Progressive Depth Regularization for Monocular 3D Object Detection",
+   "year": 2023,
+   "type": "journal_article",
+   "venue": "IEEE Transactions on Circuits and Systems for Video Technology (TCSVT)",
+   "authors": [
+    "Hualian Sheng",
+    "Sijia Cai",
+    "Na Zhao",
+    "Bing Deng",
+    "Min-Jian Zhao",
+    "Gim Hee Lee"
+   ]
+  },
+  {
+   "title": "Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning",
+   "year": 2023,
+   "type": "conference_paper",
+   "venue": "AAAI Conference on Artificial Intelligence",
+   "authors": [
+    "Na Dong",
+    "Yongqiang Zhang",
+    "Mingli Ding",
+    "Gim Hee Lee"
+   ]
+  }
+ ]
+}

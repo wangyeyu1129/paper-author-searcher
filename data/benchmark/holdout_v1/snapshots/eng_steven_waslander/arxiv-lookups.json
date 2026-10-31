@@ -1,0 +1,178 @@
+{
+  "lookups": {
+    "6d pose estimation for textureless objects on rgb frames using multi view optimization": {
+      "title": "6D Pose Estimation for Textureless Objects on RGB Frames using Multi-View Optimization",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:37:20.317394+00:00"
+    },
+    "active pose refinement for textureless shiny objects using the structured light camera": {
+      "title": "Active Pose Refinement for Textureless Shiny Objects using the Structured Light Camera",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:37:26.542856+00:00"
+    },
+    "dense voxel fusion for 3d object detection": {
+      "title": "Dense Voxel Fusion for 3D Object Detection",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:37:32.658916+00:00"
+    },
+    "distillnerf perceiving 3d scenes from single glance images by distilling neural fields and foundation model features": {
+      "title": "DistillNeRF: Perceiving 3D Scenes from Single-Glance Images by Distilling Neural Fields and Foundation Model Features",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:37:38.786734+00:00"
+    },
+    "efficient reinforcement learning for autonomous driving with parameterized skills and priors": {
+      "title": "Efficient Reinforcement Learning for Autonomous Driving with Parameterized Skills and Priors",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:37:44.905960+00:00"
+    },
+    "estimating regression predictive distributions with sample networks": {
+      "title": "Estimating Regression Predictive Distributions with Sample Networks",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:37:51.021380+00:00"
+    },
+    "foresight multi view streaming joint object detection and trajectory forecasting": {
+      "title": "ForeSight: Multi-View Streaming Joint Object Detection and Trajectory Forecasting",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:37:57.140797+00:00"
+    },
+    "gradient based maximally interfered retrieval for domain adaptive 3d object detection": {
+      "title": "Gradient-based Maximally Interfered Retrieval for Domain Adaptive 3D Object Detection",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:38:03.263083+00:00"
+    },
+    "hypermodest self supervised 3d object detection with confidence score filtering": {
+      "title": "HyperMODEST: Self-Supervised 3D Object Detection with Confidence Score Filtering",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:38:09.546115+00:00"
+    },
+    "image to lidar relational distillation for autonomous driving data": {
+      "title": "Image-to-Lidar Relational Distillation for Autonomous Driving Data",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:38:15.672243+00:00"
+    },
+    "intertrack interaction transformer for 3d multi object tracking": {
+      "title": "Intertrack: Interaction transformer for 3d multi-object tracking",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:38:21.801791+00:00"
+    },
+    "jdt3d addressing the gaps in lidar based tracking by attention": {
+      "title": "JDT3D: Addressing the Gaps in LiDAR-Based Tracking-by-Attention",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:38:27.920625+00:00"
+    },
+    "lmdrive closed loop end to end driving with large language models": {
+      "title": "LMDrive: Closed-Loop End-to-End Driving with Large Language Models",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:38:34.185293+00:00"
+    },
+    "large self supervised models bridge the gap in domain adaptive object detection": {
+      "title": "Large Self-Supervised Models Bridge the Gap in Domain Adaptive Object Detection",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:38:40.305095+00:00"
+    },
+    "multi view 3d object reconstruction and uncertainty modelling with neural shape prior": {
+      "title": "Multi-view 3D Object Reconstruction and Uncertainty Modelling with Neural Shape Prior",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:38:46.422489+00:00"
+    },
+    "multiple view geometry transformers for 3d human pose estimation": {
+      "title": "Multiple View Geometry Transformers for 3D Human Pose Estimation",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:38:52.541556+00:00"
+    },
+    "next best view selection for robot eye in hand calibration": {
+      "title": "Next-Best-View Selection for Robot Eye-in-Hand Calibration",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:38:58.826612+00:00"
+    },
+    "opennav open world navigation with multimodal large language models": {
+      "title": "OpenNav: Open-World Navigation with Multimodal Large Language Models",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:39:04.948519+00:00"
+    },
+    "pov slam probabilistic object aware variational slam in semi static environments": {
+      "title": "POV-SLAM: Probabilistic Object-Aware Variational SLAM in Semi-Static Environments",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:39:11.064395+00:00"
+    },
+    "psa ssl pose and size aware self supervised learning for 3d point clouds": {
+      "title": "PSA-SSL: Pose and Size-Aware Self-Supervised Learning for 3D Point Clouds",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:39:17.185276+00:00"
+    },
+    "propandl a modular architecture for uncertainty aware panoptic segmentation": {
+      "title": "ProPanDL: A Modular Architecture for Uncertainty-Aware Panoptic Segmentation",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:39:23.468656+00:00"
+    },
+    "reasonnet end to end driving with temporal and global reasoning": {
+      "title": "ReasonNet: End-to-End Driving with Temporal and Global Reasoning",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:39:29.588777+00:00"
+    },
+    "swtrack multiple hypothesis sliding window 3d multi object tracking": {
+      "title": "SWTrack: Multiple Hypothesis Sliding Window 3D Multi-Object Tracking",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:39:35.705398+00:00"
+    },
+    "self supervised image to point distillation via semantically tolerant contrastive loss": {
+      "title": "Self-Supervised Image-to-Point Distillation via Semantically Tolerant Contrastive Loss",
+      "year": 2023,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:39:41.859467+00:00"
+    },
+    "smartpretrain model agnostic and dataset agnostic representation learning for motion prediction": {
+      "title": "SmartPretrain: Model-Agnostic and Dataset-Agnostic Representation Learning for Motion Prediction",
+      "year": 2025,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:39:48.320898+00:00"
+    },
+    "smartrefine a scenario adaptive refinement framework for efficient motion prediction": {
+      "title": "SmartRefine: A Scenario-Adaptive Refinement Framework for Efficient Motion Prediction",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:39:54.491325+00:00"
+    },
+    "toward general object level mapping from sparse views with 3d diffusion priors": {
+      "title": "Toward General Object-level Mapping from Sparse Views with 3D Diffusion Priors",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:40:00.834444+00:00"
+    },
+    "uncertainty aware 3d object level mapping with deep shape priors": {
+      "title": "Uncertainty-aware 3D Object-Level Mapping with Deep Shape Priors",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:40:06.995153+00:00"
+    },
+    "uncertaintytrack exploiting detection and localization uncertainty in multi object tracking": {
+      "title": "UncertaintyTrack: Exploiting Detection and Localization Uncertainty in Multi-Object Tracking",
+      "year": 2024,
+      "error": "HTTP 429 from export.arxiv.org",
+      "fetched_at": "2026-10-30T20:40:13.270404+00:00"
+    }
+  }
+}

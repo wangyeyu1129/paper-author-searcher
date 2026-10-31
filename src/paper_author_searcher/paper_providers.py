@@ -128,7 +128,7 @@ class OpenAlexPaperProvider(PagedPaperProvider):
     initial_token = '*'
     FIELDS = (
         'id,title,authorships,publication_year,doi,primary_location,locations,best_oa_location,open_access,'
-        'abstract_inverted_index,type,ids,is_authors_truncated'
+        'abstract_inverted_index,type,ids,is_authors_truncated,primary_topic'
     )
 
     def __init__(self, provider: OpenAlexProvider, config=DEFAULT_COLLECTION):

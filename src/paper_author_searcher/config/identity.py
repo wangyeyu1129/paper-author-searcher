@@ -2,6 +2,66 @@
 
 from dataclasses import dataclass
 
+# British spellings a title may carry where another edition, a homepage or the PDF has the American one (or the two
+# forms of one word), as stems of normalized words. Compared titles are rewritten to the right-hand form.
+TITLE_SPELLINGS: tuple[tuple[str, str], ...] = (
+    ('well being', 'wellbeing'),
+    *(
+        (f'{stem}our', f'{stem}or')
+        for stem in ('behavi', 'col', 'fav', 'flav', 'harb', 'hon', 'hum', 'lab', 'neighb', 'od', 'rum', 'tum', 'vap')
+    ),
+    *(
+        (f'{stem}is', f'{stem}iz')
+        for stem in (
+            'categor',
+            'character',
+            'general',
+            'global',
+            'industrial',
+            'maxim',
+            'minim',
+            'mobil',
+            'normal',
+            'optim',
+            'organ',
+            'parameter',
+            'penal',
+            'priorit',
+            'privat',
+            'random',
+            'real',
+            'recogn',
+            'regular',
+            'special',
+            'stabil',
+            'summar',
+            'urban',
+            'util',
+            'visual',
+        )
+    ),
+    ('analys', 'analyz'),
+    ('ageing', 'aging'),
+    ('catalogue', 'catalog'),
+    ('centre', 'center'),
+    ('defence', 'defense'),
+    ('fibre', 'fiber'),
+    ('grey', 'gray'),
+    ('judgement', 'judgment'),
+    ('labell', 'label'),
+    ('licence', 'license'),
+    ('modell', 'model'),
+    ('programme', 'program'),
+    ('signall', 'signal'),
+    ('theatre', 'theater'),
+    ('travell', 'travel'),
+)
+
+
+# Smaller limits could not hold one publication and its answer.
+MINIMUM_CHUNK_CHARACTERS = 1000
+MINIMUM_ANSWER_TOKENS = 1024
+
 
 @dataclass(frozen=True)
 class MatchingConfig:
@@ -219,16 +279,20 @@ class DiscoveryConfig:
     # requested school and department (curated_positions) gives its homepage URLs and its ORCID. Two such profiles,
     # or none, give nothing. Needs a requested department.
     dblp_profiles: bool = True
-    # Web search provider registered in source_catalog.WEB_SEARCH ('brave', 'tavily', 'exa'); empty disables it.
-    # Each provider needs its key (BRAVE_API_KEY, TAVILY_API_KEY, EXA_API_KEY); without it the step is skipped.
-    web_search: str = 'brave'
+    # Web search providers registered in source_catalog.WEB_SEARCH, in order of preference; the first whose key is
+    # set runs (TAVILY_API_KEY, BRAVE_API_KEY, EXA_API_KEY). Empty disables web search.
+    web_search: tuple[str, ...] = ('tavily', 'brave', 'exa')
     web_search_results: int = 10
     brave_url: str = 'https://api.search.brave.com/res/v1/web/search'
     tavily_url: str = 'https://api.tavily.com/search'
     exa_url: str = 'https://api.exa.ai/search'
     # Query templates; {name}, {university} and {department} are filled from the query.
-    web_queries: tuple[str, ...] = ('"{name}" {university}', '"{name}" {university} publications')
-    maximum_pages: int = 3
+    web_queries: tuple[str, ...] = (
+        '"{name}" {university}',
+        '"{name}" {university} publications',
+        '"{name}" lab publications list',
+    )
+    maximum_pages: int = 5
     minimum_page_score: float = 0.5
     # Page ranking weights (PageRanker): each feature is 0..1 and the score is their weighted sum.
     weight_name_in_title: float = 0.35
@@ -285,11 +349,12 @@ DEFAULT_DISCOVERY = DiscoveryConfig()
 class ExtractionConfig:
     """LLM extraction of a structured publication list from a homepage, publication page or CV.
 
-    Runs beside the rule-based citation parser (their citations are merged) when ``ANTHROPIC_API_KEY`` is set.
+    Off by default: the rule-based citation parser needs no paid service. When enabled it runs beside that parser
+    (their citations are merged), given ``ANTHROPIC_API_KEY``.
     Page text is split into chunks of at most ``chunk_characters`` on line boundaries; each chunk is one request.
     """
 
-    enabled: bool = True
+    enabled: bool = False
     model: str = 'claude-opus-5-5'
     effort: str = 'low'
     max_tokens: int = 16000
@@ -297,9 +362,25 @@ class ExtractionConfig:
     maximum_chunks: int = 8
     # Extracted publications are cached by request (under the run's HTTP cache directory when it has one).
     cache: bool = True
+    # After pdfminer (DownloadConfig.front_page_layouts), Claude may read the first pages of a file still unplaced;
+    # the printed title, authors and DOI go through the same identity rules as extracted text.
+    read_front_pages: bool = False
+    front_pages: int = 1
+    front_page_max_tokens: int = 4000
+    # Claude's spend per run: past it, pages keep only the rule-based parse. The prices (USD per million tokens) are
+    # those of `model`; change them together.
+    maximum_cost_usd: float = 1.0
+    input_usd_per_mtok: float = 4.0
+    output_usd_per_mtok: float = 20.0
+    cache_read_usd_per_mtok: float = 0.2
+    cache_write_usd_per_mtok: float = 5.0
 
     def __post_init__(self) -> None:
-        if self.chunk_characters < 1000 or self.maximum_chunks < 1 or self.max_tokens < 1024:
+        if (
+            self.chunk_characters < MINIMUM_CHUNK_CHARACTERS
+            or self.maximum_chunks < 1
+            or self.max_tokens < MINIMUM_ANSWER_TOKENS
+        ):
             raise ValueError('Extraction chunks and token limits are too small')
 
 

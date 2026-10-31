@@ -4,6 +4,7 @@ import threading
 import time
 from collections import OrderedDict
 from dataclasses import replace
+from http import HTTPStatus
 from urllib.parse import urldefrag, urlsplit
 
 from .config import DEFAULT_PDF
@@ -141,13 +142,17 @@ class PublicResourceRequests(HttpClientDecorator):
             'endpoint_host': affected,
         }
         self.events.append({'host': affected, 'error_type': exc.error_type, 'status_code': exc.status_code})
-        if exc.status_code == 429 or exc.error_type in ('timeout', 'network_error', 'server_error'):
+        if exc.status_code == HTTPStatus.TOO_MANY_REQUESTS or exc.error_type in (
+            'timeout',
+            'network_error',
+            'server_error',
+        ):
             failed_host = self._host(affected)
             failed_host['failures'] += 1
             backoff = self.config.public_page_cooldown * (2 ** min(failed_host['failures'] - 1, 10))
             delay = max(min(backoff, self.config.source_maximum_cooldown), exc.retry_after or 0)
             failed_host.update(until=time.monotonic() + delay, error=exc)
-            if exc.status_code == 429:
+            if exc.status_code == HTTPStatus.TOO_MANY_REQUESTS:
                 self.statistics['rate_limit_responses'] += 1
             self._record_route_failure(url, affected)
 

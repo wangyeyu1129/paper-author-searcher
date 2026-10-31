@@ -265,6 +265,66 @@ class PerformanceTests(unittest.TestCase):
         matcher = GroundTruthMatcher(GroundTruth.from_dict(truth([first, second])))
         self.assertEqual(matcher.match(candidate).decision, 'ambiguous')
 
+    def transcribed(self, **fields):
+        label = truth_paper('a')
+        label.pop('doi')
+        label.update({'truth_sources': ['manual'], 'authors': ['Alex Morgan'], **fields})
+        return label
+
+    def unidentified(self, **fields):
+        candidate = entry('a')
+        candidate.pop('doi')
+        candidate.update({'authors': ['Jane Smith', 'Alex B. Morgan'], **fields})
+        return candidate
+
+    def match_transcribed(self, candidate, *labels):
+        return GroundTruthMatcher(GroundTruth.from_dict(truth(list(labels)))).match(candidate)
+
+    def test_a_transcribed_entry_needs_only_its_title_a_nearby_year_and_one_author(self):
+        label = self.transcribed()
+        match = self.match_transcribed(self.unidentified(year=label['year'] + 2), label)
+        self.assertEqual((match.evaluation_id, match.decision), ('a', 'transcribed_title'))
+        self.assertIsNone(self.match_transcribed(self.unidentified(year=label['year'] + 3), label).evaluation_id)
+
+    def test_a_transcribed_entry_still_needs_a_shared_author(self):
+        candidate = self.unidentified(authors=['Jane Smith'])
+        self.assertIsNone(self.match_transcribed(candidate, self.transcribed()).evaluation_id)
+
+    def test_a_transcribed_title_may_omit_its_subtitle_or_hold_a_typo(self):
+        label = self.transcribed(title='How Good Is International Risk Sharing')
+        for title in (
+            'How Good is International Risk Sharing? Stepping Outside',
+            'How Good is International Risk Sharin',
+        ):
+            self.assertEqual(self.match_transcribed(self.unidentified(title=title), label).evaluation_id, 'a')
+
+    def test_a_short_title_is_not_a_subtitle_match(self):
+        label = self.transcribed(title='Breaking Parity')
+        candidate = self.unidentified(title='Breaking Parity in Equilibrium Exchange Rates')
+        self.assertIsNone(self.match_transcribed(candidate, label).evaluation_id)
+
+    def test_the_same_title_wins_over_a_close_one(self):
+        exact = self.transcribed(title='Learning Robust Policies for Robot Grasping')
+        other = dict(self.transcribed(title='Learning Robust Policies for Robot Grasping at Scale'), evaluation_id='b')
+        candidate = self.unidentified(title='Learning Robust Policies for Robot Grasping')
+        self.assertEqual(self.match_transcribed(candidate, exact, other).evaluation_id, 'a')
+
+    def test_two_equally_close_transcribed_entries_abstain(self):
+        first = self.transcribed(title='Learning Robust Policies for Robot Grasping')
+        second = dict(self.transcribed(title='Learning Robust Policies for Robot Grasping'), evaluation_id='b')
+        self.assertEqual(
+            self.match_transcribed(self.unidentified(title=first['title']), first, second).decision, 'ambiguous'
+        )
+
+    def test_another_doi_on_a_transcribed_title_is_an_edition(self):
+        label = self.transcribed(doi='10.1101/preprint')
+        candidate = self.unidentified(doi='10.1000/journal')
+        self.assertEqual(self.match_transcribed(candidate, label).evaluation_id, 'a')
+
+    def test_an_entry_from_another_source_still_needs_the_complete_signature(self):
+        label = self.transcribed(truth_sources=['orcid'])
+        self.assertIsNone(self.match_transcribed(self.unidentified(), label).evaluation_id)
+
 
 class DiagnosticsTests(unittest.TestCase):
     def test_candidate_collection_does_not_confirm_identity_or_paper_ownership(self):
