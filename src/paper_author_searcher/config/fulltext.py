@@ -45,6 +45,10 @@ class PDFConfig:
     # after the run, once their hosts' cooldowns expire; the wait for that is capped. 403/404 are final.
     transient_retry_rounds: int = 1
     transient_retry_maximum_wait: float = 120.0
+    # A source whose lookup failed transiently (arXiv's 429s, a timeout) is asked once more about papers still without
+    # a verified link, after this wait.
+    source_retry_rounds: int = 1
+    source_retry_wait: float = 60.0
     # Papers resolved concurrently; each source still paces its own hosts.
     lookup_workers: int = 4
     # Full collected records live in papers.json; reports keep a bibliographic view plus entry_index.
@@ -69,6 +73,10 @@ class PDFConfig:
     # Europe PMC full-text links accepted as PDFs: availability codes for open access ("OA") and free to read
     # ("F", e.g. a PubMed Central copy under a funder mandate). Subscription links ("S") are never followed.
     europepmc_free_codes: tuple[str, ...] = ('OA', 'F')
+    # NCBI's PMC Open Access dataset, published for programmatic use: Europe PMC's PMCID names the PDF there, so these
+    # papers need not depend on Europe PMC's website, which refuses automated clients for hours at a time. A work
+    # outside the dataset answers 404. Empty disables it.
+    pmc_open_data_url_template: str = 'https://pmc-oa-opendata.s3.amazonaws.com/{pmcid}.1/{pmcid}.1.pdf'
     # OpenAIRE Graph (no key): copies of a work in repositories it aggregates, used only when it rates the work's
     # best access right as one of these labels.
     openaire_url: str = 'https://api.openaire.eu/graph/v1/researchProducts'
@@ -94,6 +102,7 @@ class PDFConfig:
         'academia.edu',
         'blogspot.com',
         'coursehero.com',
+        'docdrop.org',
         'dokumen.pub',
         'github.com',
         'githubusercontent.com',
@@ -154,6 +163,8 @@ class PDFConfig:
             raise ValueError('lookup_workers must be positive')
         if self.transient_retry_rounds < 0 or self.transient_retry_maximum_wait < 0:
             raise ValueError('Transient retry rounds and wait must be nonnegative')
+        if self.source_retry_rounds < 0 or self.source_retry_wait < 0:
+            raise ValueError('Source retry rounds and wait must be nonnegative')
         if self.identity_year_tolerance < 0 or self.identity_shared_authors < 1:
             raise ValueError('identity_year_tolerance must be nonnegative and identity_shared_authors positive')
         if self.public_page_maximum_bytes < self.html_metadata_bytes:
@@ -213,6 +224,8 @@ class DownloadConfig:
     footer_scan_bytes: int = 4096
     poster_minimum_edge_points: float = 1000
     slide_minimum_aspect_ratio: float = 1.2
+    # A multi-page document this wide is a deck whatever made it; a two-up scan of a paper stays below (about 1.41).
+    widescreen_minimum_aspect_ratio: float = 1.5
 
     def __post_init__(self) -> None:
         if self.maximum_file_bytes < MINIMUM_FILE_BYTES or self.chunk_bytes < MINIMUM_FILE_BYTES:
@@ -240,6 +253,7 @@ class DownloadConfig:
             self.footer_scan_bytes,
             self.poster_minimum_edge_points,
             self.slide_minimum_aspect_ratio,
+            self.widescreen_minimum_aspect_ratio,
         )
         if any(limit <= 0 for limit in limits):
             raise ValueError('Parsing limits must be positive')

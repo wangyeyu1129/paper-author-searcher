@@ -97,6 +97,20 @@ class OwnershipConfig:
     # the person's own ORCID anchors vouches for every paper listing it. Elsewhere a profile ORCID is set per
     # merged cluster (OpenAlex's can be a namesake's) and is no paper-level evidence.
     curated_orcid_sources: tuple[str, ...] = ('dblp',)
+    # A curated author ID most of whose papers stand proven (this share) also vouches for its other papers in venues
+    # where the person has at least this many verified papers. Preprint servers prove nothing: anyone posts there.
+    curated_venue_minimum_verified_share: float = 0.5
+    curated_venue_minimum_papers: int = 3
+    curated_venue_excluded: tuple[str, ...] = ('corr', 'arxiv')
+    # The rule above trusts only plain numeric IDs. DBLP numbers an ID when several people share the name
+    # ("123/4433-1"), and its name-based IDs ("w/WeiWang") can pool namesakes.
+    curated_unshared_id_pattern: str = r'\d+/\d+'
+    # Sources that only say a curated profile or a name carried the paper. A group of at least this many verified papers
+    # holding one, linked to the person's main body by no coauthor, is checked for a merged namesake. Papers with more
+    # coauthors than this link nobody.
+    namesake_unproven_sources: tuple[str, ...] = ('dblp', 'arxiv')
+    namesake_group_minimum_papers: int = 2
+    namesake_group_maximum_coauthors: int = 12
     # An identity listing more institutions than this is a merge of several people (OpenAlex filed many Wei Lus,
     # 89 institutions, under one ORCID-bearing author ID), so its history vouches for nobody.
     maximum_history_institutions: int = 12

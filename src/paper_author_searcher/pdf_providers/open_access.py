@@ -95,7 +95,7 @@ class UnpaywallPDFProvider(MetadataPDFProvider):
 
 
 class EuropePMCPDFProvider(MetadataPDFProvider):
-    """Europe PMC's own free full-text PDFs (PubMed Central copies), looked up by DOI."""
+    """Europe PMC's free full-text PDFs (PubMed Central copies), looked up by DOI, and NCBI's copy of each."""
 
     name = 'europepmc'
 
@@ -142,6 +142,25 @@ class EuropePMCPDFProvider(MetadataPDFProvider):
                         identity,
                         provenance,
                         f"Europe PMC full text marked {link.get('availability')}",
+                        'publishedVersion',
+                        work.get('license'),
+                    )
+                )
+            if work.get('pmcid') and self.config.pmc_open_data_url_template:
+                provenance = {
+                    'metadata_url': self.sources.europepmc_url,
+                    'doi': work.get('doi'),
+                    'metadata_title': work.get('title'),
+                    'pmcid': work.get('pmcid'),
+                    'site': 'PMC Open Access dataset',
+                }
+                candidates.append(
+                    make_candidate(
+                        self.config.pmc_open_data_url_template.format(pmcid=work['pmcid']),
+                        self.name,
+                        identity,
+                        provenance,
+                        "NCBI's PMC Open Access dataset copy of the PMCID Europe PMC gave for this DOI",
                         'publishedVersion',
                         work.get('license'),
                     )

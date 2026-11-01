@@ -86,6 +86,7 @@ class WebSearchProviderTests(unittest.TestCase):
             SearchHit('https://www.scribd.com/x.pdf'),
             SearchHit('https://someone.wordpress.com/x.pdf'),
             SearchHit('https://raw.githubusercontent.com/a/b/x.pdf'),
+            SearchHit('https://docdrop.org/download_annotation_doc/x.pdf'),
         ]
         found = WebSearchPDFProvider(FakeSearch(hits), pages_finding_nothing()).find(PAPER)
         self.assertEqual(found.candidates, [])

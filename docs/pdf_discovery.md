@@ -10,6 +10,8 @@
 - Unpaywall 解析所有 OA locations 的 PDF 与落地页，保留版本与许可；普通落地页不能直接作为 PDF。邮箱未配置时明确 disabled，API 故障不代表不存在合法 PDF。
 - OpenAlex 非 OA/缺标记的已提供链接可交给页面探测；可信学术/机构来源必须实际返回匿名 PDF 且身份绑定通过，才成为可验证候选。不改写原始 OA 标记，不推断许可。
 - arXiv ID 可来自已有 external IDs、实际 arXiv 链接以及注册的 arXiv DOI 命名空间；下载地址只使用 API 返回的 PDF link，保留显式版本要求。
+- Europe PMC 按 DOI 查询；结果带 PMCID 时，再加一条 NCBI PMC Open Access 数据集的地址（`pmc_open_data_url_template`），不依赖 Europe PMC 网站。该网站可能连续数小时拒绝自动访问。不在数据集内的论文返回 404，不影响其他来源。
+- 来源查询因限流、超时、网络或服务错误失败时，所有来源跑完后，对仍没有已验证链接的论文再问一次（`source_retry_rounds`、`source_retry_wait`）。新结果替换原来的失败记录。
 - 作者主页、大学仓储、期刊和会议页面解析明确 PDF 引用元数据、alternate 链接和 ScholarlyArticle 结构化数据。`--bibliography-url` 可重复指定公开目录；标题线索只能引导访问文章页面，或保留未经确认的 PDF 候选。页面读取、缓存和后续链接数量有配置上限，触及上限会报告不完整。未知 HTML 页面、验证码和访问限制不会被当作成功。
 
 HTTP(S) 页面和 PDF 探测复用下载模块的 DNS 检查及固定地址连接，禁止私网 DNS、非预期端口和不安全重定向。TLS 验证始终开启。来源地址、请求间隔、批量大小、冷却时间、检索数量、页面限制均在 `PDFConfig`；重试和超时在 `HttpConfig`。

@@ -4,6 +4,7 @@ from dataclasses import replace
 from types import SimpleNamespace
 
 from paper_author_searcher.config import OwnershipConfig
+from paper_author_searcher.listed_works import RETRIEVED_EVIDENCE
 from paper_author_searcher.models import (
     AnchorEvidence,
     PaperCollectionResult,
@@ -15,7 +16,7 @@ from paper_author_searcher.paper_deduplication import deduplicate_papers
 from paper_author_searcher.paper_ownership import PaperOwnershipValidator, record_fields
 from paper_author_searcher.paper_reanalysis import reanalyze_saved_result
 from paper_author_searcher.paper_types import classify_record
-from paper_author_searcher.status import AnchorKind
+from paper_author_searcher.status import AnchorKind, OwnershipStatus
 
 
 def profile():
@@ -59,6 +60,208 @@ def record(
 def validate(records):
     papers = deduplicate_papers(records)
     return PaperOwnershipValidator().validate(papers, profile())
+
+
+class Places:
+    def __init__(self, known, on_byline):
+        self.known = known
+        self.on_byline = on_byline
+        self.looked_up = []
+
+    def history(self, _ids):
+        return set(self.known)
+
+    def on_bylines(self, dois, _is_target):
+        self.looked_up = list(dois)
+        return {doi: places for doi, places in self.on_byline.items() if doi in dois}
+
+
+class NamesakeGroupTests(unittest.TestCase):
+    def paper(self, title, coauthors, source='dblp', doi=None):
+        name = 'Alex Morgan'
+        author_id = '123/4433-1' if source == 'dblp' else 'A1'
+        return PaperRecord(
+            title=title,
+            authors=[name, *coauthors],
+            year=2024,
+            doi=doi,
+            venue='Venue',
+            abstract=None,
+            source=source,
+            source_paper_id=title,
+            source_author_id=author_id,
+            paper_url=None,
+            publication_type='article',
+            author_details=[{'author_id': author_id, 'name': name, 'orcid': None, 'orcid_scope': 'paper_authorship'}],
+        )
+
+    def statuses(self, places, extra=(), **config):
+        records = [
+            self.paper('Main one', ('Jane Smith', 'Li Wei'), doi='10.1/m1'),
+            self.paper('Main two', ('Jane Smith', 'Omar Hadi'), doi='10.1/m2'),
+            self.paper('Main three', ('Li Wei', 'Omar Hadi'), doi='10.1/m3'),
+            self.paper('Music one', ('Simon Dixon', 'Ann Lee'), doi='10.1/x1'),
+            self.paper('Music two', ('Simon Dixon',)),
+            *extra,
+        ]
+        target = replace(
+            profile(),
+            orcid=None,
+            author_ids={'dblp': '123/4433-1', 'openalex': 'A1'},
+            author_id_aliases={'dblp': ['123/4433-1'], 'openalex': ['A1']},
+            identity_anchors=[AnchorEvidence('dblp', '123/4433-1', 'anchor', 'orcid')],
+            curated_author_ids={'dblp': ['123/4433-1']},
+        )
+        papers = deduplicate_papers(records)
+        PaperOwnershipValidator(OwnershipConfig(**config), places=places).validate(papers, target)
+        return {paper.title: paper.ownership_status for paper in papers}
+
+    def test_a_separate_group_at_foreign_institutions_is_held_whole(self):
+        statuses = self.statuses(Places({'UIUC'}, {'10.1/x1': {'Queen Mary'}}))
+        self.assertEqual(statuses['Music one'], OwnershipStatus.NEEDS_REVIEW)
+        self.assertEqual(statuses['Music two'], OwnershipStatus.NEEDS_REVIEW)
+        self.assertEqual(statuses['Main one'], OwnershipStatus.VERIFIED)
+
+    def test_only_the_groups_outside_the_main_body_are_looked_up(self):
+        places = Places({'UIUC'}, {})
+        self.statuses(places)
+        self.assertEqual(places.looked_up, ['10.1/x1'])
+
+    def test_a_known_institution_keeps_the_group(self):
+        statuses = self.statuses(Places({'UIUC'}, {'10.1/x1': {'UIUC', 'Queen Mary'}}))
+        self.assertEqual(statuses['Music one'], OwnershipStatus.VERIFIED)
+
+    def test_no_printed_institution_keeps_the_group(self):
+        self.assertEqual(self.statuses(Places({'UIUC'}, {}))['Music one'], OwnershipStatus.VERIFIED)
+
+    def test_no_known_history_keeps_the_group(self):
+        statuses = self.statuses(Places(set(), {'10.1/x1': {'Queen Mary'}}))
+        self.assertEqual(statuses['Music one'], OwnershipStatus.VERIFIED)
+
+    def test_a_group_below_the_minimum_is_kept(self):
+        statuses = self.statuses(Places({'UIUC'}, {'10.1/x1': {'Queen Mary'}}), namesake_group_minimum_papers=3)
+        self.assertEqual(statuses['Music one'], OwnershipStatus.VERIFIED)
+
+    def test_a_coauthor_linking_the_groups_keeps_them(self):
+        bridge = self.paper('Bridge', ('Simon Dixon', 'Jane Smith'))
+        statuses = self.statuses(Places({'UIUC'}, {'10.1/x1': {'Queen Mary'}}), extra=[bridge])
+        self.assertEqual(statuses['Music one'], OwnershipStatus.VERIFIED)
+
+    def test_a_group_retrieved_from_a_publication_list_is_held(self):
+        listed = [
+            replace(
+                self.paper(title, ('Guillermina Lozano',), source='openalex', doi=doi),
+                source_author_id=None,
+                author_details=[],
+                attribution_evidence=[RETRIEVED_EVIDENCE],
+                ownership_evidence=[],
+            )
+            for title, doi in (('Stem one', '10.1/s1'), ('Stem two', '10.1/s2'))
+        ]
+        papers = deduplicate_papers(listed)
+        validator = PaperOwnershipValidator(places=Places({'UIUC'}, {'10.1/s1': {'NCI'}}))
+        for paper in papers:
+            for record in paper.records:
+                record.ownership_status = OwnershipStatus.VERIFIED
+            validator._aggregate(paper)
+        main = deduplicate_papers([self.paper('Main', ('Jane Smith', 'Li Wei'))])
+        for record in main[0].records:
+            record.ownership_status = OwnershipStatus.VERIFIED
+        validator._aggregate(main[0])
+        main.extend(deduplicate_papers([self.paper('Main again', ('Jane Smith',))]))
+        for record in main[1].records:
+            record.ownership_status = OwnershipStatus.VERIFIED
+        validator._aggregate(main[1])
+        target = replace(profile(), orcid=None, author_ids={'openalex': 'A1'}, author_id_aliases={'openalex': ['A1']})
+        validator._hold_namesake_groups([*main, *papers], target)
+        self.assertEqual(papers[0].ownership_status, OwnershipStatus.NEEDS_REVIEW)
+        self.assertEqual(main[0].ownership_status, OwnershipStatus.VERIFIED)
+
+    def test_a_consortium_paper_links_nobody(self):
+        crowd = tuple(f'Person{letter} Crowd' for letter in 'abcdefghijklmn')
+        bridge = self.paper('Consortium', ('Simon Dixon', 'Jane Smith', *crowd))
+        statuses = self.statuses(Places({'UIUC'}, {'10.1/x1': {'Queen Mary'}}), extra=[bridge])
+        self.assertEqual(statuses['Music one'], OwnershipStatus.NEEDS_REVIEW)
+
+
+class CuratedProfileTests(unittest.TestCase):
+    def paper(self, title, venue, coauthors=('Jane Smith',), author_id='123/4433', orcid=None):
+        name = 'Alex Morgan'
+        return PaperRecord(
+            title=title,
+            authors=[name, *coauthors],
+            year=2024,
+            doi=None,
+            venue=venue,
+            abstract=None,
+            source='dblp',
+            source_paper_id=title,
+            source_author_id=author_id,
+            paper_url=None,
+            publication_type='article',
+            author_details=[{'author_id': author_id, 'name': name, 'orcid': orcid, 'orcid_scope': 'paper_authorship'}],
+        )
+
+    def target(self, kind=None):
+        anchors = [AnchorEvidence('dblp', '123/4433', 'anchor', kind)] if kind else []
+        return replace(
+            profile(),
+            orcid=None,
+            author_ids={'dblp': '123/4433'},
+            author_id_aliases={'dblp': ['123/4433']},
+            identity_anchors=anchors,
+            curated_author_ids={'dblp': []},
+        )
+
+    def statuses(self, records, target=None, **config):
+        papers = deduplicate_papers(records)
+        PaperOwnershipValidator(OwnershipConfig(**config)).validate(papers, target or self.target())
+        return {paper.title: paper.ownership_status for paper in papers}
+
+    def anchored(self, count):
+        return [
+            self.paper(f'Proven {index}', 'NeurIPS', (f'Friend {index}', 'Regular Coauthor')) for index in range(count)
+        ]
+
+    def test_a_proven_profile_vouches_for_its_papers_in_the_persons_venues(self):
+        # Paper-level ORCIDs prove these, not the profile, so the other papers have nothing else to rely on.
+        proven = [
+            self.paper(f'Proven {index}', 'NeurIPS', (f'Friend {index}', 'Advisor'), orcid='orcid')
+            for index in range(4)
+        ]
+        preprints = [self.paper(f'Proven preprint {index}', 'CoRR', orcid='orcid') for index in range(3)]
+        records = [
+            *proven,
+            *preprints,
+            self.paper('New student work', 'NeurIPS', ('New Student', 'Friend 1')),
+            self.paper('Namesake in the venue', 'NeurIPS', ('Stranger',)),
+            self.paper('Elsewhere', 'Journal of Other Things', ('Friend 1',)),
+            self.paper('Preprint', 'CoRR', ('Friend 2',)),
+        ]
+        statuses = self.statuses(records, replace(self.target(), orcid='orcid'))
+        self.assertEqual(statuses['New student work'], 'verified')
+        self.assertEqual(statuses['Namesake in the venue'], 'needs_review')
+        self.assertEqual(statuses['Elsewhere'], 'needs_review')
+        self.assertEqual(statuses['Preprint'], 'needs_review')
+
+    def test_a_mostly_unproven_profile_vouches_for_nothing(self):
+        records = [
+            self.paper(f'Unproven {index}', 'NeurIPS', (f'Stranger {index}',), author_id='123/4433')
+            for index in range(6)
+        ]
+        statuses = self.statuses(records)
+        self.assertEqual(set(statuses.values()), {'needs_review'})
+
+    def test_an_id_that_may_pool_namesakes_vouches_for_nothing(self):
+        for shared in ('123/4433-1', 'w/WeiWang'):
+            proven = [
+                self.paper(f'Proven {index}', 'NeurIPS', (f'Friend {index}',), shared, 'orcid') for index in range(4)
+            ]
+            records = [*proven, self.paper('New student work', 'NeurIPS', ('Friend 1',), shared)]
+            target = replace(
+                self.target(), orcid='orcid', author_ids={'dblp': shared}, author_id_aliases={'dblp': [shared]}
+            )
+            self.assertEqual(self.statuses(records, target)['New student work'], 'needs_review')
 
 
 class NonPublicationTitleTests(unittest.TestCase):

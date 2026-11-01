@@ -8,7 +8,7 @@ from .matching import arxiv_from_doi, canonical_arxiv, canonical_doi, normalize,
 from .paper_authorship import byline_forms
 
 LABELS = frozenset({'belongs', 'not_belongs', 'uncertain'})
-MATCHING_RULES_VERSION = 3
+MATCHING_RULES_VERSION = 4
 
 
 # A name of this many words or more has a given and a family name.
@@ -182,6 +182,7 @@ class GroundTruthMatcher:
         self.transcribed = [
             paper for paper in truth.papers if TRANSCRIBED_SOURCES & set(paper.get('truth_sources') or [])
         ]
+        self.transcribed_ids = {paper['evaluation_id'] for paper in self.transcribed}
         for paper in truth.papers:
             evaluation_id = paper['evaluation_id']
             for key in stable_identifiers(paper):
@@ -280,6 +281,9 @@ class GroundTruthMatcher:
                 candidates=sorted(ids), evidence=[*evidence, 'Multiple truth identities match'], decision='ambiguous'
             )
         evaluation_id = next(iter(ids))
+        if evaluation_id in self.transcribed_ids:
+            # A transcribed entry's DOI came from a title lookup, so another DOI is another edition of the paper.
+            return TruthMatch(evaluation_id, [evaluation_id], evidence, method)
         observed_dois = {key for key in stable_identifiers(paper) if key[0] == 'doi'}
         expected_dois = {key for key in stable_identifiers(self.by_id[evaluation_id]) if key[0] == 'doi'}
         if observed_dois and expected_dois and not observed_dois.intersection(expected_dois):

@@ -202,7 +202,8 @@ class SemanticRequestTests(unittest.TestCase):
         semantic = SemanticScholarPDFProvider(client)
         crossref_client = Mock()
         crossref_client.get.return_value = {'status': 'ok', 'message': crossref_work()}
-        resolver = PDFResolver([semantic, CrossrefPDFProvider(crossref_client)], Mock())
+        config = replace(DEFAULT_PDF, source_retry_rounds=0)
+        resolver = PDFResolver([semantic, CrossrefPDFProvider(crossref_client)], Mock(), config=config)
         report = resolver.resolve({'papers': [saved_paper()]}).to_dict()
         self.assertEqual(report['papers'][0]['providers'][0]['status'], 'partial')
         self.assertTrue(report['papers'][0]['providers'][0]['warnings'])

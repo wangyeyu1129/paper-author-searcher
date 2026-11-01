@@ -38,6 +38,8 @@ def classify_document(
         return 'slides', ['Presentation-producing metadata and slide layout/page sequence agree']
     if re.search(r'(?im)^\s*(?:presentation slides|slides for|slide deck)\b', explicit):
         return 'slides', ['Explicit slide-deck heading']
+    if page_count > 1 and page_size[0] / max(page_size[1], 1) >= config.widescreen_minimum_aspect_ratio:
+        return 'slides', ['Multi-page widescreen layout']
     article = bool(re.search(r'(?im)^\s*abstract\b', first_page_text))
     body_section = bool(re.search(r'(?im)^\s*(?:\d+\.?\s+)?introduction\b', first_page_text))
     article_structure = article and not oversized and not landscape and (page_count > 1 or body_section)

@@ -1,9 +1,11 @@
 """Conservative, source-scoped ownership decisions with traceable evidence."""
 
+import re
 import typing
 from collections import Counter
 
 from .config import DEFAULT_OWNERSHIP
+from .listed_works import RETRIEVED_EVIDENCE
 from .matching import canonical_orcid, institution_similarity, name_similarity, normalize
 from .models import AnchorEvidence
 from .paper_authorship import byline_forms, canonical_author_id, signature_names
@@ -20,6 +22,13 @@ FOREIGN_FRAGMENT = (
 
 RARITY_SOURCE = OPENALEX
 RARE_NAME_EVIDENCE = 'Explicit target Author ID and compatible byline under a name no other author holds in the source'
+CURATED_VENUE_EVIDENCE = (
+    "Curated author profile most of whose papers are proven, in a venue where the person's verified papers appear"
+)
+NAMESAKE_GROUP_NOTE = (
+    "Held for review: no coauthor links this paper's group to the person's other papers, "
+    'and OpenAlex prints its name at institutions the person never held'
+)
 LISTED_CLAIM = "Listed on the researcher's own publication list (homepage or supplied ORCID) with a compatible byline"
 
 
@@ -35,13 +44,15 @@ class PaperOwnershipValidator:
     """``validate`` prepares a per-identity precision-guard context for the duration of the call; one instance
     validates one identity at a time."""
 
-    def __init__(self, config=DEFAULT_OWNERSHIP, guard: PrecisionGuard | None = None, name_rarity=None):
+    def __init__(self, config=DEFAULT_OWNERSHIP, guard: PrecisionGuard | None = None, name_rarity=None, places=None):
         self.config = config
         # Optional stricter evidence for common names (precision_guards); without it every rule is the ordinary one.
         self.guard = guard
         self._guard: GuardContext = GuardContext()
         self.name_rarity = name_rarity
         self._rare_name = False
+        # Optional: where a source places the person, to tell a merged namesake's papers apart.
+        self.places = places
 
     @staticmethod
     def _selected_ids(profile, source):
@@ -380,7 +391,136 @@ class PaperOwnershipValidator:
                     )
             self._aggregate(paper)
         self._verify_rare_name_papers(papers, profile)
+        self._verify_curated_profile_venues(papers, profile)
+        self._hold_namesake_groups(papers, profile)
         return papers
+
+    def _hold_namesake_groups(self, papers, profile):
+        """A curated profile can merge two people: DBLP's Huan Zhang holds a music researcher's papers among hundreds of
+        the verification researcher's, and those papers' coauthors then verify the arXiv copies too.
+
+        Neither signal alone will do. A student's real paper can share no coauthor with the rest, and OpenAlex splits a
+        person into IDs that know only some of their institutions. So a group of papers linked by coauthors but not to
+        the person's main body is held only when the byline institutions on it all contradict the person's.
+        """
+        groups = self._coauthor_groups(papers, profile)
+        suspects = [
+            group
+            for group in groups[1:]
+            if len(group) >= self.config.namesake_group_minimum_papers
+            and any(self._only_unproven_sources(paper) for paper in group)
+        ]
+        if not self.places or not suspects:
+            return
+        known = self.places.history(self._selected_ids(profile, OPENALEX))
+        if not known:
+            return
+        dois = sorted({paper.doi.lower() for group in suspects for paper in group if paper.doi})
+        on_byline = self.places.on_bylines(dois, lambda name: self._names_target(name, profile))
+        for group in suspects:
+            seen = [on_byline[paper.doi.lower()] for paper in group if paper.doi and paper.doi.lower() in on_byline]
+            if not seen or any(places & known for places in seen):
+                continue
+            for paper in group:
+                if not self._only_unproven_sources(paper):
+                    continue
+                for record in paper.records:
+                    if record.ownership_status == OwnershipStatus.VERIFIED:
+                        record.ownership_status = OwnershipStatus.NEEDS_REVIEW
+                        record.ownership_evidence.append(NAMESAKE_GROUP_NOTE)
+                self._aggregate(paper)
+
+    def _coauthor_groups(self, papers, profile):
+        """Verified papers joined by shared coauthors, largest group first.
+
+        Papers with very many authors draw no links: one consortium paper would join two people.
+        """
+        parents: dict[typing.Any, typing.Any] = {}
+
+        def root(item):
+            parents.setdefault(item, item)
+            while parents[item] != item:
+                parents[item] = parents[parents[item]]
+                item = parents[item]
+            return item
+
+        verified = [paper for paper in papers if paper.ownership_status == OwnershipStatus.VERIFIED]
+        for index, paper in enumerate(verified):
+            root(index)
+            coauthors = self._paper_coauthors(paper, profile)
+            if len(coauthors) <= self.config.namesake_group_maximum_coauthors:
+                for name in coauthors:
+                    parents[root(name)] = root(index)
+        groups: dict[typing.Any, list] = {}
+        for index, paper in enumerate(verified):
+            groups.setdefault(root(index), []).append(paper)
+        return sorted(groups.values(), key=len, reverse=True)
+
+    def _only_unproven_sources(self, paper):
+        """Only a curated profile, a name or a publication list carried it. Search can find a namesake's list."""
+        return all(
+            record.source in self.config.namesake_unproven_sources
+            or any(item.startswith(RETRIEVED_EVIDENCE) for item in record.attribution_evidence)
+            for record in paper.records
+        )
+
+    @staticmethod
+    def _names_target(name, profile):
+        return any(
+            author_signatures_match(target, form) for target in profile.target_names() for form in byline_forms(name)
+        )
+
+    def _verify_curated_profile_venues(self, papers, profile):
+        """Papers under a curated author ID in venues the person is proven to publish in, once most of it is proven.
+
+        Curated sources print no institutions and new students share too few papers to count as known coauthors, so
+        nothing else reaches these. Only for an ID of the form the source gives one separated person: Wei Wang's
+        name-based DBLP ID holds a speech researcher's ASRU papers, which pass the venue and coauthor tests.
+        """
+        curated = [paper for paper in papers if self._curated_records(paper, profile)]
+        proven = [paper for paper in curated if paper.ownership_status == OwnershipStatus.VERIFIED]
+        if not curated or len(proven) / len(curated) < self.config.curated_venue_minimum_verified_share:
+            return
+        counts: typing.Counter[str] = Counter()
+        coauthors: set[str] = set()
+        for paper in papers:
+            if paper.ownership_status == OwnershipStatus.VERIFIED:
+                counts.update(self._paper_venues(paper))
+                coauthors |= self._paper_coauthors(paper, profile)
+        venues = {venue for venue, count in counts.items() if count >= self.config.curated_venue_minimum_papers}
+        for paper in curated:
+            if {record.ownership_status for record in paper.records} & {OwnershipStatus.REJECTED}:
+                continue
+            for record in self._curated_records(paper, profile):
+                if (
+                    record.ownership_status == OwnershipStatus.NEEDS_REVIEW
+                    and self._record_venue(record) in venues
+                    and self._coauthors(record, profile) & coauthors
+                    and self._rare_name_eligible(record, profile)
+                ):
+                    record.ownership_status = OwnershipStatus.VERIFIED
+                    record.ownership_evidence.append(CURATED_VENUE_EVIDENCE)
+            self._aggregate(paper)
+
+    def _curated_records(self, paper, profile):
+        return [
+            record
+            for record in paper.records
+            if record.source in self.config.curated_orcid_sources
+            and canonical_author_id(record.source, record.source_author_id)
+            in self._selected_ids(profile, record.source)
+            and re.fullmatch(self.config.curated_unshared_id_pattern, record.source_author_id or '')
+        ]
+
+    def _record_venue(self, record):
+        venue = normalize(record.venue or '')
+        return '' if venue in self.config.curated_venue_excluded else venue
+
+    def _paper_venues(self, paper):
+        return {venue for venue in map(self._record_venue, paper.records) if venue}
+
+    def _paper_coauthors(self, paper, profile):
+        return {name for record in paper.records for name in self._coauthors(record, profile)}
 
     def _verify_rare_name_papers(self, papers, profile):
         """Under a rare name, papers under the person's author ID in fields their proven papers are in.
