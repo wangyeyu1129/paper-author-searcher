@@ -119,6 +119,8 @@
 
 一台 Linux 虚拟机加 Docker Compose。SQLite 要求所有进程在同一台机器上，所以不要用 Kubernetes 或多台机器。
 
+不想花钱的话，看[零成本方案](#零成本方案)。
+
 ### 1. 准备服务器和域名
 
 - 系统选 Ubuntu 24.04，配置见[容量](#容量)。
@@ -164,7 +166,7 @@ cp deploy/alertmanager/alertmanager.example.yml deploy/alertmanager/alertmanager
 ### 4. 启动
 
 ```bash
-docker compose -f deploy/compose.yaml --profile public --profile monitoring up -d
+docker compose -f deploy/compose.yaml --profile public --profile monitoring up -d --scale worker=3
 docker compose -f deploy/compose.yaml run --rm api create-key --name cold-email-agent
 ```
 
@@ -200,6 +202,61 @@ curl -s https://search.example.com/v1/searches -H "Authorization: Bearer $KEY" -
 
 最后试一次告警：`docker compose -f deploy/compose.yaml stop api`，约 2 分钟后应该收到通知，`start api` 后收到恢复通知。
 
+### 零成本方案
+
+用 Oracle Cloud Always Free 的 Arm 服务器，每月 0 美元。这个方案还没有在 Oracle 上实际部署过；所有容器（包括 Caddy、Prometheus、Alertmanager）在 arm64 的 Mac 上跑通过。
+
+下面只列和前面步骤不同的地方，其余照做。
+
+| 项目 | 用什么 | 额度 |
+|---|---|---|
+| 服务器 | Oracle Always Free，`VM.Standard.A1.Flex` | 2 OCPU / 12 GB 内存 / 200 GB 磁盘 / 每月 10 TB 出站流量 |
+| 域名 | DuckDNS 子域名（`xxx.duckdns.org`） | 免费 |
+| 异地备份 | rclone 加密后传到 Google Drive 或 Cloudflare R2 | R2 免费 10 GB；Drive 免费额度请到官网确认 |
+| 告警邮件 | Gmail SMTP，用应用专用密码 | 免费 |
+| OpenAlex | 免费额度，服务默认每天 1 美元就停 | 约 80 个作者/天（按每人约 80 篇论文估算） |
+| Tavily | 免费额度，不要绑卡 | 每月 1,000 credits，够 36–330 次搜索 |
+
+**第 1 步改成：**
+
+1. 注册 Oracle Cloud。需要绑信用卡验证。主区域选美国，注册后不能改，免费的服务器和磁盘都必须建在主区域。
+2. 创建实例：机型选 `VM.Standard.A1.Flex`（2 OCPU、12 GB），系统选 Ubuntu 24.04 的 aarch64 版本，启动盘设为 100 GB。如果提示 `out of host capacity`，换一个可用区或晚点重试。
+3. 在实例所在子网的安全列表里放行 TCP 80 和 443。
+4. 在 duckdns.org 上建一个子域名，指向实例的公网 IP。
+
+如果放行后外部仍然连不上 80 和 443，再放行系统防火墙。Oracle 的 Ubuntu 镜像通常自带限制性的 iptables 规则：
+
+```bash
+sudo iptables -I INPUT 1 -p tcp -m multiport --dports 80,443 -j ACCEPT
+```
+
+```bash
+sudo netfilter-persistent save
+```
+
+**第 2 步：** `SITE_ADDRESS` 填 DuckDNS 的子域名。
+
+**第 3 步：** `alertmanager.yml` 里的 `smtp_smarthost` 填 `smtp.gmail.com:587`，把 Gmail 应用专用密码写进 `deploy/secrets/ALERT_SMTP_PASSWORD`。
+
+**第 4 步：** 在服务器上直接构建镜像，不设置 `PAPER_SEARCH_IMAGE`。`release.yml` 目前只构建 x86 镜像，不能在 Arm 上运行。
+
+```bash
+docker compose -f deploy/compose.yaml --profile public --profile monitoring up -d --build --scale worker=3
+```
+
+升级时先 `git pull`，再执行同一条命令。回滚就是 `git checkout` 到上一个版本，再执行一次。
+
+**不要做这两件事，否则会开始计费：** 把 Oracle 账号升级成按量付费；给 Tavily 绑卡。
+
+**这个方案的风险：**
+
+- **服务器可能被回收。** 连续 7 天内，如果 CPU（95 分位）、网络、内存使用率都低于 20%，Oracle 可以回收实例。没有搜索时，这个服务很可能符合这个条件。
+- **规则可能再变。** 据报道，Oracle 在 2026 年把 Arm 免费额度减半，而且没有公开宣布。免费服务也没有可用性保证。
+- **异地备份必须配好**，并且不要放在 Oracle 账号里。服务器没了就新建一台，照上面的步骤部署，再按[备份和恢复](#备份和恢复)恢复。索引约 14 分钟重建完。
+- **额度用完后结果会变差。** Tavily 用完后，靠网页搜索找到的主页和全文会缺失（实测全文覆盖率 61.5% 对 56.4%）。OpenAlex 用完后，当天的请求会被拒绝，结果里会说明。
+
+要节省 Tavily 额度，调低 `PAPER_SEARCH__PDF__WEB_SEARCH_MAXIMUM_PAPERS`（默认 25）。
+
 ### 备份和恢复
 
 `backup` 服务每天生成一份归档到 `deploy/backups`，保留 14 份。内容是任务库、限流库、API 密钥哈希和本地文件，并带 SHA-256 校验。索引和 HTTP 缓存不备份，它们可以重新生成。
@@ -221,7 +278,7 @@ docker compose -f deploy/compose.yaml run --rm --no-deps backup restore /backups
 ```
 
 ```bash
-docker compose -f deploy/compose.yaml --profile public --profile monitoring up -d
+docker compose -f deploy/compose.yaml --profile public --profile monitoring up -d --scale worker=3
 ```
 
 恢复前会先校验整个归档，校验不通过时不会改动现有数据。在新机器上恢复时，索引会由 `indexer` 重新构建。
@@ -239,7 +296,7 @@ docker compose -f deploy/compose.yaml --profile public --profile monitoring pull
 ```
 
 ```bash
-docker compose -f deploy/compose.yaml --profile public --profile monitoring up -d
+docker compose -f deploy/compose.yaml --profile public --profile monitoring up -d --scale worker=3
 ```
 
 回滚就是把这一行改回上一个 tag，再执行同样的两条命令。如果新版本改过数据库结构，先恢复升级前的备份。仓库是私有的话，服务器上要先 `docker login ghcr.io`。
