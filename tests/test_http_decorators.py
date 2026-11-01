@@ -1,5 +1,7 @@
+import json
 import tempfile
 import unittest
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import replace
 from pathlib import Path
 
@@ -173,6 +175,21 @@ class ProbeCacheTests(unittest.TestCase):
                 requests.probe(self.url)
         self.assertEqual(sleeps, [])
         self.assertIn('mirror.example.edu', requests.redirect_targets['doi.org'])
+
+
+class SharedCacheTests(unittest.TestCase):
+    def test_runs_recording_one_request_at_the_same_moment_do_not_collide(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'ab' / 'key.json'
+
+            def record(_):
+                for _ in range(50):
+                    CachingHttpClient._store(path, {'value': 1})
+
+            with ThreadPoolExecutor(8) as pool:
+                list(pool.map(record, range(8)))
+            self.assertEqual([item.name for item in path.parent.iterdir()], ['key.json'])
+            self.assertEqual(json.loads(path.read_text()), {'value': 1})
 
 
 class PostingClient(HttpClient):

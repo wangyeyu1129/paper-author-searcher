@@ -13,6 +13,8 @@
 | `email` | 否 | 先按邮箱查 ORCID 注册表；邮箱域名证明页面属于该机构 |
 | `scholar_url`、`profile_urls` | 否 | Google Scholar、ORCID、OpenAlex、Semantic Scholar、DBLP、OpenReview 档案链接 |
 
+网页搜索只按姓名命中，可能是同名者的页面：搜到的页面只有正文或域名写出所请求的学校（全名、别名或大小写一致的首字母缩写）才会读取，否则记入 `discovered.evidence` 并跳过。ORCID 或 DBLP 记录自己列出的页面不受此限。
+
 命令行对应 `--homepage`、`--publication-page`、`--orcid`、`--email`、`--scholar-url`、`--profile-url`（可重复）。档案链接由 `profile_links.ProfileLinkParser` 按 `ProfileLinkConfig.patterns`（来源、正则）解析：OpenAlex / Semantic Scholar / DBLP 链接直接锚定该 ID（锚点类型 `profile`，与 ORCID 同等优先）；Google Scholar 没有公开 API，只记录用户 ID 作为证据。
 
 ## 身份发现（调用方没给的线索）

@@ -6,7 +6,7 @@ from dataclasses import replace
 from paper_author_searcher.composition import RunOptions, ServiceContainer
 from paper_author_searcher.config import DEFAULT_LISTED_WORKS, DEFAULT_NAME_SEARCHES
 from paper_author_searcher.listed_works import AuthorMatcher
-from paper_author_searcher.matching import institution_mentioned
+from paper_author_searcher.matching import institution_mentioned, school_initialism, school_named
 from paper_author_searcher.models import ProfessorProfile
 from paper_author_searcher.name_searches import (
     CoreWorkLookup,
@@ -193,6 +193,19 @@ class LookupTests(unittest.TestCase):
 
 
 class MatchingTests(unittest.TestCase):
+    def test_a_school_has_initials_only_when_they_are_long_enough_to_tell(self):
+        self.assertEqual(school_initialism('Massachusetts Institute of Technology'), 'MIT')
+        self.assertEqual(school_initialism('University of California, Los Angeles'), 'UCLA')
+        self.assertEqual(school_initialism('University of Illinois Urbana-Champaign'), 'UIUC')
+        self.assertIsNone(school_initialism('Stanford University'))
+
+    def test_a_page_names_a_school_in_full_or_by_its_exact_initials(self):
+        mit = ['Massachusetts Institute of Technology']
+        self.assertTrue(school_named(mit, 'Assistant Professor at MIT.'))
+        self.assertTrue(school_named(mit, 'Massachusetts Institute of Technology, Cambridge'))
+        self.assertFalse(school_named(mit, 'Arbeit mit Studierenden'))
+        self.assertFalse(school_named(['Stanford University'], 'University of Toronto'))
+
     def test_institution_mentioned_needs_every_distinctive_word(self):
         self.assertTrue(institution_mentioned('Stanford University', 'Dept. of Genetics, Stanford University, CA'))
         self.assertFalse(institution_mentioned('Stanford University', 'University of Toronto'))

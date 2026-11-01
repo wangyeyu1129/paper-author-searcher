@@ -64,7 +64,7 @@ class DblpProfileDiscovery:
             if self.ranker.excluded(url):
                 continue
             score = self.ranker.score(query, SearchHit(url, ''), self.ranker.config.weight_dblp_listed)
-            found.add_page(DiscoveredPage(url, score, f'DBLP {profile.author_id} homepage'))
+            found.add_page(DiscoveredPage(url, score, f'DBLP {profile.author_id} homepage', vouched=True))
 
     def _names_agree(self, query: Any, candidate: AuthorCandidate) -> bool:
         names = [candidate.name, *candidate.aliases]
