@@ -131,6 +131,23 @@ def institution_mentioned(expected: str, text: str, config: MatchingConfig = DEF
     return bool(wanted) and wanted <= set(normalize(text).split())
 
 
+def school_initialism(name: str, config: MatchingConfig = DEFAULT_MATCHING) -> str | None:
+    """The school's initials ("MIT", "UCLA", "UIUC"), the form a personal page often uses; too short to tell (None)."""
+    words = [word for word in re.split(r'[\s,\-–]+', name) if word and word.lower() not in config.school_connectors]
+    initials = ''.join(word[0].upper() for word in words)
+    return initials if len(initials) >= config.minimum_school_initials else None
+
+
+def school_named(schools: Iterable[str], text: str, config: MatchingConfig = DEFAULT_MATCHING) -> bool:
+    """A page's text names one of these schools, in full or by its initials (exact case: "mit" is German for "with")."""
+    printed = set(re.findall(r'\w+', text))
+    return any(
+        institution_mentioned(school, text, config) or school_initialism(school, config) in printed
+        for school in schools
+        if school
+    )
+
+
 def split_name(name: str) -> tuple[str, str]:
     """(given names, family name) of a Western-order name; a single token is a family name."""
     parts = name.split()

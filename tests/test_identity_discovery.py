@@ -385,6 +385,46 @@ class AnchorFinderIntegrationTests(unittest.TestCase):
         anchors = self.finder(client, found, follow_publication_links=False).find(query())
         self.assertEqual(anchors.listed_works, ['doi:10.1000/own'])
 
+    def test_a_search_hit_that_does_not_name_the_school_is_not_read_for_papers(self):
+        page = 'https://namesake.other.org/mei-lin'
+        client = Client(pages={page: '<p>Mei Lin, Other Institute.</p>' + PERSONAL_PAGE})
+        found = Discovery(pages=[DiscoveredPage(page, 0.9, 'web')])
+        anchors = self.finder(client, found, follow_publication_links=False).find(query())
+        self.assertEqual(anchors.listed_works, [])
+        self.assertEqual(anchors.listed_pdfs, [])
+        self.assertTrue(any(page in item and 'not used' in item for item in anchors.discovered['evidence']))
+
+    def test_a_search_hit_naming_the_school_in_its_text_or_host_is_read(self):
+        for page, body in (
+            ('https://mei-lin.other.org', '<p>Mei Lin, Example University.</p>'),
+            ('https://cs.example.edu/mei-lin', ''),
+        ):
+            client = Client(pages={page: body + PERSONAL_PAGE})
+            found = Discovery(pages=[DiscoveredPage(page, 0.9, 'web')])
+            anchors = self.finder(client, found, follow_publication_links=False).find(query())
+            self.assertEqual(anchors.listed_works, ['doi:10.1000/own'], page)
+
+    def test_a_page_the_persons_own_record_lists_needs_no_school(self):
+        page = 'https://mei-lin.other.org'
+        client = Client(pages={page: PERSONAL_PAGE})
+        found = Discovery(pages=[DiscoveredPage(page, 0.5, 'ORCID', vouched=True)])
+        anchors = self.finder(client, found, follow_publication_links=False).find(query())
+        self.assertEqual(anchors.listed_works, ['doi:10.1000/own'])
+
+    def test_pages_without_the_school_do_not_use_up_the_pages_to_read(self):
+        namesake, own = 'https://namesake.other.org', 'https://cs.example.edu/mei-lin'
+        client = Client(pages={namesake: PERSONAL_PAGE, own: PUBLICATIONS_PAGE})
+        found = Discovery(pages=[DiscoveredPage(namesake, 0.9, 'web'), DiscoveredPage(own, 0.6, 'web')])
+        anchors = self.finder(client, found, maximum_pages=1, follow_publication_links=False).find(query())
+        self.assertEqual(anchors.listed_works, ['doi:10.1000/listed'])
+
+    def test_only_so_many_pages_are_fetched_looking_for_the_school(self):
+        pages = {f'https://namesake{index}.other.org': PERSONAL_PAGE for index in range(4)}
+        client = Client(pages=pages)
+        found = Discovery(pages=[DiscoveredPage(url, 0.9, 'web') for url in pages])
+        anchors = self.finder(client, found, maximum_pages_read=2, follow_publication_links=False).find(query())
+        self.assertEqual(sum('not used' in item for item in anchors.discovered['evidence']), 2)
+
     def test_a_supplied_page_follows_its_publication_link_on_the_same_site(self):
         page = 'https://cs.example.edu/~meilin/'
         client = Client(pages={page: PERSONAL_PAGE, page + 'publications.html': PUBLICATIONS_PAGE})

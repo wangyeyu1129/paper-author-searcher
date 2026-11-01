@@ -23,7 +23,9 @@ from .homepage_citations import (
     HomepageReader,
     HtmlCitationParser,
     PdfCitationParser,
+    is_pdf,
     mentions,
+    pdf_text,
 )
 from .html_support import LinkExtractor, decode_response
 from .http import HttpClient, SourceError
@@ -35,10 +37,12 @@ from .matching import (
     name_similarity,
     normalize,
     normalize_title,
+    school_named,
     work_keys,
 )
 from .models import AnchorEvidence
 from .profile_links import ORCID_SOURCE, ProfileLink, ProfileLinkParser
+from .publication_extraction import html_text
 from .status import AnchorKind
 
 logger = logging.getLogger(__name__)
@@ -116,6 +120,14 @@ class PageToRead:
     # A page the caller supplied may be a personal page listing only the person's works; on a discovered page (and
     # on a lab page) only the citations that name the person count.
     strict: bool
+    # A search hit may be a namesake's page: without the requested school in its text it is not read for papers.
+    must_name_school: bool = False
+
+
+@dataclass(frozen=True)
+class _ReadPage:
+    citations: list[HomepageCitation]
+    text: str
 
 
 def paper_hints(values: list[str]) -> dict[str, list[str]]:
@@ -236,18 +248,27 @@ class ScholarlyAnchorFinder:
                 self._guard(anchors, self._orcid_works, query, anchors.orcid)
         hints = paper_hints(list(query.known_papers))
         page_titles: list[str] = []
-        pages = [PageToRead(url, strict=False) for url in query.pages()]
+        supplied = query.pages()
+        pages = [PageToRead(url, strict=False) for url in supplied]
         pages += [
-            PageToRead(page.url, strict=True)
-            for page in discovery.best_pages(self.discovery_config.maximum_pages)
-            if page.url not in query.pages()
+            PageToRead(page.url, strict=True, must_name_school=not page.vouched)
+            for page in discovery.best_pages(self.discovery_config.maximum_pages_read)
+            if page.url not in supplied
         ]
+        room = self.discovery_config.maximum_pages
         for page in pages:
+            if page.strict and room < 1:
+                break
             try:
-                citations = self.ranker.rank(self._read_page(page.url), query.name)
+                read = self._read_page(page.url)
+                if page.must_name_school and not self._names_school(query, page.url, read.text):
+                    anchors.discovered['evidence'].append(f'Page {page.url} not used: it does not name the school')
+                    continue
+                citations = self.ranker.rank(read.citations, query.name)
             except (SourceError, ValueError) as exc:
                 anchors.errors.append(f'page {page.url}: {exc}')
                 continue
+            room -= page.strict
             # Every citation's PDF stays available: a personal page's citations often omit the person's own name
             # ("with A and B"), and a PDF only ever serves a paper its citation names and its content shows.
             pdf_citations = citations
@@ -293,22 +314,31 @@ class ScholarlyAnchorFinder:
             if link.source in self.config.profile_anchor_sources:
                 anchors.add(link.source, link.identifier, 'profile link ' + link.url, AnchorKind.PROFILE)
 
-    def _read_page(self, url: str) -> list[HomepageCitation]:
-        """The page's citations, plus those of the publication list or CV it links to on the same site."""
-        citations, html, served = self._read_citations(url)
+    def _names_school(self, query, url: str, text: str) -> bool:
+        # Host words count as printed in capitals, so economics.mit.edu names MIT.
+        host = (urlsplit(url).hostname or '').replace('.', ' ').upper()
+        return school_named([query.university, *query.university_aliases], f'{host}\n{text}', self.matching)
+
+    def _read_page(self, url: str) -> _ReadPage:
+        """The page's citations and text, plus those of the publication list or CV it links to on the same site."""
+        page, html, served = self._read_citations(url)
         if html is None or not self.discovery_config.follow_publication_links:
-            return citations
+            return page
+        citations, texts = list(page.citations), [page.text]
         for link in publication_links(html, served, self.discovery_config)[
             : self.discovery_config.maximum_followed_links
         ]:
             try:
-                citations += self._read_citations(link)[0]
+                followed = self._read_citations(link)[0]
             except (SourceError, ValueError) as exc:
                 logger.debug('Publication link %s unreadable: %s', link, exc)
-        return citations
+                continue
+            citations += followed.citations
+            texts.append(followed.text)
+        return _ReadPage(citations, '\n'.join(texts))
 
-    def _read_citations(self, url: str) -> tuple[list[HomepageCitation], str | None, str]:
-        """Citations of one page, its HTML (None for a PDF) for link following, and the URL it was served from."""
+    def _read_citations(self, url: str) -> tuple[_ReadPage, str | None, str]:
+        """One page's citations and text, its HTML (None for a PDF) for following, and the URL it was served from."""
         # One limit for both kinds: an HTML page's text and a PDF CV's whole body.
         limit = self.config.homepage_bytes
         response = self.client.probe(url, limit, limit, self.config.maximum_redirects)
@@ -325,7 +355,10 @@ class ScholarlyAnchorFinder:
             replace(item, pdf_links=tuple(urljoin(base, unescape(link)) for link in item.pdf_links))
             for item in citations
         ]
-        return citations, decoded[-1] if decoded else None, base
+        html = decoded[-1] if decoded else None
+        pdf = is_pdf(response.content_type, response.prefix)
+        text = pdf_text(response.prefix) if pdf else html_text(html or decode())
+        return _ReadPage(citations, text), html, base
 
     def _compatible(self, query, name: str | None) -> bool:
         if not name:

@@ -122,6 +122,9 @@ class MatchingConfig:
         'universite',
         'universität',
     )
+    # A school's initials ("MIT", "UCLA") skip these words; fewer letters than this say nothing ("SU", "HU").
+    school_connectors: tuple[str, ...] = ('of', 'and', 'the', 'at', 'for', 'in')
+    minimum_school_initials: int = 3
 
     def __post_init__(self) -> None:
         if self.doi_coverage_target <= 0:
@@ -259,7 +262,8 @@ class DiscoveryConfig:
 
     Discovered evidence is weaker than supplied evidence: an ORCID is adopted only when the registry returns
     exactly one compatible person at the requested institution, and a page only when its ranking score clears
-    ``minimum_page_score`` (see identity_discovery.PageRanker).
+    ``minimum_page_score`` (see identity_discovery.PageRanker) and, unless the person's own record lists it, its text
+    names the requested school.
     """
 
     enabled: bool = True
@@ -293,6 +297,9 @@ class DiscoveryConfig:
         '"{name}" lab publications list',
     )
     maximum_pages: int = 5
+    # A search hit is matched on its name alone, so it may be a namesake's page: it counts only when its own text
+    # names the requested school. Pages that fail do not use up maximum_pages; this bounds how many are fetched.
+    maximum_pages_read: int = 12
     minimum_page_score: float = 0.5
     # Page ranking weights (PageRanker): each feature is 0..1 and the score is their weighted sum.
     weight_name_in_title: float = 0.35
@@ -336,7 +343,11 @@ class DiscoveryConfig:
     maximum_followed_links: int = 2
 
     def __post_init__(self) -> None:
-        if self.orcid_search_rows < 1 or self.web_search_results < 1 or self.maximum_pages < 0:
+        if (
+            self.orcid_search_rows < 1
+            or self.web_search_results < 1
+            or min(self.maximum_pages, self.maximum_pages_read) < 0
+        ):
             raise ValueError('Discovery limits must be positive')
         if self.maximum_followed_links < 0:
             raise ValueError('maximum_followed_links must be nonnegative')

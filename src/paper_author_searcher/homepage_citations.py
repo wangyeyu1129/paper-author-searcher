@@ -194,6 +194,10 @@ class DocumentParser(Protocol):
     def parse(self, document: Any) -> list[HomepageCitation]: ...
 
 
+def is_pdf(content_type: str, body: bytes) -> bool:
+    return 'pdf' in (content_type or '').lower() or body.startswith(b'%PDF')
+
+
 class HomepageReader:
     """Turns a fetched publication page into citations: HTML pages and PDF CVs alike."""
 
@@ -201,7 +205,7 @@ class HomepageReader:
         self.html, self.pdf = html, pdf
 
     def citations(self, content_type: str, body: bytes, decode: Callable[[], str]) -> list[HomepageCitation]:
-        if 'pdf' in (content_type or '').lower() or body.startswith(b'%PDF'):
+        if is_pdf(content_type, body):
             return self.pdf.parse(body)
         return self.html.parse(decode())
 

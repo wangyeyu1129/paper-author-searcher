@@ -6,8 +6,9 @@ evidence is held to a stricter standard than supplied evidence:
 
 - an ORCID is adopted only when the registry returns exactly one person with a compatible name at the requested
   institution;
-- a page is used only when ``PageRanker`` scores it at least ``DiscoveryConfig.minimum_page_score``, and only the
-  citations on it that name the person count (see identity_anchors).
+- a page is used only when ``PageRanker`` scores it at least ``DiscoveryConfig.minimum_page_score``, a page no record
+  of the person lists must also name the requested school, and only the citations on it that name the person count
+  (see identity_anchors).
 """
 
 import logging
@@ -39,6 +40,8 @@ class DiscoveredPage:
     url: str
     score: float
     provenance: str
+    # The person's own record (ORCID, a DBLP profile placed at the school) lists it; a search hit is only name-matched.
+    vouched: bool = False
 
 
 @dataclass
@@ -286,7 +289,7 @@ class OrcidResearcherUrls:
                 continue
             hit = SearchHit(url, item.get('url-name') or '')
             score = self.ranker.score(query, hit, self.ranker.config.weight_orcid_listed)
-            found.add_page(DiscoveredPage(url, score, f'ORCID {orcid} researcher URL'))
+            found.add_page(DiscoveredPage(url, score, f'ORCID {orcid} researcher URL', vouched=True))
 
 
 class WebPageSearch:
