@@ -3,6 +3,8 @@
 import base64
 import hashlib
 import json
+import os
+import tempfile
 import xml.etree.ElementTree as ET
 import zlib
 from collections.abc import Iterable
@@ -182,10 +184,15 @@ class CachingHttpClient(HttpClientDecorator):
     @staticmethod
     def _store(path: Path, record: dict[str, Any]) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
-        temporary = path.with_suffix('.tmp')
-        with temporary.open('w', encoding='utf-8') as handle:
-            json.dump(record, handle, ensure_ascii=False)
-        temporary.replace(path)
+        # Runs share this cache and may record one request at the same moment, so each writes its own temporary file.
+        descriptor, temporary = tempfile.mkstemp(prefix=path.stem, suffix='.tmp', dir=path.parent)
+        try:
+            with os.fdopen(descriptor, 'w', encoding='utf-8') as handle:
+                json.dump(record, handle, ensure_ascii=False)
+            os.replace(temporary, path)
+        finally:
+            if os.path.exists(temporary):
+                os.unlink(temporary)
 
 
 def _limit(stored: dict[str, Any], maximum_bytes: int, html_bytes: int) -> int:
