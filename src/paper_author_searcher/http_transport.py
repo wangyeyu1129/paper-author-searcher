@@ -155,10 +155,10 @@ class KeepAliveTransport:
             connection = pool[key] = self._connect(key, timeout)
         else:
             self._count('connections_reused')
-        connection.timeout = timeout
-        if connection.sock is not None:
-            connection.sock.settimeout(timeout)
         try:
+            connection.timeout = timeout
+            if connection.sock is not None:
+                connection.sock.settimeout(timeout)
             connection.request(method, path, body, headers)
             return connection.getresponse()
         except STALE_CONNECTION_ERRORS:
@@ -166,9 +166,8 @@ class KeepAliveTransport:
             if not reused:
                 raise
             self._count('stale_reconnects')
-            connection = pool[key] = self._connect(key, timeout)
-            connection.request(method, path, body, headers)
-            return connection.getresponse()
+            # On a fresh connection, so a failure here also leaves nothing broken in the pool.
+            return self._send(key, method, path, body, headers, timeout)
         except BaseException:
             self._discard(key)
             raise

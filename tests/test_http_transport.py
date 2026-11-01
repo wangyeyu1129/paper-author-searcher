@@ -1,9 +1,11 @@
+import errno
+import http.client
 import json
 import threading
 import unittest
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from typing import ClassVar
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 from urllib.error import HTTPError
 from urllib.request import Request
 
@@ -54,6 +56,60 @@ class Handler(BaseHTTPRequestHandler):
 class QuietServer(ThreadingHTTPServer):
     def handle_error(self, request, client_address):
         pass  # clients that drop a connection mid-body are part of the tests
+
+
+class ScriptedConnection:
+    """A connection whose request raises the given error; without one, it answers."""
+
+    def __init__(self, error=None, socket_error=None):
+        self.error = error
+        self.sock = Mock()
+        self.sock.settimeout.side_effect = socket_error
+        self.requests = 0
+
+    def request(self, *args):
+        self.requests += 1
+        if self.error:
+            raise self.error
+
+    def getresponse(self):
+        return Mock(status=200, getheader=Mock(return_value=None))
+
+    def close(self):
+        pass
+
+
+class BrokenConnectionTests(unittest.TestCase):
+    def transport(self, *fresh):
+        transport = KeepAliveTransport(proxies={})
+        transport._connect = Mock(side_effect=fresh)
+        return transport
+
+    def get(self, transport):
+        return transport.open(Request('http://source.test/x'), timeout=1)
+
+    def test_a_retry_that_fails_leaves_no_broken_connection_for_the_next_request(self):
+        healthy = ScriptedConnection()
+        transport = self.transport(
+            ScriptedConnection(),
+            ScriptedConnection(http.client.RemoteDisconnected()),
+            ScriptedConnection(TimeoutError('handshake timed out')),
+            healthy,
+        )
+        self.get(transport)
+        transport._pool()[('http', 'source.test', 80)] = transport._connect()
+        with self.assertRaises(TimeoutError):
+            self.get(transport)
+        self.get(transport)
+        self.assertEqual(healthy.requests, 1)
+
+    def test_a_pooled_connection_with_a_dead_socket_is_replaced(self):
+        healthy = ScriptedConnection()
+        transport = self.transport(ScriptedConnection(socket_error=OSError(errno.EBADF, 'Bad file descriptor')), healthy)
+        with self.assertRaises(OSError):
+            self.get(transport)
+        self.get(transport)
+        self.assertEqual(healthy.requests, 1)
 
 
 class TransportTests(unittest.TestCase):
