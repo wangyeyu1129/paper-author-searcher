@@ -282,5 +282,5 @@ python scripts/loadtest/run.py --workers 1 4 --searches 16
 | 数据源 | 额度 | 够不够 |
 |---|---|---|
 | OpenAlex | 每天 1 美元免费 | 约 80 篇论文的搜索每次约 0.012 美元，每天大约 80 次。超过后当天拒绝请求，结果会说明有来源没响应。需要更多时先充值，再调高 `MAXIMUM_DAILY_COST_USD` |
-| Tavily | 每月 1,000 credits 免费，超出按每个 0.008 美元计 | 每次搜索 2 个查询，一个月约 500 次，也就是每天约 16 次。超出后每次搜索约 0.016 美元 |
+| Tavily | 每月 1,000 credits 免费，超出按每个 0.008 美元计 | 每次搜索 3 个查询找主页，再为最多 25 篇找不到全文的论文各查一次，也就是 3–28 个 credits。免费额度够一个月 36–330 次，超出后每次搜索 0.024–0.22 美元。实测 Kevin Ellis 加上没跑完的 Manning 一共不到 16 个。要控制用量，调低 `PAPER_SEARCH__PDF__WEB_SEARCH_MAXIMUM_PAPERS` |
 | Semantic Scholar | 带密钥时限速 1 次/秒 | 实测仍有不少 429，服务会退避重试，这是变慢的原因之一 |
