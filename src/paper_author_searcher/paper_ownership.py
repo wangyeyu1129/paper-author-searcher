@@ -5,6 +5,7 @@ import typing
 from collections import Counter
 
 from .config import DEFAULT_OWNERSHIP
+from .listed_works import RETRIEVED_EVIDENCE
 from .matching import canonical_orcid, institution_similarity, name_similarity, normalize
 from .models import AnchorEvidence
 from .paper_authorship import byline_forms, canonical_author_id, signature_names
@@ -456,7 +457,12 @@ class PaperOwnershipValidator:
         return sorted(groups.values(), key=len, reverse=True)
 
     def _only_unproven_sources(self, paper):
-        return not {record.source for record in paper.records} - set(self.config.namesake_unproven_sources)
+        """Only a curated profile, a name or a publication list carried it. Search can find a namesake's list."""
+        return all(
+            record.source in self.config.namesake_unproven_sources
+            or any(item.startswith(RETRIEVED_EVIDENCE) for item in record.attribution_evidence)
+            for record in paper.records
+        )
 
     @staticmethod
     def _names_target(name, profile):

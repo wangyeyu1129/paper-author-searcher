@@ -4,6 +4,7 @@ from dataclasses import replace
 from types import SimpleNamespace
 
 from paper_author_searcher.config import OwnershipConfig
+from paper_author_searcher.listed_works import RETRIEVED_EVIDENCE
 from paper_author_searcher.models import (
     AnchorEvidence,
     PaperCollectionResult,
@@ -145,6 +146,36 @@ class NamesakeGroupTests(unittest.TestCase):
         bridge = self.paper('Bridge', ('Simon Dixon', 'Jane Smith'))
         statuses = self.statuses(Places({'UIUC'}, {'10.1/x1': {'Queen Mary'}}), extra=[bridge])
         self.assertEqual(statuses['Music one'], OwnershipStatus.VERIFIED)
+
+    def test_a_group_retrieved_from_a_publication_list_is_held(self):
+        listed = [
+            replace(
+                self.paper(title, ('Guillermina Lozano',), source='openalex', doi=doi),
+                source_author_id=None,
+                author_details=[],
+                attribution_evidence=[RETRIEVED_EVIDENCE],
+                ownership_evidence=[],
+            )
+            for title, doi in (('Stem one', '10.1/s1'), ('Stem two', '10.1/s2'))
+        ]
+        papers = deduplicate_papers(listed)
+        validator = PaperOwnershipValidator(places=Places({'UIUC'}, {'10.1/s1': {'NCI'}}))
+        for paper in papers:
+            for record in paper.records:
+                record.ownership_status = OwnershipStatus.VERIFIED
+            validator._aggregate(paper)
+        main = deduplicate_papers([self.paper('Main', ('Jane Smith', 'Li Wei'))])
+        for record in main[0].records:
+            record.ownership_status = OwnershipStatus.VERIFIED
+        validator._aggregate(main[0])
+        main.extend(deduplicate_papers([self.paper('Main again', ('Jane Smith',))]))
+        for record in main[1].records:
+            record.ownership_status = OwnershipStatus.VERIFIED
+        validator._aggregate(main[1])
+        target = replace(profile(), orcid=None, author_ids={'openalex': 'A1'}, author_id_aliases={'openalex': ['A1']})
+        validator._hold_namesake_groups([*main, *papers], target)
+        self.assertEqual(papers[0].ownership_status, OwnershipStatus.NEEDS_REVIEW)
+        self.assertEqual(main[0].ownership_status, OwnershipStatus.VERIFIED)
 
     def test_a_consortium_paper_links_nobody(self):
         crowd = tuple(f'Person{letter} Crowd' for letter in 'abcdefghijklmn')

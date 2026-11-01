@@ -57,7 +57,7 @@ OpenAlex 为每个合并后的作者聚类只记一个 ORCID，混入同名者�
 - **竞争范围外的候选**：分数在第一名 `curated_band`（默认 0.1）以内的候选，只要它自己的 DBLP 记录写明了院系，也参与这一层。这样做是因为跨来源共享 ORCID 的加分，让清华智能产业研究院的 Yang Liu 领先真正的计算机系 Yang Liu 0.065。
 - **对论文归属的影响**：判定所依据的 DBLP 档案记在 `ProfessorProfile.curated_author_ids` 里。论文归属检查对它的信任程度，与对"由本人 ORCID 锚定的 DBLP 档案"相同，所以列出这个 DBLP 档案的论文会被验证。从 ORCID 读来的职位不会为任何 OpenAlex 聚类背书。
 - **已证实档案下的其他论文**：DBLP 作者 ID 是纯数字形式（`curated_unshared_id_pattern`），且该 ID 下至少一半论文已确认时，其余论文只要发表在此人已确认论文达到 3 篇的会议或期刊上（`curated_venue_minimum_papers`，预印本平台不算），并且至少有一位合作者也出现在此人已确认的论文里，就确认归属。带编号或按姓名生成的 ID 可能混有同名者，不适用。
-- **混入档案的同名者**：DBLP 档案可能把两个人并在一起（Huan Zhang 的档案混有一位音乐研究者）。已确认论文按共同合作者连成若干组，最大一组视为本人主体。其他组至少有 2 篇（`namesake_group_minimum_papers`）、其中有只靠 DBLP 或 arXiv 确认的论文、并且 OpenAlex 在该组论文署名上印的机构全都不在此人作者 ID 的机构记录里时，该组只靠 DBLP 或 arXiv 确认的论文改为待复核。查不到机构时不拦。作者超过 12 人的论文不参与连接（`namesake_group_maximum_coauthors`）。单靠“没有共同合作者”或单靠“机构不符”都会误拦真论文，所以必须同时满足。
+- **混入档案的同名者**：DBLP 档案可能把两个人并在一起（Huan Zhang 的档案混有一位音乐研究者）。已确认论文按共同合作者连成若干组，最大一组视为本人主体。其他组至少有 2 篇（`namesake_group_minimum_papers`）、其中有只靠 DBLP、arXiv 或论文列表确认的论文、并且 OpenAlex 在该组论文署名上印的机构全都不在此人作者 ID 的机构记录里时，该组里这些论文改为待复核。查不到机构时不拦。作者超过 12 人的论文不参与连接（`namesake_group_maximum_coauthors`）。单靠“没有共同合作者”或单靠“机构不符”都会误拦真论文，所以必须同时满足。
 
 DBLP 机构注释（"Tsinghua University, Department of Computer Science and Technology, China"）先由 `DepartmentMatcher.split` 拆成机构名和院系。第一段总是机构；在出现院系之前的每个前缀都保留，因为 "University of California, Los Angeles" 本身带逗号。注释中的"当前"信息不参与打分，只在上面这一层里和院系一起核对。
 
