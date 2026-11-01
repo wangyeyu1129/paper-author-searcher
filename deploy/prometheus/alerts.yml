@@ -48,6 +48,21 @@ groups:
         annotations:
           summary: Searches average over an hour; sources may be throttling.
 
+      # Absent until the first backup finishes; PaperSearchBackupMissing covers that.
+      - alert: PaperSearchBackupStale
+        expr: time() - paper_search_last_backup_timestamp_seconds > 129600
+        for: 15m
+        labels: {severity: critical}
+        annotations:
+          summary: No backup has finished for 36 hours; check the backup service's logs.
+
+      - alert: PaperSearchBackupMissing
+        expr: up{job="paper-search"} == 1 unless on() paper_search_last_backup_timestamp_seconds
+        for: 2h
+        labels: {severity: critical}
+        annotations:
+          summary: This deployment has never finished a backup; check that the backup service is running.
+
       - alert: PaperSearchSpend
         expr: increase(paper_search_cost_usd_total[24h]) > 0.9
         labels: {severity: warning}

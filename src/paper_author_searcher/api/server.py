@@ -5,6 +5,8 @@
     paper-search-api worker --threads 2       a separate worker process (serve with --workers 0)
     paper-search-api create-key --name agent  a key for programs; printed once
     paper-search-api refresh-indexes --every-hours 168
+    paper-search-api backup --output /backups --keep 14 --every-hours 24
+    paper-search-api restore /backups/paper-search-backup-....tar.gz
 
 Configuration is ``Settings``: ``PAPER_SEARCH__SERVICE__<FIELD>`` and the other sections, or ``--settings``; the
 flags below override single fields. Run it behind a TLS-terminating proxy: API keys travel in a header.
@@ -26,6 +28,7 @@ from typing import Any
 
 from paper_author_searcher.logging_config import add_logging_arguments, configure_from_arguments
 from paper_author_searcher.service.assembly import Deployment, assemble, file_store
+from paper_author_searcher.service.backup import Backups, backup_forever
 from paper_author_searcher.service.indexes import IndexRefresher, refresh_forever
 from paper_author_searcher.settings import Settings, add_settings_argument, load_settings
 
@@ -186,6 +189,13 @@ def main(argv: Sequence[str] | None = None) -> int:
     refresh = commands.add_parser('refresh-indexes', help='Download and rebuild the DBLP index and catalogs')
     refresh.add_argument('--only', choices=('dblp', 'catalogs'), action='append', help='Refresh only this index')
     refresh.add_argument('--every-hours', type=float, help='Keep running and refresh this often')
+    backup = commands.add_parser('backup', help='Archive the jobs database, API keys and local files')
+    backup.add_argument('--output', required=True, type=Path, help='Directory for the archives')
+    backup.add_argument('--keep', type=int, default=0, help='Keep only this many newest archives (0: all)')
+    backup.add_argument('--every-hours', type=float, help='Keep running and back up this often')
+    restore = commands.add_parser('restore', help='Replace the data with an archive; stop the service first')
+    restore.add_argument('archive', type=Path)
+    restore.add_argument('--force', action='store_true', help='Replace a data directory that already holds jobs')
     args = parser.parse_args(argv)
     configure_from_arguments(args)
     settings = load_settings(args)
@@ -226,6 +236,18 @@ def main(argv: Sequence[str] | None = None) -> int:
             refresh_forever(refresher, args.every_hours, which)
             return 0
         print(json.dumps([vars(report) for report in refresher.refresh(which)], indent=2, default=str))
+        return 0
+    if args.command in ('backup', 'restore'):
+        backups = Backups(
+            Path(settings.service.data_directory), keys_path(settings), settings.service.file_store == 'local'
+        )
+        if args.command == 'restore':
+            print(f'Restored {backups.restore(args.archive, args.force)} files from {args.archive}')
+            return 0
+        if args.every_hours:
+            backup_forever(backups, args.output, args.keep, args.every_hours)
+            return 0
+        print(backups.create(args.output, args.keep))
         return 0
     if args.command == 'worker':
         if args.threads < 1:

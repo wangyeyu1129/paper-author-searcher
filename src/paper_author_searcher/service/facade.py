@@ -53,7 +53,9 @@ class SearchService:
         required_paths: dict[str, str] | None = None,
         on_submit: Callable[[], None] | None = None,
         limits: SubmissionLimits | None = None,
+        last_backup: Callable[[], float | None] | None = None,
     ) -> None:
+        self.last_backup = last_backup
         self.repository = repository
         self.files = files
         self.stale_after_seconds = stale_after_seconds
@@ -148,7 +150,13 @@ class SearchService:
         """Queue and job statistics for metrics."""
         counts = self.repository.counts()
         oldest = seconds_since(counts['oldest_queued_at'])
-        return {**counts, 'oldest_queued_seconds': oldest or 0.0, 'workers_alive': self.live_workers()}
+        backed_up = self.last_backup() if self.last_backup else None
+        return {
+            **counts,
+            'oldest_queued_seconds': oldest or 0.0,
+            'workers_alive': self.live_workers(),
+            'last_backup_timestamp': backed_up,
+        }
 
     def live_workers(self) -> int:
         return sum(

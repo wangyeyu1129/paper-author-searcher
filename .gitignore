@@ -13,3 +13,7 @@ dist/
 output/
 tmp/
 .hypothesis/
+# Deployment state on a server: secrets, the filled-in alert routes, local archives.
+deploy/secrets/
+deploy/backups/
+deploy/alertmanager/alertmanager.yml

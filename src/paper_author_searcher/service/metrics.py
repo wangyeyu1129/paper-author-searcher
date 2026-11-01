@@ -62,6 +62,12 @@ def render(snapshot: dict[str, Any], requests: RequestCounter | None = None) -> 
         f'# TYPE {PREFIX}_llm_cost_usd_total counter',
         _line('llm_cost_usd_total', round(snapshot.get('llm_cost_usd', 0.0), 6)),
     ]
+    if snapshot.get('last_backup_timestamp') is not None:
+        lines += [
+            f'# HELP {PREFIX}_last_backup_timestamp_seconds When the last backup finished.',
+            f'# TYPE {PREFIX}_last_backup_timestamp_seconds gauge',
+            _line('last_backup_timestamp_seconds', round(snapshot['last_backup_timestamp'], 3)),
+        ]
     if requests is not None:
         lines += [
             f'# HELP {PREFIX}_http_requests_total Requests answered by this process.',
