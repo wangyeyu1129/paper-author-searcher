@@ -34,6 +34,7 @@ class Clock:
 
     def sleep(self, seconds):
         self.sleeps.append(round(seconds, 6))
+        self.now += seconds
 
 
 class Refusing:
@@ -68,8 +69,8 @@ class SharedPacingTests(unittest.TestCase):
         first, second = self.limits.pacer(2.0), other.pacer(2.0)
         self.assertEqual(first.wait('h'), 0.0)
         self.assertEqual(second.wait('h'), 2.0)
-        self.assertEqual(first.wait('h'), 4.0)
-        self.assertEqual(self.clock.sleeps, [2.0, 4.0])
+        self.assertEqual(first.wait('h'), 2.0)
+        self.assertEqual(self.clock.sleeps, [2.0, 2.0])
         self.assertEqual(first.wait('another-host'), 0.0)
 
     def test_processes_never_share_a_slot(self):
@@ -84,6 +85,23 @@ class SharedPacingTests(unittest.TestCase):
         self.assertEqual(len(delays), 75)
         # 75 slots 10 ms apart: the last caller is told to wait far longer than one process's 25 slots would need.
         self.assertGreater(max(delays), 0.25)
+
+    def test_a_slot_reserved_before_a_hold_waits_for_it_and_stays_spaced(self):
+        self.limits.reserve_slot('h', 10.0)
+        holds = [30.0]
+        slept = []
+
+        def sleep(seconds):
+            slept.append(seconds)
+            self.clock.sleep(seconds)
+            if holds:
+                self.limits.hold('h', holds.pop())
+
+        waiter = SqliteSharedLimits(self.path, 1.0, clock=self.clock, sleep=sleep)
+        other = SqliteSharedLimits(self.path, 1.0, clock=self.clock, sleep=self.clock.sleep)
+        self.assertEqual(waiter.pacer(10.0).wait('h'), 40.0)
+        self.assertEqual(slept, [10.0, 30.0])
+        self.assertEqual(other.reserve_slot('h', 10.0), 10.0)
 
     def test_a_hold_delays_every_worker(self):
         self.limits.hold('h', 30.0)

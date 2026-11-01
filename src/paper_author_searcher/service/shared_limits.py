@@ -30,10 +30,16 @@ class SharedRequestPacer:
         self.interval = interval
 
     def wait(self, key: Hashable | None = None) -> float:
-        delay = self.limits.reserve_slot(str(key), self.interval)
-        if delay > 0:
+        host = str(key)
+        delay = self.limits.reserve_slot(host, self.interval)
+        waited = delay
+        while delay > 0:
             self.limits.sleep(delay)
-        return delay
+            # A slot reserved before another worker's 429 must not fire inside the hold that 429 asked for. Taking a new
+            # slot, not just sleeping out the hold, spaces the workers that were waiting when the hold ends.
+            delay = self.limits.reserve_slot(host, self.interval) if self.limits.held_for(host) > 0 else 0.0
+            waited += delay
+        return waited
 
     def hold(self, key: Hashable | None, seconds: float) -> None:
         self.limits.hold(str(key), seconds)
@@ -59,6 +65,7 @@ class SqliteSharedLimits:
             connection.close()
         with self._transaction() as db:
             db.execute('CREATE TABLE IF NOT EXISTS slots (host TEXT PRIMARY KEY, next_slot REAL NOT NULL)')
+            db.execute('CREATE TABLE IF NOT EXISTS holds (host TEXT PRIMARY KEY, until REAL NOT NULL)')
             db.execute(
                 'CREATE TABLE IF NOT EXISTS daily_spend (day TEXT NOT NULL, host TEXT NOT NULL, usd REAL NOT NULL,'
                 ' PRIMARY KEY (day, host))'
@@ -86,8 +93,23 @@ class SqliteSharedLimits:
                 until = self.clock() + seconds
                 row = db.execute('SELECT next_slot FROM slots WHERE host = ?', (host,)).fetchone()
                 self._set_slot(db, host, max(until, row[0]) if row else until)
+                db.execute(
+                    'INSERT INTO holds (host, until) VALUES (?, ?)'
+                    ' ON CONFLICT (host) DO UPDATE SET until = max(until, excluded.until)',
+                    (host, until),
+                )
         except sqlite3.Error as error:
             logger.warning('Shared pacing unavailable (%s); host not held back', error)
+
+    def held_for(self, host: str) -> float:
+        """The seconds left of a hold on ``host`` (0: none)."""
+        try:
+            with self._transaction() as db:
+                row = db.execute('SELECT until FROM holds WHERE host = ?', (host,)).fetchone()
+        except sqlite3.Error as error:
+            logger.warning('Shared pacing unavailable (%s); request not held back', error)
+            return 0.0
+        return max(0.0, row[0] - self.clock()) if row else 0.0
 
     def charge(self, host: str, cost: float) -> None:
         """Count ``cost`` against the host's spend today, or raise BudgetExceeded without counting it."""
