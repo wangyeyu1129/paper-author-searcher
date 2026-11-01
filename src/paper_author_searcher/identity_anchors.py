@@ -261,14 +261,15 @@ class ScholarlyAnchorFinder:
                 break
             try:
                 read = self._read_page(page.url)
-                if page.must_name_school and not self._names_school(query, page.url, read.text):
-                    anchors.discovered['evidence'].append(f'Page {page.url} not used: it does not name the school')
-                    continue
-                citations = self.ranker.rank(read.citations, query.name)
             except (SourceError, ValueError) as exc:
                 anchors.errors.append(f'page {page.url}: {exc}')
+                room -= page.strict
+                continue
+            if page.must_name_school and not self._names_school(query, page.url, read.text):
+                anchors.discovered['evidence'].append(f'Page {page.url} not used: it does not name the school')
                 continue
             room -= page.strict
+            citations = self.ranker.rank(read.citations, query.name)
             # Every citation's PDF stays available: a personal page's citations often omit the person's own name
             # ("with A and B"), and a PDF only ever serves a paper its citation names and its content shows.
             pdf_citations = citations
@@ -320,22 +321,20 @@ class ScholarlyAnchorFinder:
         return school_named([query.university, *query.university_aliases], f'{host}\n{text}', self.matching)
 
     def _read_page(self, url: str) -> _ReadPage:
-        """The page's citations and text, plus those of the publication list or CV it links to on the same site."""
+        """The page's own text, and its citations plus those of the publication list or CV it links to on the same
+        site. A linked document does not speak for the page: a namesake's CV names every school they attended."""
         page, html, served = self._read_citations(url)
         if html is None or not self.discovery_config.follow_publication_links:
             return page
-        citations, texts = list(page.citations), [page.text]
+        citations = list(page.citations)
         for link in publication_links(html, served, self.discovery_config)[
             : self.discovery_config.maximum_followed_links
         ]:
             try:
-                followed = self._read_citations(link)[0]
+                citations += self._read_citations(link)[0].citations
             except (SourceError, ValueError) as exc:
                 logger.debug('Publication link %s unreadable: %s', link, exc)
-                continue
-            citations += followed.citations
-            texts.append(followed.text)
-        return _ReadPage(citations, '\n'.join(texts))
+        return _ReadPage(citations, page.text)
 
     def _read_citations(self, url: str) -> tuple[_ReadPage, str | None, str]:
         """One page's citations and text, its HTML (None for a PDF) for following, and the URL it was served from."""

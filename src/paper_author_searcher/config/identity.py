@@ -298,7 +298,7 @@ class DiscoveryConfig:
     )
     maximum_pages: int = 5
     # A search hit is matched on its name alone, so it may be a namesake's page: it counts only when its own text
-    # names the requested school. Pages that fail do not use up maximum_pages; this bounds how many are fetched.
+    # names the requested school. Pages without it do not use up maximum_pages; this bounds how many are fetched.
     maximum_pages_read: int = 12
     minimum_page_score: float = 0.5
     # Page ranking weights (PageRanker): each feature is 0..1 and the score is their weighted sum.

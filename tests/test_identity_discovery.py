@@ -418,6 +418,22 @@ class AnchorFinderIntegrationTests(unittest.TestCase):
         anchors = self.finder(client, found, maximum_pages=1, follow_publication_links=False).find(query())
         self.assertEqual(anchors.listed_works, ['doi:10.1000/listed'])
 
+    def test_a_linked_cv_naming_the_school_does_not_speak_for_the_page(self):
+        page = 'https://namesake.other.org/'
+        cv = page + 'publications.html'
+        body = '<a href="/publications.html">Publications</a>' + PUBLICATIONS_PAGE
+        client = Client(pages={page: body, cv: 'PhD, Example University. ' + PUBLICATIONS_PAGE})
+        found = Discovery(pages=[DiscoveredPage(page, 0.9, 'web')])
+        anchors = self.finder(client, found).find(query())
+        self.assertEqual(anchors.listed_works, [])
+
+    def test_an_unreadable_page_still_uses_up_a_page_to_read(self):
+        gone, own = 'https://gone.example.edu', 'https://cs.example.edu/mei-lin'
+        client = Client(pages={own: PUBLICATIONS_PAGE})
+        found = Discovery(pages=[DiscoveredPage(gone, 0.9, 'web'), DiscoveredPage(own, 0.6, 'web')])
+        anchors = self.finder(client, found, maximum_pages=1, follow_publication_links=False).find(query())
+        self.assertEqual(anchors.listed_works, [])
+
     def test_only_so_many_pages_are_fetched_looking_for_the_school(self):
         pages = {f'https://namesake{index}.other.org': PERSONAL_PAGE for index in range(4)}
         client = Client(pages=pages)
