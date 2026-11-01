@@ -5,11 +5,10 @@ global:
 rule_files:
   - alerts.yml
 
-# Add an alertmanager here to route the alerts (email, Slack, PagerDuty).
-# alerting:
-#   alertmanagers:
-#     - static_configs:
-#         - targets: ["alertmanager:9093"]
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: ["alertmanager:9093"]
 
 scrape_configs:
   - job_name: paper-search

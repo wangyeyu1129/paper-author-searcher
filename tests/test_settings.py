@@ -97,6 +97,19 @@ class CredentialTests(unittest.TestCase):
         self.assertEqual(credentials.openalex_api_key, 'key-1')
         self.assertIsNone(credentials.unpaywall_email)
 
+    def test_a_file_in_the_secrets_directory_wins_over_the_variable(self):
+        with tempfile.TemporaryDirectory() as directory:
+            (Path(directory) / 'OPENALEX_API_KEY').write_text(' from-file\n')
+            credentials = Credentials.from_environment(
+                {
+                    'PAPER_SEARCH_SECRETS_DIRECTORY': directory,
+                    'OPENALEX_API_KEY': 'from-variable',
+                    'TAVILY_API_KEY': 'only-variable',
+                }
+            )
+        self.assertEqual(credentials.openalex_api_key, 'from-file')
+        self.assertEqual(credentials.tavily_api_key, 'only-variable')
+
     def test_secrets_never_render(self):
         settings = Settings.load(environ={'OPENALEX_API_KEY': 'secret-value', 'CROSSREF_MAILTO': 'me@example.org'})
         self.assertNotIn('secret-value', repr(settings))

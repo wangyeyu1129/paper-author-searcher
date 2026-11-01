@@ -1,0 +1,19 @@
+# TLS for the API and web page. Caddy obtains and renews the certificate for SITE_ADDRESS by itself; ports 80 and 443
+# must reach this host and the name must resolve to it.
+{$SITE_ADDRESS} {
+	# /metrics has no key; Prometheus reads it on the internal network, never through here.
+	@internal path /metrics /metrics/*
+	respond @internal 404
+
+	request_body {
+		max_size 1MB
+	}
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options nosniff
+		Referrer-Policy no-referrer
+		-Server
+	}
+	encode gzip
+	reverse_proxy api:8080
+}

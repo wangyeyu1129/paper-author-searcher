@@ -1,0 +1,32 @@
+# Copy to deploy/alertmanager/alertmanager.yml (git-ignored) and fill in your addresses. Passwords and webhook URLs
+# are read from files in the secrets directory, which is mounted at /run/secrets.
+global:
+  smtp_smarthost: smtp.example.com:587
+  smtp_from: alerts@example.com
+  smtp_auth_username: alerts@example.com
+  smtp_auth_password_file: /run/secrets/ALERT_SMTP_PASSWORD
+
+route:
+  receiver: on-call
+  group_by: [alertname]
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 4h
+  routes:
+    # "info" alerts only show in Prometheus.
+    - matchers: [severity="info"]
+      receiver: quiet
+
+receivers:
+  - name: on-call
+    email_configs:
+      - to: you@example.com
+        send_resolved: true
+    # Or Slack (Feishu and others take the webhook form below):
+    # slack_configs:
+    #   - api_url_file: /run/secrets/ALERT_SLACK_WEBHOOK
+    #     channel: "#alerts"
+    #     send_resolved: true
+    # webhook_configs:
+    #   - url_file: /run/secrets/ALERT_WEBHOOK_URL
+  - name: quiet

@@ -9,6 +9,7 @@ from pathlib import Path
 from paper_author_searcher.composition import ServiceContainer, TransportLimits
 from paper_author_searcher.settings import Settings
 
+from .backup import last_backup_time
 from .facade import SearchService
 from .files import LocalFileStore, S3FileStore
 from .model import SubmissionLimits
@@ -130,6 +131,7 @@ def assemble(
         stale_after_seconds=service_config.stale_after_seconds,
         required_paths=required,
         on_submit=wake,
+        last_backup=partial(last_backup_time, data),
         limits=SubmissionLimits(
             service_config.maximum_active_searches,
             service_config.maximum_searches_per_hour,

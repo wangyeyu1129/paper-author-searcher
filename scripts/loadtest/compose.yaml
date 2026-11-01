@@ -1,0 +1,50 @@
+# Overlay on deploy/compose.yaml: every worker talks to fake_sources.py on an isolated network, so nothing reaches a
+# real source. scripts/loadtest/run.py drives it. Relative paths resolve against deploy/, the first compose file.
+x-sources: &sources
+  PAPER_SEARCH__SOURCES__OPENALEX_URL: http://api.openalex.org:8000
+  PAPER_SEARCH__SOURCES__SEMANTIC_SCHOLAR_URL: http://api.semanticscholar.org:8000/graph/v1
+  PAPER_SEARCH__SOURCES__CROSSREF_URL: http://api.crossref.org:8000
+  PAPER_SEARCH__SOURCES__ARXIV_URL: http://export.arxiv.org:8000/api/query
+  PAPER_SEARCH__SOURCES__EUROPEPMC_URL: http://www.ebi.ac.uk:8000/europepmc/webservices/rest
+  PAPER_SEARCH__SOURCES__ORCID_API_URL: http://pub.orcid.org:8000/v3.0
+  PAPER_SEARCH__SOURCES__DBLP_URL: http://dblp.org:8000
+  # Every request must reach the fake source for the log to show the traffic.
+  PAPER_SEARCH__SERVICE__HTTP_CACHE_DIRECTORY: ""
+  PAPER_SEARCH__SERVICE__MAXIMUM_ACTIVE_SEARCHES: "0"
+  PAPER_SEARCH__SERVICE__MAXIMUM_SEARCHES_PER_HOUR: "0"
+  PAPER_SEARCH__SERVICE__MAXIMUM_DAILY_COST_USD: ${LOADTEST_DAILY_COST_USD:-1000}
+  OPENALEX_API_KEY: loadtest
+  SEMANTIC_SCHOLAR_API_KEY: loadtest
+
+services:
+  api:
+    environment: *sources
+    networks: [isolated, published]
+  worker:
+    environment: *sources
+    networks: [isolated]
+  sources:
+    image: python:3.12-slim
+    command: ["python", "/fake_sources.py"]
+    environment:
+      THROTTLE_HOST: ${LOADTEST_THROTTLE_HOST:-}
+      THROTTLE_AFTER: ${LOADTEST_THROTTLE_AFTER:-0}
+      THROTTLE_SECONDS: ${LOADTEST_THROTTLE_SECONDS:-20}
+    volumes:
+      - ../scripts/loadtest/fake_sources.py:/fake_sources.py:ro
+      - ${LOADTEST_OUTPUT}:/out
+    networks:
+      isolated:
+        aliases:
+          - api.openalex.org
+          - api.semanticscholar.org
+          - api.crossref.org
+          - export.arxiv.org
+          - www.ebi.ac.uk
+          - pub.orcid.org
+          - dblp.org
+
+networks:
+  isolated:
+    internal: true
+  published: {}

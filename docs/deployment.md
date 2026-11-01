@@ -25,26 +25,19 @@
 
 ## Docker
 
-```bash
-cp deploy/.env.example deploy/.env      # 填数据源密钥等，此文件不进 git
-docker compose -f deploy/compose.yaml up -d --build
-docker compose -f deploy/compose.yaml run --rm api create-key --name cold-email-agent
-```
-
-| 服务 | 作用 |
-|---|---|
-| `api` | HTTP API 和网页（端口 8080），只负责排队和应答，不运行搜索 |
-| `worker` | 运行搜索。`--scale worker=3` 同时跑 3 个 |
-| `indexer` | 每周检查 DBLP 是否发布了新 dump：有新的才重建索引，然后原子替换；同时更新书目库 |
-| `storage`、`bucket` | 可选（`--profile s3`）：S3 兼容存储（Versity S3 Gateway，会校验签名），用来保存 PDF；`bucket` 负责建桶 |
-| `prometheus` | 可选（`--profile monitoring`）：采集指标，加载告警规则 |
+| 服务 | 启动方式 | 作用 |
+|---|---|---|
+| `api` | 默认 | HTTP API 和网页，只负责排队和应答，不运行搜索。只监听 `127.0.0.1:8080` |
+| `worker` | 默认 | 运行搜索。`--scale worker=3` 同时跑 3 个 |
+| `indexer` | 默认 | 启动时构建索引，之后每周检查 DBLP 是否发布了新 dump，有新的才重建并原子替换；同时更新书目库 |
+| `backup` | 默认 | 定时生成备份，写到 `BACKUP_DIRECTORY` |
+| `caddy` | `--profile public` | HTTPS 和反向代理，唯一对公网开放的服务（80、443），自动申请证书，`/metrics` 返回 404 |
+| `prometheus`、`alertmanager` | `--profile monitoring` | 采集指标、判断告警、发送通知。只监听本机 |
+| `storage`、`bucket` | `--profile s3` | 可选：自带的 S3 兼容存储，用来保存 PDF |
 
 所有服务共用 `data` 卷，里面有任务库、本地文件、HTTP 缓存和索引。
 
-注意 DBLP 索引的首次构建：
-- 首次构建要下载约 1 GB 的 dump，生成约 6 GB 的索引，需要一段时间。
-- 索引建好之前，DBLP 来源会退回到在线 API。
-- 如果手上已经有索引，可以直接放到卷里的 `/data/indexes/dblp.sqlite`。
+上线步骤见[部署手册](#部署手册)。
 
 ## 配置
 
@@ -54,6 +47,7 @@ docker compose -f deploy/compose.yaml run --rm api create-key --name cold-email-
   - 数据源密钥：`OPENALEX_API_KEY`、`SEMANTIC_SCHOLAR_API_KEY` 等；
   - 网页搜索密钥：`TAVILY_API_KEY`、`BRAVE_API_KEY`、`EXA_API_KEY`，配一个即可。没有配置时，只存放在作者主页或其他网站上的 PDF 找不到，结果里的 `notices` 会说明这一点；
   - 对象存储密钥：`AWS_ACCESS_KEY_ID`、`AWS_SECRET_ACCESS_KEY`。
+- 密钥文件优先于环境变量。`PAPER_SEARCH_SECRETS_DIRECTORY` 指向的目录里，以变量名命名的文件就是它的值。compose 把 `SECRETS_DIRECTORY` 挂载到这里。生产环境请用这种方式，不要把密钥写进 `.env`。
 
 常用项：
 
@@ -94,8 +88,9 @@ docker compose -f deploy/compose.yaml run --rm api create-key --name cold-email-
   | `paper_search_cost_usd_total` | 所有搜索累计的计费 API 花费 |
   | `paper_search_llm_cost_usd_total` | 所有搜索累计的 Claude 花费 |
   | `paper_search_http_requests_total{route,code}` | 本进程应答的请求数，按路由和状态码分 |
+  | `paper_search_last_backup_timestamp_seconds` | 最近一次成功备份的时间 |
 
-  这个接口不需要密钥，请只在内网暴露。
+  这个接口不需要密钥。经过 Caddy 访问时返回 404，只有本机和 compose 内部网络能读到。
 
 - **告警：** 规则在 `deploy/prometheus/alerts.yml`。
 
@@ -108,8 +103,10 @@ docker compose -f deploy/compose.yaml run --rm api create-key --name cold-email-
   | 持续 5xx | API 持续返回服务器错误 |
   | 搜索过慢 | 搜索平均耗时超过 1 小时 |
   | 花费接近上限 | 一天的计费 API 花费接近 OpenAlex 每日免费额度 |
+  | 备份过期 | 超过 36 小时没有成功备份 |
+  | 没有备份 | 服务运行 2 小时后仍然没有任何备份 |
 
-  需要发通知的话，在 `prometheus.yml` 里配置一个 Alertmanager。
+  通知由 Alertmanager 发送，配置文件是 `deploy/alertmanager/alertmanager.yml`，从 `alertmanager.example.yml` 复制后修改（这个文件不进 git）。
 
 ## 扩容与限制
 
@@ -117,3 +114,173 @@ docker compose -f deploy/compose.yaml run --rm api create-key --name cold-email-
 - **worker 数量：** 所有 worker 通过 `limits.sqlite` 共用每个数据源的请求间隔（`service.shared_host_intervals`）、429 退避和每日预算，增加 worker 不会让请求超过这些限制。其他网站（作者主页、出版商页面）仍然只在每次搜索内部限速。建议先从 1–3 个开始，观察数据源返回的 429 再调整。
 - **花费：** OpenAlex 等计费接口受每次搜索和每天两层上限约束；Claude 受每次搜索上限约束，每天的总量由调用方限流和 `PaperSearchLlmSpend` 告警控制。指标 `paper_search_llm_cost_usd_total` 单独统计 Claude 的花费。
 - **数据清理：** worker 每隔 `housekeeping_hours` 删除过期的搜索和文件。删除后指标里的累计值保持不变。
+
+## 部署手册
+
+一台 Linux 虚拟机加 Docker Compose。SQLite 要求所有进程在同一台机器上，所以不要用 Kubernetes 或多台机器。
+
+### 1. 准备服务器和域名
+
+- 系统选 Ubuntu 24.04，配置见[容量](#容量)。
+- 把域名（例如 `search.example.com`）的 A 记录指向服务器 IP。
+- 云防火墙只放行 22、80、443。
+
+```bash
+curl -fsSL https://get.docker.com | sh
+sudo usermod -aG docker $USER
+git clone https://github.com/OWNER/paper-author-searcher.git
+cd paper-author-searcher
+```
+
+重新登录一次，让 docker 用户组生效。
+
+### 2. 配置和密钥
+
+```bash
+cp deploy/.env.example deploy/.env
+mkdir -p deploy/secrets deploy/backups
+```
+
+在 `deploy/.env` 里设置 `SITE_ADDRESS`、`UNPAYWALL_EMAIL`、`CROSSREF_MAILTO`、`PAPER_SEARCH_IMAGE`，并把合规决定对应的 `PAPER_SEARCH__SERVICE__HTTP_CACHE_RETENTION_DAYS` 写上（见 [合规要点](compliance.md)）。
+
+每个密钥写成一个文件，文件名就是变量名，比如 `deploy/secrets/OPENALEX_API_KEY`。写好后设置权限：
+
+```bash
+sudo chown -R 10001:10001 deploy/secrets deploy/backups
+sudo chmod 500 deploy/secrets
+sudo chmod 400 deploy/secrets/*
+```
+
+需要的文件：`OPENALEX_API_KEY`、`SEMANTIC_SCHOLAR_API_KEY`、`TAVILY_API_KEY`（或 `BRAVE_API_KEY`、`EXA_API_KEY`），以及接收告警用的 `ALERT_SMTP_PASSWORD`。
+
+### 3. 配置告警通知
+
+```bash
+cp deploy/alertmanager/alertmanager.example.yml deploy/alertmanager/alertmanager.yml
+```
+
+填入收件人和 SMTP 服务器，或者改用文件里注释掉的 Slack、webhook。
+
+### 4. 启动
+
+```bash
+docker compose -f deploy/compose.yaml --profile public --profile monitoring up -d
+docker compose -f deploy/compose.yaml run --rm api create-key --name cold-email-agent
+```
+
+第二条命令只显示一次 API 密钥，请马上保存。
+
+### 5. 等索引建好
+
+`indexer` 启动后会自动构建索引。实测约 14 分钟，内存峰值 252 MiB，下载 1.1 GB，索引 6.1 GB。
+
+```bash
+docker compose -f deploy/compose.yaml logs -f indexer
+```
+
+建好后，在 `deploy/.env` 里设置 `PAPER_SEARCH__SERVICE__REQUIRE_INDEXES=true`，再执行一次第 4 步的 `up -d`。
+
+### 6. 验证
+
+把 `search.example.com` 换成你的域名，`$KEY` 换成上面的 API 密钥。
+
+```bash
+curl -s https://search.example.com/v1/ready
+```
+
+```bash
+curl -s -o /dev/null -w '%{http_code}\n' https://search.example.com/metrics
+```
+
+第一条应该全部通过，第二条应该是 404。再提交一次真实搜索：
+
+```bash
+curl -s https://search.example.com/v1/searches -H "Authorization: Bearer $KEY" -H 'Content-Type: application/json' -d '{"name":"Kevin Ellis","university":"Cornell University","mode":"pdf-urls"}'
+```
+
+最后试一次告警：`docker compose -f deploy/compose.yaml stop api`，约 2 分钟后应该收到通知，`start api` 后收到恢复通知。
+
+### 备份和恢复
+
+`backup` 服务每天生成一份归档到 `deploy/backups`，保留 14 份。内容是任务库、限流库、API 密钥哈希和本地文件，并带 SHA-256 校验。索引和 HTTP 缓存不备份，它们可以重新生成。
+
+**备份留在同一台机器上不算备份。** 用 rclone 加密后同步到另一家的对象存储（例如 Cloudflare R2）。先用 `rclone config` 配一个 `crypt` 类型的远端，这里叫 `offsite`，再加一条 cron：
+
+```bash
+0 5 * * * sudo rclone sync /home/ubuntu/paper-author-searcher/deploy/backups offsite:paper-search --config /root/.config/rclone/rclone.conf
+```
+
+恢复时，先停掉写入数据的服务，再用最近的归档恢复：
+
+```bash
+docker compose -f deploy/compose.yaml stop api worker indexer backup
+```
+
+```bash
+docker compose -f deploy/compose.yaml run --rm --no-deps backup restore /backups/ARCHIVE.tar.gz --force
+```
+
+```bash
+docker compose -f deploy/compose.yaml --profile public --profile monitoring up -d
+```
+
+恢复前会先校验整个归档，校验不通过时不会改动现有数据。在新机器上恢复时，索引会由 `indexer` 重新构建。
+
+可以用 `scripts/ops/backup_drill.py` 重新演练：它在隔离的 compose 项目里跑真实搜索，备份，删除所有容器和卷，恢复，再比较结果和文件是否一致。
+
+### 发布、升级和回滚
+
+推送 `v1.2.3` 这样的 tag，`.github/workflows/release.yml` 就会把镜像发布到 `ghcr.io/OWNER/paper-author-searcher:v1.2.3`。tag 发布后不要移动。
+
+升级时，修改 `deploy/.env` 里的 `PAPER_SEARCH_IMAGE`，然后执行：
+
+```bash
+docker compose -f deploy/compose.yaml --profile public --profile monitoring pull
+```
+
+```bash
+docker compose -f deploy/compose.yaml --profile public --profile monitoring up -d
+```
+
+回滚就是把这一行改回上一个 tag，再执行同样的两条命令。如果新版本改过数据库结构，先恢复升级前的备份。仓库是私有的话，服务器上要先 `docker login ghcr.io`。
+
+### 负载测试
+
+`scripts/loadtest/run.py` 用真实镜像和假数据源，在隔离网络里验证所有 worker 共用的限流。
+
+```bash
+python scripts/loadtest/run.py --workers 1 4 --searches 16
+```
+
+### 容量
+
+下面是实测数字，运行环境是一台 Mac 上的 Docker，用真实数据源，HTTP 缓存为空。那台机器的网络不稳定，第二次运行还断过约 15 分钟，所以耗时只能当上限参考，上线后请用 `paper_search_job_run_seconds_total` 重新核对。
+
+| 项目 | 实测 |
+|---|---|
+| 约 80 篇论文的作者 | 30–45 分钟，`pdf-urls` 和 `full` 差不多，下载 PDF 不是主要耗时 |
+| 4 篇论文的作者 | 不到 3 分钟 |
+| 高产作者（Christopher Manning） | **两次都没跑完**，单个 worker 分别跑了约 87 分钟和 90 分钟后被测试中止 |
+| 每次搜索的 OpenAlex 花费 | 约 80 篇论文的作者 0.010–0.013 美元 |
+| 内存峰值 | 每个 worker 694 MiB，API 42 MiB，备份 27 MiB |
+| PDF | `full` 模式 76 个文件的备份约 413 MiB，平均每个约 5 MiB |
+| 索引 | 6.1 GB，加下载的 dump 1.1 GB；重建时新旧索引会同时存在 |
+
+搜索期间 CPU 几乎空闲，时间花在等网络和按数据源限速上（例如 arXiv 每 3 秒一次），所以增加 CPU 不会变快。
+
+- **worker 数量：** 从 3 个开始。一个高产作者可能占用一个 worker 几个小时，只有 1 个 worker 时其他搜索都要排队。
+- **没有单次搜索的时间上限：** 高产作者会触发"搜索过慢"或"队列卡住"告警，这时先确认是不是这种情况。
+- **调用方：** 请按小时而不是分钟等待结果，用轮询，不要同步等待。
+
+| 用法 | 推荐配置（DigitalOcean Basic） | 月费 |
+|---|---|---|
+| `mode=pdf-urls`，3 个 worker | 2 vCPU / 4 GiB / 80 GiB | 24 美元 |
+| `mode=full`，保存 PDF | 4 vCPU / 8 GiB / 160 GiB，或者 PDF 放 Cloudflare R2 | 48 美元 |
+
+### 数据源额度
+
+| 数据源 | 额度 | 够不够 |
+|---|---|---|
+| OpenAlex | 每天 1 美元免费 | 约 80 篇论文的搜索每次约 0.012 美元，每天大约 80 次。超过后当天拒绝请求，结果会说明有来源没响应。需要更多时先充值，再调高 `MAXIMUM_DAILY_COST_USD` |
+| Tavily | 每月 1,000 credits 免费，超出按每个 0.008 美元计 | 每次搜索 3 个查询找主页，再为最多 25 篇找不到全文的论文各查一次，也就是 3–28 个 credits。免费额度够一个月 36–330 次，超出后每次搜索 0.024–0.22 美元。实测 Kevin Ellis 加上没跑完的 Manning 一共不到 16 个。要控制用量，调低 `PAPER_SEARCH__PDF__WEB_SEARCH_MAXIMUM_PAPERS` |
+| Semantic Scholar | 带密钥时限速 1 次/秒 | 实测仍有不少 429，服务会退避重试，这是变慢的原因之一 |

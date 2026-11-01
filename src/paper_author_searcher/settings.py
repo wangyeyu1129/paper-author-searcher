@@ -7,7 +7,8 @@ Precedence, lowest to highest:
 3. environment overrides ``PAPER_SEARCH__<SECTION>__<FIELD>``, e.g. ``PAPER_SEARCH__HTTP__TIMEOUT=30``.
 
 Values are coerced to each field's declared type and every section re-runs its own validation. Credentials come
-only from their conventional environment variables, never from a settings file, and are never rendered.
+only from their conventional environment variables or a secrets directory, never from a settings file, and are never
+rendered.
 """
 
 import argparse
@@ -68,6 +69,9 @@ from .config import (
 from .redaction import register_secrets
 
 SETTINGS_FILE_VARIABLE = 'PAPER_SEARCH_SETTINGS'
+# A directory of files named after the credential variables (Docker secrets, a mounted secret store). A file there
+# wins over the variable of the same name.
+SECRETS_DIRECTORY_VARIABLE = 'PAPER_SEARCH_SECRETS_DIRECTORY'
 OVERRIDE_PREFIX = 'PAPER_SEARCH__'
 OVERRIDE_SEPARATOR = '__'
 _EMAIL = re.compile(r'[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+')
@@ -134,7 +138,8 @@ class Credentials:
     @classmethod
     def from_environment(cls, environ: Mapping[str, str] | None = None) -> 'Credentials':
         environ = os.environ if environ is None else environ
-        values = {name: (environ.get(variable) or '').strip() or None for name, variable in cls.ENVIRONMENT.items()}
+        directory = environ.get(SECRETS_DIRECTORY_VARIABLE)
+        values = {name: _secret(variable, environ, directory) for name, variable in cls.ENVIRONMENT.items()}
         return cls(**values)
 
     def describe(self) -> dict[str, str]:
@@ -216,6 +221,12 @@ def _read_json(path: Path) -> Mapping[str, Any]:
     if not isinstance(data, dict):
         raise ValueError(f'Settings file {path} must contain a JSON object')
     return data
+
+
+def _secret(variable: str, environ: Mapping[str, str], directory: str | None) -> str | None:
+    path = Path(directory) / variable if directory else None
+    value = path.read_text(encoding='utf-8') if path and path.is_file() else environ.get(variable)
+    return (value or '').strip() or None
 
 
 def _environment_overrides(environ: Mapping[str, str]) -> dict[str, dict[str, str]]:
