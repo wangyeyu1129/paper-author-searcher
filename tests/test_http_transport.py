@@ -105,7 +105,9 @@ class BrokenConnectionTests(unittest.TestCase):
 
     def test_a_pooled_connection_with_a_dead_socket_is_replaced(self):
         healthy = ScriptedConnection()
-        transport = self.transport(ScriptedConnection(socket_error=OSError(errno.EBADF, 'Bad file descriptor')), healthy)
+        transport = self.transport(
+            ScriptedConnection(socket_error=OSError(errno.EBADF, 'Bad file descriptor')), healthy
+        )
         with self.assertRaises(OSError):
             self.get(transport)
         self.get(transport)
