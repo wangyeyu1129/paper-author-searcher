@@ -8,6 +8,18 @@ from .config import DEFAULT_OWNERSHIP
 from .listed_works import RETRIEVED_EVIDENCE
 from .matching import canonical_orcid, institution_similarity, name_similarity, normalize
 from .models import AnchorEvidence, CareerPosition
+from .ownership_evidence import (
+    CROSS_SOURCE_ORCID_BLOCK,
+    CROSS_SOURCE_ORCID_CONFLICT,
+    INSUFFICIENT_BYLINE_EVIDENCE,
+    MULTIPLE_ORCIDS,
+    NONSTANDARD_MERGED,
+    NONSTANDARD_MERGED_BLOCK,
+    NONSTANDARD_TYPE,
+    ORCID_CONFLICT,
+    PROFILE_ORCID_NOT_INDEPENDENT,
+    TARGET_ORCID_CONFLICT,
+)
 from .paper_authorship import byline_forms, canonical_author_id, signature_names
 from .paper_deduplication import author_signatures_match, duplicate_evidence
 from .precision_guards import DepartmentMatcher, GuardContext, PrecisionGuard, target_affiliations
@@ -163,7 +175,7 @@ class PaperOwnershipValidator:
     def _nonstandard_reasons(self, record):
         reasons = []
         if record.paper_type in self.config.nonstandard_types:
-            reasons.append('Nonstandard publication type: ' + record.paper_type)
+            reasons.append(NONSTANDARD_TYPE + record.paper_type)
         title = normalize(record.title)
         for prefix in self.config.nonstandard_title_prefixes:
             if title == prefix or title.startswith(prefix + ' '):
@@ -340,7 +352,7 @@ class PaperOwnershipValidator:
         if len(observed_orcids) > 1:
             return OwnershipStatus.NEEDS_REVIEW, [
                 *evidence,
-                'Target authorship ORCID conflict: multiple identities reported',
+                MULTIPLE_ORCIDS,
             ]
         if profile.orcid and observed_orcids != {canonical_orcid(profile.orcid)}:
             # An author-profile ORCID is constant across a source author ID, so it says nothing about this paper;
@@ -348,7 +360,7 @@ class PaperOwnershipValidator:
             if self._observed_orcids(details, paper_level=True) - {canonical_orcid(profile.orcid)}:
                 return OwnershipStatus.REJECTED, [
                     *evidence,
-                    'Target authorship ORCID conflicts with confirmed professor ORCID',
+                    TARGET_ORCID_CONFLICT,
                 ]
             if observed_orcids:
                 evidence.append('Author-profile ORCID differs from the identity ORCID; not paper-level evidence')
@@ -367,7 +379,7 @@ class PaperOwnershipValidator:
                 'Authorship role requires manual confirmation; metadata was retained',
             ]
         if not signatures or best < self.config.name_similarity:
-            return OwnershipStatus.NEEDS_REVIEW, [*evidence, 'Insufficient compatible target byline evidence']
+            return OwnershipStatus.NEEDS_REVIEW, [*evidence, INSUFFICIENT_BYLINE_EVIDENCE]
         if profile.orcid and observed_orcids == {canonical_orcid(profile.orcid)}:
             scopes = sorted({author.get('orcid_scope') or 'unspecified' for author in details})
             paper_details = [
@@ -381,8 +393,8 @@ class PaperOwnershipValidator:
                     ),
                 ]
             evidence.append(
-                'Matching author-profile or unscoped ORCID is not independent paper authorship evidence '
-                '(scope: {})'.format(', '.join(scopes))
+                f'Matching author-profile or unscoped ORCID is {PROFILE_ORCID_NOT_INDEPENDENT} '
+                f'(scope: {", ".join(scopes)})'
             )
         claim = self._listed_claim(record, profile)
         if claim:
@@ -422,7 +434,7 @@ class PaperOwnershipValidator:
         if requested not in self._selected_ids(profile, record.source):
             return False
         for message in record.ownership_evidence:
-            if 'ORCID conflict' in message or 'Nonstandard source classification in merged publication' in message:
+            if ORCID_CONFLICT in message or NONSTANDARD_MERGED in message:
                 return False
         return True
 
@@ -854,9 +866,7 @@ class PaperOwnershipValidator:
             for record in paper.records:
                 if record.ownership_status != OwnershipStatus.REJECTED:
                     record.ownership_status = OwnershipStatus.NEEDS_REVIEW
-                    record.ownership_evidence.append(
-                        'Nonstandard source classification in merged publication; automatic verification blocked'
-                    )
+                    record.ownership_evidence.append(NONSTANDARD_MERGED_BLOCK)
             return
         eligible = []
         for record in paper.records:
@@ -878,16 +888,14 @@ class PaperOwnershipValidator:
                 if left_orcids and right_orcids and left_orcids != right_orcids:
                     for record in (left, right):
                         record.ownership_status = OwnershipStatus.NEEDS_REVIEW
-                        record.ownership_evidence.append(
-                            'Cross-source target ORCID conflict; automatic verification blocked'
-                        )
+                        record.ownership_evidence.append(CROSS_SOURCE_ORCID_BLOCK)
                     continue
                 message = self._cross_source_evidence(left, right, profile)
                 if message:
                     upgrades.setdefault(id(left), set()).add(message)
                     upgrades.setdefault(id(right), set()).add(message)
         for record in eligible:
-            conflict = any('Cross-source target ORCID conflict' in message for message in record.ownership_evidence)
+            conflict = any(CROSS_SOURCE_ORCID_CONFLICT in message for message in record.ownership_evidence)
             if id(record) in upgrades and not conflict:
                 record.ownership_status = OwnershipStatus.VERIFIED
                 record.ownership_evidence.extend(sorted(upgrades[id(record)]))

@@ -1,11 +1,23 @@
 """Explain abstention and access failures without changing validation decisions."""
 
-import re
 import typing
 from collections import Counter
 from http import HTTPStatus
 
+from . import ownership_evidence as phrases
 from .config import DEFAULT_OWNERSHIP, OwnershipConfig
+from .diagnostic_codes import (
+    DEFERRED_ERROR_TYPE,
+    INVALID_RESPONSE_ERROR_TYPES,
+    NOT_FOUND_ERROR_TYPE,
+    PASSED_THROUGH_ERROR_TYPES,
+    ErrorCategory,
+    PdfFailureReason,
+    ReviewReason,
+    error_category,
+    mentions_network_failure,
+    mentions_status,
+)
 from .http_status import is_server_error
 from .json_types import JSONList, JSONObject
 from .paper_authorship import canonical_author_id
@@ -20,27 +32,22 @@ from .status import (
     StageStatus,
 )
 
+# PDF failure reasons that mean the queried sources were not all searched, so "nothing found" is not established.
+INCOMPLETE_SEARCH_REASONS = frozenset(
+    {
+        PdfFailureReason.SOURCE_QUERY_FAILED,
+        PdfFailureReason.PROVIDER_NOT_CONFIGURED,
+        PdfFailureReason.NETWORK_ERROR,
+        PdfFailureReason.SEARCH_INCOMPLETE,
+    }
+)
+
 
 def workflow_outcomes(report: JSONObject) -> JSONObject:
     reused = {item.get('stage') for item in report.get('stages') or [] if item.get('status') == StageStatus.REUSED}
     counts: typing.Counter[str] = Counter()
     for error in report.get('errors') or []:
-        text = str(error.get('error') or '').lower()
-        stage = error.get('stage')
-        if stage in reused:
-            category = 'historical_source_issue'
-        elif any(
-            value in text for value in ('timed out', 'timeout', 'certificate verify', 'name resolution', 'nodename')
-        ):
-            category = 'network_failure'
-        elif re.search(r'http\s+(?:401|403|429|5\d\d)\b', text) or 'expected json' in text:
-            category = 'source_unavailable'
-        elif 'incomplete' in text or 'deferred' in text or 'limit reached' in text:
-            category = 'query_incomplete'
-        elif re.search(r'http\s+(?:404|410)\b', text):
-            category = 'resource_unavailable'
-        else:
-            category = 'stage_error'
+        category = ErrorCategory.HISTORICAL_SOURCE_ISSUE if error.get('stage') in reused else error_category(error)
         error['category'] = category
         counts[category] += 1
     warnings = Counter(item.get('code', 'warning') for item in report.get('warnings') or [])
@@ -65,46 +72,38 @@ def workflow_outcomes(report: JSONObject) -> JSONObject:
 
 
 def pdf_failure_reasons(paper: JSONObject) -> list[str]:
-    reasons = set()
+    reasons: set[str] = set()
     status = paper.get('validation_status')
     download = paper.get('download_status', '')
     if status == PDFValidationStatus.NOT_PROCESSED or download == 'skipped_limit':
-        reasons.add('not_processed_limit')
+        reasons.add(PdfFailureReason.NOT_PROCESSED_LIMIT)
     if status == PDFValidationStatus.SKIPPED_OWNERSHIP or download == DownloadStatus.SKIPPED_OWNERSHIP:
-        reasons.add('ownership_not_eligible')
+        reasons.add(PdfFailureReason.OWNERSHIP_NOT_ELIGIBLE)
     providers = paper.get('providers') or []
     if any(
         provider.get('status') == ProviderStatus.ERROR
         or (provider.get('status') == ProviderStatus.PARTIAL and provider.get('errors'))
         for provider in providers
     ):
-        reasons.add('source_query_failed')
+        reasons.add(PdfFailureReason.SOURCE_QUERY_FAILED)
     if any(provider.get('status') == ProviderStatus.PARTIAL for provider in providers):
-        reasons.add('search_incomplete')
+        reasons.add(PdfFailureReason.SEARCH_INCOMPLETE)
     if any(provider.get('status') == ProviderStatus.DISABLED for provider in providers):
-        reasons.add('provider_not_configured')
+        reasons.add(PdfFailureReason.PROVIDER_NOT_CONFIGURED)
     for provider in providers:
         for diagnostic in provider.get('diagnostics') or []:
             kind = diagnostic.get('error_type')
-            if kind == 'not_found':
-                reasons.add(
-                    'url_not_found' if diagnostic.get('context') == 'public_resource' else 'metadata_record_not_found'
-                )
-            elif kind == 'source_deferred':
-                reasons.add('source_temporarily_deferred')
-            elif kind in (
-                'rate_limited',
-                'timeout',
-                'network_error',
-                'server_error',
-                'access_restricted',
-                'authentication_required',
-            ):
-                reasons.add(kind)
-            elif kind in ('malformed_response', 'invalid_content_type', 'empty_response'):
-                reasons.add('invalid_metadata_response')
+            if kind == NOT_FOUND_ERROR_TYPE:
+                public = diagnostic.get('context') == 'public_resource'
+                reasons.add(PdfFailureReason.URL_NOT_FOUND if public else PdfFailureReason.METADATA_RECORD_NOT_FOUND)
+            elif kind == DEFERRED_ERROR_TYPE:
+                reasons.add(PdfFailureReason.SOURCE_TEMPORARILY_DEFERRED)
+            elif kind in PASSED_THROUGH_ERROR_TYPES:
+                reasons.add(PdfFailureReason(kind))
+            elif kind in INVALID_RESPONSE_ERROR_TYPES:
+                reasons.add(PdfFailureReason.INVALID_METADATA_RESPONSE)
             if diagnostic.get('source_cooldown_active'):
-                reasons.add('source_temporarily_deferred')
+                reasons.add(PdfFailureReason.SOURCE_TEMPORARILY_DEFERRED)
     candidates = paper.get('pdf_candidates') or []
     messages = []
     for error in paper.get('error_details') or []:
@@ -112,60 +111,61 @@ def pdf_failure_reasons(paper: JSONObject) -> list[str]:
     observations = candidates + (paper.get('attempts') or [])
     for candidate in observations:
         code = candidate.get('http_status')
-        if candidate.get('query_error_type') == 'source_deferred':
-            reasons.add('source_temporarily_deferred')
+        if candidate.get('query_error_type') == DEFERRED_ERROR_TYPE:
+            reasons.add(PdfFailureReason.SOURCE_TEMPORARILY_DEFERRED)
         elif code == HTTPStatus.FORBIDDEN:
-            reasons.add('access_restricted')
+            reasons.add(PdfFailureReason.ACCESS_RESTRICTED)
         elif code == HTTPStatus.NOT_FOUND:
-            reasons.add('url_not_found')
+            reasons.add(PdfFailureReason.URL_NOT_FOUND)
         elif code == HTTPStatus.TOO_MANY_REQUESTS:
-            reasons.add('rate_limited')
+            reasons.add(PdfFailureReason.RATE_LIMITED)
         elif code is not None and is_server_error(code):
-            reasons.add('server_error')
+            reasons.add(PdfFailureReason.SERVER_ERROR)
         if candidate.get('identity_status') in (IdentityStatus.CONFLICTING, IdentityStatus.REJECTED):
-            reasons.add('source_identity_mismatch')
+            reasons.add(PdfFailureReason.SOURCE_IDENTITY_MISMATCH)
         if candidate.get('content_type') in ('text/html', 'application/xhtml+xml'):
-            reasons.add('not_pdf_response')
+            reasons.add(PdfFailureReason.NOT_PDF_RESPONSE)
         if candidate.get('access_status') == AccessStatus.UNREACHABLE and code is None:
-            reasons.add('network_error')
+            reasons.add(PdfFailureReason.NETWORK_ERROR)
         if candidate.get('pdf_signature_confirmed') and candidate.get('identity_status') == IdentityStatus.UNVERIFIED:
-            reasons.add('insufficient_pdf_identity_evidence')
+            reasons.add(PdfFailureReason.INSUFFICIENT_PDF_IDENTITY_EVIDENCE)
     text = ' '.join(messages).lower()
-    for code, label in ((403, 'access_restricted'), (429, 'rate_limited')):
-        if re.search(r'http\s+' + str(code) + r'\b', text):
+    for code, label in (
+        (HTTPStatus.FORBIDDEN, PdfFailureReason.ACCESS_RESTRICTED),
+        (HTTPStatus.TOO_MANY_REQUESTS, PdfFailureReason.RATE_LIMITED),
+    ):
+        if mentions_status(text, code):
             reasons.add(label)
-    if 'metadata_record_not_found' not in reasons and re.search(r'http\s+404\b', text):
-        reasons.add('url_not_found')
-    if any(word in text for word in ('timed out', 'timeout', 'name resolution', 'nodename')):
-        reasons.add('network_error')
-    if 'http 302' in text or 'redirect' in text:
-        reasons.add('redirect_failure')
+    if PdfFailureReason.METADATA_RECORD_NOT_FOUND not in reasons and mentions_status(text, HTTPStatus.NOT_FOUND):
+        reasons.add(PdfFailureReason.URL_NOT_FOUND)
+    if mentions_network_failure(text):
+        reasons.add(PdfFailureReason.NETWORK_ERROR)
+    if mentions_status(text, HTTPStatus.FOUND) or 'redirect' in text:
+        reasons.add(PdfFailureReason.REDIRECT_FAILURE)
     if paper.get('identity_status') == IdentityStatus.REJECTED:
-        reasons.add('downloaded_paper_identity_mismatch')
+        reasons.add(PdfFailureReason.DOWNLOADED_PAPER_IDENTITY_MISMATCH)
     elif (
         paper.get('format_status') == FormatStatus.VALID and paper.get('identity_status') == IdentityStatus.NEEDS_REVIEW
     ):
-        reasons.add('downloaded_paper_identity_unconfirmed')
+        reasons.add(PdfFailureReason.DOWNLOADED_PAPER_IDENTITY_UNCONFIRMED)
     if paper.get('format_status') in (FormatStatus.INVALID, FormatStatus.UNVERIFIED):
-        reasons.add('downloaded_pdf_format_unconfirmed')
+        reasons.add(PdfFailureReason.DOWNLOADED_PDF_FORMAT_UNCONFIRMED)
     if download == DownloadStatus.FAILED:
-        reasons.add('download_failed')
+        reasons.add(PdfFailureReason.DOWNLOAD_FAILED)
     if paper.get('document_type') in ('poster', 'slides', 'supplementary_material'):
-        reasons.add('non_full_text_document')
+        reasons.add(PdfFailureReason.NON_FULL_TEXT_DOCUMENT)
     if status in (PDFValidationStatus.NOT_FOUND, PDFValidationStatus.UNVERIFIED) and not candidates:
-        incomplete = reasons.intersection(
-            {'source_query_failed', 'provider_not_configured', 'network_error', 'search_incomplete'}
-        )
-        reasons.add('search_incomplete' if incomplete else 'no_public_pdf_found_in_queried_sources')
+        incomplete = reasons.intersection(INCOMPLETE_SEARCH_REASONS)
+        reasons.add(PdfFailureReason.SEARCH_INCOMPLETE if incomplete else PdfFailureReason.NO_PUBLIC_PDF_FOUND)
     if status == PDFValidationStatus.UNVERIFIED and candidates and not reasons:
-        reasons.add('pdf_or_identity_unconfirmed')
+        reasons.add(PdfFailureReason.PDF_OR_IDENTITY_UNCONFIRMED)
     return sorted(reasons)
 
 
 def review_reasons(paper: JSONObject, config: OwnershipConfig = DEFAULT_OWNERSHIP) -> list[str]:
     if paper.get('ownership_status') != OwnershipStatus.NEEDS_REVIEW:
         return []
-    reasons = set()
+    reasons: set[str] = set()
     records = [paper] + (paper.get('records') or [])
     for record in records:
         details = record.get('author_details') or []
@@ -177,36 +177,36 @@ def review_reasons(paper: JSONObject, config: OwnershipConfig = DEFAULT_OWNERSHI
         ]
         evidence = ' '.join(record.get('ownership_evidence') or [])
         if not details:
-            reasons.add('missing_paper_author_details')
+            reasons.add(ReviewReason.MISSING_PAPER_AUTHOR_DETAILS)
         elif not target:
-            reasons.add('missing_or_conflicting_target_author_id')
+            reasons.add(ReviewReason.MISSING_TARGET_AUTHOR_ID)
         if target:
             if not any(
                 author.get('institutions') and author.get('affiliation_scope') != 'author_profile' for author in target
             ):
-                reasons.add('missing_paper_level_affiliation')
+                reasons.add(ReviewReason.MISSING_PAPER_LEVEL_AFFILIATION)
             if not any(author.get('orcid') or author.get('orcids') for author in target):
-                reasons.add('missing_target_orcid')
+                reasons.add(ReviewReason.MISSING_TARGET_ORCID)
         if not record.get('title') or not record.get('source_paper_id'):
-            reasons.add('missing_publication_metadata')
+            reasons.add(ReviewReason.MISSING_PUBLICATION_METADATA)
         if record.get('authors_complete') is False:
-            reasons.add('incomplete_author_list')
+            reasons.add(ReviewReason.INCOMPLETE_AUTHOR_LIST)
         if max(len(details), len(record.get('authors') or [])) > config.maximum_coauthor_authors:
-            reasons.add('large_author_list')
+            reasons.add(ReviewReason.LARGE_AUTHOR_LIST)
         if record.get('paper_type') in config.non_publication_types:
-            reasons.add('not_a_research_publication')
-        elif record.get('paper_type') in config.nonstandard_types or 'Nonstandard' in evidence:
-            reasons.add('nonstandard_or_conflicting_publication_type')
-        if 'ORCID conflict' in evidence or 'conflicts with confirmed professor ORCID' in evidence:
-            reasons.add('author_identity_conflict')
-        if 'Insufficient compatible target byline' in evidence:
-            reasons.add('incompatible_or_insufficient_byline')
-        if 'not independent paper authorship evidence' in evidence:
-            reasons.add('profile_orcid_not_independent_paper_evidence')
-        if 'identity unconfirmed' in evidence.lower():
-            reasons.add('professor_identity_unconfirmed')
+            reasons.add(ReviewReason.NOT_A_RESEARCH_PUBLICATION)
+        elif record.get('paper_type') in config.nonstandard_types or phrases.NONSTANDARD in evidence:
+            reasons.add(ReviewReason.NONSTANDARD_PUBLICATION_TYPE)
+        if phrases.ORCID_CONFLICT in evidence or phrases.CONFIRMED_ORCID_CONFLICT in evidence:
+            reasons.add(ReviewReason.AUTHOR_IDENTITY_CONFLICT)
+        if phrases.INSUFFICIENT_BYLINE in evidence:
+            reasons.add(ReviewReason.INCOMPATIBLE_BYLINE)
+        if phrases.PROFILE_ORCID_NOT_INDEPENDENT in evidence:
+            reasons.add(ReviewReason.PROFILE_ORCID_NOT_INDEPENDENT)
+        if phrases.IDENTITY_UNCONFIRMED in evidence.lower():
+            reasons.add(ReviewReason.PROFESSOR_IDENTITY_UNCONFIRMED)
     if not reasons:
-        reasons.add('insufficient_independent_identity_evidence')
+        reasons.add(ReviewReason.INSUFFICIENT_EVIDENCE)
     return sorted(reasons)
 
 

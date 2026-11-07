@@ -16,6 +16,7 @@ from paper_author_searcher.config import (
     DEFAULT_STORAGE,
     StorageConfig,
 )
+from paper_author_searcher.diagnostic_codes import error_fields
 from paper_author_searcher.json_types import JSONObject
 from paper_author_searcher.jsonio import read_json, write_json
 from paper_author_searcher.matching import similarity_cache_statistics
@@ -179,7 +180,7 @@ class PaperSearchWorkflow:
         except Exception as exc:
             logger.exception('Workflow failed during stage %s', self.current_stage)
             report['run_status'] = RunStatus.FAILED
-            report['errors'].append({'stage': self.current_stage, 'error': str(exc)})
+            report['errors'].append({'stage': self.current_stage, 'error': str(exc), **error_fields(exc)})
         finally:
             report['timings'] = self._timings(timings, started, http_before)
             report['outcomes'] = workflow_outcomes(report)
